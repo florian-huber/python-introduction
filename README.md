@@ -1,4 +1,5 @@
 ![GitHub](https://img.shields.io/github/license/florian-huber/python-introduction)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/florian-huber/python-introduction/CI_tests.yml)
 
 # Code examples for Python introduction course (data science bachelor at HSD)
 Code examples for Python introduction course
