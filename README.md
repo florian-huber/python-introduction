@@ -1,3 +1,5 @@
+![GitHub](https://img.shields.io/github/license/florian-huber/python-introduction)
+
 # Code examples for Python introduction course (data science bachelor at HSD)
 Code examples for Python introduction course
 
