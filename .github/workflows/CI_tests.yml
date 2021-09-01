@@ -10,6 +10,9 @@ jobs:
   basic_checks:
     name: Basic environment and code checks / ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
+    defaults:
+      run:
+        shell: bash -l {0}
     strategy:
       fail-fast: false
       matrix:
@@ -20,7 +23,7 @@ jobs:
       - uses: conda-incubator/setup-miniconda@v2
         with:
           activate-environment: anaconda-client-env
-          environment-file: etc/environment.yml
+          environment-file: environment.yml
       - name: Python info
         run: |
           which python
