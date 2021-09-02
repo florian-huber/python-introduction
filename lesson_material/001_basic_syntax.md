@@ -8,14 +8,16 @@ Hello World!
 ## Source Code and terminal output
  
 When the syntax is not correct in a code block, Python will raise an exception.
-For instance when charcters are missing (or wrong).
+For instance when charcters are missing (or wrong):
 <!--pytest-codeblocks:expect-error-->
 ```python
 print("Hello World)
 ```
+which should give an `SyntaxError` (SyntaxError: EOL while scanning string literal).
 
 Or when an unknown function is called.
 <!--pytest-codeblocks:expect-error-->
 ```python
 pront("Hello World")
 ```
+which should give `NameError: name 'pront' is not defined`.
