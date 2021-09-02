@@ -7,8 +7,15 @@ Hello World!
 
 ## Source Code and terminal output
  
-Code:
+When the syntax is not correct in a code block, Python will raise an exception.
+For instance when charcters are missing (or wrong).
 <!--pytest-codeblocks:expect-error-->
 ```python
 print("Hello World)  # missing "
+```
+
+Or when an unknown function is called.
+<!--pytest-codeblocks:expect-error-->
+```python
+pront("Hello World")  # missing "
 ```
