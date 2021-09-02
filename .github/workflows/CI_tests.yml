@@ -34,3 +34,7 @@ jobs:
       - name: Show pip list
         run: |
           pip list
+      - name: Test code examples
+        run: |
+          pip install pytest-codeblocks
+          pytest --codeblocks
