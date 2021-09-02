@@ -1,4 +1,4 @@
-# Datatypes
+# Data types
 
 Let's start simple, with numbers.
 ## Numbers
@@ -36,12 +36,13 @@ Basic math operations work as expected.
 # / division
 5 / 2  # 2.5
 ```
+
 But careful! Divisions return floats.
 This
 ```sh
-type(5 / 1)
+print(type(5 / 1))
 ```
-gives
+should return:
 <!--pytest-codeblocks:expected-output-->
 ```
 float
@@ -50,7 +51,7 @@ float
 Other common operations with numbers:
 ```python
 # // integer division (ganzzahlige Division)
-5 // 2  # 2 (this is NOT rounding!)
+5 // 2  # 2 (this is NOT the same as rounding!)
 
 # % modulo
 5 % 2  # 1
