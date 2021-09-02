@@ -8,6 +8,7 @@ Hello World!
 ## Source Code and terminal output
  
 Code:
+<!--pytest-codeblocks:expect-error-->
 ```python
 print("Hello World)  # missing "
 ```
