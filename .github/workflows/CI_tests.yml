@@ -35,3 +35,7 @@ jobs:
       - name: Show pip list
         run: |
           pip list
+      - name: Test code examples
+        run: |
+          phmdoctest lesson_material/001_basic_syntax.md.md --outfile test_001_basic_syntax.py
+          pytest --doctest-modules
