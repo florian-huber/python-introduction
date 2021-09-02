@@ -8,16 +8,22 @@ Code examples for Python introduction course
 The simplest way to get the right Python environment to work with during this course is to install [Anaconda](anaconda.org/).
 
 When working with Python it is good practice to work with **environments**, which allow to have separate installations for different projects.
+
+### Set up pre-defined environment for this course
 If you want to create a new environment for this course, you can do so by entering the following in your terminal:
 ```
 conda env create -f environment.yml
 ```
 This will create an new environment called 'python_introduction' with all packages named in the `environment.yml` file.
+
+### Or: Set up own environment from scratch
 You can also create an environment from scratch and then install all needed packages manually. Do do this, run:
 ```
 conda create --name python_introduction python=3.8
 ```
 This will create an new environment called 'python_introduction' and it will have python 3.8 installed.
+
+### Activate environment
 Once created, you can activate the new environment by running
 ```
 conda activate python_introduction
