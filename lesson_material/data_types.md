@@ -59,6 +59,15 @@ gives
 4
 ```
 
+```bash
+print(1 + 3)
+```
+gives
+<!--pytest-codeblocks:expected-output-->
+```
+4
+```
+
 This
 ```sh
 type(5 / 1)
