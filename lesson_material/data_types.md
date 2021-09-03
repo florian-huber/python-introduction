@@ -50,7 +50,7 @@ float
 
 Just checking for test to work:
 This
-```sh
+```bash
 print(1 + 3)
 ```
 gives
@@ -59,7 +59,7 @@ gives
 4
 ```
 
-```bash
+```sh
 print(1 + 3)
 ```
 gives
@@ -77,6 +77,25 @@ should return:
 ```
 float
 ```
+```python
+print(1 + 3)
+```
+gives
+<!--pytest-codeblocks:expected-output-->
+```
+4
+```
+
+This
+```python
+type(5 / 1)
+```
+should return:
+<!--pytest-codeblocks:expected-output-->
+```
+float
+```
+
 
 Other common operations with numbers:
 ```python
