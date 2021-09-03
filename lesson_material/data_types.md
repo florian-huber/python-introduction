@@ -39,8 +39,8 @@ Basic math operations work as expected.
 
 But careful! Divisions return floats.
 This
-```sh
-print(type(5 / 1))
+```console
+type(5 / 1)
 ```
 should return:
 <!--pytest-codeblocks:expected-output-->
