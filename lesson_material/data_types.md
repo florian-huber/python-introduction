@@ -48,6 +48,27 @@ should return:
 float
 ```
 
+Just checking for test to work:
+This
+```sh
+print(1 + 3)
+```
+gives
+<!--pytest-codeblocks:expected-output-->
+```
+4
+```
+
+This
+```sh
+type(5 / 1)
+```
+should return:
+<!--pytest-codeblocks:expected-output-->
+```
+float
+```
+
 Other common operations with numbers:
 ```python
 # // integer division (ganzzahlige Division)
