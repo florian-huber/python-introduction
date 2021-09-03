@@ -38,45 +38,7 @@ Basic math operations work as expected.
 ```
 
 But careful! Divisions return floats.
-This
-```bash
-type(5 / 1)
-```
-should return:
-<!--pytest-codeblocks:expected-output-->
-```
-float
-```
 
-Just checking for test to work:
-This
-```bash
-print(1 + 3)
-```
-gives
-<!--pytest-codeblocks:expected-output-->
-```
-4
-```
-
-```sh
-print(1 + 3)
-```
-gives
-<!--pytest-codeblocks:expected-output-->
-```
-4
-```
-
-This
-```sh
-type(5 / 1)
-```
-should return:
-<!--pytest-codeblocks:expected-output-->
-```
-float
-```
 ```python
 print(1 + 3)
 ```
@@ -88,6 +50,21 @@ gives
 
 This
 ```python
+type(5 / 1)
+```
+should return:
+<!--pytest-codeblocks:expected-output-->
+```
+float
+```
+
+<!--
+```bash
+python
+```
+-->
+<!--pytest-codeblocks:cont-->
+```bash
 type(5 / 1)
 ```
 should return:
