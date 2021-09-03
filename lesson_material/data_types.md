@@ -39,7 +39,7 @@ Basic math operations work as expected.
 
 But careful! Divisions return floats.
 This
-```console
+```bash
 type(5 / 1)
 ```
 should return:
