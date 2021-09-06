@@ -157,7 +157,7 @@ Only be careful that this is **NOT** the same as rounding!
 (if you want to round properly run `int(round(12.9))`, but we'll cover more math functions later in the course)
 
 Or you might want to get a number from a string:
-```python
+```
 >>> 5 + int("19")
 24
 ```
