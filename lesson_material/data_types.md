@@ -155,10 +155,4 @@ Or you might want to get a number from a string:
 ```
 
 Or you might want to make a string of a number, for instance to add it to another string.
-```python
-print("7 + 5 = " + str(7 + 5))
-```
-<!--pytest-codeblocks:expected-output-->
-```
-7 + 5 = 12
-```
+
