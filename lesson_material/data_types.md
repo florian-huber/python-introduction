@@ -112,6 +112,7 @@ Time for a quiz: Which of the following code samples do NOT give an error?
 
 >>> “five” - “ive”
 ```
+Nope, no solutions here... just try it out yourself.
 
 
 ### Handling strings
@@ -122,5 +123,26 @@ print("Take this!" + " And that!")
 will return a single string:
 <!--pytest-codeblocks:expected-output-->
 ```
-"Take this! And that!"
+Take this! And that!
+```
+
+But additing a string to an integer or a float won't work:
+<!--pytest-codeblocks:expect-error-->
+```python
+"100" + 5  # => TypeError
+```
+Makes sense.
+But wait... why does Python now what is an `integer (int)`, a `float`, or a `string (str)`?
+
+Well, that's called **duck typing** which essentially means that Python automatically assigns the type that the input resembles to.
+(*"When I see a bird that walks like a duck and swims like a duck and quacks like a duck, I call that bird a duck."*, see [Duck test (wikipedia](https://en.wikipedia.org/wiki/Duck_test#History)
+
+### Changing types
+In some cases you might want to change the type, for instance make an `integer` from a `float`:
+```python
+print(5 + int(7.00001))
+```
+<!--pytest-codeblocks:expected-output-->
+```
+12
 ```
