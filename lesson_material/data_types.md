@@ -48,6 +48,36 @@ should return:
 <class 'float'>
 ```
 
+### Combining calculations and printing
+
+No surprise, you can of course also combine multiple such calculations.
+And it is also possible to work with `print()` to output the results.
+```python
+print(22 * 27 * 7 / 2)
+```
+Should return
+<!--pytest-codeblocks:expected-output-->
+```
+2079.0
+```
+
+It is also possible to use additional brackets for such calculations, for instance run
+```python
+print((22 * 27 + 12) / 2)
+print(22 * 27 + 12 / 2)
+```
+which should give
+<!--pytest-codeblocks:expected-output-->
+```
+303.0
+600.0
+```
+**By the way:** It is totally fine to also use brackets to make things easier to read even though they might not be (mathematically) needed:
+```python
+print((22 * 27 * 7) / 2)  # that's completely fine as well!
+```
+
+
 Other common operations with numbers:
 ```python
 # // integer division (ganzzahlige Division)
@@ -58,4 +88,12 @@ Other common operations with numbers:
 
 # ** power (Potenz)
 10 ** 2  # 100
+```
+
+## Strings
+
+Strings are a sequence of characters and in Python are written within `'` or `"`.
+```
+>>> "5 + 7"
+'5 + 7'
 ```
