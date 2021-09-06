@@ -105,13 +105,13 @@ Strings are a sequence of characters and in Python are written within `'` or `"`
 
 Time for a quiz: Which of the following code samples do NOT give an error?
 ```
->>> “five” + “five”
+>>> "five" + "five"
 
->>> “five” + 5
+>>> "five" + 5
 
->>> 2 * “five”
+>>> 2 * "five"
 
->>> “five” - “ive”
+>>> "five" - "ive"
 ```
 Nope, no solutions here... just try it out yourself.
 
