@@ -105,13 +105,13 @@ Strings are a sequence of characters and in Python are written within `'` or `"`
 
 Time for a quiz: Which of the following code samples do NOT give an error?
 ```
->>> “five” + “five”
+>>> "five" + "five"
 
->>> “five” + 5
+>>> "five" + 5
 
->>> 2 * “five”
+>>> 2 * "five"
 
->>> “five” - “ive”
+>>> "five" - "ive"
 ```
 Nope, no solutions here... just try it out yourself.
 
@@ -120,14 +120,6 @@ Nope, no solutions here... just try it out yourself.
 There is a huge amount of things to know and to learn about handling strings in Python. Most of it will come later, so let's just look at some basics for now.
 
 Strings can be added to other strings.
-```python
-print("Take this!" + " And that!")
-```
-will return a single string:
-<!--pytest-codeblocks:expected-output-->
-```
-Take this! And that!
-```
 
 But additing a string to an integer or a float won't work:
 <!--pytest-codeblocks:expect-error-->
@@ -163,10 +155,4 @@ Or you might want to get a number from a string:
 ```
 
 Or you might want to make a string of a number, for instance to add it to another string.
-```python
-print("7 + 5 = " + str(7 + 5))
-```
-<!--pytest-codeblocks:expected-output-->
-```
-7 + 5 = 12
-```
+
