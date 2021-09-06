@@ -120,14 +120,6 @@ Nope, no solutions here... just try it out yourself.
 There is a huge amount of things to know and to learn about handling strings in Python. Most of it will come later, so let's just look at some basics for now.
 
 Strings can be added to other strings.
-```python
-print("Take this!" + " And that!")
-```
-will return a single string:
-<!--pytest-codeblocks:expected-output-->
-```
-Take this! And that!
-```
 
 But additing a string to an integer or a float won't work:
 <!--pytest-codeblocks:expect-error-->
