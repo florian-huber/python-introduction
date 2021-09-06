@@ -47,6 +47,7 @@ should return:
 ```
 <class 'float'>
 ```
+This examples also shows how you can get the type of something in Python using `type()`.
 
 ### Combining calculations and printing
 
@@ -115,8 +116,10 @@ Time for a quiz: Which of the following code samples do NOT give an error?
 Nope, no solutions here... just try it out yourself.
 
 
-### Handling strings
-Strings can be added to other strings..
+### Handling strings (very basics)
+There is a huge amount of things to know and to learn about handling strings in Python. Most of it will come later, so let's just look at some basics for now.
+
+Strings can be added to other strings.
 ```python
 print("Take this!" + " And that!")
 ```
@@ -145,4 +148,25 @@ print(5 + int(7.00001))
 <!--pytest-codeblocks:expected-output-->
 ```
 12
+```
+Only be careful that this is **NOT** the same as rounding!
+```
+>>> int(12.9)
+12
+```
+(if you want to round properly run `int(round(12.9))`, but we'll cover more math functions later in the course)
+
+Or you might want to get a number from a string:
+```python
+>>> 5 + int("19")
+24
+```
+
+Or you might want to make a string of a number, for instance to add it to another string.
+```python
+print("7 + 5 = " + str(7 + 5))
+```
+<!--pytest-codeblocks:expected-output-->
+```
+7 + 5 = 12
 ```
