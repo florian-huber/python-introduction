@@ -97,3 +97,30 @@ Strings are a sequence of characters and in Python are written within `'` or `"`
 >>> "5 + 7"
 '5 + 7'
 ```
+```
+>>> "Whatever you want to type. 123$&*%..."
+'Whatever you want to type. 123$&*%...'
+```
+
+Time for a quiz: Which of the following code samples do NOT give an error?
+```
+>>> “five” + “five”
+
+>>> “five” + 5
+
+>>> 2 * “five”
+
+>>> “five” - “ive”
+```
+
+
+### Handling strings
+Strings can be added to other strings..
+```python
+print("Take this!" + " And that!")
+```
+will return a single string:
+<!--pytest-codeblocks:expected-output-->
+```
+"Take this! And that!"
+```
