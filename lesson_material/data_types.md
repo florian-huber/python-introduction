@@ -130,8 +130,8 @@ Take this! And that!
 ```
 
 But additing a string to an integer or a float won't work:
-<!--pytest-codeblocks:expect-error-->
-```python
+
+```
 "100" + 5  # => TypeError
 ```
 Makes sense.
