@@ -1,5 +1,6 @@
 # Data types
 
+Here we just do a very quick introduction to numbers and strings.
 Let's start simple, with numbers.
 ## Numbers
 
