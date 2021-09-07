@@ -162,8 +162,13 @@ Or you might want to get a number from a string:
 >>> 5 + int("19")
 24
 ```
+Or you might want to make a string of a number.
+```
+>>> str(5) + "19"
+'519'
+```
 
-Or you might want to make a string of a number, for instance to add it to another string.
+Numbers are actually often converted to strings, for instance to add it to another string (and print it).
 ```python
 print("7 + 5 = " + str(7 + 5))
 ```
