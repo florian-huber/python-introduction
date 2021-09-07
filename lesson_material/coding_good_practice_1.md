@@ -22,8 +22,11 @@ Not easy to spot, right? And that is still a very, very simple function.
 If you did a lot of physics you might have spotted `273.15` in the code. Mhh.... was it something with temperature?  
 Still, what exactly does it do?
 
-Maybe you can figure it out. Or maybe you can't.
-It actually doesn't matter, because the point is that it will take you much longer than it should take you for such a short, simple function.
+Maybe you can figure it out.  
+Or maybe you can't.  
+It actually doesn't matter, because the point is that **it will take you much longer than it should** to understand what this short, simple function is all about.
+Just imagine someone gave you their "brilliant code" and it would be hundreds or thousands of lines of such functions... probably better to start re-writing the thing.
+
 
 So what about the same function written like this:
 ```python
