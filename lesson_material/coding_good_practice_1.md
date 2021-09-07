@@ -43,7 +43,7 @@ def kelvin_to_fahrenheit(temp_kelvin):
  but can make much better guesses from the variable names.
  
  Ideally, you could also add a `docstring` which is a sort of build-in documentation to the function, and also give the user an idea of what kind of input is actually expected.
- This could look a bit like this:
+  This could look a bit like this:
  
  ```python
  def kelvin_to_fahrenheit(temp_kelvin: float):
@@ -55,3 +55,5 @@ def kelvin_to_fahrenheit(temp_kelvin):
     temp_celsius = temp_kelvin - absolute_zero
     return temp_celsius * fahrenheit_factor + fahrenheit_offset
 ```
+For this short and relatively easy-to-understand function, a good function name (and good variable names) might already be good enough and the docstring we show here does not add much extra information.  
+But imagine much longer, more complex functions. There, a docstring could also contain detailed explanations on what to enter and how to use the function. It could even contain a code example or links to websites, references etc.
