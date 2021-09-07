@@ -38,6 +38,10 @@ def kelvin_to_fahrenheit(temp_kelvin):
     return temp_celsius * fahrenheit_factor + fahrenheit_offset
  ```
  Ohhhh. That looks better. Already from the function name you will know what it does: convert a temperature in kelvin to fahrenheit!  
+ <!--pytest-codeblocks:cont-->
+ ```python
+ kelvin_to_fahrenheit(400) # => 260.33000000000004
+ ```
  Nice.  
  And if you want to understand what it really does (or how it does things), you won't have to figure out what `b, c, d, e, x` are,
  but can make much better guesses from the variable names.
