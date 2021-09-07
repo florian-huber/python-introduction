@@ -171,3 +171,23 @@ print("7 + 5 = " + str(7 + 5))
 ```
 7 + 5 = 12
 ```
+When converting numbers to strings there are often better (prettier) ways to do something like in the example we just saw.
+There are two common ways to combine numbers into a string. One is using `.format()`.
+```python
+print("This is {} times better than that.".format(5))
+```
+<!--pytest-codeblocks:expected-output-->
+```
+This is 5 times better than that.
+```
+The other is using so-called "f-strings":
+```python
+print(f"This is {8} times better than that.")
+```
+<!--pytest-codeblocks:expected-output-->
+```
+This is 8 times better than that.
+```
+We will generally work more with f-strings.
+
+Note: There are also some old-school ways to handle this, mostly dating back to Python 2. For instance `print("This is %s times better than that" % 5)`, but we won't use those in this course. You might still find them in forums etc.
