@@ -46,6 +46,7 @@ What do you think will now happen if you try to run code like `print("Hello, sti
 Ok, I guess that's clear, right? Don't use variable names of common functions, or functions that you intend to use.
 
 One thing that Python even forbids right away is calling your variable after one of the [**reserverd keywords**](https://www.w3schools.com/python/python_ref_keywords.asp).
+<!--pytest-codeblocks:expect-error-->
 ```python
 >>> or = "outer region"
 SyntaxError: invalid syntax
