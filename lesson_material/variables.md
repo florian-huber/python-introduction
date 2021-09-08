@@ -50,3 +50,18 @@ One thing that Python even forbids right away is calling your variable after one
 >>> or = "outer region"
 SyntaxError: invalid syntax
 ```
+
+## Mini quiz:
+
+Which of the following are OK to use variable names?
+```
+>>> print = “my text”
+>>> else = “my text”
+>>> sehr_wichtig = "my text"
+>>> übermäßig_wichtig = "my text"
+>>> ImportantText = "my text"
+```
+
+
+
+
