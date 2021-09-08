@@ -63,6 +63,12 @@ Which of the following are OK to use variable names?
 >>> ImportantText = "my text"
 ```
 
-
+## Few rules for variable names in Python
+- give meaningful names
+- use lower letters and underscores
+- never use reserved keywords
+- don't use function names either (common functions like 'print' or functions you plan to use yourself)
+- other languages than english are fine (of course)
+- but try not to use special characters (such as ä or ü)
 
 
