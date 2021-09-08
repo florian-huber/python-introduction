@@ -56,8 +56,8 @@ SyntaxError: invalid syntax
 
 Which of the following are OK to use variable names?
 ```
->>> print = “my text”
->>> else = “my text”
+>>> print = "my text"
+>>> else = "my text"
 >>> sehr_wichtig = "my text"
 >>> übermäßig_wichtig = "my text"
 >>> ImportantText = "my text"
