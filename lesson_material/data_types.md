@@ -162,6 +162,12 @@ Or you might want to get a number from a string:
 >>> 5 + int("19")
 24
 ```
+But don't expect magic here. Python will only do this if it *really* looks like a suitable number. The following won't work:
+<!--pytest-codeblocks:expect-error-->
+```python
+int("seven")  # => ValueError: invalid literal for int() with base 10: 'seven'
+```
+
 Or you might want to make a string of a number.
 ```
 >>> str(5) + "19"
