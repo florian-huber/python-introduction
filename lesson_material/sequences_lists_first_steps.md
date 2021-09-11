@@ -36,7 +36,7 @@ print(fruit)  # => ['apple', 'orange', 'banana', 'mango']
 
 <!--pytest-codeblocks:expect-error-->
 ```python
-fruit_tuple[-1] = "mango"
+fruit_tuple[-1] = "mango"  # => TypeError: 'tuple' object does not support item assignment
 ```
 
 [add table with operators here]
