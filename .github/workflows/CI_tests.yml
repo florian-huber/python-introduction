@@ -36,5 +36,5 @@ jobs:
           pip list
       - name: Test code examples
         run: |
-          pip install pytest-codeblocks
+          pip install pytest-codeblocks>=0.11.3
           pytest --codeblocks
