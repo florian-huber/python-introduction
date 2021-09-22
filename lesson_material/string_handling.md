@@ -25,20 +25,20 @@ print("Ja Nee"[:2])  # => Ja
 
 
 ```
-MINI QUIZ:
-Nur zur Wiederholung: Was gibt der folgende Befehl aus?
-```python 
-s = "alles gut"
-print(len(s))
-```
-a) ValueError b) 8 c) 9 d) alles gut
-
-Und was der folgende:
-```python 
-s = "nichts is gut!"
-print(s[-7:])
-```
-a) is gut! b) sthcin c) ValueError
+> MINI QUIZ:
+> Nur zur Wiederholung: Was gibt der folgende Befehl aus?
+> ```python 
+> s = "alles gut"
+> print(len(s))
+> ```
+> a) ValueError b) 8 c) 9 d) alles gut
+> 
+> Und was der folgende:
+> ```python 
+> s = "nichts is gut!"
+> print(s[-7:])
+> ```
+> a) is gut! b) sthcin c) ValueError
 
 
 Darüber hinaus gibt es aber in Python noch eine grosse Zahl von speziellen
