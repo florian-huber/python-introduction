@@ -69,8 +69,8 @@ aber dafür gibt es eigene Methoden in Python --> .upper() und .lower()
 tweet = "this is not fair"
 tweet_trumpified = tweet.upper() + "!"
 print(tweet_trumpified)  # => THIS IS NOT FAIR!
-
 ```
+<!--pytest-codeblocks:cont-->
 ```python 
 tweet_moderated = tweet_trumpified.lower()
 print(tweet_moderated)
