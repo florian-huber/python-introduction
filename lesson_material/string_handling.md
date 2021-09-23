@@ -55,7 +55,8 @@ s.replace("i", "!")
 print(s)  # => nichts passiert?
 
 ```
-Die Methoden ändern nicht den original-String, sondern geben einen neuen zurück
+Die Methoden ändern nicht den original-String, sondern geben einen neuen zurück.
+<!--pytest-codeblocks:cont-->
 ```python 
 s2 = s.replace("i", "!")
 print(s2)
