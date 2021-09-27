@@ -38,10 +38,10 @@ print(f"Here is your {fruit_choice} ice cream!")
 
 ```
 > ### Mini Quiz:
-> Aber was passiert wenn ich "Ketchup" eingebe?
-> a) Here is your Ketchup ice cream! 
-> b) ValueError
-> c) We have no Ketchup ice cream!
+> Aber was passiert wenn ich "Ketchup" eingebe?  
+> a) Here is your Ketchup ice cream!  
+> b) ValueError  
+> c) We have no Ketchup ice cream!  
 
 
 Das führt uns direkt zur Frage: 
@@ -339,10 +339,10 @@ print(list(range(10, 30, 4)))  # => [10, 14, 18, 22, 26]
 
 ```
 > ### Mini Quiz
-> Was gibt `list(range(-3, 3)` aus?
-> a) [-3, 0, 3]
-> b) [-3, -2, -1, 0, 1, 2, 3]
-> c) [-3, -2, -1, 0, 1, 2]
+> Was gibt `list(range(-3, 3)` aus?  
+> a) [-3, 0, 3]  
+> b) [-3, -2, -1, 0, 1, 2, 3]  
+> c) [-3, -2, -1, 0, 1, 2]  
 
 
 OK, zurück zum eigentlichen Einsatz, dem `for` loop:
@@ -386,12 +386,12 @@ print(new_list)
 
 ```
 > ### Mini Quiz!
-> Was gibt die folgende List comprehension aus?
-> `print([s[0] for s in ["eins", "zwei", "drei"]])
-> a) eins
-> b) eins, zwei, drei
-> c) e, z, d
-> d) 0, 0, 0
+> Was gibt die folgende List comprehension aus?  
+> `print([s[0] for s in ["eins", "zwei", "drei"]])  
+> a) eins  
+> b) eins, zwei, drei  
+> c) e, z, d  
+> d) 0, 0, 0  
 
 ### Set/Dict comprehension?
 Next time...
