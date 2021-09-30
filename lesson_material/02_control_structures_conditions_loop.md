@@ -11,9 +11,8 @@ Dies ist nur ein kleines Skript
 fruit = ["apple", "orange", "banana", "pear"]
 juice_choice = 1
 ice_choice = 2
-print(fruit[juice_choice] + " juice")  # print(f"{fruit[juice_choice]} juice")
+print(fruit[juice_choice] + " juice")  # oder: print(f"{fruit[juice_choice]} juice")
 print(fruit[ice_choice] + " ice cream")
-
 ```
 > ### Mini Quiz
 > Was gibt dieses Skript aus?
@@ -35,7 +34,6 @@ fruit = ["apple", "orange", "banana", "pear"]
 print(f"We have: {fruit}")
 fruit_choice = input("Please enter your choice: ")
 print(f"Here is your {fruit_choice} ice cream!")
-
 ```
 > ### Mini Quiz:
 > Aber was passiert wenn ich "Ketchup" eingebe?  
@@ -69,8 +67,6 @@ print(4.01 == 4)  # => False
 "apple" < "banana"  # => True (durch die Reihenfolge im Alphabet sagt Python: a < b)
 
 "apple" != "pear"  # => True
-
-
 ```
 ### Notiz: `is` und `==` bedeuten verschiedene Dinge
 Vorsicht mit dem `is`. Dem normalen Sprachgebrauch nach scheint es völlig Sinn
@@ -79,12 +75,10 @@ zu machen wenn wir schreiben:
 a = 12345678
 b = 12345678
 print(a is b)  # => False
-
 ```
 Dies gibt aber nicht das gleiche aus wie `==`:
 ```python 
 print(a == b)  # => True
-
 ```
 `is` bezieht sich in Python auf eine Abfrage die darauf zielt zu sehen
 ob es sich um ein und Dasselbe Objekt handelt. Genauer eigentlich, ob 
@@ -94,8 +88,6 @@ Dies kann auch über `id()` (von identity) ausgegeben werden
 print(id(a))
 print(id(b))
 print(id(a) != id(b))  # => True
-
-
 ```
 ### Optional: lazy Python...
 bei "kleinen" Objekten kann es allerdings passieren, dass diese doch die gleiche 
@@ -114,7 +106,6 @@ but:
 a = 30019
 b = 30019
 a is b  # => False !?! So better don't use is here!
-
 ```
 ### Wichtig zum Thema `is` vs `==` is v.a.:
 + Alle Datentypen ausser Zahlen, Strings, Bool und None erzeugen neue Objekte
@@ -126,7 +117,6 @@ Beispiele wofür es gedacht ist:
 a = [1, 2]
 b = [1, 2]
 print(a is b)  # => False
-
 ```
 oder:
 
@@ -137,16 +127,12 @@ print(a is b)  # => True
 
 b[0] = 77
 print(a)  # => [77, 2, 3, 4]
-
-
 ```
 Wie gesagt, Wir hatten auch letztes Mal schon eine Bedingung bei den Sequenzen
 ```python 
 2 in [1, 2, 3, 4, 5]  # => True
 2 not in [1, 2, 3, 4, 5]  # => False 
 "z" not in "Ein String ohne kleines Z"  # => True
-
-
 ```
 logische Bedingungen and, or, not
 
@@ -162,10 +148,9 @@ True or False  # => True
 
 s = "ja"
 (s == "Ja") or (s == "JA") or (s == "ja")  # => True
-
 ```
 ***Vorsicht:*** Logik-Abfragen können schnell kompliziert werden!
-
+ 
 ### Bedingte Anweisungen (if, if-else)
 Wofür jetzt das Ganze? 
 Konditionen und logische Abfragen sind essentiell wenn es um Programmflüsse geht.
@@ -175,7 +160,6 @@ Konkret geht es hier um sogenannte "bedingte Anweisungen".
 number = 0.01
 if number >= 0:
     print(f"{number} ist positiv.")
-
 ```
 Als Beispiel können wir nun das Früchte-Skript von vorhin noch einmal
 überarbeiten.
@@ -188,7 +172,6 @@ if fruit_choice in fruit:
     print(f"Here is your {fruit_choice} ice cream!")
 else:
     print(f"{fruit_choice}? We don't have it.")
-
 ```
 ***Wichtig:*** In Python wird mit Einrückungen gearbeitet! 
 (andere Sprachen nutzen dafür oft Klammern)
@@ -207,8 +190,6 @@ elif fruit_choice in fruit:
     print(f"Here is your {fruit_choice} ice cream!")
 else:
     print(f"{fruit_choice}? We don't have it.")
-
-
 ```
 Was wir an dem Beispiel gesehen haben waren also neben `if ...Bedingung... :`
 auch `if-else`:
@@ -220,7 +201,6 @@ if number >= 0:
 else:
     print(f"{number} ist eine negative Zahl.")
     
-
 ```
 Und `if-elif-else`: 
 ```python 
@@ -232,12 +212,9 @@ elif number < 0:
     print(f"{number} ist eine negative Zahl.") 
 else:
     print(f"{number} müsste 0 sein?")
-
-
 ```
 Damit kann man ewig lange Abfragen bauen
 Z.B. sowas: 
-
 ```python 
 angebot = float(input("Dein Angebot: "))
 if angebot <= 0:
@@ -256,7 +233,6 @@ elif angebot < 100:
     print("Deal. Eine Freude mit dir Geschäfte zu machen.")
 else:
     print("Moment... irgendwas stimmt hier nicht...")
-
 ```
 ### While loop (While-Schleife)
 ```python 
@@ -272,7 +248,6 @@ x = 1.0000002
 while x < 1000:
     x = x**2
     print(x)
-
 ```
 **Vorsicht:** While loops können auch endlos laufen!
 => Mit Ctrl+C kommt ihr da aber wieder raus :)
@@ -281,8 +256,6 @@ x = 0.9
 while x < 1000:
     x = x**2
     # print(x) 
-
-
 ```
 Ein `while` Loop lässt sich auch mit `else` kombinieren:
 ```python 
@@ -301,7 +274,6 @@ while x < 100:
     x = x + 2 * x
     print(x)
 print("Fertsch!")
-    
 ```
 ### For loops (For Schleifen)
 In der Praxis werden in Python sogenannte "for loops" deutlich häufiger als
@@ -314,7 +286,6 @@ for expression in iterable:
     code...
 else:
     other code...
-
 ```
 Wir lassen den `else` Teil erstmal weg. 
 Im Klartext macht ein `for` loop das Folgende. Der Loop läuft einmal durch alle
@@ -322,7 +293,6 @@ Elemente aus `iterable`. Ein Beispiel:
 ```python 
 for antwort in ["ja", "nee", "vielleicht", "weiss nicht"]:
     print(f"Ich sag mal...{antwort}")
-
 ```
 Das Funktioniert mit jeder Python Sequenz auf diese Art:
 ```python 
@@ -331,7 +301,6 @@ for char in "That's a string and full of letters.":
 
 for x in [0, 2, 19, 3]:
     print(x + 1)
-
 ```
 ### Best friends: `range` and `for`
 Oft möchten wir eine Programmteil n-mal laufen lassen. Dafür nutzt man in 
@@ -339,12 +308,10 @@ Python `range`. `range` ist ein "generator", einen Funktionstyp den wir später
 noch genauer besprechen. An dieser Stelle reicht es zu wissen, dass es eine
 Funktion ist, die Werte erst ausgibt, wenn sie ausgelesen werden.
 `range` generiert Integer ein einem gewünschten Intervall und Abstand
-
 ```python 
 print(list(range(5)))  # => [0, 1, 2, 3, 4]
 print(list(range(4, 8)))  # => [4, 5, 6, 7]
 print(list(range(10, 30, 4)))  # => [10, 14, 18, 22, 26]
-
 ```
 > ### Mini Quiz
 > Was gibt `list(range(-3, 3)` aus?  
@@ -365,7 +332,6 @@ weggelassen werden:
 ```python 
 for _ in range(3):
     print("Dreimal: Ja!")
-
 ```
 Falls man einen Zähler und ein Element aus einer Sequenz benötigt, gibt es
 die Alternative `enumerate` statt `range`:
@@ -373,8 +339,33 @@ die Alternative `enumerate` statt `range`:
 fruits = ["apple", "mango", "banana", "pear"]
 for i, fruit in enumerate(fruits):
     print(f"{i + 1}. {fruit}")
-
 ```
+### Zwei weitere wichtige Optionen in Loops: `break` und `continue`
+`break` ermöglicht es aus Loops vorzeitig auszubrechen. Zum Beispiel hier:
+
+```python 
+for zeichen in "Ja genau. Dies ist ein string.":
+    if zeichen == ".":
+        print("Punkt gefunden!")
+        break
+    # Hier kommt man nur hin wenn break nicht ausgeführt wurde
+    print(zeichen)
+
+print("Fertig.")
+```
+`continue` ist dagegen die Aufforderung den laufenden Zyklus des Loops
+zu verlassen, aber dann mit dem Loop fortzufahren.
+
+```python 
+zahlen = [2, 3, 5, 9, 557, 1232, 233358]
+for zahl in zahlen:
+    if zahl%3 != 0:
+        continue
+    # Hier kommt man nur hin wenn continue nicht ausgeführt wurde
+    print(f"{zahl} ist durch 3 teilbar!")
+```
+Beide Befehle (`continue` und `break`) können genauso auch in `while` Schleifen
+eingesetzt werden.
 ### List comprehension !
 In Python gibt es noch eine andere, sehr kompakte Art einen Loop zu bauen.
 Das ist die sogenannte "List comprehension".
@@ -382,7 +373,6 @@ Das ist die sogenannte "List comprehension".
 my_list = [1, 2, 10]
 new_list = [x**2 for x in my_list]
 print(new_list)
-
 ```
 Als `for` loop wäre das ganze deutlich länger:
 ```python 
@@ -391,7 +381,6 @@ new_list = []  # leere Liste
 for i in my_list:
     new_list.append(i ** 2)
 print(new_list)
-
 ```
 > ### Mini Quiz!
 > Was gibt die folgende List comprehension aus?  
