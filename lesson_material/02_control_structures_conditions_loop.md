@@ -53,7 +53,7 @@ Das ist bereits eine Bedingung und die werden in Python auf verschiedene Arten a
 In vielen Programmen wollen wir Entscheidungen treffen was als nächstes geschieht.
 Das wird v.a. über das Abfragen von Bedingungen gemacht.
 Im Prinzip ist dies nichts anderes als eine einfache Frage die eindeutig
-mit *wahr* (`True`) oder *falsch* ('False') beantworted werden kann.
+mit *wahr* (`True`) oder *falsch* (`False`) beantworted werden kann.
 
 ```python 
 9 < 10  # => True
@@ -89,7 +89,8 @@ print(id(a))
 print(id(b))
 print(id(a) != id(b))  # => True
 ```
-### Optional: lazy Python...
+### Optional\*: lazy Python...
+\* *Optional heisst auch immer, "nicht Prüfungsrelevant"*  
 bei "kleinen" Objekten kann es allerdings passieren, dass diese doch die gleiche 
 identity bekommen. Das macht es leider noch ein wenig unübersichtlicher
 ```python 
