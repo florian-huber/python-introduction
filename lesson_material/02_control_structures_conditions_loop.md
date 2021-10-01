@@ -77,7 +77,8 @@ a = 12345678
 b = 12345678
 print(a is b)  # => False
 ```
-Dies gibt aber nicht das gleiche aus wie `==`:
+Dies gibt aber nicht das gleiche aus wie `==`:  
+<!--pytest-codeblocks:cont-->
 ```python 
 print(a == b)  # => True
 ```
@@ -85,6 +86,7 @@ print(a == b)  # => True
 ob es sich um ein und Dasselbe Objekt handelt. Genauer eigentlich, ob 
 zwei Objekte gleich sind und an der selben Speicheradresse hinterlegt sind.
 Dies kann auch über `id()` (von identity) ausgegeben werden
+<!--pytest-codeblocks:cont-->
 ```python 
 print(id(a))
 print(id(b))
@@ -255,6 +257,7 @@ while x < 1000:
 ```
 **Vorsicht:** While loops können auch endlos laufen!
 => Mit Ctrl+C kommt ihr da aber wieder raus :)
+<!--pytest-codeblocks:skip-->
 ```python 
 x = 0.9
 while x < 1000:
