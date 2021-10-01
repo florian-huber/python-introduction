@@ -29,7 +29,7 @@ Zum einen: **Input**
 Dazu kommen wir aber im Detail etwas später.
 Für den Anfang nur eine einfache Input-art:
     
-<!--pytest-codeblocks:expect-error-->
+<!--pytest-codeblocks:skip-->
 ```python 
 fruit = ["apple", "orange", "banana", "pear"]
 print(f"We have: {fruit}")
@@ -165,7 +165,7 @@ if number >= 0:
 ```
 Als Beispiel können wir nun das Früchte-Skript von vorhin noch einmal
 überarbeiten.
-<!--pytest-codeblocks:expect-error-->
+<!--pytest-codeblocks:skip-->
 ```python 
 fruit = ["apple", "mango", "banana", "pear"]
 print(f"We have: {fruit}")
@@ -182,7 +182,7 @@ nur Konsistent sein. Meistens werden als Standard aber 4 Leerzeichen gewählt.
 
 
 Weitere Ergänzung des Skripts: Was passiert z.B. mit Apple
-<!--pytest-codeblocks:expect-error-->
+<!--pytest-codeblocks:skip-->
 ```python 
 fruit = ["apple", "mango", "banana", "pear"]
 print(f"We have: {fruit}")
@@ -218,7 +218,7 @@ else:
 ```
 Damit kann man ewig lange Abfragen bauen
 Z.B. sowas: 
-<!--pytest-codeblocks:expect-error-->
+<!--pytest-codeblocks:skip-->
 ```python 
 angebot = float(input("Dein Angebot: "))
 if angebot <= 0:
