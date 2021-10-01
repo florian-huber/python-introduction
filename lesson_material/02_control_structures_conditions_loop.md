@@ -29,6 +29,7 @@ Zum einen: **Input**
 Dazu kommen wir aber im Detail etwas später.
 Für den Anfang nur eine einfache Input-art:
     
+<!--pytest-codeblocks:expect-error-->
 ```python 
 fruit = ["apple", "orange", "banana", "pear"]
 print(f"We have: {fruit}")
@@ -91,7 +92,7 @@ print(id(a) != id(b))  # => True
 ```
 ### Optional\*: lazy Python...
 \* *Optional heisst auch immer, "nicht Prüfungsrelevant"*  
-bei "kleinen" Objekten kann es allerdings passieren, dass diese doch die gleiche 
+Bei "kleinen" Objekten kann es allerdings passieren, dass diese doch die gleiche 
 identity bekommen. Das macht es leider noch ein wenig unübersichtlicher
 ```python 
 a = "looks like the same string"
@@ -102,11 +103,11 @@ a = 5
 b = 5
 a is b  # => True
 ```
-but:
+aber:
 ```python 
 a = 30019
 b = 30019
-a is b  # => False !?! So better don't use is here!
+a is b  # => False !?! Also besser nicht so benutzen...
 ```
 ### Wichtig zum Thema `is` vs `==` is v.a.:
 + Alle Datentypen ausser Zahlen, Strings, Bool und None erzeugen neue Objekte
@@ -164,7 +165,7 @@ if number >= 0:
 ```
 Als Beispiel können wir nun das Früchte-Skript von vorhin noch einmal
 überarbeiten.
-
+<!--pytest-codeblocks:expect-error-->
 ```python 
 fruit = ["apple", "mango", "banana", "pear"]
 print(f"We have: {fruit}")
@@ -181,6 +182,7 @@ nur Konsistent sein. Meistens werden als Standard aber 4 Leerzeichen gewählt.
 
 
 Weitere Ergänzung des Skripts: Was passiert z.B. mit Apple
+<!--pytest-codeblocks:expect-error-->
 ```python 
 fruit = ["apple", "mango", "banana", "pear"]
 print(f"We have: {fruit}")
@@ -216,6 +218,7 @@ else:
 ```
 Damit kann man ewig lange Abfragen bauen
 Z.B. sowas: 
+<!--pytest-codeblocks:expect-error-->
 ```python 
 angebot = float(input("Dein Angebot: "))
 if angebot <= 0:
