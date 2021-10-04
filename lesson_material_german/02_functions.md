@@ -1,6 +1,7 @@
 # Funktionen
 
-Wir haben schon Funktionen benutzt: print() und type()
+Wir haben schon Funktionen benutzt: `print()`, `type()`, aber auch `int()` oder
+`str()`.
 
 Diese Funktionen sind bei Python schon "eingebaut".
 
@@ -68,9 +69,9 @@ def x_vs_y(x, y):
     else:
         print(f"{x} is smaller than {y}")
 
-x_vs_y(10, 70)
+x_vs_y(10, 70)  # => 10 is smaller than 70
 
-x_vs_y(0.000001, 1e-5)
+x_vs_y(0.000001, 1e-5)  # => 1e-06 is smaller than 1e-05
 ```
 Aber was nicht funktioniert ist:
 <!--pytest-codeblocks:cont-->
@@ -133,13 +134,13 @@ print(boxes_to_eggs(5, 0.25, 10))  # => -48 !!!
 
 ```
 > ### MINI Quiz
-> Eine Funktion kann Werte/Daten zurück geben an das Programm über
+> Eine Funktion kann Werte/Daten zurück geben an das Programm über...  
 > a) print  
 > b) return  
 > c) out   
 > d) assert
 > 
-> Eine Funktion ohne "return" statement gibt folgendes zurück
+> Eine Funktion ohne "return" statement gibt folgendes zurück...  
 > a) Nichts  
 > b) die Parameter  
 > c) die Variablen  
