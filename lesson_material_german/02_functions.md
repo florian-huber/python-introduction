@@ -20,14 +20,14 @@ def gute_sache():
 ```
 Wenn wir diesen Code ausführen passert aber erstmal nix!
 Funktionen werden erst beim expliziten Aufrufen ausgeführt:
-
+<!--pytest-codeblocks:cont-->
 ```python 
 gute_sache()
 ```
 Diese Funktion gibt nichts zurück (nur print) und verlangt keine Argumente
 
 Die allgemeine Struktur von Funktionen ist:
-<!--pytest-codeblocks:expect-error-->
+<!--pytest-codeblocks:skip-->
 ```python 
 def function_name(parameter1, parameter2, ...):
     ... code ...
@@ -37,24 +37,25 @@ Besser sogar noch so, mit einem sogenannten Docstring der die grundlegende
 Dokumentation der Funktion darstellt. Hierin können die Funktion und die Parameter
 beschrieben werden. Zusätzlich kann aber auch ein Code Beispiel angegeben werden
 oder Refernenzen genannte werden.
+
+<!--pytest-codeblocks:skip-->
 ```python 
 def function_name(parameter1, parameter2, ...):
     """Hier wird die Funktion beschrieben
     """
-    code
-    ...
+    ... code ...
     return result
 ```
 Es gibt auch Funktionen ohne parameter (siehe oben `gute_sache()`).
 Ausserdem kann man defaults festlegen! Diese werden genutzt, falls kein
 neuer Wert für die entsprechenden Parameter eingegeben wird.
 
+<!--pytest-codeblocks:skip-->
 ```python 
 def function_name(p1, p2=3.1415):
     """Hier wird die Funktion beschrieben
     """
-    code
-    ...
+    ... code ...
     return result
 ```
 Hier ein anderes Beispiel einer einfachen Funktion mit 2 Parametern:
@@ -84,8 +85,6 @@ x_vs_y(10) # => TypeError: x_vs_y() missing 1 required positional argument: 'y'
 Hier eine Beispielfunktion in der einer der beiden möglichen Parameter
 einen Default-Wert erhält:
 
-<!--pytest-codeblocks:cont-->
-<!--pytest-codeblocks:expect-error-->
 ```python 
 def boxes_to_eggs(n_boxes, eggs_per_box=6):
     """Compute the total number of eggs in n_boxes boxes.
@@ -98,10 +97,10 @@ print(boxes_to_eggs(5, eggs_per_box=10))  # => 50
 print(boxes_to_eggs(eggs_per_box=10, n_boxes=5))  # => 50
 ```
 ABER... Folgendes geht nicht:
+<!--pytest-codeblocks:cont-->
+<!--pytest-codeblocks:expect-error-->
 ```python 
 print(boxes_to_eggs(n_boxes=5, 10))  # => SyntaxError: positional argument follows keyword argument
-
-
 ```
 ### Optional:
 Die Frage der Reihenfolge wird bei weiteren möglichen
@@ -127,6 +126,7 @@ print(boxes_to_eggs(5, broken_eggs_per_box=0.25,
                     eggs_per_box=10))  # => 48
 ```
 Aber...
+<!--pytest-codeblocks:cont-->
 ```python 
 print(boxes_to_eggs(5, 10, 0.25))  # => 48
 print(boxes_to_eggs(5, 0.25, 10))  # => -48 !!!
