@@ -75,8 +75,7 @@ x_vs_y(10, 70)  # => 10 is smaller than 70
 x_vs_y(0.000001, 1e-5)  # => 1e-06 is smaller than 1e-05
 ```
 Aber was nicht funktioniert ist:
-<!--pytest-codeblocks:cont-->
-<!--pytest-codeblocks:expect-error-->
+<!--pytest-codeblocks:skip-->
 ```python 
 x_vs_y(10) # => TypeError: x_vs_y() missing 1 required positional argument: 'y'
 
@@ -96,9 +95,9 @@ print(boxes_to_eggs(5, 10))  # => 50
 print(boxes_to_eggs(5, eggs_per_box=10))  # => 50
 print(boxes_to_eggs(eggs_per_box=10, n_boxes=5))  # => 50
 ```
-ABER... Folgendes geht nicht:
-<!--pytest-codeblocks:cont-->
-<!--pytest-codeblocks:expect-error-->
+ABER... Folgendes geht nicht, da die benannte Parameter nicht vor unbenannten
+an die Funktion übergeben werden dürfe.
+<!--pytest-codeblocks:skip-->
 ```python 
 print(boxes_to_eggs(n_boxes=5, 10))  # => SyntaxError: positional argument follows keyword argument
 ```
@@ -230,7 +229,7 @@ def do_other_stuff(my_list):
 
 my_list = [1, 2]
 do_other_stuff(my_list)
-print(my_list)
+print(my_list)  # => [1, 2, 55]
 
 ```
 Selbst wenn `my_list` als Parameter an die Funktion übergeben wird, läuft
@@ -241,8 +240,8 @@ def do_other_stuff(my_list):
     print(f"inner function: {my_list}")
 
 my_list = [1, 2]
-do_other_stuff(my_list)
-print(my_list)
+do_other_stuff(my_list)  # => inner function: [1, 2, 55]
+print(my_list)  # => [1, 2]
 ```
 Manchmal führt dieses Verhalten zu Schwierigkeiten. Z.B. wenn eine
 Funktion versehentlich den Anschein erweckt als würde sie einen neuen
