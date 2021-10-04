@@ -1,4 +1,4 @@
-# Erste Schritte mit Listen uns Sequenzen
+# Erste Schritte mit Listen und Sequenzen
 
 ## Strings
 Strings sind Sequenzen aus Zeichen (oder Zeichenketten). Jedes einzelne
@@ -13,7 +13,7 @@ print(len(s)) # => 19
 ```
 ## Lists
 Eine Liste (`list`) ist in Python eine Sammlung von Elementen.
-Eine list wird einfach mit eckigen Klammern erstellt.
+Eine Liste wird einfach mit eckigen Klammern erstellt.
 ```python 
 fruit = ["apple", "orange", "banana", "pear"]
 ```
@@ -21,14 +21,15 @@ Listen sind ebenfalls Sequenzen und einzelne Elemente können in Python
 über Indices adressiert werden.
 
 > ### Mini Quiz: Einmal Raten bitte
-> Was gibt `print(fruit[1])` aus? 
-> 1) SyntaxError 
-> 2) apple
-> 3) orange
-Was gibt `print(len(fruit))` aus? 
-> 1) 1 
-> 2) 4
-> 3) 21
+> Was gibt `print(fruit[1])` aus?  
+> 1) SyntaxError  
+> 2) apple  
+> 3) orange  
+>  
+Was gibt `print(len(fruit))` aus?  
+> 1) 1  
+> 2) 4  
+> 3) 21  
 
 ```python 
 fruit = ["apple", "orange", "banana", "pear"]
@@ -54,9 +55,9 @@ fruit_tuple = ("apple", "orange", "banana", "pear")
 print(fruit_tuple[2])  # => "banana"
 ```
 Sieht eigentlich alles aus wie bei der Liste.  
-Was ist jetzte da der Unterschied zur Liste?  
-In Python unterscheiden wir veränderbare (mutable) und unveränderbare
-(immutable) Datentypen. Listen zählen zu den veränderbaren, Tuple dagegen
+Was ist jetzt da der Unterschied zur Liste?  
+In Python unterscheiden wir veränderbare (**mutable**) und unveränderbare
+(**immutable**) Datentypen. Listen zählen zu den veränderbaren, Tuple dagegen
 sind unveränderbar.
 
 ```python 
@@ -100,7 +101,9 @@ my_str[1:3] # => in
 Darüber hinaus haben die verschiedenen Datentypen aber noch weitere eigene Methoden
 Das Arbeiten mit Strings werden wir in einigen der folgenden Vorlesungen noch
 genauer betrachten. Hier aber schon einmal eine Tabelle mit wichtigen Methoden
-für Python Listen:
+für Python Listen.
+
+### List Methoden
 
 |     Operation                  |     Ergebnis                                                                                                          |
 |--------------------------------|-----------------------------------------------------------------------------------------------------------------------|
