@@ -1,6 +1,6 @@
 ### Variablen
 
-Variablen sind essentiell für das Schreiben von Programmen.
+Variablen sind essentiell fÃ¼r das Schreiben von Programmen.
 Oft stellt man sich darunter Boxen vor in die Daten gepackt werden.
 
 In Python werden Daten den Variablen einfach mit `=` zugewiesen.
@@ -8,16 +8,16 @@ In Python werden Daten den Variablen einfach mit `=` zugewiesen.
 a = 5
 print(a / 6)  # => 0.8333333333333334
 ```
-So lange eine Python Session läuft und nichts Anderes mit einer Variable
-angestellt wird, behält die Variable den zugewiesenen Wert.
+So lange eine Python Session lÃ¤uft und nichts Anderes mit einer Variable
+angestellt wird, behÃ¤lt die Variable den zugewiesenen Wert.
 Zum Beispiel bleibt `a` der Wert 5 zugewiesen, so dass:
 ```python 
 b = 8
 print(a + b)  # => 13
 ```
 Variablen sind aber nicht fix. 
-Ihnen können einfach neue Werte zugewiesen werden
-(sogar völlig andere Datentypen!):
+Ihnen kÃ¶nnen einfach neue Werte zugewiesen werden
+(sogar vÃ¶llig andere Datentypen!):
 
 ```python 
 a = 100.5
@@ -25,7 +25,7 @@ print(a + b)  # => 108.5
 ```
 Meistens ist es sehr zu empfehlen, den Variablen Namen zu geben die einen
 Hinweis auf ihren Inhalt enthalten.  
-Code wie der folgende wird dadurch deutlich verständlicher!
+Code wie der folgende wird dadurch deutlich verstÃ¤ndlicher!
 ```python 
 training_seconds = 18900
 sec_per_hour = 60 * 60
@@ -33,7 +33,7 @@ training_hours = training_seconds / sec_per_hour
 print(training_hours)  # => 5.25
 ```
 Python ist als Sprache sehr flexibel beim Umgang mit Variablen.
-Oft ist das nützlich, kann aber gelegentlich auch für einiger Verwirrung
+Oft ist das nÃ¼tzlich, kann aber gelegentlich auch fÃ¼r einiger Verwirrung
 sorgen. Stellt euch vor eine Variable wird `print` genannt...
 ```python 
 print = "my text"
@@ -69,15 +69,15 @@ print(x)
 > a) `print = "my text"`  
 > b) `else = "my text"`  
 > c) `sehr_wichtig = "my text"`  
-> d) `übermäßig_wichtig = "my text"`  
+> d) `Ã¼bermÃ¤ÃŸig_wichtig = "my text"`  
 > e) `ImportantText = "my text"`  
 
 
-### Regeln für Variablennamen
+### Regeln fÃ¼r Variablennamen
 Namen mit Bedeutung
 - Kleinbuchstaben (und Unterstriche)
-- Nie "reserved keywords" (Schlüsselworte) benutzen
+- Nie "reserved keywords" (SchlÃ¼sselworte) benutzen
 - Auch keine Funktionennamen benutzten (Standardfunktionen oder Funktionen die im Programm vorkommen)
-- Andere Sprachen als Englisch sind natürlich OK (je nach Kontext)
-- Allerdings machen Sonderzeichen manches komplizierter (z.B. ä oder ü)
+- Andere Sprachen als Englisch sind natÃ¼rlich OK (je nach Kontext)
+- Allerdings machen Sonderzeichen manches komplizierter (z.B. Ã¤ oder Ã¼)
 
