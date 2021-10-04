@@ -2,7 +2,7 @@
 
 ## Strings
 Strings sind Sequenzen aus Zeichen (oder Zeichenketten). Jedes einzelne
-Zeichen eines strings kann in Python über einen Index angesprochen werden.
+Zeichen eines strings kann in Python Ã¼ber einen Index angesprochen werden.
 
 ```python 
 s = "Dies ist ein string"
@@ -17,8 +17,8 @@ Eine Liste wird einfach mit eckigen Klammern erstellt.
 ```python 
 fruit = ["apple", "orange", "banana", "pear"]
 ```
-Listen sind ebenfalls Sequenzen und einzelne Elemente können in Python
-über Indices adressiert werden.
+Listen sind ebenfalls Sequenzen und einzelne Elemente kÃ¶nnen in Python
+Ã¼ber Indices adressiert werden.
 
 > ### Mini Quiz: Einmal Raten bitte
 > Was gibt `print(fruit[1])` aus?  
@@ -35,12 +35,12 @@ Was gibt `print(len(fruit))` aus?
 fruit = ["apple", "orange", "banana", "pear"]
 print(fruit[2])  # => banana
 ```
-Listen können völlig verschiedene Datentypen enthalten:
+Listen kÃ¶nnen vÃ¶llig verschiedene Datentypen enthalten:
 ```python 
 my_list = ["a string", 52, -0.014, "another string"]
 print(my_list[0])  # => a string
 ```
-Listen können sogar auch weiter Listen enthalten:
+Listen kÃ¶nnen sogar auch weiter Listen enthalten:
 ```python 
 my_list = [3, [7, 2], "example"]
 print(my_list[1])  # => [7, 2]
@@ -48,7 +48,7 @@ print(my_list[1])  # => [7, 2]
 ### Tuples
 Ein Tuple ist in Python eine andere Form der Sammlung. Anders als `list`
 wird ein Tuple mit runden Klammern erstellt. Die Elemente eines Tuples sind -genau wie Listen-
-über Indices adressierbar:
+Ã¼ber Indices adressierbar:
 
 ```python 
 fruit_tuple = ("apple", "orange", "banana", "pear")
@@ -56,9 +56,9 @@ print(fruit_tuple[2])  # => "banana"
 ```
 Sieht eigentlich alles aus wie bei der Liste.  
 Was ist jetzt da der Unterschied zur Liste?  
-In Python unterscheiden wir veränderbare (**mutable**) und unveränderbare
-(**immutable**) Datentypen. Listen zählen zu den veränderbaren, Tuple dagegen
-sind unveränderbar.
+In Python unterscheiden wir verÃ¤nderbare (**mutable**) und unverÃ¤nderbare
+(**immutable**) Datentypen. Listen zÃ¤hlen zu den verÃ¤nderbaren, Tuple dagegen
+sind unverÃ¤nderbar.
 
 ```python 
 fruit = ["apple", "orange", "banana", "pear"]
@@ -67,25 +67,25 @@ print(fruit)  # => ['apple', 'orange', 'banana', 'mango']
 
 fruit_tuple[-1] = "mango"  # => TypeError: 'tuple' object does not support item assignment
 ```
-In einer Liste können wir also z.B. ein Element einfach ersetzen, bei 
+In einer Liste kÃ¶nnen wir also z.B. ein Element einfach ersetzen, bei 
 einem Tuple geht das ganze aber nicht.
 
 ### Sequenzen
 Tuple, list, und string sind alles Sequenzen. Damit gibt es eine ganze
-Reihe von Funktionen (Methoden) die für alle drei Datentypen gleichermassen
-eingesetzt werden können:
+Reihe von Funktionen (Methoden) die fÃ¼r alle drei Datentypen gleichermassen
+eingesetzt werden kÃ¶nnen:
 |     Operation        |     Ergebnis                                                                                                          |
 |----------------------|-----------------------------------------------------------------------------------------------------------------------|
 |     x in s           |     True wenn ein Element mit dem   Wert x in der Sequenz s enthalten ist, sonst False.                               |
 |     x not in   s     |     False   wenn ein Element mit dem Wert x in der Sequenz s enthalten ist, sonst True.                               |
 |     s + t            |     Konkatenation der beiden   Sequenzen s und t.                                                                     |
-|     s * n            |     n Kopien der Sequenz s werden hintereinandergehängt.                                                              |
+|     s * n            |     n Kopien der Sequenz s werden hintereinandergehÃ¤ngt.                                                              |
 |     s[i]             |     Wiedergeben des i-ten Elementes   von s.                                                                          |
-|     s[i:j]           |     Wiedergabe des Ausschnitts   (slice) von s, der vom i-ten bis zum j-ten Element (nicht einschließlich)   geht.    |
+|     s[i:j]           |     Wiedergabe des Ausschnitts   (slice) von s, der vom i-ten bis zum j-ten Element (nicht einschlieÃŸlich)   geht.    |
 |     s[i:]            |     Wiedergabe des Ausschnitts   (slice) von s, der vom i-ten bis zum letzten Element geht.                           |
-|     len(s)           |     Gibt die Länge der Sequenz s   wieder.                                                                            |
+|     len(s)           |     Gibt die LÃ¤nge der Sequenz s   wieder.                                                                            |
 |     min(s)           |     Gibt das kleinste Element der   Sequenz s wieder.                                                                 |
-|     max(s)           |     Gibt das größte Element der   Sequenz s wieder                                                                    |
+|     max(s)           |     Gibt das grÃ¶ÃŸte Element der   Sequenz s wieder                                                                    |
 
 Ein Beispiel:
 ```python 
@@ -98,24 +98,24 @@ my_str = "Ein String ist auch eine Sequenz."
 my_list[1:3] # => [4, 6]
 my_str[1:3] # => in
 ```
-Darüber hinaus haben die verschiedenen Datentypen aber noch weitere eigene Methoden
+DarÃ¼ber hinaus haben die verschiedenen Datentypen aber noch weitere eigene Methoden
 Das Arbeiten mit Strings werden wir in einigen der folgenden Vorlesungen noch
 genauer betrachten. Hier aber schon einmal eine Tabelle mit wichtigen Methoden
-für Python Listen.
+fÃ¼r Python Listen.
 
 ### List Methoden
 
 |     Operation                  |     Ergebnis                                                                                                          |
 |--------------------------------|-----------------------------------------------------------------------------------------------------------------------|
 |     my_list[i]   = x           |     Das Element mit Index i wird   durch x ersetzt.                                                                   |
-|     my_list.append(x)          |     An die Liste s wird ein neues   Element x angehängt.                                                              |
-|     my_list.extend(t)          |     Die Liste my_list   wird um die Element der Sequenz t verlängert.                                                 |
-|     my_list.count(x)           |     Gibt die Anzahl der   Listenelemente mit dem Wert x zurück.                                                       |
-|     del my_list   [i]          |     Das Element mit Index i wird aus   der Liste s entfernt, damit veringert   sich auch die Länge der Liste um 1.    |
-|     my_list.index(x)           |     Gibt den kleinsten Index von my_list   zurück an dem ein Element gleich x ist.                                    |
-|     my_list.insert(i,   x)     |     Falls i >= 0 wird x vor dem   Index i in die Liste my_list eingefügt.                                             |
+|     my_list.append(x)          |     An die Liste s wird ein neues   Element x angehÃ¤ngt.                                                              |
+|     my_list.extend(t)          |     Die Liste my_list   wird um die Element der Sequenz t verlÃ¤ngert.                                                 |
+|     my_list.count(x)           |     Gibt die Anzahl der   Listenelemente mit dem Wert x zurÃ¼ck.                                                       |
+|     del my_list   [i]          |     Das Element mit Index i wird aus   der Liste s entfernt, damit veringert   sich auch die LÃ¤nge der Liste um 1.    |
+|     my_list.index(x)           |     Gibt den kleinsten Index von my_list   zurÃ¼ck an dem ein Element gleich x ist.                                    |
+|     my_list.insert(i,   x)     |     Falls i >= 0 wird x vor dem   Index i in die Liste my_list eingefÃ¼gt.                                             |
 |     my_list.remove(x)          |     Das erste Element gleich x wird   aus der Liste my_list entfernt.                                                 |
 |     my_list.sort()             |     Die Elemente der Liste werden   aufsteigend sortiert                                                              |
-|     max(s)                     |     Gibt das größte Element der   Sequenz s wieder                                                                    |
+|     max(s)                     |     Gibt das grÃ¶ÃŸte Element der   Sequenz s wieder                                                                    |
 
 
