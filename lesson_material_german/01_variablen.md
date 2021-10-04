@@ -11,6 +11,7 @@ print(a / 6)  # => 0.8333333333333334
 So lange eine Python Session läuft und nichts Anderes mit einer Variable
 angestellt wird, behält die Variable den zugewiesenen Wert.
 Zum Beispiel bleibt `a` der Wert 5 zugewiesen, so dass:
+<!--pytest-codeblocks:cont-->
 ```python 
 b = 8
 print(a + b)  # => 13
@@ -18,7 +19,7 @@ print(a + b)  # => 13
 Variablen sind aber nicht fix. 
 Ihnen können einfach neue Werte zugewiesen werden
 (sogar völlig andere Datentypen!):
-
+<!--pytest-codeblocks:cont-->
 ```python 
 a = 100.5
 print(a + b)  # => 108.5

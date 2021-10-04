@@ -65,6 +65,7 @@ fruit = ["apple", "orange", "banana", "pear"]
 fruit[-1] = "mango"
 print(fruit)  # => ['apple', 'orange', 'banana', 'mango']
 
+fruit_tuple = ("apple", "orange", "banana", "pear")
 fruit_tuple[-1] = "mango"  # => TypeError: 'tuple' object does not support item assignment
 ```
 In einer Liste können wir also z.B. ein Element einfach ersetzen, bei 
