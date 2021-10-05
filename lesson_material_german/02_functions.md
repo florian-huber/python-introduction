@@ -18,18 +18,18 @@ def gute_sache():
     print("Wieder 3 Zeilen Code gespart.")
     
 ```
-Wenn wir diesen Code ausführen passert aber erstmal nix!
+Wenn wir diesen Code ausführen passiert aber erstmal nix!
 Funktionen werden erst beim expliziten Aufrufen ausgeführt:
 <!--pytest-codeblocks:cont-->
 ```python 
 gute_sache()
 ```
-Diese Funktion gibt nichts zurück (nur print) und verlangt keine Argumente
+Diese Funktion gibt nichts zurück (nur print) und verlangt keine Argumente.
 
 Die allgemeine Struktur von Funktionen ist:
 <!--pytest-codeblocks:skip-->
 ```python 
-def function_name(parameter1, parameter2, ...):
+def function_name(parameter1, parameter2, etc):
     ... code ...
     return result
 ```
@@ -78,7 +78,6 @@ Aber was nicht funktioniert ist:
 <!--pytest-codeblocks:skip-->
 ```python 
 x_vs_y(10) # => TypeError: x_vs_y() missing 1 required positional argument: 'y'
-
 ```
 ### Default Werte
 Hier eine Beispielfunktion in der einer der beiden möglichen Parameter
@@ -129,8 +128,6 @@ Aber...
 ```python 
 print(boxes_to_eggs(5, 10, 0.25))  # => 48
 print(boxes_to_eggs(5, 0.25, 10))  # => -48 !!!
-
-
 ```
 > ### MINI Quiz
 > Eine Funktion kann Werte/Daten zurück geben an das Programm über...  
@@ -144,8 +141,6 @@ print(boxes_to_eggs(5, 0.25, 10))  # => -48 !!!
 > b) die Parameter  
 > c) die Variablen  
 > d) None
-
-
 
 
 ### Namensräume
@@ -288,5 +283,6 @@ def double_values(values_input):
 my_list = [5, 10, 15]
 my_list_x2 = double_values(my_list)
 print(my_list, my_list_x2)  # => [5, 10, 15] [10, 20, 30]
-
-
+```
+### Vorschau
+In der nächsten Vorlesung geht es dann um weitere Typen von Funktionen...
