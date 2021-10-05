@@ -267,7 +267,6 @@ def double_values(values_input):
     for i in range(len(values)):
         values[i] = values[i] * 2
     return values
-
 my_list = [5, 10, 15]
 my_list_x2 = double_values(my_list)
 print(my_list, my_list_x2)  # => [5, 10, 15] [10, 20, 30]

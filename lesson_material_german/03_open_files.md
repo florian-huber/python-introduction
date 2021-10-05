@@ -13,6 +13,7 @@ Beispiele die uns im Laufe der Veranstaltung noch häufiger begegnen werden sind
 
 Eine Textdatei kann man in Python mit `open()` lesen. Hier ein Beispiel
 für eine Datei `testfile.txt` die sich im selben Ordner befindet:
+<!--pytest-codeblocks:skip-->
 ```python 
 data = open("testfile.txt", "r")
 data.readline()  # => 'Hier mal ein wenig Text zum Testen.\n'
@@ -35,6 +36,7 @@ Funktion steht. Die wichtigsten Varianten davon finden sich in der Tabelle:
 
 
 Es ist auch einfach möglich die Datei Zeile für Zeile auszulesen.
+<!--pytest-codeblocks:skip-->
 ```python 
 data = open("testfile.txt", "r")
 for line in data:
