@@ -1,8 +1,15 @@
 ## Wiederholung -> Datentypen, Syntax, warum Python
 
-# Skripte/Programme
-Letztes Mal v.a. kurze Befehle, die wir entweder im Terminal
-oder über eine integrierte Entwicklungsumgebung (IDE) eingegeben haben.
+# Kontrollstrukturen und Bedingungen
+
+### Skripte/Programme
+
+Letztes Mal haben wir uns v.a. kurze Befehle angeschaut, die wir entweder in der Konsole (Terminal/Shell)
+oder über eine integrierte Entwicklungsumgebung (IDE) wie z.B. Spyder eingegeben werden.
+
+Im IDE hatten wir aber auch bereits gesehen, dass man mehrere solche Befehle untereinander schreiben kann und diese dann zusammen ausgeführt werden. Ein erstes Skript. Oder Programm? Was genaue eigentlich? 
+
+Die Begriffe werden verschieden benutzt. In dieser Veranstaltung werde ich im allgemeinen nicht wirklich unterscheiden zwischen **Skript** und **Programm**. Der Begriff Skript ist dabei etwas eingeschränkter, man würde z.B. eine vollständig entwickelte Software nicht als Skript bezeichnen.
 
 + Programm $\approx$ Skript (und Programm > Skript)
 
@@ -27,16 +34,19 @@ Was braucht man häufig um interessantere Dinge umzusetzen?
 
 Zum einen: **Input**
 Dazu kommen wir aber im Detail etwas später.
-Für den Anfang nur eine einfache Input-art:
-    
-<!--pytest-codeblocks:skip-->
-```python 
+Für den Anfang nur eine einfache Input-art von Python, die Funktion `input()`.
+
+<!-- pytest-codeblocks:skip -->
+
+```python
 fruit = ["apple", "orange", "banana", "pear"]
 print(f"We have: {fruit}")
 fruit_choice = input("Please enter your choice: ")
-print(f"Here is your {fruit_choice} ice cream!")
+print(f"Here is your {fruit_choice} ice cream!"
 ```
-> ### Mini Quiz:
+
+Mini Quiz:
+
 > Aber was passiert wenn ich "Ketchup" eingebe?  
 > a) Here is your Ketchup ice cream!  
 > b) ValueError  
@@ -78,7 +88,8 @@ b = 12345678
 print(a is b)  # => False
 ```
 Dies gibt aber nicht das gleiche aus wie `==`:  
-<!--pytest-codeblocks:cont-->
+<!-- pytest-codeblocks:cont -->
+
 ```python 
 print(a == b)  # => True
 ```
@@ -86,7 +97,8 @@ print(a == b)  # => True
 ob es sich um ein und Dasselbe Objekt handelt. Genauer eigentlich, ob 
 zwei Objekte gleich sind und an der selben Speicheradresse hinterlegt sind.
 Dies kann auch über `id()` (von identity) ausgegeben werden
-<!--pytest-codeblocks:cont-->
+<!-- pytest-codeblocks:cont -->
+
 ```python 
 print(id(a))
 print(id(b))
@@ -154,7 +166,7 @@ s = "ja"
 (s == "Ja") or (s == "JA") or (s == "ja")  # => True
 ```
 ***Vorsicht:*** Logik-Abfragen können schnell kompliziert werden!
- 
+
 ### Bedingte Anweisungen (if, if-else)
 Wofür jetzt das Ganze? 
 Konditionen und logische Abfragen sind essentiell wenn es um Programmflüsse geht.
@@ -167,7 +179,8 @@ if number >= 0:
 ```
 Als Beispiel können wir nun das Früchte-Skript von vorhin noch einmal
 überarbeiten.
-<!--pytest-codeblocks:skip-->
+<!-- pytest-codeblocks:skip -->
+
 ```python 
 fruit = ["apple", "mango", "banana", "pear"]
 print(f"We have: {fruit}")
@@ -182,9 +195,9 @@ else:
 Die Art der Einrückungen kann im Prinzip frei gewählt werden, sie muss
 nur Konsistent sein. Meistens werden als Standard aber 4 Leerzeichen gewählt.
 
-
 Weitere Ergänzung des Skripts: Was passiert z.B. mit Apple
-<!--pytest-codeblocks:skip-->
+<!-- pytest-codeblocks:skip -->
+
 ```python 
 fruit = ["apple", "mango", "banana", "pear"]
 print(f"We have: {fruit}")
@@ -220,7 +233,8 @@ else:
 ```
 Damit kann man ewig lange Abfragen bauen
 Z.B. sowas: 
-<!--pytest-codeblocks:skip-->
+<!-- pytest-codeblocks:skip -->
+
 ```python 
 angebot = float(input("Dein Angebot: "))
 if angebot <= 0:
@@ -396,6 +410,5 @@ print(new_list)
 > b) eins, zwei, drei  
 > c) e, z, d  
 > d) 0, 0, 0  
-
 
 --> go to FUNCTIONS !
