@@ -28,8 +28,7 @@ print(fruit[ice_choice] + " ice cream")
 > 3) banana juice, orange ice cream
 > 4) Keine Ahnung! Ich müsste raten (will aber nicht)
 
-
-Mhh. Ziemlich langweiliges Programm
+Mhh. Ziemlich langweiliges Programm.
 Was braucht man häufig um interessantere Dinge umzusetzen?
 
 Zum einen: **Input**
@@ -61,10 +60,7 @@ Das ist bereits eine Bedingung und die werden in Python auf verschiedene Arten a
 
 ## Bedingungen
 
-In vielen Programmen wollen wir Entscheidungen treffen was als nächstes geschieht.
-Das wird v.a. über das Abfragen von Bedingungen gemacht.
-Im Prinzip ist dies nichts anderes als eine einfache Frage die eindeutig
-mit *wahr* (`True`) oder *falsch* (`False`) beantworted werden kann.
+In vielen Programmen wollen wir Entscheidungen treffen was als nächstes geschieht. Das wird v.a. über das Abfragen von Bedingungen gemacht. Im Prinzip ist dies nichts anderes als eine einfache Frage die eindeutig mit *wahr* (`True`) oder *falsch* (`False`) beantwortet werden kann.
 
 ```python 
 9 < 10  # => True
@@ -80,8 +76,7 @@ print(4.01 == 4)  # => False
 "apple" != "pear"  # => True
 ```
 ### Notiz: `is` und `==` bedeuten verschiedene Dinge
-Vorsicht mit dem `is`. Dem normalen Sprachgebrauch nach scheint es völlig Sinn
-zu machen wenn wir schreiben: 
+Vorsicht mit dem `is`. Dem normalen Sprachgebrauch nach scheint es völlig Sinn zu machen wenn wir schreiben: 
 ```python 
 a = 12345678
 b = 12345678
@@ -93,10 +88,8 @@ Dies gibt aber nicht das gleiche aus wie `==`:
 ```python 
 print(a == b)  # => True
 ```
-`is` bezieht sich in Python auf eine Abfrage die darauf zielt zu sehen
-ob es sich um ein und Dasselbe Objekt handelt. Genauer eigentlich, ob 
-zwei Objekte gleich sind und an der selben Speicheradresse hinterlegt sind.
-Dies kann auch über `id()` (von identity) ausgegeben werden
+`is` bezieht sich in Python auf eine Abfrage die darauf zielt zu sehen ob es sich um ein und Dasselbe Objekt handelt. Genauer eigentlich, ob zwei Objekte gleich sind und an der selben Speicheradresse hinterlegt sind.
+Dies kann auch über `id()` (von identity) ausgegeben werden:
 <!-- pytest-codeblocks:cont -->
 
 ```python 
@@ -106,8 +99,8 @@ print(id(a) != id(b))  # => True
 ```
 ### Optional\*: lazy Python...
 \* *Optional heisst auch immer, "nicht Prüfungsrelevant"*  
-Bei "kleinen" Objekten kann es allerdings passieren, dass diese doch die gleiche 
-identity bekommen. Das macht es leider noch ein wenig unübersichtlicher
+Bei "kleinen" Objekten kann es allerdings passieren, dass diese doch die gleiche "identity" bekommen. Das macht es leider noch ein wenig unübersichtlicher: 
+
 ```python 
 a = "looks like the same string"
 b = "looks like the same string"
@@ -169,16 +162,14 @@ s = "ja"
 
 ### Bedingte Anweisungen (if, if-else)
 Wofür jetzt das Ganze? 
-Konditionen und logische Abfragen sind essentiell wenn es um Programmflüsse geht.
-Konkret geht es hier um sogenannte "bedingte Anweisungen".
+Konditionen und logische Abfragen sind essentiell wenn es um Programmflüsse geht. Konkret geht es hier um sogenannte "bedingte Anweisungen".
 
 ```python 
 number = 0.01
 if number >= 0:
     print(f"{number} ist positiv.")
 ```
-Als Beispiel können wir nun das Früchte-Skript von vorhin noch einmal
-überarbeiten.
+Als Beispiel können wir nun das Früchte-Skript von vorhin noch einmal überarbeiten.
 <!-- pytest-codeblocks:skip -->
 
 ```python 
@@ -190,10 +181,8 @@ if fruit_choice in fruit:
 else:
     print(f"{fruit_choice}? We don't have it.")
 ```
-***Wichtig:*** In Python wird mit Einrückungen gearbeitet! 
-(andere Sprachen nutzen dafür oft Klammern)
-Die Art der Einrückungen kann im Prinzip frei gewählt werden, sie muss
-nur Konsistent sein. Meistens werden als Standard aber 4 Leerzeichen gewählt.
+***Wichtig:*** In Python wird mit Einrückungen gearbeitet! Andere Sprachen nutzen dafür oft Klammern.
+Die Art der Einrückungen kann im Prinzip frei gewählt werden, sie muss nur Konsistent sein. Meistens werden als Standard aber 4 Leerzeichen gewählt.
 
 Weitere Ergänzung des Skripts: Was passiert z.B. mit Apple
 <!-- pytest-codeblocks:skip -->
@@ -209,8 +198,7 @@ elif fruit_choice in fruit:
 else:
     print(f"{fruit_choice}? We don't have it.")
 ```
-Was wir an dem Beispiel gesehen haben waren also neben `if ...Bedingung... :`
-auch `if-else`:
+Was wir an dem Beispiel gesehen haben waren also neben `if ...Bedingung... :`auch `if-else`:
 ```python 
 number = 0.01   
 
@@ -231,8 +219,7 @@ elif number < 0:
 else:
     print(f"{number} müsste 0 sein?")
 ```
-Damit kann man ewig lange Abfragen bauen
-Z.B. sowas: 
+Damit kann man ewig lange Abfragen bauen, zum Beispiel sowas: 
 <!-- pytest-codeblocks:skip -->
 
 ```python 
@@ -254,7 +241,12 @@ elif angebot < 100:
 else:
     print("Moment... irgendwas stimmt hier nicht...")
 ```
-### While loop (While-Schleife)
+### ## Schleifen (*loops*) 
+
+### While-Schleife (*while loop*)
+
+`while` loops (Schleifen) laufen solange ein bestimmter Wert, oder eine Bedingung, wahr bleibt (`True`).
+
 ```python 
 x = 2
 while x < 1000:
@@ -298,11 +290,10 @@ while x < 100:
 print("Fertsch!")
 ```
 ### For loops (For Schleifen)
-In der Praxis werden in Python sogenannte "for loops" deutlich häufiger als
-"while loops" genutzt. 
+In der Praxis werden in Python sogenannte "for loops" deutlich häufiger als "while loops" genutzt. 
 Vom Prinzip her sieht das Ganze so aus.
 
-<!-- pytest-codeblocks:expect-error -->
+<!-- pytest-codeblocks:skip -->
 
 ```python 
 for expression in iterable:
@@ -311,8 +302,8 @@ else:
     other code...
 ```
 Wir lassen den `else` Teil erstmal weg. 
-Im Klartext macht ein `for` loop das Folgende. Der Loop läuft einmal durch alle
-Elemente aus `iterable`. Ein Beispiel:
+Im Klartext macht ein `for` loop das Folgende. Der Loop läuft einmal durch alle Elemente aus `iterable`. Ein Beispiel:
+
 ```python 
 for antwort in ["ja", "nee", "vielleicht", "weiss nicht"]:
     print(f"Ich sag mal...{antwort}")
@@ -326,11 +317,9 @@ for x in [0, 2, 19, 3]:
     print(x + 1)
 ```
 ### Best friends: `range` and `for`
-Oft möchten wir eine Programmteil n-mal laufen lassen. Dafür nutzt man in 
-Python `range`. `range` ist ein "generator", einen Funktionstyp den wir später
-noch genauer besprechen. An dieser Stelle reicht es zu wissen, dass es eine
-Funktion ist, die Werte erst ausgibt, wenn sie ausgelesen werden.
+Oft möchten wir eine Programmteil n-mal laufen lassen. Dafür nutzt man in Python `range`. `range` ist ein "generator", einen Funktionstyp den wir später noch genauer besprechen. An dieser Stelle reicht es zu wissen, dass es eine Funktion ist, die Werte erst ausgibt, wenn sie ausgelesen werden.
 `range` generiert Integer ein einem gewünschten Intervall und Abstand
+
 ```python 
 print(list(range(5)))  # => [0, 1, 2, 3, 4]
 print(list(range(4, 8)))  # => [4, 5, 6, 7]
@@ -390,8 +379,7 @@ for zahl in zahlen:
 Beide Befehle (`continue` und `break`) können genauso auch in `while` Schleifen
 eingesetzt werden.
 ### List comprehension !
-In Python gibt es noch eine andere, sehr kompakte Art einen Loop zu bauen.
-Das ist die sogenannte "List comprehension".
+In Python gibt es noch eine andere, sehr kompakte Art einen Loop zu bauen. Das ist die sogenannte "List comprehension".
 ```python 
 my_list = [1, 2, 10]
 new_list = [x**2 for x in my_list]
@@ -405,7 +393,10 @@ for i in my_list:
     new_list.append(i ** 2)
 print(new_list)
 ```
+Routinierte Python-Programmierer*Innen nutzten gerne und oft die list comprehension. Das verkürzt den Code eines Programmes oft deutlich. Allerdings sollte man darauf achten das *weniger Code* nicht automatisch *besserer Code* bedeutet! Vor allem bei komplizierteren, verschachtelten Beispielen sind list comprehensions oft sehr schwer zu lesen. D.h. auch wenn etwas "nur" eine Zeile Code benötigt, es aber Minuten dauert um zu verstehen was dort geschieht, ist ein normaler `for`-loop vielleicht die bessere Wahl.
+
 > ### Mini Quiz!
+>
 > Was gibt die folgende List comprehension aus?  
 > `print([s[0] for s in ["eins", "zwei", "drei"]])  
 > a) eins  
