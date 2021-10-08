@@ -241,7 +241,7 @@ elif angebot < 100:
 else:
     print("Moment... irgendwas stimmt hier nicht...")
 ```
-### ## Schleifen (*loops*) 
+## Schleifen (*loops*) 
 
 ### While-Schleife (*while loop*)
 
