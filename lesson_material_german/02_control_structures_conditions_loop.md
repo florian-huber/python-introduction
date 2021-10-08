@@ -271,7 +271,8 @@ while x < 1000:
 ```
 **Vorsicht:** While loops können auch endlos laufen!
 => Mit Ctrl+C kommt ihr da aber wieder raus :)
-<!--pytest-codeblocks:skip-->
+<!-- pytest-codeblocks:skip -->
+
 ```python 
 x = 0.9
 while x < 1000:
@@ -301,7 +302,8 @@ In der Praxis werden in Python sogenannte "for loops" deutlich häufiger als
 "while loops" genutzt. 
 Vom Prinzip her sieht das Ganze so aus.
 
-<!--pytest-codeblocks:expect-error-->
+<!-- pytest-codeblocks:expect-error -->
+
 ```python 
 for expression in iterable:
     code...
