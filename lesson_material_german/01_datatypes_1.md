@@ -128,6 +128,7 @@ Take this! And that!
 ```
 
 Doch Addition zwischen Strings und Zahlen funktioniert nicht!
+<!--pytest-codeblocks:expect-error-->
 ```python
 "100" + 5  # => TypeError
 ```
@@ -160,6 +161,7 @@ Oder wir wollen eine Zahl aus einem String erstellen:
 24
 ```
 Aber bitte keine Magie erwarten an dieser Stelle. Python erkennt hier nur offensichtliche Zahlen im String, nicht sowas wie:
+<!--pytest-codeblocks:expect-error-->
 ```python
 int("seven")  # => ValueError: invalid literal for int() with base 10: 'seven'
 ```
