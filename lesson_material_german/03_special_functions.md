@@ -12,7 +12,8 @@ Im Folgenden gehen wir kurz auf einige spezielle Funktionen-Typen ein.
 Rekursive Funktionen sind Funktionen die sich selbst aufrufen.
 Ein typisches Beispiel dafür ist die Berechnung von Fakultäten (engl. *factorial*).
 Zur Erinnerung: Fakutät von *n* ist das Produkt aller ganzen Zahlen von 1 bis *n*.
-Zum Beispiel wäre die Fakultät von vier: `4! = 1 * 2 * 3 * 4 = 24`  
+Zum Beispiel wäre die Fakultät von vier:  
+`4! = 1 * 2 * 3 * 4 = 24`  
 Eine Python Funktion dazu könnte man so schreiben:
 
 ```python 
@@ -40,7 +41,7 @@ Funktion definiert werden.
 
 ```python 
 def greeting(name):
-    """Prints a greeting depeding on the name string.
+    """Prints a greeting that depends on the given name string.
     """
     def is_friend(name):
         friends_list = ["tom", "anna", "erik"]
