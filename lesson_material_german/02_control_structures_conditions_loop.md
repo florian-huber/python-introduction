@@ -38,6 +38,15 @@ Für den Anfang nur eine einfache Input-art von Python, die Funktion `input()`.
 <!-- pytest-codeblocks:skip -->
 
 ```python
+my_str = input("String-Eingabe: ")
+print(my_str)  # => gibt den eingegebenen String aus
+```
+
+Damit können wir das `fruit`-Beispiel etwas umbauen:
+
+<!-- pytest-codeblocks:skip -->
+
+```python
 fruit = ["apple", "orange", "banana", "pear"]
 print(f"We have: {fruit}")
 fruit_choice = input("Please enter your choice: ")
@@ -99,7 +108,7 @@ print(id(a) != id(b))  # => True
 ```
 ### Optional\*: lazy Python...
 \* *Optional heisst auch immer, "nicht Prüfungsrelevant"*  
-Bei "kleinen" Objekten kann es allerdings passieren, dass diese doch die gleiche "identity" bekommen. Das macht es leider noch ein wenig unübersichtlicher: 
+Bei "kleinen" Objekten kann es allerdings passieren, dass diese doch die gleiche "identity" bekommen. Das macht es leider noch unübersichtlicher: 
 
 ```python 
 a = "looks like the same string"
