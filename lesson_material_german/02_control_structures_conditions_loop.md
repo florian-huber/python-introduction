@@ -1,3 +1,5 @@
+
+
 ## Wiederholung -> Datentypen, Syntax, warum Python
 
 # Kontrollstrukturen und Bedingungen
@@ -152,18 +154,31 @@ Wie gesagt, Wir hatten auch letztes Mal schon eine Bedingung bei den Sequenzen
 2 not in [1, 2, 3, 4, 5]  # => False 
 "z" not in "Ein String ohne kleines Z"  # => True
 ```
-logische Bedingungen and, or, not
+### Logische Bedingungen `and`, `or`
 
-```python 
-4 < 1 or 5 > 3  # => True
-```
-besser lesbar:
-```python 
-(4 < 1) or (5 > 3)  # => True
+Hier geht es nicht darum was wir im Alltag als "logisch" bezeichnen, sondern um klassische Logik, und da gilt: 
 
+```python
 True and False  # => False
 True or False  # => True
+```
 
+Hier mal ein Beispiel: 
+
+```python 
+a = 4
+a < 0 or a > 3  # => True
+```
+Besser lesbar wird es manchmal durch Klammern.
+
+```python
+a = 4
+(a < 0) or (a > 3)  # => True
+```
+
+Logische Ausdrücke, etwa mit `or` können auch zu längeren Abfragen kombiniert werden:
+
+```python 
 s = "ja"
 (s == "Ja") or (s == "JA") or (s == "ja")  # => True
 ```
@@ -193,7 +208,7 @@ else:
 ***Wichtig:*** In Python wird mit Einrückungen gearbeitet! Andere Sprachen nutzen dafür oft Klammern.
 Die Art der Einrückungen kann im Prinzip frei gewählt werden, sie muss nur Konsistent sein. Meistens werden als Standard aber 4 Leerzeichen gewählt.
 
-Weitere Ergänzung des Skripts: Was passiert z.B. mit Apple
+Weitere Ergänzung des Skripts: Was passiert z.B. mit Mango
 <!-- pytest-codeblocks:skip -->
 
 ```python 
