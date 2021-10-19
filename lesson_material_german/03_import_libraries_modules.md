@@ -78,4 +78,6 @@ print(dices(10))
 Einer der großen Vorteile von Python ist, dass es zu fast allen Themen und Fragen eine Menge an frei verfügbaren Bibliotheken gibt. Bibliotheken für mathematische Funktionen, für das Arbeiten mit großen Datensätzen, das Nutzen von Databases, für Web-searches, für graphische Darstellungen, für das Arbeiten mit Bild, Video, oder Audio-Formaten, für User-Interfaces, für maschinelles Lernen, usw.
 
 Für Anfänger*Innen hat das allerdings auch den kleinen Nachteil, dass man schnell den Überblick verliert.
-[[https://xkcd.com/1987|alt="xkcd comic"]]
+
+[xkcd comic zu dem Thema](https://xkcd.com/1987)
+![xkcd comic](https://imgs.xkcd.com/comics/python_environment_2x.png)
