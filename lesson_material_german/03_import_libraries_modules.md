@@ -1,7 +1,8 @@
 # Import aus Bibliotheken/Modulen
 
-Eine der grossen Stärken von Python ist das es sehr viele gute Bibliotheken (libraries) oder auch "Packages" oder "Modules" gibt. 
-Sofern diese installiert sind (dazu in der übung mehr) importiert man diese so:
+Eine der grossen Stärken von Python ist das es sehr viele gute Bibliotheken (libraries) oder auch "Packages" oder "Modules" gibt. Python Bibliotheken sind eigentlich nichts weiter als online verfügbarer Code. Typischerweise enthalten Bibliotheken nützliche Funktionen für bestimmte Zwecke und in der Regel sind Bibliotheken so aufgebaut, dass die darin enthaltenen Funktionen thematisch zusammen passen. Also z.B. eine Bibliothek für mathematische Funktionen wäre `math`.
+
+Sofern eine Bibliothek installiert ist (dazu in der übung mehr) importiert man diese so:
 
 ```python
 import math
@@ -18,8 +19,8 @@ print(pi)  # => 3.141592653589793
 
 Beim Importieren können wenn nötig auch die Namen geändert werden:
 ```python
-from math import sin as sinus_function
-print(sinus_function(1.0))  # => 0.8414709848078965
+from math import sin as sine_function
+print(sine_function(1.0))  # => 0.8414709848078965
 ```
 
 ## Python universe
@@ -44,6 +45,8 @@ Es ist ebenso möglich eigene Funktionen aus `.py` Dateien zu importieren.
 
 Wenn wir z.B. folgende Funktion schreiben:
 ```python
+from random import randint
+
 def dices(n_dices):
     """Returns n_dices random dice results (dice with 1 to 6).
     """
