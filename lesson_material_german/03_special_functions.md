@@ -39,6 +39,29 @@ Deutlich wichtiger (in meinen Augen...) sind dagegen lokale Funktionen.
 Als Lokale Funktionen bezeichnet man Funktionen die innerhalb einer anderen
 Funktion definiert werden.
 
+<!--pytest-codeblocks:skip-->
+```python
+def outer_function():
+    def inner_function():
+        pass # hier kommt der Code der inneren Funktion hin
+
+    # hier ist die eigentliche Funktion und die benutzt inner_function
+    inner_function()
+```
+
+
+```python
+def double_b_times(a, b):
+    def double_number(number):
+        return number * 2
+
+    for _ in range(b):
+        a = double_number(a)
+    return a
+
+print(double_b_times(5, 10))  # => 5120
+```
+
 ```python 
 def greeting(name):
     """Prints a greeting that depends on the given name string.
@@ -159,7 +182,17 @@ def multiply_all(*args):
 
 multiply_all(1, 2, 3, 4)
 ```
-Nur am Rande: Für solche Operationen gibt es in Python fast immer schon
++ Nur am Rande 1: hier nutzen wir `product *= num` was aber das gleiche ist wie `product = product * num`.  
+Es gibt in Python genauso auch `+=`, `-=`, `*=` und `/=`:
+```python
+a = 5
+a += 2  # Gleiche wie a = a + 2 
+a -= 2  # Gleiche wie a = a - 2
+a *= 2  # Gleiche wie a = a * 2
+a /= 2  # Gleiche wie a = a / 2
+```
+
++ Nur am Rande 2: Für solche Operationen gibt es in Python fast immer schon
 irgendwo eine Funktion die genutzt werden kann. Hier z.B. in der Bibliothek `math
 die wir schon gesehen hatten.
 
@@ -170,6 +203,7 @@ def multiply_all(*args):
 
 multiply_all(1, 2, 3, 4)
 ```
+
 ###  \*\*kwargs -> variable Anzahl benannter Parameter
 Analog zu `\*args` können mit `\*\*kwargs` auch benannte Parameter in unbestimmter
 Anzahl an eine Funktion übergeben werden. Dies wird aber eher später von Bedeutung sein
