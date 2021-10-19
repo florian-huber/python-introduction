@@ -49,6 +49,7 @@ def outer_function():
     inner_function()
 ```
 
+Ein erstes Beispiel einer solchen Funktion mit lokaler (innerer) Funktion:
 
 ```python
 def double_b_times(a, b):
@@ -61,6 +62,9 @@ def double_b_times(a, b):
 
 print(double_b_times(5, 10))  # => 5120
 ```
+
+Und hier ein Beispiel im Bereich String-Handling (Hinweis: `.lower()` ist eine String-Methode und
+ändert alle Buchstaben in einem String zu Kleinbuchstaben):
 
 ```python 
 def greeting(name):
