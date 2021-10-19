@@ -68,8 +68,14 @@ print(dices(10))
 ### > Mini-Quiz:
 > Es ist auch möglich Bibliotheken unter einem gewünschten Namen zu importieren:  
 `import math as mathezeugs`  
-> Was wäre dann der korrekte weg um die function sin zu nutzen?  
+> Was wäre dann der korrekte Weg um die Funktion sin zu nutzen?  
 > a) math.sin()  
 > b) mathezeugs.sin()  
 > c) sin()
-    
+
+
+## Python Universe
+Einer der großen Vorteile von Python ist, dass es zu fast allen Themen und Fragen eine Menge an frei verfügbaren Bibliotheken gibt. Bibliotheken für mathematische Funktionen, für das Arbeiten mit großen Datensätzen, das Nutzen von Databases, für Web-searches, für graphische Darstellungen, für das Arbeiten mit Bild, Video, oder Audio-Formaten, für User-Interfaces, für maschinelles Lernen, usw.
+
+Für Anfänger*Innen hat das allerdings auch den kleinen Nachteil, dass man schnell den Überblick verliert.
+[[https://xkcd.com/1987|alt="xkcd comic"]]
