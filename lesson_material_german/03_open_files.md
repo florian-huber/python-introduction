@@ -34,7 +34,6 @@ Funktion steht. Die wichtigsten Varianten davon finden sich in der Tabelle:
 |     xb      |                                       |                                                                                                                                                                                                                 |
 
 
-
 Es ist auch einfach möglich die Datei Zeile für Zeile auszulesen.
 <!--pytest-codeblocks:skip-->
 ```python 
@@ -77,12 +76,25 @@ with open("ouput_file.txt", "r") as file:
         if "3" in line:
             print(line)
 ```
-Codecs
-Text....
-open(encoding="utf-8")
+## Zeichenkodierung
+Computer kennen erstmal keine Buchstaben oder Zeichen, sondern nur Bytes. Bytes sind Zahlen im Bereich von 0 bis 255. Um mit Zahlen einen Text darstellen zu können, braucht der Computer eine Zuordnungstabelle, in der steht, welche Zahl für welchen Buchstaben stehen soll. 
 
-import os
+Es gibt zahlreiche verschiedene Kodierungen, die häufigsten sind aber:
+### ASCII
+ASCII steht für *American Standard Code for Information Interchange* und kann 256 verschiedene Zeichen darstellen. Die meisten Sonderzeichen sind daher nicht enthalten.
 
-print(os.getcwd())
+### Unicode
+Unicode ist mittlerweile der Standart, v.a. im Internet (HTML 4.0) und enthält mehr als 100.000 Zeichen.
+Es gibt verschiedene Unicode Kodierungen, am meisten genutzt in Python ist allerdings **utf-8** da dies relativ elegant (=Speicher sparend) die Zeichen kodieren kann.
 
+Für mehr Informationen zu diesem Thema: https://wiki.selfhtml.org/wiki/Zeichencodierung
+
+Sollten einmal Probleme mit Umlauten/Sonderzeichen auftreten, liegt dies in der Regal daran, dass bei einer Textdatei nicht richtig zwischen ASCII und utf-8 konvertiert wurde.
+
+Um sicher zu gehen, kann de Kodierung mit angegeben werden:
+```python 
+with open("ouput_file.txt", "w", encoding="utf-8") as file:
+    for i in range(1, 6):
+        file.write(f"Zeile {i} \n")
+```
 
