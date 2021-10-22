@@ -99,12 +99,14 @@ print(s.replace("i", "!").replace("e", "3"))
 ```python 
 print("abc".replace("ab", "cc").replace("c", "x"))
 ```
-> a) ccx b) ab c) xxx d) abx
+> a) ccx  
+> b) ab  
+> c) xxx  
+> d) abx
 
 
 ### .upper() und .lower()
-Damit könnte man jetzt auch z.B. zwischen Gross und Kleinschreibung wechseln,
-aber dafür gibt es eigene Methoden in Python --> .upper() und .lower()"
+Damit könnte man jetzt auch z.B. zwischen Gross und Kleinschreibung wechseln, aber dafür gibt es eigene Methoden in Python --> `.upper()` und `.lower()`
 Zum Beispiel sowas:
 ```python 
 tweet = "this is not fair"
