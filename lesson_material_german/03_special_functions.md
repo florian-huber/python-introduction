@@ -1,10 +1,6 @@
 # Special functions
 Wir haben uns schon Funktionen in Python angeschaut. Zur Erinnerung:  
-Funktionen werden mit `def` definiert. Funktionen müssen aufgerufen werden
-um wirklich vom Interpreter ausgeführt zu werden. Es können theoretisch beliebig viele
-Parameter (oder Argumente) an eine Funktion übergeben werden. Über `return` 
-gibt die Funktion Variablen zurück und ended. Falls kein explizietes `return`
-statement angegeben wird, gibt eine Funktion `None` zurück.  
+Funktionen werden mit `def` definiert. Funktionen müssen aufgerufen werden um wirklich vom Interpreter ausgeführt zu werden. Es können theoretisch beliebig viele Parameter (oder Argumente) an eine Funktion übergeben werden. Über `return` gibt die Funktion Variablen zurück und ended. Falls kein explizietes `return` statement angegeben wird, gibt eine Funktion `None` zurück.  
 
 Im Folgenden gehen wir kurz auf einige spezielle Funktionen-Typen ein.
 
@@ -30,8 +26,7 @@ def factorial_recursive(n):
 print(factorial_recursive(6))  # => 720
 ```
 Im Allgemeinen ist der Einsatz von rekursiven Funktionen aber eher selten.
-Häufig haben rekursive Funktionen das Problem das sie schnell sehr langsam und
-uneffizient werden.
+Häufig haben rekursive Funktionen das Problem das sie schnell sehr langsam und uneffizient werden.
 
 Deutlich wichtiger (in meinen Augen...) sind dagegen lokale Funktionen.
 
@@ -49,22 +44,21 @@ def outer_function():
     inner_function()
 ```
 
-Ein erstes Beispiel einer solchen Funktion mit lokaler (innerer) Funktion:
+Ein erstes Beispiel einer solchen Funktion (`double_n_times()`) mit lokaler/innerer Funktion (`double_number()`):
 
 ```python
-def double_b_times(a, b):
+def double_n_times(a, n):
     def double_number(number):
         return number * 2
 
-    for _ in range(b):
+    for _ in range(n):
         a = double_number(a)
     return a
 
-print(double_b_times(5, 10))  # => 5120
+print(double_n_times(5, 10))  # => 5120
 ```
 
-Und hier ein Beispiel im Bereich String-Handling (Hinweis: `.lower()` ist eine String-Methode und
-ändert alle Buchstaben in einem String zu Kleinbuchstaben):
+Und hier ein Beispiel im Bereich String-Handling (Hinweis: `.lower()` ist eine String-Methode und ändert alle Buchstaben in einem String zu Kleinbuchstaben):
 
 ```python 
 def greeting(name):
@@ -81,11 +75,8 @@ def greeting(name):
         print(f"Hello {name}.")
 ```
 Eine kleine Nebenbemerkung:  
-Beim Programmieren gibt es in der Regel nicht **eine** Lösung für ein Problem,
-sondern es können oft sehr unterschiedliche Programme für eine und dieselbe Aufgabe
-geschrieben werden.
-Im oberen Beispiel, könnte man die Zeile `return name.lower() in friends_list1`
-auch problemlos austauschen gegen eine Konstruktion mit `if`.
+Beim Programmieren gibt es in der Regel nicht **eine** Lösung für ein Problem, sondern es können oft sehr unterschiedliche Programme für eine und dieselbe Aufgabe geschrieben werden.
+Im oberen Beispiel, könnte man die Zeile `return name.lower() in friends_list1` auch problemlos austauschen gegen eine Konstruktion mit `if`.
 
         
 > ### Mini Quiz: 
@@ -99,29 +90,20 @@ auch problemlos austauschen gegen eine Konstruktion mit `if`.
 greeting("Anna")  # => Hi Anna!!
 greeting("Sandra")  # => Hello Sandra.
 ```
-Lokale Funktionen sind nicht direkt aufrufbar. Man verwendet sie daher
-v.a. für kleine Helferfunktionen (um unnötige Wiederholung zu vermeiden
-und/oder die Struktur der Hauptfunktion klarer zu machen)
+Lokale Funktionen sind nicht direkt aufrufbar. Man verwendet sie daher v.a. für kleine Helferfunktionen (um unnötige Wiederholung zu vermeiden und/oder die Struktur der Hauptfunktion klarer zu machen).
 
 In dem oberen Beispiel spart man damit keinen Code.
 Aber es wird vielleicht etwas übersichtlicher.
 
 Bei den Funktionen hatten wir auch schonmal kurz das Thema **Namespaces**.
-Dort haben wir gesehen, das Variablen die innerhalb einer Funktion definiert werden
-(also "lokal"), von aussen nicht sichtbar/nutzbar sind. 
-Das Gleiche gilt auch für lokale Funktionen, diese sind für den Rest eines
-Programmes nicht sichtbar.
+Dort haben wir gesehen, das Variablen die innerhalb einer Funktion definiert werden (also "lokal"), von aussen nicht sichtbar/nutzbar sind. Das Gleiche gilt auch für lokale Funktionen, diese sind für den Rest eines Programmes nicht sichtbar.
 
 <!--pytest-codeblocks:expect-error-->
 ```python 
 is_friend("Tom")  # => NameError: name 'is_friend' is not defined
 ```
-Wenn die Helfer-Funktion auch in anderen Funktionen benutzt wird,
-macht es Sinn sie als Helferfunktion in ein eigene Datei zu stecken
-und zu importieren, z.B. mit  
-`from helper_functions import is_friend`
-
-
+Wenn die Helfer-Funktion auch in anderen Funktionen benutzt wird, macht es Sinn sie als Helferfunktion in ein eigene Datei zu stecken
+und zu importieren, z.B. mit `from helper_functions import is_friend`.
 
 
 ### Lokale Funktionen: Wann benutzen und wann nicht?
@@ -131,11 +113,7 @@ Lokale Funktionen machen Sinn als kleine Helfer-Funktionen, wenn sie
 - mehrere Male in der äusseren Funktion aufgerufen werden und/oder
 - die äussere Funktion lesbarer machen
 
-Stellen wir uns vor die Funktion `is_friend` würde nun in zwei weiteren Funktionen
-eingesetzt. Dann müsste sie in beiden lokal definiert werden. Das ist aber
-umständlich und sehr fehleranfällig (z.B. wenn eine geändert wird, die andere
-aber versehentlich nicht). Darum würde man in diesem Fall lieber eine eigene Funktion 
-definieren (oder importieren):
+Stellen wir uns vor die Funktion `is_friend` würde nun in zwei weiteren Funktionen eingesetzt. Dann müsste sie in beiden lokal definiert werden. Das ist aber umständlich und sehr fehleranfällig (z.B. wenn eine geändert wird, die andere aber versehentlich nicht). Darum würde man in diesem Fall lieber eine eigene Funktion definieren (oder importieren):
 ```python 
 def is_friend(name):
     """Return True if name is in friends_list
@@ -145,7 +123,7 @@ def is_friend(name):
 
 
 def greeting(name):
-    """Prints a greeting depeding on the name string.
+    """Prints a greeting depending on the name string.
     """
     if is_friend(name):
         print(f"Hi {name}!!")
@@ -161,11 +139,9 @@ def goodbye(name):
     else:
         print(f"Goodbye {name}.")
 ```
+
 ### Funktionen mit variabler Parameter-Anzahl
-Alle bisherigen Funktionen die wir angeschaut haben, erwarten eine bestimmte
-Anzahl an Parametern. Eventuell gibt es einige mit default-Wert die ausgelassen
-werden können, aber es dürfen auf keinen Fall mehr als die definierten
-Parameter übergeben werden.
+Alle bisherigen Funktionen die wir angeschaut haben, erwarten eine bestimmte Anzahl an Parametern. Eventuell gibt es einige mit default-Wert die ausgelassen werden können, aber es dürfen auf keinen Fall mehr als die definierten Parameter übergeben werden.
 
 <!--pytest-codeblocks:expect-error-->
 ```python 
@@ -174,8 +150,7 @@ def multiply_all(a, b, c):
 
 multiply_all(1, 2, 3, 4)  # => TypeError: multiply_all() takes 3 positional arguments but 4 were given
 ```
-Wenn wir die Anzahl aber wie in diesem Fall bewusst offen lassen möchten 
-können wir in Python `\*args` benutzen (kurz für *arguments*).
+Wenn wir die Anzahl aber wie in diesem Fall bewusst offen lassen möchten können wir in Python `\*args` benutzen (kurz für *arguments*).
 
 ```python 
 def multiply_all(*args):
@@ -196,9 +171,7 @@ a *= 2  # Gleiche wie a = a * 2
 a /= 2  # Gleiche wie a = a / 2
 ```
 
-+ Nur am Rande 2: Für solche Operationen gibt es in Python fast immer schon
-irgendwo eine Funktion die genutzt werden kann. Hier z.B. in der Bibliothek `math
-die wir schon gesehen hatten.
++ Nur am Rande 2: Für solche Operationen gibt es in Python fast immer schon irgendwo eine Funktion die genutzt werden kann. Hier z.B. in der Bibliothek `math` die wir schon gesehen hatten.
 
 ```python 
 import math
@@ -209,9 +182,7 @@ multiply_all(1, 2, 3, 4)
 ```
 
 ###  \*\*kwargs -> variable Anzahl benannter Parameter
-Analog zu `\*args` können mit `\*\*kwargs` auch benannte Parameter in unbestimmter
-Anzahl an eine Funktion übergeben werden. Dies wird aber eher später von Bedeutung sein
-wenn wir mit komplexeren Funktionen jonglieren.  
+Analog zu `\*args` können mit `\*\*kwargs` auch benannte Parameter in unbestimmter Anzahl an eine Funktion übergeben werden. Dies wird aber eher später von Bedeutung sein wenn wir mit komplexeren Funktionen jonglieren. 
 Trotzdem schonmal ein Beispiel dazu:
 ```python 
 def guess_the_animal(**kwargs):
@@ -224,5 +195,5 @@ def guess_the_animal(**kwargs):
 
 guess_the_animal(legs=4, color="gray", weight="5000 kg") 
 ```
-Das Beispiel kommt eventuell in den Übungsaufgaben zurück...
+Das Beispiel kommt eventuell in der Übung zurück...
 
