@@ -154,7 +154,7 @@ def greeting(name):
         
         
 def goodbye(name):
-    """Prints a goodbye depeding on the name string.
+    """Prints a goodbye depending on the name string.
     """
     if is_friend(name):
         print(f"Bye {name}!!")
