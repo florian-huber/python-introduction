@@ -15,8 +15,6 @@ Strings zählen in Python zu den Sequenzen, darum können demensprechende Method
 ```python 
 print("das" in "dasselbe")  # => True
 print("x" not in "abcdefg")  # => True
-print("aabbccdd".count("a"))  # => 2
-
 ```
 Ebenso das **slicing**:
 ```python 
@@ -188,8 +186,7 @@ if s.startswith(("Name:", "name:", "NAME:")):
     print("Ja, ist wohl ein Namenseintrag")
 
 ```
-Eine weitere sehr praktische Funktion (die es so ähnlich auch für Listen gibt)
-ist `.count()` um die Anzahl eines Elementes zu zählen.
+Eine weitere sehr praktische Funktion (die es so ähnlich auch für Listen gibt) ist `.count()` um die Anzahl eines Elementes zu zählen.
 ```python 
 s = "Die meisten Texte haben schon ein paar 'e's."
 print(s.count("s"))  # => 3
