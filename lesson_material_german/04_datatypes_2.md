@@ -283,3 +283,120 @@ for key, value in my_dict.items():
 
 
 
+
+
+# from Python 3.7 onwards, dictionaries are ordered!
+
+
+
+#%%
+my_dict = {"name": "Gilderoy Lockhart",
+           "function": "teacher",
+           "password": "goldlocks"}
+
+x = my_dict["password"]
+x = my_dict.get("password")
+
+#%% is changable
+my_dict["password"] = "prettyfl0wer"
+print(my_dict["password"])
+
+#%% Ask if key in dictionary
+print("password" in my_dict)
+
+#%% Access whole dictionary
+print(my_dict.keys())
+print(my_dict.values())
+
+print(my_dict.items())
+
+#%%
+for key, value in my_dict.items():
+    print(f"{key} is {value}.")
+
+#%%
+for x in my_dict:
+    print(x)
+    
+#%% Add items
+my_dict["hair color"] = "blond"
+print(my_dict)
+
+#%%
+
+## Nested dictionaries
+
+Bei Listen hatten wir besprochen, dass eine Liste auch weitere Listen enthalten kann. Damit können also verschachtelte Listen erstellt werden. Das Gleiche geht auch für Dictionaries, d.h. ein Dictionary kann weitere Dictionaries enthalten. Damit können auch komplexere key-value Logiken abgebildet werden.
+
+```python
+hogwarts = {
+    "Dumbeldore": {
+        "surname": "Albus",
+        "function": "headmaster"
+        },
+    "Lockhart": {
+        "surname": "Gilderoy",
+        "function": "teacher"
+        },
+    "Granger" : {
+        "surname": "Hermione",
+        "function": "pupil"
+        },
+} 
+
+
+print(hogwarts["Granger"]["surname"])  # => Hermione
+```
+
+Bei den entsprechenden Einrückungen hilft zum Glück das IDE (Spyder, Visual Studio Code PyCharm etc.), denn das kann zu Beginn schnell etwas unübersichtlich werden. Und Python erlaubt oft verschiedene Einrückungen, z.B. ginge auch sowas:
+
+```python
+hogwarts = {"Dumbeldore": {"surname" : "Albus",
+                           "function" : "headmaster"},
+            "Lockhart": {"surname": "Gilderoy",
+                         "function": "teacher"},
+            "Granger": {"surname": "Hermione",
+                        "function": "pupil"},
+            } 
+
+
+print(hogwarts["Granger"]["surname"])  # => Hermione
+```
+
+## Vorsicht: Hier mal etwas das nicht sonderlich intuitiv ist...
+
+Oft möchten wir bestimmte Objekte (zum Beispiel in Dictionary) kopieren. Etwa, wenn wir eine Kopie von einem Dictionary machen wollen um diese danach zu verändern. 
+
+```python
+hogwarts_book7 = hogwarts.copy()
+hogwarts_book7["Dumbeldore"]["function"] = "former headmaster"
+
+print(hogwarts["Dumbeldore"]["function"])  # => former headmaster
+```
+
+Das entspricht jetzt nicht unbedingt dem Ergebnis das erwartet wurde. Wir haben hier das Dictionary `hogwarts_book7` verändert, aber damit (ohne es zu wollen) auch den Eintrag im ursprünglichen Dictionary `hogwarts` angepasst.
+
+Das liegt daran, dass wir hier eine sogenannte flache Kopie (**shallow copy**) erstellt haben.
+Hierbei wird das Dictionary nicht komplett kopiert, sondern manchen Element im Speicher wird nur ein neuer Namen zugewiesen. 
+
+Für einfache Dictionaries funktioniert das Ganze:
+
+```python
+my_dict = {1: "one", 2: "two"}
+new_dict = my_dict.copy()
+new_dict[1] = "Eins"
+print(my_dict)  # => {1: "one", 2: "two"}
+```
+
+Nur für verschachtelte Dictionary klappt das leider nicht mehr.
+Hier brauchen wir keine *shallow*, sondern eine *deep* (also tiefe) Kopie:
+
+```python
+import copy
+
+hogwarts_book7 = copy.deepcopy(hogwarts)
+hogwarts_book7["Dumbeldore"]["function"] = "former headmaster"
+
+print(hogwarts["Dumbeldore"]["function"])  # => headmaster
+```
+
