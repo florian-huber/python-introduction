@@ -276,53 +276,14 @@ print(my_dict.items())  # alle key-value Paare
 
 Mit diesen Optionen, können auch `for`-Loops genutzt werden, z.B. hier mit  `.items()`:
 
+<!-- pytest-codeblocks:cont -->
+
 ```python
 for key, value in my_dict.items():
     print(f"{key} is {value}.")
 ```
 
 
-
-
-
-# from Python 3.7 onwards, dictionaries are ordered!
-
-
-
-#%%
-my_dict = {"name": "Gilderoy Lockhart",
-           "function": "teacher",
-           "password": "goldlocks"}
-
-x = my_dict["password"]
-x = my_dict.get("password")
-
-#%% is changable
-my_dict["password"] = "prettyfl0wer"
-print(my_dict["password"])
-
-#%% Ask if key in dictionary
-print("password" in my_dict)
-
-#%% Access whole dictionary
-print(my_dict.keys())
-print(my_dict.values())
-
-print(my_dict.items())
-
-#%%
-for key, value in my_dict.items():
-    print(f"{key} is {value}.")
-
-#%%
-for x in my_dict:
-    print(x)
-    
-#%% Add items
-my_dict["hair color"] = "blond"
-print(my_dict)
-
-#%%
 
 ## Nested dictionaries
 
@@ -367,6 +328,8 @@ print(hogwarts["Granger"]["surname"])  # => Hermione
 
 Oft möchten wir bestimmte Objekte (zum Beispiel in Dictionary) kopieren. Etwa, wenn wir eine Kopie von einem Dictionary machen wollen um diese danach zu verändern. 
 
+<!-- pytest-codeblocks:cont -->
+
 ```python
 hogwarts_book7 = hogwarts.copy()
 hogwarts_book7["Dumbeldore"]["function"] = "former headmaster"
@@ -393,6 +356,14 @@ Hier brauchen wir keine *shallow*, sondern eine *deep* (also tiefe) Kopie:
 
 ```python
 import copy
+
+hogwarts = {"Dumbeldore": {"surname" : "Albus",
+                           "function" : "headmaster"},
+            "Lockhart": {"surname": "Gilderoy",
+                         "function": "teacher"},
+            "Granger": {"surname": "Hermione",
+                        "function": "pupil"},
+            } 
 
 hogwarts_book7 = copy.deepcopy(hogwarts)
 hogwarts_book7["Dumbeldore"]["function"] = "former headmaster"
