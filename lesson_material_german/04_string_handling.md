@@ -89,8 +89,9 @@ Eine Möglichkeit ist das Nachschlagen in der [Python Dokumentation](https://doc
 Hier eine Tabelle mit den wichtigesten String-Methoden:
 
 ### String-Methoden in Python
-|     count()         |     Returns the number of times a specified   value occurs in a string                            |
+|     Methode         |     Beschreibung (english)                            |
 |---------------------|---------------------------------------------------------------------------------------------------|
+|     count()         |     Returns the number of times a specified   value occurs in a string                            |
 |     encode()        |     Returns an encoded version of the   string                                                    |
 |     endswith()      |     Returns true if the string ends with   the specified value                                    |
 |     index()         |     Searches the string for a specified   value and returns the position of where it was found    |
