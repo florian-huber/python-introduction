@@ -1,4 +1,4 @@
-# # Datentypen II
+# Datentypen II
 
 Wir haben schon einige Datentypen gesehen. Jetzt wollen wir aber noch einmal genauer darauf eingehen und weitere wichtige Typen besprechen.
 
@@ -164,4 +164,122 @@ print(f"Named twice: {most_popular}")
 ```
 
 > ### Mini-QUIZ! Welche Tiere werden hiermit ausgegeben?
+>
+> a) {'parrot', 'goldfish', 'cow'}
+> b) {'cat', 'dog'}
+> c) {'elephant', 'lion'}
+> d) {}
+
+Sets können auch erweitert werden mit `add()` oder `update()`. Elemente können auch entfernt werden mit `remove()`.
+
+```python
+animals = {"cat", "dog", "elephant", "lion"}
+animals.add("cow")
+animals.update({"wolf", "goat"})
+animals.remove("lion")
+print(animals)
+```
+
+Es können auch einfach Sequenzen (list, str) in ein Set umgewandelt werden
+
+```python
+s = "dann am abend baden mit diamentendieben die bananen dabei haben"
+```
+
+> ### Wie viele verschiedene Buchstaben hat der Satz?
+
+```python
+characters = set(s)
+print(characters)
+print(f"Anzahl der Zeichen im string: {len(s)}")
+print(f"Aber nur {len(characters)} einzigartige Zeichen!")
+```
+
+## Dictionaries
+
+Dictionaries sind ein häufig verwendeter Datentyp mit Daten als Schlüssel-Werte Paare genutzt werden können. D.h. die einzelnen Werte (oder Objekte) - `value` sind immer einem Schlüssel `key`zugeordnet.
+
+```python
+my_dict = {key1: value1,
+          key2: value2}
+```
+
+Ein Beispiel könnte eine Zuordnung von Wörtern in zwei verschiedenen Sprachen sein, hier Deutsch-Englisch:
+
+```python
+my_dict = {"Hallo": "hello",
+           "Tschüss": "bye",
+           "Danke": "thanks"}
+
+print(my_dict["Danke"])
+```
+
+Wie bei Sets, gibt es auch in Dictionaries keine Dopplungen:
+
+```python
+my_dict = {"Hallo": "hello",
+           "Tschüss": "bye",
+           "Danke": "thanks",
+           "Hallo": "hi"}
+
+print(my_dict["Hallo"])  # => 'hi'
+```
+
+Einzelne Elemente aus einem Dictionary können mit dem entsprechenden Schlüssel ausgelesen werden:
+
+```python
+my_dict = {"name": "Gilderoy Lockhart",
+           "function": "teacher",
+           "password": "goldlocks"}
+
+x = my_dict["password"]
+
+# Alternativ geht auch:
+x = my_dict.get("password")
+```
+
+Genau wie List oder Set ist auch das Dictionary in Python veränderbar (mutable). Das bedeutet, dass Einträge hinzugefügt, entfernt, oder verändert werden können.
+
+<!-- pytest-codeblocks:cont -->
+
+```python
+my_dict["password"] = "prettyfl0wer"
+print(my_dict["password"])  # => 'prettyfl0wer'
+```
+
+Neue key-value Paare können einfach hinzugefügt werden:
+
+<!-- pytest-codeblocks:cont -->
+
+```python
+my_dict["hair color"] = "blond"
+print(my_dict)
+```
+
+Es lässt sich auch abfragen ob ein bestimmter Schlüssel enthalten ist:
+
+<!-- pytest-codeblocks:cont -->
+
+```python
+print("password" in my_dict)  # => True
+```
+
+Um den gesamten Inhalt eines Dictionary abzufragen gibt es u.a. folgende Optionen:
+
+<!-- pytest-codeblocks:cont -->
+
+```python
+print(my_dict.keys())  # alle keys
+print(my_dict.values())  # alle Werte (values)
+print(my_dict.items())  # alle key-value Paare
+```
+
+Mit diesen Optionen, können auch `for`-Loops genutzt werden, z.B. hier mit  `.items()`:
+
+```python
+for key, value in my_dict.items():
+    print(f"{key} is {value}.")
+```
+
+
 
