@@ -69,9 +69,7 @@ print("Manchmal wird '\\r' oder '\\r\\n' \r\n benutzt statt '\\n' \n doch",
 ## String methods
 Darüber hinaus gibt es aber in Python noch eine grosse Zahl von speziellen **String-Methoden**.
 Wir werden nicht alle besprechen, aber die in meinen Augen Wichtigsten.
-Zur Wiederholung nochmal kurz was sie machen können wenn sie die passende
-Methode nicht mehr parat haben (das kommt bei Python übrigens auch bei
-erfahrenen Programmierer*Innen ständig vor, zumindest bei mir...)
+Zur Wiederholung nochmal kurz was sie machen können wenn sie die passende Methode nicht mehr parat haben (das kommt bei Python übrigens auch bei erfahrenen Programmierer*Innen ständig vor, zumindest bei mir...)
 
 ### .replace()
 ```python 
@@ -80,7 +78,7 @@ s.replace("i", "!")
 print(s)  # => nichts passiert?
 
 ```
-Die Methoden ändern nicht den original-String, sondern geben einen neuen zurück
+Die Methoden ändern nicht den original-String, sondern geben einen neuen zurück:
 <!--pytest-codeblocks:cont-->
 ```python 
 s2 = s.replace("i", "!")
@@ -178,7 +176,6 @@ Typische Beispiele wären `.startswith()` und `.endswith()`:
 s = "name: Markus"
 s.startswith("name:")  # => True
 s.endswith(".")  # => False
-
 ```
 
 Hierbei können auch mehrere Abfragen kombiniert werden
