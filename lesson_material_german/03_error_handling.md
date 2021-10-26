@@ -2,25 +2,25 @@
 Bestimmt haben alle inzwischen schon einige Python Errors gesehen...
 
 z.B. 
-<!--pytest-codeblocks:expect-error-->
+<!-- pytest-codeblocks:expect-error -->
 ```python
 print(dies)  # => NameError: name 'dies' is not defined
 ```
 
 oder
-<!--pytest-codeblocks:expect-error-->
+<!-- pytest-codeblocks:expect-error -->
 ```python
 else = 5  # => SyntaxError: invalid syntax
 ```
 
 oder
-<!--pytest-codeblocks:expect-error-->
+<!-- pytest-codeblocks:expect-error -->
 ```python
 open("no_file")  # => FileNotFoundError: [Errno 2] No such file or directory: 'no_file'
 ```
 
 oder
-<!--pytest-codeblocks:expect-error-->
+<!-- pytest-codeblocks:expect-error -->
 ```python
 5 / 0  # => ZeroDivisionError: division by zero
 ```
@@ -99,12 +99,14 @@ print(divider(5, 0))
 Manchmal wollen wir auch bewusst Fehlermeldungen produzieren
 Das geht zum einen mit `raise`
 
-<!--pytest-codeblocks:expect-error-->
+<!-- pytest-codeblocks:expect-error -->
+
 ```python
 raise Exception("Something went wrong")
 ```
 
-<!--pytest-codeblocks:expect-error-->
+<!-- pytest-codeblocks:expect-error -->
+
 ```python
 x = "hello"
 
@@ -138,5 +140,11 @@ def hour_to_am_pm(hour):
 
 
 hour_to_am_pm(13)  # => 1 p.m.
+```
+
+<!-- pytest-codeblocks:expect-error -->
+
+```python
 hour_to_am_pm(25)  # => AssertionError: hour must be between 0 and 24
 ```
+
