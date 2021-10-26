@@ -9,6 +9,7 @@ print(dies)  # => NameError: name 'dies' is not defined
 
 oder
 <!-- pytest-codeblocks:expect-error -->
+
 ```python
 else = 5  # => SyntaxError: invalid syntax
 ```
@@ -117,6 +118,9 @@ if not type(x) is int:
 
 ## Assert
 Oft ist es in solchen Fällen einfacher mit einer anderen Python Funktion zu arbeiten: ´assert´
+
+<!-- pytest-codeblocks:expect-error -->
+
 ```python
 x = "hello"
 
