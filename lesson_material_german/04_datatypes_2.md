@@ -188,6 +188,8 @@ s = "dann am abend baden mit diamentendieben die bananen dabei haben"
 
 > ### Wie viele verschiedene Buchstaben hat der Satz?
 
+<!-- pytest-codeblocks:cont -->
+
 ```python
 characters = set(s)
 print(characters)
@@ -198,6 +200,8 @@ print(f"Aber nur {len(characters)} einzigartige Zeichen!")
 ## Dictionaries
 
 Dictionaries sind ein häufig verwendeter Datentyp mit Daten als Schlüssel-Werte Paare genutzt werden können. D.h. die einzelnen Werte (oder Objekte) - `value` sind immer einem Schlüssel `key`zugeordnet.
+
+<!-- pytest-codeblocks:skip -->
 
 ```python
 my_dict = {key1: value1,
@@ -352,7 +356,7 @@ print(my_dict)  # => {1: "one", 2: "two"}
 ```
 
 Nur für verschachtelte Dictionary klappt das leider nicht mehr.
-Hier brauchen wir keine *shallow*, sondern eine *deep* (also tiefe) Kopie:
+Hier brauchen wir keine *shallow*, sondern eine *deep* (also tiefe) Kopie bei der das ganze Dictionary noch einmal komplett neu in den Speicher geschrieben wird.
 
 ```python
 import copy
