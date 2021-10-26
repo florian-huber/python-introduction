@@ -70,6 +70,11 @@ my_list[2] = "XYZ"
 print(my_list)  # => ['abc', 'xyz', 'XYZ']
 ```
 
+### Boolean und None
+Weitere Datentypen die wir jetzt schon häufiger gesehen haben, ohne aber näher darauf einzugehen das es einzelne Datentypen sind: Boolean (oder `bool`) und NoneType (oder `None`).
+Ein Boolean kann nur `True` oder `False` sein.
+Und `None` steht in der Regel für einen nicht vorhandenen Wert oder ein nicht vorhandenes Objekt.
+
 ---
 
 Es gibt in Python aber noch 2 weitere sehr wichtige Datentypen:
@@ -170,6 +175,15 @@ print(f"Named twice: {most_popular}")
 > c) {'elephant', 'lion'}
 > d) {}
 
+Auch andere Operationen aus der Mengenlehre gibt es für sets, wie etwa: 
+```python
+animal_set1 = {"cat", "dog", "elephant", "lion"}
+animal_set2 = {"parrot", "cat", "dog", "goldfish", "cow"}
+
+named_once = animal_set1.symmetric_difference(animal_set2)
+print(f"Named once: {named_once}")
+```
+
 Sets können auch erweitert werden mit `add()` oder `update()`. Elemente können auch entfernt werden mit `remove()`.
 
 ```python
@@ -215,7 +229,7 @@ my_dict = {"Hallo": "hello",
            "Tschüss": "bye",
            "Danke": "thanks"}
 
-print(my_dict["Danke"])
+print(my_dict["Danke"])  # => thanks
 ```
 
 Wie bei Sets, gibt es auch in Dictionaries keine Dopplungen:
@@ -248,7 +262,7 @@ Genau wie List oder Set ist auch das Dictionary in Python veränderbar (mutable)
 
 ```python
 my_dict["password"] = "prettyfl0wer"
-print(my_dict["password"])  # => 'prettyfl0wer'
+print(my_dict["password"])  # => prettyfl0wer
 ```
 
 Neue key-value Paare können einfach hinzugefügt werden:
@@ -303,7 +317,7 @@ hogwarts = {
         "surname": "Gilderoy",
         "function": "teacher"
         },
-    "Granger" : {
+    "Granger": {
         "surname": "Hermione",
         "function": "pupil"
         },
