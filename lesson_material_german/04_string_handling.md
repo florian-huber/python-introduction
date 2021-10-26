@@ -45,7 +45,7 @@ print(s[-7:])
 Manche Zeichen oder Zeichenkombinationen werden von Python besonders interpretiert.
 Zum einen gibt es einige unmögliche Kombinationen, z.B. 
 
-<!--pytest-codeblocks:expect-error-->
+<!-- pytest-codeblocks:expect-error-->
 ```python 
 print("Da steht "Stop"!")  # => SyntaxError: invalid syntax
 ```
@@ -111,28 +111,26 @@ Hier eine Tabelle mit den wichtigesten String-Methoden:
 
 
 
-### .replace()
+### `.replace()`
 Recht häufig wollen wir bestimmte Zeichen, Wörter, oder Wortteile ersetzten. Das geht u.a. mit `replace()´.
 ```python 
 s = "Nicht immer gefallen uns alle Zeichen"
 s.replace("i", "!")
 print(s)  # => nichts passiert?
-
 ```
 Die Methoden ändern nicht den original-String, sondern geben einen neuen zurück:
-<!--pytest-codeblocks:cont-->
+<!-- pytest-codeblocks:cont -->
 ```python 
-s2 = s.replace("i", "!")
-print(s2)
-
-
+s_new = s.replace("i", "!")
+print(s_new)
 ```
+
 Es lassen sich auch mehrere Methodenaufrufe kombinieren:
-<!--pytest-codeblocks:cont-->
+<!-- pytest-codeblocks:cont -->
 ```python 
 print(s.replace("i", "!").replace("e", "3"))
-
 ```
+
 > ### Mini Quiz!
 > Spekulieren Sie: Was gibt der folgende Befehl aus?
 ```python 
@@ -144,8 +142,8 @@ print("abc".replace("ab", "cc").replace("c", "x"))
 > d) abx
 
 
-### .upper() und .lower()
-Damit könnte man jetzt auch z.B. zwischen Gross und Kleinschreibung wechseln, aber dafür gibt es eigene Methoden in Python --> `.upper()` und `.lower()`
+### `.upper()` und `.lower()`
+Damit könnte man jetzt auch z.B. zwischen Gross- und Kleinschreibung wechseln, aber dafür gibt es eigene Methoden in Python --> `.upper()` und `.lower()`
 Zum Beispiel sowas:
 ```python 
 tweet = "this is not fair"
@@ -154,29 +152,27 @@ print(tweet_trumpified)  # => THIS IS NOT FAIR!
 
 ```
 Und mit .lower() wieder halbwegs zurück:
-<!--pytest-codeblocks:cont-->
+<!-- pytest-codeblocks:cont -->
 ```python 
 tweet_moderated = tweet_trumpified.lower()
 print(tweet_moderated)
-
-
 ```
 Oft wollen wir Texte (oder Strings) in eine bestimmte Form bringen damit danach weitere Aktionen oder Analysen funktionieren.
 Zum Beispiel User-Eingaben vereinheitlichen:
 ```python 
 eingabe1 = " Muster, Markus."  # Leerzeichen und Punkt stören
 eingabe2 = "Test, Trude   "  # Gleich mehrere Leerzeichen?
-
 ```
+
 `.strip()` wird genutzt um Leerzeichen (white spaces) an beiden Enden eines Strings zu entfernen. Es gibt auch `. rstrip()` und `.lstrip()` die nur auf das rechte oder linke Ende schauen.
-<!--pytest-codeblocks:cont-->
+<!-- pytest-codeblocks:cont -->
 ```python 
 print(eingabe1.strip())
 print(eingabe2.strip())
 ```
 
-`.strip()` kann noch mehr. Es können nämlich auch weitere Zeichen mit angegebn werden die entfernt werde sollen (und auch mehrere gleichzeitig!)
-<!--pytest-codeblocks:cont-->
+`.strip()` kann noch mehr. Es können nämlich auch weitere Zeichen mit angegeben werden die entfernt werde sollen (und auch mehrere gleichzeitig!)
+<!-- pytest-codeblocks:cont -->
 ```python 
 print(eingabe1.strip("!?. ")) 
 print(eingabe2.strip("!?. "))
@@ -220,7 +216,7 @@ s.endswith(".")  # => False
 ```
 
 Hierbei können auch mehrere Abfragen kombiniert werden
-<!--pytest-codeblocks:cont-->
+<!-- pytest-codeblocks:cont -->
 ```python 
 if s.startswith(("Name:", "name:", "NAME:")):
     print("Ja, ist wohl ein Namenseintrag")
@@ -235,7 +231,7 @@ print(s.count("Te"))  # => 1
 
 ```
 Und `.index()` gibt die Position des ersten Elements zurück
-<!--pytest-codeblocks:cont-->
+<!-- pytest-codeblocks:cont -->
 ```python 
 index_te = s.index("te")
 print(f"Stelle im String: {index_te}")
