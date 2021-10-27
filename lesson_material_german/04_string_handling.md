@@ -196,6 +196,15 @@ print(worte)
 print(f"Dieser Satz hat {len(worte)} Worte.")
 ```
 
+Wenn wir auch noch die anderen Satzzeichen entfernen möchten, dann kann zusätzlich `.replace()` gebraucht werden.
+```python 
+satz = "Viele Sätze haben viele Worte, manchmal sogar Zeichen!"
+satz_cleaned = satz.replace(",", "").replace("!", "").replace(".", "")
+worte = satz_cleaned.split(" ")
+print(worte)
+print(f"Dieser Satz hat {len(worte)} Worte.")
+```
+
 Oder sowas:
 ```python 
 mail = "trude_97@monty-mail.com"
