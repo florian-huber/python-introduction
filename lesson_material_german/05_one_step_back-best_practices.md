@@ -186,6 +186,8 @@ Wie baue ich jetzt ein ganzen Rock-Paper-Scissors Spiel?
 
 Natürlich kann man einfach los-programmieren. Für solch ein einfaches Spiel geht das auch noch halbwegs:
 
+<!-- pytest-codeblocks:skip -->
+
 ```python
 def game():
     print("Yes! Rock-Paper-Scissors!")
@@ -226,6 +228,8 @@ Das funktioniert auch. Aber es könnte ruhig etwas lesbarer und besser strukturi
 Ein Zen-Spruch der hier zutreffen würde ist *Flat is better than nested*. Denn wir sehen hier drei verschachtelte`if`-Verzweigungen!
 
 Die äußere `if`Verzweigung soll nur sicherstellen, dass keine falsche Eingabe stattgefunden hat. Das lässt sich aber auch mit `assert`erledigen:
+
+<!-- pytest-codeblocks:skip -->
 
 ```python
 def game():
@@ -274,6 +278,8 @@ Wie wäre es z.B. mit einem folgenden Schema:
 Den ersten Teil haben wir schon mit unserer Funktion `rock_paper_scissor()` abgedeckt. 
 
 Ein Vorschlag für den Rest wäre der folgende Code:
+
+<!-- pytest-codeblocks:skip -->
 
 ```python
 def user_choice():
