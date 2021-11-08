@@ -10,7 +10,13 @@ Die ersten 4 Wochen haben wir schon viele wichtige Grundlagen in Python gesehen:
 * Fehlerhandling mit try-except
 * Bibliotheken
 
-Höchste Zeit um einen kleinen Schritt zurück zu machen und den Blick freizugeben für das **big picture**, das große Ganze. Zeit für:
+Höchste Zeit um einen kleinen Schritt zurück zu machen und den Blick freizugeben für das **big picture**, das große Ganze. 
+
+### Teams vs. lonely hacker
+
+Wir haben etwas ausführlicher über Teams und Pair Programming gesprochen --> bisher nur in den Slides auf Moodle zu finden.
+
+Danach ging es um **Code Quality** und **Clean Code**, angefangen mit:
 
 ## Zen of Python
 
