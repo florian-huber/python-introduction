@@ -1,8 +1,10 @@
 ![GitHub](https://img.shields.io/github/license/florian-huber/python-introduction)
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/florian-huber/python-introduction/CI%20Tests)
 
-# Code examples for Python introduction course (data science bachelor at HSD)
-Code examples for Python introduction course
+# Einführung Programmieren mit Python (Data Science related bachelor at HSD)
+Python Code Beispiele mit Erklärungen.
+# Python introduction course (data science related bachelor at HSD)
+Code examples for Python introduction course (english version yet to come...).
 
 ## Set up Python environment
 The simplest way to get the right Python environment to work with during this course is to install [Anaconda](anaconda.org/).
