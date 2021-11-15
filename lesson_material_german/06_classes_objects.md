@@ -231,3 +231,12 @@ Das liegt daran, dass wir hier gesagt haben das `Circle` auf die Klasse `Point`z
 
 `Point` wird die "Basisklasse" oder auch Super-, Ober- oder Elternklasse genannt (*parent class*), während `Circle` in diesem Beispiel die "abgeleitete Klasse" oder auch Sub-, Unter-, oder Kindklasse heißt (*child class*).
 
+Es lassen sich damit auch interessante Zugehörigkeits- oder Type-Abfragen machen. So ist `a` im oberen Beispiel ein Objekt der Klasse `Circle`, aber ist eben auch auf eine Art verbunden mit der *parent class*  `Point`. In Python können solche Zugehörigkeiten abgefragt werden mit `isinstance()`:
+
+<!-- pytest-codeblocks:cont -->
+
+```python
+print(isinstance(a, Point))  # => True
+print(isinstance(a, Circle))  # => True
+```
+
