@@ -212,9 +212,27 @@ Es gibt aber noch viele andere Möglichkeiten mit Klassen. Eine besonders mächt
 
 Klassen können anderen Klassen ihre Eigenschaften vererben. Das ist in der Praxis tatsächlich oft sehr nützlich! Hier mal ein Beispiel: Wir haben gerade Punkte definiert (`Point`-Klasse) und möchten jetzt auch andere geometrische Typen entwerfen. Dann müssen wir nicht unbedingt alles neu definieren, sondern es geht auch das Folgende:
 
-<!-- pytest-codeblocks:cont -->
-
 ```python
+# Schon oben ausgeführt:
+import math
+
+class Point:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    def position(self):
+        print(self.x, self.y)
+
+    def center_distance(self):
+        return math.sqrt(self.x ** 2 + self.y ** 2)
+    
+    def distance_to_point(self, point):
+        dist_x = self.x - point.x
+        dist_y = self.y - point.y
+        return math.sqrt(dist_x ** 2 + dist_y ** 2)
+    
+# Neue Klasse definieren:    
 class Circle(Point):
     def __init__(self, x, y, radius):
         self.x = x
