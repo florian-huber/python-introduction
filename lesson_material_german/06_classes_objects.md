@@ -173,6 +173,8 @@ print(a.distance_to_point(b))  # => 12.083045973594572
 
 Nochmal ein anderes Beispiel in dem wir eine Klasse `Fruit` definieren. Danach erstellen wir damit verschiedene `Fruit`-Objekte.
 
+<!-- pytest-codeblocks:cont -->
+
 ```python
 class Fruit:
     def __init__(self, name,
@@ -223,7 +225,7 @@ a = Circle(11, 2, 5)
 print(a.center_distance())  # => 11.180339887498949
 ```
 
-Ohne das wir eine Methode neu definiert hätten, funktioniert schon der Aufruf `.center_distance()`!
+Ohne das wir eine Methode neu definiert haben, funktioniert schon der Aufruf `.center_distance()`!
 
 Das liegt daran, dass wir hier gesagt haben das `Circle` auf die Klasse `Point`zurückgreifen darf. Man spricht hier von "Vererbung" und demensprechend auch davon, dass `Circle` das Kind (*child*) ist von `Point`. 
 
