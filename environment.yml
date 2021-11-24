@@ -6,4 +6,5 @@ dependencies:
   - matplotlib
   - jupyter
   - spyder>=5.*
+  - scikit-learn
   - pytest
