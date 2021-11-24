@@ -36,6 +36,8 @@ print(a.center_distance())
 
 Es gibt auch noch eine andere Möglichkeit den Konstruktor (`__init__()`) anzupassen und gleichzeitig auf den Konstruktor der *parent class* zuzugreifen und zwar mit `super()`:
 
+<!-- pytest-codeblocks:cont -->
+
 ```python
 class Circle(Point):
     def __init__(self, x, y, radius):
@@ -56,7 +58,7 @@ In der Übung diese Woche haben wir angefangen mit Klassen zu programmieren. Dab
 
 - Über `class XYZ:` wird eine abstrakte Klasse *definiert*. Der eigentliche Code darin wird aber erst ausführbar, wenn ein Objekt der Klasse erzeugt wird (`a = XZY()`).
   Attribute die erst im Konstruktor (`__init__()`) gesetzt werden, werden erst erzeugt wenn auch ein Objekt der Klasse erzeugt wird.
-  <!-- pytest-codeblocks:expected-error -->
+  <!-- pytest-codeblocks:expect-error -->
 
   ```python
   class DoNothing:
@@ -78,7 +80,7 @@ In der Übung diese Woche haben wir angefangen mit Klassen zu programmieren. Dab
 
 - Eine Methode einer Klasse wird zwar wie eine Funktion definiert (mit `def abc(): ...` ), aber die Methode ist nicht global verfügbar. Nur über erzeugte Objekte der Klasse können die Methoden ausgeführt werden. Beispiel:
 
-  <!-- pytest-codeblocks:expected-error -->
+  <!-- pytest-codeblocks:expect-error -->
 
   ```python
   class SuperPrint:
@@ -232,7 +234,7 @@ Die Attribute mit Status *private* geben aber einen `AttributeError`, d.h. diese
 
 Das gleiche geht natürlich auch mit einem Konstruktor:
 
-<!-- pytest-codeblocks:expected-error -->
+<!-- pytest-codeblocks:expect-error -->
 
 ```python
 class MagicSpell:
