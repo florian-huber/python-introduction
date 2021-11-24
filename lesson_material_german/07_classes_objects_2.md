@@ -212,7 +212,7 @@ Python hat hier also drei Stufen:
 • __name (**Private**): 
  Sind von außen weder sichtbar noch benutzbar 
 
-<!-- pytest-codeblocks:expected-error -->
+<!-- pytest-codeblocks:expect-error -->
 
 ```python
 class MagicSpell:
