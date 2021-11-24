@@ -4,7 +4,7 @@
 
 ## Wiederholung (mit kleinen Extras)
 
-Letzte Woche haben wir Klassen und die damit erzeugten Objekte kennengelernt, bzw. wie wir Klassen in Python definieren können. Klassen können Attribute (~Variablen) und Methoden (~Funktionen) haben. Das heißt, das Objekte sowohl Daten als auch dazugehörige Funktionen beinhalten. Wir hatten das letzte Mal eine Klassse `Point` und alle Objekte dieser Klasse haben nicht nur eine x-y Koordinate, sondern sie bringen auch einige Methoden mit, z.B. eine Methode zur Bestimmung des Abstandes zum Ursprung (0,0).
+Letzte Woche haben wir Klassen und die damit erzeugten Objekte kennengelernt, bzw. wie wir Klassen in Python definieren können. Klassen können Attribute (~Variablen) und Methoden (~Funktionen) haben. Das heißt, das Objekte sowohl Daten als auch dazugehörige Funktionen beinhalten. Wir hatten das letzte Mal eine Klasse `Point` und alle Objekte dieser Klasse haben nicht nur eine x-y Koordinate, sondern sie bringen auch einige Methoden mit, z.B. eine Methode zur Bestimmung des Abstandes zum Ursprung (0,0).
 
 Dann haben wir gesehen wie einfach eine neue Klasse definiert werden kann, die alle Eigenschaften und Methoden einer anderen Klasse *erbt*. Man nennt solch eine Klasse *child class* (oder abgeleitete Klasse) und den Prozess *Vererbung* (*inheritance*).
 
@@ -290,7 +290,7 @@ Da man die Attribute mit Status nicht nur nicht einsehen kann, sondern diese auc
 
 Ok. Schön. Aber wozu das Ganze?
 
-Die (oder zumindest eine) Idee dahinter ist, dass Entwickler*Innen die entwickelten Klassen für bestimmte Nutzungen vorgesehen haben und zum einen "falsche" Nutzung vermeiden möchten, zum Anderen aber auch eine Nutzung nicht unnötig erschweren wollen indem zu viele Details über die genaue Implementierung sichtbar sind. 
+Die (oder zumindest eine) Idee dahinter ist, dass Entwickler*Innen die entwickelten Klassen für bestimmte Nutzungen vorgesehen haben und zum einen "falsche" Nutzung vermeiden möchten, zum Anderen aber auch eine Nutzung nicht unnötig erschweren wollen indem zu viele Details über die genaue Implementierung sichtbar sind.
 
 Oder anders: Wenn wir eine Python Klasse nutzen, interessiert uns meistens vor allem **wie** sie genutzen werden kann und weniger wie der Code dahinter aussieht. Ein Beispiel: Wenn wir eine Liste erstellen, z.B. mit `my_list = [3, 5, 7, 1, 4]` und diese dann sortieren wollen, dann reicht es erstmal völlig wenn wir wissen, dass es dafür eine passende Methode namens `.sort()` gibt (und wie wir diese benutzen). Welche Unterfunktionen etc. dahinter stecken ist erstmal nicht unsere Hauptsorge.
 
