@@ -73,13 +73,11 @@ import numpy as np
 b = np.array([[2, 4, 7],
               [3, 5, 11]])
 
-print("Matrix shape:", matrix.shape)
-print("Total number of elements:", matrix.size)
-print("Matrix dimensions:", matrix.ndim)
-print("Data type:", matrix.dtype)
+print("Matrix shape:", b.shape)
+print("Total number of elements:", b.size)
+print("Matrix dimensions:", b.ndim)
+print("Data type:", b.dtype)
 ```
-
-
 
 
 
@@ -130,8 +128,8 @@ import numpy as np
 
 matrix = np.array(
     [[1, 2, 3],
-    [4, 5, 6],
-    [7, 8, 9]])
+     [4, 5, 6],
+     [7, 8, 9]])
 
 indices = [2, 0, 2, 0]
 print(matrix[indices])
