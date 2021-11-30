@@ -65,7 +65,7 @@ Numpy Arrays unterscheiden sich in vieler Hinsicht von den Listen:
 
 ### Informationen zum Numpy Array
 
-Wie gerade erwähnt, gibt es viele Möglichkeiten numerische Werte in einem Numpy Array zu speichern. Um den entsprechenden Datentypen abzufragen nutzen wir `.dtype`. Darüber hinaus kann auch die Form (shape) abgefragt werden mit `.shape` und die Gesamtanzahl der Elemente mit  `.size`. Die Dimension des Arrays bekommen wir mit `.ndim_`.
+Wie gerade erwähnt, gibt es viele Möglichkeiten numerische Werte in einem Numpy Array zu speichern. Um den entsprechenden Datentypen abzufragen nutzen wir `.dtype`. Darüber hinaus kann auch die Form (shape) abgefragt werden mit `.shape` und die Gesamtanzahl der Elemente mit  `.size`. Die Dimension des Arrays bekommen wir mit `.ndim`.
 
 ```python
 import numpy as np
