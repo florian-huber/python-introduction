@@ -2,7 +2,7 @@
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/florian-huber/python-introduction/CI%20Tests)
 
 # Einführung Programmieren mit Python (Data Science related bachelor at HSD)
-Python Code Beispiele mit Erklärungen.
+Skript zur Vorlesung "Einführung Programmieren für Data Science und Künstliche Intelligenz" mit Code Beispielen und Erklärungen.
 # Python introduction course (data science related bachelor at HSD)
 Code examples for Python introduction course (english version yet to come...).
 
