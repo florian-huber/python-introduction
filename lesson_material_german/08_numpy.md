@@ -22,7 +22,7 @@ print(umfrage_diffs)
 print([abs(x) for x in umfrage_diffs])
 ```
 
-Mit NumPy wäre das Ganze deutlich einfacherer Möglich:
+Mit NumPy wäre das Ganze deutlich einfacher möglich:
 
 ```python
 import numpy as np
