@@ -1,7 +1,8 @@
 ### Variablen
 
 Variablen sind essentiell für das Schreiben von Programmen.
-Oft stellt man sich darunter Boxen vor in die Daten gepackt werden.
+Oft stellt man sich darunter Boxen vor in die Daten gepackt werden, man spricht
+in diesem Zusammenhang auch von Zuweisungen.
 
 In Python werden Daten den Variablen einfach mit `=` zugewiesen.
 ```python 
@@ -46,7 +47,7 @@ Was wird wohl jetzt passieren wenn wir `print("hello world!")` laufen lassen?
 Ok, das sollte also deutlich sein... Variablen besser keinen Namen geben
 der auch anderweitig als Funktion vorkommt. 
 
-Eine Sache die Ptyhon doch verbietet sind Variablennamen die sogennanten 
+Eine Sache die Python doch verbietet sind Variablennamen die sogennanten 
 [**reserverd keywords**](https://www.w3schools.com/python/python_ref_keywords.asp)
 entsprechen
 <!--pytest-codeblocks:expect-error-->
