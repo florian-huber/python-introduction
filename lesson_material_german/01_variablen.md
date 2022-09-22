@@ -1,7 +1,7 @@
 ### Variablen
 
 Variablen sind essentiell für das Schreiben von Programmen.
-Oft stellt man sich darunter Boxen vor in die Daten gepackt werden, man spricht
+Oft stellt man sich darunter Boxen vor in die Daten gepackt werden. In Wirklichkeit werden bestimmten Variablennamen Daten (oder: Objekte) zugewiesen. Darum spricht man
 in diesem Zusammenhang auch von Zuweisungen.
 
 In Python werden Daten den Variablen einfach mit `=` zugewiesen.

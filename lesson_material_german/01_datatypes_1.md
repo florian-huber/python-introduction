@@ -199,4 +199,4 @@ This is 8 times better than that.
 ```
 Damit werden wir am meisten arbeiten.
 
-Note: Es gibt auch noch eine Reihe ander Arten dafür, zum Beispiel einige old-school Varianten aus Python 2, so wie: `print("This is %s times better than that" % 5)`, aber damit arbeiten wir hier nicht. Trotzdem könnte sowas in manchen Foren/Tutorials vorkommen.
+Note: Es gibt auch noch eine Reihe anderer Arten dafür, zum Beispiel einige old-school Varianten aus Python 2, so wie: `print("This is %s times better than that" % 5)`, aber damit arbeiten wir hier nicht. Trotzdem könnte sowas in manchen Foren/Tutorials vorkommen.
