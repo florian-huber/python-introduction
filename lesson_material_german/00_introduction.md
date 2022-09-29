@@ -1,3 +1,5 @@
+*Florian Huber, florian.huber@hs-duesseldorf.de*
+
 # Programmieren für Data Science und Künstliche Intelligenz
 
 Dies ist ein Skript zur Veranstaltung "Programmieren für Data Science und Künstliche Intelligenz" im Studiengang DAISY an der Hochschule Düsseldorf (HSD). Und wie die meisten Skripte: Work in progress...
