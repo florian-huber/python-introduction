@@ -313,6 +313,31 @@ Namen mit Bedeutung
 
 
 
+## Debugging!
+
+Mit **debugging** meinen wir das Beseitigen von Fehlern im Programmcode (Fehler = "bugs").
+Wir werden später noch detaillierter auf das Thema eingehen, aber gleich zu Beginn ist es hilfreich ein wenig Erfahrung zu sammeln mit der Art und Weise wie Python (bzw. der Python-Interpreter) Fehler im Code anzeigt. Hierbei geht es nicht um Fehler, die ein erfolgreiches Ausführen des Codes unmöglich machen.
+
+Dazu die folgende kleine Übung:
+
+1. Was passiert bei einer print-Anweisung, wenn wir eine oder beide 
+Klammern weglassen?
+
+2. Was passiert wenn wir einen String ausgeben wollen und eine 
+oder beide Anführungszeichen weglassen?
+
+3. Was passiert wenn wir zwei Zahlen addieren wollen aber ++ oder +++ schreiben?
+
+4. Was passiert wenn wir ein + oder eine Null vor 
+eine Zahl schreiben, z.B. 05 - 2 oder +5 -2 ?
+
+5. Was passiert wenn wir ein Leerzeichen vor print("hello") schreiben?
+
+6. Mit Python beantworten ("Taschenrechnermodus"): Wie viele Sekunden 
+haben 42 Minuten und 42 Sekunden?
+
+
+
 ### Listen / Sequenzen
 
 **Sequenzen** sind bei Python eine ganze Kategorie verschiedener Datentypen. Ein Beispiel davon hatten wir bereits: **Strings**
