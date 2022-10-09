@@ -462,12 +462,50 @@ my_list[1:3] # => [4, 6]
 my_str[1:3] # => in
 ```
 
+#### Slicing!
+
+Eine der wichtigsten Techniken im Umgang mit Sequenzen in Python ist das sogenannte **slicing** (also deutsch in etwa: schneiden). Damit ist gemeint, dass wir aus Sequenzen bestimmte Teilmengen auswählen können.
+
+Dies wird in Python in eckigen Klammern und mit Hilfe von Integern und Doppelpunktzeichen angegeben.
+Es können dabei bis zu drei Werte angegeben werden in der Form:
+
+```python
+my_variable[start:stop:stepsize]
+```
+
+Hier eine Beispiele zur Verdeutlichung:
+
+```python
+fruits = ["apple", "banana", "mango", "melon",
+          "lemon", "pear", "pineapple"]
+
+# Alle Früchte ab dem Index 2
+print(fruits[2:])
+
+# Alle Früchte bis zum Index 3
+print(fruits[:3])
+
+# Alle Früchte mit Index 1 bis 6
+print(fruits[1:6])
+
+# Jede zweite Frucht mit Index 1 bis 6
+print(fruits[1:6:2])  # 2 ist hier die "Schrittweite"
+
+# Jede dritte Frucht
+print(fruits[::3])
+
+# Alle Früchte in umgekehrter Reihenfolge
+print(fruits[::-1])
+```
+
+Typischerweise ist diese Notierung am Anfang etwas gewöhnungsbedürftig wird in Python aber so häufig verwendet, dass man sich das Slicing in der Regel schnell antrainiert. Es gibt z.B. oft auch andere Wege um die Elemente einer Sequenz in umgekehrter Reihenfolge auszugeben. In der Praxis fällt den meisten Entwickler\*Innen aber am schnellsten die Lösung mit `[::-1]` ein, so dass diese sehr oft in Programmen auftaucht.
+
+### List Methoden
+
 Darüber hinaus haben die verschiedenen Datentypen aber noch weitere eigene Methoden
 Das Arbeiten mit Strings werden wir in einigen der folgenden Vorlesungen noch
 genauer betrachten. Hier aber schon einmal eine Tabelle mit wichtigen Methoden
 für Python Listen.
-
-### List Methoden
 
 | Operation              | Ergebnis                                                     |
 | ---------------------- | ------------------------------------------------------------ |
