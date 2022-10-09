@@ -62,7 +62,6 @@ Mini Quiz:
 > b) ValueError  
 > c) We have no Ketchup ice cream!  
 
-
 Das führt uns direkt zur Frage: 
 Wie überprüfen wir ob es unsere Wahl überhaupt gibt?
 Bei den Sequenzen hatten wir schon kurz die Abfrage `xxx in my_list`
@@ -86,19 +85,25 @@ print(4.01 == 4)  # => False
 
 "apple" != "pear"  # => True
 ```
-### Notiz: `is` und `==` bedeuten verschiedene Dinge
-Vorsicht mit dem `is`. Dem normalen Sprachgebrauch nach scheint es völlig Sinn zu machen wenn wir schreiben: 
+### Kleiner Exkurs: `is` und `==` bedeuten verschiedene Dinge!
+
+Vorsicht mit dem `is`. Dem normalen Sprachgebrauch nach scheint es völlig Sinn zu machen wenn wir `is` und `==` wie Synonyme verwenden. Beim Programmieren (in Python zumindest) bedeuten die beiden Operatoren aber verschiedene Dinge: 
+
 ```python 
 a = 12345678
 b = 12345678
-print(a is b)  # => False
+print(a == b)  # => True
 ```
-Dies gibt aber nicht das gleiche aus wie `==`:  
+Das ist natürlich keine große Überraschung. Möglicherweise aber doch, das `is` nicht das gleiche Ergebnis liefert: 
 <!-- pytest-codeblocks:cont -->
 
 ```python 
-print(a == b)  # => True
+print(a is b)  # => False
 ```
+### Nochmal zurück zu den Variablen
+
+Wir hatten schon gesehen, dass Variablen Zuweisungen zu Werten irgendwo im Speicher sind. 
+
 `is` bezieht sich in Python auf eine Abfrage die darauf zielt zu sehen ob es sich um ein und Dasselbe Objekt handelt. Genauer eigentlich, ob zwei Objekte gleich sind und an der selben Speicheradresse hinterlegt sind.
 Dies kann auch über `id()` (von identity) ausgegeben werden:
 <!-- pytest-codeblocks:cont -->
@@ -108,7 +113,36 @@ print(id(a))
 print(id(b))
 print(id(a) != id(b))  # => True
 ```
+![image-20221009213424266](../images/python_assign_variables.png)
+
+In der Praxis werden wir aber nur sehr selten mit `is` Abfragen in diesem Kontext zu tun haben. Doch zu verstehen was "hinter der Bühne" abläuft hilft auch bei einer anderen noch viel wichtigeren Unterscheidung die wir in Python berücksichtigen müssen. In Python unterscheiden wir Datentypen nach veränderbar (**mutable**) und unveränderbar (**immutable**). 
+
+**Veränderbare Datentypen** erlauben es, dass deren Werte dynamisch verändert werden können. Zu dieser Kategorie zählen Listen, Sets (kommen später) und Dictionaries (kommen später).
+
+**Unveränderbare Datentypen** erlaben es nicht, dass die Werte nachträglich geändert werden. Dazu zählen  Zahlen (int, float), Boolean, String und Tuples.
+
+Beispiel:
+
+```python
+fruits = ["apple", "banana", "mango"]
+print(fruits[-1])  # -> mango
+
+# Beim Datentyp list können wir Elemente verändern:
+fruit[-1] = "orange"
+print(fruits[-1])  # -> orange
+
+
+# Beim Datentyp Tuple geht das nicht
+fruits = ("apple", "banana", "mango")
+print(fruits[-1])  # -> mango
+
+fruit[-1] = "orange"  # -> TypeError
+```
+
+Natürlich können wir aber auch Variablen mit unveränderbaren Datentypen beliebig neu zuweisen. Dabei wird aber immer auch ein neues Objekt im Speicher erzeugt.![image-20221009214626493](../images/python_assign_variables_immutable.png)
+
 ### Optional\*: lazy Python...
+
 \* *Optional heisst auch immer, "nicht Prüfungsrelevant"*  
 Bei "kleinen" Objekten kann es allerdings passieren, dass diese doch die gleiche "identity" bekommen. Das macht es leider noch unübersichtlicher: 
 
@@ -184,8 +218,11 @@ s = "ja"
 ```
 ***Vorsicht:*** Logik-Abfragen können schnell kompliziert werden!
 
+---
+
 ### Bedingte Anweisungen (if, if-else)
-Wofür jetzt das Ganze? 
+
+Wofür jetzt das Ganze? Was ist so toll an den Bedingungen?
 Konditionen und logische Abfragen sind essentiell wenn es um Programmflüsse geht. Konkret geht es hier um sogenannte "bedingte Anweisungen".
 
 ```python 
@@ -269,14 +306,24 @@ else:
 
 ### While-Schleife (*while loop*)
 
-`while` loops (Schleifen) laufen solange ein bestimmter Wert, oder eine Bedingung, wahr bleibt (`True`).
+`while` loops (Schleifen) laufen solange ein bestimmter Wert, oder eine Bedingung, wahr bleibt (`True`). In Python sieht deren Codestruktur aus wie folgt:
+
+<!-- pytest-codeblocks:skip -->
+
+```python
+while True:
+    # do something
+    
+# Code here is only executed after the while loop
+```
+
+Ein kleines Beispiel:
 
 ```python 
 x = 2
 while x < 1000:
     x = x**2
     print(x)
-    
 ```
 Anderer Startwert:
 ```python 
@@ -313,7 +360,26 @@ while x < 100:
     print(x)
 print("Fertsch!")
 ```
+#### break!
+
+Wie wir schon gesehen haben können while-Schleifen auch endlos laufen (was eigentlich nie gewünscht ist). Denn die while-Schleife läuft solange die angegebene Bedingung `True` ist. Sobald die Bedingung `False` wird hört die Schleife auf.
+Es gibt aber noch eine zweite Möglichkeit eine while-Schleife zu beenden und zwar mit `break`
+
+```python
+x = 5
+dx = 0.9
+while x < 100:
+    x = x * dx
+    print(x)
+    if x < 0.5:
+        print("x is too small")
+        break
+```
+
+
+
 ### For loops (For Schleifen)
+
 In der Praxis werden in Python sogenannte "for loops" deutlich häufiger als "while loops" genutzt. 
 Vom Prinzip her sieht das Ganze so aus.
 
@@ -321,9 +387,9 @@ Vom Prinzip her sieht das Ganze so aus.
 
 ```python 
 for expression in iterable:
-    code...
+    # code
 else:
-    other code...
+    # some other code
 ```
 Wir lassen den `else` Teil erstmal weg. 
 Im Klartext macht ein `for` loop das Folgende. Der Loop läuft einmal durch alle Elemente aus `iterable`. Ein Beispiel:
@@ -359,8 +425,7 @@ print(list(range(10, 30, 4)))  # => [10, 14, 18, 22, 26]
 OK, zurück zum eigentlichen Einsatz, dem `for` loop:
 ```python 
 for i in range(5):
-    print(i)
-    
+    print(i)    
 ```
 Tada!
 Falls die Zahl `i` innerhalb der Schleife nicht verwendet wird kann sie auch
