@@ -31,7 +31,7 @@ Die allgemeine Struktur von Funktionen ist:
 
 ```python 
 def function_name(parameter1, parameter2, etc):
-    ... code ...
+    # code
     return result
 ```
 Besser sogar noch so, mit einem sogenannten Docstring der die grundlegende Dokumentation der Funktion darstellt. Hierin können die Funktion und die Parameter beschrieben werden. Zusätzlich kann aber auch ein Code Beispiel angegeben werden oder Referenzen genannte werden.
@@ -42,7 +42,7 @@ Besser sogar noch so, mit einem sogenannten Docstring der die grundlegende Dokum
 def function_name(parameter1, parameter2, ...):
     """Hier wird die Funktion beschrieben
     """
-    ... code ...
+    # code
     return result
 ```
 Es gibt auch Funktionen ohne parameter (siehe oben `gute_sache()`).

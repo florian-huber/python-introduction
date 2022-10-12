@@ -52,7 +52,7 @@ Damit können wir das `fruit`-Beispiel etwas umbauen:
 fruit = ["apple", "orange", "banana", "pear"]
 print(f"We have: {fruit}")
 fruit_choice = input("Please enter your choice: ")
-print(f"Here is your {fruit_choice} ice cream!"
+print(f"Here is your {fruit_choice} ice cream!")
 ```
 
 Mini Quiz:
