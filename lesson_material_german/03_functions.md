@@ -46,7 +46,7 @@ def function_name(parameter1, parameter2, ...):
     return result
 ```
 Es gibt auch Funktionen ohne parameter (siehe oben `gute_sache()`).
-Ausserdem kann man defaults festlegen! Diese werden genutzt, falls kein neuer Wert für die entsprechenden Parameter eingegeben wird.
+Ausserdem kann man *defaults* festlegen! Diese werden genutzt, falls kein neuer Wert für die entsprechenden Parameter eingegeben wird.
 
 <!-- pytest-codeblocks:skip -->
 
@@ -141,15 +141,67 @@ print(boxes_to_eggs(5, 0.25, 10))  # => -48 !!!
 > c) die Variablen  
 > d) None
 
+### Return - irgendwas kommt immer zurück
+
+Wie wir oben schon gesehen haben enthalten viele Funktionen die wir in Python schreiben ein sogenanntes Return-Statement. Das macht zwei Dinge. Es beendet die Ausführung der Funktion und es gibt einen oder mehrere Werte zurück ("Rückgabewerte"). Zum Beispiel `return variable1, variable2` würde die Werte der lokalen Variablen `variable1` und `variable2` zurückgeben.
+
+Eine Funktion benötigt jedoch kein explizites return-Statement. Wir hatten oben auch Beispiele von Funktionen gesehen, die kein `return` enthalten, ein einfaches (sinnfreies) Beispiel wäre
+
+```python
+def double_print(input_str):
+    print(2 * input_str)
+
+double_print("Hello World!")  # --> Hello World!Hello World!
+```
+
+In Python kann es allerdings keine Funktion ohne Rückgabewert haben. Darum geben Funktionen die sonst nichts zurückgeben würden ein `None` zurück. So auch die `print()` Funktion selber:
+
+```python
+what_comes_back = print("hello")
+print(what_comes_back)  # --> None
+```
+
+#### return muss nicht am Ende stehen
+
+Auch wenn wir dies häufig sehen, v.a. zu Beginn: das return-Statement muss keinesfalls am Ende einer Funktion stehen. Und es kann auch mehrere return-Statements geben. Zum Beispiel:
+
+```python
+def pick_smallest(a, b):
+    if a > b:
+        return b
+    if a < b:
+        return a
+    print("They look alike!")
+```
+
+Diese Funktion endet mit dem ersten oder dem zweiten return-Statement. Oder keines von beidem trifft zu, dann wird print() aufgerufen und -wie wir gerade gelernt haben- ein `None` zurückgegeben.
 
 ### Namensräume
+
 Unter einem Namensraum versteht man einen Teil (oder Raum) innerhalb eines Programmes, in dem ein Name (z.B. Variablen und Funktionen) gültig ist.
-In Python gibt es drei Arten solcher Geltungsbereiche:
+In Python gibt es v.a. drei Arten solcher Geltungsbereiche:
+
 + Lokaler Geltungsbereich (innerhalb einer Funktion oder Methode)
-+ Modularer Geltungsbereich (innerhalb einer Datei/eines Programmes)
++ Globaler Geltungsbereich (verfügbar für alle Teile eines Programmes, bzw. innerhalb eines Interpreters)
 + Eingebauter Geltungsbereich (von Python definierte Namen sind immer gültig)
 
-Aber schauen wir das Ganze besser mal an einem Beispiel an: 
+Aber schauen wir das Ganze besser mal an einigen Beispielen an:
+
+```python
+a = 5
+b = 7
+
+def do_stuff():
+    # a wird lokal nicht definiert!
+    # gerne testen: print(a)
+    # gerne testen: print(locals())
+    return a + b
+    
+result = do_stuff()
+print(a, b, result)  # => 5 7 12
+```
+
+Die von uns definierte Funktion `do_stuff()` kann also einfach auf die Variablen `a` und `b` zugreifen. Das liegt daran, dass dies in Python **globale Variablen** sind. Sie wurden im Programm außerhalb von Funktionen/Methoden zugewiesen und sind für alle Teile eines Programmes erreichbar.
 
 ```python 
 a = 5
@@ -164,19 +216,9 @@ def do_stuff():
 result = do_stuff()
 print(a, b, result)  # => 5 7 1007
 ```
-<!-- pytest-codeblocks:cont -->
+Hier wurde eine Variable die ebenfalls den Namen `a` trägt innerhalb einer Funktion zugewiesen und genutzt. Variablen die innerhalb von Funktionen zugewiesen werden sind in Python **lokale Variablen**, d.h. sie sind nur innerhalb der jeweiligen Funktion verfügbar. Wie man im obigen Beispiel sieht, wird dadurch auch keineswegs die globale Variable `a` verändert.
 
-```python 
-def do_stuff():
-    # a wird lokal nicht definiert
-    #print(a)
-    #print(locals())
-    return a + b
-    
-result = do_stuff()
-print(a, b, result)  # => 5 7 12
-```
-Globale Variablen können zwar benutzt, aber i.d.r nicht verändert werden!
+Genau das ist nämlich auch nicht erlaubt in Python. Globale Variablen können lokal zwar benutzt, aber in der Regel nicht verändert werden!
 
 <!-- pytest-codeblocks:expect-error -->
 
@@ -188,8 +230,8 @@ def do_stuff():
 a = 10
 do_stuff() # ==> UnboundLocalError: local variable 'a' referenced before assignment
 ```
-### Optional\*: Hä? Wann wird jetzt was verändert??
-\* *Genau. Optional bedeutet auch: nicht Prüfungsrelevant*  
+### Hä? Wann wird jetzt was verändert??
+
 Gerade haben wir gesehen, dass globale Variablen nicht lokal in einer Funktion geändert werden können. Das gilt aber nur für unveränderbare (inmmutable) Datentypen, so wie int, float, tuple.
 Bei veränderbaren (mutable) Datentypen sieht das anders aus. Zumindest wenn deren eigene Methoden genuzte werden (also Funktionen die mit `.xzy()` aufgerufen werden). 
 In diesen Fällen wird die Methode direkt auf das Objekt selbst angewandt:
@@ -235,7 +277,7 @@ my_list = [1, 2]
 do_other_stuff(my_list)  # => inner function: [1, 2, 55]
 print(my_list)  # => [1, 2]
 ```
-Manchmal führt dieses Verhalten zu Schwierigkeiten. Z.B. wenn eine Funktion versehentlich den Anschein erweckt als würde sie einen neuen Wert ausgeben, aber dann leider doch auch den EIngabewert selbst verändert.
+Manchmal führt dieses Verhalten zu Schwierigkeiten. Z.B. wenn eine Funktion versehentlich den Anschein erweckt als würde sie einen neuen Wert ausgeben, aber dann leider doch auch den Eingabewert selbst verändert.
 
 Hier mal ein Beispiel. Wir wollen eine Funktion haben die alle Werte 
 einer Liste verdoppelt.
@@ -277,4 +319,4 @@ my_list_x2 = double_values(my_list)
 print(my_list, my_list_x2)  # => [5, 10, 15] [10, 20, 30]
 ```
 ### Vorschau
-In der nächsten Vorlesung geht es dann um weitere Typen von Funktionen...
+In der nächsten Teil geht es dann um weitere Typen von Funktionen...
