@@ -230,6 +230,35 @@ def do_stuff():
 a = 10
 do_stuff() # ==> UnboundLocalError: local variable 'a' referenced before assignment
 ```
+Eine Ausnahme ist, wenn Variablen innerhalb einer Funktion explizit als `global` gesetzt werden:
+
+```python
+def do_stuff():
+    global a  # defines a new global variable
+    a = a * 2
+    return a
+
+a = 10
+do_stuff()
+```
+
+**WICHTIG:** 
+Das Arbeiten mit globalen Variablen ist in den allermeisten Fällen **nicht zu empfehlen**!
+Es wird nämlich sehr schnell unklar wann und wo eine bestimmte Variable überall verändert wird. Häufig führt dies zu ungewünschten Ergebnissen die dazu noch sehr schwer zu verstehen und zu beheben sein können.
+
+**Best Practice:**
+Es ist darum sehr zu empfehlen einer Funktionen alle Parameter die diese benötigt explizit zu übergeben:
+
+```python
+def do_stuff(a):
+    a = a * 2
+    return a
+
+do_stuff(10)
+```
+
+
+
 ### Hä? Wann wird jetzt was verändert??
 
 Gerade haben wir gesehen, dass globale Variablen nicht lokal in einer Funktion geändert werden können. Das gilt aber nur für unveränderbare (inmmutable) Datentypen, so wie int, float, tuple.
