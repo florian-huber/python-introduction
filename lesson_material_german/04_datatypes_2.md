@@ -77,7 +77,7 @@ Und `None` steht in der Regel für einen nicht vorhandenen Wert oder ein nicht v
 
 ---
 
-Es gibt in Python aber noch 2 weitere sehr wichtige Datentypen:
+Es gibt in Python aber noch zwei weitere sehr häufig verwendete Datentypen:
 
 ## Sets und Dictionaries
 
@@ -213,7 +213,7 @@ print(f"Aber nur {len(characters)} einzigartige Zeichen!")
 
 ## Dictionaries
 
-Dictionaries sind ein häufig verwendeter Datentyp mit Daten als Schlüssel-Werte Paare genutzt werden können. D.h. die einzelnen Werte (oder Objekte) - `value` sind immer einem Schlüssel `key`zugeordnet.
+Dictionaries sind ein häufig verwendeter Datentyp mit dem Daten als Schlüssel-Werte Paare genutzt werden können. D.h. die einzelnen Werte (oder Objekte) - `value` sind immer einem Schlüssel `key` zugeordnet.
 
 <!-- pytest-codeblocks:skip -->
 

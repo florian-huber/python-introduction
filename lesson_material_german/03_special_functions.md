@@ -78,7 +78,7 @@ Eine kleine Nebenbemerkung:
 Beim Programmieren gibt es in der Regel nicht **eine** Lösung für ein Problem, sondern es können oft sehr unterschiedliche Programme für eine und dieselbe Aufgabe geschrieben werden.
 Im oberen Beispiel, könnte man die Zeile `return name.lower() in friends_list1` auch problemlos austauschen gegen eine Konstruktion mit `if`.
 
-        
+
 > ### Mini Quiz: 
 > Was wird bei greeting("Anna") ausgegeben:
 > a) Hello Anna.  
@@ -184,6 +184,7 @@ multiply_all(1, 2, 3, 4)
 ###  \*\*kwargs -> variable Anzahl benannter Parameter
 Analog zu `\*args` können mit `\*\*kwargs` auch benannte Parameter in unbestimmter Anzahl an eine Funktion übergeben werden. Dies wird aber eher später von Bedeutung sein wenn wir mit komplexeren Funktionen jonglieren. 
 Trotzdem schonmal ein Beispiel dazu:
+
 ```python 
 def guess_the_animal(**kwargs):
     """Give some hints as keywords-value pairs for guessing an animal.
@@ -195,5 +196,3 @@ def guess_the_animal(**kwargs):
 
 guess_the_animal(legs=4, color="gray", weight="5000 kg") 
 ```
-Das Beispiel kommt eventuell in der Übung zurück...
-
