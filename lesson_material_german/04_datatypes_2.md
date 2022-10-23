@@ -342,13 +342,55 @@ hogwarts = {"Dumbeldore": {"surname" : "Albus",
 print(hogwarts["Granger"]["surname"])  # => Hermione
 ```
 
-## Vorsicht: Hier mal etwas das nicht sonderlich intuitiv ist...
+## =, copy(), deepcopy() 
+
+**Vorsicht: Hier mal etwas das nicht sonderlich intuitiv ist...**
 
 Oft möchten wir bestimmte Objekte (zum Beispiel in Dictionary) kopieren. Etwa, wenn wir eine Kopie von einem Dictionary machen wollen um diese danach zu verändern. 
+
+Dictionaries sind - wie z.B. auch Listen - veränderbare (mutable) Datentypen bei Python. Wir haben schon einmal gesehen, dass dies zu etwas unerwarteten Resultaten führen kann, z.B.
+
+```python
+my_list = [1, 2, 3]
+my_list2 = my_list1
+my_list2[0] = 4321
+print(my_list[0])  # -> 4321
+```
+
+Das Gleiche würde auch bei Dictionaries eintreten und zwar auch aus genau demselben Grund. Python erstellt kein neues Objekt im Speicher, sondern "verlinkt" nur die neue Variable mit dem gleichen Eintrag im Speicher. 
+Eine mögliche Lösung stell hier die Methode `copy()` dar.
+
+```python
+my_list = [1, 2, 3]
+my_list2 = my_list1.copy()
+my_list2[0] = 4321
+print(my_list[0])  # -> 1
+```
+
+Das geht auch bei Dictionaries:
+
+```python
+my_dict = {"name": "Gilderoy Lockhart",
+           "function": "teacher",
+           "password": "goldlocks"}
+my_dict2 = my_dict.copy()
+my_dict2["function"] = "former teacher"
+print(my_dict["function"])  # -> "teacher"
+```
+
+Sobald wir aber beginnen mit tiefer verschachtelten veränderbaren Objekten zu arbeiten, ergeben sich erneut Probleme:
 
 <!-- pytest-codeblocks:cont -->
 
 ```python
+hogwarts = {"Dumbeldore": {"surname" : "Albus",
+                           "function" : "headmaster"},
+            "Lockhart": {"surname": "Gilderoy",
+                         "function": "teacher"},
+            "Granger": {"surname": "Hermione",
+                        "function": "pupil"},
+            } 
+
 hogwarts_book7 = hogwarts.copy()
 hogwarts_book7["Dumbeldore"]["function"] = "former headmaster"
 
@@ -357,19 +399,10 @@ print(hogwarts["Dumbeldore"]["function"])  # => former headmaster
 
 Das entspricht jetzt nicht unbedingt dem Ergebnis das erwartet wurde. Wir haben hier das Dictionary `hogwarts_book7` verändert, aber damit (ohne es zu wollen) auch den Eintrag im ursprünglichen Dictionary `hogwarts` angepasst.
 
-Das liegt daran, dass wir hier eine sogenannte flache Kopie (**shallow copy**) erstellt haben.
-Hierbei wird das Dictionary nicht komplett kopiert, sondern manchen Element im Speicher wird nur ein neuer Namen zugewiesen. 
+Das liegt daran, dass wir hier mit `copy()`eine sogenannte flache Kopie (**shallow copy**) erstellt haben.
+Hierbei wird das Dictionary nicht komplett kopiert, sondern nur die Elemente der ersten Ebene. Allen weiteren Elementen wird -wie zuvor- nur wieder das Gleiche Objekt im Speicher zugewiesen. 
 
-Für einfache Dictionaries funktioniert das Ganze:
-
-```python
-my_dict = {1: "one", 2: "two"}
-new_dict = my_dict.copy()
-new_dict[1] = "Eins"
-print(my_dict)  # => {1: "one", 2: "two"}
-```
-
-Nur für verschachtelte Dictionary klappt das leider nicht mehr.
+Für verschachtelte Dictionary klappt das leider also nicht mehr so einfach.
 Hier brauchen wir keine *shallow*, sondern eine *deep* (also tiefe) Kopie bei der das ganze Dictionary noch einmal komplett neu in den Speicher geschrieben wird.
 
 ```python
@@ -387,5 +420,17 @@ hogwarts_book7 = copy.deepcopy(hogwarts)
 hogwarts_book7["Dumbeldore"]["function"] = "former headmaster"
 
 print(hogwarts["Dumbeldore"]["function"])  # => headmaster
+```
+
+Das Gleiche gilt übrigens auch für Listen:
+
+```python
+import copy
+
+my_list1 = [[1, 2, 3], 12, 15]
+my_list2 = copy.deepcopy(my_list1)
+
+my_list2[0][0] = 54321
+print(my_list1[0])  # -> 1
 ```
 
