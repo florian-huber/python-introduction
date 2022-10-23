@@ -1,7 +1,7 @@
 # String handling
 ## (Stringverarbeitung)
 
-Strings sind neben numerischen Datentypen sicher eines der am häufigsten verwendeten Datenformate in Python.
+Strings sind neben numerischen Datentypen sicher eines der am häufigsten verwendeten Datenformate, nicht nur in Python.
 Denken Sie an den Umgang mit Texteingaben, Dateinamen, Kommentaren, Text-basierten Suchen, aber auch Textdateien etc.
 
 Zu Begin der Vorlesung haben wir schon einige String-Operationen kennengelernt:
@@ -9,7 +9,6 @@ Zu Begin der Vorlesung haben wir schon einige String-Operationen kennengelernt:
 ```python 
 print("dies" + "das")
 print(10 * "?")
-
 ```
 Strings zählen in Python zu den Sequenzen, darum können demensprechende Methoden genutzt werden, etwa:
 ```python 
@@ -229,7 +228,6 @@ Hierbei können auch mehrere Abfragen kombiniert werden
 ```python 
 if s.startswith(("Name:", "name:", "NAME:")):
     print("Ja, ist wohl ein Namenseintrag")
-
 ```
 Eine weitere sehr praktische Funktion (die es so ähnlich auch für Listen gibt) ist `.count()` um die Anzahl eines Elementes zu zählen.
 ```python 
@@ -237,7 +235,6 @@ s = "Die meisten Texte haben schon ein paar 'e's."
 print(s.count("s"))  # => 3
 print(s.count("te"))  # => 2
 print(s.count("Te"))  # => 1
-
 ```
 Und `.index()` gibt die Position des ersten Elements zurück
 <!-- pytest-codeblocks:cont -->
@@ -245,7 +242,6 @@ Und `.index()` gibt die Position des ersten Elements zurück
 index_te = s.index("te")
 print(f"Stelle im String: {index_te}")
 print(s[index_te])
-
 ```
 ### Encodings (Zeichen-Kodierungen)
 (wurde schon beim Lesen/Schreiben von Dateien erwähnt, nicht Prüfungsrelevant)
