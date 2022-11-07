@@ -2,7 +2,7 @@
 
 Bevor wir wirklich loslegen mit dem object-oriented programming, eine kurze Wiederholung.
 
-Letzte Woche (und teilweise auch davor) haben wir uns ein wenig angeschaut, wie man Programme sinnvoll strukturieren kann. Ein zentrales Element hierfür sind **Funktionen**. Damit können ganze Programmteile als eigenständige Sub-Programme angekapselt werden. Nicht immer wird der Code dadurch direkt viel einfacher, aber es ermöglicht es dem Programme eine logische Struktur zu geben und unterschiedliche Aspekte getrennt voneinander zu bearbeiten oder auch zu verbessern und auszubauen.
+Im letzten Abschnitt (und gelegentlich am Rande schon davor) haben wir uns ein wenig angeschaut, wie man Programme sinnvoll strukturieren kann. Ein zentrales Element hierfür sind **Funktionen**. Damit können ganze Programmteile als eigenständige Sub-Programme abgekapselt werden. Nicht immer wird der Code dadurch direkt viel einfacher, aber es ermöglicht es dem Programme eine logische Struktur zu geben und unterschiedliche Aspekte getrennt voneinander zu bearbeiten oder auch zu verbessern und auszubauen.
 
 **Randnotitz:** Im Zusammenhang mit Funktionen wird manchmal auch von **functional programming** gesprochen ([Funktionale Programmierung](https://de.wikipedia.org/wiki/Funktionale_Programmierung)). Damit wird nicht einfach die Verwendung von Funktionen gemeint (die ist nämlich sowieso eher der Standard), sonder ein spezielles Code-design das einen starken Fokus auf Funktionen legt. Dazu kann z.B. auch gehören, dass dynamisch neue Funktionen generiert werden.
 
@@ -27,14 +27,17 @@ Hier ist `.sort()` die Methode. Wir müssen sie nirgendwo her importieren, sie i
 
 Und genauso haben wir gesehn, dass andere Datentypen mit denen wir schon gearbeitet haben, wie integer, float, string, dictionary, set ebenfalls solche Methoden haben. 
 
-Eine Klasse ist nun eine Möglichkeit unsere eigenen Datentypen zu definieren!
+### Eine Klasse definieren
+
+Eine Klasse ist nun eine Möglichkeit unsere eigenen Datentypen zu definieren.
 Wichtig: Klassen sind absolut nichts, das speziell für Python ist. Die meisten modernen Programmiersprachen erlauben es Klassen zu definieren.
 
-Eine wichtige Unterscheidung dabei ist: Klassen vs. Objekt.
-Eine **Klasse** definiert einen Typen. Ein Objekt ist eine Instanz einer Klasse. Also: der Datentyp List ist eine Klasse, die gerade verwendete Instanz davon (`numbers`) ist dann ein **Objekt**. Verwirrend? 
-Hoffentlich wird das gleich etwas deutlicher.
+Gleich zu Beginn eine wichtige Unterscheidung die am Anfang oft für Verwirrung sorgt: **Klassen vs. Objekt**
+Eine **Klasse** definiert einen Typen, sie ist eine Art Vorlage. Ein Objekt dagegen ist eine Instanz einer Klasse. Beispiel: der Datentyp `List` ist eine Klasse, die gerade eben verwendete Instanz davon (`numbers`) ist dann ein **Objekt** (und zwar genauer: ein "Objekt der Klasse List"). 
 
-Fangen wir einfach an und definieren wir einen neuen Datentypen, eine neue Klasse namens `Point()`:
+Verwirrend? Hoffentlich wird das gleich etwas deutlicher.
+
+Fangen wir einfach an und definieren einfach mal einen neuen Datentypen, bzw. eine neue Klasse, namens `Point()`:
 
 ```python
 class Point:
@@ -44,15 +47,16 @@ a = Point()
 print(a)  # => <__main__.Point object at 0x000001F9DB02BDC0>
 ```
 
-Mit `class` können wir in Python eine neue Klasse definieren. Im Prinzip können diese genau wie Variablen benannt werden, um aber Variablen, Funktionen und Klassen zu unterscheiden gibt es die Konvention das Klassen im sogenannten *camel case* benannt werden, also jedes Wort mit Großbuchstabe beginnt: `MyClass` oder `DoesWhatYouWants` etc.
+Mit `class` können wir in Python eine neue Klasse definieren. Im Prinzip können diese genau wie Variablen benannt werden, um aber Variablen, Funktionen und Klassen zu unterscheiden gibt es die Konvention das Klassen im sogenannten *camel case* benannt werden, also jedes Wort mit Großbuchstabe beginnt: `MyClass` oder `DoesWhatYouWant` etc.
 
-Ein Objekt (d.h. eine Instanz einer Klasse) kann danach wie bei Funktionen generiert werden mit, hier war es `a = Point()`. Damit ist `a` ein Objekt der Klasse Point. 
-
-### Was kann die Klasse?
+Ein Objekt (d.h. eine Instanz einer Klasse) kann danach wie bei Funktionen generiert werden mit, hier war es `a = Point()`. Damit ist `a` ein Objekt der Klasse Point. Auch das können wir übrigens mit `type()` abfragen.
 
 Eine Klasse enthält **Attribute** (attributes) und **Methoden** (methods).
-Attribute entsprechen Variablen und -wie oben schon erwähnt- Methoden entsprechen Funktionen.  Beides wird in Python über ein `.`aufgerufen.
-Attribute können einfach hinzugefügt, bzw. verändert werden:
+Attribute entsprechen Variablen und -wie oben schon erwähnt- Methoden entsprechen Funktionen.  Beides wird in Python über ein `.`aufgerufen. Wir beginnen mit den Attributen.
+
+### Attribute & Methoden
+
+Attribute können einfach hinzugefügt, bzw. verändert werden. Objekte sind veränderbar, d.h. wir können  auch die Attribute anpassen:
 
 <!-- pytest-codeblocks:cont -->
 
@@ -61,6 +65,9 @@ point1 = Point()
 point1.x = 4
 point1.y = 3
 print(point1.x, point1.y)  # => 4 3
+
+point1.x = 0
+print(point1.x, point1.y)  # => 0 3
 ```
 
 Und jetzt möchten wir eine erste Methode zu `Point`hinzufügen:
@@ -87,7 +94,7 @@ point2.position()  # => AttributeError: 'Point' object has no attribute 'x'
 
 `point2` ist eine neue Instanz der Klasse Point. Da die Methode `position()`zur Klasse Point gehört, ist diese natürlich verfügbar, aber die Attribute x und y wurde noch nicht definiert. Darum gibt es hier diese Fehlermeldung.
 
-Eigentlich sollte jedes Point-Objekt auf jeden Fall eine x und y-Position haben! Das ist auch möglich, und zwar über sogenannte Konstuktoren (*constructors*), das sind Methoden die beim Erstellen eines Objektes aufgerufen werden. In Python nutzen wir dafür eine Methode die mit  `__init__` benannt wird:
+Eigentlich sollte jedes Point-Objekt auf jeden Fall eine x und y-Position haben! Das ist auch möglich, und zwar über eine "init-Methode", auch Konstruktor (*constructor*) genannt. Das ist eine Methode die sofort beim Erstellen eines Objektes aufgerufen werden. In Python nutzen wir dafür eine Methode die mit  `__init__` benannt wird:
 
 ```python
 class Point:
@@ -142,6 +149,48 @@ class Point:
 a = Point(4, 3)
 print(a.center_distance())  # => 5.0
 ```
+
+### Eine Klasse, unendlich viele Objekte
+
+Es können beliebig viele Objekte einer Klasse erzeugt werden. Die Klasse bleibt dabei immer dieselbe. Und alle Objekte der Klasse (also alle Objekte die mit Hilfe derselben Klasse erzeugt wurden) verfügen über die gleichen Methoden.
+
+<!-- pytest-codeblocks:cont -->
+
+```python
+from random import randint
+
+for _ in range(10):
+    new_point = Point(randint(-10, 10), randint(-10, 10))
+    point_collection.append(new_point)
+
+for point in point_collection:
+    point.position()
+```
+
+Die Liste `point_collection` enthält anschließend 10 `Point` Objekte, die zwar alle die gleichen Methoden haben und damit auch alle über die Attribute x und y verfügen, aber die alle ganz unterschiedliche Werte für x und y haben können.
+
+
+
+### Objekte die andere Objekte enthalten ("Komposition")
+
+Wie gerade eben gesehen, können wir beliebig viele Instanzen einer Klasse erzeugen (=Objekte). Häufig werden verschiedene Klassen für verschiedene Aufgaben oder Datentypen definiert. Diese können aber in vielfältiger weise miteinander interagieren.
+
+Eine Möglichkeit besteht darin, dass eine Klasse auf weitere Klassen zugreift. Stellen wir uns z.B. vor wir wollen eine Klasse Dreieck (oder auf Englisch: Triangle) erstellen. Dann könnte diese Klasse als Ecken unsere oben definierte `Point` Klasse verwenden.
+
+<!-- pytest-codeblocks:skip -->
+
+```python
+class Triangle:
+    def __init__(self, corners):
+        self.corners = dict()
+        for i, (x, y) in enumerate(corners):
+            self.corners[i+1] = Point(x, y)
+
+tri_1 = Triangle([(0, 0), (15.5, 7), (-1, -2)])
+tri_1.corners[2].position()  # --> 15.5 7
+```
+
+
 
 ### Methoden die Objekte nutzen
 
