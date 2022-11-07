@@ -194,7 +194,7 @@ tri_1.corners[2].position()  # --> 15.5 7
 
 ### Methoden die Objekte nutzen
 
-Methoden können auch Objekte des gleichen Typs als Argumente nehmen. Zum Beispiel wenn wir den Abstand von einem `Point`-Objekt zu einem anderen `Point`-Objekt berechnen wollen:
+Genau wie bei `__init__`, oder auch genau wie bei Funktionen, können Methoden beliebige Argumente nutzen (nicht nur `self`). Das können beliebige Datentypen sein wie List, Set, Dictionary etc. oder auch Objekte von uns selbst definierten Klassen. Es können sogar auch Objekte des gleichen Typs als Argumente verwendet werden. Zum Beispiel wenn wir den Abstand von einem `Point`-Objekt zu einem anderen `Point`-Objekt berechnen wollen:
 
 ```python
 import math
