@@ -56,39 +56,9 @@ print(isinstance(a, Point))  # => True
 print(isinstance(a, Circle))  # => True
 ```
 
+#### super()
 
-
-## Wiederholung (mit kleinen Extras)
-
-Letzte Woche haben wir Klassen und die damit erzeugten Objekte kennengelernt, bzw. wie wir Klassen in Python definieren können. Klassen können Attribute (~Variablen) und Methoden (~Funktionen) haben. Das heißt, das Objekte sowohl Daten als auch dazugehörige Funktionen beinhalten. Wir hatten das letzte Mal eine Klasse `Point` und alle Objekte dieser Klasse haben nicht nur eine x-y Koordinate, sondern sie bringen auch einige Methoden mit, z.B. eine Methode zur Bestimmung des Abstandes zum Ursprung (0,0).
-
-Dann haben wir gesehen wie einfach eine neue Klasse definiert werden kann, die alle Eigenschaften und Methoden einer anderen Klasse *erbt*. Man nennt solch eine Klasse *child class* (oder abgeleitete Klasse) und den Prozess *Vererbung* (*inheritance*).
-
-```python
-import math
-
-class Point:
-    def __init__(self, x, y):
-        self.x = x
-        self.y = y
-
-    def center_distance(self):
-        return math.sqrt(self.x ** 2 + self.y ** 2)
-
-a = Point(-7, 8)
-print(a.center_distance())  # => 10.63014581273465
-
-
-# Neue Klasse: Circle
-class Circle(Point):
-    def __init__(self, x, y, radius):
-        self.x = x
-        self.y = y
-        self.radius = radius
-
-a = Circle(11, 2, 5)
-print(a.center_distance())
-```
+Im Beispiel oben haben wir in der abgeleiteten Klasse (`Circle`) die komplette init-Methode überschrieben durch eine neue. Das wirkt vielleicht -zu recht- etwas merkwürdig, denn die Methoden sind sich eigentlich sehr ähnlich und ein größerer Teil des Codes kommt somit mehrfach vor.
 
 Es gibt auch noch eine andere Möglichkeit den Konstruktor (`__init__()`) anzupassen und gleichzeitig auf den Konstruktor der *parent class* zuzugreifen und zwar mit `super()`:
 
