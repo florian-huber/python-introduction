@@ -1,5 +1,61 @@
 # Classes - part 2
 
+Wir haben bisher gesehen wie wir Klassen in Python definieren und wie wir damit Objekte erzeugen. Wir haben gesehen wie wir Methoden definieren und Attribute zuweisen und auch wie wir die `__init__()`-Methode einsetzten können.
+
+Es gibt aber noch viele andere Möglichkeiten durch die Objektorientierte Programmierung. Eine besonders häufig genannte ist die sogenannte **Vererbung**.
+
+### Vererbung (inheritance)
+
+Klassen können anderen Klassen ihre Eigenschaften vererben. Das ist in der Praxis tatsächlich an manchen Stellen sehr nützlich! 
+
+Hier mal ein Beispiel: Wir haben gerade Punkte definiert (`Point`-Klasse) und möchten jetzt auch andere geometrische Typen entwerfen. Dann müssen wir nicht unbedingt alles neu definieren, sondern es geht auch das Folgende:
+
+```python
+# Schon oben ausgeführt:
+import math
+
+class Point:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    def position(self):
+        print(self.x, self.y)
+
+    def center_distance(self):
+        return math.sqrt(self.x ** 2 + self.y ** 2)
+    
+    def distance_to_point(self, point):
+        dist_x = self.x - point.x
+        dist_y = self.y - point.y
+        return math.sqrt(dist_x ** 2 + dist_y ** 2)
+    
+# Neue Klasse definieren:    
+class Circle(Point):
+    def __init__(self, x, y, radius):
+        self.x = x
+        self.y = y
+        self.radius = radius
+
+a = Circle(11, 2, 5)
+print(a.center_distance())  # => 11.180339887498949
+```
+
+Ohne das wir eine Methode neu definiert haben, funktioniert schon der Aufruf `.center_distance()`!
+
+Das liegt daran, dass wir hier gesagt haben das `Circle` auf die Klasse `Point`zurückgreifen darf. Man spricht hier von "Vererbung" und demensprechend auch davon, dass `Circle` das Kind (*child*) ist von `Point`. 
+
+`Point` wird die "Basisklasse" oder auch Super-, Ober- oder Elternklasse genannt (*parent class*), während `Circle` in diesem Beispiel die "abgeleitete Klasse" oder auch Sub-, Unter-, oder Kindklasse heißt (*child class*).
+
+Es lassen sich damit auch interessante Zugehörigkeits- oder Type-Abfragen machen. So ist `a` im oberen Beispiel ein Objekt der Klasse `Circle`, aber ist eben auch auf eine Art verbunden mit der *parent class*  `Point`. In Python können solche Zugehörigkeiten abgefragt werden mit `isinstance()`:
+
+<!-- pytest-codeblocks:cont -->
+
+```python
+print(isinstance(a, Point))  # => True
+print(isinstance(a, Circle))  # => True
+```
+
 
 
 ## Wiederholung (mit kleinen Extras)
