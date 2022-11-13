@@ -208,15 +208,7 @@ print(a.center_distance())
 
 V.a. wenn der Konstruktor einer Klasse viele Parameter setzt und/oder weitere Schritte enthält macht der Einsatz von `super()`an dieser Stelle den Code einfacher.
 
-
-
-## Wiederholung aus der Übung
-
-In der Übung diese Woche haben wir angefangen mit Klassen zu programmieren. Dabei kamen einige Schwierigkeiten zutage, v.a. da das Programmieren mit Klassen sich sehr von linearen (prozeduralen) Skripten unterscheidet, aber eben auch vom Umfang mit Funktionen mit denen wir schön öfter zu tun hatten.
-
-- 
-
-
+### Umfangreichers Beispiel (Übung --> Spiel Pig)
 
 Ein weiterer wichtiger Punkt den wir in der Übung angefangen haben, war ein Gefühl dafür zu bekommen wann, warum, und wie man Klassen überhaupt einsetzt. Als Beispiel dafür haben wir angefangen ein erstes kleines Spiel zu programmieren: Pig (oder "Böse Eins"). Die Spielregeln sind einfach:
 
@@ -260,23 +252,27 @@ Die zweite Klasse ist dann `Player` und das wird schon deutlich schwieriger!
 ```python
 class Player:
     def __init__(self, name):
-        self.name = name
         self.score = 0
-        
-    def make_move(self, dice):
+        self.name = name
+
+    def move(self, dice):
+        print(f"\n{self.name}'s turn -----------")
+        print(f"Current score: {self.score} ---------")
         additional_score = 0
-        dice_result = dice.roll()
-        if dice_result == 1:
-            additional_score = 0
-            print(f"{self.name} got a 1.")
-        else:
-            additional_score += dice_result
-            print(f"{self.name} rolled a {dice_result}.")
-            print(f"Total score of this round is {additional_score}.")
-        # ... finish code next week
+        while True:
+            roll = dice.roll()
+            additional_score += roll
+            print(f"{self.name} got a {roll}! Total={additional_score}")
+            if roll == 1:
+                break
+            user_choice = input("Continue (y/n)? >>> ")
+            if user_choice == "n":
+                self.score += additional_score
+                print(f"+ {additional_score} --> {self.score}")
+                break
 ```
 
-Jede(r) Spieler*In hat zwei Eigenschaften: einen Namen (`.name`) und einen Punktestand (`.score`). Dazu kommt eine Methode um einen Spielzug zu machen (`.make_move()`). Diese Methode haben wir in der Übung bisher nur skizziert und werden sie erst nächste Woche fertigstellen. Aber ein sehr wichtiges Element vom Objektorientiertem Ansatz kann man an dieser Stelle schon gut sehen: Objekte werden an andere Objekte weiter gegeben. Es muss also erstmal ein Würfel-Objekt erstellt werden damit ein `Player`-Objekt spielen kann!
+Jede(r) Spieler*In hat zwei Eigenschaften: einen Namen (`.name`) und einen Punktestand (`.score`). Dazu kommt eine Methode um einen Spielzug zu machen (`.make_move()`). Diese Methode haben wir in der Übung erstellt und getestet. Ein sehr wichtiges Element vom Objektorientiertem Ansatz kann man an dieser Stelle schon gut sehen: Objekte werden an andere Objekte weiter gegeben. Es muss also erstmal ein Würfel-Objekt erstellt werden damit ein `Player`-Objekt spielen kann!
 
 <!-- pytest-codeblocks:skip -->
 
@@ -306,7 +302,7 @@ player1.make_move(dice)
 player2.make_move(dice)
 ```
 
-Weiter mit dem Spiel geht's dann in der nächsten Übung!
+---
 
 Jetzt kommen wir zu noch ein paar weiteren Eigenschaften und Möglichkeiten der Objektorientierten Programmierung.
 
