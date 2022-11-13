@@ -2,7 +2,139 @@
 
 Wir haben bisher gesehen wie wir Klassen in Python definieren und wie wir damit Objekte erzeugen. Wir haben gesehen wie wir Methoden definieren und Attribute zuweisen und auch wie wir die `__init__()`-Methode einsetzten können.
 
-Es gibt aber noch viele andere Möglichkeiten durch die Objektorientierte Programmierung. Eine besonders häufig genannte ist die sogenannte **Vererbung**.
+### Klasse vs. Objekt/Instanz
+
+Zu Beginn gibt es bei der OOP (Objektorientierten Programmierung) oft einige Verwirrungen. Nicht selten geht es dabei auch um den fundamentalen Unterschied zwischen Klasse und dem erzeugten Objekt.
+
+In den meisten Fällen, und allen die wir bisher besprochen haben, können wir die Klasse als eine abstrakte Vorlage für die später damit erzeugten Objekte sehen. D.h. die Klasse definiert, welche Eigenschaften (Attribute) und Fähigkeiten (Methoden) Objekte haben sollen.
+
+Über `class XYZ:` wird so eine abstrakte Klasse *definiert*. Der eigentliche Code darin wird aber erst ausführbar, wenn ein Objekt der Klasse erzeugt wird (`a = XZY()`). Attribute die erst im Konstruktor (`__init__()`) gesetzt werden, werden dabei erst erzeugt wenn auch ein Objekt der Klasse erzeugt wird. Darum funktioniert auch der folgende Code nicht:
+
+<!-- pytest-codeblocks:expect-error -->
+
+```python
+class DoNothing:
+    def __init__(self):
+        self.chill = True
+
+print(DoNothing.chill)  # => AttributeError: type object 'DoNothing' has no attribute 'chill'
+```
+
+Das geht also nicht, sondern erst wenn ein Objekt erstellt wird:
+<!-- pytest-codeblocks:cont -->
+
+```python
+a = DoNothing()
+print(a.chill) # => True
+```
+
+#### Was ist `self`?
+
+Das Argument `self` bezieht sich auf die jeweilige Instanz einer Klasse, d.h. das Objekt selbst. Code in dem `self` auftaucht, kann also immer nur von erzeugten Objekten aus sinnvoll ausgeführt werden. 
+(Übrigens: Statt self könnte auch ein abweichender Name verwendet werden, aber da `self` überall der Standard ist werden wir davon keinen Gebrauch machen.)
+
+Was ist aber mit Code, z.B. zugewiesenen Attributen, die ohne `self` auskommen?
+
+Ein Beispiel wäre sowas:
+
+```python
+class MyClass:
+    class_value = 111
+    def __init__(self):
+        self.instance_value = 2222
+
+# Erst die Klasse direkt nutzen
+print(MyClass.class_value)  # --> 111
+# print(MyClass.instance_value)  # --> AttributeError
+
+# Jetzt eine Instanz der Klasse erzeugen und nutzen
+my_object = MyClass()
+print(my_object.class_value)
+print(my_object.instance_value)
+```
+
+Wir sprechen hier auch von **Klassenattributen** (hier: `.class_value`) und **Instanzattributen** (hier: `.instance_value`). Über erzeugte Objekte sind bei Typen von Attributen verfügbar, in der Klasse selbst sind aber die Instanzattribute nicht vorhanden.
+
+Wie sieht es dann mit den Methoden aus? 
+
+Auch da haben wir bisher typischerweise mit `self` gearbeitet. Und entsprechen sprechen wir hier auch von **Instanzmethoden** (*instance methods*). Diese sind ebenfalls nur über erzeugte Objekte zugänglich.
+
+Beispiel:
+
+<!-- pytest-codeblocks:expect-error -->
+
+```python
+class SuperPrint:
+    def upper_print(self, text):
+        print(text.upper())
+
+# Instanzmethode kann nicht über Klasse aufgerufen werden:
+SuperPrint.upper_print("mein text soll größer werden")  # => TypeError
+
+# Und die Methode ist auch nicht (wie eine Funktion) global verfügbar:
+upper_print("mein text soll grösser werden")  # => NameError: name 'upper_print' is not defined
+```
+
+Erst wenn ein Objekt der Klasse SuperPrint erzeugt wird, kann damit die Methode `upper_print()` ausgeführt werden. Die Methode gehört also zu allen Objekten der Klasse `SuperPrint` und ist ansonsten nicht verfügbar, weder über die Klasse selbst, noch global wie bei einer Funktion.
+
+<!-- pytest-codeblocks:cont -->
+
+```python
+printer = SuperPrint()
+printer.upper_print("mein text soll grösser werden")
+```
+
+#### Klassenmethoden (class methods)
+
+Wir haben gerade gesehen, dass die Methoden die wir bisher programmiert haben (mit `self`) sich nur über erzeugte Objekte ausführen lassen (**Instanzmethode**). Aber es gibt auch **Klassenmethoden** die über die Klasse aufrufbar sind.
+
+Klassenmethoden werden in Python üblicherweise explizit als solche ausgewiesen über einen sogenannten "Decorator". Was das genau ist, werden wir an dieser Stelle aber noch nicht behandeln (kommt später).  Das SuperPrint Beispiele sähe damit wie folgt aus (`@classmethod` ist dabei der erwähnte Decorator):
+
+```python
+class SuperPrint:
+    @classmethod
+    def upper_print(cls, text):
+        print(text.upper())
+
+SuperPrint.upper_print("mein text soll größer werden")
+```
+
+Auch hier gibt es ein spezielles erstes Argument das wir nun aber nicht `self` sondern `cls` (für class) nennen.
+
+Jetzt die Frage: Wann nutzen wir Klassenmethoden?
+
+Wie schon erwähnt, werden wir überwiegend mit Instanzmethoden arbeiten. Aber es gibt auch Fälle in denen Klassenmethoden sinnvoll sind. Ein Beispiel könnte eine Erweiterung der `Point` Klasse sein, die wir schon einmal erstellt hatten. Stellen wir uns nun vor, wir wollen eine neue Methode hinzufügen die ein Point-Objekt mit zufälliger Position erzeugt, etwas `create_random_point()`. Wenn wir diese Methode aber wie bisher mit `self` definieren können wir sie ja nur über erzeugte Objekte aufrufen. Das würde dann bedeutet wir müssen ein Point-Objekt erzeugen um damit dann ein neues Point-Objekt erstellen zu können... nicht sehr intuitiv. An einer solchen Stelle ist eine Klassenmethode die bessere Wahl:
+
+```python
+import math
+import random
+
+
+class Point:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    def position(self):
+        print(self.x, self.y)
+
+    def center_distance(self):
+        return math.sqrt(self.x ** 2 + self.y ** 2)
+
+    @classmethod
+    def create_random_point(cls):
+        return Point(random.random(), random.random())
+
+
+random_point = Point.create_random_point()
+random_point.position()
+```
+
+---
+
+
+
+Neben den bisher besprochene Verbindung von Methoden und Attributen, gibt es noch viele andere Möglichkeiten durch die Objektorientierte Programmierung. Eine besonders häufig genannte ist die sogenannte **Vererbung**.
 
 ### Vererbung (inheritance)
 
@@ -82,50 +214,9 @@ V.a. wenn der Konstruktor einer Klasse viele Parameter setzt und/oder weitere Sc
 
 In der Übung diese Woche haben wir angefangen mit Klassen zu programmieren. Dabei kamen einige Schwierigkeiten zutage, v.a. da das Programmieren mit Klassen sich sehr von linearen (prozeduralen) Skripten unterscheidet, aber eben auch vom Umfang mit Funktionen mit denen wir schön öfter zu tun hatten.
 
-- Über `class XYZ:` wird eine abstrakte Klasse *definiert*. Der eigentliche Code darin wird aber erst ausführbar, wenn ein Objekt der Klasse erzeugt wird (`a = XZY()`).
-  Attribute die erst im Konstruktor (`__init__()`) gesetzt werden, werden erst erzeugt wenn auch ein Objekt der Klasse erzeugt wird.
-  <!-- pytest-codeblocks:expect-error -->
+- 
 
-  ```python
-  class DoNothing:
-      def __init__(self):
-          self.chill = True
-  
-  print(DoNothing.chill)  # => AttributeError: type object 'DoNothing' has no attribute 'chill'
-  ```
 
-  Das geht also nicht, sondern erst wenn ein Objekt erstellt wird:
-  <!-- pytest-codeblocks:cont -->
-
-  ```python
-  a = DoNothing()
-  print(a.chill) # => True
-  ```
-
-  
-
-- Eine Methode einer Klasse wird zwar wie eine Funktion definiert (mit `def abc(): ...` ), aber die Methode ist nicht global verfügbar. Nur über erzeugte Objekte der Klasse können die Methoden ausgeführt werden. Beispiel:
-
-  <!-- pytest-codeblocks:expect-error -->
-
-  ```python
-  class SuperPrint:
-      def upper_print(self, text):
-          print(text.upper())
-  
-  upper_print("mein text soll grösser werden")  # => NameError: name 'upper_print' is not defined
-  ```
-
-  Erst wenn ein Objekt der Klasse SuperPrint erzeugt wird, kann damit die Methode `upper_print()` ausgeführt werden. Die Methode gehört also zu allen Objekten der Klasse `SuperPrint` und ist ansonsten nicht verfügbar!
-
-  <!-- pytest-codeblocks:cont -->
-
-  ```python
-  printer = SuperPrint()
-  printer.upper_print("mein text soll grösser werden")
-  ```
-
-  
 
 Ein weiterer wichtiger Punkt den wir in der Übung angefangen haben, war ein Gefühl dafür zu bekommen wann, warum, und wie man Klassen überhaupt einsetzt. Als Beispiel dafür haben wir angefangen ein erstes kleines Spiel zu programmieren: Pig (oder "Böse Eins"). Die Spielregeln sind einfach:
 
