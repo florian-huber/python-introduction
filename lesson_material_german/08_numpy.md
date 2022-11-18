@@ -1,12 +1,12 @@
 # NumPy 
 
-`NumPy` ist die wohl wichtigste Python-Bibliothek wenn es um das Arbeiten mit (numerischen) Daten geht, nicht umsonst kommt der Name von **Num**erical **Py**thon. NumPy bringt nicht nur einen zentralen neuen Datentypen mit, das Numpy-Array, sondern auch eine Vielzahl von Funktionen und Methoden um z.B. mit Vektoren, Matrizen, und Tensoren zu arbeiten.
+`NumPy` ist die wohl wichtigste Python-Bibliothek wenn es um das Arbeiten mit (numerischen) Daten geht, nicht umsonst kommt der Name von **Num**erical **Py**thon. NumPy bringt nicht nur einen zentralen neuen Datentypen mit, das **Numpy-Array**, sondern auch eine Vielzahl von Funktionen und Methoden um z.B. mit Vektoren, Matrizen, und Tensoren zu arbeiten.
 
 In der Regel, vereinfacht NumPy dabei nicht nur den Programmieraufwand, sondern es ist auch stark auf Rechengeschwindigkeit optimiert (die Kernmethoden laufen über kompilierte C-Bibliotheken). 
 
 Aber vielleicht beginnen wir besser mit einem Beispiel.
 
-Für das erste Programmierprojekt (KennenlernProjekt) kamen alle Gruppen zu einer Stelle an der die Zahlen zweier Listen verglichen werden sollten. Zum Beispiel sollte dort jeweils die Differenz der Werte an gleicher Stelle berechnet werden. Das konnte etwa so gelöst werden:
+Stellen wir uns vor, wir haben Umfragedaten erhoben. Bei der Umfrage mussten alle Personen angeben wie sehr bestimmte Aussagen für sie zutreffen, von 1 (gar nicht) bis 5 (völlig). Wenn wir die Daten in Python importieren bekommen wir dann z.B. die Ergebnisse jeder Person in Form einer Liste. Nun sollen die Antworten zweier Personen verglichen werden. Zum Beispiel sollte dort jeweils die Differenz der Werte an gleicher Stelle berechnet werden. Mit den bisherigen Mitteln könnten wir das etwa so programmieren:
 
 ```python
 umfrage_person1 = [2, 3, 5, 4, 5, 2, 1, 3, 4, 4, 3]
@@ -59,8 +59,8 @@ print(b)
 
 Numpy Arrays unterscheiden sich in vieler Hinsicht von den Listen:
 
-- Alle Elemente haben den selben Datentyp (z.B. alles floats). Darüber hinaus auch eine Vielzahl von numerischen Datentypen (https://numpy.org/doc/stable/user/basics.types.html)
-- Bei Tabellen/Matrizen/Tensoren müssen alle Einträge angegeben werden, d.h. es kann keine Tabelle angelegt werden in der die verschiedenen Zeilen unterschiedliche Anzahlen an Elementen enthalten.
+- Alle Elemente haben den selben Datentyp (z.B. alles float oder int). Darüber hinaus auch eine Vielzahl von weiteren numerischen Datentypen (https://numpy.org/doc/stable/user/basics.types.html)
+- Bei Tabellen/Matrizen/Tensoren müssen alle Einträge angegeben werden, d.h. es kann keine Tabelle angelegt werden in der die verschiedenen Zeilen unterschiedliche Anzahlen an Elementen enthalten. Bei einer verschachtelten Liste würde das gehen.
 - Bei Zahlen passt Python den Speicherbedarf dynamisch an. In Numpy Arrays wird allen Zahlen der gleiche Speicherplatz zur Verfügung gestellt also z.B. alle Einträge als `int64` (64 bit) auch wenn eventuell oft auch `int8` (8 bit) ausreichen würde.
 
 ### Informationen zum Numpy Array
