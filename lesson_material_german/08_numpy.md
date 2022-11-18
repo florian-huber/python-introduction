@@ -295,6 +295,8 @@ Bisher haben wir gesehen, wie man Numpy Arrays aus Listen erstellt. Es gibt aber
   print(data.max())
   ```
 
+  Zu dem Untermodul `.random` gehören noch viele weitere Zufallsgeneratoren die wir nutzen können. U.a. auch `randint` um zufällige Integer Werte in einem vorgegebenen Bereich auszugeben.
+  
 + `np.arange()`
   Das ist das Pendant zur `range()` Funktion in Python. Es benötigt einen Startwert, Endwert und eine Schrittgröße.
 
