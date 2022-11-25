@@ -2,6 +2,8 @@
 
 Wir haben uns jetzt einige Basics mit Numpy angeschaut. Dabei ging es v.a. um das **Erstellen von Numpy Arrays** und das **Slicing** um die gewünschten Einträge aus den Arrays zu erhalten. Dabei kamen auch schon ein paar der großen Vorteile von Numpy zur Sprache, z.B. können mit Numpy Arrays wirklich sehr große (numerische) Datenarrays bearbeitet werden und zwar auch Arrays mit vielen Dimensionen (siehe `.ndim`). Ebenso können mit Numpy sehr effizient große Mengen an Zufallszahlen erstellt werden und zwar aus sehr vielen verschiedenen Verteilungen (`numpy.random`).
 
+Hier werden wir auf einige weitern sehr wichtigen und hilfreichen Funktionalitäten von Numpy eingehen, u.a. da **Sortieren** von Arrays, das finden bestimmter Werte und die hohe Performance als einer der Kernvorteile von Numpy.
+
 ### Sortieren!
 
 Schon bei den Listen hatten wir die Möglichkeit mit der `.sort()` Methode die Elemente zu sortieren. Keine große Überraschung also, dass auch Numpy Arrays eine Sortiermethode mitbringen. In Wirklichkeit gibt es in NumPy sogar viele verschiedene!
@@ -15,7 +17,7 @@ arr = np.random.random(100)
 arr.sort()  # sort from small to large
 ```
 
-Auch 2D (oder noch mehrdimensionale Arrays) können damit sortiert werden, dabei wird die Sortierung allerdings immer nur entlang *einer* Achse durchgeführt:
+Auch 2D (oder noch höher-dimensionale Arrays) können damit sortiert werden, dabei wird die Sortierung allerdings immer nur entlang *einer* Achse durchgeführt:
 
 ```python
 import numpy as np
@@ -28,6 +30,8 @@ arr = np.random.random((20, 20))
 arr.sort(axis=0)
 ```
 
+#### Argsort
+
 Eine weitere sehr wichtige Sortier-Methode ist `argsort()`. Damit berechnet Numpy die Indices der Elemente, geordnet nach Größe.
 
 ```python
@@ -38,6 +42,25 @@ print(f"Die Top3 Einträge sind Nummer: {order[::-1][:3]}")
 ```
 
 Der Nutzen von `argsort()` wird bald deutlicher, wenn wir nämlich mit größeren, komplexeren Daten arbeiten. Dort wollen wir nämlich nicht immer eine gesamte Tabelle sortieren um dann die höchsten Elemente zu sehen, sondern wir möchten häufig nur wissen: Wo stehen die 10 höchsten/niedrigsten Werte in der Tabelle? 
+
+#### Lexsort
+
+`numpy.argsort()` eignet sich hervorragend um die Reihenfolge von numerischen Werten zu ermitteln. Dies geht aber nur für Werte in einer Dimension. Was ist wenn wir entlang mehrerer Werte sortieren wollen? Das können wir mit `numpy.lexsort()` machen:
+
+```python
+import numpy as np
+
+arr1 = np.random.randint(0, 10, size=(100))
+arr2 = np.random.randint(0, 10, size=(100))
+
+sorted_idx = np.lexsort((arr2, arr1))[::-1]
+print(arr1[sorted_idx[:10]])
+print(arr2[sorted_idx[:10]])
+```
+
+
+
+
 
 ### Arrays anschauen
 
@@ -56,11 +79,109 @@ arr = np.stack((arr1, arr2))  # => 3D Array, einmal anschauen in Spyder!
 
 Tipp: Im Variable Explorer mit den unten angezeigten Feldern "Axis" und "Index" spielen. Damit kann z.B dieses 3-dimensionale Array von verschiedenen Seiten (axis) her betrachtet werden.
 
+### Einträge auswählen/finden
+
+Wir haben bereits eine Möglichkeit gesehen, Werte in einem Numpy Array auszuwählen und zwar über eine Maske, also z.B.
+
+```python
+arr = np.random.randint(0, 100, size=(10, 10))
+# select using mask
+mask = arr < 5
+print(arr[mask])
+
+# or: select and change
+arr[mask] = 0
+print(arr)
+```
+
+
+
 
 
 - numpy where
-- lexsort?
+
+  
+
 - 
+
+### Berechnungen mit Numpy
+
+Numpy Arrays sind in Python das Standard-Format um mit großen (numerischen) Datenmengen zu arbeiten. Bisher haben wir gesehen, was es alles für Grundfunktionen/methoden mit Numpy Arrays gibt. Jetzt aber noch ein paar Beispiele die illustrieren sollen, wie und warum diese Arrays so gerne in der Praxis eingesetzt werden.
+
+Wir werden dafür eine weitere Bibliothek nutzen: `matplotlib`, das ist in Python die am häufigsten genutzte Bibliothek um Daten zu plotten.
+
+**(1) Werte-Berechnungen mit mathematischen Funktionen.**
+Numpy bringt einige mathematische Funktionen mit, z.B. `np.sin()`(Sinus), `np.cos()` (Cosinus), `np.exp()`(Exponentialfunktion) oder `np.log()`(Logarithmus). Sehr, sehr viele weiter Optionen finden sich z.B. in der Bibliothek SciPy (https://scipy.org/).
+
+```python
+import numpy as np
+from matplotlib import pyplot as plt
+
+x = np.linspace(-10, 10, 500)
+y = np.sin(x)
+plt.plot(x, y, "darkblue")
+```
+
+Hier werden 500 Datenpunkte erzeugt mit x-Werten die gleichmäßig zwischen -10 und 10 verteilt sind. Von allen wird der Sinus berechnet und anschließend graphisch dargestellt.
+
+**(2) Operationen auf vielen Datenpunkten gleichzeitig + Zufallszahlen.**
+Numpy bietet enorme Möglichkeiten für die Nutzung von Zufallszahlen. Wir hatten vorher auch schon die Bibliothek `random` kennengelernt, doch damit ließ sich immer nur eine Zufallszahl nach der anderen erzeugen. Mit Numpy können (für unsere Zwecke) beliebig große Arrays aus Zufallszahlen erzeugt werden. Darüber hinaus bietet Numpy sehr verschiedene Arten von Zufallsverteilungen! 
+
+```python
+import numpy as np
+from matplotlib import pyplot as plt
+
+xy = np.random.random((2, 100))
+sizes = 100 * np.random.random(100)
+plt.scatter(xy[0, :], xy[1, :], s=sizes)
+```
+
+Eine andere Verteilung bekommt man mit `np.random.randn()`(Normalverteilung!):
+
+```python
+import numpy as np
+from matplotlib import pyplot as plt
+
+xy = np.random.randn(2, 1000)
+plt.scatter(xy[0, :], xy[1, :], alpha=0.3)
+```
+
+**(3) Statistik und Simulationen**
+NumPy erlaubt es große Mengen an Zufallszahlen zu generieren und damit zu arbeiten. Das hat in der Praxis viele verschiedene Verwendungen, wie z.B. für die Modellierung von stochastischen Prozessen oder für Computer-Simulationen.
+
+```python
+import numpy as np
+
+random_numbers = np.random.random((1000, 1000))
+print(f"Mean: {random_numbers.mean()}")
+print(f"Numbers > 0.5: {np.sum(random_numbers > 0.5)}")
+print(f"Numbers < 0.5: {np.sum(random_numbers < 0.5)}")
+```
+
+**(4) Speed!**
+Numpy ist zum Teil in Sprachen wie C implementiert und für viele Rechenoperationen deutlich schneller als das "normale" Python. Ein Beispiel:
+
+<!-- pytest-codeblocks:cont -->
+
+```python
+import random
+import time
+
+print("Pure Python ......................")
+generated_numbers = int(1e7)
+tstart = time.time()
+numbers = []
+for _ in range(generated_numbers):
+    numbers.append(random.random())
+print(sum(numbers))
+print(f"Calculation took {time.time() - tstart}s")
+
+print("\nNumPy ......................")
+tstart = time.time()
+numbers = np.random.random(generated_numbers)
+print(np.sum(numbers))
+print(f"Calculation took {time.time() - tstart}s")
+```
 
 
 
