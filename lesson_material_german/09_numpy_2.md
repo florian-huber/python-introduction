@@ -94,15 +94,16 @@ arr[mask] = 0
 print(arr)
 ```
 
+#### numpy.where
 
+Oft möchten wir aber die genauen Indizes (also die Positionen im Array) erhalten für Werte die unseren Suchkriterien entsprechen. Das geht mit `numpy.where`, hier ein Beispiel:
 
+```python
+arr = np.random.randint(0, 100, size=(10, 10))
 
-
-- numpy where
-
-  
-
-- 
+selected_idx = np.where(arr < 5)
+print(selected_idx)  # -> gibt die Positionen im Array aus die Werte <5 enthalten.
+```
 
 ### Berechnungen mit Numpy
 
