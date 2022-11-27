@@ -4,6 +4,28 @@ Wir haben uns jetzt einige Basics mit Numpy angeschaut. Dabei ging es v.a. um da
 
 Hier werden wir auf einige weitern sehr wichtigen und hilfreichen Funktionalitäten von Numpy eingehen, u.a. da **Sortieren** von Arrays, das finden bestimmter Werte und die hohe Performance als einer der Kernvorteile von Numpy.
 
+Aber zuerst kurz zu einer guten Möglichkeit, größere Arrays anzuschauen (noch nicht groß wie in *"big data"* , aber schon größer als `print()`).
+
+### Arrays anschauen
+
+In der Praxis arbeiten wir oft mit großen, teilweise mehrdimensionalen Numpy Arrays. Das macht den Umgang am Anfang etwas gewöhnungsbedürftig, auch da unsere bisherigen Methoden um die Daten anzusehen (z.B. mit  `print()`)  hier schnell an Grenzen stoßen. 
+
+**Spyder** hat als Editor hier einen Vorteil: Über den *Variable Explorer* lassen sich Numpy Arrays sehr gut betrachten! Ein Beispiel um den Explorer damit auszuprobieren:
+
+```python
+import numpy as np
+
+arr1 = 20 * np.random.random((10, 20, 20))
+```
+
+Im *Variable Explorer* können wir auch immer nur 2D-Arrays anzeigen lassen, aber es kann ausgewählt werden entlang welcher Axe(n) ein Schnitt angezeigt wird ( `Axis`) und mit `Index:` kann die jeweilige Ebene ausgewählt werden.
+
+![](C:\HSD\OneDrive - Hochschule Düsseldorf\DAISY\python-introduction-git\images\spyder_variable_explorer_numpy_array.png)
+
+Tipp: Im Variable Explorer mit den unten angezeigten Feldern "Axis" und "Index" spielen. Damit kann z.B dieses 3-dimensionale Array von verschiedenen Seiten (axis) her betrachtet werden.
+
+Natürlich ist auch dieser Zugang begrenzt. Für sehr große Arrays, also Arrays mit sehr vielen Elementen (Stichwort: "big data") und/oder Arrays mit vielen Dimensionen, wird es irgendwann auch über den Variable Explorer in Spyder schwierig.
+
 ### Sortieren!
 
 Schon bei den Listen hatten wir die Möglichkeit mit der `.sort()` Methode die Elemente zu sortieren. Keine große Überraschung also, dass auch Numpy Arrays eine Sortiermethode mitbringen. In Wirklichkeit gibt es in NumPy sogar viele verschiedene!
@@ -60,25 +82,6 @@ print(arr2[sorted_idx[:10]])
 
 
 
-
-
-### Arrays anschauen
-
-In der Praxis arbeiten wir oft mit großen, teilweise mehrdimensionalen Numpy Arrays. Das macht den Umgang am Anfang etwas gewöhnungsbedürftig, auch da unsere bisherigen Methoden um die Daten anzusehen (z.B. mit  `print`)  hier schnell an Grenzen stoßen. 
-
-**Spyder** hat als Editor hier einen Vorteil: Über den *Variable Explorer* lassen sich Numpy Arrays sehr gut betrachten! Ein Beispiel um den Explorer damit auszuprobieren:
-
-```python
-import numpy as np
-
-arr1 = 20 * np.random.random((10, 5))
-arr2 = np.random.random((10, 5))
-
-arr = np.stack((arr1, arr2))  # => 3D Array, einmal anschauen in Spyder!
-```
-
-Tipp: Im Variable Explorer mit den unten angezeigten Feldern "Axis" und "Index" spielen. Damit kann z.B dieses 3-dimensionale Array von verschiedenen Seiten (axis) her betrachtet werden.
-
 ### Einträge auswählen/finden
 
 Wir haben bereits eine Möglichkeit gesehen, Werte in einem Numpy Array auszuwählen und zwar über eine Maske, also z.B.
@@ -104,6 +107,14 @@ arr = np.random.randint(0, 100, size=(10, 10))
 selected_idx = np.where(arr < 5)
 print(selected_idx)  # -> gibt die Positionen im Array aus die Werte <5 enthalten.
 ```
+
+
+
+### Arrays kombinieren
+
+vstack, hstack, concatenate
+
+
 
 ### Berechnungen mit Numpy
 
