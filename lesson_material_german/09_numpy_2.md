@@ -20,7 +20,7 @@ arr1 = 20 * np.random.random((10, 20, 20))
 
 Im *Variable Explorer* können wir auch immer nur 2D-Arrays anzeigen lassen, aber es kann ausgewählt werden entlang welcher Axe(n) ein Schnitt angezeigt wird ( `Axis`) und mit `Index:` kann die jeweilige Ebene ausgewählt werden.
 
-![](C:\HSD\OneDrive - Hochschule Düsseldorf\DAISY\python-introduction-git\images\spyder_variable_explorer_numpy_array.png)
+![Spyder Variable Explorer of 3D numpy array](../images/spyder_variable_explorer_numpy_array.png)
 
 Tipp: Im Variable Explorer mit den unten angezeigten Feldern "Axis" und "Index" spielen. Damit kann z.B dieses 3-dimensionale Array von verschiedenen Seiten (axis) her betrachtet werden.
 
