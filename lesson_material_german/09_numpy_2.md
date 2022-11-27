@@ -30,13 +30,14 @@ Natürlich ist auch dieser Zugang begrenzt. Für sehr große Arrays, also Arrays
 
 Schon bei den Listen hatten wir die Möglichkeit mit der `.sort()` Methode die Elemente zu sortieren. Keine große Überraschung also, dass auch Numpy Arrays eine Sortiermethode mitbringen. In Wirklichkeit gibt es in NumPy sogar viele verschiedene!
 
-Als erstes können wir Arrays genau wie Listen sortieren:
+Als erstes können wir Arrays genau wie Listen sortieren und zwar mit `.sort()`:
 
 ```python
 import numpy as np
 
 arr = np.random.random(100)
 arr.sort()  # sort from small to large
+print(arr)
 ```
 
 Auch 2D (oder noch höher-dimensionale Arrays) können damit sortiert werden, dabei wird die Sortierung allerdings immer nur entlang *einer* Achse durchgeführt:
@@ -112,7 +113,7 @@ print(selected_idx)  # -> gibt die Positionen im Array aus die Werte <5 enthalte
 
 ### Arrays kombinieren
 
-vstack, hstack, concatenate
+vstack, hstack, dstack, or: concatenate
 
 
 
