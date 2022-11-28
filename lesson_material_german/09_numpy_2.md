@@ -55,7 +55,7 @@ arr.sort(axis=0)
 
 #### Argsort
 
-Eine weitere sehr wichtige Sortier-Methode ist `argsort()`. Damit berechnet Numpy die Indices der Elemente, geordnet nach Größe.
+Eine weitere sehr wichtige Sortier-Methode ist `argsort()`. Damit berechnet Numpy die Indices die alle Elemente nach Größe sortieren würden.
 
 ```python
 arr = np.array([6, 7, 8, 9, 3, 2, 3, 1, 0, 5])
@@ -64,11 +64,50 @@ order = np.argsort(arr)
 print(f"Die Top3 Einträge sind Nummer: {order[::-1][:3]}")
 ```
 
-Der Nutzen von `argsort()` wird bald deutlicher, wenn wir nämlich mit größeren, komplexeren Daten arbeiten. Dort wollen wir nämlich nicht immer eine gesamte Tabelle sortieren um dann die höchsten Elemente zu sehen, sondern wir möchten häufig nur wissen: Wo stehen die 10 höchsten/niedrigsten Werte in der Tabelle? 
+Der Nutzen von `argsort()` wird bald deutlicher, wenn wir nämlich mit größeren, komplexeren Daten arbeiten. Dort wollen wir nämlich nicht immer eine gesamte Tabelle sortieren um dann die höchsten Elemente zu sehen, sondern wir möchten häufig nur wissen: Wo stehen die 10 höchsten/niedrigsten Werte in der Tabelle. 
+
+Wenn wir es mit mehrdimensionalen Arrays zu tun haben, beziehen sich `sort()` und auch `argsort()` immer nur auf eine Achse/eine Dimension. Um welche Richtung es geht kann bei beiden Funktionen mit `axis` angegeben werden, z.B. so:
+
+```python
+arr = np.arange(0, 100).reshape(20, 5)
+sorted_idx = np.argsort(arr, axis=0)
+```
+
+Was ist aber, wenn wir alle Werte in einem 2D-Array entsprechend der Größe in nur einer "Spalte" sortieren wollen. Argsort bietet im Printzip die Möglichkeit dazu:
+
+```python
+arr = np.random.random((20, 20))
+
+# Indizes der ersten "Reihe" sortieren
+sorted_idx = np.argsort(arr, axis=1)
+arr = arr[:, sorted_idx]
+```
+
+Was aber, wenn wir nach mehreren Spalten/Zeilen gleichzeitig sortieren wollen? Dafür können wir `lexsort()` benutzen.
 
 #### Lexsort
 
-`numpy.argsort()` eignet sich hervorragend um die Reihenfolge von numerischen Werten zu ermitteln. Dies geht aber nur für Werte in einer Dimension. Was ist wenn wir entlang mehrerer Werte sortieren wollen? Das können wir mit `numpy.lexsort()` machen:
+`lexsort()` erlaubt es und in einem Array entlang mehrerer Werte zu sortieren.  Und auch, wenn wir Numpy bis hierhin nur für numerische Werte genutzt haben. Das Ganze geht auch mit anderen Datentypen wie z.B. strings:
+
+```python
+surnames =    ('Hertz',    'Galilei', 'Hertz')
+first_names = ('Heinrich', 'Galileo', 'Gustav')
+idx = np.lexsort((first_names, surnames))
+print(idx)
+```
+
+Aber häufiger noch sind nach wie vor die numerischen Beispiele. 
+
+```python
+arr = np.array([[3, 2, 1, 2], 
+                [5, 6, 8, 4]])
+
+print(np.lexsort(arr))
+```
+
+**Achtung:** Bei `lexsort()` können wir leider nicht ganz so einfach mit `axis` arbeiten.  Wenn wir hier die Richtung der Sortierung ändern wollen ist es besser das Array zu verändern, z.B. es zu drehen mit `np.rot90()`.
+
+Alternativ können auch alle nötigen 1D-Arrays als Tuple übergeben werden:
 
 ```python
 import numpy as np
@@ -80,8 +119,6 @@ sorted_idx = np.lexsort((arr2, arr1))[::-1]
 print(arr1[sorted_idx[:10]])
 print(arr2[sorted_idx[:10]])
 ```
-
-
 
 ### Einträge auswählen/finden
 
