@@ -73,7 +73,7 @@ arr = np.arange(0, 100).reshape(20, 5)
 sorted_idx = np.argsort(arr, axis=0)
 ```
 
-Was ist aber, wenn wir alle Werte in einem 2D-Array entsprechend der Größe in nur einer "Spalte" sortieren wollen. Argsort bietet im Printzip die Möglichkeit dazu:
+Was ist aber, wenn wir alle Werte in einem 2D-Array entsprechend der Größe in nur einer "Spalte" sortieren wollen. Argsort bietet im Prinzip die Möglichkeit dazu:
 
 ```python
 arr = np.random.random((20, 20))
@@ -216,6 +216,7 @@ Numpy ist zum Teil in Sprachen wie C implementiert und für viele Rechenoperatio
 ```python
 import random
 import time
+import numpy as np
 
 print("Pure Python ......................")
 generated_numbers = int(1e7)
