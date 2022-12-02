@@ -150,7 +150,11 @@ print(selected_idx)  # -> gibt die Positionen im Array aus die Werte <5 enthalte
 
 ### Arrays kombinieren
 
-vstack, hstack, dstack, or: concatenate
+In Numpy gibt es die Möglichkeit Arrays zu verbinden, sofern deren Abmessungen es zulassen. 
+
+Zum einen kann dies über `vstack`, `hstack`, `dstack` gemacht werden.
+
+Eine andere Option ist über `concatenate`. 
 
 
 
