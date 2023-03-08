@@ -1,7 +1,7 @@
 name: python_introduction
 dependencies:
-  - python=3.8
-  - numpy=1.19.*
+  - python=3.9
+  - numpy
   - pandas
   - matplotlib
   - jupyter
