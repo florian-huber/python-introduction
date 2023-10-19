@@ -175,7 +175,7 @@ def pick_smallest(a, b):
 
 Diese Funktion endet mit dem ersten oder dem zweiten return-Statement. Oder keines von beidem trifft zu, dann wird print() aufgerufen und -wie wir gerade gelernt haben- ein `None` zurückgegeben.
 
-### Namensräume
+### Namensräume (name space)
 
 Unter einem Namensraum versteht man einen Teil (oder Raum) innerhalb eines Programmes, in dem ein Name (z.B. Variablen und Funktionen) gültig ist.
 In Python gibt es v.a. drei Arten solcher Geltungsbereiche:
@@ -347,4 +347,4 @@ my_list_x2 = double_values(my_list)
 print(my_list, my_list_x2)  # => [5, 10, 15] [10, 20, 30]
 ```
 ### Vorschau
-In der nächsten Teil geht es dann um weitere Typen von Funktionen...
+Im nächsten Teil geht es dann um weitere Typen von Funktionen...
