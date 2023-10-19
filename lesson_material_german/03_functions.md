@@ -15,7 +15,6 @@ def gute_sache():
     print("Einmal Aufgeschrieben...")
     print("... 1000x benutzt!")
     print("Wieder 3 Zeilen Code gespart.")
-    
 ```
 Wenn wir diesen Code ausführen passiert aber erstmal nix!
 Funktionen werden erst beim expliziten Aufrufen ausgeführt:

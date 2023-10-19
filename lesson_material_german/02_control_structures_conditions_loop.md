@@ -128,7 +128,7 @@ fruits = ["apple", "banana", "mango"]
 print(fruits[-1])  # -> mango
 
 # Beim Datentyp list können wir Elemente verändern:
-fruit[-1] = "orange"
+fruits[-1] = "orange"
 print(fruits[-1])  # -> orange
 
 
