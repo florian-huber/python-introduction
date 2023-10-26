@@ -1,6 +1,6 @@
 # Datentypen II
 
-Wir haben schon einige Datentypen gesehen. Jetzt wollen wir aber noch einmal genauer darauf eingehen und weitere wichtige Typen besprechen.
+Wir haben schon einige Datentypen gesehen. Jetzt wollen wir aber noch einmal genauer darauf eingehen und weitere wichtige Typen besprechen. Wir starten aber mit einer kurzen Wiederholung.
 
 ### Variablen und Speicher
 
@@ -35,9 +35,7 @@ Aber nur der Vollständigkeit halber: Komplexe Zahlen.
 type(2j +3)  # => complex
 ```
 
- 
-
-### Strings
+ Strings
 
 ```python
 type("abcdefg")
@@ -87,7 +85,7 @@ Es gibt in Python aber noch zwei weitere sehr häufig verwendete Datentypen:
 my_set = {"yes", "no", "maybe"}
 ```
 
-Sieht erstmal wieder fast aus wie bei den Tuples und Lists. Allerdings macht das folgende Beispiel gleich klar,  dass Sets ein ganz anderes Format darstellen:
+Sieht erstmal wieder fast aus wie bei den Tuples und Lists. Allerdings macht das folgende Beispiel gleich klar,  dass Sets ein ganz anderen Datentyp darstellen:
 
 <!-- pytest-codeblocks:expect-error -->
 
@@ -149,7 +147,11 @@ all_animals = animal_set1 + animal_set2
 print(all_animals)  # => TypeError: unsupported operand type(s) for +: 'set' and 'set'
 ```
 
-Ok, bei Sets geht das also anders:
+Bei Sets gibt es nämlich mehrere verschiedene Arten um zwei Sets zu vereinigen, daher ist `+` hier nicht definiert worden. Eine häufige Verbindung zweier Sets ist die Vereinigungsmenge (engl. *union*). In der Mengenlehre wäre das
+$$
+A \cup B
+$$
+
 
 <!-- pytest-codeblocks:cont -->
 
@@ -158,7 +160,10 @@ all_animals = animal_set1.union(animal_set2)
 print(all_animals)  # => Yes, that works!
 ```
 
-Wo wir gerade bei Mengen sind: Damit kann man natürlich noch viel mehr machen, z.B:
+Es gibt aber noch ganz andere Vereinigungen, z.B. die Schnittmenge (*intersection*). In der Mengenlehre wäre dies 
+$$
+A \cap B
+$$
 
 ```python
 animal_set1 = {"cat", "dog", "elephant", "lion"}
@@ -175,7 +180,7 @@ print(f"Named twice: {most_popular}")
 > c) {'elephant', 'lion'}
 > d) {}
 
-Auch andere Operationen aus der Mengenlehre gibt es für sets, wie etwa: 
+Auch andere Operationen aus der Mengenlehre gibt es für Sets, wie etwa die symmetrische Differenz (*symmetric difference*): 
 ```python
 animal_set1 = {"cat", "dog", "elephant", "lion"}
 animal_set2 = {"parrot", "cat", "dog", "goldfish", "cow"}
