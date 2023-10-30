@@ -4,7 +4,7 @@ Wir haben schon einige Datentypen gesehen. Jetzt wollen wir aber noch einmal gen
 
 ### Variablen und Speicher
 
-Wichtig zu verstehen ist, dass Variablen in Python nicht die Daten/Werte enthalten. Es sind nur Namen mit der Information wo im Speicher der Wert steht.
+Wichtig zu verstehen ist, dass Variablen in Python nicht die Daten/Werte enthalten. Es sind nur Namen, verknüpft mit der Information wo im Speicher der Wert steht.
 
 Daher gibt es sowas:
 
