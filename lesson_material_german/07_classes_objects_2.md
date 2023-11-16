@@ -130,6 +130,10 @@ random_point = Point.create_random_point()
 random_point.position()
 ```
 
+Da die Klassenmethode in diesem Fall eine Instanz erzeugt spricht man auch von einer **factory method**.
+
+
+
 ---
 
 
