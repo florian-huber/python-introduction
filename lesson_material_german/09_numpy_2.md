@@ -80,7 +80,9 @@ arr = np.random.random((20, 20))
 
 # Indizes der ersten "Reihe" sortieren
 sorted_idx = np.argsort(arr, axis=1)
-arr = arr[:, sorted_idx]
+
+# Um damit eine tatsächliche Sortierung vorzunehmen
+arr_sorted = np.take_along_axis(arr, sorted_idx, axis=1)
 ```
 
 Was aber, wenn wir nach mehreren Spalten/Zeilen gleichzeitig sortieren wollen? Dafür können wir `lexsort()` benutzen.
@@ -90,7 +92,7 @@ Was aber, wenn wir nach mehreren Spalten/Zeilen gleichzeitig sortieren wollen? D
 `lexsort()` erlaubt es und in einem Array entlang mehrerer Werte zu sortieren.  Und auch, wenn wir Numpy bis hierhin nur für numerische Werte genutzt haben. Das Ganze geht auch mit anderen Datentypen wie z.B. strings:
 
 ```python
-surnames =    ('Hertz',    'Galilei', 'Hertz')
+surnames = ('Hertz',    'Galilei', 'Hertz')
 first_names = ('Heinrich', 'Galileo', 'Gustav')
 idx = np.lexsort((first_names, surnames))
 print(idx)
@@ -100,14 +102,16 @@ Aber häufiger noch sind nach wie vor die numerischen Beispiele.
 
 ```python
 arr = np.array([[3, 2, 1, 2], 
-                [5, 6, 8, 4]])
+                [5, 4, 3, 3]])
 
 print(np.lexsort(arr))
 ```
 
 **Achtung:** Bei `lexsort()` können wir leider nicht ganz so einfach mit `axis` arbeiten.  Wenn wir hier die Richtung der Sortierung ändern wollen ist es besser das Array zu verändern, z.B. es zu drehen mit `np.rot90()`.
 
-Alternativ können auch alle nötigen 1D-Arrays als Tuple übergeben werden:
+Alternativ können auch alle nötige
+
+n 1D-Arrays als Tuple übergeben werden:
 
 ```python
 import numpy as np
