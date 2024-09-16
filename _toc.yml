@@ -34,4 +34,13 @@ parts:
     chapters:
     - file: lesson_material_german/08_numpy
     - file: lesson_material_german/09_numpy_2
-
+  - caption: Tabellarische Daten - Pandas
+    numbered: true
+    chapters:
+    - file: lesson_material_german/09_pandas
+    - file: lesson_material_german/10_pandas_2
+  - caption: A few missing things
+    numbered: true
+    chapters:
+    - file: lesson_material_german/10_debugging
+    - file: lesson_material_german/14_generators 
