@@ -24,9 +24,9 @@ This will create an new environment called 'python_introduction' with all packag
 ### Or: Set up own environment from scratch
 You can also create an environment from scratch and then install all needed packages manually. Do do this, run:
 ```
-conda create --name python_introduction python=3.8
+conda create --name python_introduction python=3.12
 ```
-This will create an new environment called 'python_introduction' and it will have python 3.8 installed.
+This will create an new environment called 'python_introduction' and it will have python 3.12 installed.
 
 ### Activate environment
 Once created, you can activate the new environment by running
