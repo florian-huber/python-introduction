@@ -1,6 +1,10 @@
 ![GitHub](https://img.shields.io/github/license/florian-huber/python-introduction)
 ![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/florian-huber/python-introduction/CI_tests.yml)
 
+<p align="center">
+    <img src="https://github.com/florian-huber/python-introduction/blob/main/images/cover_sketching.png" width="600" alt="Course cover">
+</p>
+
 # Einführung Programmieren mit Python (Data Science related bachelor at HSD)
 Skript zur Vorlesung "Einführung Programmieren für Data Science und Künstliche Intelligenz" mit Code Beispielen und Erklärungen.
 # Python introduction course (data science related bachelor at HSD)
