@@ -1,62 +1,37 @@
 format: jb-book
 root: book/cover
 parts:
-  - caption: Introduction
-    numbered: true  # Only applies to chapters in Part 1.
-    chapters:
-    - file: book/01_intro
-    - file: book/02_what_is_data_science
-    - file: book/03_data_science_ethics_society
-    - file: book/04_use_of_this_book
-  - caption: Data Science Basics
+  - caption: Einführung
     numbered: true
     chapters:
-    - file: book/05_data_and_types
-    - file: book/06_data_information_knowledge
-    - file: book/07_data_science_workflow
-  - caption: Data Acquisition and First Exploration
+    - file: lesson_material_german/00_introduction
+    - file: lesson_material_german/01_first_steps
+    - file: lesson_material_german/02_control_structures_conditions_loop
+  - caption: Funktionen und Module
     numbered: true
     chapters:
-    - file: book/08_data_acquisition_and_preparation
-    - file: notebooks/09_data_preparation
-    - file: notebooks/10_distributions_statistical_measures
-  - caption: In-depth Data Exploration
+    - file: lesson_material_german/03_functions
+    - file: lesson_material_german/03_import_libraries_modules
+    - file: lesson_material_german/03_special_functions
+  - caption: Datentypen & String Handling
     numbered: true
     chapters:
-    - file: notebooks/11_correlation_analysis
-    - file: notebooks/12_clustering
-    - file: notebooks/13_introduction_outlier_detection
-    - file: notebooks/14_dimensionality_reduction
-  - caption: Supervised Machine Learning
+    - file: lesson_material_german/04_datatypes_2
+    - file: lesson_material_german/04_string_handling
+  - caption: Error Handling und Best Practices I
     numbered: true
     chapters:
-    - file: notebooks/15_machine_learning
-    - file: notebooks/16_machine_learning_algorithms
-    - file: notebooks/17_machine_learning_algorithms_2
-    - file: notebooks/18_machine_learning_algorithms_3
-    - file: notebooks/19_machine_learning_techniques
-    - file: notebooks/20_machine_learning_ensembles
-  - caption: Working with Text Data
+    - file: lesson_material_german/05_error_handling
+    - file: lesson_material_german/05_one_step_back-best_practices
+    - file: lesson_material_german/05_open_files
+  - caption: Klassen und Objekte
     numbered: true
     chapters:
-    - file: notebooks/21_working_with_text_data
-    - file: notebooks/22_NLP_2_tokenization
-    - file: notebooks/23_NLP_3_tfifd_and_machine_learning
-    - file: notebooks/24_NLP_4_ngrams_word_vectors
-  - caption: Look at the Networks
+    - file: lesson_material_german/06_classes_objects
+    - file: lesson_material_german/07_classes_objects_2
+  - caption: Arbeiten mit numerischen Daten - Numpy
     numbered: true
     chapters:
-    - file: notebooks/25_graphs
-    - file: notebooks/26_graph_visualization
-    - file: notebooks/27_graphs_communities
-  - caption: Next Steps
-    numbered: true
-    chapters:
-    - file: notebooks/outlook
-  - caption: References
-    chapters:
-    - file: book/acknowledgements
-    - file: book/bibliography
-  - caption: Source Code and Contributions
-    chapters:
-    - file: book/github
+    - file: lesson_material_german/08_numpy
+    - file: lesson_material_german/09_numpy_2
+    
