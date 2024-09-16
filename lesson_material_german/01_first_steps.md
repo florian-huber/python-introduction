@@ -1,4 +1,4 @@
-# 1. Erste Schritte mit Python
+# Erste Schritte mit Python
 
 Für den Kurs wird eine Installation von Python über **Anaconda** empfohlen. Nach einer erfolgreichen Installation können wir Python Code aus dem Terminal (Windows: "cmd") ausführen oder mit Hilfe des mitgelieferten Editors *Spyder*. 
 

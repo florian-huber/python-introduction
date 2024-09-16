@@ -1,15 +1,11 @@
-
-
-## Wiederholung -> Datentypen, Syntax, warum Python
-
 # Kontrollstrukturen und Bedingungen
 
-### Skripte/Programme
+## Skripte/Programme
 
 Letztes Mal haben wir uns v.a. kurze Befehle angeschaut, die wir entweder in der Konsole (Terminal/Shell)
 oder über eine integrierte Entwicklungsumgebung (IDE) wie z.B. Spyder eingegeben werden.
 
-Im IDE hatten wir aber auch bereits gesehen, dass man mehrere solche Befehle untereinander schreiben kann und diese dann zusammen ausgeführt werden. Ein erstes Skript. Oder Programm? Was genaue eigentlich? 
+Im IDE hatten wir aber auch bereits gesehen, dass man mehrere solche Befehle untereinander schreiben kann und diese dann zusammen ausgeführt werden. Ein erstes Skript. Oder Programm? Was genau eigentlich? 
 
 Die Begriffe werden verschieden benutzt. In dieser Veranstaltung werde ich im allgemeinen nicht wirklich unterscheiden zwischen **Skript** und **Programm**. Der Begriff Skript ist dabei etwas eingeschränkter, man würde z.B. eine vollständig entwickelte Software nicht als Skript bezeichnen.
 
@@ -492,5 +488,3 @@ Routinierte Python-Programmierer*Innen nutzten gerne und oft die list comprehens
 > b) eins, zwei, drei  
 > c) e, z, d  
 > d) 0, 0, 0  
-
---> go to FUNCTIONS !

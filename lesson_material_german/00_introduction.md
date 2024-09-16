@@ -5,7 +5,6 @@
 Dies ist ein Skript zur Veranstaltung "Programmieren für Data Science und Künstliche Intelligenz" im Studiengang DAISY an der Hochschule Düsseldorf (HSD). Und wie die meisten Skripte: Work in progress...
 
 
-
 ## Was ist programmieren und warum brauchen wir das (für Data Science und AI)?
 
 Computer können tolle Sachen, z.B. Milliarden von Berechnungen pro Sekunde verarbeiten oder riesige Mengen an Daten speichern. Kein Wunder also, dass wir diese Fähigkeiten im Bereich Data Science auch nutzen möchten. Natürlich können wir fertige Programme nutzen. In vielen Fällen haben wir aber Aufgaben, die viel zu speziell und schwierig sind. Wir brauchen unsere eigenen Programme, wir müssen **programmieren**.
