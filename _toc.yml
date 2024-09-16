@@ -1,5 +1,5 @@
 format: jb-book
-root: book/cover
+root: lesson_material_german/cover
 parts:
   - caption: Einführung
     numbered: true
@@ -34,4 +34,4 @@ parts:
     chapters:
     - file: lesson_material_german/08_numpy
     - file: lesson_material_german/09_numpy_2
-    
+
