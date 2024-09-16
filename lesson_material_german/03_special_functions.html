@@ -1,0 +1,761 @@
+
+<!DOCTYPE html>
+
+
+<html lang="de" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>6. Special functions &#8212; Introduction to Data Science (for not-yet-scientists)</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=91fba89f"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../_static/translations.js?v=79cc9f76"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'lesson_material_german/03_special_functions';</script>
+    <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
+    <link rel="search" title="Suche" href="../search.html" />
+    <link rel="next" title="7. Datentypen II" href="04_datatypes_2.html" />
+    <link rel="prev" title="5. Import aus Bibliotheken/Modulen" href="03_import_libraries_modules.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="de"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="cover.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/cover_logo_mini.png" class="logo__image only-light" alt="Introduction to Data Science (for not-yet-scientists) - Home"/>
+    <script>document.write(`<img src="../_static/cover_logo_mini.png" class="logo__image only-dark" alt="Introduction to Data Science (for not-yet-scientists) - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Suche" aria-label="Suche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Suche</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="cover.html">
+                    Einführung Programmieren mit Python für Data Science
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Einführung</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="00_introduction.html">1. Programmieren für Data Science und Künstliche Intelligenz</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_first_steps.html">2. Erste Schritte mit Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_control_structures_conditions_loop.html">3. Kontrollstrukturen und Bedingungen</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Funktionen und Module</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="03_functions.html">4. Funktionen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_import_libraries_modules.html">5. Import aus Bibliotheken/Modulen</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">6. Special functions</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Datentypen &amp; String Handling</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="04_datatypes_2.html">7. Datentypen II</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_string_handling.html">8. String handling</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Error Handling und Best Practices I</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="05_error_handling.html">9. Error handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_one_step_back-best_practices.html">10. Code design und „best practices“ 1</a></li>
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="05_open_files.html">16. Dateien lesen und schreiben</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Klassen und Objekte</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="06_classes_objects.html">17. Object-oriented programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_classes_objects_2.html">18. Classes - part 2</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Arbeiten mit numerischen Daten - Numpy</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="08_numpy.html">19. NumPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_numpy_2.html">20. Numpy - part 2</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Tabellarische Daten - Pandas</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="09_pandas.html">21. Jupyter Notebook</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="10_pandas_2.html">23. Pandas - part 2</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">A few missing things</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="10_debugging.html">24. Python Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="14_generators.html">25. Generators / Iterators</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/florian-huber/python-introduction" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Quell-Repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/florian-huber/python-introduction/issues/new?title=Issue%20on%20page%20%2Flesson_material_german/03_special_functions.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Öffnen Sie ein Problem"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Laden Sie diese Seite herunter">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/lesson_material_german/03_special_functions.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Quelldatei herunterladen"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="In PDF drucken"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Vollbildmodus"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Suche" aria-label="Suche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Special functions</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Inhalt </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rekursive-funktionen-recursive-functions">6.1. Rekursive Funktionen (<em>recursive functions</em>)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lokale-funktionen">6.2. Lokale Funktionen</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lokale-funktionen-wann-benutzen-und-wann-nicht">6.2.1. Lokale Funktionen: Wann benutzen und wann nicht?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#funktionen-mit-variabler-parameter-anzahl">6.2.2. Funktionen mit variabler Parameter-Anzahl</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kwargs-variable-anzahl-benannter-parameter">6.2.3. **kwargs -&gt; variable Anzahl benannter Parameter</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="special-functions">
+<h1><span class="section-number">6. </span>Special functions<a class="headerlink" href="#special-functions" title="Link to this heading">#</a></h1>
+<p>Wir haben uns schon Funktionen in Python angeschaut. Zur Erinnerung:<br />
+Funktionen werden mit <code class="docutils literal notranslate"><span class="pre">def</span></code> definiert. Funktionen müssen aufgerufen werden um wirklich vom Interpreter ausgeführt zu werden. Es können theoretisch beliebig viele Parameter (oder Argumente) an eine Funktion übergeben werden. Über <code class="docutils literal notranslate"><span class="pre">return</span></code> gibt die Funktion Variablen zurück und ended. Falls kein explizietes <code class="docutils literal notranslate"><span class="pre">return</span></code> statement angegeben wird, gibt eine Funktion <code class="docutils literal notranslate"><span class="pre">None</span></code> zurück.</p>
+<p>Im Folgenden gehen wir kurz auf einige spezielle Funktionen-Typen ein.</p>
+<section id="rekursive-funktionen-recursive-functions">
+<h2><span class="section-number">6.1. </span>Rekursive Funktionen (<em>recursive functions</em>)<a class="headerlink" href="#rekursive-funktionen-recursive-functions" title="Link to this heading">#</a></h2>
+<p>Rekursive Funktionen sind Funktionen die sich selbst aufrufen.
+Ein typisches Beispiel dafür ist die Berechnung von Fakultäten (engl. <em>factorial</em>).
+Zur Erinnerung: Fakutät von <em>n</em> ist das Produkt aller ganzen Zahlen von 1 bis <em>n</em>.
+Zum Beispiel wäre die Fakultät von vier:<br />
+<code class="docutils literal notranslate"><span class="pre">4!</span> <span class="pre">=</span> <span class="pre">1</span> <span class="pre">*</span> <span class="pre">2</span> <span class="pre">*</span> <span class="pre">3</span> <span class="pre">*</span> <span class="pre">4</span> <span class="pre">=</span> <span class="pre">24</span></code><br />
+Eine Python Funktion dazu könnte man so schreiben:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">factorial_recursive</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="c1"># Base case: 1! = 1</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+
+    <span class="c1"># Recursive case: n! = n * (n-1)!</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">n</span> <span class="o">*</span> <span class="n">factorial_recursive</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+
+<span class="nb">print</span><span class="p">(</span><span class="n">factorial_recursive</span><span class="p">(</span><span class="mi">6</span><span class="p">))</span>  <span class="c1"># =&gt; 720</span>
+</pre></div>
+</div>
+<p>Im Allgemeinen ist der Einsatz von rekursiven Funktionen aber eher selten.
+Häufig haben rekursive Funktionen das Problem das sie schnell sehr langsam und uneffizient werden.</p>
+<p>Deutlich wichtiger (in meinen Augen…) sind dagegen lokale Funktionen.</p>
+</section>
+<section id="lokale-funktionen">
+<h2><span class="section-number">6.2. </span>Lokale Funktionen<a class="headerlink" href="#lokale-funktionen" title="Link to this heading">#</a></h2>
+<p>Als Lokale Funktionen bezeichnet man Funktionen die innerhalb einer anderen
+Funktion definiert werden.</p>
+<!--pytest-codeblocks:skip-->
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">outer_function</span><span class="p">():</span>
+    <span class="k">def</span> <span class="nf">inner_function</span><span class="p">():</span>
+        <span class="k">pass</span> <span class="c1"># hier kommt der Code der inneren Funktion hin</span>
+
+    <span class="c1"># hier ist die eigentliche Funktion und die benutzt inner_function</span>
+    <span class="n">inner_function</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Ein erstes Beispiel einer solchen Funktion (<code class="docutils literal notranslate"><span class="pre">double_n_times()</span></code>) mit lokaler/innerer Funktion (<code class="docutils literal notranslate"><span class="pre">double_number()</span></code>):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">double_n_times</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">double_number</span><span class="p">(</span><span class="n">number</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">number</span> <span class="o">*</span> <span class="mi">2</span>
+
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="n">double_number</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">a</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">double_n_times</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>  <span class="c1"># =&gt; 5120</span>
+</pre></div>
+</div>
+<p>Und hier ein Beispiel im Bereich String-Handling (Hinweis: <code class="docutils literal notranslate"><span class="pre">.lower()</span></code> ist eine String-Methode und ändert alle Buchstaben in einem String zu Kleinbuchstaben):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">greeting</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Prints a greeting that depends on the given name string.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">is_friend</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+        <span class="n">friends_list</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;tom&quot;</span><span class="p">,</span> <span class="s2">&quot;anna&quot;</span><span class="p">,</span> <span class="s2">&quot;erik&quot;</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">name</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">in</span> <span class="n">friends_list</span>
+
+    <span class="c1"># Print greeting</span>
+    <span class="k">if</span> <span class="n">is_friend</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Hi </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">!!&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Hello </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Eine kleine Nebenbemerkung:<br />
+Beim Programmieren gibt es in der Regel nicht <strong>eine</strong> Lösung für ein Problem, sondern es können oft sehr unterschiedliche Programme für eine und dieselbe Aufgabe geschrieben werden.
+Im oberen Beispiel, könnte man die Zeile <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">name.lower()</span> <span class="pre">in</span> <span class="pre">friends_list1</span></code> auch problemlos austauschen gegen eine Konstruktion mit <code class="docutils literal notranslate"><span class="pre">if</span></code>.</p>
+<blockquote>
+<div><h3 class="rubric" id="mini-quiz">Mini Quiz:</h3>
+<p>Was wird bei greeting(„Anna“) ausgegeben:
+a) Hello Anna.<br />
+b) False<br />
+c) Hi Anna!!</p>
+</div></blockquote>
+<!--pytest-codeblocks:cont-->
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">greeting</span><span class="p">(</span><span class="s2">&quot;Anna&quot;</span><span class="p">)</span>  <span class="c1"># =&gt; Hi Anna!!</span>
+<span class="n">greeting</span><span class="p">(</span><span class="s2">&quot;Sandra&quot;</span><span class="p">)</span>  <span class="c1"># =&gt; Hello Sandra.</span>
+</pre></div>
+</div>
+<p>Lokale Funktionen sind nicht direkt aufrufbar. Man verwendet sie daher v.a. für kleine Helferfunktionen (um unnötige Wiederholung zu vermeiden und/oder die Struktur der Hauptfunktion klarer zu machen).</p>
+<p>In dem oberen Beispiel spart man damit keinen Code.
+Aber es wird vielleicht etwas übersichtlicher.</p>
+<p>Bei den Funktionen hatten wir auch schonmal kurz das Thema <strong>Namespaces</strong>.
+Dort haben wir gesehen, das Variablen die innerhalb einer Funktion definiert werden (also „lokal“), von aussen nicht sichtbar/nutzbar sind. Das Gleiche gilt auch für lokale Funktionen, diese sind für den Rest eines Programmes nicht sichtbar.</p>
+<!--pytest-codeblocks:expect-error-->
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">is_friend</span><span class="p">(</span><span class="s2">&quot;Tom&quot;</span><span class="p">)</span>  <span class="c1"># =&gt; NameError: name &#39;is_friend&#39; is not defined</span>
+</pre></div>
+</div>
+<p>Wenn die Helfer-Funktion auch in anderen Funktionen benutzt wird, macht es Sinn sie als Helferfunktion in ein eigene Datei zu stecken
+und zu importieren, z.B. mit <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">helper_functions</span> <span class="pre">import</span> <span class="pre">is_friend</span></code>.</p>
+<section id="lokale-funktionen-wann-benutzen-und-wann-nicht">
+<h3><span class="section-number">6.2.1. </span>Lokale Funktionen: Wann benutzen und wann nicht?<a class="headerlink" href="#lokale-funktionen-wann-benutzen-und-wann-nicht" title="Link to this heading">#</a></h3>
+<p>Lokale Funktionen machen Sinn als kleine Helfer-Funktionen, wenn sie</p>
+<ul class="simple">
+<li><p>nicht durch andere Funktionen benötigt werden</p></li>
+<li><p>mehrere Male in der äusseren Funktion aufgerufen werden und/oder</p></li>
+<li><p>die äussere Funktion lesbarer machen</p></li>
+</ul>
+<p>Stellen wir uns vor die Funktion <code class="docutils literal notranslate"><span class="pre">is_friend</span></code> würde nun in zwei weiteren Funktionen eingesetzt. Dann müsste sie in beiden lokal definiert werden. Das ist aber umständlich und sehr fehleranfällig (z.B. wenn eine geändert wird, die andere aber versehentlich nicht). Darum würde man in diesem Fall lieber eine eigene Funktion definieren (oder importieren):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">is_friend</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Return True if name is in friends_list</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">friends_list</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;tom&quot;</span><span class="p">,</span> <span class="s2">&quot;anna&quot;</span><span class="p">,</span> <span class="s2">&quot;erik&quot;</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">name</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">in</span> <span class="n">friends_list</span>
+
+
+<span class="k">def</span> <span class="nf">greeting</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Prints a greeting depending on the name string.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">is_friend</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Hi </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">!!&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Hello </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+        
+        
+<span class="k">def</span> <span class="nf">goodbye</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Prints a goodbye depending on the name string.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">is_friend</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Bye </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">!!&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Goodbye </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="funktionen-mit-variabler-parameter-anzahl">
+<h3><span class="section-number">6.2.2. </span>Funktionen mit variabler Parameter-Anzahl<a class="headerlink" href="#funktionen-mit-variabler-parameter-anzahl" title="Link to this heading">#</a></h3>
+<p>Alle bisherigen Funktionen die wir angeschaut haben, erwarten eine bestimmte Anzahl an Parametern. Eventuell gibt es einige mit default-Wert die ausgelassen werden können, aber es dürfen auf keinen Fall mehr als die definierten Parameter übergeben werden.</p>
+<!--pytest-codeblocks:expect-error-->
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">multiply_all</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">*</span> <span class="n">b</span> <span class="o">*</span> <span class="n">c</span><span class="p">)</span>
+
+<span class="n">multiply_all</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>  <span class="c1"># =&gt; TypeError: multiply_all() takes 3 positional arguments but 4 were given</span>
+</pre></div>
+</div>
+<p>Wenn wir die Anzahl aber wie in diesem Fall bewusst offen lassen möchten können wir in Python <code class="docutils literal notranslate"><span class="pre">\*args</span></code> benutzen (kurz für <em>arguments</em>).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">multiply_all</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+    <span class="n">product</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">args</span><span class="p">:</span>
+        <span class="n">product</span> <span class="o">*=</span> <span class="n">num</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">product</span><span class="p">)</span>
+
+<span class="n">multiply_all</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Nur am Rande 1: hier nutzen wir <code class="docutils literal notranslate"><span class="pre">product</span> <span class="pre">*=</span> <span class="pre">num</span></code> was aber das gleiche ist wie <code class="docutils literal notranslate"><span class="pre">product</span> <span class="pre">=</span> <span class="pre">product</span> <span class="pre">*</span> <span class="pre">num</span></code>.<br />
+Es gibt in Python genauso auch <code class="docutils literal notranslate"><span class="pre">+=</span></code>, <code class="docutils literal notranslate"><span class="pre">-=</span></code>, <code class="docutils literal notranslate"><span class="pre">*=</span></code> und <code class="docutils literal notranslate"><span class="pre">/=</span></code>:</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">a</span> <span class="o">+=</span> <span class="mi">2</span>  <span class="c1"># Gleiche wie a = a + 2 </span>
+<span class="n">a</span> <span class="o">-=</span> <span class="mi">2</span>  <span class="c1"># Gleiche wie a = a - 2</span>
+<span class="n">a</span> <span class="o">*=</span> <span class="mi">2</span>  <span class="c1"># Gleiche wie a = a * 2</span>
+<span class="n">a</span> <span class="o">/=</span> <span class="mi">2</span>  <span class="c1"># Gleiche wie a = a / 2</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Nur am Rande 2: Für solche Operationen gibt es in Python fast immer schon irgendwo eine Funktion die genutzt werden kann. Hier z.B. in der Bibliothek <code class="docutils literal notranslate"><span class="pre">math</span></code> die wir schon gesehen hatten.</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+<span class="k">def</span> <span class="nf">multiply_all</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">prod</span><span class="p">(</span><span class="n">args</span><span class="p">))</span>
+
+<span class="n">multiply_all</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="kwargs-variable-anzahl-benannter-parameter">
+<h3><span class="section-number">6.2.3. </span>**kwargs -&gt; variable Anzahl benannter Parameter<a class="headerlink" href="#kwargs-variable-anzahl-benannter-parameter" title="Link to this heading">#</a></h3>
+<p>Analog zu <code class="docutils literal notranslate"><span class="pre">\*args</span></code> können mit <code class="docutils literal notranslate"><span class="pre">\*\*kwargs</span></code> auch benannte Parameter in unbestimmter Anzahl an eine Funktion übergeben werden. Dies wird aber eher später von Bedeutung sein wenn wir mit komplexeren Funktionen jonglieren.
+Trotzdem schonmal ein Beispiel dazu:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">guess_the_animal</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Give some hints as keywords-value pairs for guessing an animal.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hi! Can you guess what animal I mean?&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+
+<span class="n">guess_the_animal</span><span class="p">(</span><span class="n">legs</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="s2">&quot;5000 kg&quot;</span><span class="p">)</span> 
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./lesson_material_german"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="03_import_libraries_modules.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">zurück</p>
+        <p class="prev-next-title"><span class="section-number">5. </span>Import aus Bibliotheken/Modulen</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="04_datatypes_2.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">weiter</p>
+        <p class="prev-next-title"><span class="section-number">7. </span>Datentypen II</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Inhalt
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rekursive-funktionen-recursive-functions">6.1. Rekursive Funktionen (<em>recursive functions</em>)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lokale-funktionen">6.2. Lokale Funktionen</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lokale-funktionen-wann-benutzen-und-wann-nicht">6.2.1. Lokale Funktionen: Wann benutzen und wann nicht?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#funktionen-mit-variabler-parameter-anzahl">6.2.2. Funktionen mit variabler Parameter-Anzahl</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kwargs-variable-anzahl-benannter-parameter">6.2.3. **kwargs -&gt; variable Anzahl benannter Parameter</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Durch Florian Huber
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

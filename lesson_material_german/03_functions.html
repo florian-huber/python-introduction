@@ -1,0 +1,901 @@
+
+<!DOCTYPE html>
+
+
+<html lang="de" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>4. Funktionen &#8212; Introduction to Data Science (for not-yet-scientists)</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=91fba89f"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../_static/translations.js?v=79cc9f76"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'lesson_material_german/03_functions';</script>
+    <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
+    <link rel="search" title="Suche" href="../search.html" />
+    <link rel="next" title="5. Import aus Bibliotheken/Modulen" href="03_import_libraries_modules.html" />
+    <link rel="prev" title="3. Kontrollstrukturen und Bedingungen" href="02_control_structures_conditions_loop.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="de"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="cover.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/cover_logo_mini.png" class="logo__image only-light" alt="Introduction to Data Science (for not-yet-scientists) - Home"/>
+    <script>document.write(`<img src="../_static/cover_logo_mini.png" class="logo__image only-dark" alt="Introduction to Data Science (for not-yet-scientists) - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Suche" aria-label="Suche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Suche</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="cover.html">
+                    Einführung Programmieren mit Python für Data Science
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Einführung</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="00_introduction.html">1. Programmieren für Data Science und Künstliche Intelligenz</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_first_steps.html">2. Erste Schritte mit Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_control_structures_conditions_loop.html">3. Kontrollstrukturen und Bedingungen</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Funktionen und Module</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">4. Funktionen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_import_libraries_modules.html">5. Import aus Bibliotheken/Modulen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_special_functions.html">6. Special functions</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Datentypen &amp; String Handling</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="04_datatypes_2.html">7. Datentypen II</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_string_handling.html">8. String handling</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Error Handling und Best Practices I</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="05_error_handling.html">9. Error handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_one_step_back-best_practices.html">10. Code design und „best practices“ 1</a></li>
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="05_open_files.html">16. Dateien lesen und schreiben</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Klassen und Objekte</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="06_classes_objects.html">17. Object-oriented programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_classes_objects_2.html">18. Classes - part 2</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Arbeiten mit numerischen Daten - Numpy</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="08_numpy.html">19. NumPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_numpy_2.html">20. Numpy - part 2</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Tabellarische Daten - Pandas</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="09_pandas.html">21. Jupyter Notebook</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="10_pandas_2.html">23. Pandas - part 2</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">A few missing things</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="10_debugging.html">24. Python Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="14_generators.html">25. Generators / Iterators</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/florian-huber/python-introduction" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Quell-Repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/florian-huber/python-introduction/issues/new?title=Issue%20on%20page%20%2Flesson_material_german/03_functions.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Öffnen Sie ein Problem"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Laden Sie diese Seite herunter">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/lesson_material_german/03_functions.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Quelldatei herunterladen"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="In PDF drucken"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Vollbildmodus"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Suche" aria-label="Suche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Funktionen</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Inhalt </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definieren-von-funktionen">4.1. Definieren von Funktionen</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#default-werte">4.1.1. Default Werte</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optional">4.1.2. Optional:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#return-irgendwas-kommt-immer-zuruck">4.1.3. Return - irgendwas kommt immer zurück</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#return-muss-nicht-am-ende-stehen">4.1.3.1. return muss nicht am Ende stehen</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#namensraume-name-space">4.1.4. Namensräume (name space)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ha-wann-wird-jetzt-was-verandert">4.1.5. Hä? Wann wird jetzt was verändert??</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vorschau">4.1.6. Vorschau</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="funktionen">
+<h1><span class="section-number">4. </span>Funktionen<a class="headerlink" href="#funktionen" title="Link to this heading">#</a></h1>
+<p>Wir haben schon Funktionen benutzt: <code class="docutils literal notranslate"><span class="pre">print()</span></code>, <code class="docutils literal notranslate"><span class="pre">type()</span></code>, aber auch <code class="docutils literal notranslate"><span class="pre">int()</span></code> oder <code class="docutils literal notranslate"><span class="pre">str()</span></code>.</p>
+<p>Diese Funktionen sind bei Python schon „eingebaut“.</p>
+<p>Die meisten Funktionen die wir nutzen werden sind aber entweder:</p>
+<ul class="simple">
+<li><p>selbst geschrieben (oder: definiert)</p></li>
+<li><p>importiert (geladen)</p></li>
+</ul>
+<section id="definieren-von-funktionen">
+<h2><span class="section-number">4.1. </span>Definieren von Funktionen<a class="headerlink" href="#definieren-von-funktionen" title="Link to this heading">#</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">gute_sache</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Einmal Aufgeschrieben...&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;... 1000x benutzt!&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Wieder 3 Zeilen Code gespart.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Wenn wir diesen Code ausführen passiert aber erstmal nix!
+Funktionen werden erst beim expliziten Aufrufen ausgeführt:</p>
+<!-- pytest-codeblocks:cont -->
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">gute_sache</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Diese Funktion gibt nichts zurück (nur print) und verlangt keine Argumente.</p>
+<p>Die allgemeine Struktur von Funktionen ist:</p>
+<!-- pytest-codeblocks:skip -->
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">function_name</span><span class="p">(</span><span class="n">parameter1</span><span class="p">,</span> <span class="n">parameter2</span><span class="p">,</span> <span class="n">etc</span><span class="p">):</span>
+    <span class="c1"># code</span>
+    <span class="k">return</span> <span class="n">result</span>
+</pre></div>
+</div>
+<p>Besser sogar noch so, mit einem sogenannten Docstring der die grundlegende Dokumentation der Funktion darstellt. Hierin können die Funktion und die Parameter beschrieben werden. Zusätzlich kann aber auch ein Code Beispiel angegeben werden oder Referenzen genannte werden.</p>
+<!-- pytest-codeblocks:skip -->
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">function_name</span><span class="p">(</span><span class="n">parameter1</span><span class="p">,</span> <span class="n">parameter2</span><span class="p">,</span> <span class="o">...</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Hier wird die Funktion beschrieben</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># code</span>
+    <span class="k">return</span> <span class="n">result</span>
+</pre></div>
+</div>
+<p>Es gibt auch Funktionen ohne parameter (siehe oben <code class="docutils literal notranslate"><span class="pre">gute_sache()</span></code>).
+Ausserdem kann man <em>defaults</em> festlegen! Diese werden genutzt, falls kein neuer Wert für die entsprechenden Parameter eingegeben wird.</p>
+<!-- pytest-codeblocks:skip -->
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">function_name</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="o">=</span><span class="mf">3.1415</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Hier wird die Funktion beschrieben</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="o">...</span> <span class="n">code</span> <span class="o">...</span>
+    <span class="k">return</span> <span class="n">result</span>
+</pre></div>
+</div>
+<p>Hier ein anderes Beispiel einer einfachen Funktion mit 2 Parametern:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">x_vs_y</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Compare the numbers x and y.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="n">y</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;They are equal!&quot;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="n">y</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2"> is bigger than </span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2"> is smaller than </span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">x_vs_y</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">70</span><span class="p">)</span>  <span class="c1"># =&gt; 10 is smaller than 70</span>
+
+<span class="n">x_vs_y</span><span class="p">(</span><span class="mf">0.000001</span><span class="p">,</span> <span class="mf">1e-5</span><span class="p">)</span>  <span class="c1"># =&gt; 1e-06 is smaller than 1e-05</span>
+</pre></div>
+</div>
+<p>Aber was nicht funktioniert ist:</p>
+<!-- pytest-codeblocks:skip -->
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x_vs_y</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="c1"># =&gt; TypeError: x_vs_y() missing 1 required positional argument: &#39;y&#39;</span>
+</pre></div>
+</div>
+<section id="default-werte">
+<h3><span class="section-number">4.1.1. </span>Default Werte<a class="headerlink" href="#default-werte" title="Link to this heading">#</a></h3>
+<p>Hier eine Beispielfunktion in der einer der beiden möglichen Parameter einen Default-Wert erhält:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">boxes_to_eggs</span><span class="p">(</span><span class="n">n_boxes</span><span class="p">,</span> <span class="n">eggs_per_box</span><span class="o">=</span><span class="mi">6</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Compute the total number of eggs in n_boxes boxes.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">n_boxes</span> <span class="o">*</span> <span class="n">eggs_per_box</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">boxes_to_eggs</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>  <span class="c1"># =&gt; 30</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">boxes_to_eggs</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>  <span class="c1"># =&gt; 50</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">boxes_to_eggs</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">eggs_per_box</span><span class="o">=</span><span class="mi">10</span><span class="p">))</span>  <span class="c1"># =&gt; 50</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">boxes_to_eggs</span><span class="p">(</span><span class="n">eggs_per_box</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">n_boxes</span><span class="o">=</span><span class="mi">5</span><span class="p">))</span>  <span class="c1"># =&gt; 50</span>
+</pre></div>
+</div>
+<p>ABER… Folgendes geht nicht, da die benannte Parameter nicht vor unbenannten an die Funktion übergeben werden dürfe.</p>
+<!-- pytest-codeblocks:skip -->
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">boxes_to_eggs</span><span class="p">(</span><span class="n">n_boxes</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>  <span class="c1"># =&gt; SyntaxError: positional argument follows keyword argument</span>
+</pre></div>
+</div>
+</section>
+<section id="optional">
+<h3><span class="section-number">4.1.2. </span>Optional:<a class="headerlink" href="#optional" title="Link to this heading">#</a></h3>
+<p>Die Frage der Reihenfolge wird bei weiteren möglichen Parametern noch wichtiger. Versehentliche Vertauschungen können teilweise zwar zu funktionierendem Code führen, aber nicht zu den gewünschten
+Ergebnissen…</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">boxes_to_eggs</span><span class="p">(</span><span class="n">n_boxes</span><span class="p">,</span>
+                  <span class="n">eggs_per_box</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span>
+                  <span class="n">broken_eggs_per_box</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Compute the total number of eggs in n_boxes boxes.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">n_boxes</span> <span class="o">*</span> <span class="p">(</span><span class="n">eggs_per_box</span> <span class="o">-</span> <span class="n">broken_eggs_per_box</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">boxes_to_eggs</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>  <span class="c1"># =&gt; 30</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">boxes_to_eggs</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>  <span class="c1"># =&gt; 50</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">boxes_to_eggs</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">eggs_per_box</span><span class="o">=</span><span class="mi">10</span><span class="p">))</span>  <span class="c1"># =&gt; 50</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">boxes_to_eggs</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">broken_eggs_per_box</span><span class="o">=</span><span class="mf">0.25</span><span class="p">))</span>  <span class="c1"># =&gt; 25</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">boxes_to_eggs</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">eggs_per_box</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+                    <span class="n">broken_eggs_per_box</span><span class="o">=</span><span class="mf">0.25</span><span class="p">))</span>  <span class="c1"># =&gt; 48</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">boxes_to_eggs</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">broken_eggs_per_box</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span>
+                    <span class="n">eggs_per_box</span><span class="o">=</span><span class="mi">10</span><span class="p">))</span>  <span class="c1"># =&gt; 48</span>
+</pre></div>
+</div>
+<p>Aber…</p>
+<!-- pytest-codeblocks:cont -->
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">boxes_to_eggs</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">))</span>  <span class="c1"># =&gt; 48</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">boxes_to_eggs</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>  <span class="c1"># =&gt; -48 !!!</span>
+</pre></div>
+</div>
+<blockquote>
+<div><h3 class="rubric" id="mini-quiz">MINI Quiz</h3>
+<p>Eine Funktion kann Werte/Daten zurück geben an das Programm über…<br />
+a) print<br />
+b) return<br />
+c) out<br />
+d) assert</p>
+<p>Eine Funktion ohne „return“ statement gibt folgendes zurück…<br />
+a) Nichts<br />
+b) die Parameter<br />
+c) die Variablen<br />
+d) None</p>
+</div></blockquote>
+</section>
+<section id="return-irgendwas-kommt-immer-zuruck">
+<h3><span class="section-number">4.1.3. </span>Return - irgendwas kommt immer zurück<a class="headerlink" href="#return-irgendwas-kommt-immer-zuruck" title="Link to this heading">#</a></h3>
+<p>Wie wir oben schon gesehen haben enthalten viele Funktionen die wir in Python schreiben ein sogenanntes Return-Statement. Das macht zwei Dinge. Es beendet die Ausführung der Funktion und es gibt einen oder mehrere Werte zurück („Rückgabewerte“). Zum Beispiel <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">variable1,</span> <span class="pre">variable2</span></code> würde die Werte der lokalen Variablen <code class="docutils literal notranslate"><span class="pre">variable1</span></code> und <code class="docutils literal notranslate"><span class="pre">variable2</span></code> zurückgeben.</p>
+<p>Eine Funktion benötigt jedoch kein explizites return-Statement. Wir hatten oben auch Beispiele von Funktionen gesehen, die kein <code class="docutils literal notranslate"><span class="pre">return</span></code> enthalten, ein einfaches (sinnfreies) Beispiel wäre</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">double_print</span><span class="p">(</span><span class="n">input_str</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">input_str</span><span class="p">)</span>
+
+<span class="n">double_print</span><span class="p">(</span><span class="s2">&quot;Hello World!&quot;</span><span class="p">)</span>  <span class="c1"># --&gt; Hello World!Hello World!</span>
+</pre></div>
+</div>
+<p>In Python kann es allerdings keine Funktion ohne Rückgabewert haben. Darum geben Funktionen die sonst nichts zurückgeben würden ein <code class="docutils literal notranslate"><span class="pre">None</span></code> zurück. So auch die <code class="docutils literal notranslate"><span class="pre">print()</span></code> Funktion selber:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">what_comes_back</span> <span class="o">=</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">what_comes_back</span><span class="p">)</span>  <span class="c1"># --&gt; None</span>
+</pre></div>
+</div>
+<section id="return-muss-nicht-am-ende-stehen">
+<h4><span class="section-number">4.1.3.1. </span>return muss nicht am Ende stehen<a class="headerlink" href="#return-muss-nicht-am-ende-stehen" title="Link to this heading">#</a></h4>
+<p>Auch wenn wir dies häufig sehen, v.a. zu Beginn: das return-Statement muss keinesfalls am Ende einer Funktion stehen. Und es kann auch mehrere return-Statements geben. Zum Beispiel:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">pick_smallest</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">b</span>
+    <span class="k">if</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="n">b</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">a</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;They look alike!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Diese Funktion endet mit dem ersten oder dem zweiten return-Statement. Oder keines von beidem trifft zu, dann wird print() aufgerufen und -wie wir gerade gelernt haben- ein <code class="docutils literal notranslate"><span class="pre">None</span></code> zurückgegeben.</p>
+</section>
+</section>
+<section id="namensraume-name-space">
+<h3><span class="section-number">4.1.4. </span>Namensräume (name space)<a class="headerlink" href="#namensraume-name-space" title="Link to this heading">#</a></h3>
+<p>Unter einem Namensraum versteht man einen Teil (oder Raum) innerhalb eines Programmes, in dem ein Name (z.B. Variablen und Funktionen) gültig ist.
+In Python gibt es v.a. drei Arten solcher Geltungsbereiche:</p>
+<ul class="simple">
+<li><p>Lokaler Geltungsbereich (innerhalb einer Funktion oder Methode)</p></li>
+<li><p>Globaler Geltungsbereich (verfügbar für alle Teile eines Programmes, bzw. innerhalb eines Interpreters)</p></li>
+<li><p>Eingebauter Geltungsbereich (von Python definierte Namen sind immer gültig)</p></li>
+</ul>
+<p>Aber schauen wir das Ganze besser mal an einigen Beispielen an:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">7</span>
+
+<span class="k">def</span> <span class="nf">do_stuff</span><span class="p">():</span>
+    <span class="c1"># a wird lokal nicht definiert!</span>
+    <span class="c1"># gerne testen: print(a)</span>
+    <span class="c1"># gerne testen: print(locals())</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+    
+<span class="n">result</span> <span class="o">=</span> <span class="n">do_stuff</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span>  <span class="c1"># =&gt; 5 7 12</span>
+</pre></div>
+</div>
+<p>Die von uns definierte Funktion <code class="docutils literal notranslate"><span class="pre">do_stuff()</span></code> kann also einfach auf die Variablen <code class="docutils literal notranslate"><span class="pre">a</span></code> und <code class="docutils literal notranslate"><span class="pre">b</span></code> zugreifen. Das liegt daran, dass dies in Python <strong>globale Variablen</strong> sind. Sie wurden im Programm außerhalb von Funktionen/Methoden zugewiesen und sind für alle Teile eines Programmes erreichbar.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">7</span>
+
+<span class="k">def</span> <span class="nf">do_stuff</span><span class="p">():</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="mi">1000</span>
+    <span class="c1">#print(a)  # hiermit kann man a innerhalb der Funktion anschauen</span>
+    <span class="c1">#print(locals())  # hiermit werden die lokalen Variablen gezeigt</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+    
+<span class="n">result</span> <span class="o">=</span> <span class="n">do_stuff</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span>  <span class="c1"># =&gt; 5 7 1007</span>
+</pre></div>
+</div>
+<p>Hier wurde eine Variable die ebenfalls den Namen <code class="docutils literal notranslate"><span class="pre">a</span></code> trägt innerhalb einer Funktion zugewiesen und genutzt. Variablen die innerhalb von Funktionen zugewiesen werden sind in Python <strong>lokale Variablen</strong>, d.h. sie sind nur innerhalb der jeweiligen Funktion verfügbar. Wie man im obigen Beispiel sieht, wird dadurch auch keineswegs die globale Variable <code class="docutils literal notranslate"><span class="pre">a</span></code> verändert.</p>
+<p>Genau das ist nämlich auch nicht erlaubt in Python. Globale Variablen können lokal zwar benutzt, aber in der Regel nicht verändert werden!</p>
+<!-- pytest-codeblocks:expect-error -->
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">do_stuff</span><span class="p">():</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="mi">2</span>
+    <span class="k">return</span> <span class="n">a</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">do_stuff</span><span class="p">()</span> <span class="c1"># ==&gt; UnboundLocalError: local variable &#39;a&#39; referenced before assignment</span>
+</pre></div>
+</div>
+<p>Eine Ausnahme ist, wenn Variablen innerhalb einer Funktion explizit als <code class="docutils literal notranslate"><span class="pre">global</span></code> gesetzt werden:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">do_stuff</span><span class="p">():</span>
+    <span class="k">global</span> <span class="n">a</span>  <span class="c1"># defines a new global variable</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="mi">2</span>
+    <span class="k">return</span> <span class="n">a</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">do_stuff</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>WICHTIG:</strong>
+Das Arbeiten mit globalen Variablen ist in den allermeisten Fällen <strong>nicht zu empfehlen</strong>!
+Es wird nämlich sehr schnell unklar wann und wo eine bestimmte Variable überall verändert wird. Häufig führt dies zu ungewünschten Ergebnissen die dazu noch sehr schwer zu verstehen und zu beheben sein können.</p>
+<p><strong>Best Practice:</strong>
+Es ist darum sehr zu empfehlen einer Funktionen alle Parameter die diese benötigt explizit zu übergeben:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">do_stuff</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="mi">2</span>
+    <span class="k">return</span> <span class="n">a</span>
+
+<span class="n">do_stuff</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="ha-wann-wird-jetzt-was-verandert">
+<h3><span class="section-number">4.1.5. </span>Hä? Wann wird jetzt was verändert??<a class="headerlink" href="#ha-wann-wird-jetzt-was-verandert" title="Link to this heading">#</a></h3>
+<p>Gerade haben wir gesehen, dass globale Variablen nicht lokal in einer Funktion geändert werden können. Das gilt aber nur für unveränderbare (inmmutable) Datentypen, so wie int, float, tuple.
+Bei veränderbaren (mutable) Datentypen sieht das anders aus. Zumindest wenn deren eigene Methoden genuzte werden (also Funktionen die mit <code class="docutils literal notranslate"><span class="pre">.xzy()</span></code> aufgerufen werden).
+In diesen Fällen wird die Methode direkt auf das Objekt selbst angewandt:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">do_other_stuff</span><span class="p">():</span>
+    <span class="n">my_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">55</span><span class="p">)</span>
+
+<span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="n">do_other_stuff</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">my_list</span><span class="p">)</span>  <span class="c1"># =&gt; [1, 2, 55] </span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">my_list</span></code> wurde also durch <code class="docutils literal notranslate"><span class="pre">do_other_stuff()</span></code> verändert.</p>
+<p>Wohingegen Folgendes nicht geht:</p>
+<!-- pytest-codeblocks:expect-error -->
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">do_other_stuff</span><span class="p">():</span>
+    <span class="n">my_list</span> <span class="o">=</span> <span class="n">my_list</span> <span class="o">+</span> <span class="p">[</span><span class="mi">55</span><span class="p">]</span>
+
+<span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="n">do_other_stuff</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">my_list</span><span class="p">)</span>  <span class="c1"># UnboundLocalError: local variable &#39;my_list&#39; referenced before assignment</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">do_other_stuff</span><span class="p">(</span><span class="n">my_list</span><span class="p">):</span>
+    <span class="n">my_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">55</span><span class="p">)</span>
+
+<span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="n">do_other_stuff</span><span class="p">(</span><span class="n">my_list</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">my_list</span><span class="p">)</span>  <span class="c1"># =&gt; [1, 2, 55]</span>
+
+</pre></div>
+</div>
+<p>Selbst wenn <code class="docutils literal notranslate"><span class="pre">my_list</span></code> als Parameter an die Funktion übergeben wird, läuft zwar der Code, aber wird doch nicht die globale Variable verändert:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">do_other_stuff</span><span class="p">(</span><span class="n">my_list</span><span class="p">):</span>
+    <span class="n">my_list</span> <span class="o">=</span> <span class="n">my_list</span> <span class="o">+</span> <span class="p">[</span><span class="mi">55</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;inner function: </span><span class="si">{</span><span class="n">my_list</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="n">do_other_stuff</span><span class="p">(</span><span class="n">my_list</span><span class="p">)</span>  <span class="c1"># =&gt; inner function: [1, 2, 55]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">my_list</span><span class="p">)</span>  <span class="c1"># =&gt; [1, 2]</span>
+</pre></div>
+</div>
+<p>Manchmal führt dieses Verhalten zu Schwierigkeiten. Z.B. wenn eine Funktion versehentlich den Anschein erweckt als würde sie einen neuen Wert ausgeben, aber dann leider doch auch den Eingabewert selbst verändert.</p>
+<p>Hier mal ein Beispiel. Wir wollen eine Funktion haben die alle Werte
+einer Liste verdoppelt.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">double_values</span><span class="p">(</span><span class="n">values</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">values</span><span class="p">)):</span>
+        <span class="n">values</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">values</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="mi">2</span>
+    <span class="k">return</span> <span class="n">values</span>
+
+<span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">]</span>
+<span class="n">my_list_x2</span> <span class="o">=</span> <span class="n">double_values</span><span class="p">(</span><span class="n">my_list</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">my_list</span><span class="p">,</span> <span class="n">my_list_x2</span><span class="p">)</span>  <span class="c1"># =&gt; [10, 20, 30] [10, 20, 30]</span>
+</pre></div>
+</div>
+<p>Wenn in Python Code steht der die Form hat <code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">=</span> <span class="pre">my_function(a)</span></code>, dann erwarten wir (zurecht!) das <code class="docutils literal notranslate"><span class="pre">a</span></code> durch den Aufruf nicht verändert wird.</p>
+<p>In dem konkreten Fall kann das auf verschiedene Arten erreicht werden.
+Entweder eine neue Variable wird in der Funktion angelegt, oder es wird explizit eine echte Kopie erstellt.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">double_values</span><span class="p">(</span><span class="n">values_input</span><span class="p">):</span>
+    <span class="n">values</span> <span class="o">=</span> <span class="n">values_input</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>  <span class="c1"># eine Kopie wird erstellt</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">values</span><span class="p">)):</span>
+        <span class="n">values</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">values</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="mi">2</span>
+    <span class="k">return</span> <span class="n">values</span>
+<span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">]</span>
+<span class="n">my_list_x2</span> <span class="o">=</span> <span class="n">double_values</span><span class="p">(</span><span class="n">my_list</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">my_list</span><span class="p">,</span> <span class="n">my_list_x2</span><span class="p">)</span>  <span class="c1"># =&gt; [5, 10, 15] [10, 20, 30]</span>
+</pre></div>
+</div>
+<p>oder:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">double_values</span><span class="p">(</span><span class="n">values_input</span><span class="p">):</span>
+    <span class="n">values</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># eine völlig neue Liste wird angelegt</span>
+    <span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">values_input</span><span class="p">:</span>
+        <span class="n">values</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">val</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">values</span>
+
+<span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">]</span>
+<span class="n">my_list_x2</span> <span class="o">=</span> <span class="n">double_values</span><span class="p">(</span><span class="n">my_list</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">my_list</span><span class="p">,</span> <span class="n">my_list_x2</span><span class="p">)</span>  <span class="c1"># =&gt; [5, 10, 15] [10, 20, 30]</span>
+</pre></div>
+</div>
+</section>
+<section id="vorschau">
+<h3><span class="section-number">4.1.6. </span>Vorschau<a class="headerlink" href="#vorschau" title="Link to this heading">#</a></h3>
+<p>Im nächsten Teil geht es dann um weitere Typen von Funktionen…</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./lesson_material_german"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="02_control_structures_conditions_loop.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">zurück</p>
+        <p class="prev-next-title"><span class="section-number">3. </span>Kontrollstrukturen und Bedingungen</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="03_import_libraries_modules.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">weiter</p>
+        <p class="prev-next-title"><span class="section-number">5. </span>Import aus Bibliotheken/Modulen</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Inhalt
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definieren-von-funktionen">4.1. Definieren von Funktionen</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#default-werte">4.1.1. Default Werte</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optional">4.1.2. Optional:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#return-irgendwas-kommt-immer-zuruck">4.1.3. Return - irgendwas kommt immer zurück</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#return-muss-nicht-am-ende-stehen">4.1.3.1. return muss nicht am Ende stehen</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#namensraume-name-space">4.1.4. Namensräume (name space)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ha-wann-wird-jetzt-was-verandert">4.1.5. Hä? Wann wird jetzt was verändert??</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vorschau">4.1.6. Vorschau</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Durch Florian Huber
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

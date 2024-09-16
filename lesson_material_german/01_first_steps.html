@@ -1,0 +1,1114 @@
+
+<!DOCTYPE html>
+
+
+<html lang="de" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>2. Erste Schritte mit Python &#8212; Introduction to Data Science (for not-yet-scientists)</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=91fba89f"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../_static/translations.js?v=79cc9f76"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'lesson_material_german/01_first_steps';</script>
+    <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
+    <link rel="search" title="Suche" href="../search.html" />
+    <link rel="next" title="3. Kontrollstrukturen und Bedingungen" href="02_control_structures_conditions_loop.html" />
+    <link rel="prev" title="1. Programmieren für Data Science und Künstliche Intelligenz" href="00_introduction.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="de"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="cover.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/cover_logo_mini.png" class="logo__image only-light" alt="Introduction to Data Science (for not-yet-scientists) - Home"/>
+    <script>document.write(`<img src="../_static/cover_logo_mini.png" class="logo__image only-dark" alt="Introduction to Data Science (for not-yet-scientists) - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Suche" aria-label="Suche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Suche</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="cover.html">
+                    Einführung Programmieren mit Python für Data Science
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Einführung</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="00_introduction.html">1. Programmieren für Data Science und Künstliche Intelligenz</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">2. Erste Schritte mit Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_control_structures_conditions_loop.html">3. Kontrollstrukturen und Bedingungen</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Funktionen und Module</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="03_functions.html">4. Funktionen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_import_libraries_modules.html">5. Import aus Bibliotheken/Modulen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_special_functions.html">6. Special functions</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Datentypen &amp; String Handling</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="04_datatypes_2.html">7. Datentypen II</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_string_handling.html">8. String handling</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Error Handling und Best Practices I</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="05_error_handling.html">9. Error handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_one_step_back-best_practices.html">10. Code design und „best practices“ 1</a></li>
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="05_open_files.html">16. Dateien lesen und schreiben</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Klassen und Objekte</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="06_classes_objects.html">17. Object-oriented programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_classes_objects_2.html">18. Classes - part 2</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Arbeiten mit numerischen Daten - Numpy</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="08_numpy.html">19. NumPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_numpy_2.html">20. Numpy - part 2</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Tabellarische Daten - Pandas</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="09_pandas.html">21. Jupyter Notebook</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="10_pandas_2.html">23. Pandas - part 2</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">A few missing things</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="10_debugging.html">24. Python Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="14_generators.html">25. Generators / Iterators</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/florian-huber/python-introduction" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Quell-Repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/florian-huber/python-introduction/issues/new?title=Issue%20on%20page%20%2Flesson_material_german/01_first_steps.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Öffnen Sie ein Problem"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Laden Sie diese Seite herunter">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/lesson_material_german/01_first_steps.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Quelldatei herunterladen"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="In PDF drucken"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Vollbildmodus"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Suche" aria-label="Suche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Erste Schritte mit Python</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Inhalt </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#datentypen-data-types">2.1. Datentypen (<em>data types</em>)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zahlen-numbers">2.1.1. Zahlen (<em>numbers</em>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#print-und-rechenoperationen-verbinden">2.1.2. Print und Rechenoperationen verbinden</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strings">2.1.3. Strings</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stringverarbeitung-basics">2.1.4. Stringverarbeitung (basics)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datentypen-andern">2.1.5. Datentypen ändern</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variablen">2.1.6. Variablen</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regeln-fur-variablennamen">2.1.7. Regeln für Variablennamen</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#debugging">2.2. Debugging!</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#listen-sequenzen">2.2.1. Listen / Sequenzen</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lists">2.3. Lists</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tuples">2.3.1. Tuples</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sequenzen">2.3.2. Sequenzen</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#slicing">2.3.2.1. Slicing!</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#list-methoden">2.3.3. List Methoden</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="erste-schritte-mit-python">
+<h1><span class="section-number">2. </span>Erste Schritte mit Python<a class="headerlink" href="#erste-schritte-mit-python" title="Link to this heading">#</a></h1>
+<p>Für den Kurs wird eine Installation von Python über <strong>Anaconda</strong> empfohlen. Nach einer erfolgreichen Installation können wir Python Code aus dem Terminal (Windows: „cmd“) ausführen oder mit Hilfe des mitgelieferten Editors <em>Spyder</em>.</p>
+<section id="datentypen-data-types">
+<h2><span class="section-number">2.1. </span>Datentypen (<em>data types</em>)<a class="headerlink" href="#datentypen-data-types" title="Link to this heading">#</a></h2>
+<p>Datentypen verbinden Werte (oder eben: Daten) und Methoden. Die Methoden legen fest, was mit den Daten gemacht werden darf/kann (und wie das funktioniert).</p>
+<p>In Python gibt es eine Reihe verschiedener Datentypen. Hier beginnen wir zum Einstieg erstmal mit Zahlen und Strings.</p>
+<section id="zahlen-numbers">
+<h3><span class="section-number">2.1.1. </span>Zahlen (<em>numbers</em>)<a class="headerlink" href="#zahlen-numbers" title="Link to this heading">#</a></h3>
+<p>Zahlen und das Rechnen mit Zahlen funktioniert in Python recht intuitiv und einfach, beinahe wie bei einem Taschenrechner.
+Bei den Zahlen unterscheiden wir <strong>integer</strong> (<code class="docutils literal notranslate"><span class="pre">int</span></code>) and <strong>float</strong> (von engl.: „floating point number“). Integer sind ganze Zahlen und float sind Kommazahlen.
+(Randbemerkung: da beim Computer gerundet wird entspricht dies aber nicht genau den reelen Zahlen.)</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">5</span>
+<span class="go">5</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="mf">5.01</span>
+<span class="go">5.01</span>
+</pre></div>
+</div>
+<p>Vorzeichen gehen so:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># + positive sign</span>
+<span class="o">+</span><span class="mi">5</span>  <span class="c1"># 5</span>
+
+<span class="c1"># - negative sign</span>
+<span class="o">-</span><span class="mi">5</span>  <span class="c1"># -5</span>
+</pre></div>
+</div>
+<p>Und, wie gesagt, grundlegende Rechenoperationen gehen wie zu erwarten:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># + addition</span>
+<span class="mi">5</span> <span class="o">+</span> <span class="mi">7</span>  <span class="c1"># 12</span>
+
+<span class="c1"># - subtraction</span>
+<span class="mi">5</span> <span class="o">-</span> <span class="mi">7</span>  <span class="c1"># -2</span>
+
+<span class="c1"># * multiplication</span>
+<span class="mi">5</span> <span class="o">*</span> <span class="mi">7</span>  <span class="c1"># 35</span>
+
+<span class="c1"># / division</span>
+<span class="mi">5</span> <span class="o">/</span> <span class="mi">2</span>  <span class="c1"># 2.5</span>
+</pre></div>
+</div>
+<p>Aber Vorsicht! Division ergibt immer einen <code class="docutils literal notranslate"><span class="pre">float</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="mi">5</span> <span class="o">/</span> <span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>ergibt:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;float&#39;&gt;
+</pre></div>
+</div>
+<p>Dieses Beispiel zeigt auch das wir den „Datentypen“ in Python erfragen können mit<code class="docutils literal notranslate"><span class="pre">type()</span></code>.</p>
+</section>
+<section id="print-und-rechenoperationen-verbinden">
+<h3><span class="section-number">2.1.2. </span>Print und Rechenoperationen verbinden<a class="headerlink" href="#print-und-rechenoperationen-verbinden" title="Link to this heading">#</a></h3>
+<p>Wenig verwunderlich, aber es können natürlich auch mehrere Rechenoperationen hintereinander geschrieben werden. Es ist darüber hinaus auch möglich das Ganze dann mit  <code class="docutils literal notranslate"><span class="pre">print()</span></code> auszugeben.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">22</span> <span class="o">*</span> <span class="mi">27</span> <span class="o">*</span> <span class="mi">7</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>ergibt:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">2079.0</span>
+</pre></div>
+</div>
+<p>Auch Klammern können eingesetzt werden:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">((</span><span class="mi">22</span> <span class="o">*</span> <span class="mi">27</span> <span class="o">+</span> <span class="mi">12</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">22</span> <span class="o">*</span> <span class="mi">27</span> <span class="o">+</span> <span class="mi">12</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>was das Folgende ausgibt:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">303.0</span>
+<span class="mf">600.0</span>
+</pre></div>
+</div>
+<p><strong>Übrigen:</strong> Es ist völlig in Ordnung Klammen auch dann einzusetzen, wenn sie mathematisch eigentlich gar nicht nötig werden. Oft macht das eine Berechnung einfacher zu lesen (einfacher für den Menschen):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">((</span><span class="mi">22</span> <span class="o">*</span> <span class="mi">27</span> <span class="o">*</span> <span class="mi">7</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># that&#39;s completely fine as well!</span>
+</pre></div>
+</div>
+<p>Andere häufige Operationen mit Zahlen:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># // integer division (ganzzahlige Division)</span>
+<span class="mi">5</span> <span class="o">//</span> <span class="mi">2</span>  <span class="c1"># 2 (this is NOT the same as rounding!)</span>
+
+<span class="c1"># % modulo</span>
+<span class="mi">5</span> <span class="o">%</span> <span class="mi">2</span>  <span class="c1"># 1</span>
+
+<span class="c1"># ** power (Potenz)</span>
+<span class="mi">10</span> <span class="o">**</span> <span class="mi">2</span>  <span class="c1"># 100</span>
+</pre></div>
+</div>
+</section>
+<section id="strings">
+<h3><span class="section-number">2.1.3. </span>Strings<a class="headerlink" href="#strings" title="Link to this heading">#</a></h3>
+<p>Strings sind Zeichenketten (oder Sequenzen von Zeichen) und werden mit  <code class="docutils literal notranslate"><span class="pre">'</span></code> oder <code class="docutils literal notranslate"><span class="pre">&quot;</span></code> definiert.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="s2">&quot;5 + 7&quot;</span>
+<span class="go">&#39;5 + 7&#39;</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="s2">&quot;Whatever you want to type. 123*...&quot;</span>
+<span class="go">&#39;Whatever you want to type. 123*...&#39;</span>
+</pre></div>
+</div>
+<p>Kleines quiz: Welche der folgenden Befehle gibt keinen Fehler aus?</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="s2">&quot;five&quot;</span> <span class="o">+</span> <span class="s2">&quot;five&quot;</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="s2">&quot;five&quot;</span> <span class="o">+</span> <span class="mi">5</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">2</span> <span class="o">*</span> <span class="s2">&quot;five&quot;</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="s2">&quot;five&quot;</span> <span class="o">-</span> <span class="s2">&quot;ive&quot;</span>
+</pre></div>
+</div>
+<p>Sorry, keine Lösung hier… darum bitte selber probieren…</p>
+</section>
+<section id="stringverarbeitung-basics">
+<h3><span class="section-number">2.1.4. </span>Stringverarbeitung (basics)<a class="headerlink" href="#stringverarbeitung-basics" title="Link to this heading">#</a></h3>
+<p>In Python gibt es eine Menge Dinge zu lernen über das Arbeiten mit Strings. Hier wollen wir erstmal nur einige Basics besprechen, weiter Möglichkeiten kommen in einer späteren Vorlesung.</p>
+<p>Strings können addiert werden.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Take this!&quot;</span> <span class="o">+</span> <span class="s2">&quot; And that!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Ergibt:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Take this! And that!
+</pre></div>
+</div>
+<p>Doch Addition zwischen Strings und Zahlen funktioniert nicht!</p>
+<!--pytest-codeblocks:expect-error-->
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;100&quot;</span> <span class="o">+</span> <span class="mi">5</span>  <span class="c1"># =&gt; TypeError</span>
+</pre></div>
+</div>
+<p>Macht Sinn.</p>
+<p>Aber Moment! Woher weiß Python überhaupt was ein <code class="docutils literal notranslate"><span class="pre">integer</span> <span class="pre">(int)</span></code>, ein <code class="docutils literal notranslate"><span class="pre">float</span></code>, or ein <code class="docutils literal notranslate"><span class="pre">string</span> <span class="pre">(str)</span></code> ist? Wir haben es doch nirgendwo vorher definiert.</p>
+<p>Das heißt <strong>duck typing</strong> und meint, das Python automatisch den Datentypen zuweist der am besten passt (ausser wir legen etwas anderes fest). Duck Typing heißt das Ganze wegen einem alten Romanzitat:
+(<em>„When I see a bird that walks like a duck and swims like a duck and quacks like a duck, I call that bird a duck.“</em>, see <a class="reference external" href="https://en.wikipedia.org/wiki/Duck_test#History">Duck test (wikipedia</a>))</p>
+</section>
+<section id="datentypen-andern">
+<h3><span class="section-number">2.1.5. </span>Datentypen ändern<a class="headerlink" href="#datentypen-andern" title="Link to this heading">#</a></h3>
+<p>Manchmal möchten wir den Datentypen ändern, z.B. von ein<code class="docutils literal notranslate"><span class="pre">integer</span></code> aus einem <code class="docutils literal notranslate"><span class="pre">float</span></code> erzeugen:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">5</span> <span class="o">+</span> <span class="nb">int</span><span class="p">(</span><span class="mf">7.00001</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>ergibt:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">12</span>
+</pre></div>
+</div>
+<p>Nur Vorsicht! Das ist nicht das gleiche wir Runden!</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">int</span><span class="p">(</span><span class="mf">12.9</span><span class="p">)</span>
+<span class="go">12</span>
+</pre></div>
+</div>
+<p>(Wenn gerundet werden soll, bitte <code class="docutils literal notranslate"><span class="pre">int(round(12.9))</span></code>nutzten)</p>
+<p>Oder wir wollen eine Zahl aus einem String erstellen:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">5</span> <span class="o">+</span> <span class="nb">int</span><span class="p">(</span><span class="s2">&quot;19&quot;</span><span class="p">)</span>
+<span class="go">24</span>
+</pre></div>
+</div>
+<p>Aber bitte keine Magie erwarten an dieser Stelle. Python erkennt hier nur offensichtliche Zahlen im String, nicht sowas wie:</p>
+<!--pytest-codeblocks:expect-error-->
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span><span class="p">(</span><span class="s2">&quot;seven&quot;</span><span class="p">)</span>  <span class="c1"># =&gt; ValueError: invalid literal for int() with base 10: &#39;seven&#39;</span>
+</pre></div>
+</div>
+<p>Oft wollen wir auch umgekehrt eine Zahl in einen String umwandeln:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">str</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;19&quot;</span>
+<span class="go">&#39;519&#39;</span>
+</pre></div>
+</div>
+<p>Das geschieht sehr häufig, oft um einen String irgendwo auszugeben:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;7 + 5 = &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="mi">7</span> <span class="o">+</span> <span class="mi">5</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>das gibt aus:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">7</span> <span class="o">+</span> <span class="mi">5</span> <span class="o">=</span> <span class="mi">12</span>
+</pre></div>
+</div>
+<p>Da dies so häufig nötig ist, gibt es dafür auch eine Reihe verschiedener Methoden. Eine ist mit <code class="docutils literal notranslate"><span class="pre">.format()</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;This is </span><span class="si">{}</span><span class="s2"> times better than that.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Gibt:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">This</span> <span class="ow">is</span> <span class="mi">5</span> <span class="n">times</span> <span class="n">better</span> <span class="n">than</span> <span class="n">that</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>Aber am besten ist eigentlich der sogenannte „f-strings“:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;This is </span><span class="si">{</span><span class="mi">8</span><span class="si">}</span><span class="s2"> times better than that.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Gibt:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">This</span> <span class="ow">is</span> <span class="mi">8</span> <span class="n">times</span> <span class="n">better</span> <span class="n">than</span> <span class="n">that</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>Damit werden wir am meisten arbeiten.</p>
+<p>Note: Es gibt auch noch eine Reihe anderer Arten dafür, zum Beispiel einige old-school Varianten aus Python 2, so wie: <code class="docutils literal notranslate"><span class="pre">print(&quot;This</span> <span class="pre">is</span> <span class="pre">%s</span> <span class="pre">times</span> <span class="pre">better</span> <span class="pre">than</span> <span class="pre">that&quot;</span> <span class="pre">%</span> <span class="pre">5)</span></code>, aber damit arbeiten wir hier nicht. Trotzdem könnte sowas in manchen Foren/Tutorials vorkommen.</p>
+</section>
+<section id="variablen">
+<h3><span class="section-number">2.1.6. </span>Variablen<a class="headerlink" href="#variablen" title="Link to this heading">#</a></h3>
+<p>Variablen sind essentiell für das Schreiben von Programmen.
+Oft stellt man sich darunter Boxen vor in die Daten gepackt werden. In Wirklichkeit werden bestimmten Variablennamen Daten (oder: Objekte) zugewiesen. Darum spricht man
+in diesem Zusammenhang auch von Zuweisungen.</p>
+<p>In Python werden Daten den Variablen einfach mit <code class="docutils literal notranslate"><span class="pre">=</span></code> zugewiesen.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">/</span> <span class="mi">6</span><span class="p">)</span>  <span class="c1"># =&gt; 0.8333333333333334</span>
+</pre></div>
+</div>
+<p>So lange eine Python Session läuft und nichts Anderes mit einer Variable
+angestellt wird, behält die Variable den zugewiesenen Wert.
+Zum Beispiel bleibt <code class="docutils literal notranslate"><span class="pre">a</span></code> der Wert 5 zugewiesen, so dass:</p>
+<!--pytest-codeblocks:cont-->
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="mi">8</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span>  <span class="c1"># =&gt; 13</span>
+</pre></div>
+</div>
+<p>Variablen sind aber nicht fix.
+Ihnen können einfach neue Werte zugewiesen werden
+(sogar völlig andere Datentypen!):</p>
+<!--pytest-codeblocks:cont-->
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mf">100.5</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span>  <span class="c1"># =&gt; 108.5</span>
+</pre></div>
+</div>
+<p>Meistens ist es sehr zu empfehlen, den Variablen Namen zu geben die einen
+Hinweis auf ihren Inhalt enthalten.<br />
+Code wie der folgende wird dadurch deutlich verständlicher!</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">training_seconds</span> <span class="o">=</span> <span class="mi">18900</span>
+<span class="n">sec_per_hour</span> <span class="o">=</span> <span class="mi">60</span> <span class="o">*</span> <span class="mi">60</span>
+<span class="n">training_hours</span> <span class="o">=</span> <span class="n">training_seconds</span> <span class="o">/</span> <span class="n">sec_per_hour</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">training_hours</span><span class="p">)</span>  <span class="c1"># =&gt; 5.25</span>
+</pre></div>
+</div>
+<p>Python ist als Sprache sehr flexibel beim Umgang mit Variablen.
+Oft ist das nützlich, kann aber gelegentlich auch für einiger Verwirrung
+sorgen. Stellt euch vor eine Variable wird <code class="docutils literal notranslate"><span class="pre">print</span></code> genannt…</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="o">=</span> <span class="s2">&quot;my text&quot;</span>
+</pre></div>
+</div>
+<p>Python erlaubt dies und gibt keinen Fehler aus.<br />
+Keinen Fehler zu erhalten <strong>heisst aber nicht, dass es eine gute Idee ist!</strong>
+Was wird wohl jetzt passieren wenn wir <code class="docutils literal notranslate"><span class="pre">print(&quot;hello</span> <span class="pre">world!&quot;)</span></code> laufen lassen?</p>
+<p>Ok, das sollte also deutlich sein… Variablen besser keinen Namen geben
+der auch anderweitig als Funktion vorkommt.</p>
+<p>Eine Sache die Python doch verbietet sind Variablennamen die sogennanten
+<a class="reference external" href="https://www.w3schools.com/python/python_ref_keywords.asp"><strong>reserverd keywords</strong></a>
+entsprechen</p>
+<!--pytest-codeblocks:expect-error-->
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ow">or</span> <span class="o">=</span> <span class="s2">&quot;outer region&quot;</span>  <span class="c1"># =&gt; SyntaxError: invalid syntax</span>
+</pre></div>
+</div>
+<blockquote>
+<div><h3 class="rubric" id="mini-quiz">Mini quiz:</h3>
+<p>Was gibt der folgende Code aus?</p>
+</div></blockquote>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">40</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">2</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p>a) 40<br />
+b) 42<br />
+c) x + 2<br />
+d) Error, da x = x + 2 mathematisch inkorrekt ist</p>
+</div></blockquote>
+<blockquote>
+<div><p>Welche der folgenden Variablennamen sind OK?<br />
+a) <code class="docutils literal notranslate"><span class="pre">print</span> <span class="pre">=</span> <span class="pre">&quot;my</span> <span class="pre">text&quot;</span></code><br />
+b) <code class="docutils literal notranslate"><span class="pre">else</span> <span class="pre">=</span> <span class="pre">&quot;my</span> <span class="pre">text&quot;</span></code><br />
+c) <code class="docutils literal notranslate"><span class="pre">sehr_wichtig</span> <span class="pre">=</span> <span class="pre">&quot;my</span> <span class="pre">text&quot;</span></code><br />
+d) <code class="docutils literal notranslate"><span class="pre">übermäßig_wichtig</span> <span class="pre">=</span> <span class="pre">&quot;my</span> <span class="pre">text&quot;</span></code><br />
+e) <code class="docutils literal notranslate"><span class="pre">ImportantText</span> <span class="pre">=</span> <span class="pre">&quot;my</span> <span class="pre">text&quot;</span></code></p>
+</div></blockquote>
+</section>
+<section id="regeln-fur-variablennamen">
+<h3><span class="section-number">2.1.7. </span>Regeln für Variablennamen<a class="headerlink" href="#regeln-fur-variablennamen" title="Link to this heading">#</a></h3>
+<p>Namen mit Bedeutung</p>
+<ul class="simple">
+<li><p>Kleinbuchstaben (und Unterstriche)</p></li>
+<li><p>Nie „reserved keywords“ (Schlüsselworte) benutzen</p></li>
+<li><p>Auch keine Funktionennamen benutzten (Standardfunktionen oder Funktionen die im Programm vorkommen)</p></li>
+<li><p>Andere Sprachen als Englisch sind natürlich OK (je nach Kontext)</p></li>
+<li><p>Allerdings machen Sonderzeichen manches komplizierter (z.B. ä oder ü)</p></li>
+</ul>
+</section>
+</section>
+<section id="debugging">
+<h2><span class="section-number">2.2. </span>Debugging!<a class="headerlink" href="#debugging" title="Link to this heading">#</a></h2>
+<p>Mit <strong>debugging</strong> meinen wir das Beseitigen von Fehlern im Programmcode (Fehler = „bugs“).
+Wir werden später noch detaillierter auf das Thema eingehen, aber gleich zu Beginn ist es hilfreich ein wenig Erfahrung zu sammeln mit der Art und Weise wie Python (bzw. der Python-Interpreter) Fehler im Code anzeigt. Hierbei geht es nicht um Fehler, die ein erfolgreiches Ausführen des Codes unmöglich machen.</p>
+<p>Dazu die folgende kleine Übung:</p>
+<ol class="arabic simple">
+<li><p>Was passiert bei einer print-Anweisung, wenn wir eine oder beide
+Klammern weglassen?</p></li>
+<li><p>Was passiert wenn wir einen String ausgeben wollen und eine
+oder beide Anführungszeichen weglassen?</p></li>
+<li><p>Was passiert wenn wir zwei Zahlen addieren wollen aber ++ oder +++ schreiben?</p></li>
+<li><p>Was passiert wenn wir ein + oder eine Null vor
+eine Zahl schreiben, z.B. 05 - 2 oder +5 -2 ?</p></li>
+<li><p>Was passiert wenn wir ein Leerzeichen vor print(„hello“) schreiben?</p></li>
+<li><p>Mit Python beantworten („Taschenrechnermodus“): Wie viele Sekunden
+haben 42 Minuten und 42 Sekunden?</p></li>
+</ol>
+<section id="listen-sequenzen">
+<h3><span class="section-number">2.2.1. </span>Listen / Sequenzen<a class="headerlink" href="#listen-sequenzen" title="Link to this heading">#</a></h3>
+<p><strong>Sequenzen</strong> sind bei Python eine ganze Kategorie verschiedener Datentypen. Ein Beispiel davon hatten wir bereits: <strong>Strings</strong></p>
+<p>Strings sind Sequenzen aus Zeichen (oder Zeichenketten). Jedes einzelne
+Zeichen eines strings kann in Python über einen Index angesprochen werden.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;Dies ist ein string&quot;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="c1"># =&gt; D</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="c1"># =&gt; g</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">))</span> <span class="c1"># =&gt; 19</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="lists">
+<h2><span class="section-number">2.3. </span>Lists<a class="headerlink" href="#lists" title="Link to this heading">#</a></h2>
+<p>Auch Listen sind Sequenzen und einer der zentralen Datentypen in Python. Eine Liste (<code class="docutils literal notranslate"><span class="pre">list</span></code>) ist in Python eine Sammlung von Elementen. Eine Liste wird einfach mit eckigen Klammern erstellt.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fruit</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;apple&quot;</span><span class="p">,</span> <span class="s2">&quot;orange&quot;</span><span class="p">,</span> <span class="s2">&quot;banana&quot;</span><span class="p">,</span> <span class="s2">&quot;pear&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Listen sind ebenfalls Sequenzen und einzelne Elemente können in Python
+über Indices adressiert werden.</p>
+<blockquote>
+<div><h3 class="rubric" id="mini-quiz-einmal-raten-bitte">Mini Quiz: Einmal Raten bitte</h3>
+<p>Was gibt <code class="docutils literal notranslate"><span class="pre">print(fruit[1])</span></code> aus?</p>
+<ol class="arabic simple">
+<li><p>SyntaxError</p></li>
+<li><p>apple</p></li>
+<li><p>orange</p></li>
+</ol>
+<p>Was gibt <code class="docutils literal notranslate"><span class="pre">print(len(fruit))</span></code> aus?</p>
+<ol class="arabic simple">
+<li><p>1</p></li>
+<li><p>4</p></li>
+<li><p>21</p></li>
+</ol>
+</div></blockquote>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fruit</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;apple&quot;</span><span class="p">,</span> <span class="s2">&quot;orange&quot;</span><span class="p">,</span> <span class="s2">&quot;banana&quot;</span><span class="p">,</span> <span class="s2">&quot;pear&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fruit</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>  <span class="c1"># =&gt; banana</span>
+</pre></div>
+</div>
+<p>Listen können völlig verschiedene Datentypen enthalten:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;a string&quot;</span><span class="p">,</span> <span class="mi">52</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.014</span><span class="p">,</span> <span class="s2">&quot;another string&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">my_list</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>  <span class="c1"># =&gt; a string</span>
+</pre></div>
+</div>
+<p>Listen können sogar auch weiter Listen enthalten:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="s2">&quot;example&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">my_list</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>  <span class="c1"># =&gt; [7, 2]</span>
+</pre></div>
+</div>
+<section id="tuples">
+<h3><span class="section-number">2.3.1. </span>Tuples<a class="headerlink" href="#tuples" title="Link to this heading">#</a></h3>
+<p>Ein Tuple ist in Python eine andere Form der Sammlung. Anders als <code class="docutils literal notranslate"><span class="pre">list</span></code>
+wird ein Tuple mit runden Klammern erstellt. Die Elemente eines Tuples sind -genau wie Listen-
+über Indices adressierbar:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fruit_tuple</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;apple&quot;</span><span class="p">,</span> <span class="s2">&quot;orange&quot;</span><span class="p">,</span> <span class="s2">&quot;banana&quot;</span><span class="p">,</span> <span class="s2">&quot;pear&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fruit_tuple</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>  <span class="c1"># =&gt; &quot;banana&quot;</span>
+</pre></div>
+</div>
+<p>Sieht eigentlich alles aus wie bei der Liste.<br />
+Was ist jetzt da der Unterschied zur Liste?<br />
+In Python unterscheiden wir veränderbare (<strong>mutable</strong>) und unveränderbare
+(<strong>immutable</strong>) Datentypen. Listen zählen zu den veränderbaren, Tuple dagegen
+sind unveränderbar.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fruit</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;apple&quot;</span><span class="p">,</span> <span class="s2">&quot;orange&quot;</span><span class="p">,</span> <span class="s2">&quot;banana&quot;</span><span class="p">,</span> <span class="s2">&quot;pear&quot;</span><span class="p">]</span>
+<span class="n">fruit</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;mango&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fruit</span><span class="p">)</span>  <span class="c1"># =&gt; [&#39;apple&#39;, &#39;orange&#39;, &#39;banana&#39;, &#39;mango&#39;]</span>
+</pre></div>
+</div>
+<!--pytest-codeblocks:expect-error-->
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fruit_tuple</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;apple&quot;</span><span class="p">,</span> <span class="s2">&quot;orange&quot;</span><span class="p">,</span> <span class="s2">&quot;banana&quot;</span><span class="p">,</span> <span class="s2">&quot;pear&quot;</span><span class="p">)</span>
+<span class="n">fruit_tuple</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;mango&quot;</span>  <span class="c1"># =&gt; TypeError: &#39;tuple&#39; object does not support item assignment</span>
+</pre></div>
+</div>
+<p>In einer Liste können wir also z.B. ein Element einfach ersetzen, bei
+einem Tuple geht das ganze aber nicht.</p>
+</section>
+<section id="sequenzen">
+<h3><span class="section-number">2.3.2. </span>Sequenzen<a class="headerlink" href="#sequenzen" title="Link to this heading">#</a></h3>
+<p>Tuple, list, und string sind alles Sequenzen. Damit gibt es eine ganze
+Reihe von Funktionen (Methoden) die für alle drei Datentypen gleichermassen
+eingesetzt werden können:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Operation</p></th>
+<th class="head"><p>Ergebnis</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>x in s</p></td>
+<td><p>True wenn ein Element mit dem   Wert x in der Sequenz s enthalten ist, sonst False.</p></td>
+</tr>
+<tr class="row-odd"><td><p>x not in   s</p></td>
+<td><p>False   wenn ein Element mit dem Wert x in der Sequenz s enthalten ist, sonst True.</p></td>
+</tr>
+<tr class="row-even"><td><p>s + t</p></td>
+<td><p>Konkatenation der beiden   Sequenzen s und t.</p></td>
+</tr>
+<tr class="row-odd"><td><p>s * n</p></td>
+<td><p>n Kopien der Sequenz s werden hintereinandergehängt.</p></td>
+</tr>
+<tr class="row-even"><td><p>s[i]</p></td>
+<td><p>Wiedergeben des i-ten Elementes   von s.</p></td>
+</tr>
+<tr class="row-odd"><td><p>s[i:j]</p></td>
+<td><p>Wiedergabe des Ausschnitts   (slice) von s, der vom i-ten bis zum j-ten Element (nicht einschließlich)   geht.</p></td>
+</tr>
+<tr class="row-even"><td><p>s[i:]</p></td>
+<td><p>Wiedergabe des Ausschnitts   (slice) von s, der vom i-ten bis zum letzten Element geht.</p></td>
+</tr>
+<tr class="row-odd"><td><p>len(s)</p></td>
+<td><p>Gibt die Länge der Sequenz s   wieder.</p></td>
+</tr>
+<tr class="row-even"><td><p>min(s)</p></td>
+<td><p>Gibt das kleinste Element der   Sequenz s wieder.</p></td>
+</tr>
+<tr class="row-odd"><td><p>max(s)</p></td>
+<td><p>Gibt das größte Element der   Sequenz s wieder</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Ein Beispiel:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">99</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">1050</span><span class="p">]</span>
+<span class="n">my_str</span> <span class="o">=</span> <span class="s2">&quot;Ein String ist auch eine Sequenz.&quot;</span>
+
+<span class="mi">4</span> <span class="ow">in</span> <span class="n">my_list</span> <span class="c1"># =&gt; True</span>
+<span class="s2">&quot;z&quot;</span> <span class="ow">in</span> <span class="n">my_str</span> <span class="c1"># =&gt; True</span>
+
+<span class="n">my_list</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="c1"># =&gt; [4, 6]</span>
+<span class="n">my_str</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="c1"># =&gt; in</span>
+</pre></div>
+</div>
+<section id="slicing">
+<h4><span class="section-number">2.3.2.1. </span>Slicing!<a class="headerlink" href="#slicing" title="Link to this heading">#</a></h4>
+<p>Eine der wichtigsten Techniken im Umgang mit Sequenzen in Python ist das sogenannte <strong>slicing</strong> (also deutsch in etwa: schneiden). Damit ist gemeint, dass wir aus Sequenzen bestimmte Teilmengen auswählen können.</p>
+<p>Dies wird in Python in eckigen Klammern und mit Hilfe von Integern und Doppelpunktzeichen angegeben.
+Es können dabei bis zu drei Werte angegeben werden in der Form:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_variable</span><span class="p">[</span><span class="n">start</span><span class="p">:</span><span class="n">stop</span><span class="p">:</span><span class="n">stepsize</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Hier eine Beispiele zur Verdeutlichung:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fruits</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;apple&quot;</span><span class="p">,</span> <span class="s2">&quot;banana&quot;</span><span class="p">,</span> <span class="s2">&quot;mango&quot;</span><span class="p">,</span> <span class="s2">&quot;melon&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;lemon&quot;</span><span class="p">,</span> <span class="s2">&quot;pear&quot;</span><span class="p">,</span> <span class="s2">&quot;pineapple&quot;</span><span class="p">]</span>
+
+<span class="c1"># Alle Früchte ab dem Index 2</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fruits</span><span class="p">[</span><span class="mi">2</span><span class="p">:])</span>
+
+<span class="c1"># Alle Früchte bis zum Index 3</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fruits</span><span class="p">[:</span><span class="mi">3</span><span class="p">])</span>
+
+<span class="c1"># Alle Früchte mit Index 1 bis 6</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fruits</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">6</span><span class="p">])</span>
+
+<span class="c1"># Jede zweite Frucht mit Index 1 bis 6</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fruits</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">6</span><span class="p">:</span><span class="mi">2</span><span class="p">])</span>  <span class="c1"># 2 ist hier die &quot;Schrittweite&quot;</span>
+
+<span class="c1"># Jede dritte Frucht</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fruits</span><span class="p">[::</span><span class="mi">3</span><span class="p">])</span>
+
+<span class="c1"># Alle Früchte in umgekehrter Reihenfolge</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fruits</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Typischerweise ist diese Notierung am Anfang etwas gewöhnungsbedürftig wird in Python aber so häufig verwendet, dass man sich das Slicing in der Regel schnell antrainiert. Es gibt z.B. oft auch andere Wege um die Elemente einer Sequenz in umgekehrter Reihenfolge auszugeben. In der Praxis fällt den meisten Entwickler*Innen aber am schnellsten die Lösung mit <code class="docutils literal notranslate"><span class="pre">[::-1]</span></code> ein, so dass diese sehr oft in Programmen auftaucht.</p>
+</section>
+</section>
+<section id="list-methoden">
+<h3><span class="section-number">2.3.3. </span>List Methoden<a class="headerlink" href="#list-methoden" title="Link to this heading">#</a></h3>
+<p>Darüber hinaus haben die verschiedenen Datentypen aber noch weitere eigene Methoden
+Das Arbeiten mit Strings werden wir in einigen der folgenden Vorlesungen noch
+genauer betrachten. Hier aber schon einmal eine Tabelle mit wichtigen Methoden
+für Python Listen.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Operation</p></th>
+<th class="head"><p>Ergebnis</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>my_list[i]   = x</p></td>
+<td><p>Das Element mit Index i wird   durch x ersetzt.</p></td>
+</tr>
+<tr class="row-odd"><td><p>my_list.append(x)</p></td>
+<td><p>An die Liste s wird ein neues   Element x angehängt.</p></td>
+</tr>
+<tr class="row-even"><td><p>my_list.extend(t)</p></td>
+<td><p>Die Liste my_list   wird um die Element der Sequenz t verlängert.</p></td>
+</tr>
+<tr class="row-odd"><td><p>my_list.count(x)</p></td>
+<td><p>Gibt die Anzahl der   Listenelemente mit dem Wert x zurück.</p></td>
+</tr>
+<tr class="row-even"><td><p>del my_list   [i]</p></td>
+<td><p>Das Element mit Index i wird aus   der Liste s entfernt, damit veringert   sich auch die Länge der Liste um 1.</p></td>
+</tr>
+<tr class="row-odd"><td><p>my_list.index(x)</p></td>
+<td><p>Gibt den kleinsten Index von my_list   zurück an dem ein Element gleich x ist.</p></td>
+</tr>
+<tr class="row-even"><td><p>my_list.insert(i,   x)</p></td>
+<td><p>Falls i &gt;= 0 wird x vor dem   Index i in die Liste my_list eingefügt.</p></td>
+</tr>
+<tr class="row-odd"><td><p>my_list.remove(x)</p></td>
+<td><p>Das erste Element gleich x wird   aus der Liste my_list entfernt.</p></td>
+</tr>
+<tr class="row-even"><td><p>my_list.sort()</p></td>
+<td><p>Die Elemente der Liste werden   aufsteigend sortiert</p></td>
+</tr>
+<tr class="row-odd"><td><p>max(s)</p></td>
+<td><p>Gibt das größte Element der   Sequenz s wieder</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./lesson_material_german"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="00_introduction.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">zurück</p>
+        <p class="prev-next-title"><span class="section-number">1. </span>Programmieren für Data Science und Künstliche Intelligenz</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="02_control_structures_conditions_loop.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">weiter</p>
+        <p class="prev-next-title"><span class="section-number">3. </span>Kontrollstrukturen und Bedingungen</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Inhalt
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#datentypen-data-types">2.1. Datentypen (<em>data types</em>)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zahlen-numbers">2.1.1. Zahlen (<em>numbers</em>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#print-und-rechenoperationen-verbinden">2.1.2. Print und Rechenoperationen verbinden</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strings">2.1.3. Strings</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stringverarbeitung-basics">2.1.4. Stringverarbeitung (basics)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datentypen-andern">2.1.5. Datentypen ändern</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variablen">2.1.6. Variablen</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regeln-fur-variablennamen">2.1.7. Regeln für Variablennamen</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#debugging">2.2. Debugging!</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#listen-sequenzen">2.2.1. Listen / Sequenzen</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lists">2.3. Lists</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tuples">2.3.1. Tuples</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sequenzen">2.3.2. Sequenzen</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#slicing">2.3.2.1. Slicing!</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#list-methoden">2.3.3. List Methoden</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Durch Florian Huber
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

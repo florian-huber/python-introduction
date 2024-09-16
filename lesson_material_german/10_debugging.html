@@ -1,0 +1,970 @@
+
+<!DOCTYPE html>
+
+
+<html lang="de" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>24. Python Debugging &#8212; Introduction to Data Science (for not-yet-scientists)</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=91fba89f"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../_static/translations.js?v=79cc9f76"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'lesson_material_german/10_debugging';</script>
+    <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
+    <link rel="search" title="Suche" href="../search.html" />
+    <link rel="next" title="25. Generators / Iterators" href="14_generators.html" />
+    <link rel="prev" title="23. Pandas - part 2" href="10_pandas_2.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="de"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="cover.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/cover_logo_mini.png" class="logo__image only-light" alt="Introduction to Data Science (for not-yet-scientists) - Home"/>
+    <script>document.write(`<img src="../_static/cover_logo_mini.png" class="logo__image only-dark" alt="Introduction to Data Science (for not-yet-scientists) - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Suche" aria-label="Suche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Suche</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="cover.html">
+                    Einführung Programmieren mit Python für Data Science
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Einführung</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="00_introduction.html">1. Programmieren für Data Science und Künstliche Intelligenz</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_first_steps.html">2. Erste Schritte mit Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_control_structures_conditions_loop.html">3. Kontrollstrukturen und Bedingungen</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Funktionen und Module</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="03_functions.html">4. Funktionen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_import_libraries_modules.html">5. Import aus Bibliotheken/Modulen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_special_functions.html">6. Special functions</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Datentypen &amp; String Handling</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="04_datatypes_2.html">7. Datentypen II</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_string_handling.html">8. String handling</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Error Handling und Best Practices I</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="05_error_handling.html">9. Error handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_one_step_back-best_practices.html">10. Code design und „best practices“ 1</a></li>
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="05_open_files.html">16. Dateien lesen und schreiben</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Klassen und Objekte</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="06_classes_objects.html">17. Object-oriented programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_classes_objects_2.html">18. Classes - part 2</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Arbeiten mit numerischen Daten - Numpy</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="08_numpy.html">19. NumPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_numpy_2.html">20. Numpy - part 2</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Tabellarische Daten - Pandas</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="09_pandas.html">21. Jupyter Notebook</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="10_pandas_2.html">23. Pandas - part 2</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">A few missing things</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">24. Python Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="14_generators.html">25. Generators / Iterators</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/florian-huber/python-introduction" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Quell-Repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/florian-huber/python-introduction/issues/new?title=Issue%20on%20page%20%2Flesson_material_german/10_debugging.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Öffnen Sie ein Problem"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Laden Sie diese Seite herunter">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/lesson_material_german/10_debugging.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Quelldatei herunterladen"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="In PDF drucken"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Vollbildmodus"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Suche" aria-label="Suche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Python Debugging</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Inhalt </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ein-wenig-wie-hieroglyphen-lesen">24.1. Ein wenig wie Hieroglyphen lesen…</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mehr-code-mehr-text-mehr-fehlerquellen">24.2. Mehr Code, mehr Text, mehr Fehlerquellen</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jedes-zeichen-zahlt-beim-computer-aber-nicht-beim-menschen">24.2.1. Jedes Zeichen zählt… beim Computer aber NICHT beim Menschen!</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#oft-wird-der-fehler-nicht-dort-entdeckt-wo-er-gemacht-wird">24.2.2. Oft wird der Fehler nicht dort entdeckt wo er gemacht wird.</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ein-minenfeld-file-import">24.3. Ein Minenfeld: File import!</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wo-muss-ich-hinschauen">24.3.1. Wo muss ich hinschauen?</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="python-debugging">
+<h1><span class="section-number">24. </span>Python Debugging<a class="headerlink" href="#python-debugging" title="Link to this heading">#</a></h1>
+<section id="ein-wenig-wie-hieroglyphen-lesen">
+<h2><span class="section-number">24.1. </span>Ein wenig wie Hieroglyphen lesen…<a class="headerlink" href="#ein-wenig-wie-hieroglyphen-lesen" title="Link to this heading">#</a></h2>
+<p>Inzwischen haben Sie schon eine Menge erste Programmiererfahrung mit Python sammeln können. Und sicher kennen Sie darum inzwischen auch die Situation, dass sie einen bestimmten Code zum Laufen bringen wollen, aber ständig nur Error-Nachrichten zurück bekommen! Und trotz allem hin- und her probieren will der Code einfach nicht so laufen wie gewünscht.</p>
+<p>Die schlechte Nachricht zuerst: das bleibt so. Auch mit mehr Programmiererfahrung. :(</p>
+<p>Die gute Nachricht ist aber, dass die Fehlermeldung nach und nach anfangen etwas mehr Sinn zu machen, so dass auch oft schneller klar wird wo der eigentliche Fehler liegt.</p>
+<p>Aber fangen wir einfach an:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">primt</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>gibt</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ne">NameError</span><span class="p">:</span> <span class="n">name</span> <span class="s1">&#39;primt&#39;</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">defined</span>
+</pre></div>
+</div>
+<p>Das passiert ständig: Tippfehler. <code class="docutils literal notranslate"><span class="pre">primt</span></code> gibt es nicht, wir wollten natürlich auch <code class="docutils literal notranslate"><span class="pre">print</span></code> schreiben. Zack, gelöst. Einfach.</p>
+</section>
+<section id="mehr-code-mehr-text-mehr-fehlerquellen">
+<h2><span class="section-number">24.2. </span>Mehr Code, mehr Text, mehr Fehlerquellen<a class="headerlink" href="#mehr-code-mehr-text-mehr-fehlerquellen" title="Link to this heading">#</a></h2>
+<p>So ein Einzeiler wie oben ist natürlich auch deshalb so leicht zu lösen, weil der Fehler ja nur an wenigen Stellen entstanden sein kann. In der Regel arbeiten wir aber jetzt schon mit deutlich komplizierterem Code, mit selbst geschriebenen Funktionen und Klassen, mit importierten Bibliotheken und und und…</p>
+<p>Und hier wird es schnell unübersichtlich, und zwar aus verschiedenen Gründen.</p>
+<section id="jedes-zeichen-zahlt-beim-computer-aber-nicht-beim-menschen">
+<h3><span class="section-number">24.2.1. </span>Jedes Zeichen zählt… beim Computer aber NICHT beim Menschen!<a class="headerlink" href="#jedes-zeichen-zahlt-beim-computer-aber-nicht-beim-menschen" title="Link to this heading">#</a></h3>
+<p>Die menschliche, visuelle Wahrnehmung ist gut um schnell das grobe Ganze zu erfassen. Aber eben nicht immer auch so gut darin, kleine Abweichungen zu erkennen. Wahrscheinlich können sie darum den folgenden Text relativ problemlos lesen:</p>
+<p><em>Wir könenn als Mneschen schenll den Ihalnt von Teetxn vrestheen und schenll veile Wötrer leesn. Aebr wir snid nchit bdnrseoes gut im Etneckden von keilenn Fehelrn wie zum Biespiel vretaueschtn Bchustbaen oder feehlnedn Stazzechein.</em></p>
+<p>Dieses Phänomen ist in der Forschung gut bekannt, siehe <a class="reference external" href="https://en.wikipedia.org/wiki/Transposed_letter_effect">wikipedia</a> oder <a class="reference external" href="https://www.mrc-cbu.cam.ac.uk/people/matt.davis/cmabridge/">hier</a>. Verkürzt bedeutet es, dass wir eben nicht so gut darin sind kleine Buchstabendreher zu entdecken. Programmiersprachen sind da aber ein wenig anders. Darum scheitern wir ständig an unseren kleinen Tippfehlern…</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">SingleAttribute</span><span class="p">:</span>
+    <span class="n">supercomplicatedattributename</span> <span class="o">=</span> <span class="mf">3.14245</span>
+    
+<span class="n">thisisanobjectofaclassthatdoesnearlynothing</span> <span class="o">=</span> <span class="n">SingleAttribute</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Diese Attribut und Objektnamen hier wurden nicht besonders gut gewählt. Schon gar nicht wenn wir an unsere eingeschränkte Fähigkeit denken, kleine Wort Änderungen zu bemerken.</p>
+<p>Im folgenden sehen wir einige Fehler die entstehen können:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">thisisanobjectofaclassthatdoesnearlynothing</span><span class="o">.</span><span class="n">supercomplicatedattributename</span><span class="p">())</span>
+
+<span class="ne">TypeError</span>                                 <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">)</span>
+<span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Temp</span><span class="o">/</span><span class="n">ipykernel_15368</span><span class="o">/</span><span class="mf">3080376188.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">----&gt;</span> <span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="n">thisisanobjectofaclassthatdoesnearlynothing</span><span class="o">.</span><span class="n">supercomplicatedattributename</span><span class="p">())</span>
+
+<span class="ne">TypeError</span><span class="p">:</span> <span class="s1">&#39;float&#39;</span> <span class="nb">object</span> <span class="ow">is</span> <span class="ow">not</span> <span class="nb">callable</span>
+</pre></div>
+</div>
+<p>So sieht es zumindest in einem Jupyter Notebook aus. Irgendwas mit einem <code class="docutils literal notranslate"><span class="pre">TypeError</span></code> also.</p>
+<p>Wenn wir die Fehlermeldung genauer lesen steht da <code class="docutils literal notranslate"><span class="pre">'float'</span> <span class="pre">object</span> <span class="pre">is</span> <span class="pre">not</span> <span class="pre">callable</span></code>  und das entscheidende Stichwort in diesen Hieroglyphen ist <code class="docutils literal notranslate"><span class="pre">callable</span></code> (also „aufrufbar“). Aufrufbar sind in Python die Funktionen und Methoden und zwar immer mit <code class="docutils literal notranslate"><span class="pre">my_function_soundso()</span></code>, also den runden Klammern.
+Diese sind in dem Beispiel hier auch genau das Problem, den ich probiere hier ein Attribut (also eine Klassen-Variable) als eine Methode oder Funktion aufzurufen, was natürlich nicht geht.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">thisisanobjectofaclassthatdoesnearlynothing</span><span class="p">:</span><span class="n">supercomplicatedattributename</span><span class="p">)</span>
+
+  <span class="n">File</span> <span class="s2">&quot;C:\Users\xyz\AppData\Local\Temp/ipykernel_15368/2591865100.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">thisisanobjectofaclassthatdoesnearlynothing</span><span class="p">:</span><span class="n">supercomplicatedattributename</span><span class="p">)</span>
+                                                     <span class="o">^</span>
+<span class="ne">SyntaxError</span><span class="p">:</span> <span class="n">invalid</span> <span class="n">syntax</span>
+</pre></div>
+</div>
+<p>Hier ist Python wirklich nett und hilfreich. Es geht um einen <code class="docutils literal notranslate"><span class="pre">SyntaxError</span></code>, das heißt irgendwas wurde hier wohl nicht richtig getippt, vielleicht eine Klammer, ein Anführungszeichen zu viel oder zu wenig?
+Wir müssen nicht mal selber suchen, denn der Pfeil (<code class="docutils literal notranslate"><span class="pre">^</span></code>) gibt genau an, wo etwas nicht stimmt. Tja, Doppelpunkt statt Punkt… kann passieren.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">thisisanobjectofaclassthatdoesnearlynothing</span><span class="o">.</span><span class="n">supercomplicatedatttributename</span><span class="p">)</span>
+
+<span class="ne">AttributeError</span>                            <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">)</span>
+<span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Temp</span><span class="o">/</span><span class="n">ipykernel_15368</span><span class="o">/</span><span class="mf">4100655615.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">----&gt;</span> <span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="n">thisisanobjectofaclassthatdoesnearlynothing</span><span class="o">.</span><span class="n">supercomplicatedatttributename</span><span class="p">)</span>
+
+<span class="ne">AttributeError</span><span class="p">:</span> <span class="s1">&#39;SingleAttribute&#39;</span> <span class="nb">object</span> <span class="n">has</span> <span class="n">no</span> <span class="n">attribute</span> <span class="s1">&#39;supercomplicatedatttributename&#39;</span>
+</pre></div>
+</div>
+<p>Das ist eigentlich auch recht deutlich, solange wir uns auf die letzte Zeile konzentieren. Wir haben einen <code class="docutils literal notranslate"><span class="pre">AttributeError</span></code>, also irgendwas mit einem Attribut des Objekts stimmt nicht. Und es wird sogar genannt welches Attribut, nämlich <code class="docutils literal notranslate"><span class="pre">supercomplicatedatttributename</span></code>was in diesem Fall natürlich auch das einzige Attribut ist, das in unserem Code vorkommt. Da Python sagt, dass das Objekt dieses Attribut nicht hat (<code class="docutils literal notranslate"><span class="pre">object</span> <span class="pre">has</span> <span class="pre">no</span> <span class="pre">attribute</span> <span class="pre">'supercomplicatedatttributename'</span></code>) wäre die erste Vermutung, dass wir es vielleicht nicht richtig geschrieben haben. Das stimmt übrigens auch, ein t zuviel im Name.</p>
+<p>Also Zusammenfassung:</p>
+<ul class="simple">
+<li><p>Alle Zeichen, sogar Groß-Kleinschreibung zählen</p></li>
+<li><p>Menschen haben dafür aber keine besonders gute Wahrnehmung</p></li>
+</ul>
+</section>
+<section id="oft-wird-der-fehler-nicht-dort-entdeckt-wo-er-gemacht-wird">
+<h3><span class="section-number">24.2.2. </span>Oft wird der Fehler nicht dort entdeckt wo er gemacht wird.<a class="headerlink" href="#oft-wird-der-fehler-nicht-dort-entdeckt-wo-er-gemacht-wird" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Funktionen, Bibliotheken, Klassen… sind häufig sehr verschachtelt.</p></li>
+<li><p>Häufig bekommen wir sehr lange Fehlermeldungen zurück die, die auf sehr tief verschachtelte Funktionen oder Klassen verweisen in denen der Fehler von Python eine Ausnahme (exception) auslöst.</p></li>
+<li><p><strong>Extra</strong> <strong>schwierig:</strong> Dadurch werden oft auch Fehler benannt, die uns auf ein falsche Fährte führen.</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">function1</span><span class="p">(</span><span class="n">number</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">number</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hurray, eine gerade Zahl!&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
+
+        
+<span class="k">def</span> <span class="nf">function2</span><span class="p">(</span><span class="n">number</span><span class="p">):</span>
+    <span class="n">number</span> <span class="o">=</span> <span class="n">number</span> <span class="o">+</span> <span class="n">number</span>
+    <span class="n">function1</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
+
+    
+<span class="k">def</span> <span class="nf">function3</span><span class="p">(</span><span class="n">number</span><span class="p">):</span>
+    <span class="n">number</span> <span class="o">=</span> <span class="n">function2</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
+
+
+<span class="n">function3</span><span class="p">(</span><span class="s2">&quot;400&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Hier haben wir drei Funktionen die verschachtelt sind. <code class="docutils literal notranslate"><span class="pre">function3</span></code>ruft <code class="docutils literal notranslate"><span class="pre">function2</span></code> auf und diese wiederum ruft <code class="docutils literal notranslate"><span class="pre">function1</span></code> auf.</p>
+<p>Die Fehlermeldung in diesem Fall wird schon deutlich komplizierter:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ne">TypeError</span>                                 <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">)</span>
+<span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Temp</span><span class="o">/</span><span class="n">ipykernel_15368</span><span class="o">/</span><span class="mf">989526411.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+     <span class="mi">13</span> 
+     <span class="mi">14</span> 
+<span class="o">---&gt;</span> <span class="mi">15</span> <span class="n">function3</span><span class="p">(</span><span class="s2">&quot;400&quot;</span><span class="p">)</span>
+
+<span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Temp</span><span class="o">/</span><span class="n">ipykernel_15368</span><span class="o">/</span><span class="mf">989526411.</span><span class="n">py</span> <span class="ow">in</span> <span class="n">function3</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
+     <span class="mi">10</span> 
+     <span class="mi">11</span> <span class="k">def</span> <span class="nf">function3</span><span class="p">(</span><span class="n">number</span><span class="p">):</span>
+<span class="o">---&gt;</span> <span class="mi">12</span>     <span class="n">number</span> <span class="o">=</span> <span class="n">function2</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
+     <span class="mi">13</span> 
+     <span class="mi">14</span> 
+
+<span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Temp</span><span class="o">/</span><span class="n">ipykernel_15368</span><span class="o">/</span><span class="mf">989526411.</span><span class="n">py</span> <span class="ow">in</span> <span class="n">function2</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
+      <span class="mi">7</span> <span class="k">def</span> <span class="nf">function2</span><span class="p">(</span><span class="n">number</span><span class="p">):</span>
+      <span class="mi">8</span>     <span class="n">number</span> <span class="o">=</span> <span class="n">number</span> <span class="o">+</span> <span class="n">number</span>
+<span class="o">----&gt;</span> <span class="mi">9</span>     <span class="n">function1</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
+     <span class="mi">10</span> 
+     <span class="mi">11</span> <span class="k">def</span> <span class="nf">function3</span><span class="p">(</span><span class="n">number</span><span class="p">):</span>
+
+<span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Temp</span><span class="o">/</span><span class="n">ipykernel_15368</span><span class="o">/</span><span class="mf">989526411.</span><span class="n">py</span> <span class="ow">in</span> <span class="n">function1</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
+      <span class="mi">1</span> <span class="k">def</span> <span class="nf">function1</span><span class="p">(</span><span class="n">number</span><span class="p">):</span>
+<span class="o">----&gt;</span> <span class="mi">2</span>     <span class="k">if</span> <span class="n">number</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+      <span class="mi">3</span>         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hurray, eine gerade Zahl!&quot;</span><span class="p">)</span>
+      <span class="mi">4</span>     <span class="k">else</span><span class="p">:</span>
+      <span class="mi">5</span>         <span class="nb">print</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
+
+<span class="ne">TypeError</span><span class="p">:</span> <span class="ow">not</span> <span class="nb">all</span> <span class="n">arguments</span> <span class="n">converted</span> <span class="n">during</span> <span class="n">string</span> <span class="n">formatting</span>
+</pre></div>
+</div>
+<p>Hier ist die Suche etwas umständlicher. Aber der Reihe nach, und zwar gehen wir hier <strong>von unten nach oben</strong>!</p>
+<ol class="arabic simple">
+<li><p>Der Fehler wegen dem das Programm abstürzt ist ein <code class="docutils literal notranslate"><span class="pre">TypeError</span></code> und zwar irgendwas mit einem <code class="docutils literal notranslate"><span class="pre">string</span></code>.</p></li>
+<li><p>Der Pfeil an der linken Seite zeigt auf die Zeile 2 bei <code class="docutils literal notranslate"><span class="pre">function1</span></code> in der steht <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">number</span> <span class="pre">%</span> <span class="pre">2</span> <span class="pre">==</span> <span class="pre">0:</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">function1</span></code> wurde aus <code class="docutils literal notranslate"><span class="pre">function2</span></code> aufgerufen, Zeile 9.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">function2</span></code> wurde aus <code class="docutils literal notranslate"><span class="pre">function3</span></code> aufgerufen, Zeile 12.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">function3(&quot;400&quot;)</span></code> in zeile 15 ist der Startpunkt für das Ganze.</p></li>
+</ol>
+<p>Der eigentliche Fehler entsteht beim untersten Codeteil, also in der Zeile  <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">number</span> <span class="pre">%</span> <span class="pre">2</span> <span class="pre">==</span> <span class="pre">0:</span></code>
+Und wir wissen, dass es ein TypeError hat, vermutlich hat also <code class="docutils literal notranslate"><span class="pre">number</span></code> nicht den passenden Typ für die dort ausgeführte Aktion. Macht auch Sinn, denn wir haben als number ja <code class="docutils literal notranslate"><span class="pre">&quot;400&quot;</span></code>, also einen String eingegeben!</p>
+<p>Ein weitere Hilfe hier kann es übrigens sein, zusätzliche <code class="docutils literal notranslate"><span class="pre">print</span></code>-Statements einzubauen um genauer herauszufinden, was wann wo schief geht.</p>
+<p>Ausserdem können wir unsere Hypothesen überprüfen, indem wir nur die kritische Stelle nachbauen:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;400&quot;</span> <span class="o">%</span> <span class="mi">2</span>
+
+<span class="ne">TypeError</span>                                 <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">)</span>
+<span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Temp</span><span class="o">/</span><span class="n">ipykernel_15368</span><span class="o">/</span><span class="mf">4268186087.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">----&gt;</span> <span class="mi">1</span> <span class="s2">&quot;400&quot;</span> <span class="o">%</span> <span class="mi">4</span>
+
+<span class="ne">TypeError</span><span class="p">:</span> <span class="ow">not</span> <span class="nb">all</span> <span class="n">arguments</span> <span class="n">converted</span> <span class="n">during</span> <span class="n">string</span> <span class="n">formatting</span>
+</pre></div>
+</div>
+<p>Damit sollte klar sein, wo der Fehler hier liegt.</p>
+<p>Wir werden gleich noch mehr Varianten aus dem echten Leben sehen. Aber erst noch ein verwandtes Beispiel. Beim Benutzen importierter Funktionen können ebenfalls Fehler auftreten, die uns nicht direkt deutlich verraten was wir falsch gemacht haben. Zumindest nicht, wenn wir nicht genug über die entsprechenden Funktionen wissen.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">rows</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="n">cols</span> <span class="o">=</span> <span class="mi">9</span>
+<span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">rows</span><span class="p">,</span> <span class="n">cols</span><span class="p">)</span>
+
+<span class="ne">TypeError</span>                                 <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">)</span>
+<span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Temp</span><span class="o">/</span><span class="n">ipykernel_15368</span><span class="o">/</span><span class="mf">827775635.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+      <span class="mi">3</span> <span class="n">rows</span> <span class="o">=</span> <span class="mi">6</span>
+      <span class="mi">4</span> <span class="n">cols</span> <span class="o">=</span> <span class="mi">9</span>
+<span class="o">----&gt;</span> <span class="mi">5</span> <span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">rows</span><span class="p">,</span> <span class="n">cols</span><span class="p">)</span>
+
+<span class="ne">TypeError</span><span class="p">:</span> <span class="n">Cannot</span> <span class="n">interpret</span> <span class="s1">&#39;9&#39;</span> <span class="k">as</span> <span class="n">a</span> <span class="n">data</span> <span class="nb">type</span>
+</pre></div>
+</div>
+<p>Das kann erstmal verwirren, denn Python sagt uns, dass es die 9 nicht als <code class="docutils literal notranslate"><span class="pre">data</span> <span class="pre">type</span></code> interpretieren kann. Soll es ja auch nicht!
+Der Fehler hier liegt woanders. Nicht die 9 ist das Problem, sondern die Art wie wir die Arraygröße der Funktion übergeben haben. In einem solchen Fall, hilft es in der Regel sich die Funktion selber (bzw. deren Dokumentation) anzuschauen. In diesem Fall geht das einfach über die <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.zeros.html">Online-Dokumentation von Numpy </a>, aber wir können auch innerhalb unserer Programmierumgebung die Docstrings von importierten Funktionen ansehen mit <code class="docutils literal notranslate"><span class="pre">print(np.zeros.__doc__)</span></code>. Dort sehen wir dann, dass die Funktion <code class="docutils literal notranslate"><span class="pre">zeros</span></code> folgende Parameter als Eingabe erwartet: <code class="docutils literal notranslate"><span class="pre">zeros(shape,</span> <span class="pre">dtype=float,</span> <span class="pre">order='C')</span></code> also <code class="docutils literal notranslate"><span class="pre">shape</span></code> und optional auch noch <code class="docutils literal notranslate"><span class="pre">dtype</span></code> und weitere. Die Größe muss also als <strong>eine</strong> <code class="docutils literal notranslate"><span class="pre">shape</span></code> eingegeben werden. Dies seht auch noch ausführlicher in der Dokumentation:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>shape : int or tuple of ints
+        Shape of the new array, e.g., ``(2, 3)`` or ``2``.
+</pre></div>
+</div>
+<p>Es muss also heißen:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">rows</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="n">cols</span> <span class="o">=</span> <span class="mi">9</span>
+<span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">rows</span><span class="p">,</span> <span class="n">cols</span><span class="p">))</span>
+
+<span class="c1"># oder:</span>
+<span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">rows</span><span class="p">,</span> <span class="n">cols</span><span class="p">))</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="ein-minenfeld-file-import">
+<h2><span class="section-number">24.3. </span>Ein Minenfeld: File import!<a class="headerlink" href="#ein-minenfeld-file-import" title="Link to this heading">#</a></h2>
+<p>In den Übungen haben wir jetzt schon öfter die kleinen Schwierigkeiten beim Importieren von Dateien genossen. Zwei Fehler dürften dabei alle inzwischen einmal selber mitbekommen haben: <code class="docutils literal notranslate"><span class="pre">UnicodeDecodeError</span></code> und am beliebtesten: <code class="docutils literal notranslate"><span class="pre">FileNotFoundError</span></code>!</p>
+<p>Fangen wir also an eine Datei zu importieren: „NetflixOriginals.csv“</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;C:\Users\myname\NetflixOriginals.csv&quot;</span>  <span class="c1"># durch eigenen Pfadname ersetzen</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+
+<span class="n">File</span> <span class="s2">&quot;C:\Users\...\AppData\Local\Temp/ipykernel_15368/2604329180.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span>
+    <span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;C:\Users\myname\NetflixOriginals.csv&quot;</span>
+               <span class="o">^</span>
+<span class="ne">SyntaxError</span><span class="p">:</span> <span class="p">(</span><span class="n">unicode</span> <span class="n">error</span><span class="p">)</span> <span class="s1">&#39;unicodeescape&#39;</span> <span class="n">codec</span> <span class="n">can</span><span class="s1">&#39;t decode bytes in position 100-101: malformed \N character escape</span>
+</pre></div>
+</div>
+<p>OK. Was hier schief ging ist, dass wir auf einem Windows Rechner mit einfachen Schrägstrichen arbeiten <code class="docutils literal notranslate"><span class="pre">\</span></code>. Diese werden aber als Escape-Zeichen behandelt und verweisen auf spezielle Zeichen z.B. <code class="docutils literal notranslate"><span class="pre">\n</span></code> für Zeilenumbruch oder <code class="docutils literal notranslate"><span class="pre">\t</span></code> für Tab. Wir müssten hier (unter Windows) die Backslash Zeichen durch doppelte Backslash ersetzen –&gt; <code class="docutils literal notranslate"><span class="pre">\\</span></code></p>
+<p>Da die Pfadstrukturen auf den verschiedenen Systemen (Windows, Linux, Mac) aber unterschiedlich funktionieren, sollten wir besser zu anderen Methoden greifen. Eine davon ist das benutzen der Python-Standardbibliothek <code class="docutils literal notranslate"><span class="pre">os</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">())</span>  <span class="c1"># =&gt; gibt den aktuellen Pfad aus</span>
+</pre></div>
+</div>
+<p>Mit der <code class="docutils literal notranslate"><span class="pre">os</span></code> Bibliothek können wir auf Elemente des „<strong>o</strong>perating <strong>s</strong>ystem“ zugreifen. Wir können damit Pfadstrukturen einlesen und verändern. Das ist auch mit etwas vorsicht zu genießen, denn wir können mit os auch neue Ordner erstellen <code class="docutils literal notranslate"><span class="pre">os.mkdir(path)</span></code> aber auch Ordner löschen mit <code class="docutils literal notranslate"><span class="pre">os.remove(path)</span></code> oder <code class="docutils literal notranslate"><span class="pre">os.removedirs(path)</span></code>, sowie umbenennen: <code class="docutils literal notranslate"><span class="pre">os.rename()</span></code>.</p>
+<p>Praktische Funktionen zum Umgang mit Pfaden finden sich im Teil <code class="docutils literal notranslate"><span class="pre">os.path</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>  <span class="c1"># obersten Ordner</span>
+<span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>  <span class="c1"># darunter liegender Pfad</span>
+<span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>  <span class="c1"># return True if path exists</span>
+</pre></div>
+</div>
+<p>Darum lässt sich dies auch gut für das Importieren von Dateien nutzen und der Code funktioniert dann (im Prinzip) auch auf anderen Systemen.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">root</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
+<span class="n">filename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="s2">&quot;exercises&quot;</span><span class="p">,</span> <span class="s1">&#39;NetflixOrginals.csv&#39;</span><span class="p">)</span>  <span class="c1"># je nach eigenem Pfad anpassen!</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Oh, dies gibt aber auch einen Fehler (und was für einen…):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ne">FileNotFoundError</span>                         <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">)</span>
+<span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Temp</span><span class="o">/</span><span class="n">ipykernel_15368</span><span class="o">/</span><span class="mf">1093288611.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+      <span class="mi">2</span> <span class="n">filename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="s2">&quot;exercises&quot;</span><span class="p">,</span> <span class="s1">&#39;NetflixOrginals.csv&#39;</span><span class="p">)</span>  <span class="c1"># je nach eigenem Pfad anpassen!</span>
+      <span class="mi">3</span> 
+<span class="o">----&gt;</span> <span class="mi">4</span> <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
+
+<span class="o">~</span>\<span class="o">.</span><span class="n">conda</span>\<span class="n">envs</span>\<span class="n">python_introduction</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">pandas</span>\<span class="n">util</span>\<span class="n">_decorators</span><span class="o">.</span><span class="n">py</span> <span class="ow">in</span> <span class="n">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="mi">309</span>                     <span class="n">stacklevel</span><span class="o">=</span><span class="n">stacklevel</span><span class="p">,</span>
+    <span class="mi">310</span>                 <span class="p">)</span>
+<span class="o">--&gt;</span> <span class="mi">311</span>             <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="mi">312</span> 
+    <span class="mi">313</span>         <span class="k">return</span> <span class="n">wrapper</span>
+
+<span class="o">~</span>\<span class="o">.</span><span class="n">conda</span>\<span class="n">envs</span>\<span class="n">python_introduction</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">pandas</span>\<span class="n">io</span>\<span class="n">parsers</span>\<span class="n">readers</span><span class="o">.</span><span class="n">py</span> <span class="ow">in</span> <span class="n">read_csv</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="n">sep</span><span class="p">,</span> <span class="n">delimiter</span><span class="p">,</span> <span class="n">header</span><span class="p">,</span> <span class="n">names</span><span class="p">,</span> <span class="n">index_col</span><span class="p">,</span> <span class="n">usecols</span><span class="p">,</span> <span class="n">squeeze</span><span class="p">,</span> <span class="n">prefix</span><span class="p">,</span> <span class="n">mangle_dupe_cols</span><span class="p">,</span> <span class="n">dtype</span><span class="p">,</span> <span class="n">engine</span><span class="p">,</span> <span class="n">converters</span><span class="p">,</span> <span class="n">true_values</span><span class="p">,</span> <span class="n">false_values</span><span class="p">,</span> <span class="n">skipinitialspace</span><span class="p">,</span> <span class="n">skiprows</span><span class="p">,</span> <span class="n">skipfooter</span><span class="p">,</span> <span class="n">nrows</span><span class="p">,</span> <span class="n">na_values</span><span class="p">,</span> <span class="n">keep_default_na</span><span class="p">,</span> <span class="n">na_filter</span><span class="p">,</span> <span class="n">verbose</span><span class="p">,</span> <span class="n">skip_blank_lines</span><span class="p">,</span> <span class="n">parse_dates</span><span class="p">,</span> <span class="n">infer_datetime_format</span><span class="p">,</span> <span class="n">keep_date_col</span><span class="p">,</span> <span class="n">date_parser</span><span class="p">,</span> <span class="n">dayfirst</span><span class="p">,</span> <span class="n">cache_dates</span><span class="p">,</span> <span class="n">iterator</span><span class="p">,</span> <span class="n">chunksize</span><span class="p">,</span> <span class="n">compression</span><span class="p">,</span> <span class="n">thousands</span><span class="p">,</span> <span class="n">decimal</span><span class="p">,</span> <span class="n">lineterminator</span><span class="p">,</span> <span class="n">quotechar</span><span class="p">,</span> <span class="n">quoting</span><span class="p">,</span> <span class="n">doublequote</span><span class="p">,</span> <span class="n">escapechar</span><span class="p">,</span> <span class="n">comment</span><span class="p">,</span> <span class="n">encoding</span><span class="p">,</span> <span class="n">encoding_errors</span><span class="p">,</span> <span class="n">dialect</span><span class="p">,</span> <span class="n">error_bad_lines</span><span class="p">,</span> <span class="n">warn_bad_lines</span><span class="p">,</span> <span class="n">on_bad_lines</span><span class="p">,</span> <span class="n">delim_whitespace</span><span class="p">,</span> <span class="n">low_memory</span><span class="p">,</span> <span class="n">memory_map</span><span class="p">,</span> <span class="n">float_precision</span><span class="p">,</span> <span class="n">storage_options</span><span class="p">)</span>
+    <span class="mi">584</span>     <span class="n">kwds</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">kwds_defaults</span><span class="p">)</span>
+    <span class="mi">585</span> 
+<span class="o">--&gt;</span> <span class="mi">586</span>     <span class="k">return</span> <span class="n">_read</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="n">kwds</span><span class="p">)</span>
+    <span class="mi">587</span> 
+    <span class="mi">588</span> 
+
+<span class="o">~</span>\<span class="o">.</span><span class="n">conda</span>\<span class="n">envs</span>\<span class="n">python_introduction</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">pandas</span>\<span class="n">io</span>\<span class="n">parsers</span>\<span class="n">readers</span><span class="o">.</span><span class="n">py</span> <span class="ow">in</span> <span class="n">_read</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="n">kwds</span><span class="p">)</span>
+    <span class="mi">480</span> 
+    <span class="mi">481</span>     <span class="c1"># Create the parser.</span>
+<span class="o">--&gt;</span> <span class="mi">482</span>     <span class="n">parser</span> <span class="o">=</span> <span class="n">TextFileReader</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+    <span class="mi">483</span> 
+    <span class="mi">484</span>     <span class="k">if</span> <span class="n">chunksize</span> <span class="ow">or</span> <span class="n">iterator</span><span class="p">:</span>
+
+<span class="o">~</span>\<span class="o">.</span><span class="n">conda</span>\<span class="n">envs</span>\<span class="n">python_introduction</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">pandas</span>\<span class="n">io</span>\<span class="n">parsers</span>\<span class="n">readers</span><span class="o">.</span><span class="n">py</span> <span class="ow">in</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">engine</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+    <span class="mi">809</span>             <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwds</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span>
+    <span class="mi">810</span> 
+<span class="o">--&gt;</span> <span class="mi">811</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_engine</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="p">)</span>
+    <span class="mi">812</span> 
+    <span class="mi">813</span>     <span class="k">def</span> <span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+<span class="o">~</span>\<span class="o">.</span><span class="n">conda</span>\<span class="n">envs</span>\<span class="n">python_introduction</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">pandas</span>\<span class="n">io</span>\<span class="n">parsers</span>\<span class="n">readers</span><span class="o">.</span><span class="n">py</span> <span class="ow">in</span> <span class="n">_make_engine</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">engine</span><span class="p">)</span>
+   <span class="mi">1038</span>             <span class="p">)</span>
+   <span class="mi">1039</span>         <span class="c1"># error: Too many arguments for &quot;ParserBase&quot;</span>
+<span class="o">-&gt;</span> <span class="mi">1040</span>         <span class="k">return</span> <span class="n">mapping</span><span class="p">[</span><span class="n">engine</span><span class="p">](</span><span class="bp">self</span><span class="o">.</span><span class="n">f</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">)</span>  <span class="c1"># type: ignore[call-arg]</span>
+   <span class="mi">1041</span> 
+   <span class="mi">1042</span>     <span class="k">def</span> <span class="nf">_failover_to_python</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+<span class="o">~</span>\<span class="o">.</span><span class="n">conda</span>\<span class="n">envs</span>\<span class="n">python_introduction</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">pandas</span>\<span class="n">io</span>\<span class="n">parsers</span>\<span class="n">c_parser_wrapper</span><span class="o">.</span><span class="n">py</span> <span class="ow">in</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">src</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+     <span class="mi">49</span> 
+     <span class="mi">50</span>         <span class="c1"># open handles</span>
+<span class="o">---&gt;</span> <span class="mi">51</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_open_handles</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">kwds</span><span class="p">)</span>
+     <span class="mi">52</span>         <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+     <span class="mi">53</span> 
+
+<span class="o">~</span>\<span class="o">.</span><span class="n">conda</span>\<span class="n">envs</span>\<span class="n">python_introduction</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">pandas</span>\<span class="n">io</span>\<span class="n">parsers</span>\<span class="n">base_parser</span><span class="o">.</span><span class="n">py</span> <span class="ow">in</span> <span class="n">_open_handles</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">src</span><span class="p">,</span> <span class="n">kwds</span><span class="p">)</span>
+    <span class="mi">220</span>         <span class="n">Let</span> <span class="n">the</span> <span class="n">readers</span> <span class="nb">open</span> <span class="n">IOHandles</span> <span class="n">after</span> <span class="n">they</span> <span class="n">are</span> <span class="n">done</span> <span class="k">with</span> <span class="n">their</span> <span class="n">potential</span> <span class="n">raises</span><span class="o">.</span>
+    <span class="mi">221</span>         <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">--&gt; 222         self.handles = get_handle(</span>
+<span class="s2">    223             src,</span>
+<span class="s2">    224             &quot;r&quot;,</span>
+
+<span class="s2">~\.conda\envs\python_introduction\lib\site-packages\pandas\io\common.py in get_handle(path_or_buf, mode, encoding, compression, memory_map, is_text, errors, storage_options)</span>
+<span class="s2">    700         if ioargs.encoding and &quot;b&quot; not in ioargs.mode:</span>
+<span class="s2">    701             # Encoding</span>
+<span class="s2">--&gt; 702             handle = open(</span>
+<span class="s2">    703                 handle,</span>
+<span class="s2">    704                 ioargs.mode,</span>
+
+<span class="s2">FileNotFoundError: [Errno 2] No such file or directory: &#39;C:</span><span class="se">\\</span><span class="s2">User</span><span class="se">\\</span><span class="s2">myname</span><span class="se">\\</span><span class="s2">exercises</span><span class="se">\\</span><span class="s2">NetflixOrginals.csv&#39;</span>
+</pre></div>
+</div>
+<p>Hier kann getrost alles bis auf das Ende der Nachricht ignoriert werden! Die Datei <code class="docutils literal notranslate"><span class="pre">'C:\\User\\myname\\exercises\\NetflixOrginals.csv'</span></code> wird schlicht nicht gefunden. Und das alles nur wegen einem einzigen fehlenden „i“ –&gt; Orginals –&gt; Or<code class="docutils literal notranslate"><span class="pre">i</span></code>ginals.</p>
+<p>OK. Nachdem wir das hinbekommen haben müsste es gehen. Tut es natürlich aber nicht:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">root</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
+<span class="n">filename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="s2">&quot;exercises&quot;</span><span class="p">,</span> <span class="s1">&#39;NetflixOriginals.csv&#39;</span><span class="p">)</span>  <span class="c1"># je nach eigenem Pfad anpassen!</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
+
+<span class="ne">UnicodeDecodeError</span>                        <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">)</span>
+<span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Temp</span><span class="o">/</span><span class="n">ipykernel_25048</span><span class="o">/</span><span class="mf">1030038016.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+      <span class="mi">5</span> <span class="n">filename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="s2">&quot;exercises&quot;</span><span class="p">,</span> <span class="s1">&#39;NetflixOriginals.csv&#39;</span><span class="p">)</span>  <span class="c1"># je nach eigenem Pfad anpassen!</span>
+      <span class="mi">6</span> 
+<span class="o">----&gt;</span> <span class="mi">7</span> <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
+
+<span class="o">~</span>\<span class="o">.</span><span class="n">conda</span>\<span class="n">envs</span>\<span class="n">python_introduction</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">pandas</span>\<span class="n">util</span>\<span class="n">_decorators</span><span class="o">.</span><span class="n">py</span> <span class="ow">in</span> <span class="n">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="mi">309</span>                     <span class="n">stacklevel</span><span class="o">=</span><span class="n">stacklevel</span><span class="p">,</span>
+    <span class="mi">310</span>                 <span class="p">)</span>
+<span class="o">--&gt;</span> <span class="mi">311</span>             <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="mi">312</span> 
+    <span class="mi">313</span>         <span class="k">return</span> <span class="n">wrapper</span>
+
+<span class="o">~</span>\<span class="o">.</span><span class="n">conda</span>\<span class="n">envs</span>\<span class="n">python_introduction</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">pandas</span>\<span class="n">io</span>\<span class="n">parsers</span>\<span class="n">readers</span><span class="o">.</span><span class="n">py</span> <span class="ow">in</span> <span class="n">read_csv</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="n">sep</span><span class="p">,</span> <span class="n">delimiter</span><span class="p">,</span> <span class="n">header</span><span class="p">,</span> <span class="n">names</span><span class="p">,</span> <span class="n">index_col</span><span class="p">,</span> <span class="n">usecols</span><span class="p">,</span> <span class="n">squeeze</span><span class="p">,</span> <span class="n">prefix</span><span class="p">,</span> <span class="n">mangle_dupe_cols</span><span class="p">,</span> <span class="n">dtype</span><span class="p">,</span> <span class="n">engine</span><span class="p">,</span> <span class="n">converters</span><span class="p">,</span> <span class="n">true_values</span><span class="p">,</span> <span class="n">false_values</span><span class="p">,</span> <span class="n">skipinitialspace</span><span class="p">,</span> <span class="n">skiprows</span><span class="p">,</span> <span class="n">skipfooter</span><span class="p">,</span> <span class="n">nrows</span><span class="p">,</span> <span class="n">na_values</span><span class="p">,</span> <span class="n">keep_default_na</span><span class="p">,</span> <span class="n">na_filter</span><span class="p">,</span> <span class="n">verbose</span><span class="p">,</span> <span class="n">skip_blank_lines</span><span class="p">,</span> <span class="n">parse_dates</span><span class="p">,</span> <span class="n">infer_datetime_format</span><span class="p">,</span> <span class="n">keep_date_col</span><span class="p">,</span> <span class="n">date_parser</span><span class="p">,</span> <span class="n">dayfirst</span><span class="p">,</span> <span class="n">cache_dates</span><span class="p">,</span> <span class="n">iterator</span><span class="p">,</span> <span class="n">chunksize</span><span class="p">,</span> <span class="n">compression</span><span class="p">,</span> <span class="n">thousands</span><span class="p">,</span> <span class="n">decimal</span><span class="p">,</span> <span class="n">lineterminator</span><span class="p">,</span> <span class="n">quotechar</span><span class="p">,</span> <span class="n">quoting</span><span class="p">,</span> <span class="n">doublequote</span><span class="p">,</span> <span class="n">escapechar</span><span class="p">,</span> <span class="n">comment</span><span class="p">,</span> <span class="n">encoding</span><span class="p">,</span> <span class="n">encoding_errors</span><span class="p">,</span> <span class="n">dialect</span><span class="p">,</span> <span class="n">error_bad_lines</span><span class="p">,</span> <span class="n">warn_bad_lines</span><span class="p">,</span> <span class="n">on_bad_lines</span><span class="p">,</span> <span class="n">delim_whitespace</span><span class="p">,</span> <span class="n">low_memory</span><span class="p">,</span> <span class="n">memory_map</span><span class="p">,</span> <span class="n">float_precision</span><span class="p">,</span> <span class="n">storage_options</span><span class="p">)</span>
+    <span class="mi">584</span>     <span class="n">kwds</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">kwds_defaults</span><span class="p">)</span>
+    <span class="mi">585</span> 
+<span class="o">--&gt;</span> <span class="mi">586</span>     <span class="k">return</span> <span class="n">_read</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="n">kwds</span><span class="p">)</span>
+    <span class="mi">587</span> 
+    <span class="mi">588</span> 
+
+<span class="o">~</span>\<span class="o">.</span><span class="n">conda</span>\<span class="n">envs</span>\<span class="n">python_introduction</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">pandas</span>\<span class="n">io</span>\<span class="n">parsers</span>\<span class="n">readers</span><span class="o">.</span><span class="n">py</span> <span class="ow">in</span> <span class="n">_read</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="n">kwds</span><span class="p">)</span>
+    <span class="mi">480</span> 
+    <span class="mi">481</span>     <span class="c1"># Create the parser.</span>
+<span class="o">--&gt;</span> <span class="mi">482</span>     <span class="n">parser</span> <span class="o">=</span> <span class="n">TextFileReader</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+    <span class="mi">483</span> 
+    <span class="mi">484</span>     <span class="k">if</span> <span class="n">chunksize</span> <span class="ow">or</span> <span class="n">iterator</span><span class="p">:</span>
+
+<span class="o">~</span>\<span class="o">.</span><span class="n">conda</span>\<span class="n">envs</span>\<span class="n">python_introduction</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">pandas</span>\<span class="n">io</span>\<span class="n">parsers</span>\<span class="n">readers</span><span class="o">.</span><span class="n">py</span> <span class="ow">in</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">engine</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+    <span class="mi">809</span>             <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwds</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span>
+    <span class="mi">810</span> 
+<span class="o">--&gt;</span> <span class="mi">811</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_engine</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="p">)</span>
+    <span class="mi">812</span> 
+    <span class="mi">813</span>     <span class="k">def</span> <span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+<span class="o">~</span>\<span class="o">.</span><span class="n">conda</span>\<span class="n">envs</span>\<span class="n">python_introduction</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">pandas</span>\<span class="n">io</span>\<span class="n">parsers</span>\<span class="n">readers</span><span class="o">.</span><span class="n">py</span> <span class="ow">in</span> <span class="n">_make_engine</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">engine</span><span class="p">)</span>
+   <span class="mi">1038</span>             <span class="p">)</span>
+   <span class="mi">1039</span>         <span class="c1"># error: Too many arguments for &quot;ParserBase&quot;</span>
+<span class="o">-&gt;</span> <span class="mi">1040</span>         <span class="k">return</span> <span class="n">mapping</span><span class="p">[</span><span class="n">engine</span><span class="p">](</span><span class="bp">self</span><span class="o">.</span><span class="n">f</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">)</span>  <span class="c1"># type: ignore[call-arg]</span>
+   <span class="mi">1041</span> 
+   <span class="mi">1042</span>     <span class="k">def</span> <span class="nf">_failover_to_python</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+<span class="o">~</span>\<span class="o">.</span><span class="n">conda</span>\<span class="n">envs</span>\<span class="n">python_introduction</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">pandas</span>\<span class="n">io</span>\<span class="n">parsers</span>\<span class="n">c_parser_wrapper</span><span class="o">.</span><span class="n">py</span> <span class="ow">in</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">src</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+     <span class="mi">67</span>         <span class="n">kwds</span><span class="p">[</span><span class="s2">&quot;dtype&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ensure_dtype_objs</span><span class="p">(</span><span class="n">kwds</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;dtype&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span>
+     <span class="mi">68</span>         <span class="k">try</span><span class="p">:</span>
+<span class="o">---&gt;</span> <span class="mi">69</span>             <span class="bp">self</span><span class="o">.</span><span class="n">_reader</span> <span class="o">=</span> <span class="n">parsers</span><span class="o">.</span><span class="n">TextReader</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">handles</span><span class="o">.</span><span class="n">handle</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+     <span class="mi">70</span>         <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+     <span class="mi">71</span>             <span class="bp">self</span><span class="o">.</span><span class="n">handles</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="o">~</span>\<span class="o">.</span><span class="n">conda</span>\<span class="n">envs</span>\<span class="n">python_introduction</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">pandas</span>\<span class="n">_libs</span>\<span class="n">parsers</span><span class="o">.</span><span class="n">pyx</span> <span class="ow">in</span> <span class="n">pandas</span><span class="o">.</span><span class="n">_libs</span><span class="o">.</span><span class="n">parsers</span><span class="o">.</span><span class="n">TextReader</span><span class="o">.</span><span class="n">__cinit__</span><span class="p">()</span>
+
+<span class="o">~</span>\<span class="o">.</span><span class="n">conda</span>\<span class="n">envs</span>\<span class="n">python_introduction</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">pandas</span>\<span class="n">_libs</span>\<span class="n">parsers</span><span class="o">.</span><span class="n">pyx</span> <span class="ow">in</span> <span class="n">pandas</span><span class="o">.</span><span class="n">_libs</span><span class="o">.</span><span class="n">parsers</span><span class="o">.</span><span class="n">TextReader</span><span class="o">.</span><span class="n">_get_header</span><span class="p">()</span>
+
+<span class="o">~</span>\<span class="o">.</span><span class="n">conda</span>\<span class="n">envs</span>\<span class="n">python_introduction</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">pandas</span>\<span class="n">_libs</span>\<span class="n">parsers</span><span class="o">.</span><span class="n">pyx</span> <span class="ow">in</span> <span class="n">pandas</span><span class="o">.</span><span class="n">_libs</span><span class="o">.</span><span class="n">parsers</span><span class="o">.</span><span class="n">TextReader</span><span class="o">.</span><span class="n">_tokenize_rows</span><span class="p">()</span>
+
+<span class="o">~</span>\<span class="o">.</span><span class="n">conda</span>\<span class="n">envs</span>\<span class="n">python_introduction</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">pandas</span>\<span class="n">_libs</span>\<span class="n">parsers</span><span class="o">.</span><span class="n">pyx</span> <span class="ow">in</span> <span class="n">pandas</span><span class="o">.</span><span class="n">_libs</span><span class="o">.</span><span class="n">parsers</span><span class="o">.</span><span class="n">raise_parser_error</span><span class="p">()</span>
+
+<span class="ne">UnicodeDecodeError</span><span class="p">:</span> <span class="s1">&#39;utf-8&#39;</span> <span class="n">codec</span> <span class="n">can</span><span class="s1">&#39;t decode byte 0xd2 in position 7431: invalid continuation byte</span>
+</pre></div>
+</div>
+<p>Hier sieht man gut die Verschachtelung von vielen, vielen Funktionen/Methoden!</p>
+<section id="wo-muss-ich-hinschauen">
+<h3><span class="section-number">24.3.1. </span>Wo muss ich hinschauen?<a class="headerlink" href="#wo-muss-ich-hinschauen" title="Link to this heading">#</a></h3>
+<p>Bei den ganzen Beispiel oben haben wir dazu schon viel gesehen. In den Fehlermeldungen stehen verschiedene Sachen drin, aber der wichtigste Hinweis kommt <strong>ganz zum Schluss</strong>. Dort steht was für eine Art Fehler vorliegt und häufig auch noch der Name der Funktion/Variable/Klasse… mit dem etwas nicht stimmt.</p>
+<p>Häufige weitere Hinweise sind:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">...'xyz'</span> <span class="pre">is</span> <span class="pre">not</span> <span class="pre">defined</span></code> heißt: Python kennt kein <code class="docutils literal notranslate"><span class="pre">xyz</span></code>.
+Meistens bedeutet das, dass entweder <code class="docutils literal notranslate"><span class="pre">xyz</span></code> bis zu dieser Stelle des Codes noch nicht definiert wurde (z.B. weil die entsprechenden Funktionen noch nicht aufgerufen wurden). Oder es liegt ein Tippfehler vor und es wurde aus versehen nicht etwas anderes definiert, vielleicht <code class="docutils literal notranslate"><span class="pre">Xyz</span></code> ? Oder <code class="docutils literal notranslate"><span class="pre">xyZ</span></code>?</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">...</span> <span class="pre">object</span> <span class="pre">is</span> <span class="pre">not</span> <span class="pre">callable</span></code> bedeutet in der Regel, wir versuchen etwas auszuführen, was aber keine Funktion oder Methode. Darunter verstehen wir in Python das aufrufen eines Objekts mit runden Klammern, also z.B. <code class="docutils literal notranslate"><span class="pre">str(5)</span></code> oder <code class="docutils literal notranslate"><span class="pre">print(&quot;ja&quot;)</span></code>, oder auch <code class="docutils literal notranslate"><span class="pre">np.array(...)</span></code>. Gerade bei Komplexeren Klassen ist aber nicht immer sofort klar ob etwas eine Methode oder ein Attribut ist. Zum Beispiel in Pandas, dort haben wir nämlich zum Beispiel bei den DataFrames eine enorme Auswahl an Methoden <strong>UND</strong> Attributen.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+                   <span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">]})</span>
+
+<span class="c1"># DataFrames haben eine Unmenge an Methoden und Attributen, z.B.</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>  <span class="c1"># das ist eine Methode, darum mit ()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>  <span class="c1"># das ist ein Attribut (genauer: eine &quot;property&quot;)</span>
+</pre></div>
+</div>
+<p>Das muss nicht immer logisch sein. Schließlich könnte <code class="docutils literal notranslate"><span class="pre">.values</span></code> auch genauso als Methode aufgefasst werden. Das ist in solch einem Fall einfach nur die Wahl der Entwickler*Innen.
+(Randbemerkung: In andern Bibliotheken gibt es stattdessen eine Methode wie z.B: <code class="docutils literal notranslate"><span class="pre">.to_array()</span></code> bei <code class="docutils literal notranslate"><span class="pre">SciPy</span></code>)</p>
+<p>Da es aber beim DataFrame keine Methode ist, geht folgendes auch nicht:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
+
+<span class="ne">TypeError</span>                                 <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">)</span>
+<span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Temp</span><span class="o">/</span><span class="n">ipykernel_15368</span><span class="o">/</span><span class="mf">170898410.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">----&gt;</span> <span class="mi">1</span> <span class="n">df</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
+
+<span class="ne">TypeError</span><span class="p">:</span> <span class="s1">&#39;numpy.ndarray&#39;</span> <span class="nb">object</span> <span class="ow">is</span> <span class="ow">not</span> <span class="nb">callable</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./lesson_material_german"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="10_pandas_2.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">zurück</p>
+        <p class="prev-next-title"><span class="section-number">23. </span>Pandas - part 2</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="14_generators.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">weiter</p>
+        <p class="prev-next-title"><span class="section-number">25. </span>Generators / Iterators</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Inhalt
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ein-wenig-wie-hieroglyphen-lesen">24.1. Ein wenig wie Hieroglyphen lesen…</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mehr-code-mehr-text-mehr-fehlerquellen">24.2. Mehr Code, mehr Text, mehr Fehlerquellen</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jedes-zeichen-zahlt-beim-computer-aber-nicht-beim-menschen">24.2.1. Jedes Zeichen zählt… beim Computer aber NICHT beim Menschen!</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#oft-wird-der-fehler-nicht-dort-entdeckt-wo-er-gemacht-wird">24.2.2. Oft wird der Fehler nicht dort entdeckt wo er gemacht wird.</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ein-minenfeld-file-import">24.3. Ein Minenfeld: File import!</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wo-muss-ich-hinschauen">24.3.1. Wo muss ich hinschauen?</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Durch Florian Huber
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
