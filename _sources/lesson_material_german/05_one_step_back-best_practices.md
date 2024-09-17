@@ -1,4 +1,4 @@
-### Code design und "best practices" 1
+# Code design und "best practices" 1
 
 Die ersten 4 Wochen haben wir schon viele wichtige Grundlagen in Python gesehen:
 
@@ -12,13 +12,13 @@ Die ersten 4 Wochen haben wir schon viele wichtige Grundlagen in Python gesehen:
 
 Höchste Zeit um einen kleinen Schritt zurück zu machen und den Blick freizugeben für das **big picture**, das große Ganze. 
 
-### Teams vs. lonely hacker
+## Teams vs. lonely hacker
 
 Wir haben etwas ausführlicher über Teams und Pair Programming gesprochen --> bisher nur in den Slides auf Moodle zu finden.
 
 Danach ging es um **Code Quality** und **Clean Code**, angefangen mit:
 
-## Zen of Python
+### Zen of Python
 
 Bitte einmal den folgenden `import` ausprobieren:
 
@@ -347,7 +347,7 @@ Apropos ergänzen: Mit den Code-Aufbau über die Funktionen ist es nun auch gut 
 
 
 
-# Mehr zum Python-Ecosystem
+## Mehr zum Python-Ecosystem
 
 In der ersten Vorlesung wurde schon einmal erwähnt, dass um Python herum ein ganzes Universum aus Bibliotheken und Tools existiert, was ganz nebenbei auch einer der Gründe für den Erfolg von Python ist.
 

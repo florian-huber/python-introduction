@@ -1,34 +1,35 @@
-*Florian Huber, florian.huber@hs-duesseldorf.de*
-
 # Programmieren für Data Science und Künstliche Intelligenz
 
-Dies ist ein Skript zur Veranstaltung "Programmieren für Data Science und Künstliche Intelligenz" im Studiengang DAISY an der Hochschule Düsseldorf (HSD). Und wie die meisten Skripte: Work in progress...
+Dieses Skript begleitet die Veranstaltung "Programmieren für Data Science und Künstliche Intelligenz" im Studiengang DAISY an der Hochschule Düsseldorf (HSD). Es wird fortlaufend aktualisiert und erweitert, um den sich ändernden Anforderungen und Entwicklungen in diesen dynamischen Bereichen gerecht zu werden.
 
 
-## Was ist programmieren und warum brauchen wir das (für Data Science und AI)?
+## Warum ist Programmieren wichtig für Data Science und Künstliche Intelligenz?
 
-Computer können tolle Sachen, z.B. Milliarden von Berechnungen pro Sekunde verarbeiten oder riesige Mengen an Daten speichern. Kein Wunder also, dass wir diese Fähigkeiten im Bereich Data Science auch nutzen möchten. Natürlich können wir fertige Programme nutzen. In vielen Fällen haben wir aber Aufgaben, die viel zu speziell und schwierig sind. Wir brauchen unsere eigenen Programme, wir müssen **programmieren**.
+Computer besitzen die bemerkenswerte Fähigkeit, Millionen von Berechnungen pro Sekunde durchzuführen und riesige Mengen an Daten zu speichern. Diese Rechenleistung ist von zentraler Bedeutung für die Bereiche Data Science und Künstliche Intelligenz (KI). Natürlich stehen uns bereits zahlreiche Softwarelösungen zur Verfügung, die viele dieser Aufgaben bewältigen können. Doch sehr oft erfordern unsere spezifischen Problemstellungen individuelle Lösungen, die von bestehenden Programmen nicht abgedeckt werden können. Deshalb müssen wir unsere eigenen Programme erstellen, das heißt wir müssen **programmieren**.
 
-Es gibt bereits sehr viele Definitionen davon, was programmieren genau ist. Hier können wir es erstmal einfach halten. Im Kern bedeutet Programmieren Aufgaben/Rechenoperationen so zu übersetzten, dass ein Computer sie verstehen kann. In der Regel bedeutet dies, die Aufgaben in einen Programmcode zu überführen, der von einem Computer ausgeführt werden kann.
+Obwohl es viele Definitionen von Programmieren gibt, können wir es vereinfacht so formulieren: Programmieren bedeutet, Aufgaben oder Berechnungen in eine Form zu bringen, die ein Computer ausführen kann. In den meisten Fällen handelt es sich dabei um das Schreiben von **Programmcode**, der die Arbeitsanweisungen für den Computer enthält.
 
-Warum dies so besonders (besonders schwierig) ist, lieg daran, dass Computer nicht viel verstehen. Ander als bei zwischenmenschlichem Austausch über Sprache können wir keine Vorkenntnisse oder Kontextwissen voraussetzen. Menschliche Sprache bezeichnen wir als **natürlicher Sprache**, diese ist aber oft nicht eindeutig. So kann z.B. *"Ich habe den Mann mit dem Fernrohr gesehen"* zumindest zwei völlig verschiedene Deutungen haben. Ich habe "einen Mann der ein Fernrohr hat" gesehen, oder ich habe "mit Hilfe eines Fernrohrs" einen Mann gesehen. Nur aus dem Kontext können wir diese Fälle unterscheiden. Ein Computer kann dies aber nicht. 
+Das Besondere am Programmieren ist die exakte und präzise Art der Kommunikation. Während Menschen beim Sprechen oft auf Vorkenntnisse und Kontext zurückgreifen, ist dies bei Computern nicht der Fall. Menschliche Sprache, die sogenannte **natürliche Sprache**, ist häufig mehrdeutig. Ein bekanntes Beispiel ist der Satz: „Ich habe den Mann mit dem Fernrohr gesehen.“ Dieser Satz lässt mindestens zwei Deutungen zu: Entweder habe ich einen Mann gesehen, der ein Fernrohr in der Hand hält, oder ich habe durch ein Fernrohr einen Mann gesehen. Menschen verstehen den korrekten Zusammenhang oft aus dem Kontext – Computer hingegen nicht.
 
-Darum gibt es spezielle **formelle Sprachen** die eindeutig sind, nämlich die **Programmiersprachen**. 
+Um diese Mehrdeutigkeit zu vermeiden, nutzen wir **formale Sprachen**, insbesondere **Programmiersprachen**. 
 
-Also:
+Zusammengefasst bedeutet das:
 
-Programmiersprache muss eindeutig sein, denn der Computer denkt nicht mit und kennt auch keinen Kontext oder Sinn.
-
-Eine **Programmiersprache** ist eine formale Sprache zur Formulierung von Datenstrukturen und Algorithmen/Rechenvorschriften die von einem Computer ausgeführt werden sollen.
+Eine **Programmiersprache** muss absolut präzise und eindeutig sein, da der Computer keinen Kontext erkennt oder Sinn interpretieren kann. Sie dient dazu, Datenstrukturen und Algorithmen zu formulieren, die von einem Computer ausgeführt werden sollen.
 
 Hier im Kurs werden wir das Programmieren mit **Python** lernen. Aber warum Python?
 
 ## Python
 
-Python ist eine interpretierte Programmiersprache mit dynamischer Typisierung. Das bedeutet, Code der in Python geschrieben ist muss nicht erst kompiliert werden, sondern kann direkt in einem sogenannten **Interpreter** ausgeführt werden. Das macht eine sehr schnelle, dynamische Entwicklung von kleinen Programmen möglich, bzw. eine sehr schnelle Anpassung von größeren Programmen, was im Bereich Data Science häufig notwendig ist. Man spricht hier auch von einer **Skriptsprache**.
+Python ist eine interpretierte Programmiersprache mit dynamischer Typisierung. Das bedeutet, dass der in Python geschriebene Code nicht kompiliert werden muss, bevor er ausgeführt wird. Stattdessen wird der Code direkt in einem sogenannten **Interpreter** interpretiert und ausgeführt. Dies ermöglicht eine schnelle und flexible Entwicklung, die besonders im Bereich Data Science und KI von Vorteil ist, wo häufig schnelle Anpassungen und Iterationen notwendig sind. Aus diesem Grund wird Python oft als **Skriptsprache** bezeichnet.
 
 ![Types of programming languages](../images/types_of_programming_languages.png)
 
-Weiter Vorteile von Python sind, dass Python inzwischen die meistverwendete Programmiersprache im Bereich Data Science und AI ist. Das heißt zum einen, dass es sehr viele Nutzer\*innen gibt die damit arbeiten, so dass es im Internet viele Foren und Tutorials gibt die einem Hilfe und Tipps anbieten können. Zum anderen werden so aber auch viele Bibliotheken bereitgestellt die wir nutzen können. Und zum Schluss bedeutet eine große Community eben auch, dass die Programmiersprache mit der Zeit geht, d.h. regelmäßig erneuert und angepasst wird an neuen Bedingungen (neue Computer Hardware etc.).
+### Arten von Programmiersprachen
 
-Ein weiterer zentraler Punkt der für Python spricht ist, dass Python-Code als gut lesbar gilt. Das ist für Anfänger\*innen wahrscheinlich nicht immer gleich nachvollziehbar den gut lesbar heißt nicht "einfach". Es bedeutet eher, dass Python Code deutlich besser lesbar ist als der Code vieler anderer Sprachen.
+Python hat sich in den letzten Jahren zur beliebtesten Programmiersprache in den Bereichen Data Science und Künstliche Intelligenz entwickelt. Dies bietet mehrere entscheidende Vorteile:
+
+1. **Große Nutzerbasis**: Es gibt eine Vielzahl von Nutzer*innen, die Python für ähnliche Zwecke verwenden. Dadurch existieren viele Online-Foren, Tutorials und andere Ressourcen, die als Hilfestellung dienen.
+2. **Umfangreiche Bibliotheken**: Die große Community sorgt für eine ständige Weiterentwicklung der Sprache sowie für die Bereitstellung zahlreicher Bibliotheken, die für Aufgaben in Data Science und KI genutzt werden können.
+3. **Anpassungsfähigkeit**: Python wird regelmäßig aktualisiert, um sich neuen technologischen Entwicklungen und Hardware-Anforderungen anzupassen.
+4. **Lesbarkeit des Codes**: Python wird oft für seine vergleichsweise gute Lesbarkeit gelobt. Dies bedeutet nicht unbedingt, dass der Code für Anfänger*innen sofort verständlich ist, sondern vielmehr, dass er im Vergleich zu anderen Sprachen klarer und strukturierter ist. Gerade im Teamwork oder bei der Weiterentwicklung von Projekten ist diese Eigenschaft ein großer Vorteil.
