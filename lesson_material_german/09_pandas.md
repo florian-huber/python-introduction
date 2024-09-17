@@ -1,4 +1,4 @@
-# Jupyter Notebook
+**Jupyter Notebook**
 
 Bisher haben wir unseren Python Code entweder in einer Konsole geschrieben (eigentlich nur test-weise), oder eben hauptsächlich in einer Entwicklungsumgebung wie Spyder. Letzteres ist und bleibt auch der bevorzugte weg um umfangreicheren Code zu entwickeln.
 
