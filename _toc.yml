@@ -6,10 +6,12 @@ parts:
     chapters:
     - file: lesson_material_german/00_introduction
     - file: lesson_material_german/01_first_steps
-    - file: lesson_material_german/02_control_structures_conditions_loop
-  - caption: Funktionen und Module
+    - file: lesson_material_german/01_data_types
+    - file: lesson_material_german/01_variables
+  - caption: Abläufe, Funktionen und Module
     numbered: true
     chapters:
+    - file: lesson_material_german/02_control_structures_conditions_loop
     - file: lesson_material_german/03_functions
     - file: lesson_material_german/03_import_libraries_modules
     - file: lesson_material_german/03_special_functions
