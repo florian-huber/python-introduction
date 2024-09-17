@@ -1,4 +1,4 @@
-<img src="../images/cover_sketching.png" alt="cover image"/>
+<img src="../images/cover_german.png" alt="cover image"/>
 
 ## Einführung Programmieren mit Python für Data Science
 
