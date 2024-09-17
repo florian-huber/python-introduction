@@ -34,11 +34,12 @@ parts:
     chapters:
     - file: lesson_material_german/08_numpy
     - file: lesson_material_german/09_numpy_2
-  - caption: Tabellarische Daten - Pandas
+  - caption: Schritte Richtung Data Science
     numbered: true
     chapters:
     - file: lesson_material_german/09_pandas
     - file: lesson_material_german/10_pandas_2
+    - file: lesson_material_german/12_data_visualization
   - caption: A few missing things
     numbered: true
     chapters:
