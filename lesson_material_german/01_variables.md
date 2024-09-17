@@ -1,19 +1,20 @@
 # Variablen
 
-Variablen sind essentiell für das Schreiben von Programmen.
-Oft stellt man sich darunter Boxen vor in die Daten gepackt werden. In Wirklichkeit werden bestimmten Variablennamen Daten (oder: Objekte) zugewiesen. Darum spricht man
-in diesem Zusammenhang auch von Zuweisungen.
+Variablen sind ein essenzieller Bestandteil jedes Programms. Sie ermöglichen es uns, Daten zu speichern und in Berechnungen zu verwenden. Eine häufige Metapher ist, sich Variablen wie Boxen vorzustellen, in die wir Werte ablegen können. In Python und anderen Programmiersprachen wird dabei jedoch präziser von **Zuweisungen** gesprochen: Einem Variablennamen wird ein Wert zugewiesen.
 
-In Python werden Daten den Variablen einfach mit `=` zugewiesen.
+## Variablen in Python
+
+In Python wird eine Variable durch das Zuweisungszeichen `=` definiert. Der Ausdruck links vom `=` ist der Variablenname, der Ausdruck rechts ist der Wert, der dieser Variablen zugewiesen wird.
+
+Beispiel:
 
 ```python 
 a = 5
 print(a / 6)  # => 0.8333333333333334
 ```
 
-So lange eine Python Session läuft und nichts Anderes mit einer Variable
-angestellt wird, behält die Variable den zugewiesenen Wert.
-Zum Beispiel bleibt `a` der Wert 5 zugewiesen, so dass:
+Sobald eine Variable definiert ist, "merkt" sich Python ihren Wert während der gesamten Programmsitzung. Die Variable `a` hat im obigen Beispiel den Wert `5`, bis ihr etwas anderes zugewiesen wird. Variablen können dann in Berechnungen oder anderen Operationen verwendet werden:
+
 <!--pytest-codeblocks:cont-->
 
 ```python 
@@ -21,19 +22,20 @@ b = 8
 print(a + b)  # => 13
 ```
 
-Variablen sind aber nicht fix. 
-Ihnen können einfach neue Werte zugewiesen werden
-(sogar völlig andere Datentypen!):
+### Variablen können ihren Wert ändern
+
+Variablen sind in Python nicht fixiert. Ihr könnt ihnen jederzeit neue Werte zuweisen, sogar von einem anderen Datentyp. Das bedeutet, dass eine Variable, die zuvor eine ganze Zahl (`int`) war, plötzlich einen Gleitkommawert (`float`) oder sogar einen String speichern kann:
 <!--pytest-codeblocks:cont-->
 
 ```python 
 a = 100.5
 print(a + b)  # => 108.5
 ```
+**Achtung**: Der flexible Umgang mit Variablen in Python ist nützlich, kann aber zu Fehlern führen, wenn man versehentlich den Typ einer Variablen ändert und später nicht damit rechnet.
 
-Meistens ist es sehr zu empfehlen, den Variablen Namen zu geben die einen
-Hinweis auf ihren Inhalt enthalten.  
-Code wie der folgende wird dadurch deutlich verständlicher!
+### Sinnvolle Variablennamen
+
+Es ist sehr hilfreich Variablen Namen zu geben, die den Inhalt oder den Zweck der gespeicherten Daten widerspiegeln. Ein selbsterklärender Variablenname macht den Code für andere (und auch für euch selbst) leichter verständlich.
 
 ```python 
 training_seconds = 18900
@@ -42,9 +44,11 @@ training_hours = training_seconds / sec_per_hour
 print(training_hours)  # => 5.25
 ```
 
-Python ist als Sprache sehr flexibel beim Umgang mit Variablen.
-Oft ist das nützlich, kann aber gelegentlich auch für einiger Verwirrung
-sorgen. Stellt euch vor eine Variable wird `print` genannt...
+Hier sind die Variablen klar benannt, und der Code ist direkt verständlich. Würde man stattdessen Variablen wie `a`, `b` und `c` verwenden, wäre der Code weniger leserlich und schwieriger zu verstehen.
+
+### Gefährliche Variablennamen
+
+Python erlaubt es, Variablen fast jeden Namen zu geben. Dies gilt sogar für Namen, die den Namen von Python-Funktionen entsprechen, was jedoch vermieden werden sollte. Wenn ihr beispielsweise einer Variablen den Namen `print` gebt, überschreibt ihr die eingebaute Funktion `print()` und könnt sie nicht mehr verwenden:
 
 ```python 
 print = "my text"
@@ -57,14 +61,20 @@ Was wird wohl jetzt passieren wenn wir `print("hello world!")` laufen lassen?
 Ok, das sollte also deutlich sein... Variablen besser keinen Namen geben
 der auch anderweitig als Funktion vorkommt. 
 
-Eine Sache die Python doch verbietet sind Variablennamen die sogennanten 
-[**reserverd keywords**](https://www.w3schools.com/python/python_ref_keywords.asp)
-entsprechen
+### Reservierte Schlüsselwörter
+
+Python hat eine Liste von **reservierten Schlüsselwörtern** (Keywords), die nicht als Variablennamen verwendet werden dürfen, da sie für die Syntax der Sprache benötigt werden. Beispiele für solche Keywords sind `if`, `else`, `while` oder `for`.
+
+Der Versuch, eine Variable mit einem solchen Namen zu erstellen, führt zu einem **SyntaxError**:
+
 <!--pytest-codeblocks:expect-error-->
 
 ```python 
 or = "outer region"  # => SyntaxError: invalid syntax
 ```
+Die vollständige Liste der reservierten Schlüsselwörter findet ihr [hier](https://www.w3schools.com/python/python_ref_keywords.asp).
+
+---
 
 > ## Mini quiz:
 >
@@ -91,13 +101,12 @@ print(x)
 
 ## Regeln für Variablennamen
 
-Namen mit Bedeutung
+Es gibt einige einfache, aber wichtige Regeln für die Wahl von Variablennamen in Python:
 
-- Kleinbuchstaben (und Unterstriche)
-- Nie "reserved keywords" (Schlüsselworte) benutzen
-- Auch keine Funktionennamen benutzten (Standardfunktionen oder Funktionen die im Programm vorkommen)
-- Andere Sprachen als Englisch sind natürlich OK (je nach Kontext)
-- Allerdings machen Sonderzeichen manches komplizierter (z.B. ä oder ü)
+- **Verwendet Kleinbuchstaben** und Unterstriche `_` zur Trennung von Wörtern, um die Lesbarkeit zu erhöhen.
+- **Vermeidet reservierte Keywords** oder Funktionsnamen, um Konflikte zu verhindern.
+- **Sprecht Englisch**: Auch wenn Variablennamen in anderen Sprachen (z. B. Deutsch) zulässig sind, wird Englisch üblicherweise bevorzugt, um den Code auch für andere verständlich zu halten.
+- **Achtet auf Sonderzeichen**: Vermeidet nach Möglichkeit Umlaute (ä, ö, ü) oder andere Sonderzeichen in Variablennamen, da sie nicht überall unterstützt werden und zu Komplikationen führen können.
 
 
 
@@ -106,7 +115,7 @@ Namen mit Bedeutung
 Mit **debugging** meinen wir das Beseitigen von Fehlern im Programmcode (Fehler = "bugs").
 Wir werden später noch detaillierter auf das Thema eingehen, aber gleich zu Beginn ist es hilfreich ein wenig Erfahrung zu sammeln mit der Art und Weise wie Python (bzw. der Python-Interpreter) Fehler im Code anzeigt. Hierbei geht es nicht um Fehler, die ein erfolgreiches Ausführen des Codes unmöglich machen.
 
-Dazu die folgende kleine Übung:
+### Übung zum Debugging:
 
 1. Was passiert bei einer print-Anweisung, wenn wir eine oder beide 
 Klammern weglassen?
@@ -123,4 +132,3 @@ eine Zahl schreiben, z.B. 05 - 2 oder +5 -2 ?
 
 6. Mit Python beantworten ("Taschenrechnermodus"): Wie viele Sekunden 
 haben 42 Minuten und 42 Sekunden?
-
