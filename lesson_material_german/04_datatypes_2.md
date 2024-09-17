@@ -2,8 +2,6 @@
 
 Wir haben schon einige Datentypen gesehen. Jetzt wollen wir aber noch einmal genauer darauf eingehen und weitere wichtige Typen besprechen. Wir starten aber mit einer kurzen Wiederholung.
 
-### Variablen und Speicher
-
 Wichtig zu verstehen ist, dass Variablen in Python nicht die Daten/Werte enthalten. Es sind nur Namen, verknüpft mit der Information wo im Speicher der Wert steht.
 
 Daher gibt es sowas:
@@ -19,7 +17,7 @@ print(a)
 
 Kurze Wiederholung der Datentypen mit denen wir schon gearbeitet haben
 
-### Zahlen
+## Zahlen
 
 Hier hatten wir schon häufiger die Integer und Floats (floating point number).
 
@@ -43,7 +41,7 @@ type('abcdefg')
 type("""abcdefg""")  # z.B. bei den "Docstrings" von Funktionen
 ```
 
-### Lists & Tuples
+## Lists & Tuples
 
 Wir hatten schon Lists und Tuple, die auf den ersten Blick ziemlich ähnlich sind.
 
@@ -68,7 +66,7 @@ my_list[2] = "XYZ"
 print(my_list)  # => ['abc', 'xyz', 'XYZ']
 ```
 
-### Boolean und None
+## Boolean und None
 Weitere Datentypen die wir jetzt schon häufiger gesehen haben, ohne aber näher darauf einzugehen das es einzelne Datentypen sind: Boolean (oder `bool`) und NoneType (oder `None`).
 Ein Boolean kann nur `True` oder `False` sein.
 Und `None` steht in der Regel für einen nicht vorhandenen Wert oder ein nicht vorhandenes Objekt.
@@ -438,4 +436,3 @@ my_list2 = copy.deepcopy(my_list1)
 my_list2[0][0] = 54321
 print(my_list1[0])  # -> 1
 ```
-
