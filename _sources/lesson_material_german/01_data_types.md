@@ -1,14 +1,17 @@
 # Datentypen (*data types*)
 
-Datentypen verbinden Werte (oder eben: Daten) und Methoden. Die Methoden legen fest, was mit den Daten gemacht werden darf/kann (und wie das funktioniert).
+Datentypen in Python verbinden Werte (oder Daten) mit Methoden, die festlegen, welche Operationen auf diesen Daten durchgeführt werden können. Die Wahl des Datentyps bestimmt also, welche Aktionen möglich sind und wie diese umgesetzt werden.
 
-In Python gibt es eine Reihe verschiedener Datentypen. Hier beginnen wir zum Einstieg erstmal mit Zahlen und Strings.
+In Python gibt es viele verschiedene Datentypen. Für den Einstieg beginnen wir mit zwei grundlegenden Typen: **Zahlen** und **Strings**.
 
 ## Zahlen (*numbers*)
 
-Zahlen und das Rechnen mit Zahlen funktioniert in Python recht intuitiv und einfach, beinahe wie bei einem Taschenrechner.
-Bei den Zahlen unterscheiden wir **integer** (`int`) and **float** (von engl.: "floating point number"). Integer sind ganze Zahlen und float sind Kommazahlen. 
-(Randbemerkung: da beim Computer gerundet wird entspricht dies aber nicht genau den reelen Zahlen.)
+Das Arbeiten mit Zahlen in Python ist sehr intuitiv und verhält sich ähnlich wie bei einem Taschenrechner.
+Bei den Zahlen unterscheidet Python zwischen **Integer** (`int`) und **Float** (von engl.: "floating point number", also Gleitkommazahlen). **Integer** sind ganze Zahlen (z. B. `5`). **Float** sind Kommazahlen (z. B. `5.01`).
+
+Anmerkung: Floats entsprechen nicht exakt den mathematischen reellen Zahlen, da Computer bei Gleitkommazahlen eine Rundung vornehmen.
+
+### Beispiele:
 
 ```py
 >>> 5
@@ -20,29 +23,30 @@ Bei den Zahlen unterscheiden wir **integer** (`int`) and **float** (von engl.: "
 
 Vorzeichen gehen so:
 ```python
-# + positive sign
+# Positiv
 +5  # 5
 
-# - negative sign
+# Negativ
 -5  # -5
 ```
 
 Und, wie gesagt, grundlegende Rechenoperationen gehen wie zu erwarten:
 ```python
-# + addition
+# Addition
 5 + 7  # 12
 
-# - subtraction
+# Subtraktion
 5 - 7  # -2
 
-# * multiplication
+# Multiplikation
 5 * 7  # 35
 
-# / division
+# Division
 5 / 2  # 2.5
 ```
 
-Aber Vorsicht! Division ergibt immer einen `float`.
+**Hinweis**: Die Division in Python gibt immer einen `float`-Wert zurück, auch wenn das Ergebnis eine ganze Zahl wäre:
+
 ```python
 print(type(5 / 1))
 ```
@@ -50,11 +54,23 @@ ergibt:
 ```
 <class 'float'>
 ```
-Dieses Beispiel zeigt auch das wir den "Datentypen" in Python erfragen können mit`type()`.
+Dieses Beispiel zeigt auch, dass wir den Datentypen in Python erfragen können mit`type()`.
+
+### Erweiterte Rechenoperationen:
+```python
+# Ganzzahlige Division
+5 // 2  # 2
+
+# Modulo (Rest einer Division)
+5 % 2  # 1
+
+# Potenzierung
+10 ** 2  # 100
+```
 
 ## Print und Rechenoperationen verbinden
 
-Wenig verwunderlich, aber es können natürlich auch mehrere Rechenoperationen hintereinander geschrieben werden. Es ist darüber hinaus auch möglich das Ganze dann mit  `print()` auszugeben.
+Mehrere Rechenoperationen können hintereinander ausgeführt und mit der `print()`-Funktion ausgegeben werden:
 ```python
 print(22 * 27 * 7 / 2)
 ```
@@ -74,10 +90,10 @@ was das Folgende ausgibt:
 303.0
 600.0
 ```
-**Übrigen:** Es ist völlig in Ordnung Klammen auch dann einzusetzen, wenn sie mathematisch eigentlich gar nicht nötig werden. Oft macht das eine Berechnung einfacher zu lesen (einfacher für den Menschen):
+Klammern können außerdem verwendet werden, um die Lesbarkeit des Codes zu erhöhen, auch wenn sie mathematisch nicht notwendig sind:
 
 ```python
-print((22 * 27 * 7) / 2)  # that's completely fine as well!
+print((22 * 27 * 7) / 2)  # völlig in Ordnung!
 ```
 
 
@@ -105,7 +121,7 @@ Strings sind Zeichenketten (oder Sequenzen von Zeichen) und werden mit  `'` oder
 'Whatever you want to type. 123*...'
 ```
 
-Kleines quiz: Welche der folgenden Befehle gibt keinen Fehler aus?
+### Quiz: Welche der folgenden Anweisungen gibt keinen Fehler zurück?
 ```
 >>> "five" + "five"
 
@@ -115,13 +131,13 @@ Kleines quiz: Welche der folgenden Befehle gibt keinen Fehler aus?
 
 >>> "five" - "ive"
 ```
-Sorry, keine Lösung hier... darum bitte selber probieren...
+(Einfach einmal selber ausprobieren)
 
 
-### Stringverarbeitung (basics)
-In Python gibt es eine Menge Dinge zu lernen über das Arbeiten mit Strings. Hier wollen wir erstmal nur einige Basics besprechen, weiter Möglichkeiten kommen in einer späteren Vorlesung.
+### Stringverarbeitung (Grundlagen)
+Python bietet eine Vielzahl von Funktionen zur Verarbeitung von Strings. Hier sind einige grundlegende Beispiele:
 
-Strings können addiert werden.
+Strings können addiert (*konkateniert*) werden.
 ```python
 print("Take this!" + " And that!")
 ```
@@ -130,7 +146,7 @@ Ergibt:
 Take this! And that!
 ```
 
-Doch Addition zwischen Strings und Zahlen funktioniert nicht!
+Es ist jedoch nicht möglich, Strings und Zahlen ohne explizite Umwandlung zu addieren:
 <!--pytest-codeblocks:expect-error-->
 ```python
 "100" + 5  # => TypeError
@@ -139,26 +155,27 @@ Macht Sinn.
 
 Aber Moment! Woher weiß Python überhaupt was ein `integer (int)`, ein `float`, or ein `string (str)` ist? Wir haben es doch nirgendwo vorher definiert.
 
-Das heißt **duck typing** und meint, das Python automatisch den Datentypen zuweist der am besten passt (ausser wir legen etwas anderes fest). Duck Typing heißt das Ganze wegen einem alten Romanzitat:
+## Duck Typing
+
+Python nutzt ein Prinzip namens **duck typing**, bei dem der Datentyp automatisch zugewiesen wird, basierend auf den vorliegenden Werten (ausser wir legen gezielt etwas anderes fest). Duck Typing heißt das Ganze wegen einem alten Romanzitat:
 (*"When I see a bird that walks like a duck and swims like a duck and quacks like a duck, I call that bird a duck."*, see [Duck test (wikipedia](https://en.wikipedia.org/wiki/Duck_test#History)))
 
 ## Datentypen ändern
-Manchmal möchten wir den Datentypen ändern, z.B. von ein`integer` aus einem `float` erzeugen:
+Es gibt Situationen, in denen wir explizit einen Datentyp ändern möchten, z. B. von `float` zu `int`:
 ```python
-print(5 + int(7.00001))
+print(5 + int(7.00001))  # 12
 ```
 ergibt:
 ```
 12
 ```
-Nur Vorsicht! Das ist nicht das gleiche wir Runden!
-```
+Nur Vorsicht! Dies ist keine Rundung, sondern ein Abschneiden der Nachkommastellen:
 >>> int(12.9)
 12
 ```
 (Wenn gerundet werden soll, bitte `int(round(12.9))`nutzten)
 
-Oder wir wollen eine Zahl aus einem String erstellen:
+Zahlen können auch aus Strings erstellt werden:
 ```
 >>> 5 + int("19")
 24
@@ -201,9 +218,6 @@ Gibt:
 This is 8 times better than that.
 ```
 Damit werden wir am meisten arbeiten.
-
-Note: Es gibt auch noch eine Reihe anderer Arten dafür, zum Beispiel einige old-school Varianten aus Python 2, so wie: `print("This is %s times better than that" % 5)`, aber damit arbeiten wir hier nicht. Trotzdem könnte sowas in manchen Foren/Tutorials vorkommen.
-
 
 
 ### Listen / Sequenzen

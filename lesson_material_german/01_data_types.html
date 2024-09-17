@@ -420,23 +420,29 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zahlen-numbers">3.1. Zahlen (<em>numbers</em>)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zahlen-numbers">3.1. Zahlen (<em>numbers</em>)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#beispiele">3.1.1. Beispiele:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#erweiterte-rechenoperationen">3.1.2. Erweiterte Rechenoperationen:</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#print-und-rechenoperationen-verbinden">3.2. Print und Rechenoperationen verbinden</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#strings">3.3. Strings</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stringverarbeitung-basics">3.3.1. Stringverarbeitung (basics)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quiz-welche-der-folgenden-anweisungen-gibt-keinen-fehler-zuruck">3.3.1. Quiz: Welche der folgenden Anweisungen gibt keinen Fehler zurück?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stringverarbeitung-grundlagen">3.3.2. Stringverarbeitung (Grundlagen)</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#datentypen-andern">3.4. Datentypen ändern</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#listen-sequenzen">3.4.1. Listen / Sequenzen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#duck-typing">3.4. Duck Typing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#datentypen-andern">3.5. Datentypen ändern</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#listen-sequenzen">3.5.1. Listen / Sequenzen</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lists">3.5. Lists</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tuples">3.5.1. Tuples</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sequenzen">3.5.2. Sequenzen</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#slicing">3.5.2.1. Slicing!</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lists">3.6. Lists</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tuples">3.6.1. Tuples</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sequenzen">3.6.2. Sequenzen</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#slicing">3.6.2.1. Slicing!</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#list-methoden">3.5.3. List Methoden</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#list-methoden">3.6.3. List Methoden</a></li>
 </ul>
 </li>
 </ul>
@@ -452,13 +458,15 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="datentypen-data-types">
 <h1><span class="section-number">3. </span>Datentypen (<em>data types</em>)<a class="headerlink" href="#datentypen-data-types" title="Link to this heading">#</a></h1>
-<p>Datentypen verbinden Werte (oder eben: Daten) und Methoden. Die Methoden legen fest, was mit den Daten gemacht werden darf/kann (und wie das funktioniert).</p>
-<p>In Python gibt es eine Reihe verschiedener Datentypen. Hier beginnen wir zum Einstieg erstmal mit Zahlen und Strings.</p>
+<p>Datentypen in Python verbinden Werte (oder Daten) mit Methoden, die festlegen, welche Operationen auf diesen Daten durchgeführt werden können. Die Wahl des Datentyps bestimmt also, welche Aktionen möglich sind und wie diese umgesetzt werden.</p>
+<p>In Python gibt es viele verschiedene Datentypen. Für den Einstieg beginnen wir mit zwei grundlegenden Typen: <strong>Zahlen</strong> und <strong>Strings</strong>.</p>
 <section id="zahlen-numbers">
 <h2><span class="section-number">3.1. </span>Zahlen (<em>numbers</em>)<a class="headerlink" href="#zahlen-numbers" title="Link to this heading">#</a></h2>
-<p>Zahlen und das Rechnen mit Zahlen funktioniert in Python recht intuitiv und einfach, beinahe wie bei einem Taschenrechner.
-Bei den Zahlen unterscheiden wir <strong>integer</strong> (<code class="docutils literal notranslate"><span class="pre">int</span></code>) and <strong>float</strong> (von engl.: „floating point number“). Integer sind ganze Zahlen und float sind Kommazahlen.
-(Randbemerkung: da beim Computer gerundet wird entspricht dies aber nicht genau den reelen Zahlen.)</p>
+<p>Das Arbeiten mit Zahlen in Python ist sehr intuitiv und verhält sich ähnlich wie bei einem Taschenrechner.
+Bei den Zahlen unterscheidet Python zwischen <strong>Integer</strong> (<code class="docutils literal notranslate"><span class="pre">int</span></code>) und <strong>Float</strong> (von engl.: „floating point number“, also Gleitkommazahlen). <strong>Integer</strong> sind ganze Zahlen (z. B. <code class="docutils literal notranslate"><span class="pre">5</span></code>). <strong>Float</strong> sind Kommazahlen (z. B. <code class="docutils literal notranslate"><span class="pre">5.01</span></code>).</p>
+<p>Anmerkung: Floats entsprechen nicht exakt den mathematischen reellen Zahlen, da Computer bei Gleitkommazahlen eine Rundung vornehmen.</p>
+<section id="beispiele">
+<h3><span class="section-number">3.1.1. </span>Beispiele:<a class="headerlink" href="#beispiele" title="Link to this heading">#</a></h3>
 <div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">5</span>
 <span class="go">5</span>
 
@@ -467,28 +475,28 @@ Bei den Zahlen unterscheiden wir <strong>integer</strong> (<code class="docutils
 </pre></div>
 </div>
 <p>Vorzeichen gehen so:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># + positive sign</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Positiv</span>
 <span class="o">+</span><span class="mi">5</span>  <span class="c1"># 5</span>
 
-<span class="c1"># - negative sign</span>
+<span class="c1"># Negativ</span>
 <span class="o">-</span><span class="mi">5</span>  <span class="c1"># -5</span>
 </pre></div>
 </div>
 <p>Und, wie gesagt, grundlegende Rechenoperationen gehen wie zu erwarten:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># + addition</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Addition</span>
 <span class="mi">5</span> <span class="o">+</span> <span class="mi">7</span>  <span class="c1"># 12</span>
 
-<span class="c1"># - subtraction</span>
+<span class="c1"># Subtraktion</span>
 <span class="mi">5</span> <span class="o">-</span> <span class="mi">7</span>  <span class="c1"># -2</span>
 
-<span class="c1"># * multiplication</span>
+<span class="c1"># Multiplikation</span>
 <span class="mi">5</span> <span class="o">*</span> <span class="mi">7</span>  <span class="c1"># 35</span>
 
-<span class="c1"># / division</span>
+<span class="c1"># Division</span>
 <span class="mi">5</span> <span class="o">/</span> <span class="mi">2</span>  <span class="c1"># 2.5</span>
 </pre></div>
 </div>
-<p>Aber Vorsicht! Division ergibt immer einen <code class="docutils literal notranslate"><span class="pre">float</span></code>.</p>
+<p><strong>Hinweis</strong>: Die Division in Python gibt immer einen <code class="docutils literal notranslate"><span class="pre">float</span></code>-Wert zurück, auch wenn das Ergebnis eine ganze Zahl wäre:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="mi">5</span> <span class="o">/</span> <span class="mi">1</span><span class="p">))</span>
 </pre></div>
 </div>
@@ -496,11 +504,25 @@ Bei den Zahlen unterscheiden wir <strong>integer</strong> (<code class="docutils
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;float&#39;&gt;
 </pre></div>
 </div>
-<p>Dieses Beispiel zeigt auch das wir den „Datentypen“ in Python erfragen können mit<code class="docutils literal notranslate"><span class="pre">type()</span></code>.</p>
+<p>Dieses Beispiel zeigt auch, dass wir den Datentypen in Python erfragen können mit<code class="docutils literal notranslate"><span class="pre">type()</span></code>.</p>
+</section>
+<section id="erweiterte-rechenoperationen">
+<h3><span class="section-number">3.1.2. </span>Erweiterte Rechenoperationen:<a class="headerlink" href="#erweiterte-rechenoperationen" title="Link to this heading">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ganzzahlige Division</span>
+<span class="mi">5</span> <span class="o">//</span> <span class="mi">2</span>  <span class="c1"># 2</span>
+
+<span class="c1"># Modulo (Rest einer Division)</span>
+<span class="mi">5</span> <span class="o">%</span> <span class="mi">2</span>  <span class="c1"># 1</span>
+
+<span class="c1"># Potenzierung</span>
+<span class="mi">10</span> <span class="o">**</span> <span class="mi">2</span>  <span class="c1"># 100</span>
+</pre></div>
+</div>
+</section>
 </section>
 <section id="print-und-rechenoperationen-verbinden">
 <h2><span class="section-number">3.2. </span>Print und Rechenoperationen verbinden<a class="headerlink" href="#print-und-rechenoperationen-verbinden" title="Link to this heading">#</a></h2>
-<p>Wenig verwunderlich, aber es können natürlich auch mehrere Rechenoperationen hintereinander geschrieben werden. Es ist darüber hinaus auch möglich das Ganze dann mit  <code class="docutils literal notranslate"><span class="pre">print()</span></code> auszugeben.</p>
+<p>Mehrere Rechenoperationen können hintereinander ausgeführt und mit der <code class="docutils literal notranslate"><span class="pre">print()</span></code>-Funktion ausgegeben werden:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">22</span> <span class="o">*</span> <span class="mi">27</span> <span class="o">*</span> <span class="mi">7</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -518,8 +540,8 @@ Bei den Zahlen unterscheiden wir <strong>integer</strong> (<code class="docutils
 <span class="mf">600.0</span>
 </pre></div>
 </div>
-<p><strong>Übrigen:</strong> Es ist völlig in Ordnung Klammen auch dann einzusetzen, wenn sie mathematisch eigentlich gar nicht nötig werden. Oft macht das eine Berechnung einfacher zu lesen (einfacher für den Menschen):</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">((</span><span class="mi">22</span> <span class="o">*</span> <span class="mi">27</span> <span class="o">*</span> <span class="mi">7</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># that&#39;s completely fine as well!</span>
+<p>Klammern können außerdem verwendet werden, um die Lesbarkeit des Codes zu erhöhen, auch wenn sie mathematisch nicht notwendig sind:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">((</span><span class="mi">22</span> <span class="o">*</span> <span class="mi">27</span> <span class="o">*</span> <span class="mi">7</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># völlig in Ordnung!</span>
 </pre></div>
 </div>
 <p>Andere häufige Operationen mit Zahlen:</p>
@@ -545,7 +567,8 @@ Bei den Zahlen unterscheiden wir <strong>integer</strong> (<code class="docutils
 <span class="go">&#39;Whatever you want to type. 123*...&#39;</span>
 </pre></div>
 </div>
-<p>Kleines quiz: Welche der folgenden Befehle gibt keinen Fehler aus?</p>
+<section id="quiz-welche-der-folgenden-anweisungen-gibt-keinen-fehler-zuruck">
+<h3><span class="section-number">3.3.1. </span>Quiz: Welche der folgenden Anweisungen gibt keinen Fehler zurück?<a class="headerlink" href="#quiz-welche-der-folgenden-anweisungen-gibt-keinen-fehler-zuruck" title="Link to this heading">#</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="s2">&quot;five&quot;</span> <span class="o">+</span> <span class="s2">&quot;five&quot;</span>
 
 <span class="gp">&gt;&gt;&gt; </span><span class="s2">&quot;five&quot;</span> <span class="o">+</span> <span class="mi">5</span>
@@ -555,11 +578,12 @@ Bei den Zahlen unterscheiden wir <strong>integer</strong> (<code class="docutils
 <span class="gp">&gt;&gt;&gt; </span><span class="s2">&quot;five&quot;</span> <span class="o">-</span> <span class="s2">&quot;ive&quot;</span>
 </pre></div>
 </div>
-<p>Sorry, keine Lösung hier… darum bitte selber probieren…</p>
-<section id="stringverarbeitung-basics">
-<h3><span class="section-number">3.3.1. </span>Stringverarbeitung (basics)<a class="headerlink" href="#stringverarbeitung-basics" title="Link to this heading">#</a></h3>
-<p>In Python gibt es eine Menge Dinge zu lernen über das Arbeiten mit Strings. Hier wollen wir erstmal nur einige Basics besprechen, weiter Möglichkeiten kommen in einer späteren Vorlesung.</p>
-<p>Strings können addiert werden.</p>
+<p>(Einfach einmal selber ausprobieren)</p>
+</section>
+<section id="stringverarbeitung-grundlagen">
+<h3><span class="section-number">3.3.2. </span>Stringverarbeitung (Grundlagen)<a class="headerlink" href="#stringverarbeitung-grundlagen" title="Link to this heading">#</a></h3>
+<p>Python bietet eine Vielzahl von Funktionen zur Verarbeitung von Strings. Hier sind einige grundlegende Beispiele:</p>
+<p>Strings können addiert (<em>konkateniert</em>) werden.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Take this!&quot;</span> <span class="o">+</span> <span class="s2">&quot; And that!&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -567,41 +591,56 @@ Bei den Zahlen unterscheiden wir <strong>integer</strong> (<code class="docutils
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Take this! And that!
 </pre></div>
 </div>
-<p>Doch Addition zwischen Strings und Zahlen funktioniert nicht!</p>
+<p>Es ist jedoch nicht möglich, Strings und Zahlen ohne explizite Umwandlung zu addieren:</p>
 <!--pytest-codeblocks:expect-error-->
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;100&quot;</span> <span class="o">+</span> <span class="mi">5</span>  <span class="c1"># =&gt; TypeError</span>
 </pre></div>
 </div>
 <p>Macht Sinn.</p>
 <p>Aber Moment! Woher weiß Python überhaupt was ein <code class="docutils literal notranslate"><span class="pre">integer</span> <span class="pre">(int)</span></code>, ein <code class="docutils literal notranslate"><span class="pre">float</span></code>, or ein <code class="docutils literal notranslate"><span class="pre">string</span> <span class="pre">(str)</span></code> ist? Wir haben es doch nirgendwo vorher definiert.</p>
-<p>Das heißt <strong>duck typing</strong> und meint, das Python automatisch den Datentypen zuweist der am besten passt (ausser wir legen etwas anderes fest). Duck Typing heißt das Ganze wegen einem alten Romanzitat:
+</section>
+</section>
+<section id="duck-typing">
+<h2><span class="section-number">3.4. </span>Duck Typing<a class="headerlink" href="#duck-typing" title="Link to this heading">#</a></h2>
+<p>Python nutzt ein Prinzip namens <strong>duck typing</strong>, bei dem der Datentyp automatisch zugewiesen wird, basierend auf den vorliegenden Werten (ausser wir legen gezielt etwas anderes fest). Duck Typing heißt das Ganze wegen einem alten Romanzitat:
 (<em>„When I see a bird that walks like a duck and swims like a duck and quacks like a duck, I call that bird a duck.“</em>, see <a class="reference external" href="https://en.wikipedia.org/wiki/Duck_test#History">Duck test (wikipedia</a>))</p>
 </section>
-</section>
 <section id="datentypen-andern">
-<h2><span class="section-number">3.4. </span>Datentypen ändern<a class="headerlink" href="#datentypen-andern" title="Link to this heading">#</a></h2>
-<p>Manchmal möchten wir den Datentypen ändern, z.B. von ein<code class="docutils literal notranslate"><span class="pre">integer</span></code> aus einem <code class="docutils literal notranslate"><span class="pre">float</span></code> erzeugen:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">5</span> <span class="o">+</span> <span class="nb">int</span><span class="p">(</span><span class="mf">7.00001</span><span class="p">))</span>
+<h2><span class="section-number">3.5. </span>Datentypen ändern<a class="headerlink" href="#datentypen-andern" title="Link to this heading">#</a></h2>
+<p>Es gibt Situationen, in denen wir explizit einen Datentyp ändern möchten, z. B. von <code class="docutils literal notranslate"><span class="pre">float</span></code> zu <code class="docutils literal notranslate"><span class="pre">int</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">5</span> <span class="o">+</span> <span class="nb">int</span><span class="p">(</span><span class="mf">7.00001</span><span class="p">))</span>  <span class="c1"># 12</span>
 </pre></div>
 </div>
 <p>ergibt:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">12</span>
 </pre></div>
 </div>
-<p>Nur Vorsicht! Das ist nicht das gleiche wir Runden!</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">int</span><span class="p">(</span><span class="mf">12.9</span><span class="p">)</span>
-<span class="go">12</span>
+<p>Nur Vorsicht! Dies ist keine Rundung, sondern ein Abschneiden der Nachkommastellen:</p>
+<blockquote>
+<div><blockquote>
+<div><blockquote>
+<div><p>int(12.9)
+12</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>(Wenn gerundet werden soll, bitte `int(round(12.9))`nutzten)
+
+Zahlen können auch aus Strings erstellt werden:
 </pre></div>
 </div>
-<p>(Wenn gerundet werden soll, bitte <code class="docutils literal notranslate"><span class="pre">int(round(12.9))</span></code>nutzten)</p>
-<p>Oder wir wollen eine Zahl aus einem String erstellen:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">5</span> <span class="o">+</span> <span class="nb">int</span><span class="p">(</span><span class="s2">&quot;19&quot;</span><span class="p">)</span>
-<span class="go">24</span>
-</pre></div>
-</div>
-<p>Aber bitte keine Magie erwarten an dieser Stelle. Python erkennt hier nur offensichtliche Zahlen im String, nicht sowas wie:</p>
-<!--pytest-codeblocks:expect-error-->
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span><span class="p">(</span><span class="s2">&quot;seven&quot;</span><span class="p">)</span>  <span class="c1"># =&gt; ValueError: invalid literal for int() with base 10: &#39;seven&#39;</span>
+<blockquote>
+<div><blockquote>
+<div><blockquote>
+<div><p>5 + int(„19“)
+24</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Aber bitte keine Magie erwarten an dieser Stelle. Python erkennt hier nur offensichtliche Zahlen im String, nicht sowas wie:
+&lt;!--pytest-codeblocks:expect-error--&gt;
+```python
+int(&quot;seven&quot;)  # =&gt; ValueError: invalid literal for int() with base 10: &#39;seven&#39;
 </pre></div>
 </div>
 <p>Oft wollen wir auch umgekehrt eine Zahl in einen String umwandeln:</p>
@@ -634,9 +673,8 @@ Bei den Zahlen unterscheiden wir <strong>integer</strong> (<code class="docutils
 </pre></div>
 </div>
 <p>Damit werden wir am meisten arbeiten.</p>
-<p>Note: Es gibt auch noch eine Reihe anderer Arten dafür, zum Beispiel einige old-school Varianten aus Python 2, so wie: <code class="docutils literal notranslate"><span class="pre">print(&quot;This</span> <span class="pre">is</span> <span class="pre">%s</span> <span class="pre">times</span> <span class="pre">better</span> <span class="pre">than</span> <span class="pre">that&quot;</span> <span class="pre">%</span> <span class="pre">5)</span></code>, aber damit arbeiten wir hier nicht. Trotzdem könnte sowas in manchen Foren/Tutorials vorkommen.</p>
 <section id="listen-sequenzen">
-<h3><span class="section-number">3.4.1. </span>Listen / Sequenzen<a class="headerlink" href="#listen-sequenzen" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">3.5.1. </span>Listen / Sequenzen<a class="headerlink" href="#listen-sequenzen" title="Link to this heading">#</a></h3>
 <p><strong>Sequenzen</strong> sind bei Python eine ganze Kategorie verschiedener Datentypen. Ein Beispiel davon hatten wir bereits: <strong>Strings</strong></p>
 <p>Strings sind Sequenzen aus Zeichen (oder Zeichenketten). Jedes einzelne
 Zeichen eines strings kann in Python über einen Index angesprochen werden.</p>
@@ -650,7 +688,7 @@ Zeichen eines strings kann in Python über einen Index angesprochen werden.</p>
 </section>
 </section>
 <section id="lists">
-<h2><span class="section-number">3.5. </span>Lists<a class="headerlink" href="#lists" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">3.6. </span>Lists<a class="headerlink" href="#lists" title="Link to this heading">#</a></h2>
 <p>Auch Listen sind Sequenzen und einer der zentralen Datentypen in Python. Eine Liste (<code class="docutils literal notranslate"><span class="pre">list</span></code>) ist in Python eine Sammlung von Elementen. Eine Liste wird einfach mit eckigen Klammern erstellt.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fruit</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;apple&quot;</span><span class="p">,</span> <span class="s2">&quot;orange&quot;</span><span class="p">,</span> <span class="s2">&quot;banana&quot;</span><span class="p">,</span> <span class="s2">&quot;pear&quot;</span><span class="p">]</span>
 </pre></div>
@@ -687,7 +725,7 @@ Zeichen eines strings kann in Python über einen Index angesprochen werden.</p>
 </pre></div>
 </div>
 <section id="tuples">
-<h3><span class="section-number">3.5.1. </span>Tuples<a class="headerlink" href="#tuples" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">3.6.1. </span>Tuples<a class="headerlink" href="#tuples" title="Link to this heading">#</a></h3>
 <p>Ein Tuple ist in Python eine andere Form der Sammlung. Anders als <code class="docutils literal notranslate"><span class="pre">list</span></code>
 wird ein Tuple mit runden Klammern erstellt. Die Elemente eines Tuples sind -genau wie Listen-
 über Indices adressierbar:</p>
@@ -714,7 +752,7 @@ sind unveränderbar.</p>
 einem Tuple geht das ganze aber nicht.</p>
 </section>
 <section id="sequenzen">
-<h3><span class="section-number">3.5.2. </span>Sequenzen<a class="headerlink" href="#sequenzen" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">3.6.2. </span>Sequenzen<a class="headerlink" href="#sequenzen" title="Link to this heading">#</a></h3>
 <p>Tuple, list, und string sind alles Sequenzen. Damit gibt es eine ganze
 Reihe von Funktionen (Methoden) die für alle drei Datentypen gleichermassen
 eingesetzt werden können:</p>
@@ -770,7 +808,7 @@ eingesetzt werden können:</p>
 </pre></div>
 </div>
 <section id="slicing">
-<h4><span class="section-number">3.5.2.1. </span>Slicing!<a class="headerlink" href="#slicing" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">3.6.2.1. </span>Slicing!<a class="headerlink" href="#slicing" title="Link to this heading">#</a></h4>
 <p>Eine der wichtigsten Techniken im Umgang mit Sequenzen in Python ist das sogenannte <strong>slicing</strong> (also deutsch in etwa: schneiden). Damit ist gemeint, dass wir aus Sequenzen bestimmte Teilmengen auswählen können.</p>
 <p>Dies wird in Python in eckigen Klammern und mit Hilfe von Integern und Doppelpunktzeichen angegeben.
 Es können dabei bis zu drei Werte angegeben werden in der Form:</p>
@@ -804,7 +842,7 @@ Es können dabei bis zu drei Werte angegeben werden in der Form:</p>
 </section>
 </section>
 <section id="list-methoden">
-<h3><span class="section-number">3.5.3. </span>List Methoden<a class="headerlink" href="#list-methoden" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">3.6.3. </span>List Methoden<a class="headerlink" href="#list-methoden" title="Link to this heading">#</a></h3>
 <p>Darüber hinaus haben die verschiedenen Datentypen aber noch weitere eigene Methoden
 Das Arbeiten mit Strings werden wir in einigen der folgenden Vorlesungen noch
 genauer betrachten. Hier aber schon einmal eine Tabelle mit wichtigen Methoden
@@ -917,23 +955,29 @@ für Python Listen.</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zahlen-numbers">3.1. Zahlen (<em>numbers</em>)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zahlen-numbers">3.1. Zahlen (<em>numbers</em>)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#beispiele">3.1.1. Beispiele:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#erweiterte-rechenoperationen">3.1.2. Erweiterte Rechenoperationen:</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#print-und-rechenoperationen-verbinden">3.2. Print und Rechenoperationen verbinden</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#strings">3.3. Strings</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stringverarbeitung-basics">3.3.1. Stringverarbeitung (basics)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quiz-welche-der-folgenden-anweisungen-gibt-keinen-fehler-zuruck">3.3.1. Quiz: Welche der folgenden Anweisungen gibt keinen Fehler zurück?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stringverarbeitung-grundlagen">3.3.2. Stringverarbeitung (Grundlagen)</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#datentypen-andern">3.4. Datentypen ändern</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#listen-sequenzen">3.4.1. Listen / Sequenzen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#duck-typing">3.4. Duck Typing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#datentypen-andern">3.5. Datentypen ändern</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#listen-sequenzen">3.5.1. Listen / Sequenzen</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lists">3.5. Lists</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tuples">3.5.1. Tuples</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sequenzen">3.5.2. Sequenzen</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#slicing">3.5.2.1. Slicing!</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lists">3.6. Lists</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tuples">3.6.1. Tuples</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sequenzen">3.6.2. Sequenzen</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#slicing">3.6.2.1. Slicing!</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#list-methoden">3.5.3. List Methoden</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#list-methoden">3.6.3. List Methoden</a></li>
 </ul>
 </li>
 </ul>

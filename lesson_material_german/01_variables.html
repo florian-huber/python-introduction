@@ -420,8 +420,18 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regeln-fur-variablennamen">4.1. Regeln für Variablennamen</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#debugging">4.2. Debugging!</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variablen-in-python">4.1. Variablen in Python</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variablen-konnen-ihren-wert-andern">4.1.1. Variablen können ihren Wert ändern</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sinnvolle-variablennamen">4.1.2. Sinnvolle Variablennamen</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gefahrliche-variablennamen">4.1.3. Gefährliche Variablennamen</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reservierte-schlusselworter">4.1.4. Reservierte Schlüsselwörter</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regeln-fur-variablennamen">4.2. Regeln für Variablennamen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#debugging">4.3. Debugging!</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ubung-zum-debugging">4.3.1. Übung zum Debugging:</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -435,42 +445,45 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="variablen">
 <h1><span class="section-number">4. </span>Variablen<a class="headerlink" href="#variablen" title="Link to this heading">#</a></h1>
-<p>Variablen sind essentiell für das Schreiben von Programmen.
-Oft stellt man sich darunter Boxen vor in die Daten gepackt werden. In Wirklichkeit werden bestimmten Variablennamen Daten (oder: Objekte) zugewiesen. Darum spricht man
-in diesem Zusammenhang auch von Zuweisungen.</p>
-<p>In Python werden Daten den Variablen einfach mit <code class="docutils literal notranslate"><span class="pre">=</span></code> zugewiesen.</p>
+<p>Variablen sind ein essenzieller Bestandteil jedes Programms. Sie ermöglichen es uns, Daten zu speichern und in Berechnungen zu verwenden. Eine häufige Metapher ist, sich Variablen wie Boxen vorzustellen, in die wir Werte ablegen können. In Python und anderen Programmiersprachen wird dabei jedoch präziser von <strong>Zuweisungen</strong> gesprochen: Einem Variablennamen wird ein Wert zugewiesen.</p>
+<section id="variablen-in-python">
+<h2><span class="section-number">4.1. </span>Variablen in Python<a class="headerlink" href="#variablen-in-python" title="Link to this heading">#</a></h2>
+<p>In Python wird eine Variable durch das Zuweisungszeichen <code class="docutils literal notranslate"><span class="pre">=</span></code> definiert. Der Ausdruck links vom <code class="docutils literal notranslate"><span class="pre">=</span></code> ist der Variablenname, der Ausdruck rechts ist der Wert, der dieser Variablen zugewiesen wird.</p>
+<p>Beispiel:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">/</span> <span class="mi">6</span><span class="p">)</span>  <span class="c1"># =&gt; 0.8333333333333334</span>
 </pre></div>
 </div>
-<p>So lange eine Python Session läuft und nichts Anderes mit einer Variable
-angestellt wird, behält die Variable den zugewiesenen Wert.
-Zum Beispiel bleibt <code class="docutils literal notranslate"><span class="pre">a</span></code> der Wert 5 zugewiesen, so dass:</p>
+<p>Sobald eine Variable definiert ist, „merkt“ sich Python ihren Wert während der gesamten Programmsitzung. Die Variable <code class="docutils literal notranslate"><span class="pre">a</span></code> hat im obigen Beispiel den Wert <code class="docutils literal notranslate"><span class="pre">5</span></code>, bis ihr etwas anderes zugewiesen wird. Variablen können dann in Berechnungen oder anderen Operationen verwendet werden:</p>
 <!--pytest-codeblocks:cont-->
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="mi">8</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span>  <span class="c1"># =&gt; 13</span>
 </pre></div>
 </div>
-<p>Variablen sind aber nicht fix.
-Ihnen können einfach neue Werte zugewiesen werden
-(sogar völlig andere Datentypen!):</p>
+<section id="variablen-konnen-ihren-wert-andern">
+<h3><span class="section-number">4.1.1. </span>Variablen können ihren Wert ändern<a class="headerlink" href="#variablen-konnen-ihren-wert-andern" title="Link to this heading">#</a></h3>
+<p>Variablen sind in Python nicht fixiert. Ihr könnt ihnen jederzeit neue Werte zuweisen, sogar von einem anderen Datentyp. Das bedeutet, dass eine Variable, die zuvor eine ganze Zahl (<code class="docutils literal notranslate"><span class="pre">int</span></code>) war, plötzlich einen Gleitkommawert (<code class="docutils literal notranslate"><span class="pre">float</span></code>) oder sogar einen String speichern kann:</p>
 <!--pytest-codeblocks:cont-->
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mf">100.5</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span>  <span class="c1"># =&gt; 108.5</span>
 </pre></div>
 </div>
-<p>Meistens ist es sehr zu empfehlen, den Variablen Namen zu geben die einen
-Hinweis auf ihren Inhalt enthalten.<br />
-Code wie der folgende wird dadurch deutlich verständlicher!</p>
+<p><strong>Achtung</strong>: Der flexible Umgang mit Variablen in Python ist nützlich, kann aber zu Fehlern führen, wenn man versehentlich den Typ einer Variablen ändert und später nicht damit rechnet.</p>
+</section>
+<section id="sinnvolle-variablennamen">
+<h3><span class="section-number">4.1.2. </span>Sinnvolle Variablennamen<a class="headerlink" href="#sinnvolle-variablennamen" title="Link to this heading">#</a></h3>
+<p>Es ist sehr hilfreich Variablen Namen zu geben, die den Inhalt oder den Zweck der gespeicherten Daten widerspiegeln. Ein selbsterklärender Variablenname macht den Code für andere (und auch für euch selbst) leichter verständlich.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">training_seconds</span> <span class="o">=</span> <span class="mi">18900</span>
 <span class="n">sec_per_hour</span> <span class="o">=</span> <span class="mi">60</span> <span class="o">*</span> <span class="mi">60</span>
 <span class="n">training_hours</span> <span class="o">=</span> <span class="n">training_seconds</span> <span class="o">/</span> <span class="n">sec_per_hour</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">training_hours</span><span class="p">)</span>  <span class="c1"># =&gt; 5.25</span>
 </pre></div>
 </div>
-<p>Python ist als Sprache sehr flexibel beim Umgang mit Variablen.
-Oft ist das nützlich, kann aber gelegentlich auch für einiger Verwirrung
-sorgen. Stellt euch vor eine Variable wird <code class="docutils literal notranslate"><span class="pre">print</span></code> genannt…</p>
+<p>Hier sind die Variablen klar benannt, und der Code ist direkt verständlich. Würde man stattdessen Variablen wie <code class="docutils literal notranslate"><span class="pre">a</span></code>, <code class="docutils literal notranslate"><span class="pre">b</span></code> und <code class="docutils literal notranslate"><span class="pre">c</span></code> verwenden, wäre der Code weniger leserlich und schwieriger zu verstehen.</p>
+</section>
+<section id="gefahrliche-variablennamen">
+<h3><span class="section-number">4.1.3. </span>Gefährliche Variablennamen<a class="headerlink" href="#gefahrliche-variablennamen" title="Link to this heading">#</a></h3>
+<p>Python erlaubt es, Variablen fast jeden Namen zu geben. Dies gilt sogar für Namen, die den Namen von Python-Funktionen entsprechen, was jedoch vermieden werden sollte. Wenn ihr beispielsweise einer Variablen den Namen <code class="docutils literal notranslate"><span class="pre">print</span></code> gebt, überschreibt ihr die eingebaute Funktion <code class="docutils literal notranslate"><span class="pre">print()</span></code> und könnt sie nicht mehr verwenden:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="o">=</span> <span class="s2">&quot;my text&quot;</span>
 </pre></div>
 </div>
@@ -479,13 +492,17 @@ Keinen Fehler zu erhalten <strong>heisst aber nicht, dass es eine gute Idee ist!
 Was wird wohl jetzt passieren wenn wir <code class="docutils literal notranslate"><span class="pre">print(&quot;hello</span> <span class="pre">world!&quot;)</span></code> laufen lassen?</p>
 <p>Ok, das sollte also deutlich sein… Variablen besser keinen Namen geben
 der auch anderweitig als Funktion vorkommt.</p>
-<p>Eine Sache die Python doch verbietet sind Variablennamen die sogennanten
-<a class="reference external" href="https://www.w3schools.com/python/python_ref_keywords.asp"><strong>reserverd keywords</strong></a>
-entsprechen</p>
+</section>
+<section id="reservierte-schlusselworter">
+<h3><span class="section-number">4.1.4. </span>Reservierte Schlüsselwörter<a class="headerlink" href="#reservierte-schlusselworter" title="Link to this heading">#</a></h3>
+<p>Python hat eine Liste von <strong>reservierten Schlüsselwörtern</strong> (Keywords), die nicht als Variablennamen verwendet werden dürfen, da sie für die Syntax der Sprache benötigt werden. Beispiele für solche Keywords sind <code class="docutils literal notranslate"><span class="pre">if</span></code>, <code class="docutils literal notranslate"><span class="pre">else</span></code>, <code class="docutils literal notranslate"><span class="pre">while</span></code> oder <code class="docutils literal notranslate"><span class="pre">for</span></code>.</p>
+<p>Der Versuch, eine Variable mit einem solchen Namen zu erstellen, führt zu einem <strong>SyntaxError</strong>:</p>
 <!--pytest-codeblocks:expect-error-->
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ow">or</span> <span class="o">=</span> <span class="s2">&quot;outer region&quot;</span>  <span class="c1"># =&gt; SyntaxError: invalid syntax</span>
 </pre></div>
 </div>
+<p>Die vollständige Liste der reservierten Schlüsselwörter findet ihr <a class="reference external" href="https://www.w3schools.com/python/python_ref_keywords.asp">hier</a>.</p>
+<hr class="docutils" />
 <blockquote>
 <div><h2 class="rubric" id="mini-quiz">Mini quiz:</h2>
 <p>Was gibt der folgende Code aus?</p>
@@ -509,22 +526,24 @@ c) <code class="docutils literal notranslate"><span class="pre">sehr_wichtig</sp
 d) <code class="docutils literal notranslate"><span class="pre">übermäßig_wichtig</span> <span class="pre">=</span> <span class="pre">&quot;my</span> <span class="pre">text&quot;</span></code><br />
 e) <code class="docutils literal notranslate"><span class="pre">ImportantText</span> <span class="pre">=</span> <span class="pre">&quot;my</span> <span class="pre">text&quot;</span></code></p>
 </div></blockquote>
+</section>
+</section>
 <section id="regeln-fur-variablennamen">
-<h2><span class="section-number">4.1. </span>Regeln für Variablennamen<a class="headerlink" href="#regeln-fur-variablennamen" title="Link to this heading">#</a></h2>
-<p>Namen mit Bedeutung</p>
+<h2><span class="section-number">4.2. </span>Regeln für Variablennamen<a class="headerlink" href="#regeln-fur-variablennamen" title="Link to this heading">#</a></h2>
+<p>Es gibt einige einfache, aber wichtige Regeln für die Wahl von Variablennamen in Python:</p>
 <ul class="simple">
-<li><p>Kleinbuchstaben (und Unterstriche)</p></li>
-<li><p>Nie „reserved keywords“ (Schlüsselworte) benutzen</p></li>
-<li><p>Auch keine Funktionennamen benutzten (Standardfunktionen oder Funktionen die im Programm vorkommen)</p></li>
-<li><p>Andere Sprachen als Englisch sind natürlich OK (je nach Kontext)</p></li>
-<li><p>Allerdings machen Sonderzeichen manches komplizierter (z.B. ä oder ü)</p></li>
+<li><p><strong>Verwendet Kleinbuchstaben</strong> und Unterstriche <code class="docutils literal notranslate"><span class="pre">_</span></code> zur Trennung von Wörtern, um die Lesbarkeit zu erhöhen.</p></li>
+<li><p><strong>Vermeidet reservierte Keywords</strong> oder Funktionsnamen, um Konflikte zu verhindern.</p></li>
+<li><p><strong>Sprecht Englisch</strong>: Auch wenn Variablennamen in anderen Sprachen (z. B. Deutsch) zulässig sind, wird Englisch üblicherweise bevorzugt, um den Code auch für andere verständlich zu halten.</p></li>
+<li><p><strong>Achtet auf Sonderzeichen</strong>: Vermeidet nach Möglichkeit Umlaute (ä, ö, ü) oder andere Sonderzeichen in Variablennamen, da sie nicht überall unterstützt werden und zu Komplikationen führen können.</p></li>
 </ul>
 </section>
 <section id="debugging">
-<h2><span class="section-number">4.2. </span>Debugging!<a class="headerlink" href="#debugging" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">4.3. </span>Debugging!<a class="headerlink" href="#debugging" title="Link to this heading">#</a></h2>
 <p>Mit <strong>debugging</strong> meinen wir das Beseitigen von Fehlern im Programmcode (Fehler = „bugs“).
 Wir werden später noch detaillierter auf das Thema eingehen, aber gleich zu Beginn ist es hilfreich ein wenig Erfahrung zu sammeln mit der Art und Weise wie Python (bzw. der Python-Interpreter) Fehler im Code anzeigt. Hierbei geht es nicht um Fehler, die ein erfolgreiches Ausführen des Codes unmöglich machen.</p>
-<p>Dazu die folgende kleine Übung:</p>
+<section id="ubung-zum-debugging">
+<h3><span class="section-number">4.3.1. </span>Übung zum Debugging:<a class="headerlink" href="#ubung-zum-debugging" title="Link to this heading">#</a></h3>
 <ol class="arabic simple">
 <li><p>Was passiert bei einer print-Anweisung, wenn wir eine oder beide
 Klammern weglassen?</p></li>
@@ -537,6 +556,7 @@ eine Zahl schreiben, z.B. 05 - 2 oder +5 -2 ?</p></li>
 <li><p>Mit Python beantworten („Taschenrechnermodus“): Wie viele Sekunden
 haben 42 Minuten und 42 Sekunden?</p></li>
 </ol>
+</section>
 </section>
 </section>
 
@@ -604,8 +624,18 @@ haben 42 Minuten und 42 Sekunden?</p></li>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regeln-fur-variablennamen">4.1. Regeln für Variablennamen</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#debugging">4.2. Debugging!</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variablen-in-python">4.1. Variablen in Python</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variablen-konnen-ihren-wert-andern">4.1.1. Variablen können ihren Wert ändern</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sinnvolle-variablennamen">4.1.2. Sinnvolle Variablennamen</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gefahrliche-variablennamen">4.1.3. Gefährliche Variablennamen</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reservierte-schlusselworter">4.1.4. Reservierte Schlüsselwörter</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regeln-fur-variablennamen">4.2. Regeln für Variablennamen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#debugging">4.3. Debugging!</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ubung-zum-debugging">4.3.1. Übung zum Debugging:</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
