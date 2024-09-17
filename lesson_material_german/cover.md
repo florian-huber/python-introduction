@@ -9,9 +9,9 @@ Düsseldorf University of Applied Sciences (HSD)
 
 **v0.1** 2024-09-016
 
-**About me:**
-I work as a professor for Data Science and Visual Analytics at the [Düsseldorf University of Applied Sciences](https://www.hs-duesseldorf.de/). This is also where I teach students the basics of data science, Python programming, machine learning, or where I give unsolicited advice on coffee, chocolate, and all other things that really matter in life.
+**Über mich:**
+Ich arbeite als Professor für Data Science an der [Hochschule Düsseldorf (HSD)](https://www.hs-duesseldorf.de/). Dort bringe ich Studierenden die Grundlagen von Data Science,  Programmieren mit Python, Machine Learning bei oder gebe ungefragten Rat zu Kaffee, Schokolade, und allen anderen Dingen die wirklich wichtig sind im Leben.
 
-Until I manage to either find or build a more suitable platform, you can also find me on Mastodon: [mastodon.online/@me_datapoint](https://mastodon.online/@me_datapoint) and [GitHub](https://github.com/florian-huber).
+Ich bin auch zu finden auf Mastodon: [mastodon.online/@me_datapoint](https://mastodon.online/@me_datapoint) sowie [GitHub](https://github.com/florian-huber).
 
 This book is licensed under the [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-nc-sa/4.0/).
