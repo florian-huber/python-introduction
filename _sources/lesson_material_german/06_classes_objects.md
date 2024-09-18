@@ -1,8 +1,9 @@
-## Object-oriented programming
+# Objektorientierte Programmierung - Einführung
 
-Bevor wir wirklich loslegen mit dem object-oriented programming, eine kurze Wiederholung.
+## Einführung
+Bevor wir wirklich loslegen mit der objektorientierten Programmierung (*object-oriented programming*, oft auch einfach nur OOP), eine kurze Wiederholung.
 
-Im letzten Abschnitt (und gelegentlich am Rande schon davor) haben wir uns ein wenig angeschaut, wie man Programme sinnvoll strukturieren kann. Ein zentrales Element hierfür sind **Funktionen**. Damit können ganze Programmteile als eigenständige Sub-Programme abgekapselt werden. Nicht immer wird der Code dadurch direkt viel einfacher, aber es ermöglicht es dem Programme eine logische Struktur zu geben und unterschiedliche Aspekte getrennt voneinander zu bearbeiten oder auch zu verbessern und auszubauen.
+In den vorherigen Kapiteln haben wir uns ein wenig angeschaut, wie man Programme sinnvoll strukturieren kann. Ein zentrales Element hierfür sind **Funktionen**. Damit können ganze Programmteile als eigenständige Sub-Programme abgekapselt werden. Nicht immer wird der Code dadurch direkt viel einfacher, aber es ermöglicht es dem Programme eine logische Struktur zu geben und unterschiedliche Aspekte getrennt voneinander zu bearbeiten oder auch zu verbessern und auszubauen.
 
 **Randnotitz:** Im Zusammenhang mit Funktionen wird manchmal auch von **functional programming** gesprochen ([Funktionale Programmierung](https://de.wikipedia.org/wiki/Funktionale_Programmierung)). Damit wird nicht einfach die Verwendung von Funktionen gemeint (die ist nämlich sowieso eher der Standard), sonder ein spezielles Code-design das einen starken Fokus auf Funktionen legt. Dazu kann z.B. auch gehören, dass dynamisch neue Funktionen generiert werden.
 
@@ -111,7 +112,7 @@ point1.position()  # => 10 3
 
 OK. Kurzes mini-Quiz:
 
->  ### Mini Quiz
+>  ### Quiz!
 >
 > In Python ist "my name is"... : (alle zutreffenden Antworten auswählen)
 >

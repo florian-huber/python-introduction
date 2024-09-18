@@ -1,4 +1,4 @@
-# Numpy - part 2
+# Numerische Daten in Python mit NumPy - Teil 2
 
 Wir haben uns jetzt einige Basics mit Numpy angeschaut. Dabei ging es v.a. um das **Erstellen von Numpy Arrays** und das **Slicing** um die gewünschten Einträge aus den Arrays zu erhalten. Dabei kamen auch schon ein paar der großen Vorteile von Numpy zur Sprache, z.B. können mit Numpy Arrays wirklich sehr große (numerische) Datenarrays bearbeitet werden und zwar auch Arrays mit vielen Dimensionen (siehe `.ndim`). Ebenso können mit Numpy sehr effizient große Mengen an Zufallszahlen erstellt werden und zwar aus sehr vielen verschiedenen Verteilungen (`numpy.random`).
 

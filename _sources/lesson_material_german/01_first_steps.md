@@ -4,6 +4,8 @@ In dieser Veranstaltungen wird Programmieren gelernt und zwar mit der Programmie
 
 Falls Python nicht vorinstalliert ist, kann es über die offizielle Website heruntergeladen werden: [python.org](https://www.python.org/). Allerdings benötigen wir für diesen Kurs mehr als nur die Programmiersprache selbst, weshalb wir eine andere, umfassendere Lösung empfehlen:
 
+## Python installieren
+
 ### Python und Anaconda
 
 Die einfachste und bequemste Methode, um mit Python zu arbeiten, ist die Installation von **Anaconda**, einem Softwarepaket, das für Studierende kostenlos ist. Anaconda enthält neben Python auch viele nützliche Bibliotheken und Tools, die speziell für Data Science und Künstliche Intelligenz entwickelt wurden. Ein solches Tool ist die integrierte Entwicklungsumgebung (IDE) **Spyder**, die das Schreiben und Ausführen von Python-Code erleichtert.
@@ -17,7 +19,7 @@ Wählt die "Free Download"-Version aus, wobei keine E-Mail-Registrierung notwend
 Für diejenigen, die sich bereits gut mit ihrem Computer auskennen oder eine minimale Installation bevorzugen, empfehlen wir die Installation von [**Miniconda**](https://docs.anaconda.com/miniconda/). Miniconda installiert nur die nötigsten Komponenten, und ihr könnt später individuell entscheiden, welche zusätzlichen Bibliotheken ihr benötigt. Dies erfordert jedoch ein wenig mehr Konfigurationsarbeit.
 
 
-## Wie wird Python ausgeführt?
+### Wie wird Python ausgeführt?
 
 Sobald Python (über Anaconda oder Miniconda) installiert ist, gibt es verschiedene Möglichkeiten, Python-Code auszuführen. Die wichtigsten Methoden, die wir im Kurs verwenden werden, sind die Kommandozeile und die integrierte Entwicklungsumgebung (IDE) Spyder.
 

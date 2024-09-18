@@ -209,18 +209,18 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Klassen und Objekte</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="06_classes_objects.html">14. Object-oriented programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_classes_objects.html">14. Objektorientierte Programmierung - Einführung</a></li>
 <li class="toctree-l1"><a class="reference internal" href="07_classes_objects_2.html">15. Classes - part 2</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Arbeiten mit numerischen Daten - Numpy</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="08_numpy.html">16. NumPy</a></li>
-<li class="toctree-l1"><a class="reference internal" href="09_numpy_2.html">17. Numpy - part 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_numpy_2.html">17. Numerische Daten in Python mit NumPy - Teil 2</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Schritte Richtung Data Science</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="09_pandas.html">18. Pandas!</a></li>
-<li class="toctree-l1"><a class="reference internal" href="10_pandas_2.html">19. Pandas - part 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_pandas_2.html">19. Pandas - Teil 2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="12_data_visualization.html">20. Datenvisualisierung mit Python</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">A few missing things</span></p>
@@ -422,17 +422,16 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variablen-und-speicher">9.1. Variablen und Speicher</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zahlen">9.2. Zahlen</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lists-tuples">9.3. Lists &amp; Tuples</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#boolean-und-none">9.4. Boolean und None</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sets-und-dictionaries">9.5. Sets und Dictionaries</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sets-mengen">9.5.1. Sets (Mengen)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zahlen">9.1. Zahlen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lists-tuples">9.2. Lists &amp; Tuples</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#boolean-und-none">9.3. Boolean und None</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sets-und-dictionaries">9.4. Sets und Dictionaries</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sets-mengen">9.4.1. Sets (Mengen)</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dictionaries">9.6. Dictionaries</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nested-dictionaries">9.7. Nested dictionaries</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#copy-deepcopy">9.8. =, copy(), deepcopy()</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dictionaries">9.5. Dictionaries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nested-dictionaries">9.6. Nested dictionaries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#copy-deepcopy">9.7. =, copy(), deepcopy()</a></li>
 </ul>
             </nav>
         </div>
@@ -447,8 +446,6 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="datentypen-ii">
 <h1><span class="section-number">9. </span>Datentypen II<a class="headerlink" href="#datentypen-ii" title="Link to this heading">#</a></h1>
 <p>Wir haben schon einige Datentypen gesehen. Jetzt wollen wir aber noch einmal genauer darauf eingehen und weitere wichtige Typen besprechen. Wir starten aber mit einer kurzen Wiederholung.</p>
-<section id="variablen-und-speicher">
-<h2><span class="section-number">9.1. </span>Variablen und Speicher<a class="headerlink" href="#variablen-und-speicher" title="Link to this heading">#</a></h2>
 <p>Wichtig zu verstehen ist, dass Variablen in Python nicht die Daten/Werte enthalten. Es sind nur Namen, verknüpft mit der Information wo im Speicher der Wert steht.</p>
 <p>Daher gibt es sowas:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">]</span>
@@ -459,9 +456,8 @@ document.write(`
 </div>
 <hr class="docutils" />
 <p>Kurze Wiederholung der Datentypen mit denen wir schon gearbeitet haben</p>
-</section>
 <section id="zahlen">
-<h2><span class="section-number">9.2. </span>Zahlen<a class="headerlink" href="#zahlen" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">9.1. </span>Zahlen<a class="headerlink" href="#zahlen" title="Link to this heading">#</a></h2>
 <p>Hier hatten wir schon häufiger die Integer und Floats (floating point number).</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>  <span class="c1"># =&gt; int</span>
 <span class="nb">type</span><span class="p">(</span><span class="mf">6.0</span><span class="p">)</span>  <span class="c1"># =&gt; float</span>
@@ -480,7 +476,7 @@ Aber nur der Vollständigkeit halber: Komplexe Zahlen.</p>
 </div>
 </section>
 <section id="lists-tuples">
-<h2><span class="section-number">9.3. </span>Lists &amp; Tuples<a class="headerlink" href="#lists-tuples" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">9.2. </span>Lists &amp; Tuples<a class="headerlink" href="#lists-tuples" title="Link to this heading">#</a></h2>
 <p>Wir hatten schon Lists und Tuple, die auf den ersten Blick ziemlich ähnlich sind.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;abc&quot;</span><span class="p">,</span> <span class="s2">&quot;ABC&quot;</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mf">0.315</span><span class="p">]</span>
 <span class="n">my_tuple</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;abc&quot;</span><span class="p">,</span> <span class="s2">&quot;ABC&quot;</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mf">0.315</span><span class="p">)</span>
@@ -501,7 +497,7 @@ Aber nur der Vollständigkeit halber: Komplexe Zahlen.</p>
 </div>
 </section>
 <section id="boolean-und-none">
-<h2><span class="section-number">9.4. </span>Boolean und None<a class="headerlink" href="#boolean-und-none" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">9.3. </span>Boolean und None<a class="headerlink" href="#boolean-und-none" title="Link to this heading">#</a></h2>
 <p>Weitere Datentypen die wir jetzt schon häufiger gesehen haben, ohne aber näher darauf einzugehen das es einzelne Datentypen sind: Boolean (oder <code class="docutils literal notranslate"><span class="pre">bool</span></code>) und NoneType (oder <code class="docutils literal notranslate"><span class="pre">None</span></code>).
 Ein Boolean kann nur <code class="docutils literal notranslate"><span class="pre">True</span></code> oder <code class="docutils literal notranslate"><span class="pre">False</span></code> sein.
 Und <code class="docutils literal notranslate"><span class="pre">None</span></code> steht in der Regel für einen nicht vorhandenen Wert oder ein nicht vorhandenes Objekt.</p>
@@ -509,9 +505,9 @@ Und <code class="docutils literal notranslate"><span class="pre">None</span></co
 <p>Es gibt in Python aber noch zwei weitere sehr häufig verwendete Datentypen:</p>
 </section>
 <section id="sets-und-dictionaries">
-<h2><span class="section-number">9.5. </span>Sets und Dictionaries<a class="headerlink" href="#sets-und-dictionaries" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">9.4. </span>Sets und Dictionaries<a class="headerlink" href="#sets-und-dictionaries" title="Link to this heading">#</a></h2>
 <section id="sets-mengen">
-<h3><span class="section-number">9.5.1. </span>Sets (Mengen)<a class="headerlink" href="#sets-mengen" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">9.4.1. </span>Sets (Mengen)<a class="headerlink" href="#sets-mengen" title="Link to this heading">#</a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_set</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;yes&quot;</span><span class="p">,</span> <span class="s2">&quot;no&quot;</span><span class="p">,</span> <span class="s2">&quot;maybe&quot;</span><span class="p">}</span>
 </pre></div>
 </div>
@@ -618,7 +614,7 @@ d) {}</p>
 </section>
 </section>
 <section id="dictionaries">
-<h2><span class="section-number">9.6. </span>Dictionaries<a class="headerlink" href="#dictionaries" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">9.5. </span>Dictionaries<a class="headerlink" href="#dictionaries" title="Link to this heading">#</a></h2>
 <p>Dictionaries sind ein häufig verwendeter Datentyp mit dem Daten als Schlüssel-Werte Paare genutzt werden können. D.h. die einzelnen Werte (oder Objekte) - <code class="docutils literal notranslate"><span class="pre">value</span></code> sind immer einem Schlüssel <code class="docutils literal notranslate"><span class="pre">key</span></code> zugeordnet.</p>
 <!-- pytest-codeblocks:skip -->
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_dict</span> <span class="o">=</span> <span class="p">{</span><span class="n">key1</span><span class="p">:</span> <span class="n">value1</span><span class="p">,</span>
@@ -685,7 +681,7 @@ d) {}</p>
 </div>
 </section>
 <section id="nested-dictionaries">
-<h2><span class="section-number">9.7. </span>Nested dictionaries<a class="headerlink" href="#nested-dictionaries" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">9.6. </span>Nested dictionaries<a class="headerlink" href="#nested-dictionaries" title="Link to this heading">#</a></h2>
 <p>Bei Listen hatten wir besprochen, dass eine Liste auch weitere Listen enthalten kann. Damit können also verschachtelte Listen erstellt werden. Das Gleiche geht auch für Dictionaries, d.h. ein Dictionary kann weitere Dictionaries enthalten. Damit können auch komplexere key-value Logiken abgebildet werden.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">hogwarts</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s2">&quot;Dumbeldore&quot;</span><span class="p">:</span> <span class="p">{</span>
@@ -721,7 +717,7 @@ d) {}</p>
 </div>
 </section>
 <section id="copy-deepcopy">
-<h2><span class="section-number">9.8. </span>=, copy(), deepcopy()<a class="headerlink" href="#copy-deepcopy" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">9.7. </span>=, copy(), deepcopy()<a class="headerlink" href="#copy-deepcopy" title="Link to this heading">#</a></h2>
 <p><strong>Vorsicht: Hier mal etwas das nicht sonderlich intuitiv ist…</strong></p>
 <p>Oft möchten wir bestimmte Objekte (zum Beispiel in Dictionary) kopieren. Etwa, wenn wir eine Kopie von einem Dictionary machen wollen um diese danach zu verändern.</p>
 <p>Dictionaries sind - wie z.B. auch Listen - veränderbare (mutable) Datentypen bei Python. Wir haben schon einmal gesehen, dass dies zu etwas unerwarteten Resultaten führen kann, z.B.</p>
@@ -862,17 +858,16 @@ Hier brauchen wir keine <em>shallow</em>, sondern eine <em>deep</em> (also tiefe
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variablen-und-speicher">9.1. Variablen und Speicher</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zahlen">9.2. Zahlen</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lists-tuples">9.3. Lists &amp; Tuples</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#boolean-und-none">9.4. Boolean und None</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sets-und-dictionaries">9.5. Sets und Dictionaries</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sets-mengen">9.5.1. Sets (Mengen)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zahlen">9.1. Zahlen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lists-tuples">9.2. Lists &amp; Tuples</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#boolean-und-none">9.3. Boolean und None</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sets-und-dictionaries">9.4. Sets und Dictionaries</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sets-mengen">9.4.1. Sets (Mengen)</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dictionaries">9.6. Dictionaries</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nested-dictionaries">9.7. Nested dictionaries</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#copy-deepcopy">9.8. =, copy(), deepcopy()</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dictionaries">9.5. Dictionaries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nested-dictionaries">9.6. Nested dictionaries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#copy-deepcopy">9.7. =, copy(), deepcopy()</a></li>
 </ul>
   </nav></div>
 
