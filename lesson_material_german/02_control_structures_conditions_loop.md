@@ -1,17 +1,21 @@
 # Kontrollstrukturen und Bedingungen
 
-## Skripte/Programme
+## Skripte und Programme
 
-Letztes Mal haben wir uns v.a. kurze Befehle angeschaut, die wir entweder in der Konsole (Terminal/Shell)
-oder über eine integrierte Entwicklungsumgebung (IDE) wie z.B. Spyder eingegeben werden.
+Beim Programmieren haben wir es häufig mit mehreren Befehlen zu tun, die aufeinander folgen und zusammen ausgeführt werden. Wenn mehrere solche Befehle untereinander geschrieben und in einer integrierten Entwicklungsumgebung (IDE) wie **Spyder** ausgeführt werden, sprechen wir von einem **Skript** oder einem **Programm**.
 
-Im IDE hatten wir aber auch bereits gesehen, dass man mehrere solche Befehle untereinander schreiben kann und diese dann zusammen ausgeführt werden. Ein erstes Skript. Oder Programm? Was genau eigentlich? 
+### Unterschied zwischen Skript und Programm
 
-Die Begriffe werden verschieden benutzt. In dieser Veranstaltung werde ich im allgemeinen nicht wirklich unterscheiden zwischen **Skript** und **Programm**. Der Begriff Skript ist dabei etwas eingeschränkter, man würde z.B. eine vollständig entwickelte Software nicht als Skript bezeichnen.
+Die Begriffe **Skript** und **Programm** werden oft synonym verwendet, jedoch gibt es einen feinen Unterschied:
+
+- **Skript**: Ein einfaches, meist kürzeres Stück Code, das eine spezifische Aufgabe erfüllt. Es wird oft für kleinere, temporäre Aufgaben genutzt.
+- **Programm**: Ein größeres und komplexeres Softwareprodukt mit umfangreicheren Funktionen und Strukturen.
+
+In diesem Kurs verwenden wir die Begriffe weitgehend gleichbedeutend.
 
 + Programm $\approx$ Skript (und Programm > Skript)
 
-Dies ist nur ein kleines Skript
+**Beispiel für ein kleines Skript:**
 ```python 
 fruit = ["apple", "orange", "banana", "pear"]
 juice_choice = 1
@@ -26,12 +30,12 @@ print(fruit[ice_choice] + " ice cream")
 > 3) banana juice, orange ice cream
 > 4) Keine Ahnung! Ich müsste raten (will aber nicht)
 
-Mhh. Ziemlich langweiliges Programm.
-Was braucht man häufig um interessantere Dinge umzusetzen?
+Mhh. Ziemlich langweiliges Programm. 
+Darum fügen wir als nächsten Schritt Benutzerinput hinzu:
 
-Zum einen: **Input**
-Dazu kommen wir aber im Detail etwas später.
-Für den Anfang nur eine einfache Input-art von Python, die Funktion `input()`.
+### Benutzerinput
+
+Ein häufiges Merkmal interaktiver Programme ist die Möglichkeit, Benutzereingaben zu verarbeiten. In Python nutzen wir hierfür die Funktion `input()`:
 
 <!-- pytest-codeblocks:skip -->
 
@@ -40,7 +44,7 @@ my_str = input("String-Eingabe: ")
 print(my_str)  # => gibt den eingegebenen String aus
 ```
 
-Damit können wir das `fruit`-Beispiel etwas umbauen:
+Damit können wir unser vorheriges Früchte-Skript interaktiver gestalten:
 
 <!-- pytest-codeblocks:skip -->
 
@@ -51,7 +55,7 @@ fruit_choice = input("Please enter your choice: ")
 print(f"Here is your {fruit_choice} ice cream!")
 ```
 
-Mini Quiz:
+### Quiz:
 
 > Aber was passiert wenn ich "Ketchup" eingebe?  
 > a) Here is your Ketchup ice cream!  
@@ -66,7 +70,11 @@ Das ist bereits eine Bedingung und die werden in Python auf verschiedene Arten a
 
 ## Bedingungen
 
-In vielen Programmen wollen wir Entscheidungen treffen was als nächstes geschieht. Das wird v.a. über das Abfragen von Bedingungen gemacht. Im Prinzip ist dies nichts anderes als eine einfache Frage die eindeutig mit *wahr* (`True`) oder *falsch* (`False`) beantwortet werden kann.
+Bedingungen sind eine zentrale Komponente in fast jedem Programm, da sie es uns ermöglichen, Entscheidungen basierend auf dem Zustand von Daten zu treffen. Eine Bedingung ist dabei eine einfache logische Aussage, die entweder **wahr** (`True`) oder **falsch** (`False`) ist.
+
+### Vergleichsoperationen
+
+In Python können verschiedene Vergleichsoperatoren verwendet werden, um Bedingungen zu formulieren:
 
 ```python 
 9 < 10  # => True
@@ -81,22 +89,27 @@ print(4.01 == 4)  # => False
 
 "apple" != "pear"  # => True
 ```
-### Kleiner Exkurs: `is` und `==` bedeuten verschiedene Dinge!
+### Unterschied zwischen `is` und `==`
 
-Vorsicht mit dem `is`. Dem normalen Sprachgebrauch nach scheint es völlig Sinn zu machen wenn wir `is` und `==` wie Synonyme verwenden. Beim Programmieren (in Python zumindest) bedeuten die beiden Operatoren aber verschiedene Dinge: 
+Ein häufiger Anfängerfehler ist die Verwechslung zwischen `is` und `==`. Beide Operatoren haben nämlich unterschiedliche Bedeutungen:
+
+- `==` prüft, ob zwei Objekte den **gleichen Wert** haben.
+- `is` prüft, ob zwei Objekte auf die **gleiche Speicheradresse** zeigen, also tatsächlich identisch sind.
 
 ```python 
 a = 12345678
 b = 12345678
 print(a == b)  # => True
 ```
-Das ist natürlich keine große Überraschung. Möglicherweise aber doch, das `is` nicht das gleiche Ergebnis liefert: 
+Soweit ist das noch keine große Überraschung. Möglicherweise aber doch, dass wir mit `is` nicht das gleiche Ergebnis bekommen: 
 <!-- pytest-codeblocks:cont -->
 
 ```python 
 print(a is b)  # => False
 ```
-### Nochmal zurück zu den Variablen
+
+Aber warum ist das eigentlich so?
+Um das zu verstehen müssen wir noch einmal zurück zum Thema Variablen springen.
 
 Wir hatten schon gesehen, dass Variablen Zuweisungen zu Werten irgendwo im Speicher sind. 
 
@@ -137,9 +150,8 @@ fruit[-1] = "orange"  # -> TypeError
 
 Natürlich können wir aber auch Variablen mit unveränderbaren Datentypen beliebig neu zuweisen. Dabei wird aber immer auch ein neues Objekt im Speicher erzeugt.![image-20221009214626493](../images/python_assign_variables_immutable.png)
 
-### Optional\*: lazy Python...
+#### Achtung: lazy Python...
 
-\* *Optional heisst auch immer, "nicht Prüfungsrelevant"*  
 Bei "kleinen" Objekten kann es allerdings passieren, dass diese doch die gleiche "identity" bekommen. Das macht es leider noch unübersichtlicher: 
 
 ```python 
@@ -157,7 +169,7 @@ a = 30019
 b = 30019
 a is b  # => False !?! Also besser nicht so benutzen...
 ```
-### Wichtig zum Thema `is` vs `==` is v.a.:
+**Abschließendes zum Thema `is` vs `==`:**
 + Alle Datentypen ausser Zahlen, Strings, Bool und None erzeugen neue Objekte
 + `is` benutzen um nach identischen Objekten zu fragen
 + `==` benutzen um nach gleichem "Inhalt" zu fragen
@@ -178,14 +190,12 @@ print(a is b)  # => True
 b[0] = 77
 print(a)  # => [77, 2, 3, 4]
 ```
-Wie gesagt, Wir hatten auch letztes Mal schon eine Bedingung bei den Sequenzen
-```python 
-2 in [1, 2, 3, 4, 5]  # => True
-2 not in [1, 2, 3, 4, 5]  # => False 
-"z" not in "Ein String ohne kleines Z"  # => True
-```
-### Logische Bedingungen `and`, `or`
 
+
+---
+### Logische Operatoren
+
+In Python gibt es die logischen Operatoren `and`, `or`, und `not`, die zur Kombination von Bedingungen verwendet werden können.
 Hier geht es nicht darum was wir im Alltag als "logisch" bezeichnen, sondern um klassische Logik, und da gilt: 
 
 ```python
@@ -193,7 +203,7 @@ True and False  # => False
 True or False  # => True
 ```
 
-Hier mal ein Beispiel: 
+Hier mal ein konkretes Beispiel: 
 
 ```python 
 a = 4
@@ -212,50 +222,24 @@ Logische Ausdrücke, etwa mit `or` können auch zu längeren Abfragen kombiniert
 s = "ja"
 (s == "Ja") or (s == "JA") or (s == "ja")  # => True
 ```
-***Vorsicht:*** Logik-Abfragen können schnell kompliziert werden!
+***Vorsicht:*** Solche verschachtelteren Logik-Abfragen können schnell kompliziert werden!
 
 ---
 
-### Bedingte Anweisungen (if, if-else)
+### Bedingte Anweisungen (`if`, `else`, `elif`)
 
 Wofür jetzt das Ganze? Was ist so toll an den Bedingungen?
-Konditionen und logische Abfragen sind essentiell wenn es um Programmflüsse geht. Konkret geht es hier um sogenannte "bedingte Anweisungen".
+Konditionen und logische Abfragen sind essentiell wenn es um Programmflüsse geht. Mit bedingten Anweisungen können wir unseren Programmen "Entscheidungsfindung" ermöglichen. Eine typische `if`-Anweisung sieht so aus:
 
 ```python 
 number = 0.01
 if number >= 0:
     print(f"{number} ist positiv.")
 ```
-Als Beispiel können wir nun das Früchte-Skript von vorhin noch einmal überarbeiten.
-<!-- pytest-codeblocks:skip -->
 
-```python 
-fruit = ["apple", "mango", "banana", "pear"]
-print(f"We have: {fruit}")
-fruit_choice = input("Please enter your choice: ")
-if fruit_choice in fruit:
-    print(f"Here is your {fruit_choice} ice cream!")
-else:
-    print(f"{fruit_choice}? We don't have it.")
-```
-***Wichtig:*** In Python wird mit Einrückungen gearbeitet! Andere Sprachen nutzen dafür oft Klammern.
-Die Art der Einrückungen kann im Prinzip frei gewählt werden, sie muss nur Konsistent sein. Meistens werden als Standard aber 4 Leerzeichen gewählt.
+Für komplexere Entscheidungen kann eine `if-else`- oder `if-elif-else`-Struktur verwendet werden.
+Zuerst ein Beispiel mit `if-else`:
 
-Weitere Ergänzung des Skripts: Was passiert z.B. mit Mango
-<!-- pytest-codeblocks:skip -->
-
-```python 
-fruit = ["apple", "mango", "banana", "pear"]
-print(f"We have: {fruit}")
-fruit_choice = input("Please enter your choice: ")
-if fruit_choice == "mango":
-    print("Oh, I just see that we are out of mango!")
-elif fruit_choice in fruit:
-    print(f"Here is your {fruit_choice} ice cream!")
-else:
-    print(f"{fruit_choice}? We don't have it.")
-```
-Was wir an dem Beispiel gesehen haben waren also neben `if ...Bedingung... :`auch `if-else`:
 ```python 
 number = 0.01   
 
@@ -265,7 +249,9 @@ else:
     print(f"{number} ist eine negative Zahl.")
     
 ```
-Und `if-elif-else`: 
+
+Dann eines mit `if-elif-else`:
+
 ```python 
 number = 0.01
 
@@ -298,11 +284,31 @@ elif angebot < 100:
 else:
     print("Moment... irgendwas stimmt hier nicht...")
 ```
+
+***Wichtig:*** In Python wird mit Einrückungen gearbeitet! Andere Sprachen nutzen dafür oft Klammern.
+Die Art der Einrückungen kann im Prinzip frei gewählt werden, sie muss nur Konsistent sein. Meistens werden als Standard aber 4 Leerzeichen gewählt.
+
+
+Als abschließendes Beispiel dazu können wir nun das Früchte-Skript von vorhin noch einmal überarbeiten.
+<!-- pytest-codeblocks:skip -->
+
+
+```python 
+fruit = ["apple", "mango", "banana", "pear"]
+print(f"We have: {fruit}")
+fruit_choice = input("Please enter your choice: ")
+if fruit_choice in fruit:
+    print(f"Here is your {fruit_choice} ice cream!")
+else:
+    print(f"{fruit_choice}? We don't have it.")
+```
+
 ## Schleifen (*loops*) 
+Schleifen sind eine weitere grundlegende Kontrollstruktur in Python. Sie ermöglichen es, eine bestimmte Codefolge wiederholt auszuführen, solange eine Bedingung erfüllt ist.
 
 ### While-Schleife (*while loop*)
 
-`while` loops (Schleifen) laufen solange ein bestimmter Wert, oder eine Bedingung, wahr bleibt (`True`). In Python sieht deren Codestruktur aus wie folgt:
+Eine `while`-Schleife wiederholt den Code, solange ein bestimmter Wert, oder eine Bedingung, wahr ist (`True`). In Python sieht deren Codestruktur aus wie folgt:
 
 <!-- pytest-codeblocks:skip -->
 
@@ -463,6 +469,7 @@ for zahl in zahlen:
 ```
 Beide Befehle (`continue` und `break`) können genauso auch in `while` Schleifen
 eingesetzt werden.
+
 ### List comprehension !
 In Python gibt es noch eine andere, sehr kompakte Art einen Loop zu bauen. Das ist die sogenannte "List comprehension".
 ```python 
@@ -480,7 +487,7 @@ print(new_list)
 ```
 Routinierte Python-Programmierer*Innen nutzten gerne und oft die list comprehension. Das verkürzt den Code eines Programmes oft deutlich. Allerdings sollte man darauf achten das *weniger Code* nicht automatisch *besserer Code* bedeutet! Vor allem bei komplizierteren, verschachtelten Beispielen sind list comprehensions oft sehr schwer zu lesen. D.h. auch wenn etwas "nur" eine Zeile Code benötigt, es aber Minuten dauert um zu verstehen was dort geschieht, ist ein normaler `for`-loop vielleicht die bessere Wahl.
 
-> ### Mini Quiz!
+> ### Quiz!
 >
 > Was gibt die folgende List comprehension aus?  
 > `print([s[0] for s in ["eins", "zwei", "drei"]])  

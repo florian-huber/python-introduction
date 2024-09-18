@@ -19,7 +19,7 @@ Wählt die "Free Download"-Version aus, wobei keine E-Mail-Registrierung notwend
 Für diejenigen, die sich bereits gut mit ihrem Computer auskennen oder eine minimale Installation bevorzugen, empfehlen wir die Installation von [**Miniconda**](https://docs.anaconda.com/miniconda/). Miniconda installiert nur die nötigsten Komponenten, und ihr könnt später individuell entscheiden, welche zusätzlichen Bibliotheken ihr benötigt. Dies erfordert jedoch ein wenig mehr Konfigurationsarbeit.
 
 
-## Wie wird Python ausgeführt?
+### Wie wird Python ausgeführt?
 
 Sobald Python (über Anaconda oder Miniconda) installiert ist, gibt es verschiedene Möglichkeiten, Python-Code auszuführen. Die wichtigsten Methoden, die wir im Kurs verwenden werden, sind die Kommandozeile und die integrierte Entwicklungsumgebung (IDE) Spyder.
 
