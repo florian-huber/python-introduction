@@ -1,6 +1,6 @@
-# Code design und "best practices" 1
+# Clean code und "best practices"
 
-Die ersten 4 Wochen haben wir schon viele wichtige Grundlagen in Python gesehen:
+In den ersten Kapitels haben wir schon viele wichtige Grundlagen in Python gesehen:
 
 * Verschiedene **Datentypen**: Zahlen, Strings, List, Tuple, Dictionary, Set, Boolean, None
 * `for`- und `while`-Schleifen
