@@ -1,4 +1,4 @@
-# Classes - part 2
+# ## Objektorientierte Programmierung in Python
 
 Wir haben bisher gesehen wie wir Klassen in Python definieren und wie wir damit Objekte erzeugen. Wir haben gesehen wie wir Methoden definieren und Attribute zuweisen und auch wie wir die `__init__()`-Methode einsetzten können.
 

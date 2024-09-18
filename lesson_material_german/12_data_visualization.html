@@ -208,11 +208,11 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Klassen und Objekte</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="06_classes_objects.html">14. Objektorientierte Programmierung - Einführung</a></li>
-<li class="toctree-l1"><a class="reference internal" href="07_classes_objects_2.html">15. Classes - part 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_classes_objects_2.html">15. ## Objektorientierte Programmierung in Python</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Arbeiten mit numerischen Daten - Numpy</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="08_numpy.html">16. NumPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08_numpy.html">16. Numerische Daten in Python mit NumPy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="09_numpy_2.html">17. Numerische Daten in Python mit NumPy - Teil 2</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Schritte Richtung Data Science</span></p>
@@ -469,55 +469,58 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#einfuhrung">20.1. Einführung</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matplotlib">20.1.1. Matplotlib</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#input-data">20.1.2. Input data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#verschiedene-bibliotheken-zur-datenvisualisierung">20.1. Verschiedene Bibliotheken zur Datenvisualisierung</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dynamisch-vs-statisch">20.2. Dynamisch vs. statisch</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#warum-matplotlib">20.3. Warum Matplotlib?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#einfuhrung">20.4. Einführung</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matplotlib">20.4.1. Matplotlib</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#input-data">20.4.2. Input data</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-types">20.2. Plot types</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bar-plot">20.2.1. Bar plot</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#der-normale-plot">20.2.2. Der „normale“ Plot</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scatter-plot">20.2.3. Scatter plot</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pie-plot">20.2.4. Pie plot</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-types">20.5. Plot types</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bar-plot">20.5.1. Bar plot</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#der-normale-plot">20.5.2. Der „normale“ Plot</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scatter-plot">20.5.3. Scatter plot</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pie-plot">20.5.4. Pie plot</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#histogramm-haufigkeitsverteilung">20.3. Histogramm (Häufigkeitsverteilung)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anatomy-of-a-figure-wie-ist-eine-matplotlib-figure-aufgebaut">20.4. „Anatomy of a figure“ - Wie ist eine Matplotlib Figure aufgebaut?</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linestyle">20.4.1. Linestyle</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#marker">20.4.2. Marker</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#histogramm-haufigkeitsverteilung">20.6. Histogramm (Häufigkeitsverteilung)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anatomy-of-a-figure-wie-ist-eine-matplotlib-figure-aufgebaut">20.7. „Anatomy of a figure“ - Wie ist eine Matplotlib Figure aufgebaut?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linestyle">20.7.1. Linestyle</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#marker">20.7.2. Marker</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#achsen-format">20.5. Achsen, format</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#achsenbeschriftung">20.5.1. Achsenbeschriftung</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nichtlineare-achsen">20.5.2. Nichtlineare Achsen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#achsen-format">20.8. Achsen, format</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#achsenbeschriftung">20.8.1. Achsenbeschriftung</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nichtlineare-achsen">20.8.2. Nichtlineare Achsen</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wie-sieht-die-exponentialfunktion-aus-mit-logarithmischer-y-achse">20.6. Wie sieht die Exponentialfunktion aus mit logarithmischer y-Achse?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#symbiose-mit-pandas-und-seaborn">20.7. Symbiose mit Pandas (und Seaborn)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#farben">20.8. Farben</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#object-orientierter-style-axes-und-fig">20.9. Object-Orientierter Style –&gt; „axes“ und „fig“</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zwei-arten-matplotlib-zu-benutzen">20.9.1. Zwei Arten Matplotlib zu benutzen</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pyplot-style">20.9.1.1. 1) „Pyplot style“</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#object-orientiert-uber-figure-axes">20.9.1.2. 2) Object orientiert über Figure, Axes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wie-sieht-die-exponentialfunktion-aus-mit-logarithmischer-y-achse">20.9. Wie sieht die Exponentialfunktion aus mit logarithmischer y-Achse?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#symbiose-mit-pandas-und-seaborn">20.10. Symbiose mit Pandas (und Seaborn)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#farben">20.11. Farben</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#object-orientierter-style-axes-und-fig">20.12. Object-Orientierter Style –&gt; „axes“ und „fig“</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zwei-arten-matplotlib-zu-benutzen">20.12.1. Zwei Arten Matplotlib zu benutzen</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pyplot-style">20.12.1.1. 1) „Pyplot style“</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#object-orientiert-uber-figure-axes">20.12.1.2. 2) Object orientiert über Figure, Axes</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#subplots-mehrere-plots-kombinieren">20.10. Subplots - mehrere Plots kombinieren</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#shared-axes">20.11. Shared axes</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plots-uber-schleifen-erstellen">20.12. Plots über Schleifen erstellen</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-2d-3d-data">20.12.1. Plot 2D/3D Data</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plt-imshow">20.12.2. <code class="docutils literal notranslate"><span class="pre">plt.imshow()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plt-contour">20.12.3. <code class="docutils literal notranslate"><span class="pre">plt.contour()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#subplots-mehrere-plots-kombinieren">20.13. Subplots - mehrere Plots kombinieren</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#shared-axes">20.14. Shared axes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plots-uber-schleifen-erstellen">20.15. Plots über Schleifen erstellen</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-2d-3d-data">20.15.1. Plot 2D/3D Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plt-imshow">20.15.2. <code class="docutils literal notranslate"><span class="pre">plt.imshow()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plt-contour">20.15.3. <code class="docutils literal notranslate"><span class="pre">plt.contour()</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-fake-data-landscape">20.13. More fake data: „landscape“</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">20.13.1. <code class="docutils literal notranslate"><span class="pre">plt.imshow()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">20.13.2. <code class="docutils literal notranslate"><span class="pre">plt.contour()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-fake-data-landscape">20.16. More fake data: „landscape“</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">20.16.1. <code class="docutils literal notranslate"><span class="pre">plt.imshow()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">20.16.2. <code class="docutils literal notranslate"><span class="pre">plt.contour()</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d-geht-auch-ein-wenig">20.14. 3D geht auch (ein wenig…)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ausblick">20.15. Ausblick</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d-geht-auch-ein-wenig">20.17. 3D geht auch (ein wenig…)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ausblick">20.18. Ausblick</a></li>
 </ul>
             </nav>
         </div>
@@ -531,13 +534,47 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="datenvisualisierung-mit-python">
 <h1><span class="section-number">20. </span>Datenvisualisierung mit Python<a class="headerlink" href="#datenvisualisierung-mit-python" title="Link to this heading">#</a></h1>
-<p>Wir haben in den letzten Sessions erste Schritte mit Pandas unternommen. Dabei wurde öfter deutlich, dass wir die Daten eigentlich erst über bestimmte Visualisierungen echt verstehen lernen!</p>
-<p>Hier geht es jetzt darum, wie wir Daten mit Python visualisieren können.</p>
-<p>Mit Pandas konnten wir schon relativ schnell gute Ergebnisse erzielen, z.B. mit dem NetflixOriginals Dataset.</p>
+<p>In den letzten Sessions haben wir die Grundlagen von <strong>Pandas</strong> kennengelernt. Dabei wurde deutlich, dass wir Daten oft erst dann vollständig verstehen, wenn wir sie sinnvoll visualisieren. <strong>Visualisierungen</strong> helfen uns, Muster, Trends oder Anomalien in den Daten schneller zu erkennen.</p>
+<p>In diesem Kapitel werden wir uns darauf konzentrieren, wie wir Daten in Python visualisieren können, insbesondere mit der Bibliothek <strong>Matplotlib</strong>. Das Ziel ist es, die grundlegende Struktur und Vorgehensweise bei der Erstellung von Plots zu vermitteln. Das umfassende Thema der Datenvisualisierung wird hier nur oberflächlich angeschnitten, da es zu umfangreich für ein einzelnes Kapitel ist. Wir werden uns dabei auf einige der häufigsten Darstellungsformen konzentrieren, die (1) nur einen kleinen Teil der Möglichkeiten abdecken und (2) als Einstieg zu verstehen sind. In den kommenden Semestern werden wir diese Themen weiter vertiefen und neue Visualisierungsansätze kennenlernen.</p>
+<section id="verschiedene-bibliotheken-zur-datenvisualisierung">
+<h2><span class="section-number">20.1. </span>Verschiedene Bibliotheken zur Datenvisualisierung<a class="headerlink" href="#verschiedene-bibliotheken-zur-datenvisualisierung" title="Link to this heading">#</a></h2>
+<p>In Python gibt es eine Vielzahl von Bibliotheken zur Datenvisualisierung. Einige der gängigsten sind:</p>
+<ul class="simple">
+<li><p><strong>Matplotlib</strong>: Eine der grundlegendsten und flexibelsten Bibliotheken, auf der viele andere aufbauen.</p></li>
+<li><p><strong>Pandas</strong>: Bietet integrierte Plotting-Funktionen, die auf Matplotlib basieren.</p></li>
+<li><p><strong>Seaborn</strong>: Baut auf Matplotlib auf, bietet aber schönere Standard-Plots und erweiterte statistische Visualisierungen.</p></li>
+<li><p><strong>Plotnine</strong>: Basiert auf der „Grammar of Graphics“ und ist eine beliebte Wahl für komplexere Visualisierungen.</p></li>
+<li><p><strong>Bokeh</strong>: Ermöglicht die Erstellung von interaktiven und dynamischen Visualisierungen für das Web.</p></li>
+<li><p><strong>Plotly</strong>: Eine leistungsstarke Bibliothek für interaktive, webbasierte Visualisierungen, die oft für Dashboards verwendet wird.</p></li>
+</ul>
+</section>
+<section id="dynamisch-vs-statisch">
+<h2><span class="section-number">20.2. </span>Dynamisch vs. statisch<a class="headerlink" href="#dynamisch-vs-statisch" title="Link to this heading">#</a></h2>
+<p>Visualisierungen in Python lassen sich in zwei Hauptkategorien unterteilen:</p>
+<ul class="simple">
+<li><p><strong>Statische Visualisierungen</strong>: Diese werden mit Bibliotheken wie <strong>Matplotlib</strong>, <strong>Pandas</strong>, <strong>Seaborn</strong> und <strong>Plotnine</strong> erstellt. Sie eignen sich hervorragend für Präsentationen und Berichte, da sie keine Interaktivität bieten, aber sehr flexibel anpassbar sind.</p></li>
+<li><p><strong>Dynamische Visualisierungen</strong>: Bibliotheken wie <strong>Bokeh</strong> und <strong>Plotly</strong> ermöglichen die Erstellung interaktiver Plots, bei denen Benutzer beispielsweise zoomen, Details anzeigen oder die Darstellung in Echtzeit aktualisieren können. Diese eignen sich besonders für Dashboards und webbasierte Anwendungen.</p></li>
+</ul>
+</section>
+<section id="warum-matplotlib">
+<h2><span class="section-number">20.3. </span>Warum Matplotlib?<a class="headerlink" href="#warum-matplotlib" title="Link to this heading">#</a></h2>
+<p>Matplotlib ist nicht immer die erste Wahl, wenn es um einfache und schnelle Visualisierungen geht. Einige gängige Meinungen aus der Data-Science-Community:</p>
+<ul class="simple">
+<li><p><strong>Nicht so fancy, nicht so hübsch</strong>: Es gibt Bibliotheken, die ästhetisch ansprechendere Standard-Plots bieten (z. B. Seaborn oder Plotly). Allerdings bedeutet das nicht, dass Matplotlib keine ansehnlichen Visualisierungen erzeugen kann.</p></li>
+<li><p><strong>Umständlich und „low-level“</strong>: Im Vergleich zu Pandas oder Seaborn erfordert Matplotlib mehr Aufwand bei der Erstellung von Plots, da es sehr „niedrigschwellig“ ist. Das bedeutet, dass man mehr manuelle Arbeit leisten muss, um die gewünschten Ergebnisse zu erzielen.</p></li>
+</ul>
+<p>Trotzdem gibt es viele Gründe, warum wir uns hier auf Matplotlib konzentrieren:</p>
+<ul class="simple">
+<li><p><strong>Flexibilität</strong>: Matplotlib kann nahezu jede Art von (statischer) Visualisierung erstellen. Es bietet vollständige Kontrolle über alle Aspekte eines Plots.</p></li>
+<li><p><strong>Grundlage für Pandas und Seaborn</strong>: Viele andere Bibliotheken wie Pandas oder Seaborn bauen auf Matplotlib auf. Daher ist es sinnvoll, sich mit den Grundlagen von Matplotlib vertraut zu machen.</p></li>
+<li><p><strong>Große Nutzer- und Entwickler-Community</strong>: Matplotlib hat eine sehr große und aktive Community, was bedeutet, dass viele Ressourcen, Tutorials und Hilfestellungen online verfügbar sind.</p></li>
+</ul>
+<p>Aus diesen Gründen werden wir Matplotlib als Basis verwenden, bevor wir uns später in anderen Kursen dynamischeren Bibliotheken wie Bokeh oder Plotly widmen.</p>
+</section>
 <section id="einfuhrung">
-<h2><span class="section-number">20.1. </span>Einführung<a class="headerlink" href="#einfuhrung" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">20.4. </span>Einführung<a class="headerlink" href="#einfuhrung" title="Link to this heading">#</a></h2>
 <section id="matplotlib">
-<h3><span class="section-number">20.1.1. </span>Matplotlib<a class="headerlink" href="#matplotlib" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">20.4.1. </span>Matplotlib<a class="headerlink" href="#matplotlib" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Matplotlib ist die am meisten genutzte Bibliothek in Python zum Erstellen von statischen Plots. Die Dokumentation finden Sie <a class="reference external" href="https://matplotlib.org/stable/index.html">hier</a>.</p></li>
 </ul>
@@ -556,7 +593,7 @@ document.write(`
 </div>
 </section>
 <section id="input-data">
-<h3><span class="section-number">20.1.2. </span>Input data<a class="headerlink" href="#input-data" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">20.4.2. </span>Input data<a class="headerlink" href="#input-data" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Matplotlib kann numerische Daten u.a. aus List, Numpy, Array, oder Pandas DataFrames verarbeiten.</p></li>
 <li><p>Wenn nur ein Array übergeben wird, nimmt Matplotlib an, das x = [0, 1, 2…] sein muss.</p></li>
@@ -580,9 +617,9 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="plot-types">
-<h2><span class="section-number">20.2. </span>Plot types<a class="headerlink" href="#plot-types" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">20.5. </span>Plot types<a class="headerlink" href="#plot-types" title="Link to this heading">#</a></h2>
 <section id="bar-plot">
-<h3><span class="section-number">20.2.1. </span>Bar plot<a class="headerlink" href="#bar-plot" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">20.5.1. </span>Bar plot<a class="headerlink" href="#bar-plot" title="Link to this heading">#</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">plt.bar()</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -602,7 +639,7 @@ document.write(`
 </div>
 </section>
 <section id="der-normale-plot">
-<h3><span class="section-number">20.2.2. </span>Der „normale“ Plot<a class="headerlink" href="#der-normale-plot" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">20.5.2. </span>Der „normale“ Plot<a class="headerlink" href="#der-normale-plot" title="Link to this heading">#</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">plt.plot()</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -618,7 +655,7 @@ document.write(`
 </div>
 </section>
 <section id="scatter-plot">
-<h3><span class="section-number">20.2.3. </span>Scatter plot<a class="headerlink" href="#scatter-plot" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">20.5.3. </span>Scatter plot<a class="headerlink" href="#scatter-plot" title="Link to this heading">#</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">plt.scatter()</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -634,7 +671,7 @@ document.write(`
 </div>
 </section>
 <section id="pie-plot">
-<h3><span class="section-number">20.2.4. </span>Pie plot<a class="headerlink" href="#pie-plot" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">20.5.4. </span>Pie plot<a class="headerlink" href="#pie-plot" title="Link to this heading">#</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">plt.pie()</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -651,7 +688,7 @@ document.write(`
 </section>
 </section>
 <section id="histogramm-haufigkeitsverteilung">
-<h2><span class="section-number">20.3. </span>Histogramm (Häufigkeitsverteilung)<a class="headerlink" href="#histogramm-haufigkeitsverteilung" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">20.6. </span>Histogramm (Häufigkeitsverteilung)<a class="headerlink" href="#histogramm-haufigkeitsverteilung" title="Link to this heading">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">plt.hist()</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -669,13 +706,13 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/18eb7796acb0bade36c6d7510f1dbf01f2cbc924264b61752ceeac576396992b.png" src="../_images/18eb7796acb0bade36c6d7510f1dbf01f2cbc924264b61752ceeac576396992b.png" />
-<img alt="../_images/8af894f19247355edb3fc6e99fa7aff395b896ae102bd28f0ade62402dc2ec30.png" src="../_images/8af894f19247355edb3fc6e99fa7aff395b896ae102bd28f0ade62402dc2ec30.png" />
+<img alt="../_images/81059c41cc1ed672698d9eeb569f16072bd81beac8a42ebec71a436ea206c4ac.png" src="../_images/81059c41cc1ed672698d9eeb569f16072bd81beac8a42ebec71a436ea206c4ac.png" />
+<img alt="../_images/30e80325d5ecf29af10879e66da972e83ace2f26fd5b2e6709ef325b9721efc2.png" src="../_images/30e80325d5ecf29af10879e66da972e83ace2f26fd5b2e6709ef325b9721efc2.png" />
 </div>
 </div>
 </section>
 <section id="anatomy-of-a-figure-wie-ist-eine-matplotlib-figure-aufgebaut">
-<h2><span class="section-number">20.4. </span>„Anatomy of a figure“ - Wie ist eine Matplotlib Figure aufgebaut?<a class="headerlink" href="#anatomy-of-a-figure-wie-ist-eine-matplotlib-figure-aufgebaut" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">20.7. </span>„Anatomy of a figure“ - Wie ist eine Matplotlib Figure aufgebaut?<a class="headerlink" href="#anatomy-of-a-figure-wie-ist-eine-matplotlib-figure-aufgebaut" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -1023,7 +1060,7 @@ document.write(`
 </div>
 </div>
 <section id="linestyle">
-<h3><span class="section-number">20.4.1. </span>Linestyle<a class="headerlink" href="#linestyle" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">20.7.1. </span>Linestyle<a class="headerlink" href="#linestyle" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">linestyles</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="s2">&quot;-.&quot;</span><span class="p">,</span> <span class="s2">&quot;:&quot;</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">]</span>
@@ -1068,7 +1105,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f0834330320&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f24b1432630&gt;
 </pre></div>
 </div>
 <img alt="../_images/69ae34a55d87ef6125e31d2e7ebbe12c83236a17b86a78dc7a9de6de05c4c94c.png" src="../_images/69ae34a55d87ef6125e31d2e7ebbe12c83236a17b86a78dc7a9de6de05c4c94c.png" />
@@ -1076,7 +1113,7 @@ document.write(`
 </div>
 </section>
 <section id="marker">
-<h3><span class="section-number">20.4.2. </span>Marker<a class="headerlink" href="#marker" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">20.7.2. </span>Marker<a class="headerlink" href="#marker" title="Link to this heading">#</a></h3>
 <p>Es gibt eine Menge an verschiedenen Marker-Symbolen zur Auswahl, <a class="reference external" href="https://matplotlib.org/stable/api/markers_api.html?highlight=marker">siehe matplotlib Marker-Übersicht</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1099,7 +1136,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f082c615910&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f24b1492150&gt;
 </pre></div>
 </div>
 <img alt="../_images/3c26e4b2bc07592432279b25b72119c66ce3b5d16e4be3e7533ec0439cecc738.png" src="../_images/3c26e4b2bc07592432279b25b72119c66ce3b5d16e4be3e7533ec0439cecc738.png" />
@@ -1125,7 +1162,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f082c5bda30&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f24b198a5a0&gt;
 </pre></div>
 </div>
 <img alt="../_images/d2c7ea41cc6c11ce0ba788127de66287e0b91cc9ee8d849f89458084e7487501.png" src="../_images/d2c7ea41cc6c11ce0ba788127de66287e0b91cc9ee8d849f89458084e7487501.png" />
@@ -1134,9 +1171,9 @@ document.write(`
 </section>
 </section>
 <section id="achsen-format">
-<h2><span class="section-number">20.5. </span>Achsen, format<a class="headerlink" href="#achsen-format" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">20.8. </span>Achsen, format<a class="headerlink" href="#achsen-format" title="Link to this heading">#</a></h2>
 <section id="achsenbeschriftung">
-<h3><span class="section-number">20.5.1. </span>Achsenbeschriftung<a class="headerlink" href="#achsenbeschriftung" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">20.8.1. </span>Achsenbeschriftung<a class="headerlink" href="#achsenbeschriftung" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">random_numbers</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
@@ -1174,12 +1211,12 @@ document.write(`
 </div>
 </section>
 <section id="nichtlineare-achsen">
-<h3><span class="section-number">20.5.2. </span>Nichtlineare Achsen<a class="headerlink" href="#nichtlineare-achsen" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">20.8.2. </span>Nichtlineare Achsen<a class="headerlink" href="#nichtlineare-achsen" title="Link to this heading">#</a></h3>
 <p>In Matplotlib können natürlich auch nicht-lineare Achsen verwendet werden z.B mit <code class="docutils literal notranslate"><span class="pre">plt.yscale()</span></code>, etwas <code class="docutils literal notranslate"><span class="pre">log</span></code> oder <code class="docutils literal notranslate"><span class="pre">symlog</span></code>.</p>
 </section>
 </section>
 <section id="wie-sieht-die-exponentialfunktion-aus-mit-logarithmischer-y-achse">
-<h2><span class="section-number">20.6. </span>Wie sieht die Exponentialfunktion aus mit logarithmischer y-Achse?<a class="headerlink" href="#wie-sieht-die-exponentialfunktion-aus-mit-logarithmischer-y-achse" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">20.9. </span>Wie sieht die Exponentialfunktion aus mit logarithmischer y-Achse?<a class="headerlink" href="#wie-sieht-die-exponentialfunktion-aus-mit-logarithmischer-y-achse" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
@@ -1225,7 +1262,7 @@ document.write(`
 </div>
 </section>
 <section id="symbiose-mit-pandas-und-seaborn">
-<h2><span class="section-number">20.7. </span>Symbiose mit Pandas (und Seaborn)<a class="headerlink" href="#symbiose-mit-pandas-und-seaborn" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">20.10. </span>Symbiose mit Pandas (und Seaborn)<a class="headerlink" href="#symbiose-mit-pandas-und-seaborn" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -1389,7 +1426,7 @@ document.write(`
 </div>
 </section>
 <section id="farben">
-<h2><span class="section-number">20.8. </span>Farben<a class="headerlink" href="#farben" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">20.11. </span>Farben<a class="headerlink" href="#farben" title="Link to this heading">#</a></h2>
 <p>Farben können bei Matplotlib auf verschiedene Arten festgelegt werden.</p>
 <ul class="simple">
 <li><p><strong>Named colors</strong> sind Farben die Matplotlib „mit Namen kennt“, siehe <a class="reference external" href="https://matplotlib.org/stable/gallery/color/named_colors.html">diese Liste</a></p></li>
@@ -1446,14 +1483,14 @@ document.write(`
 </div>
 </section>
 <section id="object-orientierter-style-axes-und-fig">
-<h2><span class="section-number">20.9. </span>Object-Orientierter Style –&gt; „axes“ und „fig“<a class="headerlink" href="#object-orientierter-style-axes-und-fig" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">20.12. </span>Object-Orientierter Style –&gt; „axes“ und „fig“<a class="headerlink" href="#object-orientierter-style-axes-und-fig" title="Link to this heading">#</a></h2>
 <p>Bei Matplotlib wird unterschieden zwschen dem <a class="reference external" href="https://matplotlib.org/stable/api/figure_api.html#matplotlib.figure.Figure"><strong>Figure</strong> Objekt</a> (fig) und dem <a class="reference external" href="https://matplotlib.org/stable/api/axes_api.html#matplotlib.axes.Axes"><strong>Axes</strong> Objekt</a> (axes).
 Axes sind die eigentlichen „Plots“. Jedes Axes enthält mehrere Achsen (<strong>Axis</strong>), zwei in 2D und drei in 3D.
 Eine Figure kann mehrere Axes (also Plots) enthalten.</p>
 <section id="zwei-arten-matplotlib-zu-benutzen">
-<h3><span class="section-number">20.9.1. </span>Zwei Arten Matplotlib zu benutzen<a class="headerlink" href="#zwei-arten-matplotlib-zu-benutzen" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">20.12.1. </span>Zwei Arten Matplotlib zu benutzen<a class="headerlink" href="#zwei-arten-matplotlib-zu-benutzen" title="Link to this heading">#</a></h3>
 <section id="pyplot-style">
-<h4><span class="section-number">20.9.1.1. </span>1) „Pyplot style“<a class="headerlink" href="#pyplot-style" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">20.12.1.1. </span>1) „Pyplot style“<a class="headerlink" href="#pyplot-style" title="Link to this heading">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
@@ -1473,7 +1510,7 @@ Eine Figure kann mehrere Axes (also Plots) enthalten.</p>
 <p>oder:</p>
 </section>
 <section id="object-orientiert-uber-figure-axes">
-<h4><span class="section-number">20.9.1.2. </span>2) Object orientiert über Figure, Axes<a class="headerlink" href="#object-orientiert-uber-figure-axes" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">20.12.1.2. </span>2) Object orientiert über Figure, Axes<a class="headerlink" href="#object-orientiert-uber-figure-axes" title="Link to this heading">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
@@ -1496,7 +1533,7 @@ Eine Figure kann mehrere Axes (also Plots) enthalten.</p>
 </section>
 </section>
 <section id="subplots-mehrere-plots-kombinieren">
-<h2><span class="section-number">20.10. </span>Subplots - mehrere Plots kombinieren<a class="headerlink" href="#subplots-mehrere-plots-kombinieren" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">20.13. </span>Subplots - mehrere Plots kombinieren<a class="headerlink" href="#subplots-mehrere-plots-kombinieren" title="Link to this heading">#</a></h2>
 <p>Auch hier gibt es wieder die 2 oben beschriebenen Möglichkeiten, (1) Ojektorientiert oder (2) mit pyplot</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1538,7 +1575,7 @@ Für komplexe Plots (mit vielen Subplots) ist aber in der Regel das Objekt-Orien
 </div>
 </section>
 <section id="shared-axes">
-<h2><span class="section-number">20.11. </span>Shared axes<a class="headerlink" href="#shared-axes" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">20.14. </span>Shared axes<a class="headerlink" href="#shared-axes" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Mit dem objekt-orientierten Ansatz können auch zwei verschiedene Größen in einem Plot mit geteilter x-Achse eingezeichnet werden.</p></li>
 </ul>
@@ -1580,7 +1617,7 @@ Für komplexe Plots (mit vielen Subplots) ist aber in der Regel das Objekt-Orien
 </div>
 </section>
 <section id="plots-uber-schleifen-erstellen">
-<h2><span class="section-number">20.12. </span>Plots über Schleifen erstellen<a class="headerlink" href="#plots-uber-schleifen-erstellen" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">20.15. </span>Plots über Schleifen erstellen<a class="headerlink" href="#plots-uber-schleifen-erstellen" title="Link to this heading">#</a></h2>
 <p>Mit dem Objekt-Orientierten Interface können auch viele Plots über eine oder mehrere <code class="docutils literal notranslate"><span class="pre">for</span></code>-Schleifen erstellt werden.</p>
 <p>Dazu lassen wir den Loop über die verschiedenen <code class="docutils literal notranslate"><span class="pre">Axes</span></code> laufen wie in dem folgenden Beispiel:</p>
 <div class="cell docutils container">
@@ -1607,13 +1644,13 @@ Für komplexe Plots (mit vielen Subplots) ist aber in der Regel das Objekt-Orien
 </div>
 </div>
 <section id="plot-2d-3d-data">
-<h3><span class="section-number">20.12.1. </span>Plot 2D/3D Data<a class="headerlink" href="#plot-2d-3d-data" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">20.15.1. </span>Plot 2D/3D Data<a class="headerlink" href="#plot-2d-3d-data" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Werte auf 2D Gitter (z.B. Höhen, Bilder…): <code class="docutils literal notranslate"><span class="pre">plt.imshow()</span></code></p></li>
 </ul>
 </section>
 <section id="plt-imshow">
-<h3><span class="section-number">20.12.2. </span><code class="docutils literal notranslate"><span class="pre">plt.imshow()</span></code><a class="headerlink" href="#plt-imshow" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">20.15.2. </span><code class="docutils literal notranslate"><span class="pre">plt.imshow()</span></code><a class="headerlink" href="#plt-imshow" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">((</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">))</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
@@ -1632,7 +1669,7 @@ Für komplexe Plots (mit vielen Subplots) ist aber in der Regel das Objekt-Orien
 </div>
 </section>
 <section id="plt-contour">
-<h3><span class="section-number">20.12.3. </span><code class="docutils literal notranslate"><span class="pre">plt.contour()</span></code><a class="headerlink" href="#plt-contour" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">20.15.3. </span><code class="docutils literal notranslate"><span class="pre">plt.contour()</span></code><a class="headerlink" href="#plt-contour" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
@@ -1650,7 +1687,7 @@ Für komplexe Plots (mit vielen Subplots) ist aber in der Regel das Objekt-Orien
 </section>
 </section>
 <section id="more-fake-data-landscape">
-<h2><span class="section-number">20.13. </span>More fake data: „landscape“<a class="headerlink" href="#more-fake-data-landscape" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">20.16. </span>More fake data: „landscape“<a class="headerlink" href="#more-fake-data-landscape" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">500</span>
@@ -1693,7 +1730,7 @@ Für komplexe Plots (mit vielen Subplots) ist aber in der Regel das Objekt-Orien
 </div>
 </div>
 <section id="id1">
-<h3><span class="section-number">20.13.1. </span><code class="docutils literal notranslate"><span class="pre">plt.imshow()</span></code><a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">20.16.1. </span><code class="docutils literal notranslate"><span class="pre">plt.imshow()</span></code><a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
@@ -1710,7 +1747,7 @@ Für komplexe Plots (mit vielen Subplots) ist aber in der Regel das Objekt-Orien
 </div>
 </section>
 <section id="id2">
-<h3><span class="section-number">20.13.2. </span><code class="docutils literal notranslate"><span class="pre">plt.contour()</span></code><a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">20.16.2. </span><code class="docutils literal notranslate"><span class="pre">plt.contour()</span></code><a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
@@ -1729,7 +1766,7 @@ Für komplexe Plots (mit vielen Subplots) ist aber in der Regel das Objekt-Orien
 </section>
 </section>
 <section id="d-geht-auch-ein-wenig">
-<h2><span class="section-number">20.14. </span>3D geht auch (ein wenig…)<a class="headerlink" href="#d-geht-auch-ein-wenig" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">20.17. </span>3D geht auch (ein wenig…)<a class="headerlink" href="#d-geht-auch-ein-wenig" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">subplot_kw</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;projection&quot;</span><span class="p">:</span> <span class="s2">&quot;3d&quot;</span><span class="p">},</span>
@@ -1750,7 +1787,7 @@ Für komplexe Plots (mit vielen Subplots) ist aber in der Regel das Objekt-Orien
 </div>
 </section>
 <section id="ausblick">
-<h2><span class="section-number">20.15. </span>Ausblick<a class="headerlink" href="#ausblick" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">20.18. </span>Ausblick<a class="headerlink" href="#ausblick" title="Link to this heading">#</a></h2>
 <p>…</p>
 </section>
 </section>
@@ -1819,55 +1856,58 @@ Für komplexe Plots (mit vielen Subplots) ist aber in der Regel das Objekt-Orien
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#einfuhrung">20.1. Einführung</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matplotlib">20.1.1. Matplotlib</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#input-data">20.1.2. Input data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#verschiedene-bibliotheken-zur-datenvisualisierung">20.1. Verschiedene Bibliotheken zur Datenvisualisierung</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dynamisch-vs-statisch">20.2. Dynamisch vs. statisch</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#warum-matplotlib">20.3. Warum Matplotlib?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#einfuhrung">20.4. Einführung</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matplotlib">20.4.1. Matplotlib</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#input-data">20.4.2. Input data</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-types">20.2. Plot types</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bar-plot">20.2.1. Bar plot</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#der-normale-plot">20.2.2. Der „normale“ Plot</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scatter-plot">20.2.3. Scatter plot</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pie-plot">20.2.4. Pie plot</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-types">20.5. Plot types</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bar-plot">20.5.1. Bar plot</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#der-normale-plot">20.5.2. Der „normale“ Plot</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scatter-plot">20.5.3. Scatter plot</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pie-plot">20.5.4. Pie plot</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#histogramm-haufigkeitsverteilung">20.3. Histogramm (Häufigkeitsverteilung)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anatomy-of-a-figure-wie-ist-eine-matplotlib-figure-aufgebaut">20.4. „Anatomy of a figure“ - Wie ist eine Matplotlib Figure aufgebaut?</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linestyle">20.4.1. Linestyle</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#marker">20.4.2. Marker</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#histogramm-haufigkeitsverteilung">20.6. Histogramm (Häufigkeitsverteilung)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anatomy-of-a-figure-wie-ist-eine-matplotlib-figure-aufgebaut">20.7. „Anatomy of a figure“ - Wie ist eine Matplotlib Figure aufgebaut?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linestyle">20.7.1. Linestyle</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#marker">20.7.2. Marker</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#achsen-format">20.5. Achsen, format</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#achsenbeschriftung">20.5.1. Achsenbeschriftung</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nichtlineare-achsen">20.5.2. Nichtlineare Achsen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#achsen-format">20.8. Achsen, format</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#achsenbeschriftung">20.8.1. Achsenbeschriftung</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nichtlineare-achsen">20.8.2. Nichtlineare Achsen</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wie-sieht-die-exponentialfunktion-aus-mit-logarithmischer-y-achse">20.6. Wie sieht die Exponentialfunktion aus mit logarithmischer y-Achse?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#symbiose-mit-pandas-und-seaborn">20.7. Symbiose mit Pandas (und Seaborn)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#farben">20.8. Farben</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#object-orientierter-style-axes-und-fig">20.9. Object-Orientierter Style –&gt; „axes“ und „fig“</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zwei-arten-matplotlib-zu-benutzen">20.9.1. Zwei Arten Matplotlib zu benutzen</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pyplot-style">20.9.1.1. 1) „Pyplot style“</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#object-orientiert-uber-figure-axes">20.9.1.2. 2) Object orientiert über Figure, Axes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wie-sieht-die-exponentialfunktion-aus-mit-logarithmischer-y-achse">20.9. Wie sieht die Exponentialfunktion aus mit logarithmischer y-Achse?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#symbiose-mit-pandas-und-seaborn">20.10. Symbiose mit Pandas (und Seaborn)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#farben">20.11. Farben</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#object-orientierter-style-axes-und-fig">20.12. Object-Orientierter Style –&gt; „axes“ und „fig“</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zwei-arten-matplotlib-zu-benutzen">20.12.1. Zwei Arten Matplotlib zu benutzen</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pyplot-style">20.12.1.1. 1) „Pyplot style“</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#object-orientiert-uber-figure-axes">20.12.1.2. 2) Object orientiert über Figure, Axes</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#subplots-mehrere-plots-kombinieren">20.10. Subplots - mehrere Plots kombinieren</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#shared-axes">20.11. Shared axes</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plots-uber-schleifen-erstellen">20.12. Plots über Schleifen erstellen</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-2d-3d-data">20.12.1. Plot 2D/3D Data</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plt-imshow">20.12.2. <code class="docutils literal notranslate"><span class="pre">plt.imshow()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plt-contour">20.12.3. <code class="docutils literal notranslate"><span class="pre">plt.contour()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#subplots-mehrere-plots-kombinieren">20.13. Subplots - mehrere Plots kombinieren</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#shared-axes">20.14. Shared axes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plots-uber-schleifen-erstellen">20.15. Plots über Schleifen erstellen</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-2d-3d-data">20.15.1. Plot 2D/3D Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plt-imshow">20.15.2. <code class="docutils literal notranslate"><span class="pre">plt.imshow()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plt-contour">20.15.3. <code class="docutils literal notranslate"><span class="pre">plt.contour()</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-fake-data-landscape">20.13. More fake data: „landscape“</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">20.13.1. <code class="docutils literal notranslate"><span class="pre">plt.imshow()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">20.13.2. <code class="docutils literal notranslate"><span class="pre">plt.contour()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-fake-data-landscape">20.16. More fake data: „landscape“</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">20.16.1. <code class="docutils literal notranslate"><span class="pre">plt.imshow()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">20.16.2. <code class="docutils literal notranslate"><span class="pre">plt.contour()</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d-geht-auch-ein-wenig">20.14. 3D geht auch (ein wenig…)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ausblick">20.15. Ausblick</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d-geht-auch-ein-wenig">20.17. 3D geht auch (ein wenig…)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ausblick">20.18. Ausblick</a></li>
 </ul>
   </nav></div>
 
