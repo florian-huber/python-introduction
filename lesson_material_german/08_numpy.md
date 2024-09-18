@@ -1,4 +1,4 @@
-# NumPy 
+# Numerische Daten in Python mit NumPy 
 
 `NumPy` ist die wohl wichtigste Python-Bibliothek wenn es um das Arbeiten mit (numerischen) Daten geht, nicht umsonst kommt der Name von **Num**erical **Py**thon. NumPy bringt nicht nur einen zentralen neuen Datentypen mit, das **Numpy-Array**, sondern auch eine Vielzahl von Funktionen und Methoden um z.B. mit Vektoren, Matrizen, und Tensoren zu arbeiten.
 
