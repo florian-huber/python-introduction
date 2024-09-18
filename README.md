@@ -1,3 +1,4 @@
+[![Jupyter Book Badge](https://jupyterbook.org/badge.svg)](https://florian-huber.github.io/python-introduction/)
 ![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/florian-huber/python-introduction/CI_tests.yml)
 
 <p align="center">
