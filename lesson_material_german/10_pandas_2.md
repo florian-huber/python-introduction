@@ -1,4 +1,4 @@
-# Pandas - part 2
+# Pandas - Teil 2
 
 Im ersten Teil haben wir gesehen, wie wir eine `.csv`-Datei einlesen und grundlegende Eigenschaften erkunden. Hier werden wir jetzt noch einige Schritte weitergehen im Umgang mit (komplexen) Datensets.
 
