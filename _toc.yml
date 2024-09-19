@@ -47,3 +47,6 @@ parts:
     chapters:
     - file: lesson_material_german/10_debugging
     - file: lesson_material_german/14_generators 
+  - caption: Source Code and Contributions
+    chapters:
+    - file: book/github
