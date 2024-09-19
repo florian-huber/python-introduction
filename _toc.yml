@@ -49,4 +49,4 @@ parts:
     - file: lesson_material_german/14_generators 
   - caption: Source Code and Contributions
     chapters:
-    - file: book/github
+    - file: lesson_material_german/github
