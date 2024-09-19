@@ -49,3 +49,41 @@ Eine komfortablere Möglichkeit, Python zu nutzen, bietet die integrierte Entwic
 
 Spyder ist eine leistungsfähige Umgebung für das Schreiben und Debuggen von Python-Code. Es bietet viele Funktionen, die euch helfen, effizienter zu arbeiten, wie z.B. Code-Vervollständigung, Syntax-Highlighting und integrierte Debugging-Tools.
 Im Laufe des Studiums werden viele auch zu anderen Editoren greifen, allem voran **Visual Studio Code** das einen noch großeren Funktionsumfang bietet. Insbesondere für Anfänger*innen ist Spyder aber oft übersichtlicher weshalb wir im Kurs in diesem Semester damit arbeiten werden.
+
+## Ausführen von Python Code
+
+Nachdem Python auf eurem Rechner installiert ist, gibt es verschiedene Wege, euren Python-Code auszuführen. Je nach Anwendungsfall könnt ihr zwischen der **Kommandozeile**, einer integrierten Entwicklungsumgebung (IDE) wie **Spyder**, oder speziellen Editoren wie **Visual Studio Code** wählen.
+
+### Ausführen von Python-Skripten über die Kommandozeile
+
+Wenn ihr ein Python-Skript geschrieben habt und es außerhalb einer IDE ausführen möchtet, könnt ihr dies ganz einfach über die **Kommandozeile** (Terminal bei Mac/Linux) tun. Ein typisches Szenario ist, dass ihr ein Skript namens `my_script.py` erstellt habt, das ihr nun ausführen wollt.
+
+So geht's:
+
+1. **Navigiert** im Terminal/Kommandozeile zu dem Verzeichnis, in dem euer Skript gespeichert ist.
+
+   Unter Windows könnt ihr den Befehl `cd`  (Change Directory) verwenden, um zum entsprechenden Ordner zu wechseln:
+
+   ```bash 
+   cd Ordner1/Ordner2
+   ```
+
+   Auf Mac/Linux funktioniert dies ähnlich:
+
+   ```bash
+   cd /Ordner1/Ordner2
+   ```
+
+2. **Führt euer Skript aus**, indem ihr den Befehl `python` oder `python3` (je nach eurer Installation) gefolgt vom Namen eures Skripts eingebt:
+
+   ```bash
+   python my_script.py
+   ```
+
+   Dadurch wird der Python-Interpreter gestartet, der euer Skript Zeile für Zeile ausführt. Wenn euer Skript beispielsweise eine einfache Ausgabe wie `print("Hallo, Welt!")` enthält, wird diese direkt in der Kommandozeile angezeigt.
+
+### Vorteile der Ausführung über die Kommandozeile
+
+- **Direkte Kontrolle**: Ihr habt die volle Kontrolle darüber, wie euer Skript gestartet wird und könnt auch verschiedene Python-Versionen explizit verwenden, falls mehrere installiert sind (z. B. `python3 my_script.py` für Python 3).
+- **Einfache Automatisierung**: Skripte lassen sich leicht in andere Tools integrieren oder automatisieren, etwa durch Batch-Dateien oder Shell-Skripte.
+- **Leichtgewichtig**: Kein zusätzliches grafisches Interface nötig; ideal für schnelle Tests oder das Ausführen von Python-Programmen auf Servern.
