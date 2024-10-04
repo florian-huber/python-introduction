@@ -226,6 +226,11 @@
 <li class="toctree-l1"><a class="reference internal" href="10_debugging.html">21. Python Debugging</a></li>
 <li class="toctree-l1"><a class="reference internal" href="14_generators.html">22. Generators / Iterators</a></li>
 </ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Source Code and Contributions</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="github.html">Source Code on GitHub</a></li>
+
+</ul>
 
     </div>
 </nav></div>
@@ -612,35 +617,23 @@ Bei den Zahlen unterscheidet Python zwischen <strong>Integer</strong> (<code cla
 </pre></div>
 </div>
 <p>ergibt:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">12</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="m">12</span>
 </pre></div>
 </div>
 <p>Nur Vorsicht! Dies ist keine Rundung, sondern ein Abschneiden der Nachkommastellen:</p>
-<blockquote>
-<div><blockquote>
-<div><blockquote>
-<div><p>int(12.9)
-12</p>
-</div></blockquote>
-</div></blockquote>
-</div></blockquote>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>(Wenn gerundet werden soll, bitte `int(round(12.9))`nutzten)
-
-Zahlen können auch aus Strings erstellt werden:
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">int</span><span class="p">(</span><span class="mf">12.9</span><span class="p">)</span>
+<span class="go">12</span>
 </pre></div>
 </div>
-<blockquote>
-<div><blockquote>
-<div><blockquote>
-<div><p>5 + int(„19“)
-24</p>
-</div></blockquote>
-</div></blockquote>
-</div></blockquote>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Aber bitte keine Magie erwarten an dieser Stelle. Python erkennt hier nur offensichtliche Zahlen im String, nicht sowas wie:
-&lt;!--pytest-codeblocks:expect-error--&gt;
-```python
-int(&quot;seven&quot;)  # =&gt; ValueError: invalid literal for int() with base 10: &#39;seven&#39;
+<p>(Wenn gerundet werden soll, bitte <code class="docutils literal notranslate"><span class="pre">int(round(12.9))</span></code>nutzten)</p>
+<p>Zahlen können auch aus Strings erstellt werden:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">5</span> <span class="o">+</span> <span class="nb">int</span><span class="p">(</span><span class="s2">&quot;19&quot;</span><span class="p">)</span>
+<span class="go">24</span>
+</pre></div>
+</div>
+<p>Aber bitte keine Magie erwarten an dieser Stelle. Python erkennt hier nur offensichtliche Zahlen im String, nicht sowas wie:</p>
+<!--pytest-codeblocks:expect-error-->
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span><span class="p">(</span><span class="s2">&quot;seven&quot;</span><span class="p">)</span>  <span class="c1"># =&gt; ValueError: invalid literal for int() with base 10: &#39;seven&#39;</span>
 </pre></div>
 </div>
 <p>Oft wollen wir auch umgekehrt eine Zahl in einen String umwandeln:</p>
@@ -656,15 +649,7 @@ int(&quot;seven&quot;)  # =&gt; ValueError: invalid literal for int() with base 
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">7</span> <span class="o">+</span> <span class="mi">5</span> <span class="o">=</span> <span class="mi">12</span>
 </pre></div>
 </div>
-<p>Da dies so häufig nötig ist, gibt es dafür auch eine Reihe verschiedener Methoden. Eine ist mit <code class="docutils literal notranslate"><span class="pre">.format()</span></code>.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;This is </span><span class="si">{}</span><span class="s2"> times better than that.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
-</pre></div>
-</div>
-<p>Gibt:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">This</span> <span class="ow">is</span> <span class="mi">5</span> <span class="n">times</span> <span class="n">better</span> <span class="n">than</span> <span class="n">that</span><span class="o">.</span>
-</pre></div>
-</div>
-<p>Aber am besten ist eigentlich der sogenannte „f-strings“:</p>
+<p>Da dies so häufig nötig ist, gibt es dafür auch eine Reihe verschiedener Methoden. Die verbreitetste und gleichzeitig die einfachste sind dier sogenannten „f-strings“, die euch ein <code class="docutils literal notranslate"><span class="pre">f&quot;...&quot;</span></code> vor den Ausführungszeichen markiert werden. Innerhalb diesen f-Strings werden Werte, egal on Zahlen, Strings oder viele andere Datentypen, die in geschweiften Klammern stehen, automatisch als Strings eingefügt. Zum Beispiel:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;This is </span><span class="si">{</span><span class="mi">8</span><span class="si">}</span><span class="s2"> times better than that.&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -672,7 +657,7 @@ int(&quot;seven&quot;)  # =&gt; ValueError: invalid literal for int() with base 
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">This</span> <span class="ow">is</span> <span class="mi">8</span> <span class="n">times</span> <span class="n">better</span> <span class="n">than</span> <span class="n">that</span><span class="o">.</span>
 </pre></div>
 </div>
-<p>Damit werden wir am meisten arbeiten.</p>
+<p>Damit werden wir in der Praxis sehr häufig arbeiten.</p>
 <section id="listen-sequenzen">
 <h3><span class="section-number">3.5.1. </span>Listen / Sequenzen<a class="headerlink" href="#listen-sequenzen" title="Link to this heading">#</a></h3>
 <p><strong>Sequenzen</strong> sind bei Python eine ganze Kategorie verschiedener Datentypen. Ein Beispiel davon hatten wir bereits: <strong>Strings</strong></p>
