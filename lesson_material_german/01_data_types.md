@@ -166,10 +166,12 @@ Es gibt Situationen, in denen wir explizit einen Datentyp ändern möchten, z. B
 print(5 + int(7.00001))  # 12
 ```
 ergibt:
-```
+```bash
 12
 ```
+
 Nur Vorsicht! Dies ist keine Rundung, sondern ein Abschneiden der Nachkommastellen:
+```
 >>> int(12.9)
 12
 ```
@@ -180,8 +182,10 @@ Zahlen können auch aus Strings erstellt werden:
 >>> 5 + int("19")
 24
 ```
+
 Aber bitte keine Magie erwarten an dieser Stelle. Python erkennt hier nur offensichtliche Zahlen im String, nicht sowas wie:
 <!--pytest-codeblocks:expect-error-->
+
 ```python
 int("seven")  # => ValueError: invalid literal for int() with base 10: 'seven'
 ```
@@ -201,15 +205,7 @@ das gibt aus:
 ```
 7 + 5 = 12
 ```
-Da dies so häufig nötig ist, gibt es dafür auch eine Reihe verschiedener Methoden. Eine ist mit `.format()`.
-```python
-print("This is {} times better than that.".format(5))
-```
-Gibt:
-```
-This is 5 times better than that.
-```
-Aber am besten ist eigentlich der sogenannte "f-strings":
+Da dies so häufig nötig ist, gibt es dafür auch eine Reihe verschiedener Methoden. Die verbreitetste und gleichzeitig die einfachste sind dier sogenannten "f-strings", die euch ein `f"..."` vor den Ausführungszeichen markiert werden. Innerhalb diesen f-Strings werden Werte, egal on Zahlen, Strings oder viele andere Datentypen, die in geschweiften Klammern stehen, automatisch als Strings eingefügt. Zum Beispiel: 
 ```python
 print(f"This is {8} times better than that.")
 ```
@@ -217,7 +213,7 @@ Gibt:
 ```
 This is 8 times better than that.
 ```
-Damit werden wir am meisten arbeiten.
+Damit werden wir in der Praxis sehr häufig arbeiten.
 
 
 ### Listen / Sequenzen
@@ -245,6 +241,7 @@ fruit = ["apple", "orange", "banana", "pear"]
 
 Listen sind ebenfalls Sequenzen und einzelne Elemente können in Python
 über Indices adressiert werden.
+
 
 > ### Mini Quiz: Einmal Raten bitte
 >
