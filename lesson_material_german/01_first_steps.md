@@ -50,6 +50,34 @@ Eine komfortablere Möglichkeit, Python zu nutzen, bietet die integrierte Entwic
 Spyder ist eine leistungsfähige Umgebung für das Schreiben und Debuggen von Python-Code. Es bietet viele Funktionen, die euch helfen, effizienter zu arbeiten, wie z.B. Code-Vervollständigung, Syntax-Highlighting und integrierte Debugging-Tools.
 Im Laufe des Studiums werden viele auch zu anderen Editoren greifen, allem voran **Visual Studio Code** das einen noch großeren Funktionsumfang bietet. Insbesondere für Anfänger*innen ist Spyder aber oft übersichtlicher weshalb wir im Kurs in diesem Semester damit arbeiten werden.
 
+Den meisten Programmcode werden wir hier im **Editor** erstellen. Die erlaubt es, umfangreicheren Code über viele Zeilen zu schreiben und als `.py`-Dateien zu speichern. Spyder, wie die meisten IDEs für Python gibt dabei auch regelmäßig hinweise auf mögliche Fehler oder andere Hilfestellungen. Wichtig an dieser Stelle ist zudem, dass wir eben nicht nur Code sondern auch Kommentare erstellen können.
+
+## Kommentare in Python
+
+Beim Programmieren ist es oft hilfreich, Kommentare in den Code einzufügen, um bestimmte Abschnitte zu erklären oder Notizen für sich selbst oder andere Entwickler*innen zu hinterlassen. Kommentare werden vom Python-Interpreter ignoriert und haben keinen Einfluss auf die Ausführung des Programms. Es gibt zwei Möglichkeiten, Kommentare in Python hinzuzufügen:
+
+**Einzeilige Kommentare**
+
+Für einzeilige Kommentare wird das Rautezeichen `#` verwendet. Alles, was nach dem `#` steht, wird als Kommentar behandelt und nicht ausgeführt. Hier ein Beispiel:
+```python
+# Dies ist ein Kommentar
+print("Hallo, Welt!")  # Dies ist ein weiterer Kommentar
+```
+
+Im obigen Beispiel wird die Zeile mit dem `print`-Befehl ausgeführt, während der Kommentar ignoriert wird.
+
+**Mehrzeilige Kommentare**
+
+Für **mehrzeilige Kommentare** gibt es keine spezielle Syntax in Python, aber man kann dafür dreifache Anführungszeichen (`"""` oder `'''`) verwenden, um einen sogenannten **Docstring** zu erstellen. Obwohl Docstrings in erster Linie zur Dokumentation von Funktionen oder Klassen verwendet werden, können sie auch genutzt werden, um längere Kommentare im Code einzufügen:
+
+```python
+"""
+Dies ist ein mehrzeiliger Kommentar.
+Er kann verwendet werden, um ausführliche Erklärungen oder Dokumentation hinzuzufügen.
+"""
+print("Hallo, Welt!")
+```
+
 ## Ausführen von Python Code
 
 Nachdem Python auf eurem Rechner installiert ist, gibt es verschiedene Wege, euren Python-Code auszuführen. Je nach Anwendungsfall könnt ihr zwischen der **Kommandozeile**, einer integrierten Entwicklungsumgebung (IDE) wie **Spyder**, oder speziellen Editoren wie **Visual Studio Code** wählen.
