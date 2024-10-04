@@ -433,9 +433,10 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#python-in-der-ide-spyder">2.1.5. Python in der IDE Spyder</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ausfuhren-von-python-code">2.2. Ausführen von Python Code</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ausfuhren-von-python-skripten-uber-die-kommandozeile">2.2.1. Ausführen von Python-Skripten über die Kommandozeile</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vorteile-der-ausfuhrung-uber-die-kommandozeile">2.2.2. Vorteile der Ausführung über die Kommandozeile</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kommentare-in-python">2.2. Kommentare in Python</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ausfuhren-von-python-code">2.3. Ausführen von Python Code</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ausfuhren-von-python-skripten-uber-die-kommandozeile">2.3.1. Ausführen von Python-Skripten über die Kommandozeile</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vorteile-der-ausfuhrung-uber-die-kommandozeile">2.3.2. Vorteile der Ausführung über die Kommandozeile</a></li>
 </ul>
 </li>
 </ul>
@@ -493,13 +494,34 @@ document.write(`
 </ol>
 <p>Spyder ist eine leistungsfähige Umgebung für das Schreiben und Debuggen von Python-Code. Es bietet viele Funktionen, die euch helfen, effizienter zu arbeiten, wie z.B. Code-Vervollständigung, Syntax-Highlighting und integrierte Debugging-Tools.
 Im Laufe des Studiums werden viele auch zu anderen Editoren greifen, allem voran <strong>Visual Studio Code</strong> das einen noch großeren Funktionsumfang bietet. Insbesondere für Anfänger*innen ist Spyder aber oft übersichtlicher weshalb wir im Kurs in diesem Semester damit arbeiten werden.</p>
+<p>Den meisten Programmcode werden wir hier im <strong>Editor</strong> erstellen. Die erlaubt es, umfangreicheren Code über viele Zeilen zu schreiben und als <code class="docutils literal notranslate"><span class="pre">.py</span></code>-Dateien zu speichern. Spyder, wie die meisten IDEs für Python gibt dabei auch regelmäßig hinweise auf mögliche Fehler oder andere Hilfestellungen. Wichtig an dieser Stelle ist zudem, dass wir eben nicht nur Code sondern auch Kommentare erstellen können.</p>
 </section>
+</section>
+<section id="kommentare-in-python">
+<h2><span class="section-number">2.2. </span>Kommentare in Python<a class="headerlink" href="#kommentare-in-python" title="Link to this heading">#</a></h2>
+<p>Beim Programmieren ist es oft hilfreich, Kommentare in den Code einzufügen, um bestimmte Abschnitte zu erklären oder Notizen für sich selbst oder andere Entwickler*innen zu hinterlassen. Kommentare werden vom Python-Interpreter ignoriert und haben keinen Einfluss auf die Ausführung des Programms. Es gibt zwei Möglichkeiten, Kommentare in Python hinzuzufügen:</p>
+<p><strong>Einzeilige Kommentare</strong></p>
+<p>Für einzeilige Kommentare wird das Rautezeichen <code class="docutils literal notranslate"><span class="pre">#</span></code> verwendet. Alles, was nach dem <code class="docutils literal notranslate"><span class="pre">#</span></code> steht, wird als Kommentar behandelt und nicht ausgeführt. Hier ein Beispiel:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Dies ist ein Kommentar</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hallo, Welt!&quot;</span><span class="p">)</span>  <span class="c1"># Dies ist ein weiterer Kommentar</span>
+</pre></div>
+</div>
+<p>Im obigen Beispiel wird die Zeile mit dem <code class="docutils literal notranslate"><span class="pre">print</span></code>-Befehl ausgeführt, während der Kommentar ignoriert wird.</p>
+<p><strong>Mehrzeilige Kommentare</strong></p>
+<p>Für <strong>mehrzeilige Kommentare</strong> gibt es keine spezielle Syntax in Python, aber man kann dafür dreifache Anführungszeichen (<code class="docutils literal notranslate"><span class="pre">&quot;&quot;&quot;</span></code> oder <code class="docutils literal notranslate"><span class="pre">'''</span></code>) verwenden, um einen sogenannten <strong>Docstring</strong> zu erstellen. Obwohl Docstrings in erster Linie zur Dokumentation von Funktionen oder Klassen verwendet werden, können sie auch genutzt werden, um längere Kommentare im Code einzufügen:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Dies ist ein mehrzeiliger Kommentar.</span>
+<span class="sd">Er kann verwendet werden, um ausführliche Erklärungen oder Dokumentation hinzuzufügen.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hallo, Welt!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
 </section>
 <section id="ausfuhren-von-python-code">
-<h2><span class="section-number">2.2. </span>Ausführen von Python Code<a class="headerlink" href="#ausfuhren-von-python-code" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">2.3. </span>Ausführen von Python Code<a class="headerlink" href="#ausfuhren-von-python-code" title="Link to this heading">#</a></h2>
 <p>Nachdem Python auf eurem Rechner installiert ist, gibt es verschiedene Wege, euren Python-Code auszuführen. Je nach Anwendungsfall könnt ihr zwischen der <strong>Kommandozeile</strong>, einer integrierten Entwicklungsumgebung (IDE) wie <strong>Spyder</strong>, oder speziellen Editoren wie <strong>Visual Studio Code</strong> wählen.</p>
 <section id="ausfuhren-von-python-skripten-uber-die-kommandozeile">
-<h3><span class="section-number">2.2.1. </span>Ausführen von Python-Skripten über die Kommandozeile<a class="headerlink" href="#ausfuhren-von-python-skripten-uber-die-kommandozeile" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.3.1. </span>Ausführen von Python-Skripten über die Kommandozeile<a class="headerlink" href="#ausfuhren-von-python-skripten-uber-die-kommandozeile" title="Link to this heading">#</a></h3>
 <p>Wenn ihr ein Python-Skript geschrieben habt und es außerhalb einer IDE ausführen möchtet, könnt ihr dies ganz einfach über die <strong>Kommandozeile</strong> (Terminal bei Mac/Linux) tun. Ein typisches Szenario ist, dass ihr ein Skript namens <code class="docutils literal notranslate"><span class="pre">my_script.py</span></code> erstellt habt, das ihr nun ausführen wollt.</p>
 <p>So geht’s:</p>
 <ol class="arabic">
@@ -522,7 +544,7 @@ Im Laufe des Studiums werden viele auch zu anderen Editoren greifen, allem voran
 </ol>
 </section>
 <section id="vorteile-der-ausfuhrung-uber-die-kommandozeile">
-<h3><span class="section-number">2.2.2. </span>Vorteile der Ausführung über die Kommandozeile<a class="headerlink" href="#vorteile-der-ausfuhrung-uber-die-kommandozeile" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">2.3.2. </span>Vorteile der Ausführung über die Kommandozeile<a class="headerlink" href="#vorteile-der-ausfuhrung-uber-die-kommandozeile" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p><strong>Direkte Kontrolle</strong>: Ihr habt die volle Kontrolle darüber, wie euer Skript gestartet wird und könnt auch verschiedene Python-Versionen explizit verwenden, falls mehrere installiert sind (z. B. <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">my_script.py</span></code> für Python 3).</p></li>
 <li><p><strong>Einfache Automatisierung</strong>: Skripte lassen sich leicht in andere Tools integrieren oder automatisieren, etwa durch Batch-Dateien oder Shell-Skripte.</p></li>
@@ -604,9 +626,10 @@ Im Laufe des Studiums werden viele auch zu anderen Editoren greifen, allem voran
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#python-in-der-ide-spyder">2.1.5. Python in der IDE Spyder</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ausfuhren-von-python-code">2.2. Ausführen von Python Code</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ausfuhren-von-python-skripten-uber-die-kommandozeile">2.2.1. Ausführen von Python-Skripten über die Kommandozeile</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vorteile-der-ausfuhrung-uber-die-kommandozeile">2.2.2. Vorteile der Ausführung über die Kommandozeile</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kommentare-in-python">2.2. Kommentare in Python</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ausfuhren-von-python-code">2.3. Ausführen von Python Code</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ausfuhren-von-python-skripten-uber-die-kommandozeile">2.3.1. Ausführen von Python-Skripten über die Kommandozeile</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vorteile-der-ausfuhrung-uber-die-kommandozeile">2.3.2. Vorteile der Ausführung über die Kommandozeile</a></li>
 </ul>
 </li>
 </ul>
