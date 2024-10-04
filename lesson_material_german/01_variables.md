@@ -42,7 +42,7 @@ a = "100"
 print(2 * a)
 ``` 
 
-![Types of programming languages](../python_assign_variables_change_datatype.png)
+![Assigning new datatype to variable](../images/python_assign_variables_change_datatype.png)
 
 ```{note}
 **Achtung**: Der flexible Umgang mit Variablen in Python ist nützlich, kann aber zu Fehlern führen, wenn man versehentlich den Typ einer Variablen ändert und später in einem Programm aber den ursprünglichen Datentyp erwartet.
