@@ -31,7 +31,24 @@ Variablen sind in Python nicht fixiert. Ihr könnt ihnen jederzeit neue Werte zu
 a = 100.5
 print(a + b)  # => 108.5
 ```
-**Achtung**: Der flexible Umgang mit Variablen in Python ist nützlich, kann aber zu Fehlern führen, wenn man versehentlich den Typ einer Variablen ändert und später nicht damit rechnet.
+
+Wie gerade erwähnt, kann der Datentyp nach belieben verändet werden, also ist auch das folgende problemlos möglich:
+```python
+a = 100
+print(2 * a)
+
+# Jetzt die Variable überschreiben (eigentlich: "neu zuweisen")
+a = "100"
+print(2 * a)
+``` 
+
+![Types of programming languages](../python_assign_variables_change_datatype.png)
+
+```{note}
+**Achtung**: Der flexible Umgang mit Variablen in Python ist nützlich, kann aber zu Fehlern führen, wenn man versehentlich den Typ einer Variablen ändert und später in einem Programm aber den ursprünglichen Datentyp erwartet.
+```
+
+
 
 ### Sinnvolle Variablennamen
 

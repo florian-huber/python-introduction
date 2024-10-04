@@ -473,7 +473,20 @@ document.write(`
 <span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span>  <span class="c1"># =&gt; 108.5</span>
 </pre></div>
 </div>
-<p><strong>Achtung</strong>: Der flexible Umgang mit Variablen in Python ist nützlich, kann aber zu Fehlern führen, wenn man versehentlich den Typ einer Variablen ändert und später nicht damit rechnet.</p>
+<p>Wie gerade erwähnt, kann der Datentyp nach belieben verändet werden, also ist auch das folgende problemlos möglich:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">a</span><span class="p">)</span>
+
+<span class="c1"># Jetzt die Variable überschreiben (eigentlich: &quot;neu zuweisen&quot;)</span>
+<span class="n">a</span> <span class="o">=</span> <span class="s2">&quot;100&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><img alt="Types of programming languages" src="python_assign_variables_change_datatype.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<p><strong>Achtung</strong>: Der flexible Umgang mit Variablen in Python ist nützlich, kann aber zu Fehlern führen, wenn man versehentlich den Typ einer Variablen ändert und später in einem Programm aber den ursprünglichen Datentyp erwartet.</p>
+</div>
 </section>
 <section id="sinnvolle-variablennamen">
 <h3><span class="section-number">4.1.2. </span>Sinnvolle Variablennamen<a class="headerlink" href="#sinnvolle-variablennamen" title="Link to this heading">#</a></h3>
