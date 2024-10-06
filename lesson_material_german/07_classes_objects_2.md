@@ -1,8 +1,8 @@
-# ## Objektorientierte Programmierung in Python
+# Objektorientierte Programmierung in Python
 
 Wir haben bisher gesehen wie wir Klassen in Python definieren und wie wir damit Objekte erzeugen. Wir haben gesehen wie wir Methoden definieren und Attribute zuweisen und auch wie wir die `__init__()`-Methode einsetzten können.
 
-### Klasse vs. Objekt/Instanz
+## Klasse vs. Objekt/Instanz
 
 Zu Beginn gibt es bei der OOP (Objektorientierten Programmierung) oft einige Verwirrungen. Nicht selten geht es dabei auch um den fundamentalen Unterschied zwischen Klasse und dem erzeugten Objekt.
 
@@ -28,7 +28,7 @@ a = DoNothing()
 print(a.chill) # => True
 ```
 
-#### Was ist `self`?
+### Was ist `self`?
 
 Das Argument `self` bezieht sich auf die jeweilige Instanz einer Klasse, d.h. das Objekt selbst. Code in dem `self` auftaucht, kann also immer nur von erzeugten Objekten aus sinnvoll ausgeführt werden. 
 (Übrigens: Statt self könnte auch ein abweichender Name verwendet werden, aber da `self` überall der Standard ist werden wir davon keinen Gebrauch machen.)
@@ -84,7 +84,7 @@ printer = SuperPrint()
 printer.upper_print("mein text soll grösser werden")
 ```
 
-#### Klassenmethoden (class methods)
+### Klassenmethoden (class methods)
 
 Wir haben gerade gesehen, dass die Methoden die wir bisher programmiert haben (mit `self`) sich nur über erzeugte Objekte ausführen lassen (**Instanzmethode**). Aber es gibt auch **Klassenmethoden** die über die Klasse aufrufbar sind.
 
@@ -140,7 +140,7 @@ Da die Klassenmethode in diesem Fall eine Instanz erzeugt spricht man auch von e
 
 Neben den bisher besprochene Verbindung von Methoden und Attributen, gibt es noch viele andere Möglichkeiten durch die Objektorientierte Programmierung. Eine besonders häufig genannte ist die sogenannte **Vererbung**.
 
-### Vererbung (inheritance)
+## Vererbung (inheritance)
 
 Klassen können anderen Klassen ihre Eigenschaften vererben. Das ist in der Praxis tatsächlich an manchen Stellen sehr nützlich! 
 
@@ -192,7 +192,7 @@ print(isinstance(a, Point))  # => True
 print(isinstance(a, Circle))  # => True
 ```
 
-#### super()
+### super()
 
 Im Beispiel oben haben wir in der abgeleiteten Klasse (`Circle`) die komplette init-Methode überschrieben durch eine neue. Das wirkt vielleicht -zu recht- etwas merkwürdig, denn die Methoden sind sich eigentlich sehr ähnlich und ein größerer Teil des Codes kommt somit mehrfach vor.
 
@@ -212,7 +212,7 @@ print(a.center_distance())
 
 V.a. wenn der Konstruktor einer Klasse viele Parameter setzt und/oder weitere Schritte enthält macht der Einsatz von `super()`an dieser Stelle den Code einfacher.
 
-### Umfangreichers Beispiel (Übung --> Spiel Pig)
+## Umfangreichers Beispiel (Übung --> Spiel Pig)
 
 Ein weiterer wichtiger Punkt den wir in der Übung angefangen haben, war ein Gefühl dafür zu bekommen wann, warum, und wie man Klassen überhaupt einsetzt. Als Beispiel dafür haben wir angefangen ein erstes kleines Spiel zu programmieren: Pig (oder "Böse Eins"). Die Spielregeln sind einfach:
 
