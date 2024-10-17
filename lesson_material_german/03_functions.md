@@ -217,6 +217,8 @@ print(a, b, result)  # => 5 7 1007
 ```
 Hier wurde eine Variable die ebenfalls den Namen `a` trägt innerhalb einer Funktion zugewiesen und genutzt. Variablen die innerhalb von Funktionen zugewiesen werden sind in Python **lokale Variablen**, d.h. sie sind nur innerhalb der jeweiligen Funktion verfügbar. Wie man im obigen Beispiel sieht, wird dadurch auch keineswegs die globale Variable `a` verändert.
 
+![Name Spaces](../images/fig_namespaces_1.png)
+
 Genau das ist nämlich auch nicht erlaubt in Python. Globale Variablen können lokal zwar benutzt, aber in der Regel nicht verändert werden!
 
 <!-- pytest-codeblocks:expect-error -->
