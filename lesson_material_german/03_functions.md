@@ -8,6 +8,12 @@ Die meisten Funktionen die wir nutzen werden sind aber entweder:
 - selbst geschrieben (oder: definiert)
 - importiert (geladen)
 
+Wir werden beide Fälle besprechen.
+
+Funktionen spielen beim Erstellen komplexere Programme eine entscheidende Rolle, den mit Funktionen lassen sich auch umfangreiche Abläufe sinnvoller und übersichtlicher strukturieren.
+
+![Programmabläufe lassen sich über Funktionen strukturieren](../images/fig_control_flow_functions.png)
+
 
 ## Definieren von Funktionen
 ```python 
