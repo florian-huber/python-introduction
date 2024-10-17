@@ -229,7 +229,11 @@ s = "ja"
 ### Bedingte Anweisungen (`if`, `else`, `elif`)
 
 Wofür jetzt das Ganze? Was ist so toll an den Bedingungen?
-Konditionen und logische Abfragen sind essentiell wenn es um Programmflüsse geht. Mit bedingten Anweisungen können wir unseren Programmen "Entscheidungsfindung" ermöglichen. Eine typische `if`-Anweisung sieht so aus:
+Konditionen und logische Abfragen sind essentiell wenn es um Programmflüsse geht. Mit bedingten Anweisungen können wir unseren Programmen "Entscheidungsfindung" ermöglichen. 
+
+<img src="../images/fig_control_flow_if_else.png" alt="Verzweigung" style="zoom:50%;" />
+
+Eine typische `if`-Anweisung sieht so aus:
 
 ```python 
 number = 0.01
@@ -304,7 +308,9 @@ else:
 ```
 
 ## Schleifen (*loops*) 
-Schleifen sind eine weitere grundlegende Kontrollstruktur in Python. Sie ermöglichen es, eine bestimmte Codefolge wiederholt auszuführen, solange eine Bedingung erfüllt ist.
+Schleifen sind eine weitere grundlegende Kontrollstruktur in Python. Sie ermöglichen es, eine bestimmte Codefolge wiederholt auszuführen, solange eine Bedingung erfüllt ist. Und natürlich können Schleifen auch mit den Verzweigungen die wir gerade gesehen haben kombiniert werden. Damit lassen sich deutlich komplexere Programmabläufe erstellen.
+
+<img src="../images/fig_control_flow_condition_loop.png" alt="Verzweigung" style="zoom:90%;" />
 
 ### While-Schleife (*while loop*)
 
