@@ -210,7 +210,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Klassen und Objekte</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="06_classes_objects.html">14. Objektorientierte Programmierung - Einführung</a></li>
-<li class="toctree-l1"><a class="reference internal" href="07_classes_objects_2.html">15. ## Objektorientierte Programmierung in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_classes_objects_2.html">15. Objektorientierte Programmierung in Python</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Arbeiten mit numerischen Daten - Numpy</span></p>
 <ul class="nav bd-sidenav">
@@ -673,7 +673,9 @@ Hier geht es nicht darum was wir im Alltag als „logisch“ bezeichnen, sondern
 <section id="bedingte-anweisungen-if-else-elif">
 <h3><span class="section-number">5.2.4. </span>Bedingte Anweisungen (<code class="docutils literal notranslate"><span class="pre">if</span></code>, <code class="docutils literal notranslate"><span class="pre">else</span></code>, <code class="docutils literal notranslate"><span class="pre">elif</span></code>)<a class="headerlink" href="#bedingte-anweisungen-if-else-elif" title="Link to this heading">#</a></h3>
 <p>Wofür jetzt das Ganze? Was ist so toll an den Bedingungen?
-Konditionen und logische Abfragen sind essentiell wenn es um Programmflüsse geht. Mit bedingten Anweisungen können wir unseren Programmen „Entscheidungsfindung“ ermöglichen. Eine typische <code class="docutils literal notranslate"><span class="pre">if</span></code>-Anweisung sieht so aus:</p>
+Konditionen und logische Abfragen sind essentiell wenn es um Programmflüsse geht. Mit bedingten Anweisungen können wir unseren Programmen „Entscheidungsfindung“ ermöglichen.</p>
+<img alt="Verzweigung" src="../_images/fig_control_flow_if_else.png" />
+<p>Eine typische <code class="docutils literal notranslate"><span class="pre">if</span></code>-Anweisung sieht so aus:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">number</span> <span class="o">=</span> <span class="mf">0.01</span>
 <span class="k">if</span> <span class="n">number</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">number</span><span class="si">}</span><span class="s2"> ist positiv.&quot;</span><span class="p">)</span>
@@ -739,7 +741,8 @@ Die Art der Einrückungen kann im Prinzip frei gewählt werden, sie muss nur Kon
 </section>
 <section id="schleifen-loops">
 <h2><span class="section-number">5.3. </span>Schleifen (<em>loops</em>)<a class="headerlink" href="#schleifen-loops" title="Link to this heading">#</a></h2>
-<p>Schleifen sind eine weitere grundlegende Kontrollstruktur in Python. Sie ermöglichen es, eine bestimmte Codefolge wiederholt auszuführen, solange eine Bedingung erfüllt ist.</p>
+<p>Schleifen sind eine weitere grundlegende Kontrollstruktur in Python. Sie ermöglichen es, eine bestimmte Codefolge wiederholt auszuführen, solange eine Bedingung erfüllt ist. Und natürlich können Schleifen auch mit den Verzweigungen die wir gerade gesehen haben kombiniert werden. Damit lassen sich deutlich komplexere Programmabläufe erstellen.</p>
+<img alt="Verzweigung" src="../_images/fig_control_flow_condition_loop.png" />
 <section id="while-schleife-while-loop">
 <h3><span class="section-number">5.3.1. </span>While-Schleife (<em>while loop</em>)<a class="headerlink" href="#while-schleife-while-loop" title="Link to this heading">#</a></h3>
 <p>Eine <code class="docutils literal notranslate"><span class="pre">while</span></code>-Schleife wiederholt den Code, solange ein bestimmter Wert, oder eine Bedingung, wahr ist (<code class="docutils literal notranslate"><span class="pre">True</span></code>). In Python sieht deren Codestruktur aus wie folgt:</p>

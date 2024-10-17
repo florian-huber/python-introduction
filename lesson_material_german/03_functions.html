@@ -208,7 +208,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Klassen und Objekte</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="06_classes_objects.html">14. Objektorientierte Programmierung - Einführung</a></li>
-<li class="toctree-l1"><a class="reference internal" href="07_classes_objects_2.html">15. ## Objektorientierte Programmierung in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_classes_objects_2.html">15. Objektorientierte Programmierung in Python</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Arbeiten mit numerischen Daten - Numpy</span></p>
 <ul class="nav bd-sidenav">
@@ -457,6 +457,9 @@ document.write(`
 <li><p>selbst geschrieben (oder: definiert)</p></li>
 <li><p>importiert (geladen)</p></li>
 </ul>
+<p>Wir werden beide Fälle besprechen.</p>
+<p>Funktionen spielen beim Erstellen komplexere Programme eine entscheidende Rolle, den mit Funktionen lassen sich auch umfangreiche Abläufe sinnvoller und übersichtlicher strukturieren.</p>
+<p><img alt="Programmabläufe lassen sich über Funktionen strukturieren" src="../_images/fig_control_flow_functions.png" /></p>
 <section id="definieren-von-funktionen">
 <h2><span class="section-number">6.1. </span>Definieren von Funktionen<a class="headerlink" href="#definieren-von-funktionen" title="Link to this heading">#</a></h2>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">gute_sache</span><span class="p">():</span>
@@ -648,6 +651,7 @@ In Python gibt es v.a. drei Arten solcher Geltungsbereiche:</p>
 </pre></div>
 </div>
 <p>Hier wurde eine Variable die ebenfalls den Namen <code class="docutils literal notranslate"><span class="pre">a</span></code> trägt innerhalb einer Funktion zugewiesen und genutzt. Variablen die innerhalb von Funktionen zugewiesen werden sind in Python <strong>lokale Variablen</strong>, d.h. sie sind nur innerhalb der jeweiligen Funktion verfügbar. Wie man im obigen Beispiel sieht, wird dadurch auch keineswegs die globale Variable <code class="docutils literal notranslate"><span class="pre">a</span></code> verändert.</p>
+<p><img alt="Name Spaces" src="../_images/fig_namespaces_1.png" /></p>
 <p>Genau das ist nämlich auch nicht erlaubt in Python. Globale Variablen können lokal zwar benutzt, aber in der Regel nicht verändert werden!</p>
 <!-- pytest-codeblocks:expect-error -->
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">do_stuff</span><span class="p">():</span>
