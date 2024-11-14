@@ -7,7 +7,24 @@ In den vorherigen Kapiteln haben wir uns ein wenig angeschaut, wie man Programme
 
 **Randnotitz:** Im Zusammenhang mit Funktionen wird manchmal auch von **functional programming** gesprochen ([Funktionale Programmierung](https://de.wikipedia.org/wiki/Funktionale_Programmierung)). Damit wird nicht einfach die Verwendung von Funktionen gemeint (die ist nämlich sowieso eher der Standard), sonder ein spezielles Code-design das einen starken Fokus auf Funktionen legt. Dazu kann z.B. auch gehören, dass dynamisch neue Funktionen generiert werden.
 
-Neben Funktionen als Möglichkeit zur Strukturierung eines Programmes, haben wir auch schon mit *Methoden* gearbeitet, ohne allerdings genau darauf zu achten was Methoden eigentlich sind. Methoden haben wir bisher einfach als Funktionen kennengelernt, die zu bestimmten Datentypen gehören. Nehmen wir als Beispiel die Listen.
+## Objektorientierte Programmierung
+
+Objektorientierte Programmierung (oder "OOP") ist ein Programmierstil oder wird manchmal auch als ein „Programmierparadigma“ bezeichnet um anzugeben, dass es um mehr als kleine Detailfragen geht sondern um eine grundlegende Herangehensweise oder Betrachtungsweise.
+
+Die ursprüngliche Motivation der objektorientierten Programmierung liegt wohl darin begründet, dass das Vorgehen häufig als sehr intuitiv empfunden wird. Das heißt, sobald man sich an die grundlegenden Prinzipien etwas gewöhnt hat...
+
+In der objektorientierten Programmierung wird alles durch **Objekte** beschrieben. Objekte haben Eigenschaften (die **Attribute**) und Fähigkeiten oder Tätigkeiten, die **Methoden**. Wichtig ist, das in Objekten beides zusammenkommt, d.h. Objekte besitzen Attribute und Methoden. Nehmen wir ein einfaches Beispiel: Ein Fahrrad hat bestimmte Eigenschaften, z.B. die Radgröße, die Farbe, die Anzahl der Gänge etc. Das wären die Attribute. Ein Fahrrad hat aber auch Methoden und zwar das Fahren, oder z.B. Klingeln.
+
+![Beispiel einer Klasse Fahrrad](../images/fig_oop_bike_class.png)
+
+Gleich zu Beginn eine wichtige Unterscheidung die am Anfang oft für Verwirrung sorgt: **Klasse vs. Objekt**.
+Eine **Klasse** definiert einen Typen, sie ist also eine Art Vorlage. Ein Objekt (oder auch: **Instanz**) ist dagegen nur ein Exemplar das auf einer bestimmten Klasse beruht. Im Beispiel hier wäre *Fahrrad* eine Klasse und jedes echte an uns vorbeifahrende Fahrrad wäre jeweils ein Objekt der Klasse Fahrrad. Keines davon **ist** eine Vorlage für Fahrrad, sondern sie entsprechen der Vorlage Fahrrad weil sie die entsprechenden Eigenschaften und Methoden haben.
+
+Das heißt auch: Es gibt nur **eine Klasse** Fahrrad, aber theoretisch **beliebig viele Objekte** der Klasse Fahrrad.
+
+Verwirrend? Hoffentlich wird das gleich etwas deutlicher.
+
+Übrigens: Neben Funktionen als Möglichkeit zur Strukturierung eines Programmes, haben wir auch schon mit *Methoden* gearbeitet, ohne allerdings genau darauf zu achten was Methoden eigentlich sind. Methoden haben wir bisher einfach als Funktionen kennengelernt, die zu bestimmten Datentypen gehören. Nehmen wir als Beispiel die Listen.
 
 ```python
 numbers = [2, 5, 11, 3]
@@ -32,11 +49,6 @@ Und genauso haben wir gesehn, dass andere Datentypen mit denen wir schon gearbei
 
 Eine Klasse ist nun eine Möglichkeit unsere eigenen Datentypen zu definieren.
 Wichtig: Klassen sind absolut nichts, das speziell für Python ist. Die meisten modernen Programmiersprachen erlauben es Klassen zu definieren.
-
-Gleich zu Beginn eine wichtige Unterscheidung die am Anfang oft für Verwirrung sorgt: **Klassen vs. Objekt**
-Eine **Klasse** definiert einen Typen, sie ist eine Art Vorlage. Ein Objekt dagegen ist eine Instanz einer Klasse. Beispiel: der Datentyp `List` ist eine Klasse, die gerade eben verwendete Instanz davon (`numbers`) ist dann ein **Objekt** (und zwar genauer: ein "Objekt der Klasse List"). 
-
-Verwirrend? Hoffentlich wird das gleich etwas deutlicher.
 
 Fangen wir einfach an und definieren einfach mal einen neuen Datentypen, bzw. eine neue Klasse, namens `Point()`:
 
