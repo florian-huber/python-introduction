@@ -3,5 +3,6 @@ datasets_local
 material_and_raw
 prototyping
 .ipynb_checkpoints
+.virtual_documents/
 
 lib/
