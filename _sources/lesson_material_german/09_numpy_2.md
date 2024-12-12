@@ -4,7 +4,7 @@ Wir haben uns jetzt einige Basics mit Numpy angeschaut. Dabei ging es v.a. um da
 
 Hier werden wir auf einige weitern sehr wichtigen und hilfreichen Funktionalitäten von Numpy eingehen, u.a. da **Sortieren** von Arrays, das finden bestimmter Werte und die hohe Performance als einer der Kernvorteile von Numpy.
 
-Aber zuerst kurz zu einer guten Möglichkeit, größere Arrays anzuschauen (noch nicht groß wie in *"big data"* , aber schon größer als `print()`).
+Aber zuerst kurz zu einer guten Möglichkeit, größere Arrays anzuschauen (noch nicht groß wie in *"big data"* , aber schon deutlich zu groß um sich das Ganze einfach mit  `print()` anzuschauen).
 
 ### Arrays anschauen
 
