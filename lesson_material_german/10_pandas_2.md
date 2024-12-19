@@ -172,7 +172,7 @@ Warum ist der Plot hier oben ziemlich mies?
 
 --> Die Reihenfolge macht es **sehr** unübersichtlich! Stellen Sie sich vor ich frage, welcher Typ auf der Position 3, 4, oder 5 steht...
 
---> Die Axenbeschriftung bei der x-Axe fehlt.
+--> Die Axenbeschriftung bei der x-Achse fehlt.
 
 Allgemein: Pandas plottet mit Hilfe von [`matplotlib`](https://matplotlib.org/). Für Aufwendigere Grafiken und Anpassungen werden die Plots darum auch  mit matplotlib programmiert. Aber Pandas gibt eben einen schnellen  Zugang um verschiedene Plots zu erkunden.
 
