@@ -16,8 +16,8 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
-  <!-- 
-    this give us a css class that will be invisible only if js is disabled 
+  <!--
+    this give us a css class that will be invisible only if js is disabled
   -->
   <noscript>
     <style>
@@ -27,8 +27,8 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
@@ -39,10 +39,10 @@
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- So that users can add custom icons -->
-  <script src="../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
     <script src="../_static/documentation_options.js?v=91fba89f"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
@@ -227,9 +227,14 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -260,6 +265,55 @@
         <div class="header-article-item">
 
 <div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/florian-huber/python-introduction/main?urlpath=tree/lesson_material_german/10_pandas_2.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/florian-huber/python-introduction/blob/main/lesson_material_german/10_pandas_2.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
 
 
 
@@ -320,7 +374,7 @@
       
       
       
-      <li><a href="../_sources/lesson_material_german/10_pandas_2.md" target="_blank"
+      <li><a href="../_sources/lesson_material_german/10_pandas_2.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Quelldatei herunterladen"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -330,7 +384,7 @@
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -415,11 +469,15 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wichtig">19.1.3. Wichtig:</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#digging-a-bit-deeper">19.2. Digging a bit deeper…</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-selection">19.2. Data selection</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#option-1-masken">19.2.1. Option 1: Masken</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#option-2-query">19.2.2. Option 2: query</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#outlook-groupby">19.2.3. Outlook: groupby</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#groupby">19.3. Groupby</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting">19.4. Plotting</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#intermezzo-data-visualization">19.4.1. Intermezzo: data visualization</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#einige-wenige-weitere-beispiele-im-jupyter-notebook-der-vorlesung">19.4.2. Einige wenige weitere Beispiele im Jupyter Notebook der Vorlesung</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas-ist-riesig">19.5. Pandas ist riesig!</a></li>
@@ -440,33 +498,332 @@
 <section id="data-cleaning">
 <h2><span class="section-number">19.1. </span>Data cleaning<a class="headerlink" href="#data-cleaning" title="Link to this heading">#</a></h2>
 <p>Unter data cleaning versteht man das Umstellen und Bearbeiten von Daten mit dem Ziel, diese für die folgende Analyse besser nutzbar zu machen. Einen Schritt in diese Richtung haben wir letztes Mal bereits unternommen, indem wir die Anzahl der Spalten auf die wichtigsten reduziert haben.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">os</span>
 
 <span class="n">root</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
-<span class="n">filename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="s2">&quot;my_data_folder&quot;</span><span class="p">,</span> <span class="s1">&#39;pokemon.csv&#39;</span><span class="p">)</span>
+<span class="n">filename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="s2">&quot;../data&quot;</span><span class="p">,</span> <span class="s1">&#39;pokemon.csv&#39;</span><span class="p">)</span>
 
 <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
 
-<span class="n">cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;type1&#39;</span><span class="p">,</span> <span class="s1">&#39;type2&#39;</span><span class="p">,</span> <span class="s1">&#39;speed&#39;</span><span class="p">,</span> <span class="s1">&#39;abilities&#39;</span><span class="p">,</span><span class="s1">&#39;attack&#39;</span><span class="p">,</span>
-       <span class="s1">&#39;defense&#39;</span><span class="p">,</span> <span class="s1">&#39;height_m&#39;</span><span class="p">,</span> <span class="s1">&#39;hp&#39;</span><span class="p">,</span> <span class="s1">&#39;weight_kg&#39;</span><span class="p">,</span>
-       <span class="s1">&#39;generation&#39;</span><span class="p">,</span> <span class="s1">&#39;is_legendary&#39;</span><span class="p">]</span>
+<span class="n">cols</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;type1&#39;</span><span class="p">,</span> <span class="s1">&#39;type2&#39;</span><span class="p">,</span> <span class="s1">&#39;speed&#39;</span><span class="p">,</span> <span class="s1">&#39;abilities&#39;</span><span class="p">,</span><span class="s1">&#39;attack&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;defense&#39;</span><span class="p">,</span> <span class="s1">&#39;height_m&#39;</span><span class="p">,</span> <span class="s1">&#39;hp&#39;</span><span class="p">,</span> <span class="s1">&#39;weight_kg&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;generation&#39;</span><span class="p">,</span> <span class="s1">&#39;is_legendary&#39;</span>
+<span class="p">]</span>
+
 <span class="n">data_selected</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">cols</span><span class="p">]</span>
 </pre></div>
 </div>
+</div>
+</div>
 <p>Mit <code class="docutils literal notranslate"><span class="pre">data_selected.info()</span></code> können wir sehen, das einige Spalten nicht die benötigten 801 Einträge enthalten.</p>
-<p>Wenn wir uns die Tabelle anschauen (z.B. mit <code class="docutils literal notranslate"><span class="pre">data_selected.head()</span></code>) , sehen wir, dass einige Einträge <code class="docutils literal notranslate"><span class="pre">NaN</span></code> heißen. Dies steht für Not-a-Number und ist das Numpy Format für fehlende/unbekannte Einträge.</p>
-<p>Pandas bietet eine Reihe von Möglichkeiten mit solchen fehlenden Werten  umzugehen. NaN’s gibt es auch in Numpy, nur haben wir sie uns dort nicht explizit  angeschaut. In Numpy kann solch ein Eintrag erstellt werden als <code class="docutils literal notranslate"><span class="pre">np.nan</span></code>.</p>
-<p>In Pandas können diese über <code class="docutils literal notranslate"><span class="pre">.isnull()</span></code> oder <code class="docutils literal notranslate"><span class="pre">isna()</span></code> abgefragt werden, wobei das <code class="docutils literal notranslate"><span class="pre">.any()</span></code> angibt das der Wert True ausgegeben werden soll wenn mindestens ein Element ein NaN ist. Beide Methoden machen hier das Gleiche auch wenn „isnull“ vielleicht verwirrend ist, denn es gibt nicht wieder ob ein Wert Null ist, sondern nur ob ein Wert nicht vorhanden ist (NaN –&gt; True).</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">data_selected</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">any</span><span class="p">())</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">data_selected</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">any</span><span class="p">())</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_selected</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>Wir können nun alle Spalten anzeigen in denen einzelne Werte fehlen:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data_selected</span><span class="p">[</span><span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="n">data</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">any</span><span class="p">()]]</span>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 801 entries, 0 to 800
+Data columns (total 12 columns):
+ #   Column        Non-Null Count  Dtype  
+---  ------        --------------  -----  
+ 0   name          801 non-null    object 
+ 1   type1         801 non-null    object 
+ 2   type2         417 non-null    object 
+ 3   speed         801 non-null    int64  
+ 4   abilities     801 non-null    object 
+ 5   attack        801 non-null    int64  
+ 6   defense       801 non-null    int64  
+ 7   height_m      781 non-null    float64
+ 8   hp            801 non-null    int64  
+ 9   weight_kg     781 non-null    float64
+ 10  generation    801 non-null    int64  
+ 11  is_legendary  801 non-null    int64  
+dtypes: float64(2), int64(6), object(4)
+memory usage: 75.2+ KB
 </pre></div>
+</div>
+</div>
+</div>
+<p>Wenn wir uns die Tabelle anschauen (z.B. mit <code class="docutils literal notranslate"><span class="pre">data_selected.head()</span></code>) , sehen wir, dass einige Einträge <code class="docutils literal notranslate"><span class="pre">NaN</span></code> heißen. Dies steht für Not-a-Number und ist das Numpy Format für fehlende/unbekannte Einträge.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_selected</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>name</th>
+      <th>type1</th>
+      <th>type2</th>
+      <th>speed</th>
+      <th>abilities</th>
+      <th>attack</th>
+      <th>defense</th>
+      <th>height_m</th>
+      <th>hp</th>
+      <th>weight_kg</th>
+      <th>generation</th>
+      <th>is_legendary</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Bulbasaur</td>
+      <td>grass</td>
+      <td>poison</td>
+      <td>45</td>
+      <td>['Overgrow', 'Chlorophyll']</td>
+      <td>49</td>
+      <td>49</td>
+      <td>0.7</td>
+      <td>45</td>
+      <td>6.9</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Ivysaur</td>
+      <td>grass</td>
+      <td>poison</td>
+      <td>60</td>
+      <td>['Overgrow', 'Chlorophyll']</td>
+      <td>62</td>
+      <td>63</td>
+      <td>1.0</td>
+      <td>60</td>
+      <td>13.0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Venusaur</td>
+      <td>grass</td>
+      <td>poison</td>
+      <td>80</td>
+      <td>['Overgrow', 'Chlorophyll']</td>
+      <td>100</td>
+      <td>123</td>
+      <td>2.0</td>
+      <td>80</td>
+      <td>100.0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Charmander</td>
+      <td>fire</td>
+      <td>NaN</td>
+      <td>65</td>
+      <td>['Blaze', 'Solar Power']</td>
+      <td>52</td>
+      <td>43</td>
+      <td>0.6</td>
+      <td>39</td>
+      <td>8.5</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Charmeleon</td>
+      <td>fire</td>
+      <td>NaN</td>
+      <td>80</td>
+      <td>['Blaze', 'Solar Power']</td>
+      <td>64</td>
+      <td>58</td>
+      <td>1.1</td>
+      <td>58</td>
+      <td>19.0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Pandas bietet eine Reihe von Möglichkeiten mit solchen fehlenden Werten  umzugehen. NaN’s gibt es auch in Numpy, nur haben wir sie uns dort nicht explizit  angeschaut. In Numpy kann solch ein Eintrag erstellt werden als <code class="docutils literal notranslate"><span class="pre">np.nan</span></code>.</p>
+<p>In Pandas können diese über <code class="docutils literal notranslate"><span class="pre">.isnull()</span></code> oder <code class="docutils literal notranslate"><span class="pre">isna()</span></code> abgefragt werden, wobei das <code class="docutils literal notranslate"><span class="pre">.any()</span></code> angibt das der Wert True ausgegeben werden soll wenn mindestens ein Element ein NaN ist. Beide Methoden machen hier das Gleiche auch wenn „isnull“ vielleicht verwirrend ist, denn es gibt nicht wieder ob ein Wert Null ist, sondern nur ob ein Wert nicht vorhanden ist (NaN –&gt; True).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_selected</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">any</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>name            False
+type1           False
+type2            True
+speed           False
+abilities       False
+attack          False
+defense         False
+height_m         True
+hp              False
+weight_kg        True
+generation      False
+is_legendary    False
+dtype: bool
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_selected</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">any</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>name            False
+type1           False
+type2            True
+speed           False
+abilities       False
+attack          False
+defense         False
+height_m         True
+hp              False
+weight_kg        True
+generation      False
+is_legendary    False
+dtype: bool
+</pre></div>
+</div>
+</div>
+</div>
+<p>Wir können nun alle Spalten anzeigen in denen einzelne Werte fehlen:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">columns_with_nan</span> <span class="o">=</span> <span class="n">data_selected</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="n">data_selected</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">any</span><span class="p">()]</span>
+<span class="n">data_selected</span><span class="p">[</span><span class="n">columns_with_nan</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>type2</th>
+      <th>height_m</th>
+      <th>weight_kg</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>poison</td>
+      <td>0.7</td>
+      <td>6.9</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>poison</td>
+      <td>1.0</td>
+      <td>13.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>poison</td>
+      <td>2.0</td>
+      <td>100.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>NaN</td>
+      <td>0.6</td>
+      <td>8.5</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>NaN</td>
+      <td>1.1</td>
+      <td>19.0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>796</th>
+      <td>flying</td>
+      <td>9.2</td>
+      <td>999.9</td>
+    </tr>
+    <tr>
+      <th>797</th>
+      <td>steel</td>
+      <td>0.3</td>
+      <td>0.1</td>
+    </tr>
+    <tr>
+      <th>798</th>
+      <td>dragon</td>
+      <td>5.5</td>
+      <td>888.0</td>
+    </tr>
+    <tr>
+      <th>799</th>
+      <td>NaN</td>
+      <td>2.4</td>
+      <td>230.0</td>
+    </tr>
+    <tr>
+      <th>800</th>
+      <td>fairy</td>
+      <td>1.0</td>
+      <td>80.5</td>
+    </tr>
+  </tbody>
+</table>
+<p>801 rows × 3 columns</p>
+</div></div></div>
 </div>
 <section id="und-jetzt-was-tun-mit-nans">
 <h3><span class="section-number">19.1.1. </span>Und jetzt? Was tun mit NaNs?<a class="headerlink" href="#und-jetzt-was-tun-mit-nans" title="Link to this heading">#</a></h3>
@@ -475,28 +832,503 @@
 <section id="nan-ersetzen">
 <h4><span class="section-number">19.1.1.1. </span>NaN ersetzen<a class="headerlink" href="#nan-ersetzen" title="Link to this heading">#</a></h4>
 <p>Das Ersetzen geht bei Pandas mit <code class="docutils literal notranslate"><span class="pre">.fillna()</span></code>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data_selected</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_selected</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>name</th>
+      <th>type1</th>
+      <th>type2</th>
+      <th>speed</th>
+      <th>abilities</th>
+      <th>attack</th>
+      <th>defense</th>
+      <th>height_m</th>
+      <th>hp</th>
+      <th>weight_kg</th>
+      <th>generation</th>
+      <th>is_legendary</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Bulbasaur</td>
+      <td>grass</td>
+      <td>poison</td>
+      <td>45</td>
+      <td>['Overgrow', 'Chlorophyll']</td>
+      <td>49</td>
+      <td>49</td>
+      <td>0.7</td>
+      <td>45</td>
+      <td>6.9</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Ivysaur</td>
+      <td>grass</td>
+      <td>poison</td>
+      <td>60</td>
+      <td>['Overgrow', 'Chlorophyll']</td>
+      <td>62</td>
+      <td>63</td>
+      <td>1.0</td>
+      <td>60</td>
+      <td>13.0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Venusaur</td>
+      <td>grass</td>
+      <td>poison</td>
+      <td>80</td>
+      <td>['Overgrow', 'Chlorophyll']</td>
+      <td>100</td>
+      <td>123</td>
+      <td>2.0</td>
+      <td>80</td>
+      <td>100.0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Charmander</td>
+      <td>fire</td>
+      <td>0</td>
+      <td>65</td>
+      <td>['Blaze', 'Solar Power']</td>
+      <td>52</td>
+      <td>43</td>
+      <td>0.6</td>
+      <td>39</td>
+      <td>8.5</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Charmeleon</td>
+      <td>fire</td>
+      <td>0</td>
+      <td>80</td>
+      <td>['Blaze', 'Solar Power']</td>
+      <td>64</td>
+      <td>58</td>
+      <td>1.1</td>
+      <td>58</td>
+      <td>19.0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>Wir können aber auch Strings oder andere Formate benutzen:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data_selected</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s2">&quot;unknown&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_selected</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s2">&quot;unknown&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>name</th>
+      <th>type1</th>
+      <th>type2</th>
+      <th>speed</th>
+      <th>abilities</th>
+      <th>attack</th>
+      <th>defense</th>
+      <th>height_m</th>
+      <th>hp</th>
+      <th>weight_kg</th>
+      <th>generation</th>
+      <th>is_legendary</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Bulbasaur</td>
+      <td>grass</td>
+      <td>poison</td>
+      <td>45</td>
+      <td>['Overgrow', 'Chlorophyll']</td>
+      <td>49</td>
+      <td>49</td>
+      <td>0.7</td>
+      <td>45</td>
+      <td>6.9</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Ivysaur</td>
+      <td>grass</td>
+      <td>poison</td>
+      <td>60</td>
+      <td>['Overgrow', 'Chlorophyll']</td>
+      <td>62</td>
+      <td>63</td>
+      <td>1.0</td>
+      <td>60</td>
+      <td>13.0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Venusaur</td>
+      <td>grass</td>
+      <td>poison</td>
+      <td>80</td>
+      <td>['Overgrow', 'Chlorophyll']</td>
+      <td>100</td>
+      <td>123</td>
+      <td>2.0</td>
+      <td>80</td>
+      <td>100.0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Charmander</td>
+      <td>fire</td>
+      <td>unknown</td>
+      <td>65</td>
+      <td>['Blaze', 'Solar Power']</td>
+      <td>52</td>
+      <td>43</td>
+      <td>0.6</td>
+      <td>39</td>
+      <td>8.5</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Charmeleon</td>
+      <td>fire</td>
+      <td>unknown</td>
+      <td>80</td>
+      <td>['Blaze', 'Solar Power']</td>
+      <td>64</td>
+      <td>58</td>
+      <td>1.1</td>
+      <td>58</td>
+      <td>19.0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
 <p>Das kann sinnvoll sein, wenn wir die „unknown“ explizit mitzählen möchten:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data_selected</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s2">&quot;unknown&quot;</span><span class="p">)[</span><span class="s2">&quot;type2&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_selected</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s2">&quot;unknown&quot;</span><span class="p">)[</span><span class="s2">&quot;type2&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
 </pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>type2
+unknown     384
+flying       95
+poison       34
+ground       34
+fairy        29
+psychic      29
+fighting     25
+steel        22
+dark         21
+grass        20
+water        17
+dragon       17
+ice          15
+ghost        14
+rock         14
+fire         13
+electric      9
+bug           5
+normal        4
+Name: count, dtype: int64
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 </section>
 <section id="nan-entfernen">
 <h3><span class="section-number">19.1.2. </span>NaN entfernen<a class="headerlink" href="#nan-entfernen" title="Link to this heading">#</a></h3>
 <p>Falls NaN nicht einfach ersetzt werden können und für die weiteren Schritte nicht vorkommen sollen, dann müssen entweder die entsprechenden Spalten oder Zeilen aus der Tabelle entfernt werden. Das geht in Pandas mit <code class="docutils literal notranslate"><span class="pre">.dropna()</span></code>.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data_selected</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_selected</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>name</th>
+      <th>type1</th>
+      <th>type2</th>
+      <th>speed</th>
+      <th>abilities</th>
+      <th>attack</th>
+      <th>defense</th>
+      <th>height_m</th>
+      <th>hp</th>
+      <th>weight_kg</th>
+      <th>generation</th>
+      <th>is_legendary</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Bulbasaur</td>
+      <td>grass</td>
+      <td>poison</td>
+      <td>45</td>
+      <td>['Overgrow', 'Chlorophyll']</td>
+      <td>49</td>
+      <td>49</td>
+      <td>0.7</td>
+      <td>45</td>
+      <td>6.9</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Ivysaur</td>
+      <td>grass</td>
+      <td>poison</td>
+      <td>60</td>
+      <td>['Overgrow', 'Chlorophyll']</td>
+      <td>62</td>
+      <td>63</td>
+      <td>1.0</td>
+      <td>60</td>
+      <td>13.0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Venusaur</td>
+      <td>grass</td>
+      <td>poison</td>
+      <td>80</td>
+      <td>['Overgrow', 'Chlorophyll']</td>
+      <td>100</td>
+      <td>123</td>
+      <td>2.0</td>
+      <td>80</td>
+      <td>100.0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Charizard</td>
+      <td>fire</td>
+      <td>flying</td>
+      <td>100</td>
+      <td>['Blaze', 'Solar Power']</td>
+      <td>104</td>
+      <td>78</td>
+      <td>1.7</td>
+      <td>78</td>
+      <td>90.5</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>Butterfree</td>
+      <td>bug</td>
+      <td>flying</td>
+      <td>70</td>
+      <td>['Compoundeyes', 'Tinted Lens']</td>
+      <td>45</td>
+      <td>50</td>
+      <td>1.1</td>
+      <td>60</td>
+      <td>32.0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
 <p>Oder für die Entfernung aller Spalten mit NaNs:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data_selected</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_selected</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>name</th>
+      <th>type1</th>
+      <th>speed</th>
+      <th>abilities</th>
+      <th>attack</th>
+      <th>defense</th>
+      <th>hp</th>
+      <th>generation</th>
+      <th>is_legendary</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Bulbasaur</td>
+      <td>grass</td>
+      <td>45</td>
+      <td>['Overgrow', 'Chlorophyll']</td>
+      <td>49</td>
+      <td>49</td>
+      <td>45</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Ivysaur</td>
+      <td>grass</td>
+      <td>60</td>
+      <td>['Overgrow', 'Chlorophyll']</td>
+      <td>62</td>
+      <td>63</td>
+      <td>60</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Venusaur</td>
+      <td>grass</td>
+      <td>80</td>
+      <td>['Overgrow', 'Chlorophyll']</td>
+      <td>100</td>
+      <td>123</td>
+      <td>80</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Charmander</td>
+      <td>fire</td>
+      <td>65</td>
+      <td>['Blaze', 'Solar Power']</td>
+      <td>52</td>
+      <td>43</td>
+      <td>39</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Charmeleon</td>
+      <td>fire</td>
+      <td>80</td>
+      <td>['Blaze', 'Solar Power']</td>
+      <td>64</td>
+      <td>58</td>
+      <td>58</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 </section>
 <section id="wichtig">
@@ -508,44 +1340,1620 @@
 </ol>
 <p>Bei Pandas findet in der Regel (1) statt, siehe auch https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#indexing-view-versus-copy.</p>
 <p>Das bedeutet, wenn wir ein verändertes DataFrame erhalten wollen müssen wir dies mit <code class="docutils literal notranslate"><span class="pre">=</span></code> erstellen:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data_na_removed</span> <span class="o">=</span> <span class="n">data_selected</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_na_removed</span> <span class="o">=</span> <span class="n">data_selected</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
 <span class="n">data_na_removed</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>name</th>
+      <th>type1</th>
+      <th>type2</th>
+      <th>speed</th>
+      <th>abilities</th>
+      <th>attack</th>
+      <th>defense</th>
+      <th>height_m</th>
+      <th>hp</th>
+      <th>weight_kg</th>
+      <th>generation</th>
+      <th>is_legendary</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Bulbasaur</td>
+      <td>grass</td>
+      <td>poison</td>
+      <td>45</td>
+      <td>['Overgrow', 'Chlorophyll']</td>
+      <td>49</td>
+      <td>49</td>
+      <td>0.7</td>
+      <td>45</td>
+      <td>6.9</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Ivysaur</td>
+      <td>grass</td>
+      <td>poison</td>
+      <td>60</td>
+      <td>['Overgrow', 'Chlorophyll']</td>
+      <td>62</td>
+      <td>63</td>
+      <td>1.0</td>
+      <td>60</td>
+      <td>13.0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Venusaur</td>
+      <td>grass</td>
+      <td>poison</td>
+      <td>80</td>
+      <td>['Overgrow', 'Chlorophyll']</td>
+      <td>100</td>
+      <td>123</td>
+      <td>2.0</td>
+      <td>80</td>
+      <td>100.0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Charizard</td>
+      <td>fire</td>
+      <td>flying</td>
+      <td>100</td>
+      <td>['Blaze', 'Solar Power']</td>
+      <td>104</td>
+      <td>78</td>
+      <td>1.7</td>
+      <td>78</td>
+      <td>90.5</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>Butterfree</td>
+      <td>bug</td>
+      <td>flying</td>
+      <td>70</td>
+      <td>['Compoundeyes', 'Tinted Lens']</td>
+      <td>45</td>
+      <td>50</td>
+      <td>1.1</td>
+      <td>60</td>
+      <td>32.0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
 </section>
 </section>
-<section id="digging-a-bit-deeper">
-<h2><span class="section-number">19.2. </span>Digging a bit deeper…<a class="headerlink" href="#digging-a-bit-deeper" title="Link to this heading">#</a></h2>
-<p>Gehen wir mit der Analyse der Daten einen Schritt weiter. Was wenn wir mehr über einzelne Gruppen wissen möchten?</p>
+<section id="data-selection">
+<h2><span class="section-number">19.2. </span>Data selection<a class="headerlink" href="#data-selection" title="Link to this heading">#</a></h2>
+<p>Gehen wir mit der Analyse der Daten einen Schritt weiter. Was, wenn wir mehr über einzelne Gruppen wissen möchten? Oder über Einträge die bestimmte Bedingungen erfüllen?</p>
+<section id="option-1-masken">
+<h3><span class="section-number">19.2.1. </span>Option 1: Masken<a class="headerlink" href="#option-1-masken" title="Link to this heading">#</a></h3>
 <p>Über Masken können wir ganz gezielt einzelne Fragen adressieren:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">mask</span> <span class="o">=</span> <span class="n">data_selected</span><span class="p">[</span><span class="s2">&quot;type1&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;bug&quot;</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mask</span> <span class="o">=</span> <span class="n">data_selected</span><span class="p">[</span><span class="s2">&quot;type1&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;bug&quot;</span>
 <span class="n">data_selected</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>name</th>
+      <th>type1</th>
+      <th>type2</th>
+      <th>speed</th>
+      <th>abilities</th>
+      <th>attack</th>
+      <th>defense</th>
+      <th>height_m</th>
+      <th>hp</th>
+      <th>weight_kg</th>
+      <th>generation</th>
+      <th>is_legendary</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>9</th>
+      <td>Caterpie</td>
+      <td>bug</td>
+      <td>NaN</td>
+      <td>45</td>
+      <td>['Shield Dust', 'Run Away']</td>
+      <td>30</td>
+      <td>35</td>
+      <td>0.3</td>
+      <td>45</td>
+      <td>2.9</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>Metapod</td>
+      <td>bug</td>
+      <td>NaN</td>
+      <td>30</td>
+      <td>['Shed Skin']</td>
+      <td>20</td>
+      <td>55</td>
+      <td>0.7</td>
+      <td>50</td>
+      <td>9.9</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>Butterfree</td>
+      <td>bug</td>
+      <td>flying</td>
+      <td>70</td>
+      <td>['Compoundeyes', 'Tinted Lens']</td>
+      <td>45</td>
+      <td>50</td>
+      <td>1.1</td>
+      <td>60</td>
+      <td>32.0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>Weedle</td>
+      <td>bug</td>
+      <td>poison</td>
+      <td>50</td>
+      <td>['Shield Dust', 'Run Away']</td>
+      <td>35</td>
+      <td>30</td>
+      <td>0.3</td>
+      <td>40</td>
+      <td>3.2</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>Kakuna</td>
+      <td>bug</td>
+      <td>poison</td>
+      <td>35</td>
+      <td>['Shed Skin']</td>
+      <td>25</td>
+      <td>50</td>
+      <td>0.6</td>
+      <td>45</td>
+      <td>10.0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
 <p>Über solche Masken können wir auch Eigenschaften über einzelne Gruppen abfragen:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data_selected</span><span class="p">[</span><span class="n">mask</span><span class="p">][</span><span class="s2">&quot;weight_kg&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_selected</span><span class="p">[</span><span class="n">mask</span><span class="p">][</span><span class="s2">&quot;weight_kg&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>Das geht im Prinzip ganz gut und macht was es soll. Doch Pandas hat dafür (natürlich) auch eine Funktion die das noch einfacher macht: <code class="docutils literal notranslate"><span class="pre">groupby()</span></code>.</p>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(33.083333333333336)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="option-2-query">
+<h3><span class="section-number">19.2.2. </span>Option 2: query<a class="headerlink" href="#option-2-query" title="Link to this heading">#</a></h3>
+<p>Pandas bietet auch die Möglichkeit statt mit einer Maske direkt mit der Methode <code class="docutils literal notranslate"><span class="pre">.query</span></code> zu arbeiten.
+Das sieht eventuell etwas netter aus, bietet aber ansonsten keine Vorteile zu den Masken.</p>
+<p>Da Masken sowohl bei Numpy wie auch bei Pandas gehen, bleiben wir im Folgenden bei den Masken.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_selected</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;type1 == &#39;bug&#39;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>name</th>
+      <th>type1</th>
+      <th>type2</th>
+      <th>speed</th>
+      <th>abilities</th>
+      <th>attack</th>
+      <th>defense</th>
+      <th>height_m</th>
+      <th>hp</th>
+      <th>weight_kg</th>
+      <th>generation</th>
+      <th>is_legendary</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>9</th>
+      <td>Caterpie</td>
+      <td>bug</td>
+      <td>NaN</td>
+      <td>45</td>
+      <td>['Shield Dust', 'Run Away']</td>
+      <td>30</td>
+      <td>35</td>
+      <td>0.3</td>
+      <td>45</td>
+      <td>2.9</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>Metapod</td>
+      <td>bug</td>
+      <td>NaN</td>
+      <td>30</td>
+      <td>['Shed Skin']</td>
+      <td>20</td>
+      <td>55</td>
+      <td>0.7</td>
+      <td>50</td>
+      <td>9.9</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>Butterfree</td>
+      <td>bug</td>
+      <td>flying</td>
+      <td>70</td>
+      <td>['Compoundeyes', 'Tinted Lens']</td>
+      <td>45</td>
+      <td>50</td>
+      <td>1.1</td>
+      <td>60</td>
+      <td>32.0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>Weedle</td>
+      <td>bug</td>
+      <td>poison</td>
+      <td>50</td>
+      <td>['Shield Dust', 'Run Away']</td>
+      <td>35</td>
+      <td>30</td>
+      <td>0.3</td>
+      <td>40</td>
+      <td>3.2</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>Kakuna</td>
+      <td>bug</td>
+      <td>poison</td>
+      <td>35</td>
+      <td>['Shed Skin']</td>
+      <td>25</td>
+      <td>50</td>
+      <td>0.6</td>
+      <td>45</td>
+      <td>10.0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="outlook-groupby">
+<h3><span class="section-number">19.2.3. </span>Outlook: groupby<a class="headerlink" href="#outlook-groupby" title="Link to this heading">#</a></h3>
+<p>Für analysen von bestimmten Untergruppen bietet Pandas noch eine Funktion die das noch einfacher macht als mit Masken oder query zu arbeiten: <code class="docutils literal notranslate"><span class="pre">groupby()</span></code>.</p>
+</section>
 </section>
 <section id="groupby">
 <h2><span class="section-number">19.3. </span>Groupby<a class="headerlink" href="#groupby" title="Link to this heading">#</a></h2>
 <p>Pandas <code class="docutils literal notranslate"><span class="pre">grouby</span></code> (siehe <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.groupby.html">Pandas documentation</a>).</p>
 <p>Mit grouby können bei Pandas alle Einträge mit bestimmten Kategorien zusammengefasst werden. Damit lassen sich leicht und schnell viele Eigenschaften vergleichen.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data_selected</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;type1&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_selected</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;type1&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">numeric_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>speed</th>
+      <th>attack</th>
+      <th>defense</th>
+      <th>height_m</th>
+      <th>hp</th>
+      <th>weight_kg</th>
+      <th>generation</th>
+      <th>is_legendary</th>
+    </tr>
+    <tr>
+      <th>type1</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>bug</th>
+      <td>63.569444</td>
+      <td>70.125000</td>
+      <td>70.847222</td>
+      <td>0.883333</td>
+      <td>56.722222</td>
+      <td>33.083333</td>
+      <td>3.763889</td>
+      <td>0.041667</td>
+    </tr>
+    <tr>
+      <th>dark</th>
+      <td>75.310345</td>
+      <td>87.793103</td>
+      <td>70.517241</td>
+      <td>1.296552</td>
+      <td>72.551724</td>
+      <td>69.096552</td>
+      <td>4.275862</td>
+      <td>0.103448</td>
+    </tr>
+    <tr>
+      <th>dragon</th>
+      <td>76.111111</td>
+      <td>106.407407</td>
+      <td>86.259259</td>
+      <td>1.937037</td>
+      <td>79.851852</td>
+      <td>107.125926</td>
+      <td>4.296296</td>
+      <td>0.259259</td>
+    </tr>
+    <tr>
+      <th>electric</th>
+      <td>85.410256</td>
+      <td>70.820513</td>
+      <td>61.820513</td>
+      <td>0.981579</td>
+      <td>60.512821</td>
+      <td>37.944737</td>
+      <td>3.461538</td>
+      <td>0.128205</td>
+    </tr>
+    <tr>
+      <th>fairy</th>
+      <td>53.666667</td>
+      <td>62.111111</td>
+      <td>68.166667</td>
+      <td>0.794444</td>
+      <td>73.944444</td>
+      <td>23.555556</td>
+      <td>4.277778</td>
+      <td>0.055556</td>
+    </tr>
+    <tr>
+      <th>fighting</th>
+      <td>64.285714</td>
+      <td>99.178571</td>
+      <td>66.392857</td>
+      <td>1.196429</td>
+      <td>71.428571</td>
+      <td>58.675000</td>
+      <td>3.750000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>fire</th>
+      <td>73.346154</td>
+      <td>81.500000</td>
+      <td>67.788462</td>
+      <td>1.168000</td>
+      <td>68.730769</td>
+      <td>66.096000</td>
+      <td>3.634615</td>
+      <td>0.096154</td>
+    </tr>
+    <tr>
+      <th>flying</th>
+      <td>99.666667</td>
+      <td>66.666667</td>
+      <td>65.000000</td>
+      <td>1.166667</td>
+      <td>68.000000</td>
+      <td>52.000000</td>
+      <td>5.666667</td>
+      <td>0.333333</td>
+    </tr>
+    <tr>
+      <th>ghost</th>
+      <td>58.333333</td>
+      <td>72.740741</td>
+      <td>79.518519</td>
+      <td>1.251852</td>
+      <td>63.370370</td>
+      <td>69.570370</td>
+      <td>4.370370</td>
+      <td>0.037037</td>
+    </tr>
+    <tr>
+      <th>grass</th>
+      <td>59.025641</td>
+      <td>73.769231</td>
+      <td>70.871795</td>
+      <td>0.938961</td>
+      <td>65.358974</td>
+      <td>33.255844</td>
+      <td>3.935897</td>
+      <td>0.051282</td>
+    </tr>
+    <tr>
+      <th>ground</th>
+      <td>59.968750</td>
+      <td>94.812500</td>
+      <td>83.906250</td>
+      <td>1.340741</td>
+      <td>73.187500</td>
+      <td>150.044444</td>
+      <td>3.343750</td>
+      <td>0.062500</td>
+    </tr>
+    <tr>
+      <th>ice</th>
+      <td>62.739130</td>
+      <td>73.304348</td>
+      <td>71.913043</td>
+      <td>1.208696</td>
+      <td>72.086957</td>
+      <td>103.260870</td>
+      <td>3.565217</td>
+      <td>0.086957</td>
+    </tr>
+    <tr>
+      <th>normal</th>
+      <td>69.533333</td>
+      <td>75.161905</td>
+      <td>59.695238</td>
+      <td>1.024752</td>
+      <td>76.723810</td>
+      <td>46.158416</td>
+      <td>3.495238</td>
+      <td>0.028571</td>
+    </tr>
+    <tr>
+      <th>poison</th>
+      <td>64.187500</td>
+      <td>72.656250</td>
+      <td>70.031250</td>
+      <td>1.160000</td>
+      <td>65.593750</td>
+      <td>33.830000</td>
+      <td>3.093750</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>psychic</th>
+      <td>75.150943</td>
+      <td>65.566038</td>
+      <td>69.264151</td>
+      <td>1.063462</td>
+      <td>72.943396</td>
+      <td>57.328846</td>
+      <td>3.849057</td>
+      <td>0.320755</td>
+    </tr>
+    <tr>
+      <th>rock</th>
+      <td>57.422222</td>
+      <td>90.666667</td>
+      <td>96.266667</td>
+      <td>1.304878</td>
+      <td>66.333333</td>
+      <td>92.946341</td>
+      <td>3.800000</td>
+      <td>0.088889</td>
+    </tr>
+    <tr>
+      <th>steel</th>
+      <td>56.583333</td>
+      <td>93.083333</td>
+      <td>120.208333</td>
+      <td>1.875000</td>
+      <td>66.791667</td>
+      <td>188.841667</td>
+      <td>4.208333</td>
+      <td>0.250000</td>
+    </tr>
+    <tr>
+      <th>water</th>
+      <td>63.921053</td>
+      <td>73.307018</td>
+      <td>73.482456</td>
+      <td>1.283333</td>
+      <td>70.219298</td>
+      <td>51.071930</td>
+      <td>3.210526</td>
+      <td>0.052632</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>Hier sind die Einträge nach dem „type1“ alphabetisch sortiert. Um die Sortierung zu ändern fügen wir einfach ein <code class="docutils literal notranslate"><span class="pre">sort_values()</span></code>hinzu um nach der gewünschten Spalte zu sortieren:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data_selected</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;type1&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">&quot;speed&quot;</span><span class="p">)</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_selected</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;type1&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">numeric_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">&quot;speed&quot;</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>speed</th>
+      <th>attack</th>
+      <th>defense</th>
+      <th>height_m</th>
+      <th>hp</th>
+      <th>weight_kg</th>
+      <th>generation</th>
+      <th>is_legendary</th>
+    </tr>
+    <tr>
+      <th>type1</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>fairy</th>
+      <td>53.666667</td>
+      <td>62.111111</td>
+      <td>68.166667</td>
+      <td>0.794444</td>
+      <td>73.944444</td>
+      <td>23.555556</td>
+      <td>4.277778</td>
+      <td>0.055556</td>
+    </tr>
+    <tr>
+      <th>steel</th>
+      <td>56.583333</td>
+      <td>93.083333</td>
+      <td>120.208333</td>
+      <td>1.875000</td>
+      <td>66.791667</td>
+      <td>188.841667</td>
+      <td>4.208333</td>
+      <td>0.250000</td>
+    </tr>
+    <tr>
+      <th>rock</th>
+      <td>57.422222</td>
+      <td>90.666667</td>
+      <td>96.266667</td>
+      <td>1.304878</td>
+      <td>66.333333</td>
+      <td>92.946341</td>
+      <td>3.800000</td>
+      <td>0.088889</td>
+    </tr>
+    <tr>
+      <th>ghost</th>
+      <td>58.333333</td>
+      <td>72.740741</td>
+      <td>79.518519</td>
+      <td>1.251852</td>
+      <td>63.370370</td>
+      <td>69.570370</td>
+      <td>4.370370</td>
+      <td>0.037037</td>
+    </tr>
+    <tr>
+      <th>grass</th>
+      <td>59.025641</td>
+      <td>73.769231</td>
+      <td>70.871795</td>
+      <td>0.938961</td>
+      <td>65.358974</td>
+      <td>33.255844</td>
+      <td>3.935897</td>
+      <td>0.051282</td>
+    </tr>
+    <tr>
+      <th>ground</th>
+      <td>59.968750</td>
+      <td>94.812500</td>
+      <td>83.906250</td>
+      <td>1.340741</td>
+      <td>73.187500</td>
+      <td>150.044444</td>
+      <td>3.343750</td>
+      <td>0.062500</td>
+    </tr>
+    <tr>
+      <th>ice</th>
+      <td>62.739130</td>
+      <td>73.304348</td>
+      <td>71.913043</td>
+      <td>1.208696</td>
+      <td>72.086957</td>
+      <td>103.260870</td>
+      <td>3.565217</td>
+      <td>0.086957</td>
+    </tr>
+    <tr>
+      <th>bug</th>
+      <td>63.569444</td>
+      <td>70.125000</td>
+      <td>70.847222</td>
+      <td>0.883333</td>
+      <td>56.722222</td>
+      <td>33.083333</td>
+      <td>3.763889</td>
+      <td>0.041667</td>
+    </tr>
+    <tr>
+      <th>water</th>
+      <td>63.921053</td>
+      <td>73.307018</td>
+      <td>73.482456</td>
+      <td>1.283333</td>
+      <td>70.219298</td>
+      <td>51.071930</td>
+      <td>3.210526</td>
+      <td>0.052632</td>
+    </tr>
+    <tr>
+      <th>poison</th>
+      <td>64.187500</td>
+      <td>72.656250</td>
+      <td>70.031250</td>
+      <td>1.160000</td>
+      <td>65.593750</td>
+      <td>33.830000</td>
+      <td>3.093750</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>fighting</th>
+      <td>64.285714</td>
+      <td>99.178571</td>
+      <td>66.392857</td>
+      <td>1.196429</td>
+      <td>71.428571</td>
+      <td>58.675000</td>
+      <td>3.750000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>normal</th>
+      <td>69.533333</td>
+      <td>75.161905</td>
+      <td>59.695238</td>
+      <td>1.024752</td>
+      <td>76.723810</td>
+      <td>46.158416</td>
+      <td>3.495238</td>
+      <td>0.028571</td>
+    </tr>
+    <tr>
+      <th>fire</th>
+      <td>73.346154</td>
+      <td>81.500000</td>
+      <td>67.788462</td>
+      <td>1.168000</td>
+      <td>68.730769</td>
+      <td>66.096000</td>
+      <td>3.634615</td>
+      <td>0.096154</td>
+    </tr>
+    <tr>
+      <th>psychic</th>
+      <td>75.150943</td>
+      <td>65.566038</td>
+      <td>69.264151</td>
+      <td>1.063462</td>
+      <td>72.943396</td>
+      <td>57.328846</td>
+      <td>3.849057</td>
+      <td>0.320755</td>
+    </tr>
+    <tr>
+      <th>dark</th>
+      <td>75.310345</td>
+      <td>87.793103</td>
+      <td>70.517241</td>
+      <td>1.296552</td>
+      <td>72.551724</td>
+      <td>69.096552</td>
+      <td>4.275862</td>
+      <td>0.103448</td>
+    </tr>
+    <tr>
+      <th>dragon</th>
+      <td>76.111111</td>
+      <td>106.407407</td>
+      <td>86.259259</td>
+      <td>1.937037</td>
+      <td>79.851852</td>
+      <td>107.125926</td>
+      <td>4.296296</td>
+      <td>0.259259</td>
+    </tr>
+    <tr>
+      <th>electric</th>
+      <td>85.410256</td>
+      <td>70.820513</td>
+      <td>61.820513</td>
+      <td>0.981579</td>
+      <td>60.512821</td>
+      <td>37.944737</td>
+      <td>3.461538</td>
+      <td>0.128205</td>
+    </tr>
+    <tr>
+      <th>flying</th>
+      <td>99.666667</td>
+      <td>66.666667</td>
+      <td>65.000000</td>
+      <td>1.166667</td>
+      <td>68.000000</td>
+      <td>52.000000</td>
+      <td>5.666667</td>
+      <td>0.333333</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>Groupby kann auch genutzt werden um die Anzahl der Elemente in den jeweiligen Gruppen zu zählen:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data_selected</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;type1&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_selected</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;type1&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>name</th>
+      <th>type2</th>
+      <th>speed</th>
+      <th>abilities</th>
+      <th>attack</th>
+      <th>defense</th>
+      <th>height_m</th>
+      <th>hp</th>
+      <th>weight_kg</th>
+      <th>generation</th>
+      <th>is_legendary</th>
+    </tr>
+    <tr>
+      <th>type1</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>bug</th>
+      <td>72</td>
+      <td>54</td>
+      <td>72</td>
+      <td>72</td>
+      <td>72</td>
+      <td>72</td>
+      <td>72</td>
+      <td>72</td>
+      <td>72</td>
+      <td>72</td>
+      <td>72</td>
+    </tr>
+    <tr>
+      <th>dark</th>
+      <td>29</td>
+      <td>20</td>
+      <td>29</td>
+      <td>29</td>
+      <td>29</td>
+      <td>29</td>
+      <td>29</td>
+      <td>29</td>
+      <td>29</td>
+      <td>29</td>
+      <td>29</td>
+    </tr>
+    <tr>
+      <th>dragon</th>
+      <td>27</td>
+      <td>15</td>
+      <td>27</td>
+      <td>27</td>
+      <td>27</td>
+      <td>27</td>
+      <td>27</td>
+      <td>27</td>
+      <td>27</td>
+      <td>27</td>
+      <td>27</td>
+    </tr>
+    <tr>
+      <th>electric</th>
+      <td>39</td>
+      <td>13</td>
+      <td>39</td>
+      <td>39</td>
+      <td>39</td>
+      <td>39</td>
+      <td>38</td>
+      <td>39</td>
+      <td>38</td>
+      <td>39</td>
+      <td>39</td>
+    </tr>
+    <tr>
+      <th>fairy</th>
+      <td>18</td>
+      <td>2</td>
+      <td>18</td>
+      <td>18</td>
+      <td>18</td>
+      <td>18</td>
+      <td>18</td>
+      <td>18</td>
+      <td>18</td>
+      <td>18</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <th>fighting</th>
+      <td>28</td>
+      <td>6</td>
+      <td>28</td>
+      <td>28</td>
+      <td>28</td>
+      <td>28</td>
+      <td>28</td>
+      <td>28</td>
+      <td>28</td>
+      <td>28</td>
+      <td>28</td>
+    </tr>
+    <tr>
+      <th>fire</th>
+      <td>52</td>
+      <td>25</td>
+      <td>52</td>
+      <td>52</td>
+      <td>52</td>
+      <td>52</td>
+      <td>50</td>
+      <td>52</td>
+      <td>50</td>
+      <td>52</td>
+      <td>52</td>
+    </tr>
+    <tr>
+      <th>flying</th>
+      <td>3</td>
+      <td>2</td>
+      <td>3</td>
+      <td>3</td>
+      <td>3</td>
+      <td>3</td>
+      <td>3</td>
+      <td>3</td>
+      <td>3</td>
+      <td>3</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>ghost</th>
+      <td>27</td>
+      <td>18</td>
+      <td>27</td>
+      <td>27</td>
+      <td>27</td>
+      <td>27</td>
+      <td>27</td>
+      <td>27</td>
+      <td>27</td>
+      <td>27</td>
+      <td>27</td>
+    </tr>
+    <tr>
+      <th>grass</th>
+      <td>78</td>
+      <td>41</td>
+      <td>78</td>
+      <td>78</td>
+      <td>78</td>
+      <td>78</td>
+      <td>77</td>
+      <td>78</td>
+      <td>77</td>
+      <td>78</td>
+      <td>78</td>
+    </tr>
+    <tr>
+      <th>ground</th>
+      <td>32</td>
+      <td>22</td>
+      <td>32</td>
+      <td>32</td>
+      <td>32</td>
+      <td>32</td>
+      <td>27</td>
+      <td>32</td>
+      <td>27</td>
+      <td>32</td>
+      <td>32</td>
+    </tr>
+    <tr>
+      <th>ice</th>
+      <td>23</td>
+      <td>11</td>
+      <td>23</td>
+      <td>23</td>
+      <td>23</td>
+      <td>23</td>
+      <td>23</td>
+      <td>23</td>
+      <td>23</td>
+      <td>23</td>
+      <td>23</td>
+    </tr>
+    <tr>
+      <th>normal</th>
+      <td>105</td>
+      <td>44</td>
+      <td>105</td>
+      <td>105</td>
+      <td>105</td>
+      <td>105</td>
+      <td>101</td>
+      <td>105</td>
+      <td>101</td>
+      <td>105</td>
+      <td>105</td>
+    </tr>
+    <tr>
+      <th>poison</th>
+      <td>32</td>
+      <td>19</td>
+      <td>32</td>
+      <td>32</td>
+      <td>32</td>
+      <td>32</td>
+      <td>30</td>
+      <td>32</td>
+      <td>30</td>
+      <td>32</td>
+      <td>32</td>
+    </tr>
+    <tr>
+      <th>psychic</th>
+      <td>53</td>
+      <td>18</td>
+      <td>53</td>
+      <td>53</td>
+      <td>53</td>
+      <td>53</td>
+      <td>52</td>
+      <td>53</td>
+      <td>52</td>
+      <td>53</td>
+      <td>53</td>
+    </tr>
+    <tr>
+      <th>rock</th>
+      <td>45</td>
+      <td>34</td>
+      <td>45</td>
+      <td>45</td>
+      <td>45</td>
+      <td>45</td>
+      <td>41</td>
+      <td>45</td>
+      <td>41</td>
+      <td>45</td>
+      <td>45</td>
+    </tr>
+    <tr>
+      <th>steel</th>
+      <td>24</td>
+      <td>20</td>
+      <td>24</td>
+      <td>24</td>
+      <td>24</td>
+      <td>24</td>
+      <td>24</td>
+      <td>24</td>
+      <td>24</td>
+      <td>24</td>
+      <td>24</td>
+    </tr>
+    <tr>
+      <th>water</th>
+      <td>114</td>
+      <td>53</td>
+      <td>114</td>
+      <td>114</td>
+      <td>114</td>
+      <td>114</td>
+      <td>114</td>
+      <td>114</td>
+      <td>114</td>
+      <td>114</td>
+      <td>114</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
 <p>Es ist sogar möglich, mehrere groupby Aktionen zu kombinieren und damit Gruppen und Untergruppen zu erstellen:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data_selected</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;type1&quot;</span><span class="p">,</span> <span class="s2">&quot;is_legendary&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_selected</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;type1&quot;</span><span class="p">,</span> <span class="s2">&quot;is_legendary&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">numeric_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th>speed</th>
+      <th>attack</th>
+      <th>defense</th>
+      <th>height_m</th>
+      <th>hp</th>
+      <th>weight_kg</th>
+      <th>generation</th>
+    </tr>
+    <tr>
+      <th>type1</th>
+      <th>is_legendary</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="2" valign="top">bug</th>
+      <th>0</th>
+      <td>61.565217</td>
+      <td>67.434783</td>
+      <td>70.000000</td>
+      <td>0.839130</td>
+      <td>55.579710</td>
+      <td>28.128986</td>
+      <td>3.652174</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>109.666667</td>
+      <td>132.000000</td>
+      <td>90.333333</td>
+      <td>1.900000</td>
+      <td>83.000000</td>
+      <td>147.033333</td>
+      <td>6.333333</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">dark</th>
+      <th>0</th>
+      <td>73.730769</td>
+      <td>85.538462</td>
+      <td>69.500000</td>
+      <td>0.953846</td>
+      <td>64.807692</td>
+      <td>33.165385</td>
+      <td>4.115385</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>89.000000</td>
+      <td>107.333333</td>
+      <td>79.333333</td>
+      <td>4.266667</td>
+      <td>139.666667</td>
+      <td>380.500000</td>
+      <td>5.666667</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">dragon</th>
+      <th>0</th>
+      <td>68.000000</td>
+      <td>98.650000</td>
+      <td>78.900000</td>
+      <td>1.390000</td>
+      <td>67.500000</td>
+      <td>65.065000</td>
+      <td>4.300000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>99.285714</td>
+      <td>128.571429</td>
+      <td>107.285714</td>
+      <td>3.500000</td>
+      <td>115.142857</td>
+      <td>227.300000</td>
+      <td>4.285714</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">electric</th>
+      <th>0</th>
+      <td>82.411765</td>
+      <td>67.000000</td>
+      <td>59.558824</td>
+      <td>0.809091</td>
+      <td>57.294118</td>
+      <td>31.206061</td>
+      <td>3.323529</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>105.800000</td>
+      <td>96.800000</td>
+      <td>77.200000</td>
+      <td>2.120000</td>
+      <td>82.400000</td>
+      <td>82.420000</td>
+      <td>4.400000</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">fairy</th>
+      <th>0</th>
+      <td>51.000000</td>
+      <td>58.058824</td>
+      <td>66.588235</td>
+      <td>0.664706</td>
+      <td>70.882353</td>
+      <td>12.294118</td>
+      <td>4.176471</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>99.000000</td>
+      <td>131.000000</td>
+      <td>95.000000</td>
+      <td>3.000000</td>
+      <td>126.000000</td>
+      <td>215.000000</td>
+      <td>6.000000</td>
+    </tr>
+    <tr>
+      <th>fighting</th>
+      <th>0</th>
+      <td>64.285714</td>
+      <td>99.178571</td>
+      <td>66.392857</td>
+      <td>1.196429</td>
+      <td>71.428571</td>
+      <td>58.675000</td>
+      <td>3.750000</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">fire</th>
+      <th>0</th>
+      <td>72.063830</td>
+      <td>78.574468</td>
+      <td>64.553191</td>
+      <td>1.046667</td>
+      <td>65.787234</td>
+      <td>49.395556</td>
+      <td>3.702128</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>85.400000</td>
+      <td>109.000000</td>
+      <td>98.200000</td>
+      <td>2.260000</td>
+      <td>96.400000</td>
+      <td>216.400000</td>
+      <td>3.000000</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">flying</th>
+      <th>0</th>
+      <td>89.000000</td>
+      <td>50.000000</td>
+      <td>57.500000</td>
+      <td>1.000000</td>
+      <td>62.500000</td>
+      <td>46.500000</td>
+      <td>6.000000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>121.000000</td>
+      <td>100.000000</td>
+      <td>80.000000</td>
+      <td>1.500000</td>
+      <td>79.000000</td>
+      <td>63.000000</td>
+      <td>5.000000</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">ghost</th>
+      <th>0</th>
+      <td>57.115385</td>
+      <td>70.923077</td>
+      <td>78.730769</td>
+      <td>1.126923</td>
+      <td>60.038462</td>
+      <td>43.400000</td>
+      <td>4.384615</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>90.000000</td>
+      <td>120.000000</td>
+      <td>100.000000</td>
+      <td>4.500000</td>
+      <td>150.000000</td>
+      <td>750.000000</td>
+      <td>4.000000</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">grass</th>
+      <th>0</th>
+      <td>56.554054</td>
+      <td>70.945946</td>
+      <td>69.391892</td>
+      <td>0.930137</td>
+      <td>64.567568</td>
+      <td>31.684932</td>
+      <td>3.837838</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>104.750000</td>
+      <td>126.000000</td>
+      <td>98.250000</td>
+      <td>1.100000</td>
+      <td>80.000000</td>
+      <td>61.925000</td>
+      <td>5.750000</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">ground</th>
+      <th>0</th>
+      <td>57.933333</td>
+      <td>90.300000</td>
+      <td>81.166667</td>
+      <td>1.248000</td>
+      <td>71.766667</td>
+      <td>121.328000</td>
+      <td>3.300000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>90.500000</td>
+      <td>162.500000</td>
+      <td>125.000000</td>
+      <td>2.500000</td>
+      <td>94.500000</td>
+      <td>509.000000</td>
+      <td>4.000000</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">ice</th>
+      <th>0</th>
+      <td>62.285714</td>
+      <td>73.857143</td>
+      <td>69.238095</td>
+      <td>1.157143</td>
+      <td>70.857143</td>
+      <td>102.123810</td>
+      <td>3.714286</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>67.500000</td>
+      <td>67.500000</td>
+      <td>100.000000</td>
+      <td>1.750000</td>
+      <td>85.000000</td>
+      <td>115.200000</td>
+      <td>2.000000</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">normal</th>
+      <th>0</th>
+      <td>68.166667</td>
+      <td>73.372549</td>
+      <td>58.313725</td>
+      <td>0.979592</td>
+      <td>75.745098</td>
+      <td>39.954082</td>
+      <td>3.470588</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>116.000000</td>
+      <td>136.000000</td>
+      <td>106.666667</td>
+      <td>2.500000</td>
+      <td>110.000000</td>
+      <td>248.833333</td>
+      <td>4.333333</td>
+    </tr>
+    <tr>
+      <th>poison</th>
+      <th>0</th>
+      <td>64.187500</td>
+      <td>72.656250</td>
+      <td>70.031250</td>
+      <td>1.160000</td>
+      <td>65.593750</td>
+      <td>33.830000</td>
+      <td>3.093750</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">psychic</th>
+      <th>0</th>
+      <td>65.444444</td>
+      <td>50.138889</td>
+      <td>57.277778</td>
+      <td>0.869444</td>
+      <td>65.194444</td>
+      <td>24.561111</td>
+      <td>3.500000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>95.705882</td>
+      <td>98.235294</td>
+      <td>94.647059</td>
+      <td>1.500000</td>
+      <td>89.352941</td>
+      <td>131.056250</td>
+      <td>4.588235</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">rock</th>
+      <th>0</th>
+      <td>53.975610</td>
+      <td>88.731707</td>
+      <td>94.756098</td>
+      <td>1.297297</td>
+      <td>64.756098</td>
+      <td>88.013514</td>
+      <td>3.658537</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>92.750000</td>
+      <td>110.500000</td>
+      <td>111.750000</td>
+      <td>1.375000</td>
+      <td>82.500000</td>
+      <td>138.575000</td>
+      <td>5.250000</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">steel</th>
+      <th>0</th>
+      <td>49.111111</td>
+      <td>91.833333</td>
+      <td>120.444444</td>
+      <td>1.394444</td>
+      <td>58.611111</td>
+      <td>128.483333</td>
+      <td>4.000000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>79.000000</td>
+      <td>96.833333</td>
+      <td>119.500000</td>
+      <td>3.316667</td>
+      <td>91.333333</td>
+      <td>369.916667</td>
+      <td>4.833333</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">water</th>
+      <th>0</th>
+      <td>62.212963</td>
+      <td>71.898148</td>
+      <td>71.916667</td>
+      <td>1.227778</td>
+      <td>69.018519</td>
+      <td>45.149074</td>
+      <td>3.157407</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>94.666667</td>
+      <td>98.666667</td>
+      <td>101.666667</td>
+      <td>2.283333</td>
+      <td>91.833333</td>
+      <td>157.683333</td>
+      <td>4.166667</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>Damit können wir einsehen, welche mittleren Werte ein Pokemon von einem bestimmtem Typ hat, je nachdem ob er „legendary“ ist oder nicht.</p>
 </section>
@@ -553,37 +2961,73 @@
 <h2><span class="section-number">19.4. </span>Plotting<a class="headerlink" href="#plotting" title="Link to this heading">#</a></h2>
 <p>Noch einige kurze Plotting-Beispiele zum Schluss.</p>
 <p>Da wir eben <code class="docutils literal notranslate"><span class="pre">groupby</span></code> benutzt haben, können wir dies auch verwenden um einen Plot zu erzeugen. „stacked=True“ bedeutet hierbei übrigens, dass die verschiedenen Balken aneinander gehängt werden sollen.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cols</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;attack&quot;</span><span class="p">,</span> <span class="s2">&quot;defense&quot;</span><span class="p">,</span> <span class="s2">&quot;hp&quot;</span><span class="p">,</span> <span class="s2">&quot;speed&quot;</span><span class="p">,</span> <span class="s2">&quot;weight_kg&quot;</span><span class="p">]</span>
-<span class="n">data_selected</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;type1&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()[</span><span class="n">cols</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="n">stacked</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cols</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;attack&quot;</span><span class="p">,</span> <span class="s2">&quot;defense&quot;</span><span class="p">,</span> <span class="s2">&quot;hp&quot;</span><span class="p">,</span> <span class="s2">&quot;speed&quot;</span><span class="p">,</span> <span class="s2">&quot;weight_kg&quot;</span><span class="p">]</span>
+<span class="n">data_selected</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;type1&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">numeric_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="n">cols</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="n">stacked</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Es gibt schönere Plots, aber zumindest sehen wir so sehr schnell, dass vor allem der Eintrag „weight_kg“ sehr stark von der jeweiligen type1-Gruppe abhängt! Also gleich noch einen Plot dafür hinterher:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data_selected</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;type1&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()[</span><span class="s2">&quot;weight_kg&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">barh</span><span class="p">()</span>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: ylabel=&#39;type1&#39;&gt;
 </pre></div>
+</div>
+<img alt="../_images/50bae027a93734b23085c53416e0d0ae67ac49b9352b479e05c95572f6b3636e.png" src="../_images/50bae027a93734b23085c53416e0d0ae67ac49b9352b479e05c95572f6b3636e.png" />
+</div>
+</div>
+<p>Es gibt schönere Plots, aber zumindest sehen wir so sehr schnell, dass vor allem der Eintrag „weight_kg“ sehr stark von der jeweiligen type1-Gruppe abhängt! Also gleich noch einen Plot dafür hinterher:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_selected</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;type1&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">numeric_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="s2">&quot;weight_kg&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">barh</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: ylabel=&#39;type1&#39;&gt;
+</pre></div>
+</div>
+<img alt="../_images/13c451150a7c2ae3bfd054e53d8847f36d0ade1282387dae945e24bcf92aa755.png" src="../_images/13c451150a7c2ae3bfd054e53d8847f36d0ade1282387dae945e24bcf92aa755.png" />
+</div>
 </div>
 <section id="intermezzo-data-visualization">
 <h3><span class="section-number">19.4.1. </span>Intermezzo: data visualization<a class="headerlink" href="#intermezzo-data-visualization" title="Link to this heading">#</a></h3>
 <p>Warum ist der Plot hier oben ziemlich mies?</p>
 <p>–&gt; Die Reihenfolge macht es <strong>sehr</strong> unübersichtlich! Stellen Sie sich vor ich frage, welcher Typ auf der Position 3, 4, oder 5 steht…</p>
-<p>–&gt; Die Axenbeschriftung bei der x-Axe fehlt.</p>
+<p>–&gt; Die Axenbeschriftung bei der x-Achse fehlt.</p>
 <p>Allgemein: Pandas plottet mit Hilfe von <a class="reference external" href="https://matplotlib.org/"><code class="docutils literal notranslate"><span class="pre">matplotlib</span></code></a>. Für Aufwendigere Grafiken und Anpassungen werden die Plots darum auch  mit matplotlib programmiert. Aber Pandas gibt eben einen schnellen  Zugang um verschiedene Plots zu erkunden.</p>
 <p>Einfache Anpassungen lassen sich auch durchaus gut mit Pandas machen, bzw. können auch matplotlib Befehle mit Pandas kombiniert werden.</p>
 <p>Darum hier ein weiterer Versuch:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">data_selected</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;type1&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()[</span><span class="s2">&quot;weight_kg&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">barh</span><span class="p">()</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">data_selected</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;type1&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">numeric_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="s2">&quot;weight_kg&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">barh</span><span class="p">()</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;weight [kg]&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0, &#39;weight [kg]&#39;)
+</pre></div>
+</div>
+<img alt="../_images/6a048947f1b4e4a8ee8e5c0e3e90769b1fc4421f3b387ba99a9e82b726e3d2e4.png" src="../_images/6a048947f1b4e4a8ee8e5c0e3e90769b1fc4421f3b387ba99a9e82b726e3d2e4.png" />
+</div>
+</div>
 <p>Bei Pandas werden solche Aufrufe schnell sehr lang und kompliziert, da  immer mehr und mehr Funktionen/Methoden hintereinander gehangen werden  können. Um es etwas übersichtlicher zu machen kann auch mit  Zwischenschritten gearbeitet werden!</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data_groupby_type</span> <span class="o">=</span> <span class="n">data_selected</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;type1&quot;</span><span class="p">)</span>
-<span class="n">data_mean_weight</span> <span class="o">=</span> <span class="n">data_groupby_type</span><span class="o">.</span><span class="n">mean</span><span class="p">()[</span><span class="s2">&quot;weight_kg&quot;</span><span class="p">]</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_groupby_type</span> <span class="o">=</span> <span class="n">data_selected</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;type1&quot;</span><span class="p">)</span>
+<span class="n">data_mean_weight</span> <span class="o">=</span> <span class="n">data_groupby_type</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">numeric_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="s2">&quot;weight_kg&quot;</span><span class="p">]</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">data_mean_weight</span><span class="o">.</span><span class="n">sort_values</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">barh</span><span class="p">()</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;weight [kg]&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-</section>
-<section id="einige-wenige-weitere-beispiele-im-jupyter-notebook-der-vorlesung">
-<h3><span class="section-number">19.4.2. </span>Einige wenige weitere Beispiele im Jupyter Notebook der Vorlesung<a class="headerlink" href="#einige-wenige-weitere-beispiele-im-jupyter-notebook-der-vorlesung" title="Link to this heading">#</a></h3>
-<p>Der gesamte Code und einige weitere Plot Beispiele finden Sie im Jupyter Notebook <code class="docutils literal notranslate"><span class="pre">vorlesung_10_intro_pandas_2.ipynb</span></code> auf Moodle.</p>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0, &#39;weight [kg]&#39;)
+</pre></div>
+</div>
+<img alt="../_images/6a048947f1b4e4a8ee8e5c0e3e90769b1fc4421f3b387ba99a9e82b726e3d2e4.png" src="../_images/6a048947f1b4e4a8ee8e5c0e3e90769b1fc4421f3b387ba99a9e82b726e3d2e4.png" />
+</div>
+</div>
 </section>
 </section>
 <section id="pandas-ist-riesig">
@@ -667,11 +3111,15 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wichtig">19.1.3. Wichtig:</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#digging-a-bit-deeper">19.2. Digging a bit deeper…</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-selection">19.2. Data selection</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#option-1-masken">19.2.1. Option 1: Masken</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#option-2-query">19.2.2. Option 2: query</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#outlook-groupby">19.2.3. Outlook: groupby</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#groupby">19.3. Groupby</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting">19.4. Plotting</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#intermezzo-data-visualization">19.4.1. Intermezzo: data visualization</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#einige-wenige-weitere-beispiele-im-jupyter-notebook-der-vorlesung">19.4.2. Einige wenige weitere Beispiele im Jupyter Notebook der Vorlesung</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas-ist-riesig">19.5. Pandas ist riesig!</a></li>
@@ -723,8 +3171,8 @@ Durch Florian Huber
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
-<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>
