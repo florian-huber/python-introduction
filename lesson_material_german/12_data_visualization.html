@@ -614,7 +614,12 @@
 </ol>
 <p>Der <code class="docutils literal notranslate"><span class="pre">pyplot</span></code>-Ansatz ist der Software MATLAB nachempfunden und lässt sich im Prinzip gut für einfache Plots nutzen. Sobald wir aber komplexere Grafiken erstellen wollen, kommen wir damit ziemlich schnell an Grenzen. Darum werden wir im folgenden v.a. mit dem Objekt-orientierten Ansatz arbeiten, auch wenn der auf den ersten Blick etwas komplizierter wirkt.</p>
 <p>In Matplotlib sind die finalen Grafiken <code class="docutils literal notranslate"><span class="pre">Figure</span></code>-Objekte. Diese Objekte <em>enthalten</em> alle weiteren Objekte der Grafik (die sogennanten <code class="docutils literal notranslate"><span class="pre">Artists</span></code>). Dazu können viele verschiedene Dinge gehören wie im folgenden mit Matplotlib erstellten Plot zu sehen ist:</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -627,7 +632,6 @@
 
 
 <span class="c1"># make the figure</span>
-
 <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">19680801</span><span class="p">)</span>
 
 <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">3.5</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
@@ -666,7 +670,6 @@
 
 
 <span class="c1"># Annotate the figure</span>
-
 <span class="k">def</span> <span class="nf">annotate</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">code</span><span class="p">):</span>
     <span class="c1"># Circle marker</span>
     <span class="n">c</span> <span class="o">=</span> <span class="n">Circle</span><span class="p">((</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span> <span class="n">radius</span><span class="o">=</span><span class="mf">0.15</span><span class="p">,</span> <span class="n">clip_on</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">2.5</span><span class="p">,</span>
@@ -714,6 +717,7 @@
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <img alt="../_images/4bd25ecaea545734c8af8b490f0e5f218cef032b37e4404e26b03fa9501a293c.png" src="../_images/4bd25ecaea545734c8af8b490f0e5f218cef032b37e4404e26b03fa9501a293c.png" />
 </div>
@@ -836,7 +840,7 @@
 <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Y-axis&quot;</span><span class="p">)</span>
 
 <span class="c1"># 3. Bar Plot</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span>
     <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> 
     <span class="n">color</span><span class="o">=</span><span class="n">base_color</span><span class="p">,</span> 
     <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;none&#39;</span>
@@ -903,7 +907,7 @@
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/0eab79f852eebbdfe864878b08d5d2771539ea145352725a3e9460b38f170a8b.png" src="../_images/0eab79f852eebbdfe864878b08d5d2771539ea145352725a3e9460b38f170a8b.png" />
+<img alt="../_images/8c29ae4d17ce3fb48444fdf4f8e683f833fcc3e0dc480b6b397688f8adf56d90.png" src="../_images/8c29ae4d17ce3fb48444fdf4f8e683f833fcc3e0dc480b6b397688f8adf56d90.png" />
 </div>
 </div>
 <section id="bar-plot-balkendiagram">
@@ -1666,7 +1670,7 @@ Für komplexe Plots (mit vielen Subplots) ist aber in der Regel das Objekt-Orien
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f1c64785040&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7fc401bd67b0&gt;
 </pre></div>
 </div>
 <img alt="../_images/0d9ddca3140f3cfef0b7f3f408ec56375c6ba2a3b3f5505e19666b6c112d3d8d.png" src="../_images/0d9ddca3140f3cfef0b7f3f408ec56375c6ba2a3b3f5505e19666b6c112d3d8d.png" />
