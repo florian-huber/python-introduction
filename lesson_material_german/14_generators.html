@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>22. Generators / Iterators &#8212; Einführung Programmieren mit Python</title>
+    <title>23. Generators / Iterators &#8212; Einführung Programmieren mit Python</title>
   
   
   
@@ -30,7 +30,7 @@
   <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 <link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -65,7 +65,7 @@
     <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
     <link rel="search" title="Suche" href="../search.html" />
     <link rel="next" title="Source Code on GitHub" href="github.html" />
-    <link rel="prev" title="21. Python Debugging" href="10_debugging.html" />
+    <link rel="prev" title="22. Python Debugging" href="10_debugging.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="de"/>
   <meta name="docsearch:version" content="" />
@@ -209,11 +209,12 @@
 <li class="toctree-l1"><a class="reference internal" href="09_pandas.html">18. Pandas</a></li>
 <li class="toctree-l1"><a class="reference internal" href="10_pandas_2.html">19. Pandas - Teil 2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="12_data_visualization.html">20. Datenvisualisierung mit Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13_data_visualization_outlook.html">21. 2D/3D Visualisierung &amp; interaktive Plots</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">A few missing things</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="10_debugging.html">21. Python Debugging</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">22. Generators / Iterators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_debugging.html">22. Python Debugging</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">23. Generators / Iterators</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Source Code and Contributions</span></p>
 <ul class="nav bd-sidenav">
@@ -411,13 +412,13 @@
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iterators">22.1. Iterators</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#was-bringt-das">22.1.1. Was bringt das?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iterators">23.1. Iterators</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#was-bringt-das">23.1.1. Was bringt das?</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generators">22.2. Generators</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#beispiel-city-name-generator">22.2.1. Beispiel: city name generator</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unendliche-sequenzen">22.2.2. Unendliche Sequenzen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generators">23.2. Generators</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#beispiel-city-name-generator">23.2.1. Beispiel: city name generator</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unendliche-sequenzen">23.2.2. Unendliche Sequenzen</a></li>
 </ul>
 </li>
 </ul>
@@ -432,7 +433,7 @@
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="generators-iterators">
-<h1><span class="section-number">22. </span>Generators / Iterators<a class="headerlink" href="#generators-iterators" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">23. </span>Generators / Iterators<a class="headerlink" href="#generators-iterators" title="Link to this heading">#</a></h1>
 <p>Wir starten mit einer kurzen Quiz-Frage:</p>
 <blockquote>
 <div><p>Wenn ein Pandas DataFrame erstellt wurde (z.B. indem wir eine .csv-Datei importiert haben mit <code class="docutils literal notranslate"><span class="pre">read_csv()</span></code>). Wo sind die Werte des DataFrames dann gespeichert?</p>
@@ -445,7 +446,7 @@
 <p>Je mehr wir aber in richtig Big Data schauen, umso wichtiger wird dieses Thema werden. Denn der Arbeitsspeicher ist zwar schnell, aber vom Umfang her sehr begrenzt. D.h. es kann in vielen Fällen zu Problemen führen wenn wir zu viele Daten gleichzeitig im Arbeitsspeicher vorhalten wollen.</p>
 <p>Eine Möglichkeit damit besser umzugehen, sind sogenannte Generatoren (<em>generators</em>). Diese bieten die Möglichkeit immer nur so viele Daten zu laden (oder erzeugen) wie aktuell benötigt. Bevor wir zu den <em>generators</em> kommen, starten wir aber mit einer allgemeineren Variante, dem Iterator (<em>iterator</em>).</p>
 <section id="iterators">
-<h2><span class="section-number">22.1. </span>Iterators<a class="headerlink" href="#iterators" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">23.1. </span>Iterators<a class="headerlink" href="#iterators" title="Link to this heading">#</a></h2>
 <p>Iteratoren (iterators) sind in Python Objekte, die durch eine Folge von Werten iterieren können. Sie ermöglichen es, über eine Reihe von Elementen in einer for-Schleife zu iterieren, ohne dass die genaue Anzahl der Elemente im Voraus bekannt sein muss. Ein Iterator-Objekt muss das Iterator-Protokoll implementieren, das die <strong>iter</strong>()- und <strong>next</strong>()-Methoden definiert.</p>
 <p>Die <strong>iter</strong>()-Methode gibt das Iterator-Objekt selbst zurück und wird automatisch aufgerufen, wenn eine for-Schleife gestartet wird. Die <strong>next</strong>()-Methode gibt das nächste Element der Folge zurück und wird automatisch aufgerufen, wenn die for-Schleife das nächste Element abfragt. Wenn kein weiteres Element vorhanden ist, wird eine StopIteration-Ausnahme ausgelöst.</p>
 <p>Ein Beispiel für die Verwendung von Iteratoren ist die Verwendung der built-in-Funktion <code class="docutils literal notranslate"><span class="pre">iter()</span></code> auf einer Liste oder einem Tupel:</p>
@@ -458,7 +459,7 @@
 </div>
 <p>In diesem Beispiel wird die <code class="docutils literal notranslate"><span class="pre">iter()</span></code>-Funktion verwendet, um einen Iterator für die numbers-Liste zu erstellen. Der Iterator wird in der Variablen <code class="docutils literal notranslate"><span class="pre">iterator</span></code> gespeichert. Die <code class="docutils literal notranslate"><span class="pre">next()</span></code>-Funktion wird verwendet, um das nächste  Element im Iterator abzufragen, welches dann ausgegeben wird.</p>
 <section id="was-bringt-das">
-<h3><span class="section-number">22.1.1. </span>Was bringt das?<a class="headerlink" href="#was-bringt-das" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">23.1.1. </span>Was bringt das?<a class="headerlink" href="#was-bringt-das" title="Link to this heading">#</a></h3>
 <p>Auf den ersten Blick ist in diesem Beispiel vielleicht nicht unbedingt klar, was das Interator-Konzept hier bringt. Immerhin könnten wir dafür auch einfach direkt eine for-Schleife nehmen:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
 <span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="n">numbers</span><span class="p">:</span>
@@ -469,12 +470,12 @@
 </section>
 </section>
 <section id="generators">
-<h2><span class="section-number">22.2. </span>Generators<a class="headerlink" href="#generators" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">23.2. </span>Generators<a class="headerlink" href="#generators" title="Link to this heading">#</a></h2>
 <p>Generatoren (generators) sind spezielle Iteratoren, die in Python mit  Hilfe der yield-Anweisung erstellt werden. Sie ermöglichen es, einen  Iterator zu erstellen, ohne die gesamte Folge im Speicher zu speichern.  Stattdessen werden nur die Werte erzeugt, die zurzeit benötigt werden.  Dies macht Generatoren besonders nützlich für die Verarbeitung von  großen Datenmengen oder für die Verarbeitung von unendlichen Folgen.</p>
 <p>In Python lassen sich Generatoren einfach erstellen und zwar fast genau wie wir bisher auch Funktionen definiert haben, mit der wichtigen Ausnahme dass wir <code class="docutils literal notranslate"><span class="pre">yield</span></code> statt <code class="docutils literal notranslate"><span class="pre">return</span></code> verwenden.
 Der Ausdruck <code class="docutils literal notranslate"><span class="pre">yield</span></code> gibt, genau wie return, Werte zurück wenn er im Code erreicht wird. Anders als <code class="docutils literal notranslate"><span class="pre">return</span></code> endet ein Funktionsaufruf allerdings nicht beim <code class="docutils literal notranslate"><span class="pre">yield</span></code> sondern läuft mit dem folgenden Aufruf danach weiter (also z.B. über ein <code class="docutils literal notranslate"><span class="pre">next()</span></code>). Hier ein kurzes Beispiel:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># A simple generator function</span>
-<span class="k">def</span> <span class="nf">my_generator</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">my_generator</span><span class="p">():</span>
     <span class="n">n</span> <span class="o">=</span> <span class="mi">1</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;This is printed first&#39;</span><span class="p">)</span>
     <span class="c1"># Generator function contains yield statements</span>
@@ -493,11 +494,11 @@ Der Ausdruck <code class="docutils literal notranslate"><span class="pre">yield<
 </pre></div>
 </div>
 <section id="beispiel-city-name-generator">
-<h3><span class="section-number">22.2.1. </span>Beispiel: city name generator<a class="headerlink" href="#beispiel-city-name-generator" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">23.2.1. </span>Beispiel: city name generator<a class="headerlink" href="#beispiel-city-name-generator" title="Link to this heading">#</a></h3>
 <p>Stellen wir uns vor, wir wollen sehr viele Stadtnahmen generieren (z.B. für ein Spiel). Dann können wir das auf bisherigem Wege machen über:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
-<span class="k">def</span> <span class="nf">city_name_generator</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">city_name_generator</span><span class="p">():</span>
     <span class="n">beginnings</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Ober&quot;</span><span class="p">,</span> <span class="s2">&quot;Unter&quot;</span><span class="p">,</span> <span class="s2">&quot;Alt&quot;</span><span class="p">,</span> <span class="s2">&quot;Neu&quot;</span><span class="p">,</span> <span class="s2">&quot;Klein&quot;</span><span class="p">,</span> <span class="s2">&quot;Königs&quot;</span><span class="p">,</span> <span class="s2">&quot;Gold&quot;</span><span class="p">]</span>
     <span class="n">middle</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;strom&quot;</span><span class="p">,</span> <span class="s2">&quot;see&quot;</span><span class="p">,</span> <span class="s2">&quot;wald&quot;</span><span class="p">,</span> <span class="s2">&quot;wies&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">]</span>
     <span class="n">endings</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;hausen&quot;</span><span class="p">,</span> <span class="s2">&quot;heim&quot;</span><span class="p">,</span> <span class="s2">&quot;ingen&quot;</span><span class="p">,</span> <span class="s2">&quot;dorf&quot;</span><span class="p">,</span> <span class="s2">&quot;stadt&quot;</span><span class="p">,</span> <span class="s2">&quot;bach&quot;</span><span class="p">]</span>
@@ -510,7 +511,7 @@ Der Ausdruck <code class="docutils literal notranslate"><span class="pre">yield<
 <p>Das gibt mir aber immer nur zufällige Kombinationen aus, also möglicherweise auch viele Dopplungen.</p>
 <p>Wie können wir daraus einen echten Python-Generator machen?
 Eine Möglichkeit wäre wie folgt:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">city_name_generator</span><span class="p">():</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">city_name_generator</span><span class="p">():</span>
     <span class="n">beginnings</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Ober&quot;</span><span class="p">,</span> <span class="s2">&quot;Unter&quot;</span><span class="p">,</span> <span class="s2">&quot;Alt&quot;</span><span class="p">,</span> <span class="s2">&quot;Neu&quot;</span><span class="p">,</span> <span class="s2">&quot;Klein&quot;</span><span class="p">,</span> <span class="s2">&quot;Königs&quot;</span><span class="p">,</span> <span class="s2">&quot;Gold&quot;</span><span class="p">]</span>
     <span class="n">middle</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;strom&quot;</span><span class="p">,</span> <span class="s2">&quot;see&quot;</span><span class="p">,</span> <span class="s2">&quot;wald&quot;</span><span class="p">,</span> <span class="s2">&quot;wies&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">]</span>
     <span class="n">endings</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;hausen&quot;</span><span class="p">,</span> <span class="s2">&quot;heim&quot;</span><span class="p">,</span> <span class="s2">&quot;ingen&quot;</span><span class="p">,</span> <span class="s2">&quot;dorf&quot;</span><span class="p">,</span> <span class="s2">&quot;stadt&quot;</span><span class="p">,</span> <span class="s2">&quot;bach&quot;</span><span class="p">]</span>
@@ -533,9 +534,9 @@ Eine Möglichkeit wäre wie folgt:</p>
 </div>
 </section>
 <section id="unendliche-sequenzen">
-<h3><span class="section-number">22.2.2. </span>Unendliche Sequenzen<a class="headerlink" href="#unendliche-sequenzen" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">23.2.2. </span>Unendliche Sequenzen<a class="headerlink" href="#unendliche-sequenzen" title="Link to this heading">#</a></h3>
 <p>Ein weiterer Anwendungsfall für Generatoren sind unendliche Sequenzen. Hier ein einfaches Beispiel:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">all_seventh</span><span class="p">():</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">all_seventh</span><span class="p">():</span>
     <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
         <span class="k">yield</span> <span class="n">n</span>
@@ -586,7 +587,7 @@ Eine Möglichkeit wäre wie folgt:</p>
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">zurück</p>
-        <p class="prev-next-title"><span class="section-number">21. </span>Python Debugging</p>
+        <p class="prev-next-title"><span class="section-number">22. </span>Python Debugging</p>
       </div>
     </a>
     <a class="right-next"
@@ -615,13 +616,13 @@ Eine Möglichkeit wäre wie folgt:</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iterators">22.1. Iterators</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#was-bringt-das">22.1.1. Was bringt das?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iterators">23.1. Iterators</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#was-bringt-das">23.1.1. Was bringt das?</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generators">22.2. Generators</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#beispiel-city-name-generator">22.2.1. Beispiel: city name generator</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unendliche-sequenzen">22.2.2. Unendliche Sequenzen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generators">23.2. Generators</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#beispiel-city-name-generator">23.2.1. Beispiel: city name generator</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unendliche-sequenzen">23.2.2. Unendliche Sequenzen</a></li>
 </ul>
 </li>
 </ul>

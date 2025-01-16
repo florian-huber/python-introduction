@@ -30,7 +30,7 @@
   <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 <link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -209,11 +209,12 @@
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">18. Pandas</a></li>
 <li class="toctree-l1"><a class="reference internal" href="10_pandas_2.html">19. Pandas - Teil 2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="12_data_visualization.html">20. Datenvisualisierung mit Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13_data_visualization_outlook.html">21. 2D/3D Visualisierung &amp; interaktive Plots</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">A few missing things</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="10_debugging.html">21. Python Debugging</a></li>
-<li class="toctree-l1"><a class="reference internal" href="14_generators.html">22. Generators / Iterators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_debugging.html">22. Python Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="14_generators.html">23. Generators / Iterators</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Source Code and Contributions</span></p>
 <ul class="nav bd-sidenav">
@@ -493,15 +494,15 @@
 <li><p>Mehr Datentypen</p></li>
 </ul>
 <p>Pandas (der Name steht für <strong>Pan</strong>el <strong>Da</strong>ta) wird üblicherweise wie folgt importiert:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 </pre></div>
 </div>
 <p>In Numpy haben wir uns v.a. mit den Numpy Arrays beschäftigt, der zentrale Datentyp in Numpy.</p>
 <p>In Pandas gibt es zwei Datentypen mit denen wir arbeiten werden: <strong>DataFrame</strong> und <strong>Series</strong>. Wir starten mit ersterem.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="n">my_dict</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s2">&quot;city&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Essen&quot;</span><span class="p">,</span> <span class="s2">&quot;Bochum&quot;</span><span class="p">,</span> <span class="s2">&quot;Dortmund&quot;</span><span class="p">],</span>
@@ -522,8 +523,8 @@
 <p>In der Vorlesung wird die Verwendung von Jupyter notebooks vorgeführt und wir werden uns in der nächsten Übung auch damit beschäftigen. Ansonsten gibt es im Internet viel Material zur Benutzung der notebooks, z.B. hier: https://realpython.com/jupyter-notebook-introduction/.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span>
     <span class="p">[</span><span class="s2">&quot;Essen&quot;</span><span class="p">,</span> <span class="mi">591032</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]],</span>
@@ -665,13 +666,13 @@ Name: a, dtype: object
       <th>a</th>
       <td>Essen</td>
       <td>591032</td>
-      <td>0.670515</td>
+      <td>0.999581</td>
     </tr>
     <tr>
       <th>b</th>
       <td>Bochum</td>
       <td>364454</td>
-      <td>0.111489</td>
+      <td>0.398473</td>
     </tr>
   </tbody>
 </table>
@@ -711,12 +712,12 @@ Name: a, dtype: object
     <tr>
       <th>a</th>
       <td>591032</td>
-      <td>0.670515</td>
+      <td>0.999581</td>
     </tr>
     <tr>
       <th>b</th>
       <td>364454</td>
-      <td>0.111489</td>
+      <td>0.398473</td>
     </tr>
   </tbody>
 </table>
@@ -768,21 +769,21 @@ Name: a, dtype: object
       <th>a</th>
       <td>Essen</td>
       <td>591032</td>
-      <td>0.670515</td>
+      <td>0.999581</td>
       <td>116</td>
     </tr>
     <tr>
       <th>b</th>
       <td>Bochum</td>
       <td>364454</td>
-      <td>0.111489</td>
+      <td>0.398473</td>
       <td>100</td>
     </tr>
     <tr>
       <th>c</th>
       <td>Dortmund</td>
       <td>587696</td>
-      <td>0.796427</td>
+      <td>0.990017</td>
       <td>86</td>
     </tr>
   </tbody>
@@ -801,7 +802,7 @@ Name: a, dtype: object
 <p>Das Laden von Daten aus Textdateien geht in der Regel recht einfach mit Pandas, da Pandas entsprechende Funktionen dafür bereitstellt. U.a. zum importieren von CSV oder Excel-Dateien.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 
 <span class="n">root</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
 <span class="n">filename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="s2">&quot;../data&quot;</span><span class="p">,</span> <span class="s1">&#39;pokemon.csv&#39;</span><span class="p">)</span>  <span class="c1"># je nach eigenem Pfad anpassen!</span>

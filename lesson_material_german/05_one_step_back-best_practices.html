@@ -30,7 +30,7 @@
   <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 <link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -209,11 +209,12 @@
 <li class="toctree-l1"><a class="reference internal" href="09_pandas.html">18. Pandas</a></li>
 <li class="toctree-l1"><a class="reference internal" href="10_pandas_2.html">19. Pandas - Teil 2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="12_data_visualization.html">20. Datenvisualisierung mit Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13_data_visualization_outlook.html">21. 2D/3D Visualisierung &amp; interaktive Plots</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">A few missing things</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="10_debugging.html">21. Python Debugging</a></li>
-<li class="toctree-l1"><a class="reference internal" href="14_generators.html">22. Generators / Iterators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_debugging.html">22. Python Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="14_generators.html">23. Generators / Iterators</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Source Code and Contributions</span></p>
 <ul class="nav bd-sidenav">
@@ -452,7 +453,7 @@
 <section id="zen-of-python">
 <h3><span class="section-number">12.1.1. </span>Zen of Python<a class="headerlink" href="#zen-of-python" title="Link to this heading">#</a></h3>
 <p>Bitte einmal den folgenden <code class="docutils literal notranslate"><span class="pre">import</span></code> ausprobieren:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">this</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">this</span>
 </pre></div>
 </div>
 <p>Was Folgendes liefern sollte:</p>
@@ -499,7 +500,7 @@ Beautiful is better than ugly.
 <li><p>Code Dokumentation durch Kommentare im Code oder Docstrings bei Funktionen.</p></li>
 </ul>
 <p>Nochmal ein Beispiel dazu: Was macht der folgende Code:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">handle_x</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">handle_x</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="n">b</span> <span class="o">=</span> <span class="mi">9</span> <span class="o">/</span> <span class="mi">5</span>
     <span class="n">c</span> <span class="o">=</span> <span class="mi">32</span>
     <span class="n">d</span> <span class="o">=</span> <span class="mf">273.15</span>
@@ -511,7 +512,7 @@ Beautiful is better than ugly.
 </div>
 <p>Na? …</p>
 <p>Hier nochmal das gleiche Beispiel mit besseren Variablen- und Funktionsnamen:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">kelvin_to_fahrenheit</span><span class="p">(</span><span class="n">temp_kelvin</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">kelvin_to_fahrenheit</span><span class="p">(</span><span class="n">temp_kelvin</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Umrechnen von Temperatur in Kelvin zu Fahrenheit.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">fahrenheit_factor</span> <span class="o">=</span> <span class="mi">9</span> <span class="o">/</span> <span class="mi">5</span>
@@ -529,9 +530,9 @@ Beautiful is better than ugly.
 <h2><span class="section-number">12.3. </span>Beispiel: Rock-Paper-Scissors<a class="headerlink" href="#beispiel-rock-paper-scissors" title="Link to this heading">#</a></h2>
 <p>Wir wollen jetzt das Spiel Rock-Paper-Scissors (Stein-Schere-Papier) programmieren. Zuerst soll ein menschlicher Spieler gegen den Computer antreten.</p>
 <p>Dafür wir fangen einmal damit an, eine Funktion zu schreiben in der der Computer zufällig eine der drei Möglichkeiten auswählt. Für das Zufallselement nutzen wir wieder die Bibliothek <code class="docutils literal notranslate"><span class="pre">random</span></code>.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
 
-<span class="k">def</span> <span class="nf">rock_paper_scissor</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">rock_paper_scissor</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Returns randomly chosen string: &quot;rock&quot;, &quot;paper&quot;, or &quot;scissor&quot;.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">choice</span> <span class="o">=</span> <span class="kc">None</span>
@@ -547,7 +548,7 @@ Beautiful is better than ugly.
 </div>
 <p>Die Funktion und die Variablen haben sinnvolle Namen, ein Docstring beschreibt ungefähr was die Funktion macht. Also alles in Ordnung, oder?</p>
 <p>Im Prinzip schon. Der Code läuft und man kann ihn verstehen. Aber es geht noch etwas besser:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">rock_paper_scissor</span><span class="p">():</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">rock_paper_scissor</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Returns randomly chosen string: &quot;rock&quot;, &quot;paper&quot;, or &quot;scissor&quot;.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">random_number</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
@@ -561,9 +562,9 @@ Beautiful is better than ugly.
 <p>Warum besser?
 Das wäre so etwas wie das <em>Simple is better than complex.</em> aus dem Python-Zen (und vielleicht ist der Code auch hübscher?). Wir geben hier nämlich direkt die entsprechenden Strings über <code class="docutils literal notranslate"><span class="pre">return</span></code> zurück. Damit brauchen wir kein elif-else mehr. Und auch die Variable <code class="docutils literal notranslate"><span class="pre">choice</span></code> fällt dadurch weg.</p>
 <p>Wir können die Funktion aber auch anders aufbauen, z.B. mit <code class="docutils literal notranslate"><span class="pre">random.choice()</span></code>.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
 
-<span class="k">def</span> <span class="nf">rock_paper_scissor</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">rock_paper_scissor</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Returns randomly chosen string: &quot;rock&quot;, &quot;paper&quot;, or &quot;scissor&quot;.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">choice</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">])</span>
@@ -577,9 +578,9 @@ Das wäre so etwas wie das <em>Simple is better than complex.</em> aus dem Pytho
 <p>Wie wäre das?</p>
 <p>Besser? Schlechter? Anders?</p>
 <p>Wenn man aber schon weiß, dass mit <code class="docutils literal notranslate"><span class="pre">random.choice()</span></code> ein String ausgewählt werden kann, dann geht es auch noch ein ganzen Stück einfacher/eleganter:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
 
-<span class="k">def</span> <span class="nf">rock_paper_scissor</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">rock_paper_scissor</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Returns randomly chosen string: &quot;rock&quot;, &quot;paper&quot;, or &quot;scissor&quot;.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="s2">&quot;rock&quot;</span><span class="p">,</span> <span class="s2">&quot;paper&quot;</span><span class="p">,</span> <span class="s2">&quot;scissor&quot;</span><span class="p">])</span>
@@ -592,7 +593,7 @@ Die Lösung davor, die erst a, b, oder c auswählt macht nämlich einen völlig 
 <p>Wie baue ich jetzt ein ganzen Rock-Paper-Scissors Spiel?</p>
 <p>Natürlich kann man einfach los-programmieren. Für solch ein einfaches Spiel geht das auch noch halbwegs:</p>
 <!-- pytest-codeblocks:skip -->
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">game</span><span class="p">():</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">game</span><span class="p">():</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Yes! Rock-Paper-Scissors!&quot;</span><span class="p">)</span>
     <span class="n">computer_choice</span> <span class="o">=</span> <span class="n">rock_paper_scissor</span><span class="p">()</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;What is your choice?&quot;</span><span class="p">)</span>
@@ -630,7 +631,7 @@ Die Lösung davor, die erst a, b, oder c auswählt macht nämlich einen völlig 
 <p>Ein Zen-Spruch der hier zutreffen würde ist <em>Flat is better than nested</em>. Denn wir sehen hier drei verschachtelte<code class="docutils literal notranslate"><span class="pre">if</span></code>-Verzweigungen!</p>
 <p>Die äußere <code class="docutils literal notranslate"><span class="pre">if</span></code>Verzweigung soll nur sicherstellen, dass keine falsche Eingabe stattgefunden hat. Das lässt sich aber auch mit <code class="docutils literal notranslate"><span class="pre">assert</span></code>erledigen:</p>
 <!-- pytest-codeblocks:skip -->
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">game</span><span class="p">():</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">game</span><span class="p">():</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Yes! Rock-Paper-Scissors!&quot;</span><span class="p">)</span>
     <span class="n">computer_choice</span> <span class="o">=</span> <span class="n">rock_paper_scissor</span><span class="p">()</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;I made my choice. What is yours?&quot;</span><span class="p">)</span>
@@ -671,7 +672,7 @@ Die Lösung davor, die erst a, b, oder c auswählt macht nämlich einen völlig 
 <p>Den ersten Teil haben wir schon mit unserer Funktion <code class="docutils literal notranslate"><span class="pre">rock_paper_scissor()</span></code> abgedeckt.</p>
 <p>Ein Vorschlag für den Rest wäre der folgende Code:</p>
 <!-- pytest-codeblocks:skip -->
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">user_choice</span><span class="p">():</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">user_choice</span><span class="p">():</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;What is your choice?&quot;</span><span class="p">)</span>
     <span class="n">human_choice</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;a) rock, b) paper, c) scissor ... :&quot;</span><span class="p">)</span>
     <span class="n">choices_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="s2">&quot;rock&quot;</span><span class="p">,</span>
@@ -680,7 +681,7 @@ Die Lösung davor, die erst a, b, oder c auswählt macht nämlich einen völlig 
     <span class="k">assert</span> <span class="n">human_choice</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">],</span> <span class="s2">&quot;Invalid user input.&quot;</span>    
     <span class="k">return</span> <span class="n">choices_dict</span><span class="p">[</span><span class="n">human_choice</span><span class="p">]</span>
     
-<span class="k">def</span> <span class="nf">who_won</span><span class="p">(</span><span class="n">hand1</span><span class="p">,</span> <span class="n">hand2</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">who_won</span><span class="p">(</span><span class="n">hand1</span><span class="p">,</span> <span class="n">hand2</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Check which player wins.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">hand1</span> <span class="o">==</span> <span class="n">hand2</span><span class="p">:</span>  <span class="c1"># Drawn</span>
@@ -695,7 +696,7 @@ Die Lösung davor, die erst a, b, oder c auswählt macht nämlich einen völlig 
     <span class="k">return</span> <span class="n">endings</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">hand1</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">hand2</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">]</span>
 
 
-<span class="k">def</span> <span class="nf">play_game</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">play_game</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Play one round of rock-paper-scissors against the computer.</span>
 <span class="sd">    &quot;&quot;&quot;</span>      
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Yes! Rock-Paper-Scissors!&quot;</span><span class="p">)</span>
@@ -733,7 +734,7 @@ Damit können sie auch viel einfacher verändert oder ergänzt werden.</p></li>
 <p>Bisher haben wir ausschließlich mit Standard-Bibliotheken gearbeitet, die bei einer normalen Python Installation gleich mit dabei sind.</p>
 <p>D.h. wenn wir <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">time</span></code> oder <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">random</span></code> aufgerufen haben, wurde die entsprechende Bibliothek einfach importiert und stand zur Verfügung. Das ist aber nicht die Regel. Sehr viele Bibliotheken müssen erst installiert werden.</p>
 <p>Ist eine Bibliothek noch nicht installiert liefert dies ansonsten einen <code class="docutils literal notranslate"><span class="pre">ModulNotFoundError</span></code>.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
 
 <span class="go">ModuleNotFoundError: No module named &#39;seaborn&#39;</span>
 </pre></div>

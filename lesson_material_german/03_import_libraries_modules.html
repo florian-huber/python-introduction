@@ -30,7 +30,7 @@
   <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 <link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -209,11 +209,12 @@
 <li class="toctree-l1"><a class="reference internal" href="09_pandas.html">18. Pandas</a></li>
 <li class="toctree-l1"><a class="reference internal" href="10_pandas_2.html">19. Pandas - Teil 2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="12_data_visualization.html">20. Datenvisualisierung mit Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13_data_visualization_outlook.html">21. 2D/3D Visualisierung &amp; interaktive Plots</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">A few missing things</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="10_debugging.html">21. Python Debugging</a></li>
-<li class="toctree-l1"><a class="reference internal" href="14_generators.html">22. Generators / Iterators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_debugging.html">22. Python Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="14_generators.html">23. Generators / Iterators</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Source Code and Contributions</span></p>
 <ul class="nav bd-sidenav">
@@ -432,32 +433,32 @@
 <h1><span class="section-number">7. </span>Import aus Bibliotheken/Modulen<a class="headerlink" href="#import-aus-bibliotheken-modulen" title="Link to this heading">#</a></h1>
 <p>Eine der grossen Stärken von Python ist das es sehr viele gute Bibliotheken (libraries) gibt. Diese werden als Bibliotheken oder auch als „Packages“ oder „Modules“ bezeichnet. Python Bibliotheken sind eigentlich nichts weiter als online verfügbarer Code. Typischerweise enthalten Bibliotheken nützliche Funktionen für bestimmte Zwecke und in der Regel sind Bibliotheken so aufgebaut, dass die darin enthaltenen Funktionen thematisch zusammen passen. Ein Beispiel für eine solche Bibliothek wäre <code class="docutils literal notranslate"><span class="pre">math</span></code>, wie der Name vielleicht schon andeutet eine Bibliothek für mathematische Funktionen.</p>
 <p>Sofern eine Bibliothek installiert ist (dazu in der übung mehr) importiert man diese so:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;pi ist </span><span class="si">{</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Sinus von pi/2 ist </span><span class="si">{</span><span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Alternativ können aber auch nur Teile einer Bibliothek importiert werden.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">pi</span>  <span class="c1"># nur einen Teil importieren!</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">math</span><span class="w"> </span><span class="kn">import</span> <span class="n">pi</span>  <span class="c1"># nur einen Teil importieren!</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">pi</span><span class="p">)</span>  <span class="c1"># =&gt; 3.141592653589793</span>
 </pre></div>
 </div>
 <p>Beim Importieren können wenn nötig auch die Namen geändert werden:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sin</span> <span class="k">as</span> <span class="n">sine_function</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">math</span><span class="w"> </span><span class="kn">import</span> <span class="n">sin</span> <span class="k">as</span> <span class="n">sine_function</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">sine_function</span><span class="p">(</span><span class="mf">1.0</span><span class="p">))</span>  <span class="c1"># =&gt; 0.8414709848078965</span>
 </pre></div>
 </div>
 <section id="python-universe">
 <h2><span class="section-number">7.1. </span>Python universe<a class="headerlink" href="#python-universe" title="Link to this heading">#</a></h2>
 <p>Für Python gibt eine Unzahl von Bibliotheken. Einige davon werden wir im Laufe des Semesters einsetzen. Gerade haben wir schon kurz <code class="docutils literal notranslate"><span class="pre">math</span></code> gesehen, eine weitere häufig genutzte Bibliothek ist <code class="docutils literal notranslate"><span class="pre">random</span></code> zur Erzeugung von <strong>Zufallszahlen</strong>.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">randint</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">random</span><span class="w"> </span><span class="kn">import</span> <span class="n">randint</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
 </pre></div>
 </div>
 <p>oder:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">randint</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">random</span><span class="w"> </span><span class="kn">import</span> <span class="n">randint</span>
 
 <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
@@ -468,9 +469,9 @@
 <h2><span class="section-number">7.2. </span>Eigene/lokale Funktionen importieren<a class="headerlink" href="#eigene-lokale-funktionen-importieren" title="Link to this heading">#</a></h2>
 <p>Es ist ebenso möglich eigene Funktionen aus <code class="docutils literal notranslate"><span class="pre">.py</span></code> Dateien zu importieren.</p>
 <p>Wenn wir z.B. folgende Funktion schreiben:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">randint</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">random</span><span class="w"> </span><span class="kn">import</span> <span class="n">randint</span>
 
-<span class="k">def</span> <span class="nf">dices</span><span class="p">(</span><span class="n">n_dices</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">dices</span><span class="p">(</span><span class="n">n_dices</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Returns n_dices random dice results (dice with 1 to 6).</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">dice_results</span> <span class="o">=</span> <span class="p">[]</span>
@@ -481,7 +482,7 @@
 </div>
 <p>und diese in einer Datei <code class="docutils literal notranslate"><span class="pre">dice_functions.py</span></code> speichern, dann können wir die Funktion importieren über (wenn wir uns im selben Ordner befinden!):</p>
 <!-- pytest-codeblocks:skip -->
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dice_functions</span> <span class="kn">import</span> <span class="n">dices</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">dice_functions</span><span class="w"> </span><span class="kn">import</span> <span class="n">dices</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">dices</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
 </pre></div>

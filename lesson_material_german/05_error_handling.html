@@ -30,7 +30,7 @@
   <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 <link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -209,11 +209,12 @@
 <li class="toctree-l1"><a class="reference internal" href="09_pandas.html">18. Pandas</a></li>
 <li class="toctree-l1"><a class="reference internal" href="10_pandas_2.html">19. Pandas - Teil 2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="12_data_visualization.html">20. Datenvisualisierung mit Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13_data_visualization_outlook.html">21. 2D/3D Visualisierung &amp; interaktive Plots</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">A few missing things</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="10_debugging.html">21. Python Debugging</a></li>
-<li class="toctree-l1"><a class="reference internal" href="14_generators.html">22. Generators / Iterators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_debugging.html">22. Python Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="14_generators.html">23. Generators / Iterators</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Source Code and Contributions</span></p>
 <ul class="nav bd-sidenav">
@@ -452,7 +453,7 @@ und wirklich auf Fehler im geschriebenen Code hinweisen, z.B.
 <code class="docutils literal notranslate"><span class="pre">else</span> <span class="pre">=</span> <span class="pre">5</span></code> was in Python (zum Glück) nicht erlaubt ist!
 Fehler können allerdings auch als Teil laufender Programme auftreten
 und nicht immer wollen wir das dadurch die Programmausführung stoppt.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">divider</span><span class="p">(</span><span class="n">zahl</span><span class="p">,</span> <span class="n">geteilt_durch</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">divider</span><span class="p">(</span><span class="n">zahl</span><span class="p">,</span> <span class="n">geteilt_durch</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Teilt zahl durch geteilt_durch.</span>
 <span class="sd">    </span>
 <span class="sd">    Bei Division durch 0 wird None ausgegeben.</span>
@@ -481,7 +482,7 @@ Besser ist darum den Fehler „abzufangen“. Das geht in Python mit <code class
 </pre></div>
 </div>
 <p>Zurück zum divider Programm:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">divider</span><span class="p">(</span><span class="n">zahl</span><span class="p">,</span> <span class="n">geteilt_durch</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">divider</span><span class="p">(</span><span class="n">zahl</span><span class="p">,</span> <span class="n">geteilt_durch</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Teilt zahl durch geteilt_durch.</span>
 <span class="sd">    </span>
 <span class="sd">    Bei Division durch 0 wird None ausgegeben.</span>
@@ -534,7 +535,7 @@ Das geht zum einen mit <code class="docutils literal notranslate"><span class="p
 </pre></div>
 </div>
 <p>Beispiel:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">hour_to_am_pm</span><span class="p">(</span><span class="n">hour</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">hour_to_am_pm</span><span class="p">(</span><span class="n">hour</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Convert 24-hours to 12-hour clock.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">assert</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">hour</span> <span class="o">&lt;=</span> <span class="mi">24</span><span class="p">,</span> <span class="s2">&quot;hour must be between 0 and 24&quot;</span>

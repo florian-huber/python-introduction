@@ -30,7 +30,7 @@
   <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 <link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -209,11 +209,12 @@
 <li class="toctree-l1"><a class="reference internal" href="09_pandas.html">18. Pandas</a></li>
 <li class="toctree-l1"><a class="reference internal" href="10_pandas_2.html">19. Pandas - Teil 2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="12_data_visualization.html">20. Datenvisualisierung mit Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13_data_visualization_outlook.html">21. 2D/3D Visualisierung &amp; interaktive Plots</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">A few missing things</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="10_debugging.html">21. Python Debugging</a></li>
-<li class="toctree-l1"><a class="reference internal" href="14_generators.html">22. Generators / Iterators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_debugging.html">22. Python Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="14_generators.html">23. Generators / Iterators</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Source Code and Contributions</span></p>
 <ul class="nav bd-sidenav">
@@ -442,7 +443,7 @@ Zur Erinnerung: Fakutät von <em>n</em> ist das Produkt aller ganzen Zahlen von 
 Zum Beispiel wäre die Fakultät von vier:<br />
 <code class="docutils literal notranslate"><span class="pre">4!</span> <span class="pre">=</span> <span class="pre">1</span> <span class="pre">*</span> <span class="pre">2</span> <span class="pre">*</span> <span class="pre">3</span> <span class="pre">*</span> <span class="pre">4</span> <span class="pre">=</span> <span class="pre">24</span></code><br />
 Eine Python Funktion dazu könnte man so schreiben:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">factorial_recursive</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">factorial_recursive</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
     <span class="c1"># Base case: 1! = 1</span>
     <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
         <span class="k">return</span> <span class="mi">1</span>
@@ -464,8 +465,8 @@ Häufig haben rekursive Funktionen das Problem das sie schnell sehr langsam und 
 <p>Als Lokale Funktionen bezeichnet man Funktionen die innerhalb einer anderen
 Funktion definiert werden.</p>
 <!--pytest-codeblocks:skip-->
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">outer_function</span><span class="p">():</span>
-    <span class="k">def</span> <span class="nf">inner_function</span><span class="p">():</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">outer_function</span><span class="p">():</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">inner_function</span><span class="p">():</span>
         <span class="k">pass</span> <span class="c1"># hier kommt der Code der inneren Funktion hin</span>
 
     <span class="c1"># hier ist die eigentliche Funktion und die benutzt inner_function</span>
@@ -473,8 +474,8 @@ Funktion definiert werden.</p>
 </pre></div>
 </div>
 <p>Ein erstes Beispiel einer solchen Funktion (<code class="docutils literal notranslate"><span class="pre">double_n_times()</span></code>) mit lokaler/innerer Funktion (<code class="docutils literal notranslate"><span class="pre">double_number()</span></code>):</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">double_n_times</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">double_number</span><span class="p">(</span><span class="n">number</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">double_n_times</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">double_number</span><span class="p">(</span><span class="n">number</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">number</span> <span class="o">*</span> <span class="mi">2</span>
 
     <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
@@ -485,10 +486,10 @@ Funktion definiert werden.</p>
 </pre></div>
 </div>
 <p>Und hier ein Beispiel im Bereich String-Handling (Hinweis: <code class="docutils literal notranslate"><span class="pre">.lower()</span></code> ist eine String-Methode und ändert alle Buchstaben in einem String zu Kleinbuchstaben):</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">greeting</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">greeting</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Prints a greeting that depends on the given name string.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">def</span> <span class="nf">is_friend</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">is_friend</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
         <span class="n">friends_list</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;tom&quot;</span><span class="p">,</span> <span class="s2">&quot;anna&quot;</span><span class="p">,</span> <span class="s2">&quot;erik&quot;</span><span class="p">]</span>
         <span class="k">return</span> <span class="n">name</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">in</span> <span class="n">friends_list</span>
 
@@ -534,14 +535,14 @@ und zu importieren, z.B. mit <code class="docutils literal notranslate"><span cl
 <li><p>die äussere Funktion lesbarer machen</p></li>
 </ul>
 <p>Stellen wir uns vor die Funktion <code class="docutils literal notranslate"><span class="pre">is_friend</span></code> würde nun in zwei weiteren Funktionen eingesetzt. Dann müsste sie in beiden lokal definiert werden. Das ist aber umständlich und sehr fehleranfällig (z.B. wenn eine geändert wird, die andere aber versehentlich nicht). Darum würde man in diesem Fall lieber eine eigene Funktion definieren (oder importieren):</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">is_friend</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">is_friend</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Return True if name is in friends_list</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">friends_list</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;tom&quot;</span><span class="p">,</span> <span class="s2">&quot;anna&quot;</span><span class="p">,</span> <span class="s2">&quot;erik&quot;</span><span class="p">]</span>
     <span class="k">return</span> <span class="n">name</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">in</span> <span class="n">friends_list</span>
 
 
-<span class="k">def</span> <span class="nf">greeting</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">greeting</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Prints a greeting depending on the name string.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">is_friend</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
@@ -550,7 +551,7 @@ und zu importieren, z.B. mit <code class="docutils literal notranslate"><span cl
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Hello </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
         
         
-<span class="k">def</span> <span class="nf">goodbye</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">goodbye</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Prints a goodbye depending on the name string.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">is_friend</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
@@ -564,14 +565,14 @@ und zu importieren, z.B. mit <code class="docutils literal notranslate"><span cl
 <h3><span class="section-number">8.2.2. </span>Funktionen mit variabler Parameter-Anzahl<a class="headerlink" href="#funktionen-mit-variabler-parameter-anzahl" title="Link to this heading">#</a></h3>
 <p>Alle bisherigen Funktionen die wir angeschaut haben, erwarten eine bestimmte Anzahl an Parametern. Eventuell gibt es einige mit default-Wert die ausgelassen werden können, aber es dürfen auf keinen Fall mehr als die definierten Parameter übergeben werden.</p>
 <!--pytest-codeblocks:expect-error-->
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">multiply_all</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">multiply_all</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">*</span> <span class="n">b</span> <span class="o">*</span> <span class="n">c</span><span class="p">)</span>
 
 <span class="n">multiply_all</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>  <span class="c1"># =&gt; TypeError: multiply_all() takes 3 positional arguments but 4 were given</span>
 </pre></div>
 </div>
 <p>Wenn wir die Anzahl aber wie in diesem Fall bewusst offen lassen möchten können wir in Python <code class="docutils literal notranslate"><span class="pre">\*args</span></code> benutzen (kurz für <em>arguments</em>).</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">multiply_all</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">multiply_all</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
     <span class="n">product</span> <span class="o">=</span> <span class="mi">1</span>
     <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">args</span><span class="p">:</span>
         <span class="n">product</span> <span class="o">*=</span> <span class="n">num</span>
@@ -594,8 +595,8 @@ Es gibt in Python genauso auch <code class="docutils literal notranslate"><span 
 <ul class="simple">
 <li><p>Nur am Rande 2: Für solche Operationen gibt es in Python fast immer schon irgendwo eine Funktion die genutzt werden kann. Hier z.B. in der Bibliothek <code class="docutils literal notranslate"><span class="pre">math</span></code> die wir schon gesehen hatten.</p></li>
 </ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
-<span class="k">def</span> <span class="nf">multiply_all</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">multiply_all</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">prod</span><span class="p">(</span><span class="n">args</span><span class="p">))</span>
 
 <span class="n">multiply_all</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
@@ -606,7 +607,7 @@ Es gibt in Python genauso auch <code class="docutils literal notranslate"><span 
 <h3><span class="section-number">8.2.3. </span>**kwargs -&gt; variable Anzahl benannter Parameter<a class="headerlink" href="#kwargs-variable-anzahl-benannter-parameter" title="Link to this heading">#</a></h3>
 <p>Analog zu <code class="docutils literal notranslate"><span class="pre">\*args</span></code> können mit <code class="docutils literal notranslate"><span class="pre">\*\*kwargs</span></code> auch benannte Parameter in unbestimmter Anzahl an eine Funktion übergeben werden. Dies wird aber eher später von Bedeutung sein wenn wir mit komplexeren Funktionen jonglieren.
 Trotzdem schonmal ein Beispiel dazu:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">guess_the_animal</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">guess_the_animal</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Give some hints as keywords-value pairs for guessing an animal.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hi! Can you guess what animal I mean?&quot;</span><span class="p">)</span>
