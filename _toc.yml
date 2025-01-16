@@ -42,6 +42,7 @@ parts:
     - file: lesson_material_german/09_pandas
     - file: lesson_material_german/10_pandas_2
     - file: lesson_material_german/12_data_visualization
+    - file: lesson_material_german/13_data_visualization_outlook
   - caption: A few missing things
     numbered: true
     chapters:
