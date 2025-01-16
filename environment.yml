@@ -4,6 +4,9 @@ dependencies:
   - numpy
   - pandas
   - matplotlib
+  - altair
+  - bokeh
+  - plotly
   - jupyter
   - spyder>=5.*
   - scikit-learn
