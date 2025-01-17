@@ -1,0 +1,53 @@
+Traceback (most recent call last):
+  File "/home/runner/micromamba/envs/python_introduction/lib/python3.12/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/home/runner/micromamba/envs/python_introduction/lib/python3.12/site-packages/nbclient/client.py", line 1319, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/micromamba/envs/python_introduction/lib/python3.12/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/micromamba/envs/python_introduction/lib/python3.12/asyncio/base_events.py", line 686, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/home/runner/micromamba/envs/python_introduction/lib/python3.12/site-packages/nbclient/client.py", line 709, in async_execute
+    await self.async_execute_cell(
+  File "/home/runner/micromamba/envs/python_introduction/lib/python3.12/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/home/runner/micromamba/envs/python_introduction/lib/python3.12/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+import plotly.graph_objects as go
+
+# Read data from a csv
+z_data = pd.read_csv('https://raw.githubusercontent.com/plotly/datasets/master/api_docs/mt_bruno_elevation.csv')
+
+# Create the figure
+fig = go.Figure(data=[go.Surface(z=z_data.values, colorscale='Viridis', showscale=False)])
+
+# Update layout
+fig.update_layout(
+    title='Mt Bruno Elevation',
+    autosize=False,
+    width=800,
+    height=800,
+    margin=dict(l=65, r=50, b=65, t=90)
+)
+
+fig.show()
+
+------------------
+
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+Cell [0;32mIn[14], line 4[0m
+[1;32m      1[0m [38;5;28;01mimport[39;00m[38;5;250m [39m[38;5;21;01mplotly[39;00m[38;5;21;01m.[39;00m[38;5;21;01mgraph_objects[39;00m[38;5;250m [39m[38;5;28;01mas[39;00m[38;5;250m [39m[38;5;21;01mgo[39;00m
+[1;32m      3[0m [38;5;66;03m# Read data from a csv[39;00m
+[0;32m----> 4[0m z_data [38;5;241m=[39m [43mpd[49m[38;5;241m.[39mread_csv([38;5;124m'[39m[38;5;124mhttps://raw.githubusercontent.com/plotly/datasets/master/api_docs/mt_bruno_elevation.csv[39m[38;5;124m'[39m)
+[1;32m      6[0m [38;5;66;03m# Create the figure[39;00m
+[1;32m      7[0m fig [38;5;241m=[39m go[38;5;241m.[39mFigure(data[38;5;241m=[39m[go[38;5;241m.[39mSurface(z[38;5;241m=[39mz_data[38;5;241m.[39mvalues, colorscale[38;5;241m=[39m[38;5;124m'[39m[38;5;124mViridis[39m[38;5;124m'[39m, showscale[38;5;241m=[39m[38;5;28;01mFalse[39;00m)])
+
+[0;31mNameError[0m: name 'pd' is not defined
+
