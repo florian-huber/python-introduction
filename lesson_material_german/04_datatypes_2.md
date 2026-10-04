@@ -355,7 +355,7 @@ Dictionaries sind - wie z.B. auch Listen - veränderbare (mutable) Datentypen be
 
 ```python
 my_list = [1, 2, 3]
-my_list2 = my_list1
+my_list2 = my_list
 my_list2[0] = 4321
 print(my_list[0])  # -> 4321
 ```
@@ -365,7 +365,7 @@ Eine mögliche Lösung stell hier die Methode `copy()` dar.
 
 ```python
 my_list = [1, 2, 3]
-my_list2 = my_list1.copy()
+my_list2 = my_list.copy()
 my_list2[0] = 4321
 print(my_list[0])  # -> 1
 ```
