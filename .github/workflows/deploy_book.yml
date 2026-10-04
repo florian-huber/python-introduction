@@ -4,11 +4,6 @@ on:
   release:
     types: [published]
   workflow_dispatch:
-    inputs:
-      tag:
-        description: Tag for manually running the deploy book workflow
-        required: true
-        type: string
 
 permissions:
   contents: write
@@ -24,8 +19,6 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v7
-        with:
-          ref: ${{ github.event_name == 'release' && github.event.release.tag_name || inputs.tag }}
 
       - name: Set up uv and Python
         uses: astral-sh/setup-uv@v10.0.0
@@ -36,6 +29,7 @@ jobs:
 
       - name: Python and uv info
         run: |
+          which python
           python --version
           uv --version
 
