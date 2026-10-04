@@ -12,8 +12,9 @@ Hier ein Beispiel für eine Datei `testfile.txt` die sich im selben Ordner befin
 <!--pytest-codeblocks:skip-->
 
 ```python 
-data = open("testfile.txt", "r")
+data = open("testfile.txt", "r", encoding="utf-8")
 print(data.readline())  # => 'Hier mal ein wenig Text zum Testen.\n'
+data.close()
 ```
 Neben dem Dateinamen wird hier auch `"r"` angegeben, was für den Modus der
 Funktion steht. Die wichtigsten Varianten davon finden sich in der Tabelle:
@@ -27,16 +28,17 @@ Funktion steht. Die wichtigsten Varianten davon finden sich in der Tabelle:
 |     wb      |     write -> Schreiben, Binärmodus    |                                                                                                                                                                                                                 |
 |     a       |     Anhängen, Textmodus               |     Dateicursor am Ende der Datei. Der bisherige Inhalt wird nicht   gelöscht, es wird am Ende weiter geschrieben.                                                                                              |
 |     ab      |     Anhängen, Binärmodus              |                                                                                                                                                                                                                 |
-|     x       |                                       |     Gleich wie r (rb),   aber existierende Dateien werden nicht überschrieben.                                                                                                                                  |
-|     xb      |                                       |                                                                                                                                                                                                                 |
+|     x       |     exklusives Erstellen, Textmodus  |     Erstellt eine neue Datei zum Schreiben. Falls die Datei bereits existiert, wird ein `FileExistsError` ausgelöst.                                                                                             |
+|     xb      |     exklusives Erstellen, Binärmodus |                                                                                                                                                                                                                 |
 
 
 Es ist auch einfach möglich die Datei Zeile für Zeile auszulesen.
 <!--pytest-codeblocks:skip-->
 ```python 
-data = open("testfile.txt", "r")
+data = open("testfile.txt", "r", encoding="utf-8")
 for line in data:
     print(line)
+data.close()
 ```
 Sollte die Datei sich nicht im selben Ordner befinden, muss der Pfad noch 
 zum Dateinamen hinzugefügt werden.
@@ -49,14 +51,14 @@ Es ist auch möglich dies über *relative* Pfadangaben zu machen, z.B.
 - `data = open("my_data/testfile2.txt", "r")` oder:
   `data = open("my_data\\testfile2.txt", "r")`
 
-Eine weitere Möglichkeit (dazu kommen wir später noch ausführlicher), ist die Nutzung von Python-Bibliotheken zum Pfad-Handling, z.B. `os`.
+Eine weitere Möglichkeit (dazu kommen wir später noch ausführlicher), ist die Nutzung von Python-Modulen zum Pfad-Handling, z.B. `pathlib` oder `os`.
 
 ### Write
 Das Schreiben von Dateien geschieht über `write()`. Aber auch hier wird
 zuerst eine Datei geöffnet um anschließend in diese Datei zu schreiben.
 
 ```python 
-output = open("ouput_file.txt", "w")
+output = open("output_file.txt", "w")
 text = "Kommen wir nun zu etwas völlig anderem."
 output.write(text + "\n")
 output.close()
@@ -64,20 +66,20 @@ output.close()
 Während im mode "w" (write) jedes Mal eine neue Datei erstellt wird, können
 wir mit "a" auch eine vorhandene Datei weiter schreiben.
 ```python 
-output = open("ouput_file.txt", "a")
+output = open("output_file.txt", "a")
 output.write("So. Ja. Genau.\n")
 output.write("Ja " * 5 + "\n")
 output.close()
 ```
-Im Alltag häufig einfach als open/close ist das verwenden von `with`:
+Im Alltag ist `with` meist bequemer und sicherer als ein manuelles `open()`/`close()`, weil die Datei am Ende des Blocks automatisch geschlossen wird:
 
 ```python 
-with open("ouput_file.txt", "w") as file:
+with open("output_file.txt", "w") as file:
     for i in range(1, 6):
         file.write(f"Zeile {i} \n")
 ```
 ```python 
-with open("ouput_file.txt", "r") as file:
+with open("output_file.txt", "r") as file:
     for line in file:
         if "3" in line:
             print(line)
@@ -87,19 +89,18 @@ Computer kennen erstmal keine Buchstaben oder Zeichen, sondern nur Bytes. Bytes 
 
 Es gibt zahlreiche verschiedene Kodierungen, die häufigsten sind aber:
 ### ASCII
-ASCII steht für *American Standard Code for Information Interchange* und kann 256 verschiedene Zeichen darstellen. Die meisten Sonderzeichen sind daher nicht enthalten.
+ASCII steht für *American Standard Code for Information Interchange* und definiert 128 Zeichen (0 bis 127), darunter die englischen Buchstaben, Ziffern und einige Steuerzeichen. Umlaute oder viele andere Schriftsysteme sind darin nicht enthalten.
 
 ### Unicode
-Unicode ist mittlerweile der Standard, v.a. im Internet (HTML 4.0) und enthält mehr als 100.000 Zeichen.
-Es gibt verschiedene Unicode Kodierungen, am meisten genutzt in Python ist allerdings **utf-8** da dies relativ elegant (=Speicher sparend) die Zeichen kodieren kann.
+Unicode definiert einen sehr großen gemeinsamen Zeichenvorrat für Schriftsysteme und Symbole aus aller Welt. **UTF-8** ist eine weit verbreitete Kodierung, mit der Unicode-Zeichen als Bytes gespeichert werden. UTF-8 ist heute für Textdateien und Web-Inhalte ein sehr häufiger Standard.
 
 Für mehr Informationen zu diesem Thema: https://wiki.selfhtml.org/wiki/Zeichencodierung
 
-Sollten einmal Probleme mit Umlauten/Sonderzeichen auftreten, liegt dies in der Regal daran, dass bei einer Textdatei nicht richtig zwischen ASCII und utf-8 konvertiert wurde.
+Sollten einmal Probleme mit Umlauten oder anderen Sonderzeichen auftreten, wurde eine Textdatei häufig mit einer anderen Kodierung gelesen oder geschrieben als erwartet.
 
-Um sicher zu gehen, kann de Kodierung mit angegeben werden:
+Um sicher zu gehen, kann die Kodierung mit angegeben werden:
 ```python 
-with open("ouput_file.txt", "w", encoding="utf-8") as file:
+with open("output_file.txt", "w", encoding="utf-8") as file:
     for i in range(1, 6):
         file.write(f"Zeile {i} \n")
 ```
