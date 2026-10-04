@@ -1,60 +1,121 @@
 # Erste Schritte mit Python
 
-In dieser Veranstaltungen wird Programmieren gelernt und zwar mit der Programmiersprache Python. Python wir euch aber auch das restliche DAISY-Studium über begleiten, denn wir arbeiten in sehr vielen Lehrveranstaltungen und Projekten damit. Um auch zuhause mit Python loslegen zu können, muss erstmal Python auf dem eigenen Rechner installiert werden. Und hier gibt es verschiedene Möglichkeiten: In vielen Fällen ist Python sogar schon auf dem Rechner vorinstalliert (z.B. bei Macs).
-
-Falls Python nicht vorinstalliert ist, kann es über die offizielle Website heruntergeladen werden: [python.org](https://www.python.org/). Allerdings benötigen wir für diesen Kurs mehr als nur die Programmiersprache selbst, weshalb wir eine andere, umfassendere Lösung empfehlen:
+In dieser Veranstaltung lernen wir Programmieren mit der Programmiersprache Python. Python wird euch auch im restlichen DAISY-Studium begleiten, denn wir arbeiten in vielen Lehrveranstaltungen und Projekten damit. Für den Kurs richten wir eine einheitliche Python-Version und einen gemeinsamen Editor ein.
 
 ## Python installieren
 
-### Python und Anaconda
+Für diesen Kurs arbeiten wir mit **Python 3.14**. Installiert am besten die jeweils aktuelle Python-3.14.x-Version von der offiziellen Seite: [python.org](https://www.python.org/downloads/).
 
-Die einfachste und bequemste Methode, um mit Python zu arbeiten, ist die Installation von **Anaconda**, einem Softwarepaket, das für Studierende kostenlos ist. Anaconda enthält neben Python auch viele nützliche Bibliotheken und Tools, die speziell für Data Science und Künstliche Intelligenz entwickelt wurden. Ein solches Tool ist die integrierte Entwicklungsumgebung (IDE) **Spyder**, die das Schreiben und Ausführen von Python-Code erleichtert.
+Nach der Installation könnt ihr im Terminal prüfen, ob Python gefunden wird:
 
-Anaconda könnt ihr hier herunterladen: [Anaconda download link](https://www.anaconda.com/download/success)
+```bash
+python --version
+```
 
-Wählt die "Free Download"-Version aus, wobei keine E-Mail-Registrierung notwendig ist (einfach auf "skip registration" klicken). Achtet bei der Installation unter **Windows** darauf, das Häkchen bei der Frage, ob Anaconda zu eurem `PATH` hinzugefügt werden soll, zu setzen. Dies ist wichtig, damit Python in der Kommandozeile erkannt wird.
+Je nach Betriebssystem kann der Befehl auch `python3 --version` lauten. Entscheidend ist, dass eine Python-Version **3.14.x** angezeigt wird.
 
-### Alternative: Miniconda
+### Visual Studio Code
 
-Für diejenigen, die sich bereits gut mit ihrem Computer auskennen oder eine minimale Installation bevorzugen, empfehlen wir die Installation von [**Miniconda**](https://docs.anaconda.com/miniconda/). Miniconda installiert nur die nötigsten Komponenten, und ihr könnt später individuell entscheiden, welche zusätzlichen Bibliotheken ihr benötigt. Dies erfordert jedoch ein wenig mehr Konfigurationsarbeit.
+Als Editor verwenden wir im Kurs **Visual Studio Code (VS Code)**. VS Code kann kostenlos von [code.visualstudio.com](https://code.visualstudio.com/) installiert werden. Zusätzlich benötigen wir die offizielle **Python-Erweiterung** von Microsoft.
 
+Damit VS Code weiß, welches Python es verwenden soll, kann über die Command Palette (`Ctrl+Shift+P` bzw. `Cmd+Shift+P`) der Befehl **Python: Select Interpreter** aufgerufen werden. Später wählen wir dort in der Regel die Python-Version aus dem jeweiligen Projekt-Environment (`.venv`) aus.
+
+### `uv` und virtuelle Environments
+
+Python-Projekte sollen ihre benötigten Bibliotheken möglichst nicht alle in eine einzige globale Python-Installation schreiben. Dafür nutzen wir **virtuelle Environments**. Im Kurs verwenden wir dafür `uv`, ein schnelles Werkzeug zum Verwalten von Python-Versionen, Environments und Paketen.
+
+Die Installationsanleitung für `uv` findet ihr in der [offiziellen uv-Dokumentation](https://docs.astral.sh/uv/getting-started/installation/). Danach sollte
+
+```bash
+uv --version
+```
+
+eine Versionsnummer ausgeben.
+
+Ein Environment im aktuellen Projektordner erstellen wir z.B. so:
+
+```bash
+uv venv --python 3.14
+```
+
+Standardmäßig entsteht dabei der Ordner `.venv`. Aktivieren lässt sich das Environment mit:
+
+```bash
+# macOS / Linux
+source .venv/bin/activate
+```
+
+oder unter Windows PowerShell:
+
+```powershell
+.\.venv\Scripts\Activate.ps1
+```
+
+VS Code erkennt ein lokales `.venv` normalerweise automatisch. Falls nicht, wählen wir es über **Python: Select Interpreter** aus.
 
 ### Wie wird Python ausgeführt?
 
-Sobald Python (über Anaconda oder Miniconda) installiert ist, gibt es verschiedene Möglichkeiten, Python-Code auszuführen. Die wichtigsten Methoden, die wir im Kurs verwenden werden, sind die Kommandozeile und die integrierte Entwicklungsumgebung (IDE) Spyder.
+Python-Code können wir auf verschiedene Arten ausführen. Die beiden wichtigsten Varianten in diesem Kurs sind das Terminal und VS Code.
 
 ### Python in der Kommandozeile
 
-Eine einfache Möglichkeit, Python auszuführen, ist über die **Kommandozeile** (oder das Terminal auf Mac/Linux). Um dies zu tun, öffnet ihr die Kommandozeile und gebt den Befehl `python` oder `python3` ein, je nachdem, wie Python auf eurem System eingerichtet ist. Ihr solltet nun eine Python-Eingabeaufforderung sehen, die etwa so aussieht:
+Eine einfache Möglichkeit ist der interaktive Python-Modus im **Terminal**. Gebt dazu `python` (oder je nach System `python3`) ein. Ihr solltet eine Python-Eingabeaufforderung sehen, die ungefähr so aussieht:
 
 ```
-Python 3.x.x (default, ...)
-[GCC ...] on linux
+Python 3.14.x (...)
 Type "help", "copyright", "credits" or "license" for more information.
 >>>
 ```
 
-Hier könnt ihr einfache Python-Befehle direkt eingeben und sofort ausführen. Zum Beispiel:
+Hier könnt ihr einzelne Python-Befehle direkt eingeben und ausführen:
+
 ```
 >>> print("Hallo, Welt!")
+Hallo, Welt!
 ```
 
-### Python in der IDE Spyder
+### Python in VS Code
 
-Eine komfortablere Möglichkeit, Python zu nutzen, bietet die integrierte Entwicklungsumgebung (IDE für "Integrated Development Environment") **Spyder**, die mit Anaconda geliefert wird aber auch frei davon als Open-Source Software verfügbar ist. Spyder bietet eine grafische Benutzeroberfläche, in der ihr euren Code schreiben, ausführen und die Ergebnisse sehen könnt. Hier ist der Arbeitsablauf in Spyder:
+Den meisten Programmcode werden wir im **Editor** von VS Code schreiben und als `.py`-Dateien speichern. Eine geöffnete Python-Datei kann über **Run Python File** ausgeführt werden; die Ausgabe erscheint im integrierten Terminal.
 
-1. **Editor:** Im Hauptfenster von Spyder schreibt ihr euren Python-Code im Editor. Hier könnt ihr auch größere Programme oder Skripte schreiben, die aus mehreren Zeilen Code bestehen.
-2. **Ausführen:** Um euren Code auszuführen, klickt ihr auf das grüne "Play"-Symbol oben im Fenster oder drückt die Tastenkombination `F5`. Der Code wird ausgeführt, und die Ergebnisse erscheinen in der **Konsole**.
-3. **Variablen-Explorer:** Ein weiterer Vorteil von Spyder ist der **Variablen-Explorer**, der es euch ermöglicht, alle aktuell im Programm verwendeten Variablen zu sehen. Dies ist besonders nützlich, um den Überblick über größere Datenmengen zu behalten, was im Bereich Data Science oft der Fall ist.
+VS Code bietet außerdem Syntax-Highlighting, Code-Vervollständigung, Hinweise auf mögliche Fehler und einen Debugger. Wichtig ist dabei immer, dass für das Projekt der richtige Python-Interpreter ausgewählt ist.
 
-Spyder ist eine leistungsfähige Umgebung für das Schreiben und Debuggen von Python-Code. Es bietet viele Funktionen, die euch helfen, effizienter zu arbeiten, wie z.B. Code-Vervollständigung, Syntax-Highlighting und integrierte Debugging-Tools.
-Im Laufe des Studiums werden viele auch zu anderen Editoren greifen, allem voran **Visual Studio Code** das einen noch großeren Funktionsumfang bietet. Insbesondere für Anfänger*innen ist Spyder aber oft übersichtlicher weshalb wir im Kurs in diesem Semester damit arbeiten werden.
+## Fehlermeldungen gehören dazu
 
-Den meisten Programmcode werden wir hier im **Editor** erstellen. Die erlaubt es, umfangreicheren Code über viele Zeilen zu schreiben und als `.py`-Dateien zu speichern. Spyder, wie die meisten IDEs für Python gibt dabei auch regelmäßig hinweise auf mögliche Fehler oder andere Hilfestellungen. Wichtig an dieser Stelle ist zudem, dass wir eben nicht nur Code sondern auch Kommentare erstellen können.
+Beim Programmieren werden ständig Fehlermeldungen auftreten. Das ist normal und ein wichtiger Teil des Lernens. Besonders hilfreich ist meist die **letzte Zeile** einer Fehlermeldung: Dort stehen der Fehlertyp und eine kurze Beschreibung.
+
+Ein paar typische Beispiele:
+
+<!-- pytest-codeblocks:expect-error -->
+```python
+print(dies)  # => NameError: name 'dies' is not defined
+```
+
+<!-- pytest-codeblocks:expect-error -->
+```python
+else = 5  # => SyntaxError
+```
+
+<!-- pytest-codeblocks:expect-error -->
+```python
+"5" + 2  # => TypeError
+```
+
+<!-- pytest-codeblocks:expect-error -->
+```python
+int("five")  # => ValueError
+```
+
+<!-- pytest-codeblocks:expect-error -->
+```python
+5 / 0  # => ZeroDivisionError
+```
+
+Später kommen weitere Fehlertypen dazu, z.B. `FileNotFoundError`, wenn eine angeforderte Datei nicht gefunden wird. Wichtig ist die Unterscheidung: Ein **Syntaxfehler** verhindert bereits das Starten des Programms; andere Fehler treten erst während der Ausführung auf. Und nicht jeder Programmfehler erzeugt überhaupt eine Fehlermeldung: Ein Programm kann auch ohne Exception laufen und trotzdem ein falsches Ergebnis berechnen.
 
 ## Kommentare in Python
 
-Beim Programmieren ist es oft hilfreich, Kommentare in den Code einzufügen, um bestimmte Abschnitte zu erklären oder Notizen für sich selbst oder andere Entwickler*innen zu hinterlassen. Kommentare werden vom Python-Interpreter ignoriert und haben keinen Einfluss auf die Ausführung des Programms. Es gibt zwei Möglichkeiten, Kommentare in Python hinzuzufügen:
+Beim Programmieren ist es oft hilfreich, Kommentare in den Code einzufügen, um bestimmte Abschnitte zu erklären oder Notizen für sich selbst oder andere Entwickler*innen zu hinterlassen. Kommentare werden vom Python-Interpreter ignoriert und haben keinen Einfluss auf die Ausführung des Programms. Für normale Kommentare verwenden wir das Zeichen `#`:
 
 **Einzeilige Kommentare**
 
@@ -68,19 +129,19 @@ Im obigen Beispiel wird die Zeile mit dem `print`-Befehl ausgeführt, während d
 
 **Mehrzeilige Kommentare**
 
-Für **mehrzeilige Kommentare** gibt es keine spezielle Syntax in Python, aber man kann dafür dreifache Anführungszeichen (`"""` oder `'''`) verwenden, um einen sogenannten **Docstring** zu erstellen. Obwohl Docstrings in erster Linie zur Dokumentation von Funktionen oder Klassen verwendet werden, können sie auch genutzt werden, um längere Kommentare im Code einzufügen:
+Eine eigene Syntax für mehrzeilige Kommentare gibt es in Python nicht. Wenn mehrere Zeilen kommentiert werden sollen, setzt man normalerweise vor jede Zeile ein `#`:
 
 ```python
-"""
-Dies ist ein mehrzeiliger Kommentar.
-Er kann verwendet werden, um ausführliche Erklärungen oder Dokumentation hinzuzufügen.
-"""
+# Dieser Kommentar geht über
+# mehrere Zeilen.
 print("Hallo, Welt!")
 ```
 
+Dreifache Anführungszeichen (`"""` oder `'''`) erzeugen dagegen einen **mehrzeiligen String**. An bestimmten Stellen, z.B. direkt am Anfang einer Funktion oder Klasse, wird ein solcher String als **Docstring** zur Dokumentation verwendet. Er ist also nicht einfach eine zweite Kommentar-Syntax.
+
 ## Ausführen von Python Code
 
-Nachdem Python auf eurem Rechner installiert ist, gibt es verschiedene Wege, euren Python-Code auszuführen. Je nach Anwendungsfall könnt ihr zwischen der **Kommandozeile**, einer integrierten Entwicklungsumgebung (IDE) wie **Spyder**, oder speziellen Editoren wie **Visual Studio Code** wählen.
+Nachdem Python auf eurem Rechner installiert ist, gibt es verschiedene Wege, euren Python-Code auszuführen. Je nach Anwendungsfall könnt ihr z.B. das **Terminal** oder **Visual Studio Code** verwenden.
 
 ### Ausführen von Python-Skripten über die Kommandozeile
 
@@ -102,7 +163,7 @@ So geht's:
    cd /Ordner1/Ordner2
    ```
 
-2. **Führt euer Skript aus**, indem ihr den Befehl `python` oder `python3` (je nach eurer Installation) gefolgt vom Namen eures Skripts eingebt:
+2. **Führt euer Skript aus**, indem ihr `python` (oder je nach System `python3`) gefolgt vom Namen eures Skripts eingebt:
 
    ```bash
    python my_script.py
