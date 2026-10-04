@@ -1,8 +1,8 @@
 # Import aus Bibliotheken/Modulen
 
-Eine der grossen Stärken von Python ist das es sehr viele gute Bibliotheken (libraries) gibt. Diese werden als Bibliotheken oder auch als "Packages" oder "Modules" bezeichnet. Python Bibliotheken sind eigentlich nichts weiter als online verfügbarer Code. Typischerweise enthalten Bibliotheken nützliche Funktionen für bestimmte Zwecke und in der Regel sind Bibliotheken so aufgebaut, dass die darin enthaltenen Funktionen thematisch zusammen passen. Ein Beispiel für eine solche Bibliothek wäre `math`, wie der Name vielleicht schon andeutet eine Bibliothek für mathematische Funktionen.
+Eine der großen Stärken von Python ist die große Zahl an Modulen, Packages und Bibliotheken. Die Begriffe werden im Alltag manchmal locker vermischt, bedeuten aber nicht ganz dasselbe: Ein **Modul** ist eine importierbare Python-Datei bzw. ein eingebautes Modul, ein **Package** bündelt mehrere Module, und **Bibliothek** ist ein allgemeinerer Begriff für wiederverwendbaren Code.
 
-Sofern eine Bibliothek installiert ist (dazu in der übung mehr) importiert man diese so:
+Ein Beispiel ist `math`: Dieses Modul gehört bereits zur Python-Standardbibliothek und muss daher nicht extra installiert werden. Importiert wird es so:
 
 ```python
 import math
