@@ -155,10 +155,19 @@ Macht Sinn.
 
 Aber Moment! Woher weiß Python überhaupt was ein `integer (int)`, ein `float`, or ein `string (str)` ist? Wir haben es doch nirgendwo vorher definiert.
 
-## Duck Typing
+## Dynamische Typisierung und Duck Typing
 
-Python nutzt ein Prinzip namens **duck typing**, bei dem der Datentyp automatisch zugewiesen wird, basierend auf den vorliegenden Werten (ausser wir legen gezielt etwas anderes fest). Duck Typing heißt das Ganze wegen einem alten Romanzitat:
-(*"When I see a bird that walks like a duck and swims like a duck and quacks like a duck, I call that bird a duck."*, see [Duck test (wikipedia](https://en.wikipedia.org/wiki/Duck_test#History)))
+Python ist **dynamisch typisiert**. Das bedeutet: Werte bzw. Objekte haben einen Datentyp, aber ein Variablenname ist nicht dauerhaft auf einen bestimmten Typ festgelegt. Darum kann derselbe Name nacheinander auf unterschiedliche Datentypen verweisen.
+
+```python
+value = 5
+print(type(value))  # int
+
+value = "five"
+print(type(value))  # str
+```
+
+Davon zu unterscheiden ist **Duck Typing**. Dabei ist für Code häufig weniger wichtig, zu welcher konkreten Klasse ein Objekt gehört, sondern ob es die benötigten Operationen unterstützt. Vereinfacht: Wenn ein Objekt sich für die aktuelle Aufgabe passend verhält, kann es verwendet werden.
 
 ## Datentypen ändern
 Es gibt Situationen, in denen wir explizit einen Datentyp ändern möchten, z. B. von `float` zu `int`:
@@ -175,7 +184,7 @@ Nur Vorsicht! Dies ist keine Rundung, sondern ein Abschneiden der Nachkommastell
 >>> int(12.9)
 12
 ```
-(Wenn gerundet werden soll, bitte `int(round(12.9))`nutzten)
+(Wenn gerundet werden soll, bitte z.B. `round(12.9)` nutzen.)
 
 Zahlen können auch aus Strings erstellt werden:
 ```

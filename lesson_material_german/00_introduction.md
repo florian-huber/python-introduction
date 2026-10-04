@@ -21,7 +21,7 @@ Hier im Kurs werden wir das Programmieren mit **Python** lernen. Aber warum Pyth
 
 ## Python
 
-Python ist eine interpretierte Programmiersprache mit dynamischer Typisierung. Das bedeutet, dass der in Python geschriebene Code nicht kompiliert werden muss, bevor er ausgeführt wird. Stattdessen wird der Code direkt in einem sogenannten **Interpreter** interpretiert und ausgeführt. Dies ermöglicht eine schnelle und flexible Entwicklung, die besonders im Bereich Data Science und KI von Vorteil ist, wo häufig schnelle Anpassungen und Iterationen notwendig sind. Aus diesem Grund wird Python oft als **Skriptsprache** bezeichnet.
+Python ist eine Programmiersprache mit dynamischer Typisierung, die typischerweise über einen **Interpreter** ausgeführt wird. Anders als bei vielen klassischen kompilierten Sprachen ist für uns dabei kein eigener Kompilierungsschritt nötig: Wir starten ein Python-Programm direkt mit dem Python-Interpreter. Die verbreitete CPython-Implementierung übersetzt den Quellcode intern zunächst in Bytecode und führt diesen anschließend aus. Diese Arbeitsweise ermöglicht eine schnelle und flexible Entwicklung, was besonders im Bereich Data Science und KI praktisch ist.
 
 ![Types of programming languages](../images/types_of_programming_languages.png)
 
