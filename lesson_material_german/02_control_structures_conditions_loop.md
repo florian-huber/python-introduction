@@ -2,7 +2,7 @@
 
 ## Skripte und Programme
 
-Beim Programmieren haben wir es häufig mit mehreren Befehlen zu tun, die aufeinander folgen und zusammen ausgeführt werden. Wenn mehrere solche Befehle untereinander geschrieben und in einer integrierten Entwicklungsumgebung (IDE) wie **Spyder** ausgeführt werden, sprechen wir von einem **Skript** oder einem **Programm**.
+Beim Programmieren haben wir es häufig mit mehreren Befehlen zu tun, die aufeinander folgen und zusammen ausgeführt werden. Wenn mehrere solche Befehle untereinander geschrieben und z.B. in **VS Code** ausgeführt werden, sprechen wir von einem **Skript** oder einem **Programm**.
 
 ### Unterschied zwischen Skript und Programm
 
@@ -91,106 +91,82 @@ print(4.01 == 4)  # => False
 ```
 ### Unterschied zwischen `is` und `==`
 
-Ein häufiger Anfängerfehler ist die Verwechslung zwischen `is` und `==`. Beide Operatoren haben nämlich unterschiedliche Bedeutungen:
+Ein häufiger Anfängerfehler ist die Verwechslung zwischen `is` und `==`. Beide Operatoren haben unterschiedliche Aufgaben:
 
-- `==` prüft, ob zwei Objekte den **gleichen Wert** haben.
-- `is` prüft, ob zwei Objekte auf die **gleiche Speicheradresse** zeigen, also tatsächlich identisch sind.
+- `==` prüft, ob zwei Objekte den **gleichen Wert/Inhalt** haben.
+- `is` prüft, ob zwei Namen auf **dasselbe Objekt** verweisen (Objektidentität).
+
+Mit Listen lässt sich der Unterschied zuverlässig zeigen:
 
 ```python 
-a = 12345678
-b = 12345678
+a = [1, 2, 3]
+b = [1, 2, 3]
+
+print(a == b)  # => True: gleicher Inhalt
+print(a is b)  # => False: zwei verschiedene Listen
+```
+
+Wenn wir dagegen dieselbe Liste unter zwei Namen referenzieren, ist auch `is` wahr:
+
+```python 
+a = [1, 2, 3]
+b = a
+
 print(a == b)  # => True
-```
-Soweit ist das noch keine große Überraschung. Möglicherweise aber doch, dass wir mit `is` nicht das gleiche Ergebnis bekommen: 
-<!-- pytest-codeblocks:cont -->
-
-```python 
-print(a is b)  # => False
+print(a is b)  # => True
 ```
 
-Aber warum ist das eigentlich so?
-Um das zu verstehen müssen wir noch einmal zurück zum Thema Variablen springen.
-
-Wir hatten schon gesehen, dass Variablen Zuweisungen zu Werten irgendwo im Speicher sind. 
-
-`is` bezieht sich in Python auf eine Abfrage die darauf zielt zu sehen ob es sich um ein und Dasselbe Objekt handelt. Genauer eigentlich, ob zwei Objekte gleich sind und an der selben Speicheradresse hinterlegt sind.
-Dies kann auch über `id()` (von identity) ausgegeben werden:
-<!-- pytest-codeblocks:cont -->
-
-```python 
-print(id(a))
-print(id(b))
-print(id(a) != id(b))  # => True
-```
 ![image-20221009213424266](../images/python_assign_variables.png)
 
-In der Praxis werden wir aber nur sehr selten mit `is` Abfragen in diesem Kontext zu tun haben. Doch zu verstehen was "hinter der Bühne" abläuft hilft auch bei einer anderen noch viel wichtigeren Unterscheidung die wir in Python berücksichtigen müssen. In Python unterscheiden wir Datentypen nach veränderbar (**mutable**) und unveränderbar (**immutable**). 
+Mit `id()` können wir die Identität eines Objekts als Integerwert sichtbar machen. In CPython hängt dieser Wert häufig mit der Speicheradresse zusammen, darauf sollte sich Programmcode aber nicht verlassen.
 
-**Veränderbare Datentypen** erlauben es, dass deren Werte dynamisch verändert werden können. Zu dieser Kategorie zählen Listen, Sets (kommen später) und Dictionaries (kommen später).
+```python 
+a = [1, 2, 3]
+b = a
+print(id(a) == id(b))  # => True
+```
 
-**Unveränderbare Datentypen** erlaben es nicht, dass die Werte nachträglich geändert werden. Dazu zählen  Zahlen (int, float), Boolean, String und Tuples.
+In der Praxis verwenden wir `is` nur selten für normale Wertvergleiche. Ein sehr typischer Anwendungsfall ist dagegen `None`:
 
-Beispiel:
+```python
+result = None
+print(result is None)  # => True
+```
+
+Bei Zahlen oder Strings sollte für Wertvergleiche **`==` statt `is`** verwendet werden. Python darf bestimmte unveränderbare Objekte intern wiederverwenden; deshalb können `is`-Experimente mit kleinen Zahlen oder Strings je nach Situation überraschende Ergebnisse liefern.
+
+### Veränderbare und unveränderbare Datentypen
+
+Damit hängt eine weitere wichtige Unterscheidung zusammen: Manche Objekte sind veränderbar (**mutable**), andere unveränderbar (**immutable**).
+
+**Veränderbare Datentypen** wie Listen können nachträglich verändert werden:
 
 ```python
 fruits = ["apple", "banana", "mango"]
-print(fruits[-1])  # -> mango
-
-# Beim Datentyp list können wir Elemente verändern:
 fruits[-1] = "orange"
-print(fruits[-1])  # -> orange
+print(fruits)  # => ['apple', 'banana', 'orange']
+```
 
+Bei **unveränderbaren Datentypen** wie Zahlen, Strings und Tupeln kann das bestehende Objekt nicht auf diese Weise verändert werden. Ein Name kann aber jederzeit einem neuen Objekt zugewiesen werden.
 
-# Beim Datentyp Tuple geht das nicht
+<!-- pytest-codeblocks:expect-error -->
+```python
 fruits = ("apple", "banana", "mango")
-print(fruits[-1])  # -> mango
-
-fruit[-1] = "orange"  # -> TypeError
+fruits[-1] = "orange"  # => TypeError
 ```
 
-Natürlich können wir aber auch Variablen mit unveränderbaren Datentypen beliebig neu zuweisen. Dabei wird aber immer auch ein neues Objekt im Speicher erzeugt.![image-20221009214626493](../images/python_assign_variables_immutable.png)
+![image-20221009214626493](../images/python_assign_variables_immutable.png)
 
-#### Achtung: lazy Python...
-
-Bei "kleinen" Objekten kann es allerdings passieren, dass diese doch die gleiche "identity" bekommen. Das macht es leider noch unübersichtlicher: 
-
-```python 
-a = "looks like the same string"
-b = "looks like the same string"
-print(a is b)  # => True or False (depends on where it is run...)
-
-a = 5
-b = 5
-a is b  # => True
-```
-aber:
-```python 
-a = 30019
-b = 30019
-a is b  # => False !?! Also besser nicht so benutzen...
-```
-**Abschließendes zum Thema `is` vs `==`:**
-+ Alle Datentypen ausser Zahlen, Strings, Bool und None erzeugen neue Objekte
-+ `is` benutzen um nach identischen Objekten zu fragen
-+ `==` benutzen um nach gleichem "Inhalt" zu fragen
-Beispiele wofür es gedacht ist:
-
-```python 
-a = [1, 2]
-b = [1, 2]
-print(a is b)  # => False
-```
-oder:
+Wichtig ist das besonders bei mehreren Referenzen auf ein veränderbares Objekt:
 
 ```python 
 a = [1, 2, 3, 4]
 b = a
-print(a is b)  # => True
-
 b[0] = 77
 print(a)  # => [77, 2, 3, 4]
 ```
 
+**Merke:** `==` vergleicht normalerweise Werte/Inhalte; `is` fragt nach Objektidentität.
 
 ---
 ### Logische Operatoren
@@ -290,7 +266,7 @@ else:
 ```
 
 ***Wichtig:*** In Python wird mit Einrückungen gearbeitet! Andere Sprachen nutzen dafür oft Klammern.
-Die Art der Einrückungen kann im Prinzip frei gewählt werden, sie muss nur Konsistent sein. Meistens werden als Standard aber 4 Leerzeichen gewählt.
+Die genaue Breite einer Einrückung ist syntaktisch nicht auf vier Leerzeichen festgelegt, aber innerhalb eines Blocks muss sie konsistent sein. Der übliche Python-Standard sind **4 Leerzeichen**.
 
 
 Als abschließendes Beispiel dazu können wir nun das Früchte-Skript von vorhin noch einmal überarbeiten.
@@ -306,6 +282,46 @@ if fruit_choice in fruit:
 else:
     print(f"{fruit_choice}? We don't have it.")
 ```
+
+## Fehler abfangen mit `try` und `except`
+
+Nicht jede mögliche Eingabe lässt sich sinnvoll mit einer `if`-Bedingung vorab prüfen. Ein typisches Beispiel ist die Umwandlung einer Texteingabe in eine Zahl: `input()` liefert immer einen String, und `float("abc")` erzeugt einen `ValueError`.
+
+Mit `try` und `except` können wir erwartbare Fehler gezielt abfangen:
+
+<!-- pytest-codeblocks:skip -->
+```python
+user_input = input("Bitte eine Zahl eingeben: ")
+
+try:
+    number = float(user_input)
+    print(f"Die Zahl ist {number}.")
+except ValueError:
+    print("Das war keine gültige Zahl.")
+```
+
+Python versucht zuerst den eingerückten Code unter `try`. Tritt dort ein `ValueError` auf, wird stattdessen der passende `except`-Block ausgeführt. Andere Fehler werden dadurch **nicht** automatisch verschluckt.
+
+Ein zweites Beispiel ist die Division durch Null:
+
+```python
+def divider(zahl, geteilt_durch):
+    """Teile zahl durch geteilt_durch; bei Division durch 0: None."""
+    try:
+        return zahl / geteilt_durch
+    except ZeroDivisionError:
+        return None
+
+print(divider(5, 0))  # => None
+```
+
+> ### Mini Quiz
+> Was passiert bei `divider("text", 2)`?
+> a) `None`
+> b) `"te"`
+> c) `TypeError`
+
+In der Regel sollten wir möglichst **konkrete Exceptions** abfangen (`except ValueError:`, `except ZeroDivisionError:` usw.) und nicht pauschal jedes Problem mit einem nackten `except:` verstecken.
 
 ## Schleifen (*loops*) 
 Schleifen sind eine weitere grundlegende Kontrollstruktur in Python. Sie ermöglichen es, eine bestimmte Codefolge wiederholt auszuführen, solange eine Bedingung erfüllt ist. Und natürlich können Schleifen auch mit den Verzweigungen die wir gerade gesehen haben kombiniert werden. Damit lassen sich deutlich komplexere Programmabläufe erstellen.
