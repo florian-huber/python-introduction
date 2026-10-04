@@ -8,9 +8,9 @@ Aber zuerst kurz zu einer guten Möglichkeit, größere Arrays anzuschauen (noch
 
 ### Arrays anschauen
 
-In der Praxis arbeiten wir oft mit großen, teilweise mehrdimensionalen Numpy Arrays. Das macht den Umgang am Anfang etwas gewöhnungsbedürftig, auch da unsere bisherigen Methoden um die Daten anzusehen (z.B. mit  `print()`)  hier schnell an Grenzen stoßen. 
+In der Praxis arbeiten wir oft mit großen, teilweise mehrdimensionalen NumPy-Arrays. Das macht den Umgang am Anfang etwas gewöhnungsbedürftig, weil `print()` bei größeren Arrays schnell unübersichtlich wird.
 
-**Spyder** hat als Editor hier einen Vorteil: Über den *Variable Explorer* lassen sich Numpy Arrays sehr gut betrachten! Ein Beispiel um den Explorer damit auszuprobieren:
+In **VS Code** können Variablen beim Debuggen im Bereich **VARIABLES** untersucht werden. Für NumPy-Arrays steht über die Python-/Jupyter-Werkzeuge außerdem ein **Data Viewer** zur Verfügung. Bei Arrays mit drei oder mehr Dimensionen können dort Slices über Achse und Index ausgewählt werden.
 
 ```python
 import numpy as np
@@ -18,13 +18,11 @@ import numpy as np
 arr1 = 20 * np.random.random((10, 20, 20))
 ```
 
-Im *Variable Explorer* können wir auch immer nur 2D-Arrays anzeigen lassen, aber es kann ausgewählt werden entlang welcher Axe(n) ein Schnitt angezeigt wird ( `Axis`) und mit `Index:` kann die jeweilige Ebene ausgewählt werden.
+Die folgende Abbildung stammt noch aus der früher verwendeten IDE Spyder. Sie zeigt aber dasselbe Grundprinzip der Auswahl von **Axis** und **Index**; die Oberfläche in VS Code sieht anders aus.
 
 ![Spyder Variable Explorer of 3D numpy array](../images/spyder_variable_explorer_numpy_array.png)
 
-Tipp: Im Variable Explorer mit den unten angezeigten Feldern "Axis" und "Index" spielen. Damit kann z.B dieses 3-dimensionale Array von verschiedenen Seiten (axis) her betrachtet werden.
-
-Natürlich ist auch dieser Zugang begrenzt. Für sehr große Arrays, also Arrays mit sehr vielen Elementen (Stichwort: "big data") und/oder Arrays mit vielen Dimensionen, wird es irgendwann auch über den Variable Explorer in Spyder schwierig.
+Natürlich ist auch ein Data Viewer begrenzt. Für sehr große Arrays mit sehr vielen Elementen oder Dimensionen betrachtet man meist gezielt kleine Ausschnitte, Kennzahlen oder Visualisierungen statt das gesamte Array auf einmal.
 
 ### Sortieren!
 
@@ -107,11 +105,9 @@ arr = np.array([[3, 2, 1, 2],
 print(np.lexsort(arr))
 ```
 
-**Achtung:** Bei `lexsort()` können wir leider nicht ganz so einfach mit `axis` arbeiten.  Wenn wir hier die Richtung der Sortierung ändern wollen ist es besser das Array zu verändern, z.B. es zu drehen mit `np.rot90()`.
+Auch `np.lexsort()` besitzt einen `axis`-Parameter. Wichtig ist dabei, dass die **letzte** übergebene Sortier-Schlüsselreihe die primäre Sortierung bestimmt.
 
-Alternativ können auch alle nötige
-
-n 1D-Arrays als Tuple übergeben werden:
+Alternativ können die benötigten 1D-Arrays als Tuple übergeben werden:
 
 ```python
 import numpy as np
