@@ -27,33 +27,33 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- So that users can add custom icons -->
-  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <script defer src="../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
 
     <script src="../_static/documentation_options.js?v=91fba89f"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=f281be69"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
-    <script>let toggleHintShow = 'Click to show';</script>
-    <script>let toggleHintHide = 'Click to hide';</script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Klicken zum Anzeigen';</script>
+    <script>let toggleHintHide = 'Klicken zum Ausblenden';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../_static/togglebutton.js?v=b8b12719"></script>
     <script src="../_static/translations.js?v=79cc9f76"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../_static/design-tabs.js?v=f930bc37"></script>
@@ -64,6 +64,7 @@
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'lesson_material_german/02_control_structures_conditions_loop';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
     <link rel="search" title="Suche" href="../search.html" />
@@ -72,20 +73,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="de"/>
   <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
   </head>
+  <body data-default-mode="">
   
   
-  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Zum Hauptinhalt springen</a></div>
 
-  
-  
-  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
-
+    <i class="fa-solid fa-arrow-up"></i>Zurück zum Anfang</button>
+  
+  
+  
   
   <dialog id="pst-search-dialog">
     
@@ -107,11 +114,55 @@
   </dialog>
 
   <div class="pst-async-banner-revealer d-none">
-  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Versionswarnung"></aside>
 </div>
 
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Website-Navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Suche" aria-label="Suche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Suche</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Suche" aria-label="Suche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Suche</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="Auf dieser Seite">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
     </header>
   
 
@@ -193,31 +244,30 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Error Handling und Best Practices I</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="05_error_handling.html">11. Error handling</a></li>
-<li class="toctree-l1"><a class="reference internal" href="05_one_step_back-best_practices.html">12. Clean code und „best practices“</a></li>
-<li class="toctree-l1"><a class="reference internal" href="05_open_files.html">13. Dateien lesen und schreiben</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_one_step_back-best_practices.html">11. Clean code und „best practices“</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_open_files.html">12. Dateien lesen und schreiben</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Klassen und Objekte</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="06_classes_objects.html">14. Objektorientierte Programmierung - Einführung</a></li>
-<li class="toctree-l1"><a class="reference internal" href="07_classes_objects_2.html">15. Objektorientierte Programmierung in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_classes_objects.html">13. Objektorientierte Programmierung - Einführung</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_classes_objects_2.html">14. Objektorientierte Programmierung in Python</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Arbeiten mit numerischen Daten - Numpy</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="08_numpy.html">16. Numerische Daten in Python mit NumPy</a></li>
-<li class="toctree-l1"><a class="reference internal" href="09_numpy_2.html">17. Numerische Daten in Python mit NumPy - Teil 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08_numpy.html">15. Numerische Daten in Python mit NumPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_numpy_2.html">16. Numerische Daten in Python mit NumPy - Teil 2</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Schritte Richtung Data Science</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="09_pandas.html">18. Pandas</a></li>
-<li class="toctree-l1"><a class="reference internal" href="10_pandas_2.html">19. Pandas - Teil 2</a></li>
-<li class="toctree-l1"><a class="reference internal" href="12_data_visualization.html">20. Datenvisualisierung mit Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="13_data_visualization_outlook.html">21. 2D/3D Visualisierung &amp; interaktive Plots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_pandas.html">17. Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_pandas_2.html">18. Pandas - Teil 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_data_visualization.html">19. Datenvisualisierung mit Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13_data_visualization_outlook.html">20. 2D/3D Visualisierung &amp; interaktive Plots</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">A few missing things</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="10_debugging.html">22. Python Debugging</a></li>
-<li class="toctree-l1"><a class="reference internal" href="14_generators.html">23. Generators / Iterators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_debugging.html">21. Python Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="14_generators.html">22. Generators / Iterators</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Source Code and Contributions</span></p>
 <ul class="nav bd-sidenav">
@@ -368,7 +418,7 @@
 
 
 <button onclick="toggleFullScreen()"
-  class="btn btn-sm btn-fullscreen-button"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
   title="Vollbildmodus"
   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
@@ -382,17 +432,17 @@
 
 
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Farbmodus" data-bs-title="Farbmodus"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Hell"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dunkel"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="Systemeinstellungen"></i>
 </button>
 
 
 <button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Suche" aria-label="Suche" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
 </button>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
 </div></div>
@@ -414,7 +464,7 @@
                 <h2> Inhalt </h2>
             </div>
             <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#skripte-und-programme">5.1. Skripte und Programme</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unterschied-zwischen-skript-und-programm">5.1.1. Unterschied zwischen Skript und Programm</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#benutzerinput">5.1.2. Benutzerinput</a></li>
@@ -423,23 +473,22 @@
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bedingungen">5.2. Bedingungen</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vergleichsoperationen">5.2.1. Vergleichsoperationen</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unterschied-zwischen-is-und">5.2.2. Unterschied zwischen <code class="docutils literal notranslate"><span class="pre">is</span></code> und <code class="docutils literal notranslate"><span class="pre">==</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#achtung-lazy-python">5.2.2.1. Achtung: lazy Python…</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unterschied-zwischen-is-und">5.2.2. Unterschied zwischen <code class="docutils literal notranslate"><span class="pre">is</span></code> und <code class="docutils literal notranslate"><span class="pre">==</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#veranderbare-und-unveranderbare-datentypen">5.2.3. Veränderbare und unveränderbare Datentypen</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#logische-operatoren">5.2.4. Logische Operatoren</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bedingte-anweisungen-if-else-elif">5.2.5. Bedingte Anweisungen (<code class="docutils literal notranslate"><span class="pre">if</span></code>, <code class="docutils literal notranslate"><span class="pre">else</span></code>, <code class="docutils literal notranslate"><span class="pre">elif</span></code>)</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#logische-operatoren">5.2.3. Logische Operatoren</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bedingte-anweisungen-if-else-elif">5.2.4. Bedingte Anweisungen (<code class="docutils literal notranslate"><span class="pre">if</span></code>, <code class="docutils literal notranslate"><span class="pre">else</span></code>, <code class="docutils literal notranslate"><span class="pre">elif</span></code>)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fehler-abfangen-mit-try-und-except">5.3. Fehler abfangen mit <code class="docutils literal notranslate"><span class="pre">try</span></code> und <code class="docutils literal notranslate"><span class="pre">except</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#schleifen-loops">5.4. Schleifen (<em>loops</em>)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#while-schleife-while-loop">5.4.1. While-Schleife (<em>while loop</em>)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#break">5.4.1.1. break!</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#schleifen-loops">5.3. Schleifen (<em>loops</em>)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#while-schleife-while-loop">5.3.1. While-Schleife (<em>while loop</em>)</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#break">5.3.1.1. break!</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#for-loops-for-schleifen">5.3.2. For loops (For Schleifen)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#best-friends-range-and-for">5.3.3. Best friends: <code class="docutils literal notranslate"><span class="pre">range</span></code> and <code class="docutils literal notranslate"><span class="pre">for</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zwei-weitere-wichtige-optionen-in-loops-break-und-continue">5.3.4. Zwei weitere wichtige Optionen in Loops: <code class="docutils literal notranslate"><span class="pre">break</span></code> und <code class="docutils literal notranslate"><span class="pre">continue</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#list-comprehension">5.3.5. List comprehension !</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#for-loops-for-schleifen">5.4.2. For loops (For Schleifen)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#best-friends-range-and-for">5.4.3. Best friends: <code class="docutils literal notranslate"><span class="pre">range</span></code> and <code class="docutils literal notranslate"><span class="pre">for</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zwei-weitere-wichtige-optionen-in-loops-break-und-continue">5.4.4. Zwei weitere wichtige Optionen in Loops: <code class="docutils literal notranslate"><span class="pre">break</span></code> und <code class="docutils literal notranslate"><span class="pre">continue</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#list-comprehension">5.4.5. List comprehension !</a></li>
 </ul>
 </li>
 </ul>
@@ -457,7 +506,7 @@
 <h1><span class="section-number">5. </span>Kontrollstrukturen und Bedingungen<a class="headerlink" href="#kontrollstrukturen-und-bedingungen" title="Link to this heading">#</a></h1>
 <section id="skripte-und-programme">
 <h2><span class="section-number">5.1. </span>Skripte und Programme<a class="headerlink" href="#skripte-und-programme" title="Link to this heading">#</a></h2>
-<p>Beim Programmieren haben wir es häufig mit mehreren Befehlen zu tun, die aufeinander folgen und zusammen ausgeführt werden. Wenn mehrere solche Befehle untereinander geschrieben und in einer integrierten Entwicklungsumgebung (IDE) wie <strong>Spyder</strong> ausgeführt werden, sprechen wir von einem <strong>Skript</strong> oder einem <strong>Programm</strong>.</p>
+<p>Beim Programmieren haben wir es häufig mit mehreren Befehlen zu tun, die aufeinander folgen und zusammen ausgeführt werden. Wenn mehrere solche Befehle untereinander geschrieben und z.B. in <strong>VS Code</strong> ausgeführt werden, sprechen wir von einem <strong>Skript</strong> oder einem <strong>Programm</strong>.</p>
 <section id="unterschied-zwischen-skript-und-programm">
 <h3><span class="section-number">5.1.1. </span>Unterschied zwischen Skript und Programm<a class="headerlink" href="#unterschied-zwischen-skript-und-programm" title="Link to this heading">#</a></h3>
 <p>Die Begriffe <strong>Skript</strong> und <strong>Programm</strong> werden oft synonym verwendet, jedoch gibt es einen feinen Unterschied:</p>
@@ -470,11 +519,11 @@
 <li><p>Programm <span class="math notranslate nohighlight">\(\approx\)</span> Skript (und Programm &gt; Skript)</p></li>
 </ul>
 <p><strong>Beispiel für ein kleines Skript:</strong></p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fruit</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;apple&quot;</span><span class="p">,</span> <span class="s2">&quot;orange&quot;</span><span class="p">,</span> <span class="s2">&quot;banana&quot;</span><span class="p">,</span> <span class="s2">&quot;pear&quot;</span><span class="p">]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fruit</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"apple"</span><span class="p">,</span> <span class="s2">"orange"</span><span class="p">,</span> <span class="s2">"banana"</span><span class="p">,</span> <span class="s2">"pear"</span><span class="p">]</span>
 <span class="n">juice_choice</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="n">ice_choice</span> <span class="o">=</span> <span class="mi">2</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">fruit</span><span class="p">[</span><span class="n">juice_choice</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot; juice&quot;</span><span class="p">)</span>  <span class="c1"># oder: print(f&quot;{fruit[juice_choice]} juice&quot;)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">fruit</span><span class="p">[</span><span class="n">ice_choice</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot; ice cream&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fruit</span><span class="p">[</span><span class="n">juice_choice</span><span class="p">]</span> <span class="o">+</span> <span class="s2">" juice"</span><span class="p">)</span>  <span class="c1"># oder: print(f"{fruit[juice_choice]} juice")</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fruit</span><span class="p">[</span><span class="n">ice_choice</span><span class="p">]</span> <span class="o">+</span> <span class="s2">" ice cream"</span><span class="p">)</span>
 </pre></div>
 </div>
 <blockquote>
@@ -494,16 +543,16 @@ Darum fügen wir als nächsten Schritt Benutzerinput hinzu:</p>
 <h3><span class="section-number">5.1.2. </span>Benutzerinput<a class="headerlink" href="#benutzerinput" title="Link to this heading">#</a></h3>
 <p>Ein häufiges Merkmal interaktiver Programme ist die Möglichkeit, Benutzereingaben zu verarbeiten. In Python nutzen wir hierfür die Funktion <code class="docutils literal notranslate"><span class="pre">input()</span></code>:</p>
 <!-- pytest-codeblocks:skip -->
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_str</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;String-Eingabe: &quot;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_str</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"String-Eingabe: "</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">my_str</span><span class="p">)</span>  <span class="c1"># =&gt; gibt den eingegebenen String aus</span>
 </pre></div>
 </div>
 <p>Damit können wir unser vorheriges Früchte-Skript interaktiver gestalten:</p>
 <!-- pytest-codeblocks:skip -->
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fruit</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;apple&quot;</span><span class="p">,</span> <span class="s2">&quot;orange&quot;</span><span class="p">,</span> <span class="s2">&quot;banana&quot;</span><span class="p">,</span> <span class="s2">&quot;pear&quot;</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;We have: </span><span class="si">{</span><span class="n">fruit</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="n">fruit_choice</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Please enter your choice: &quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Here is your </span><span class="si">{</span><span class="n">fruit_choice</span><span class="si">}</span><span class="s2"> ice cream!&quot;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fruit</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"apple"</span><span class="p">,</span> <span class="s2">"orange"</span><span class="p">,</span> <span class="s2">"banana"</span><span class="p">,</span> <span class="s2">"pear"</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"We have: </span><span class="si">{</span><span class="n">fruit</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="n">fruit_choice</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"Please enter your choice: "</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Here is your </span><span class="si">{</span><span class="n">fruit_choice</span><span class="si">}</span><span class="s2"> ice cream!"</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -535,105 +584,77 @@ Das ist bereits eine Bedingung und die werden in Python auf verschiedene Arten a
 
 <span class="nb">print</span><span class="p">(</span><span class="mf">4.01</span> <span class="o">==</span> <span class="mi">4</span><span class="p">)</span>  <span class="c1"># =&gt; False</span>
 
-<span class="s2">&quot;apple&quot;</span> <span class="o">&lt;</span> <span class="s2">&quot;banana&quot;</span>  <span class="c1"># =&gt; True (durch die Reihenfolge im Alphabet sagt Python: a &lt; b)</span>
+<span class="s2">"apple"</span> <span class="o">&lt;</span> <span class="s2">"banana"</span>  <span class="c1"># =&gt; True (durch die Reihenfolge im Alphabet sagt Python: a &lt; b)</span>
 
-<span class="s2">&quot;apple&quot;</span> <span class="o">!=</span> <span class="s2">&quot;pear&quot;</span>  <span class="c1"># =&gt; True</span>
+<span class="s2">"apple"</span> <span class="o">!=</span> <span class="s2">"pear"</span>  <span class="c1"># =&gt; True</span>
 </pre></div>
 </div>
 </section>
 <section id="unterschied-zwischen-is-und">
 <h3><span class="section-number">5.2.2. </span>Unterschied zwischen <code class="docutils literal notranslate"><span class="pre">is</span></code> und <code class="docutils literal notranslate"><span class="pre">==</span></code><a class="headerlink" href="#unterschied-zwischen-is-und" title="Link to this heading">#</a></h3>
-<p>Ein häufiger Anfängerfehler ist die Verwechslung zwischen <code class="docutils literal notranslate"><span class="pre">is</span></code> und <code class="docutils literal notranslate"><span class="pre">==</span></code>. Beide Operatoren haben nämlich unterschiedliche Bedeutungen:</p>
+<p>Ein häufiger Anfängerfehler ist die Verwechslung zwischen <code class="docutils literal notranslate"><span class="pre">is</span></code> und <code class="docutils literal notranslate"><span class="pre">==</span></code>. Beide Operatoren haben unterschiedliche Aufgaben:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">==</span></code> prüft, ob zwei Objekte den <strong>gleichen Wert</strong> haben.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">is</span></code> prüft, ob zwei Objekte auf die <strong>gleiche Speicheradresse</strong> zeigen, also tatsächlich identisch sind.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">==</span></code> prüft, ob zwei Objekte den <strong>gleichen Wert/Inhalt</strong> haben.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">is</span></code> prüft, ob zwei Namen auf <strong>dasselbe Objekt</strong> verweisen (Objektidentität).</p></li>
 </ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">12345678</span>
-<span class="n">b</span> <span class="o">=</span> <span class="mi">12345678</span>
+<p>Mit Listen lässt sich der Unterschied zuverlässig zeigen:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="n">b</span><span class="p">)</span>  <span class="c1"># =&gt; True: gleicher Inhalt</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="ow">is</span> <span class="n">b</span><span class="p">)</span>  <span class="c1"># =&gt; False: zwei verschiedene Listen</span>
+</pre></div>
+</div>
+<p>Wenn wir dagegen dieselbe Liste unter zwei Namen referenzieren, ist auch <code class="docutils literal notranslate"><span class="pre">is</span></code> wahr:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">a</span>
+
 <span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="n">b</span><span class="p">)</span>  <span class="c1"># =&gt; True</span>
-</pre></div>
-</div>
-<p>Soweit ist das noch keine große Überraschung. Möglicherweise aber doch, dass wir mit <code class="docutils literal notranslate"><span class="pre">is</span></code> nicht das gleiche Ergebnis bekommen:</p>
-<!-- pytest-codeblocks:cont -->
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="ow">is</span> <span class="n">b</span><span class="p">)</span>  <span class="c1"># =&gt; False</span>
-</pre></div>
-</div>
-<p>Aber warum ist das eigentlich so?
-Um das zu verstehen müssen wir noch einmal zurück zum Thema Variablen springen.</p>
-<p>Wir hatten schon gesehen, dass Variablen Zuweisungen zu Werten irgendwo im Speicher sind.</p>
-<p><code class="docutils literal notranslate"><span class="pre">is</span></code> bezieht sich in Python auf eine Abfrage die darauf zielt zu sehen ob es sich um ein und Dasselbe Objekt handelt. Genauer eigentlich, ob zwei Objekte gleich sind und an der selben Speicheradresse hinterlegt sind.
-Dies kann auch über <code class="docutils literal notranslate"><span class="pre">id()</span></code> (von identity) ausgegeben werden:</p>
-<!-- pytest-codeblocks:cont -->
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">b</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">id</span><span class="p">(</span><span class="n">b</span><span class="p">))</span>  <span class="c1"># =&gt; True</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="ow">is</span> <span class="n">b</span><span class="p">)</span>  <span class="c1"># =&gt; True</span>
 </pre></div>
 </div>
 <p><img alt="image-20221009213424266" src="../_images/python_assign_variables.png" /></p>
-<p>In der Praxis werden wir aber nur sehr selten mit <code class="docutils literal notranslate"><span class="pre">is</span></code> Abfragen in diesem Kontext zu tun haben. Doch zu verstehen was „hinter der Bühne“ abläuft hilft auch bei einer anderen noch viel wichtigeren Unterscheidung die wir in Python berücksichtigen müssen. In Python unterscheiden wir Datentypen nach veränderbar (<strong>mutable</strong>) und unveränderbar (<strong>immutable</strong>).</p>
-<p><strong>Veränderbare Datentypen</strong> erlauben es, dass deren Werte dynamisch verändert werden können. Zu dieser Kategorie zählen Listen, Sets (kommen später) und Dictionaries (kommen später).</p>
-<p><strong>Unveränderbare Datentypen</strong> erlaben es nicht, dass die Werte nachträglich geändert werden. Dazu zählen  Zahlen (int, float), Boolean, String und Tuples.</p>
-<p>Beispiel:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fruits</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;apple&quot;</span><span class="p">,</span> <span class="s2">&quot;banana&quot;</span><span class="p">,</span> <span class="s2">&quot;mango&quot;</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">fruits</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>  <span class="c1"># -&gt; mango</span>
-
-<span class="c1"># Beim Datentyp list können wir Elemente verändern:</span>
-<span class="n">fruits</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;orange&quot;</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">fruits</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>  <span class="c1"># -&gt; orange</span>
-
-
-<span class="c1"># Beim Datentyp Tuple geht das nicht</span>
-<span class="n">fruits</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;apple&quot;</span><span class="p">,</span> <span class="s2">&quot;banana&quot;</span><span class="p">,</span> <span class="s2">&quot;mango&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">fruits</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>  <span class="c1"># -&gt; mango</span>
-
-<span class="n">fruit</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;orange&quot;</span>  <span class="c1"># -&gt; TypeError</span>
+<p>Mit <code class="docutils literal notranslate"><span class="pre">id()</span></code> können wir die Identität eines Objekts als Integerwert sichtbar machen. In CPython hängt dieser Wert häufig mit der Speicheradresse zusammen, darauf sollte sich Programmcode aber nicht verlassen.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">a</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">==</span> <span class="nb">id</span><span class="p">(</span><span class="n">b</span><span class="p">))</span>  <span class="c1"># =&gt; True</span>
 </pre></div>
 </div>
-<p>Natürlich können wir aber auch Variablen mit unveränderbaren Datentypen beliebig neu zuweisen. Dabei wird aber immer auch ein neues Objekt im Speicher erzeugt.<img alt="image-20221009214626493" src="../_images/python_assign_variables_immutable.png" /></p>
-<section id="achtung-lazy-python">
-<h4><span class="section-number">5.2.2.1. </span>Achtung: lazy Python…<a class="headerlink" href="#achtung-lazy-python" title="Link to this heading">#</a></h4>
-<p>Bei „kleinen“ Objekten kann es allerdings passieren, dass diese doch die gleiche „identity“ bekommen. Das macht es leider noch unübersichtlicher:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="s2">&quot;looks like the same string&quot;</span>
-<span class="n">b</span> <span class="o">=</span> <span class="s2">&quot;looks like the same string&quot;</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="ow">is</span> <span class="n">b</span><span class="p">)</span>  <span class="c1"># =&gt; True or False (depends on where it is run...)</span>
-
-<span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>
-<span class="n">b</span> <span class="o">=</span> <span class="mi">5</span>
-<span class="n">a</span> <span class="ow">is</span> <span class="n">b</span>  <span class="c1"># =&gt; True</span>
+<p>In der Praxis verwenden wir <code class="docutils literal notranslate"><span class="pre">is</span></code> nur selten für normale Wertvergleiche. Ein sehr typischer Anwendungsfall ist dagegen <code class="docutils literal notranslate"><span class="pre">None</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">)</span>  <span class="c1"># =&gt; True</span>
 </pre></div>
 </div>
-<p>aber:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">30019</span>
-<span class="n">b</span> <span class="o">=</span> <span class="mi">30019</span>
-<span class="n">a</span> <span class="ow">is</span> <span class="n">b</span>  <span class="c1"># =&gt; False !?! Also besser nicht so benutzen...</span>
+<p>Bei Zahlen oder Strings sollte für Wertvergleiche <strong><code class="docutils literal notranslate"><span class="pre">==</span></code> statt <code class="docutils literal notranslate"><span class="pre">is</span></code></strong> verwendet werden. Python darf bestimmte unveränderbare Objekte intern wiederverwenden; deshalb können <code class="docutils literal notranslate"><span class="pre">is</span></code>-Experimente mit kleinen Zahlen oder Strings je nach Situation überraschende Ergebnisse liefern.</p>
+</section>
+<section id="veranderbare-und-unveranderbare-datentypen">
+<h3><span class="section-number">5.2.3. </span>Veränderbare und unveränderbare Datentypen<a class="headerlink" href="#veranderbare-und-unveranderbare-datentypen" title="Link to this heading">#</a></h3>
+<p>Damit hängt eine weitere wichtige Unterscheidung zusammen: Manche Objekte sind veränderbar (<strong>mutable</strong>), andere unveränderbar (<strong>immutable</strong>).</p>
+<p><strong>Veränderbare Datentypen</strong> wie Listen können nachträglich verändert werden:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fruits</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"apple"</span><span class="p">,</span> <span class="s2">"banana"</span><span class="p">,</span> <span class="s2">"mango"</span><span class="p">]</span>
+<span class="n">fruits</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"orange"</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fruits</span><span class="p">)</span>  <span class="c1"># =&gt; ['apple', 'banana', 'orange']</span>
 </pre></div>
 </div>
-<p><strong>Abschließendes zum Thema <code class="docutils literal notranslate"><span class="pre">is</span></code> vs <code class="docutils literal notranslate"><span class="pre">==</span></code>:</strong></p>
-<ul class="simple">
-<li><p>Alle Datentypen ausser Zahlen, Strings, Bool und None erzeugen neue Objekte</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">is</span></code> benutzen um nach identischen Objekten zu fragen</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">==</span></code> benutzen um nach gleichem „Inhalt“ zu fragen
-Beispiele wofür es gedacht ist:</p></li>
-</ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
-<span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="ow">is</span> <span class="n">b</span><span class="p">)</span>  <span class="c1"># =&gt; False</span>
+<p>Bei <strong>unveränderbaren Datentypen</strong> wie Zahlen, Strings und Tupeln kann das bestehende Objekt nicht auf diese Weise verändert werden. Ein Name kann aber jederzeit einem neuen Objekt zugewiesen werden.</p>
+<!-- pytest-codeblocks:expect-error -->
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fruits</span> <span class="o">=</span> <span class="p">(</span><span class="s2">"apple"</span><span class="p">,</span> <span class="s2">"banana"</span><span class="p">,</span> <span class="s2">"mango"</span><span class="p">)</span>
+<span class="n">fruits</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"orange"</span>  <span class="c1"># =&gt; TypeError</span>
 </pre></div>
 </div>
-<p>oder:</p>
+<p><img alt="image-20221009214626493" src="../_images/python_assign_variables_immutable.png" /></p>
+<p>Wichtig ist das besonders bei mehreren Referenzen auf ein veränderbares Objekt:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
 <span class="n">b</span> <span class="o">=</span> <span class="n">a</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="ow">is</span> <span class="n">b</span><span class="p">)</span>  <span class="c1"># =&gt; True</span>
-
 <span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">77</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>  <span class="c1"># =&gt; [77, 2, 3, 4]</span>
 </pre></div>
 </div>
-</section>
+<p><strong>Merke:</strong> <code class="docutils literal notranslate"><span class="pre">==</span></code> vergleicht normalerweise Werte/Inhalte; <code class="docutils literal notranslate"><span class="pre">is</span></code> fragt nach Objektidentität.</p>
 </section>
 <hr class="docutils" />
 <section id="logische-operatoren">
-<h3><span class="section-number">5.2.3. </span>Logische Operatoren<a class="headerlink" href="#logische-operatoren" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">5.2.4. </span>Logische Operatoren<a class="headerlink" href="#logische-operatoren" title="Link to this heading">#</a></h3>
 <p>In Python gibt es die logischen Operatoren <code class="docutils literal notranslate"><span class="pre">and</span></code>, <code class="docutils literal notranslate"><span class="pre">or</span></code>, und <code class="docutils literal notranslate"><span class="pre">not</span></code>, die zur Kombination von Bedingungen verwendet werden können.
 Hier geht es nicht darum was wir im Alltag als „logisch“ bezeichnen, sondern um klassische Logik, und da gilt:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kc">True</span> <span class="ow">and</span> <span class="kc">False</span>  <span class="c1"># =&gt; False</span>
@@ -651,22 +672,22 @@ Hier geht es nicht darum was wir im Alltag als „logisch“ bezeichnen, sondern
 </pre></div>
 </div>
 <p>Logische Ausdrücke, etwa mit <code class="docutils literal notranslate"><span class="pre">or</span></code> können auch zu längeren Abfragen kombiniert werden:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;ja&quot;</span>
-<span class="p">(</span><span class="n">s</span> <span class="o">==</span> <span class="s2">&quot;Ja&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">s</span> <span class="o">==</span> <span class="s2">&quot;JA&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">s</span> <span class="o">==</span> <span class="s2">&quot;ja&quot;</span><span class="p">)</span>  <span class="c1"># =&gt; True</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="s2">"ja"</span>
+<span class="p">(</span><span class="n">s</span> <span class="o">==</span> <span class="s2">"Ja"</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">s</span> <span class="o">==</span> <span class="s2">"JA"</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">s</span> <span class="o">==</span> <span class="s2">"ja"</span><span class="p">)</span>  <span class="c1"># =&gt; True</span>
 </pre></div>
 </div>
 <p><em><strong>Vorsicht:</strong></em> Solche verschachtelteren Logik-Abfragen können schnell kompliziert werden!</p>
 </section>
 <hr class="docutils" />
 <section id="bedingte-anweisungen-if-else-elif">
-<h3><span class="section-number">5.2.4. </span>Bedingte Anweisungen (<code class="docutils literal notranslate"><span class="pre">if</span></code>, <code class="docutils literal notranslate"><span class="pre">else</span></code>, <code class="docutils literal notranslate"><span class="pre">elif</span></code>)<a class="headerlink" href="#bedingte-anweisungen-if-else-elif" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">5.2.5. </span>Bedingte Anweisungen (<code class="docutils literal notranslate"><span class="pre">if</span></code>, <code class="docutils literal notranslate"><span class="pre">else</span></code>, <code class="docutils literal notranslate"><span class="pre">elif</span></code>)<a class="headerlink" href="#bedingte-anweisungen-if-else-elif" title="Link to this heading">#</a></h3>
 <p>Wofür jetzt das Ganze? Was ist so toll an den Bedingungen?
 Konditionen und logische Abfragen sind essentiell wenn es um Programmflüsse geht. Mit bedingten Anweisungen können wir unseren Programmen „Entscheidungsfindung“ ermöglichen.</p>
 <img alt="Verzweigung" src="../_images/fig_control_flow_if_else.png" />
 <p>Eine typische <code class="docutils literal notranslate"><span class="pre">if</span></code>-Anweisung sieht so aus:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">number</span> <span class="o">=</span> <span class="mf">0.01</span>
 <span class="k">if</span> <span class="n">number</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">number</span><span class="si">}</span><span class="s2"> ist positiv.&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">number</span><span class="si">}</span><span class="s2"> ist positiv."</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Für komplexere Entscheidungen kann eine <code class="docutils literal notranslate"><span class="pre">if-else</span></code>- oder <code class="docutils literal notranslate"><span class="pre">if-elif-else</span></code>-Struktur verwendet werden.
@@ -674,9 +695,9 @@ Zuerst ein Beispiel mit <code class="docutils literal notranslate"><span class="
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">number</span> <span class="o">=</span> <span class="mf">0.01</span>   
 
 <span class="k">if</span> <span class="n">number</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">number</span><span class="si">}</span><span class="s2"> ist eine positive Zahl.&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">number</span><span class="si">}</span><span class="s2"> ist eine positive Zahl."</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">number</span><span class="si">}</span><span class="s2"> ist eine negative Zahl.&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">number</span><span class="si">}</span><span class="s2"> ist eine negative Zahl."</span><span class="p">)</span>
     
 </pre></div>
 </div>
@@ -684,55 +705,90 @@ Zuerst ein Beispiel mit <code class="docutils literal notranslate"><span class="
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">number</span> <span class="o">=</span> <span class="mf">0.01</span>
 
 <span class="k">if</span> <span class="n">number</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">number</span><span class="si">}</span><span class="s2"> ist eine positive Zahl.&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">number</span><span class="si">}</span><span class="s2"> ist eine positive Zahl."</span><span class="p">)</span>
 <span class="k">elif</span> <span class="n">number</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">number</span><span class="si">}</span><span class="s2"> ist eine negative Zahl.&quot;</span><span class="p">)</span> 
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">number</span><span class="si">}</span><span class="s2"> ist eine negative Zahl."</span><span class="p">)</span> 
 <span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">number</span><span class="si">}</span><span class="s2"> müsste 0 sein?&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">number</span><span class="si">}</span><span class="s2"> müsste 0 sein?"</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Damit kann man ewig lange Abfragen bauen, zum Beispiel sowas:</p>
 <!-- pytest-codeblocks:skip -->
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">angebot</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Dein Angebot: &quot;</span><span class="p">))</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">angebot</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">"Dein Angebot: "</span><span class="p">))</span>
 <span class="k">if</span> <span class="n">angebot</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Richtig witzig, danke.&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Richtig witzig, danke."</span><span class="p">)</span>
 <span class="k">elif</span> <span class="n">angebot</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Lächerlich!&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Lächerlich!"</span><span class="p">)</span>
 <span class="k">elif</span> <span class="n">angebot</span> <span class="o">&lt;</span> <span class="mi">20</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Nein, lieber nicht.&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Nein, lieber nicht."</span><span class="p">)</span>
 <span class="k">elif</span> <span class="n">angebot</span> <span class="o">&lt;</span> <span class="mi">25</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Das kommt schon in die Nähe...&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Das kommt schon in die Nähe..."</span><span class="p">)</span>
 <span class="k">elif</span> <span class="n">angebot</span> <span class="o">&lt;</span> <span class="mi">30</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mmhhh. OK. Weil du&#39;s bist.&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Mmhhh. OK. Weil du's bist."</span><span class="p">)</span>
 <span class="k">elif</span> <span class="n">angebot</span> <span class="o">&lt;</span> <span class="mi">40</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Ok. Deal.&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Ok. Deal."</span><span class="p">)</span>
 <span class="k">elif</span> <span class="n">angebot</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Deal. Eine Freude mit dir Geschäfte zu machen.&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Deal. Eine Freude mit dir Geschäfte zu machen."</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Moment... irgendwas stimmt hier nicht...&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Moment... irgendwas stimmt hier nicht..."</span><span class="p">)</span>
 </pre></div>
 </div>
 <p><em><strong>Wichtig:</strong></em> In Python wird mit Einrückungen gearbeitet! Andere Sprachen nutzen dafür oft Klammern.
-Die Art der Einrückungen kann im Prinzip frei gewählt werden, sie muss nur Konsistent sein. Meistens werden als Standard aber 4 Leerzeichen gewählt.</p>
+Die genaue Breite einer Einrückung ist syntaktisch nicht auf vier Leerzeichen festgelegt, aber innerhalb eines Blocks muss sie konsistent sein. Der übliche Python-Standard sind <strong>4 Leerzeichen</strong>.</p>
 <p>Als abschließendes Beispiel dazu können wir nun das Früchte-Skript von vorhin noch einmal überarbeiten.</p>
 <!-- pytest-codeblocks:skip -->
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fruit</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;apple&quot;</span><span class="p">,</span> <span class="s2">&quot;mango&quot;</span><span class="p">,</span> <span class="s2">&quot;banana&quot;</span><span class="p">,</span> <span class="s2">&quot;pear&quot;</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;We have: </span><span class="si">{</span><span class="n">fruit</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="n">fruit_choice</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Please enter your choice: &quot;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fruit</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"apple"</span><span class="p">,</span> <span class="s2">"mango"</span><span class="p">,</span> <span class="s2">"banana"</span><span class="p">,</span> <span class="s2">"pear"</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"We have: </span><span class="si">{</span><span class="n">fruit</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="n">fruit_choice</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"Please enter your choice: "</span><span class="p">)</span>
 <span class="k">if</span> <span class="n">fruit_choice</span> <span class="ow">in</span> <span class="n">fruit</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Here is your </span><span class="si">{</span><span class="n">fruit_choice</span><span class="si">}</span><span class="s2"> ice cream!&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Here is your </span><span class="si">{</span><span class="n">fruit_choice</span><span class="si">}</span><span class="s2"> ice cream!"</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">fruit_choice</span><span class="si">}</span><span class="s2">? We don&#39;t have it.&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">fruit_choice</span><span class="si">}</span><span class="s2">? We don't have it."</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
 </section>
+<section id="fehler-abfangen-mit-try-und-except">
+<h2><span class="section-number">5.3. </span>Fehler abfangen mit <code class="docutils literal notranslate"><span class="pre">try</span></code> und <code class="docutils literal notranslate"><span class="pre">except</span></code><a class="headerlink" href="#fehler-abfangen-mit-try-und-except" title="Link to this heading">#</a></h2>
+<p>Nicht jede mögliche Eingabe lässt sich sinnvoll mit einer <code class="docutils literal notranslate"><span class="pre">if</span></code>-Bedingung vorab prüfen. Ein typisches Beispiel ist die Umwandlung einer Texteingabe in eine Zahl: <code class="docutils literal notranslate"><span class="pre">input()</span></code> liefert immer einen String, und <code class="docutils literal notranslate"><span class="pre">float(&quot;abc&quot;)</span></code> erzeugt einen <code class="docutils literal notranslate"><span class="pre">ValueError</span></code>.</p>
+<p>Mit <code class="docutils literal notranslate"><span class="pre">try</span></code> und <code class="docutils literal notranslate"><span class="pre">except</span></code> können wir erwartbare Fehler gezielt abfangen:</p>
+<!-- pytest-codeblocks:skip -->
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">user_input</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"Bitte eine Zahl eingeben: "</span><span class="p">)</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">number</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">user_input</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Die Zahl ist </span><span class="si">{</span><span class="n">number</span><span class="si">}</span><span class="s2">."</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Das war keine gültige Zahl."</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Python versucht zuerst den eingerückten Code unter <code class="docutils literal notranslate"><span class="pre">try</span></code>. Tritt dort ein <code class="docutils literal notranslate"><span class="pre">ValueError</span></code> auf, wird stattdessen der passende <code class="docutils literal notranslate"><span class="pre">except</span></code>-Block ausgeführt. Andere Fehler werden dadurch <strong>nicht</strong> automatisch verschluckt.</p>
+<p>Ein zweites Beispiel ist die Division durch Null:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">divider</span><span class="p">(</span><span class="n">zahl</span><span class="p">,</span> <span class="n">geteilt_durch</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Teile zahl durch geteilt_durch; bei Division durch 0: None."""</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">zahl</span> <span class="o">/</span> <span class="n">geteilt_durch</span>
+    <span class="k">except</span> <span class="ne">ZeroDivisionError</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">None</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">divider</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>  <span class="c1"># =&gt; None</span>
+</pre></div>
+</div>
+<blockquote>
+<div><h3 class="rubric" id="id1">Mini Quiz</h3>
+<p>Was passiert bei <code class="docutils literal notranslate"><span class="pre">divider(&quot;text&quot;,</span> <span class="pre">2)</span></code>?
+a) <code class="docutils literal notranslate"><span class="pre">None</span></code>
+b) <code class="docutils literal notranslate"><span class="pre">&quot;te&quot;</span></code>
+c) <code class="docutils literal notranslate"><span class="pre">TypeError</span></code></p>
+</div></blockquote>
+<p>In der Regel sollten wir möglichst <strong>konkrete Exceptions</strong> abfangen (<code class="docutils literal notranslate"><span class="pre">except</span> <span class="pre">ValueError:</span></code>, <code class="docutils literal notranslate"><span class="pre">except</span> <span class="pre">ZeroDivisionError:</span></code> usw.) und nicht pauschal jedes Problem mit einem nackten <code class="docutils literal notranslate"><span class="pre">except:</span></code> verstecken.</p>
+</section>
 <section id="schleifen-loops">
-<h2><span class="section-number">5.3. </span>Schleifen (<em>loops</em>)<a class="headerlink" href="#schleifen-loops" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">5.4. </span>Schleifen (<em>loops</em>)<a class="headerlink" href="#schleifen-loops" title="Link to this heading">#</a></h2>
 <p>Schleifen sind eine weitere grundlegende Kontrollstruktur in Python. Sie ermöglichen es, eine bestimmte Codefolge wiederholt auszuführen, solange eine Bedingung erfüllt ist. Und natürlich können Schleifen auch mit den Verzweigungen die wir gerade gesehen haben kombiniert werden. Damit lassen sich deutlich komplexere Programmabläufe erstellen.</p>
 <img alt="Verzweigung" src="../_images/fig_control_flow_condition_loop.png" />
 <section id="while-schleife-while-loop">
-<h3><span class="section-number">5.3.1. </span>While-Schleife (<em>while loop</em>)<a class="headerlink" href="#while-schleife-while-loop" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">5.4.1. </span>While-Schleife (<em>while loop</em>)<a class="headerlink" href="#while-schleife-while-loop" title="Link to this heading">#</a></h3>
 <p>Eine <code class="docutils literal notranslate"><span class="pre">while</span></code>-Schleife wiederholt den Code, solange ein bestimmter Wert, oder eine Bedingung, wahr ist (<code class="docutils literal notranslate"><span class="pre">True</span></code>). In Python sieht deren Codestruktur aus wie folgt:</p>
 <!-- pytest-codeblocks:skip -->
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
@@ -770,7 +826,7 @@ Die Art der Einrückungen kann im Prinzip frei gewählt werden, sie muss nur Kon
     <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">x</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Fertsch!&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Fertsch!"</span><span class="p">)</span>
     
 </pre></div>
 </div>
@@ -779,11 +835,11 @@ Die Art der Einrückungen kann im Prinzip frei gewählt werden, sie muss nur Kon
 <span class="k">while</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">:</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">x</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Fertsch!&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Fertsch!"</span><span class="p">)</span>
 </pre></div>
 </div>
 <section id="break">
-<h4><span class="section-number">5.3.1.1. </span>break!<a class="headerlink" href="#break" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">5.4.1.1. </span>break!<a class="headerlink" href="#break" title="Link to this heading">#</a></h4>
 <p>Wie wir schon gesehen haben können while-Schleifen auch endlos laufen (was eigentlich nie gewünscht ist). Denn die while-Schleife läuft solange die angegebene Bedingung <code class="docutils literal notranslate"><span class="pre">True</span></code> ist. Sobald die Bedingung <code class="docutils literal notranslate"><span class="pre">False</span></code> wird hört die Schleife auf.
 Es gibt aber noch eine zweite Möglichkeit eine while-Schleife zu beenden und zwar mit <code class="docutils literal notranslate"><span class="pre">break</span></code></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
@@ -792,14 +848,14 @@ Es gibt aber noch eine zweite Möglichkeit eine while-Schleife zu beenden und zw
     <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">*</span> <span class="n">dx</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mf">0.5</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;x is too small&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"x is too small"</span><span class="p">)</span>
         <span class="k">break</span>
 </pre></div>
 </div>
 </section>
 </section>
 <section id="for-loops-for-schleifen">
-<h3><span class="section-number">5.3.2. </span>For loops (For Schleifen)<a class="headerlink" href="#for-loops-for-schleifen" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">5.4.2. </span>For loops (For Schleifen)<a class="headerlink" href="#for-loops-for-schleifen" title="Link to this heading">#</a></h3>
 <p>In der Praxis werden in Python sogenannte „for loops“ deutlich häufiger als „while loops“ genutzt.
 Vom Prinzip her sieht das Ganze so aus.</p>
 <!-- pytest-codeblocks:skip -->
@@ -811,12 +867,12 @@ Vom Prinzip her sieht das Ganze so aus.</p>
 </div>
 <p>Wir lassen den <code class="docutils literal notranslate"><span class="pre">else</span></code> Teil erstmal weg.
 Im Klartext macht ein <code class="docutils literal notranslate"><span class="pre">for</span></code> loop das Folgende. Der Loop läuft einmal durch alle Elemente aus <code class="docutils literal notranslate"><span class="pre">iterable</span></code>. Ein Beispiel:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">antwort</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;ja&quot;</span><span class="p">,</span> <span class="s2">&quot;nee&quot;</span><span class="p">,</span> <span class="s2">&quot;vielleicht&quot;</span><span class="p">,</span> <span class="s2">&quot;weiss nicht&quot;</span><span class="p">]:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Ich sag mal...</span><span class="si">{</span><span class="n">antwort</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">antwort</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"ja"</span><span class="p">,</span> <span class="s2">"nee"</span><span class="p">,</span> <span class="s2">"vielleicht"</span><span class="p">,</span> <span class="s2">"weiss nicht"</span><span class="p">]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Ich sag mal...</span><span class="si">{</span><span class="n">antwort</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Das Funktioniert mit jeder Python Sequenz auf diese Art:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="s2">&quot;That&#39;s a string and full of letters.&quot;</span><span class="p">:</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="s2">"That's a string and full of letters."</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">char</span><span class="p">)</span>
 
 <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">3</span><span class="p">]:</span>
@@ -825,7 +881,7 @@ Im Klartext macht ein <code class="docutils literal notranslate"><span class="pr
 </div>
 </section>
 <section id="best-friends-range-and-for">
-<h3><span class="section-number">5.3.3. </span>Best friends: <code class="docutils literal notranslate"><span class="pre">range</span></code> and <code class="docutils literal notranslate"><span class="pre">for</span></code><a class="headerlink" href="#best-friends-range-and-for" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">5.4.3. </span>Best friends: <code class="docutils literal notranslate"><span class="pre">range</span></code> and <code class="docutils literal notranslate"><span class="pre">for</span></code><a class="headerlink" href="#best-friends-range-and-for" title="Link to this heading">#</a></h3>
 <p>Oft möchten wir eine Programmteil n-mal laufen lassen. Dafür nutzt man in Python <code class="docutils literal notranslate"><span class="pre">range</span></code>. <code class="docutils literal notranslate"><span class="pre">range</span></code> ist ein „generator“, einen Funktionstyp den wir später noch genauer besprechen. An dieser Stelle reicht es zu wissen, dass es eine Funktion ist, die Werte erst ausgibt, wenn sie ausgelesen werden.
 <code class="docutils literal notranslate"><span class="pre">range</span></code> generiert Integer ein einem gewünschten Intervall und Abstand</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)))</span>  <span class="c1"># =&gt; [0, 1, 2, 3, 4]</span>
@@ -834,7 +890,7 @@ Im Klartext macht ein <code class="docutils literal notranslate"><span class="pr
 </pre></div>
 </div>
 <blockquote>
-<div><h3 class="rubric" id="id1">Mini Quiz</h3>
+<div><h3 class="rubric" id="id2">Mini Quiz</h3>
 <p>Was gibt <code class="docutils literal notranslate"><span class="pre">list(range(-3,</span> <span class="pre">3)</span></code> aus?<br />
 a) [-3, 0, 3]<br />
 b) [-3, -2, -1, 0, 1, 2, 3]<br />
@@ -849,28 +905,28 @@ c) [-3, -2, -1, 0, 1, 2]</p>
 Falls die Zahl <code class="docutils literal notranslate"><span class="pre">i</span></code> innerhalb der Schleife nicht verwendet wird kann sie auch
 weggelassen werden:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Dreimal: Ja!&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Dreimal: Ja!"</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Falls man einen Zähler und ein Element aus einer Sequenz benötigt, gibt es
 die Alternative <code class="docutils literal notranslate"><span class="pre">enumerate</span></code> statt <code class="docutils literal notranslate"><span class="pre">range</span></code>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fruits</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;apple&quot;</span><span class="p">,</span> <span class="s2">&quot;mango&quot;</span><span class="p">,</span> <span class="s2">&quot;banana&quot;</span><span class="p">,</span> <span class="s2">&quot;pear&quot;</span><span class="p">]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fruits</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"apple"</span><span class="p">,</span> <span class="s2">"mango"</span><span class="p">,</span> <span class="s2">"banana"</span><span class="p">,</span> <span class="s2">"pear"</span><span class="p">]</span>
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">fruit</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">fruits</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2">. </span><span class="si">{</span><span class="n">fruit</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2">. </span><span class="si">{</span><span class="n">fruit</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
 <section id="zwei-weitere-wichtige-optionen-in-loops-break-und-continue">
-<h3><span class="section-number">5.3.4. </span>Zwei weitere wichtige Optionen in Loops: <code class="docutils literal notranslate"><span class="pre">break</span></code> und <code class="docutils literal notranslate"><span class="pre">continue</span></code><a class="headerlink" href="#zwei-weitere-wichtige-optionen-in-loops-break-und-continue" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">5.4.4. </span>Zwei weitere wichtige Optionen in Loops: <code class="docutils literal notranslate"><span class="pre">break</span></code> und <code class="docutils literal notranslate"><span class="pre">continue</span></code><a class="headerlink" href="#zwei-weitere-wichtige-optionen-in-loops-break-und-continue" title="Link to this heading">#</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">break</span></code> ermöglicht es aus Loops vorzeitig auszubrechen. Zum Beispiel hier:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">zeichen</span> <span class="ow">in</span> <span class="s2">&quot;Ja genau. Dies ist ein string.&quot;</span><span class="p">:</span>
-    <span class="k">if</span> <span class="n">zeichen</span> <span class="o">==</span> <span class="s2">&quot;.&quot;</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Punkt gefunden!&quot;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">zeichen</span> <span class="ow">in</span> <span class="s2">"Ja genau. Dies ist ein string."</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">zeichen</span> <span class="o">==</span> <span class="s2">"."</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Punkt gefunden!"</span><span class="p">)</span>
         <span class="k">break</span>
     <span class="c1"># Hier kommt man nur hin wenn break nicht ausgeführt wurde</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">zeichen</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Fertig.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Fertig."</span><span class="p">)</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">continue</span></code> ist dagegen die Aufforderung den laufenden Zyklus des Loops
@@ -880,14 +936,14 @@ zu verlassen, aber dann mit dem Loop fortzufahren.</p>
     <span class="k">if</span> <span class="n">zahl</span><span class="o">%</span><span class="mi">3</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
         <span class="k">continue</span>
     <span class="c1"># Hier kommt man nur hin wenn continue nicht ausgeführt wurde</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">zahl</span><span class="si">}</span><span class="s2"> ist durch 3 teilbar!&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">zahl</span><span class="si">}</span><span class="s2"> ist durch 3 teilbar!"</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Beide Befehle (<code class="docutils literal notranslate"><span class="pre">continue</span></code> und <code class="docutils literal notranslate"><span class="pre">break</span></code>) können genauso auch in <code class="docutils literal notranslate"><span class="pre">while</span></code> Schleifen
 eingesetzt werden.</p>
 </section>
 <section id="list-comprehension">
-<h3><span class="section-number">5.3.5. </span>List comprehension !<a class="headerlink" href="#list-comprehension" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">5.4.5. </span>List comprehension !<a class="headerlink" href="#list-comprehension" title="Link to this heading">#</a></h3>
 <p>In Python gibt es noch eine andere, sehr kompakte Art einen Loop zu bauen. Das ist die sogenannte „List comprehension“.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
 <span class="n">new_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">my_list</span><span class="p">]</span>
@@ -904,7 +960,7 @@ eingesetzt werden.</p>
 </div>
 <p>Routinierte Python-Programmierer*Innen nutzten gerne und oft die list comprehension. Das verkürzt den Code eines Programmes oft deutlich. Allerdings sollte man darauf achten das <em>weniger Code</em> nicht automatisch <em>besserer Code</em> bedeutet! Vor allem bei komplizierteren, verschachtelten Beispielen sind list comprehensions oft sehr schwer zu lesen. D.h. auch wenn etwas „nur“ eine Zeile Code benötigt, es aber Minuten dauert um zu verstehen was dort geschieht, ist ein normaler <code class="docutils literal notranslate"><span class="pre">for</span></code>-loop vielleicht die bessere Wahl.</p>
 <blockquote>
-<div><h3 class="rubric" id="id2">Quiz!</h3>
+<div><h3 class="rubric" id="id3">Quiz!</h3>
 <p>Was gibt die folgende List comprehension aus?<br />
 `print([s[0] for s in [„eins“, „zwei“, „drei“]])<br />
 a) eins<br />
@@ -948,7 +1004,7 @@ d) 0, 0, 0</p>
 <div class="prev-next-area">
     <a class="left-prev"
        href="01_variables.html"
-       title="previous page">
+       title="Vorherige Seite">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">zurück</p>
@@ -957,7 +1013,7 @@ d) 0, 0, 0</p>
     </a>
     <a class="right-next"
        href="03_functions.html"
-       title="next page">
+       title="Nächste Seite">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">weiter</p>
         <p class="prev-next-title"><span class="section-number">6. </span>Funktionen</p>
@@ -975,12 +1031,13 @@ d) 0, 0, 0</p>
                 <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Inhalt
   </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#skripte-und-programme">5.1. Skripte und Programme</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unterschied-zwischen-skript-und-programm">5.1.1. Unterschied zwischen Skript und Programm</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#benutzerinput">5.1.2. Benutzerinput</a></li>
@@ -989,23 +1046,22 @@ d) 0, 0, 0</p>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bedingungen">5.2. Bedingungen</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vergleichsoperationen">5.2.1. Vergleichsoperationen</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unterschied-zwischen-is-und">5.2.2. Unterschied zwischen <code class="docutils literal notranslate"><span class="pre">is</span></code> und <code class="docutils literal notranslate"><span class="pre">==</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#achtung-lazy-python">5.2.2.1. Achtung: lazy Python…</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unterschied-zwischen-is-und">5.2.2. Unterschied zwischen <code class="docutils literal notranslate"><span class="pre">is</span></code> und <code class="docutils literal notranslate"><span class="pre">==</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#veranderbare-und-unveranderbare-datentypen">5.2.3. Veränderbare und unveränderbare Datentypen</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#logische-operatoren">5.2.4. Logische Operatoren</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bedingte-anweisungen-if-else-elif">5.2.5. Bedingte Anweisungen (<code class="docutils literal notranslate"><span class="pre">if</span></code>, <code class="docutils literal notranslate"><span class="pre">else</span></code>, <code class="docutils literal notranslate"><span class="pre">elif</span></code>)</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#logische-operatoren">5.2.3. Logische Operatoren</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bedingte-anweisungen-if-else-elif">5.2.4. Bedingte Anweisungen (<code class="docutils literal notranslate"><span class="pre">if</span></code>, <code class="docutils literal notranslate"><span class="pre">else</span></code>, <code class="docutils literal notranslate"><span class="pre">elif</span></code>)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fehler-abfangen-mit-try-und-except">5.3. Fehler abfangen mit <code class="docutils literal notranslate"><span class="pre">try</span></code> und <code class="docutils literal notranslate"><span class="pre">except</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#schleifen-loops">5.4. Schleifen (<em>loops</em>)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#while-schleife-while-loop">5.4.1. While-Schleife (<em>while loop</em>)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#break">5.4.1.1. break!</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#schleifen-loops">5.3. Schleifen (<em>loops</em>)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#while-schleife-while-loop">5.3.1. While-Schleife (<em>while loop</em>)</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#break">5.3.1.1. break!</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#for-loops-for-schleifen">5.3.2. For loops (For Schleifen)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#best-friends-range-and-for">5.3.3. Best friends: <code class="docutils literal notranslate"><span class="pre">range</span></code> and <code class="docutils literal notranslate"><span class="pre">for</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zwei-weitere-wichtige-optionen-in-loops-break-und-continue">5.3.4. Zwei weitere wichtige Optionen in Loops: <code class="docutils literal notranslate"><span class="pre">break</span></code> und <code class="docutils literal notranslate"><span class="pre">continue</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#list-comprehension">5.3.5. List comprehension !</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#for-loops-for-schleifen">5.4.2. For loops (For Schleifen)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#best-friends-range-and-for">5.4.3. Best friends: <code class="docutils literal notranslate"><span class="pre">range</span></code> and <code class="docutils literal notranslate"><span class="pre">for</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zwei-weitere-wichtige-optionen-in-loops-break-und-continue">5.4.4. Zwei weitere wichtige Optionen in Loops: <code class="docutils literal notranslate"><span class="pre">break</span></code> und <code class="docutils literal notranslate"><span class="pre">continue</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#list-comprehension">5.4.5. List comprehension !</a></li>
 </ul>
 </li>
 </ul>
@@ -1032,7 +1088,7 @@ Durch Florian Huber
 
   <p class="copyright">
     
-      © Copyright 2024.
+      © Copyright 2024
       <br/>
     
   </p>
@@ -1056,8 +1112,8 @@ Durch Florian Huber
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
-<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+  <script defer src="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
 
   <footer class="bd-footer">
   </footer>

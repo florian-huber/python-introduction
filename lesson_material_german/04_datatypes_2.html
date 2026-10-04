@@ -27,33 +27,33 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- So that users can add custom icons -->
-  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <script defer src="../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
 
     <script src="../_static/documentation_options.js?v=91fba89f"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=f281be69"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
-    <script>let toggleHintShow = 'Click to show';</script>
-    <script>let toggleHintHide = 'Click to hide';</script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Klicken zum Anzeigen';</script>
+    <script>let toggleHintHide = 'Klicken zum Ausblenden';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../_static/togglebutton.js?v=b8b12719"></script>
     <script src="../_static/translations.js?v=79cc9f76"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../_static/design-tabs.js?v=f930bc37"></script>
@@ -64,6 +64,7 @@
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'lesson_material_german/04_datatypes_2';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
     <link rel="search" title="Suche" href="../search.html" />
@@ -72,20 +73,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="de"/>
   <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
   </head>
+  <body data-default-mode="">
   
   
-  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Zum Hauptinhalt springen</a></div>
 
-  
-  
-  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
-
+    <i class="fa-solid fa-arrow-up"></i>Zurück zum Anfang</button>
+  
+  
+  
   
   <dialog id="pst-search-dialog">
     
@@ -107,11 +114,55 @@
   </dialog>
 
   <div class="pst-async-banner-revealer d-none">
-  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Versionswarnung"></aside>
 </div>
 
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Website-Navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Suche" aria-label="Suche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Suche</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Suche" aria-label="Suche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Suche</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="Auf dieser Seite">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
     </header>
   
 
@@ -193,31 +244,30 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Error Handling und Best Practices I</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="05_error_handling.html">11. Error handling</a></li>
-<li class="toctree-l1"><a class="reference internal" href="05_one_step_back-best_practices.html">12. Clean code und „best practices“</a></li>
-<li class="toctree-l1"><a class="reference internal" href="05_open_files.html">13. Dateien lesen und schreiben</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_one_step_back-best_practices.html">11. Clean code und „best practices“</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_open_files.html">12. Dateien lesen und schreiben</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Klassen und Objekte</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="06_classes_objects.html">14. Objektorientierte Programmierung - Einführung</a></li>
-<li class="toctree-l1"><a class="reference internal" href="07_classes_objects_2.html">15. Objektorientierte Programmierung in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_classes_objects.html">13. Objektorientierte Programmierung - Einführung</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_classes_objects_2.html">14. Objektorientierte Programmierung in Python</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Arbeiten mit numerischen Daten - Numpy</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="08_numpy.html">16. Numerische Daten in Python mit NumPy</a></li>
-<li class="toctree-l1"><a class="reference internal" href="09_numpy_2.html">17. Numerische Daten in Python mit NumPy - Teil 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08_numpy.html">15. Numerische Daten in Python mit NumPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_numpy_2.html">16. Numerische Daten in Python mit NumPy - Teil 2</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Schritte Richtung Data Science</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="09_pandas.html">18. Pandas</a></li>
-<li class="toctree-l1"><a class="reference internal" href="10_pandas_2.html">19. Pandas - Teil 2</a></li>
-<li class="toctree-l1"><a class="reference internal" href="12_data_visualization.html">20. Datenvisualisierung mit Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="13_data_visualization_outlook.html">21. 2D/3D Visualisierung &amp; interaktive Plots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_pandas.html">17. Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_pandas_2.html">18. Pandas - Teil 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_data_visualization.html">19. Datenvisualisierung mit Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13_data_visualization_outlook.html">20. 2D/3D Visualisierung &amp; interaktive Plots</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">A few missing things</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="10_debugging.html">22. Python Debugging</a></li>
-<li class="toctree-l1"><a class="reference internal" href="14_generators.html">23. Generators / Iterators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_debugging.html">21. Python Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="14_generators.html">22. Generators / Iterators</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Source Code and Contributions</span></p>
 <ul class="nav bd-sidenav">
@@ -368,7 +418,7 @@
 
 
 <button onclick="toggleFullScreen()"
-  class="btn btn-sm btn-fullscreen-button"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
   title="Vollbildmodus"
   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
@@ -382,17 +432,17 @@
 
 
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Farbmodus" data-bs-title="Farbmodus"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Hell"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dunkel"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="Systemeinstellungen"></i>
 </button>
 
 
 <button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Suche" aria-label="Suche" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
 </button>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
 </div></div>
@@ -414,7 +464,7 @@
                 <h2> Inhalt </h2>
             </div>
             <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zahlen">9.1. Zahlen</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lists-tuples">9.2. Lists &amp; Tuples</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#boolean-und-none">9.3. Boolean und None</a></li>
@@ -462,17 +512,17 @@ Aber nur der Vollständigkeit halber: Komplexe Zahlen.</p>
 </pre></div>
 </div>
 <p>Strings</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="s2">&quot;abcdefg&quot;</span><span class="p">)</span>
-<span class="nb">type</span><span class="p">(</span><span class="s1">&#39;abcdefg&#39;</span><span class="p">)</span>
-<span class="nb">type</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;abcdefg&quot;&quot;&quot;</span><span class="p">)</span>  <span class="c1"># z.B. bei den &quot;Docstrings&quot; von Funktionen</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="s2">"abcdefg"</span><span class="p">)</span>
+<span class="nb">type</span><span class="p">(</span><span class="s1">'abcdefg'</span><span class="p">)</span>
+<span class="nb">type</span><span class="p">(</span><span class="s2">"""abcdefg"""</span><span class="p">)</span>  <span class="c1"># z.B. bei den "Docstrings" von Funktionen</span>
 </pre></div>
 </div>
 </section>
 <section id="lists-tuples">
 <h2><span class="section-number">9.2. </span>Lists &amp; Tuples<a class="headerlink" href="#lists-tuples" title="Link to this heading">#</a></h2>
 <p>Wir hatten schon Lists und Tuple, die auf den ersten Blick ziemlich ähnlich sind.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;abc&quot;</span><span class="p">,</span> <span class="s2">&quot;ABC&quot;</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mf">0.315</span><span class="p">]</span>
-<span class="n">my_tuple</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;abc&quot;</span><span class="p">,</span> <span class="s2">&quot;ABC&quot;</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mf">0.315</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"abc"</span><span class="p">,</span> <span class="s2">"ABC"</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mf">0.315</span><span class="p">]</span>
+<span class="n">my_tuple</span> <span class="o">=</span> <span class="p">(</span><span class="s2">"abc"</span><span class="p">,</span> <span class="s2">"ABC"</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mf">0.315</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">my_list</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">my_tuple</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
@@ -480,12 +530,12 @@ Aber nur der Vollständigkeit halber: Komplexe Zahlen.</p>
 </div>
 <p>In der Handhabung unterscheiden sich beide Datentypen aber sehr stark voneinander!</p>
 <p>Der Kernunterschied ist: <code class="docutils literal notranslate"><span class="pre">list</span></code> ist veränderbar und kommt mit vielen Methoden/Funktionen!</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;abc&quot;</span><span class="p">]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"abc"</span><span class="p">]</span>
 
-<span class="n">my_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;noch was&quot;</span><span class="p">)</span>
-<span class="n">my_list</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;xyz&quot;</span><span class="p">)</span>
-<span class="n">my_list</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;XYZ&quot;</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">my_list</span><span class="p">)</span>  <span class="c1"># =&gt; [&#39;abc&#39;, &#39;xyz&#39;, &#39;XYZ&#39;]</span>
+<span class="n">my_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"noch was"</span><span class="p">)</span>
+<span class="n">my_list</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s2">"xyz"</span><span class="p">)</span>
+<span class="n">my_list</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"XYZ"</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">my_list</span><span class="p">)</span>  <span class="c1"># =&gt; ['abc', 'xyz', 'XYZ']</span>
 </pre></div>
 </div>
 </section>
@@ -501,38 +551,38 @@ Und <code class="docutils literal notranslate"><span class="pre">None</span></co
 <h2><span class="section-number">9.4. </span>Sets und Dictionaries<a class="headerlink" href="#sets-und-dictionaries" title="Link to this heading">#</a></h2>
 <section id="sets-mengen">
 <h3><span class="section-number">9.4.1. </span>Sets (Mengen)<a class="headerlink" href="#sets-mengen" title="Link to this heading">#</a></h3>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_set</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;yes&quot;</span><span class="p">,</span> <span class="s2">&quot;no&quot;</span><span class="p">,</span> <span class="s2">&quot;maybe&quot;</span><span class="p">}</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_set</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"yes"</span><span class="p">,</span> <span class="s2">"no"</span><span class="p">,</span> <span class="s2">"maybe"</span><span class="p">}</span>
 </pre></div>
 </div>
 <p>Sieht erstmal wieder fast aus wie bei den Tuples und Lists. Allerdings macht das folgende Beispiel gleich klar,  dass Sets ein ganz anderen Datentyp darstellen:</p>
 <!-- pytest-codeblocks:expect-error -->
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_set</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># =&gt; TypeError: &#39;set&#39; object is not subscriptable</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_set</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># =&gt; TypeError: 'set' object is not subscriptable</span>
 </pre></div>
 </div>
 <p>Sets sind keine Sequenzen! Elemente haben keine Indizes. Andere Dinge die bei List und/oder Tuple funktionieren gehen aber:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_set</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;yes&quot;</span><span class="p">,</span> <span class="s2">&quot;no&quot;</span><span class="p">,</span> <span class="s2">&quot;maybe&quot;</span><span class="p">}</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_set</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"yes"</span><span class="p">,</span> <span class="s2">"no"</span><span class="p">,</span> <span class="s2">"maybe"</span><span class="p">}</span>
 
-<span class="s2">&quot;maybe&quot;</span> <span class="ow">in</span> <span class="n">my_set</span>  <span class="c1"># =&gt; True</span>
+<span class="s2">"maybe"</span> <span class="ow">in</span> <span class="n">my_set</span>  <span class="c1"># =&gt; True</span>
 </pre></div>
 </div>
 <p>Sogar ein <code class="docutils literal notranslate"><span class="pre">for</span></code>-Loop geht:</p>
 <!-- pytest-codeblocks:cont -->
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">my_set</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Well, </span><span class="si">{</span><span class="n">s</span><span class="si">}</span><span class="s2">...&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Well, </span><span class="si">{</span><span class="n">s</span><span class="si">}</span><span class="s2">..."</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Die Unterschiede zwischen Sets (deutsch: Mengen) und Listen passen weitestgehend zur Verwendung der Begriffe im Alltag oder in der Mathematik.</p>
 <p>Wenn ich frage würde: Schreiben Sie eine Liste mit allen Tieren die Ihnen einfallen, dann kann es sein, dass auf der Liste einige Tiere mehrfach erscheinen…</p>
 <p>Wenn ich aber frage: Was ist die Menge aller Ihnen bekannten Tiere, dann würden Sie aber sicherlich keine Tiere doppelt zählen!</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">animals</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;cat&quot;</span><span class="p">,</span> <span class="s2">&quot;dog&quot;</span><span class="p">,</span> <span class="s2">&quot;elephant&quot;</span><span class="p">,</span> <span class="s2">&quot;lion&quot;</span><span class="p">,</span> <span class="s2">&quot;dog&quot;</span><span class="p">}</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">animals</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"cat"</span><span class="p">,</span> <span class="s2">"dog"</span><span class="p">,</span> <span class="s2">"elephant"</span><span class="p">,</span> <span class="s2">"lion"</span><span class="p">,</span> <span class="s2">"dog"</span><span class="p">}</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">animals</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Noch deutlicher wird das Ganze wenn wir Mengen zusammenführen.</p>
 <p>Stellen Sie sich vor, mehrere von ihnen schreiben eine Liste mit Tieren auf (<code class="docutils literal notranslate"><span class="pre">animal_list</span></code>).</p>
 <p>Jetzt wollen wir diese zusammenführen…</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">animal_list1</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;cat&quot;</span><span class="p">,</span> <span class="s2">&quot;dog&quot;</span><span class="p">,</span> <span class="s2">&quot;elephant&quot;</span><span class="p">,</span> <span class="s2">&quot;lion&quot;</span><span class="p">]</span>
-<span class="n">animal_list2</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;parrot&quot;</span><span class="p">,</span> <span class="s2">&quot;cat&quot;</span><span class="p">,</span> <span class="s2">&quot;dog&quot;</span><span class="p">,</span> <span class="s2">&quot;goldfish&quot;</span><span class="p">,</span> <span class="s2">&quot;cow&quot;</span><span class="p">]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">animal_list1</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"cat"</span><span class="p">,</span> <span class="s2">"dog"</span><span class="p">,</span> <span class="s2">"elephant"</span><span class="p">,</span> <span class="s2">"lion"</span><span class="p">]</span>
+<span class="n">animal_list2</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"parrot"</span><span class="p">,</span> <span class="s2">"cat"</span><span class="p">,</span> <span class="s2">"dog"</span><span class="p">,</span> <span class="s2">"goldfish"</span><span class="p">,</span> <span class="s2">"cow"</span><span class="p">]</span>
 
 <span class="n">all_animals</span> <span class="o">=</span> <span class="n">animal_list1</span> <span class="o">+</span> <span class="n">animal_list2</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">all_animals</span><span class="p">)</span>  <span class="c1"># =&gt; Oh no, 2x dog and cat :(</span>
@@ -540,11 +590,11 @@ Und <code class="docutils literal notranslate"><span class="pre">None</span></co
 </div>
 <p>Bei Sets geht das Gleiche aber nicht:</p>
 <!-- pytest-codeblocks:expect-error -->
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">animal_set1</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;cat&quot;</span><span class="p">,</span> <span class="s2">&quot;dog&quot;</span><span class="p">,</span> <span class="s2">&quot;elephant&quot;</span><span class="p">,</span> <span class="s2">&quot;lion&quot;</span><span class="p">}</span>
-<span class="n">animal_set2</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;parrot&quot;</span><span class="p">,</span> <span class="s2">&quot;cat&quot;</span><span class="p">,</span> <span class="s2">&quot;dog&quot;</span><span class="p">,</span> <span class="s2">&quot;goldfish&quot;</span><span class="p">,</span> <span class="s2">&quot;cow&quot;</span><span class="p">}</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">animal_set1</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"cat"</span><span class="p">,</span> <span class="s2">"dog"</span><span class="p">,</span> <span class="s2">"elephant"</span><span class="p">,</span> <span class="s2">"lion"</span><span class="p">}</span>
+<span class="n">animal_set2</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"parrot"</span><span class="p">,</span> <span class="s2">"cat"</span><span class="p">,</span> <span class="s2">"dog"</span><span class="p">,</span> <span class="s2">"goldfish"</span><span class="p">,</span> <span class="s2">"cow"</span><span class="p">}</span>
 
 <span class="n">all_animals</span> <span class="o">=</span> <span class="n">animal_set1</span> <span class="o">+</span> <span class="n">animal_set2</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">all_animals</span><span class="p">)</span>  <span class="c1"># =&gt; TypeError: unsupported operand type(s) for +: &#39;set&#39; and &#39;set&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">all_animals</span><span class="p">)</span>  <span class="c1"># =&gt; TypeError: unsupported operand type(s) for +: 'set' and 'set'</span>
 </pre></div>
 </div>
 <p>Bei Sets gibt es nämlich mehrere verschiedene Arten um zwei Sets zu vereinigen, daher ist <code class="docutils literal notranslate"><span class="pre">+</span></code> hier nicht definiert worden. Eine häufige Verbindung zweier Sets ist die Vereinigungsmenge (engl. <em>union</em>). In der Mengenlehre wäre das
@@ -560,11 +610,11 @@ A \cup B
 $<span class="math notranslate nohighlight">\(
 A \cap B
 \)</span>$</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">animal_set1</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;cat&quot;</span><span class="p">,</span> <span class="s2">&quot;dog&quot;</span><span class="p">,</span> <span class="s2">&quot;elephant&quot;</span><span class="p">,</span> <span class="s2">&quot;lion&quot;</span><span class="p">}</span>
-<span class="n">animal_set2</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;parrot&quot;</span><span class="p">,</span> <span class="s2">&quot;cat&quot;</span><span class="p">,</span> <span class="s2">&quot;dog&quot;</span><span class="p">,</span> <span class="s2">&quot;goldfish&quot;</span><span class="p">,</span> <span class="s2">&quot;cow&quot;</span><span class="p">}</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">animal_set1</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"cat"</span><span class="p">,</span> <span class="s2">"dog"</span><span class="p">,</span> <span class="s2">"elephant"</span><span class="p">,</span> <span class="s2">"lion"</span><span class="p">}</span>
+<span class="n">animal_set2</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"parrot"</span><span class="p">,</span> <span class="s2">"cat"</span><span class="p">,</span> <span class="s2">"dog"</span><span class="p">,</span> <span class="s2">"goldfish"</span><span class="p">,</span> <span class="s2">"cow"</span><span class="p">}</span>
 
 <span class="n">most_popular</span> <span class="o">=</span> <span class="n">animal_set1</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="n">animal_set2</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Named twice: </span><span class="si">{</span><span class="n">most_popular</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Named twice: </span><span class="si">{</span><span class="n">most_popular</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
 </div>
 <blockquote>
@@ -575,23 +625,23 @@ c) {‚elephant‘, ‚lion‘}
 d) {}</p>
 </div></blockquote>
 <p>Auch andere Operationen aus der Mengenlehre gibt es für Sets, wie etwa die symmetrische Differenz (<em>symmetric difference</em>):</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">animal_set1</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;cat&quot;</span><span class="p">,</span> <span class="s2">&quot;dog&quot;</span><span class="p">,</span> <span class="s2">&quot;elephant&quot;</span><span class="p">,</span> <span class="s2">&quot;lion&quot;</span><span class="p">}</span>
-<span class="n">animal_set2</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;parrot&quot;</span><span class="p">,</span> <span class="s2">&quot;cat&quot;</span><span class="p">,</span> <span class="s2">&quot;dog&quot;</span><span class="p">,</span> <span class="s2">&quot;goldfish&quot;</span><span class="p">,</span> <span class="s2">&quot;cow&quot;</span><span class="p">}</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">animal_set1</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"cat"</span><span class="p">,</span> <span class="s2">"dog"</span><span class="p">,</span> <span class="s2">"elephant"</span><span class="p">,</span> <span class="s2">"lion"</span><span class="p">}</span>
+<span class="n">animal_set2</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"parrot"</span><span class="p">,</span> <span class="s2">"cat"</span><span class="p">,</span> <span class="s2">"dog"</span><span class="p">,</span> <span class="s2">"goldfish"</span><span class="p">,</span> <span class="s2">"cow"</span><span class="p">}</span>
 
 <span class="n">named_once</span> <span class="o">=</span> <span class="n">animal_set1</span><span class="o">.</span><span class="n">symmetric_difference</span><span class="p">(</span><span class="n">animal_set2</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Named once: </span><span class="si">{</span><span class="n">named_once</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Named once: </span><span class="si">{</span><span class="n">named_once</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Sets können auch erweitert werden mit <code class="docutils literal notranslate"><span class="pre">add()</span></code> oder <code class="docutils literal notranslate"><span class="pre">update()</span></code>. Elemente können auch entfernt werden mit <code class="docutils literal notranslate"><span class="pre">remove()</span></code>.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">animals</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;cat&quot;</span><span class="p">,</span> <span class="s2">&quot;dog&quot;</span><span class="p">,</span> <span class="s2">&quot;elephant&quot;</span><span class="p">,</span> <span class="s2">&quot;lion&quot;</span><span class="p">}</span>
-<span class="n">animals</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;cow&quot;</span><span class="p">)</span>
-<span class="n">animals</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;wolf&quot;</span><span class="p">,</span> <span class="s2">&quot;goat&quot;</span><span class="p">})</span>
-<span class="n">animals</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">&quot;lion&quot;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">animals</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"cat"</span><span class="p">,</span> <span class="s2">"dog"</span><span class="p">,</span> <span class="s2">"elephant"</span><span class="p">,</span> <span class="s2">"lion"</span><span class="p">}</span>
+<span class="n">animals</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">"cow"</span><span class="p">)</span>
+<span class="n">animals</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">"wolf"</span><span class="p">,</span> <span class="s2">"goat"</span><span class="p">})</span>
+<span class="n">animals</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">"lion"</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">animals</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Es können auch einfach Sequenzen (list, str) in ein Set umgewandelt werden</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;dann am abend baden mit diamentendieben die bananen dabei haben&quot;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="s2">"dann am abend baden mit diamentendieben die bananen dabei haben"</span>
 </pre></div>
 </div>
 <blockquote>
@@ -600,8 +650,8 @@ d) {}</p>
 <!-- pytest-codeblocks:cont -->
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">characters</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">characters</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Anzahl der Zeichen im string: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Aber nur </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">characters</span><span class="p">)</span><span class="si">}</span><span class="s2"> einzigartige Zeichen!&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Anzahl der Zeichen im string: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Aber nur </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">characters</span><span class="p">)</span><span class="si">}</span><span class="s2"> einzigartige Zeichen!"</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -615,48 +665,48 @@ d) {}</p>
 </pre></div>
 </div>
 <p>Ein Beispiel könnte eine Zuordnung von Wörtern in zwei verschiedenen Sprachen sein, hier Deutsch-Englisch:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Hallo&quot;</span><span class="p">:</span> <span class="s2">&quot;hello&quot;</span><span class="p">,</span>
-           <span class="s2">&quot;Tschüss&quot;</span><span class="p">:</span> <span class="s2">&quot;bye&quot;</span><span class="p">,</span>
-           <span class="s2">&quot;Danke&quot;</span><span class="p">:</span> <span class="s2">&quot;thanks&quot;</span><span class="p">}</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"Hallo"</span><span class="p">:</span> <span class="s2">"hello"</span><span class="p">,</span>
+           <span class="s2">"Tschüss"</span><span class="p">:</span> <span class="s2">"bye"</span><span class="p">,</span>
+           <span class="s2">"Danke"</span><span class="p">:</span> <span class="s2">"thanks"</span><span class="p">}</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">my_dict</span><span class="p">[</span><span class="s2">&quot;Danke&quot;</span><span class="p">])</span>  <span class="c1"># =&gt; thanks</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">my_dict</span><span class="p">[</span><span class="s2">"Danke"</span><span class="p">])</span>  <span class="c1"># =&gt; thanks</span>
 </pre></div>
 </div>
 <p>Wie bei Sets, gibt es auch in Dictionaries keine Dopplungen:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Hallo&quot;</span><span class="p">:</span> <span class="s2">&quot;hello&quot;</span><span class="p">,</span>
-           <span class="s2">&quot;Tschüss&quot;</span><span class="p">:</span> <span class="s2">&quot;bye&quot;</span><span class="p">,</span>
-           <span class="s2">&quot;Danke&quot;</span><span class="p">:</span> <span class="s2">&quot;thanks&quot;</span><span class="p">,</span>
-           <span class="s2">&quot;Hallo&quot;</span><span class="p">:</span> <span class="s2">&quot;hi&quot;</span><span class="p">}</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"Hallo"</span><span class="p">:</span> <span class="s2">"hello"</span><span class="p">,</span>
+           <span class="s2">"Tschüss"</span><span class="p">:</span> <span class="s2">"bye"</span><span class="p">,</span>
+           <span class="s2">"Danke"</span><span class="p">:</span> <span class="s2">"thanks"</span><span class="p">,</span>
+           <span class="s2">"Hallo"</span><span class="p">:</span> <span class="s2">"hi"</span><span class="p">}</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">my_dict</span><span class="p">[</span><span class="s2">&quot;Hallo&quot;</span><span class="p">])</span>  <span class="c1"># =&gt; &#39;hi&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">my_dict</span><span class="p">[</span><span class="s2">"Hallo"</span><span class="p">])</span>  <span class="c1"># =&gt; 'hi'</span>
 </pre></div>
 </div>
 <p>Einzelne Elemente aus einem Dictionary können mit dem entsprechenden Schlüssel ausgelesen werden:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Gilderoy Lockhart&quot;</span><span class="p">,</span>
-           <span class="s2">&quot;function&quot;</span><span class="p">:</span> <span class="s2">&quot;teacher&quot;</span><span class="p">,</span>
-           <span class="s2">&quot;password&quot;</span><span class="p">:</span> <span class="s2">&quot;goldlocks&quot;</span><span class="p">}</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Gilderoy Lockhart"</span><span class="p">,</span>
+           <span class="s2">"function"</span><span class="p">:</span> <span class="s2">"teacher"</span><span class="p">,</span>
+           <span class="s2">"password"</span><span class="p">:</span> <span class="s2">"goldlocks"</span><span class="p">}</span>
 
-<span class="n">x</span> <span class="o">=</span> <span class="n">my_dict</span><span class="p">[</span><span class="s2">&quot;password&quot;</span><span class="p">]</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">my_dict</span><span class="p">[</span><span class="s2">"password"</span><span class="p">]</span>
 
 <span class="c1"># Alternativ geht auch:</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">my_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;password&quot;</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">my_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"password"</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Genau wie List oder Set ist auch das Dictionary in Python veränderbar (mutable). Das bedeutet, dass Einträge hinzugefügt, entfernt, oder verändert werden können.</p>
 <!-- pytest-codeblocks:cont -->
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_dict</span><span class="p">[</span><span class="s2">&quot;password&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;prettyfl0wer&quot;</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">my_dict</span><span class="p">[</span><span class="s2">&quot;password&quot;</span><span class="p">])</span>  <span class="c1"># =&gt; prettyfl0wer</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_dict</span><span class="p">[</span><span class="s2">"password"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"prettyfl0wer"</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">my_dict</span><span class="p">[</span><span class="s2">"password"</span><span class="p">])</span>  <span class="c1"># =&gt; prettyfl0wer</span>
 </pre></div>
 </div>
 <p>Neue key-value Paare können einfach hinzugefügt werden:</p>
 <!-- pytest-codeblocks:cont -->
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_dict</span><span class="p">[</span><span class="s2">&quot;hair color&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;blond&quot;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_dict</span><span class="p">[</span><span class="s2">"hair color"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"blond"</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">my_dict</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Es lässt sich auch abfragen ob ein bestimmter Schlüssel enthalten ist:</p>
 <!-- pytest-codeblocks:cont -->
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;password&quot;</span> <span class="ow">in</span> <span class="n">my_dict</span><span class="p">)</span>  <span class="c1"># =&gt; True</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"password"</span> <span class="ow">in</span> <span class="n">my_dict</span><span class="p">)</span>  <span class="c1"># =&gt; True</span>
 </pre></div>
 </div>
 <p>Um den gesamten Inhalt eines Dictionary abzufragen gibt es u.a. folgende Optionen:</p>
@@ -669,7 +719,7 @@ d) {}</p>
 <p>Mit diesen Optionen, können auch <code class="docutils literal notranslate"><span class="pre">for</span></code>-Loops genutzt werden, z.B. hier mit  <code class="docutils literal notranslate"><span class="pre">.items()</span></code>:</p>
 <!-- pytest-codeblocks:cont -->
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">my_dict</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2"> is </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2"> is </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">."</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -677,35 +727,35 @@ d) {}</p>
 <h2><span class="section-number">9.6. </span>Nested dictionaries<a class="headerlink" href="#nested-dictionaries" title="Link to this heading">#</a></h2>
 <p>Bei Listen hatten wir besprochen, dass eine Liste auch weitere Listen enthalten kann. Damit können also verschachtelte Listen erstellt werden. Das Gleiche geht auch für Dictionaries, d.h. ein Dictionary kann weitere Dictionaries enthalten. Damit können auch komplexere key-value Logiken abgebildet werden.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">hogwarts</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;Dumbeldore&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s2">&quot;surname&quot;</span><span class="p">:</span> <span class="s2">&quot;Albus&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;function&quot;</span><span class="p">:</span> <span class="s2">&quot;headmaster&quot;</span>
+    <span class="s2">"Dumbeldore"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">"surname"</span><span class="p">:</span> <span class="s2">"Albus"</span><span class="p">,</span>
+        <span class="s2">"function"</span><span class="p">:</span> <span class="s2">"headmaster"</span>
         <span class="p">},</span>
-    <span class="s2">&quot;Lockhart&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s2">&quot;surname&quot;</span><span class="p">:</span> <span class="s2">&quot;Gilderoy&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;function&quot;</span><span class="p">:</span> <span class="s2">&quot;teacher&quot;</span>
+    <span class="s2">"Lockhart"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">"surname"</span><span class="p">:</span> <span class="s2">"Gilderoy"</span><span class="p">,</span>
+        <span class="s2">"function"</span><span class="p">:</span> <span class="s2">"teacher"</span>
         <span class="p">},</span>
-    <span class="s2">&quot;Granger&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s2">&quot;surname&quot;</span><span class="p">:</span> <span class="s2">&quot;Hermione&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;function&quot;</span><span class="p">:</span> <span class="s2">&quot;pupil&quot;</span>
+    <span class="s2">"Granger"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">"surname"</span><span class="p">:</span> <span class="s2">"Hermione"</span><span class="p">,</span>
+        <span class="s2">"function"</span><span class="p">:</span> <span class="s2">"pupil"</span>
         <span class="p">},</span>
 <span class="p">}</span> 
 
 
-<span class="nb">print</span><span class="p">(</span><span class="n">hogwarts</span><span class="p">[</span><span class="s2">&quot;Granger&quot;</span><span class="p">][</span><span class="s2">&quot;surname&quot;</span><span class="p">])</span>  <span class="c1"># =&gt; Hermione</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">hogwarts</span><span class="p">[</span><span class="s2">"Granger"</span><span class="p">][</span><span class="s2">"surname"</span><span class="p">])</span>  <span class="c1"># =&gt; Hermione</span>
 </pre></div>
 </div>
-<p>Bei den entsprechenden Einrückungen hilft zum Glück das IDE (Spyder, Visual Studio Code PyCharm etc.), denn das kann zu Beginn schnell etwas unübersichtlich werden. Und Python erlaubt oft verschiedene Einrückungen, z.B. ginge auch sowas:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">hogwarts</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Dumbeldore&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;surname&quot;</span> <span class="p">:</span> <span class="s2">&quot;Albus&quot;</span><span class="p">,</span>
-                           <span class="s2">&quot;function&quot;</span> <span class="p">:</span> <span class="s2">&quot;headmaster&quot;</span><span class="p">},</span>
-            <span class="s2">&quot;Lockhart&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;surname&quot;</span><span class="p">:</span> <span class="s2">&quot;Gilderoy&quot;</span><span class="p">,</span>
-                         <span class="s2">&quot;function&quot;</span><span class="p">:</span> <span class="s2">&quot;teacher&quot;</span><span class="p">},</span>
-            <span class="s2">&quot;Granger&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;surname&quot;</span><span class="p">:</span> <span class="s2">&quot;Hermione&quot;</span><span class="p">,</span>
-                        <span class="s2">&quot;function&quot;</span><span class="p">:</span> <span class="s2">&quot;pupil&quot;</span><span class="p">},</span>
+<p>Bei den entsprechenden Einrückungen hilft zum Glück der Editor bzw. die IDE (z.B. Visual Studio Code oder PyCharm), denn das kann zu Beginn schnell etwas unübersichtlich werden. Und Python erlaubt oft verschiedene Einrückungen, z.B. ginge auch sowas:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">hogwarts</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"Dumbeldore"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"surname"</span> <span class="p">:</span> <span class="s2">"Albus"</span><span class="p">,</span>
+                           <span class="s2">"function"</span> <span class="p">:</span> <span class="s2">"headmaster"</span><span class="p">},</span>
+            <span class="s2">"Lockhart"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"surname"</span><span class="p">:</span> <span class="s2">"Gilderoy"</span><span class="p">,</span>
+                         <span class="s2">"function"</span><span class="p">:</span> <span class="s2">"teacher"</span><span class="p">},</span>
+            <span class="s2">"Granger"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"surname"</span><span class="p">:</span> <span class="s2">"Hermione"</span><span class="p">,</span>
+                        <span class="s2">"function"</span><span class="p">:</span> <span class="s2">"pupil"</span><span class="p">},</span>
             <span class="p">}</span> 
 
 
-<span class="nb">print</span><span class="p">(</span><span class="n">hogwarts</span><span class="p">[</span><span class="s2">&quot;Granger&quot;</span><span class="p">][</span><span class="s2">&quot;surname&quot;</span><span class="p">])</span>  <span class="c1"># =&gt; Hermione</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">hogwarts</span><span class="p">[</span><span class="s2">"Granger"</span><span class="p">][</span><span class="s2">"surname"</span><span class="p">])</span>  <span class="c1"># =&gt; Hermione</span>
 </pre></div>
 </div>
 </section>
@@ -729,28 +779,28 @@ Eine mögliche Lösung stell hier die Methode <code class="docutils literal notr
 </pre></div>
 </div>
 <p>Das geht auch bei Dictionaries:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Gilderoy Lockhart&quot;</span><span class="p">,</span>
-           <span class="s2">&quot;function&quot;</span><span class="p">:</span> <span class="s2">&quot;teacher&quot;</span><span class="p">,</span>
-           <span class="s2">&quot;password&quot;</span><span class="p">:</span> <span class="s2">&quot;goldlocks&quot;</span><span class="p">}</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Gilderoy Lockhart"</span><span class="p">,</span>
+           <span class="s2">"function"</span><span class="p">:</span> <span class="s2">"teacher"</span><span class="p">,</span>
+           <span class="s2">"password"</span><span class="p">:</span> <span class="s2">"goldlocks"</span><span class="p">}</span>
 <span class="n">my_dict2</span> <span class="o">=</span> <span class="n">my_dict</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="n">my_dict2</span><span class="p">[</span><span class="s2">&quot;function&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;former teacher&quot;</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">my_dict</span><span class="p">[</span><span class="s2">&quot;function&quot;</span><span class="p">])</span>  <span class="c1"># -&gt; &quot;teacher&quot;</span>
+<span class="n">my_dict2</span><span class="p">[</span><span class="s2">"function"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"former teacher"</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">my_dict</span><span class="p">[</span><span class="s2">"function"</span><span class="p">])</span>  <span class="c1"># -&gt; "teacher"</span>
 </pre></div>
 </div>
 <p>Sobald wir aber beginnen mit tiefer verschachtelten veränderbaren Objekten zu arbeiten, ergeben sich erneut Probleme:</p>
 <!-- pytest-codeblocks:cont -->
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">hogwarts</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Dumbeldore&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;surname&quot;</span> <span class="p">:</span> <span class="s2">&quot;Albus&quot;</span><span class="p">,</span>
-                           <span class="s2">&quot;function&quot;</span> <span class="p">:</span> <span class="s2">&quot;headmaster&quot;</span><span class="p">},</span>
-            <span class="s2">&quot;Lockhart&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;surname&quot;</span><span class="p">:</span> <span class="s2">&quot;Gilderoy&quot;</span><span class="p">,</span>
-                         <span class="s2">&quot;function&quot;</span><span class="p">:</span> <span class="s2">&quot;teacher&quot;</span><span class="p">},</span>
-            <span class="s2">&quot;Granger&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;surname&quot;</span><span class="p">:</span> <span class="s2">&quot;Hermione&quot;</span><span class="p">,</span>
-                        <span class="s2">&quot;function&quot;</span><span class="p">:</span> <span class="s2">&quot;pupil&quot;</span><span class="p">},</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">hogwarts</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"Dumbeldore"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"surname"</span> <span class="p">:</span> <span class="s2">"Albus"</span><span class="p">,</span>
+                           <span class="s2">"function"</span> <span class="p">:</span> <span class="s2">"headmaster"</span><span class="p">},</span>
+            <span class="s2">"Lockhart"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"surname"</span><span class="p">:</span> <span class="s2">"Gilderoy"</span><span class="p">,</span>
+                         <span class="s2">"function"</span><span class="p">:</span> <span class="s2">"teacher"</span><span class="p">},</span>
+            <span class="s2">"Granger"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"surname"</span><span class="p">:</span> <span class="s2">"Hermione"</span><span class="p">,</span>
+                        <span class="s2">"function"</span><span class="p">:</span> <span class="s2">"pupil"</span><span class="p">},</span>
             <span class="p">}</span> 
 
 <span class="n">hogwarts_book7</span> <span class="o">=</span> <span class="n">hogwarts</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="n">hogwarts_book7</span><span class="p">[</span><span class="s2">&quot;Dumbeldore&quot;</span><span class="p">][</span><span class="s2">&quot;function&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;former headmaster&quot;</span>
+<span class="n">hogwarts_book7</span><span class="p">[</span><span class="s2">"Dumbeldore"</span><span class="p">][</span><span class="s2">"function"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"former headmaster"</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">hogwarts</span><span class="p">[</span><span class="s2">&quot;Dumbeldore&quot;</span><span class="p">][</span><span class="s2">&quot;function&quot;</span><span class="p">])</span>  <span class="c1"># =&gt; former headmaster</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">hogwarts</span><span class="p">[</span><span class="s2">"Dumbeldore"</span><span class="p">][</span><span class="s2">"function"</span><span class="p">])</span>  <span class="c1"># =&gt; former headmaster</span>
 </pre></div>
 </div>
 <p>Das entspricht jetzt nicht unbedingt dem Ergebnis das erwartet wurde. Wir haben hier das Dictionary <code class="docutils literal notranslate"><span class="pre">hogwarts_book7</span></code> verändert, aber damit (ohne es zu wollen) auch den Eintrag im ursprünglichen Dictionary <code class="docutils literal notranslate"><span class="pre">hogwarts</span></code> angepasst.</p>
@@ -760,18 +810,18 @@ Hierbei wird das Dictionary nicht komplett kopiert, sondern nur die Elemente der
 Hier brauchen wir keine <em>shallow</em>, sondern eine <em>deep</em> (also tiefe) Kopie bei der das ganze Dictionary noch einmal komplett neu in den Speicher geschrieben wird.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">copy</span>
 
-<span class="n">hogwarts</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Dumbeldore&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;surname&quot;</span> <span class="p">:</span> <span class="s2">&quot;Albus&quot;</span><span class="p">,</span>
-                           <span class="s2">&quot;function&quot;</span> <span class="p">:</span> <span class="s2">&quot;headmaster&quot;</span><span class="p">},</span>
-            <span class="s2">&quot;Lockhart&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;surname&quot;</span><span class="p">:</span> <span class="s2">&quot;Gilderoy&quot;</span><span class="p">,</span>
-                         <span class="s2">&quot;function&quot;</span><span class="p">:</span> <span class="s2">&quot;teacher&quot;</span><span class="p">},</span>
-            <span class="s2">&quot;Granger&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;surname&quot;</span><span class="p">:</span> <span class="s2">&quot;Hermione&quot;</span><span class="p">,</span>
-                        <span class="s2">&quot;function&quot;</span><span class="p">:</span> <span class="s2">&quot;pupil&quot;</span><span class="p">},</span>
+<span class="n">hogwarts</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"Dumbeldore"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"surname"</span> <span class="p">:</span> <span class="s2">"Albus"</span><span class="p">,</span>
+                           <span class="s2">"function"</span> <span class="p">:</span> <span class="s2">"headmaster"</span><span class="p">},</span>
+            <span class="s2">"Lockhart"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"surname"</span><span class="p">:</span> <span class="s2">"Gilderoy"</span><span class="p">,</span>
+                         <span class="s2">"function"</span><span class="p">:</span> <span class="s2">"teacher"</span><span class="p">},</span>
+            <span class="s2">"Granger"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"surname"</span><span class="p">:</span> <span class="s2">"Hermione"</span><span class="p">,</span>
+                        <span class="s2">"function"</span><span class="p">:</span> <span class="s2">"pupil"</span><span class="p">},</span>
             <span class="p">}</span> 
 
 <span class="n">hogwarts_book7</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">hogwarts</span><span class="p">)</span>
-<span class="n">hogwarts_book7</span><span class="p">[</span><span class="s2">&quot;Dumbeldore&quot;</span><span class="p">][</span><span class="s2">&quot;function&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;former headmaster&quot;</span>
+<span class="n">hogwarts_book7</span><span class="p">[</span><span class="s2">"Dumbeldore"</span><span class="p">][</span><span class="s2">"function"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"former headmaster"</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">hogwarts</span><span class="p">[</span><span class="s2">&quot;Dumbeldore&quot;</span><span class="p">][</span><span class="s2">&quot;function&quot;</span><span class="p">])</span>  <span class="c1"># =&gt; headmaster</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">hogwarts</span><span class="p">[</span><span class="s2">"Dumbeldore"</span><span class="p">][</span><span class="s2">"function"</span><span class="p">])</span>  <span class="c1"># =&gt; headmaster</span>
 </pre></div>
 </div>
 <p>Das Gleiche gilt übrigens auch für Listen:</p>
@@ -819,7 +869,7 @@ Hier brauchen wir keine <em>shallow</em>, sondern eine <em>deep</em> (also tiefe
 <div class="prev-next-area">
     <a class="left-prev"
        href="03_special_functions.html"
-       title="previous page">
+       title="Vorherige Seite">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">zurück</p>
@@ -828,7 +878,7 @@ Hier brauchen wir keine <em>shallow</em>, sondern eine <em>deep</em> (also tiefe
     </a>
     <a class="right-next"
        href="04_string_handling.html"
-       title="next page">
+       title="Nächste Seite">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">weiter</p>
         <p class="prev-next-title"><span class="section-number">10. </span>String handling</p>
@@ -846,12 +896,13 @@ Hier brauchen wir keine <em>shallow</em>, sondern eine <em>deep</em> (also tiefe
                 <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Inhalt
   </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zahlen">9.1. Zahlen</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lists-tuples">9.2. Lists &amp; Tuples</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#boolean-und-none">9.3. Boolean und None</a></li>
@@ -886,7 +937,7 @@ Durch Florian Huber
 
   <p class="copyright">
     
-      © Copyright 2024.
+      © Copyright 2024
       <br/>
     
   </p>
@@ -910,8 +961,8 @@ Durch Florian Huber
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
-<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+  <script defer src="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
 
   <footer class="bd-footer">
   </footer>

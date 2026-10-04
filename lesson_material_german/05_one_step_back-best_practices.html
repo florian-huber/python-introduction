@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>12. Clean code und „best practices“ &#8212; Einführung Programmieren mit Python</title>
+    <title>11. Clean code und „best practices“ &#8212; Einführung Programmieren mit Python</title>
   
   
   
@@ -27,33 +27,33 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- So that users can add custom icons -->
-  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <script defer src="../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
 
     <script src="../_static/documentation_options.js?v=91fba89f"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=f281be69"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
-    <script>let toggleHintShow = 'Click to show';</script>
-    <script>let toggleHintHide = 'Click to hide';</script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Klicken zum Anzeigen';</script>
+    <script>let toggleHintHide = 'Klicken zum Ausblenden';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../_static/togglebutton.js?v=b8b12719"></script>
     <script src="../_static/translations.js?v=79cc9f76"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../_static/design-tabs.js?v=f930bc37"></script>
@@ -62,28 +62,35 @@
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'lesson_material_german/05_one_step_back-best_practices';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
     <link rel="search" title="Suche" href="../search.html" />
-    <link rel="next" title="13. Dateien lesen und schreiben" href="05_open_files.html" />
-    <link rel="prev" title="11. Error handling" href="05_error_handling.html" />
+    <link rel="next" title="12. Dateien lesen und schreiben" href="05_open_files.html" />
+    <link rel="prev" title="10. String handling" href="04_string_handling.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="de"/>
   <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
   </head>
+  <body data-default-mode="">
   
   
-  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Zum Hauptinhalt springen</a></div>
 
-  
-  
-  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
-
+    <i class="fa-solid fa-arrow-up"></i>Zurück zum Anfang</button>
+  
+  
+  
   
   <dialog id="pst-search-dialog">
     
@@ -105,11 +112,55 @@
   </dialog>
 
   <div class="pst-async-banner-revealer d-none">
-  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Versionswarnung"></aside>
 </div>
 
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Website-Navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Suche" aria-label="Suche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Suche</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Suche" aria-label="Suche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Suche</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="Auf dieser Seite">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
     </header>
   
 
@@ -191,31 +242,30 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Error Handling und Best Practices I</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="05_error_handling.html">11. Error handling</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">12. Clean code und „best practices“</a></li>
-<li class="toctree-l1"><a class="reference internal" href="05_open_files.html">13. Dateien lesen und schreiben</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">11. Clean code und „best practices“</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_open_files.html">12. Dateien lesen und schreiben</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Klassen und Objekte</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="06_classes_objects.html">14. Objektorientierte Programmierung - Einführung</a></li>
-<li class="toctree-l1"><a class="reference internal" href="07_classes_objects_2.html">15. Objektorientierte Programmierung in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_classes_objects.html">13. Objektorientierte Programmierung - Einführung</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_classes_objects_2.html">14. Objektorientierte Programmierung in Python</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Arbeiten mit numerischen Daten - Numpy</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="08_numpy.html">16. Numerische Daten in Python mit NumPy</a></li>
-<li class="toctree-l1"><a class="reference internal" href="09_numpy_2.html">17. Numerische Daten in Python mit NumPy - Teil 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08_numpy.html">15. Numerische Daten in Python mit NumPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_numpy_2.html">16. Numerische Daten in Python mit NumPy - Teil 2</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Schritte Richtung Data Science</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="09_pandas.html">18. Pandas</a></li>
-<li class="toctree-l1"><a class="reference internal" href="10_pandas_2.html">19. Pandas - Teil 2</a></li>
-<li class="toctree-l1"><a class="reference internal" href="12_data_visualization.html">20. Datenvisualisierung mit Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="13_data_visualization_outlook.html">21. 2D/3D Visualisierung &amp; interaktive Plots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_pandas.html">17. Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_pandas_2.html">18. Pandas - Teil 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_data_visualization.html">19. Datenvisualisierung mit Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13_data_visualization_outlook.html">20. 2D/3D Visualisierung &amp; interaktive Plots</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">A few missing things</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="10_debugging.html">22. Python Debugging</a></li>
-<li class="toctree-l1"><a class="reference internal" href="14_generators.html">23. Generators / Iterators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_debugging.html">21. Python Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="14_generators.html">22. Generators / Iterators</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Source Code and Contributions</span></p>
 <ul class="nav bd-sidenav">
@@ -366,7 +416,7 @@
 
 
 <button onclick="toggleFullScreen()"
-  class="btn btn-sm btn-fullscreen-button"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
   title="Vollbildmodus"
   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
@@ -380,17 +430,17 @@
 
 
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Farbmodus" data-bs-title="Farbmodus"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Hell"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dunkel"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="Systemeinstellungen"></i>
 </button>
 
 
 <button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Suche" aria-label="Suche" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
 </button>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
 </div></div>
@@ -412,15 +462,15 @@
                 <h2> Inhalt </h2>
             </div>
             <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#teams-vs-lonely-hacker">12.1. Teams vs. lonely hacker</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zen-of-python">12.1.1. Zen of Python</a></li>
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#teams-vs-lonely-hacker">11.1. Teams vs. lonely hacker</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zen-of-python">11.1.1. Zen of Python</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clean-code-best-practices">12.2. Clean Code / Best practices</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#beispiel-rock-paper-scissors">12.3. Beispiel: Rock-Paper-Scissors</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mehr-zum-python-ecosystem">12.4. Mehr zum Python-Ecosystem</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bereits-installierte-bibliotheken">12.4.1. Bereits installierte Bibliotheken</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clean-code-best-practices">11.2. Clean Code / Best practices</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#beispiel-rock-paper-scissors">11.3. Beispiel: Rock-Paper-Scissors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mehr-zum-python-ecosystem">11.4. Mehr zum Python-Ecosystem</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bereits-installierte-bibliotheken">11.4.1. Bereits installierte Bibliotheken</a></li>
 </ul>
 </li>
 </ul>
@@ -435,7 +485,7 @@
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="clean-code-und-best-practices">
-<h1><span class="section-number">12. </span>Clean code und „best practices“<a class="headerlink" href="#clean-code-und-best-practices" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">11. </span>Clean code und „best practices“<a class="headerlink" href="#clean-code-und-best-practices" title="Link to this heading">#</a></h1>
 <p>In den ersten Kapitels haben wir schon viele wichtige Grundlagen in Python gesehen:</p>
 <ul class="simple">
 <li><p>Verschiedene <strong>Datentypen</strong>: Zahlen, Strings, List, Tuple, Dictionary, Set, Boolean, None</p></li>
@@ -448,11 +498,11 @@
 </ul>
 <p>Höchste Zeit um einen kleinen Schritt zurück zu machen und den Blick freizugeben für das <strong>big picture</strong>, das große Ganze.</p>
 <section id="teams-vs-lonely-hacker">
-<h2><span class="section-number">12.1. </span>Teams vs. lonely hacker<a class="headerlink" href="#teams-vs-lonely-hacker" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">11.1. </span>Teams vs. lonely hacker<a class="headerlink" href="#teams-vs-lonely-hacker" title="Link to this heading">#</a></h2>
 <p>Wir haben etwas ausführlicher über Teams und Pair Programming gesprochen –&gt; bisher nur in den Slides auf Moodle zu finden.</p>
 <p>Danach ging es um <strong>Code Quality</strong> und <strong>Clean Code</strong>, angefangen mit:</p>
 <section id="zen-of-python">
-<h3><span class="section-number">12.1.1. </span>Zen of Python<a class="headerlink" href="#zen-of-python" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">11.1.1. </span>Zen of Python<a class="headerlink" href="#zen-of-python" title="Link to this heading">#</a></h3>
 <p>Bitte einmal den folgenden <code class="docutils literal notranslate"><span class="pre">import</span></code> ausprobieren:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">this</span>
 </pre></div>
@@ -467,18 +517,18 @@
 <span class="n">Flat</span> <span class="ow">is</span> <span class="n">better</span> <span class="n">than</span> <span class="n">nested</span><span class="o">.</span>
 <span class="n">Sparse</span> <span class="ow">is</span> <span class="n">better</span> <span class="n">than</span> <span class="n">dense</span><span class="o">.</span>
 <span class="n">Readability</span> <span class="n">counts</span><span class="o">.</span>
-<span class="n">Special</span> <span class="n">cases</span> <span class="n">aren</span><span class="s1">&#39;t special enough to break the rules.</span>
+<span class="n">Special</span> <span class="n">cases</span> <span class="n">aren</span><span class="s1">'t special enough to break the rules.</span>
 <span class="n">Although</span> <span class="n">practicality</span> <span class="n">beats</span> <span class="n">purity</span><span class="o">.</span>
 <span class="n">Errors</span> <span class="n">should</span> <span class="n">never</span> <span class="k">pass</span> <span class="n">silently</span><span class="o">.</span>
 <span class="n">Unless</span> <span class="n">explicitly</span> <span class="n">silenced</span><span class="o">.</span>
 <span class="n">In</span> <span class="n">the</span> <span class="n">face</span> <span class="n">of</span> <span class="n">ambiguity</span><span class="p">,</span> <span class="n">refuse</span> <span class="n">the</span> <span class="n">temptation</span> <span class="n">to</span> <span class="n">guess</span><span class="o">.</span>
 <span class="n">There</span> <span class="n">should</span> <span class="n">be</span> <span class="n">one</span><span class="o">--</span> <span class="ow">and</span> <span class="n">preferably</span> <span class="n">only</span> <span class="n">one</span> <span class="o">--</span><span class="n">obvious</span> <span class="n">way</span> <span class="n">to</span> <span class="n">do</span> <span class="n">it</span><span class="o">.</span>
-<span class="n">Although</span> <span class="n">that</span> <span class="n">way</span> <span class="n">may</span> <span class="ow">not</span> <span class="n">be</span> <span class="n">obvious</span> <span class="n">at</span> <span class="n">first</span> <span class="n">unless</span> <span class="n">you</span><span class="s1">&#39;re Dutch.</span>
+<span class="n">Although</span> <span class="n">that</span> <span class="n">way</span> <span class="n">may</span> <span class="ow">not</span> <span class="n">be</span> <span class="n">obvious</span> <span class="n">at</span> <span class="n">first</span> <span class="n">unless</span> <span class="n">you</span><span class="s1">'re Dutch.</span>
 <span class="n">Now</span> <span class="ow">is</span> <span class="n">better</span> <span class="n">than</span> <span class="n">never</span><span class="o">.</span>
 <span class="n">Although</span> <span class="n">never</span> <span class="ow">is</span> <span class="n">often</span> <span class="n">better</span> <span class="n">than</span> <span class="o">*</span><span class="n">right</span><span class="o">*</span> <span class="n">now</span><span class="o">.</span>
-<span class="n">If</span> <span class="n">the</span> <span class="n">implementation</span> <span class="ow">is</span> <span class="n">hard</span> <span class="n">to</span> <span class="n">explain</span><span class="p">,</span> <span class="n">it</span><span class="s1">&#39;s a bad idea.</span>
+<span class="n">If</span> <span class="n">the</span> <span class="n">implementation</span> <span class="ow">is</span> <span class="n">hard</span> <span class="n">to</span> <span class="n">explain</span><span class="p">,</span> <span class="n">it</span><span class="s1">'s a bad idea.</span>
 <span class="n">If</span> <span class="n">the</span> <span class="n">implementation</span> <span class="ow">is</span> <span class="n">easy</span> <span class="n">to</span> <span class="n">explain</span><span class="p">,</span> <span class="n">it</span> <span class="n">may</span> <span class="n">be</span> <span class="n">a</span> <span class="n">good</span> <span class="n">idea</span><span class="o">.</span>
-<span class="n">Namespaces</span> <span class="n">are</span> <span class="n">one</span> <span class="n">honking</span> <span class="n">great</span> <span class="n">idea</span> <span class="o">--</span> <span class="n">let</span><span class="s1">&#39;s do more of those!</span>
+<span class="n">Namespaces</span> <span class="n">are</span> <span class="n">one</span> <span class="n">honking</span> <span class="n">great</span> <span class="n">idea</span> <span class="o">--</span> <span class="n">let</span><span class="s1">'s do more of those!</span>
 </pre></div>
 </div>
 <p>Darüber wie heilig oder ironisch diese  Zen-Regeln sind, und darüber was genau sie bedeuten sollen, gibt es unterschiedliche Meinungen.</p>
@@ -493,7 +543,7 @@ Beautiful is better than ugly.
 </section>
 </section>
 <section id="clean-code-best-practices">
-<h2><span class="section-number">12.2. </span>Clean Code / Best practices<a class="headerlink" href="#clean-code-best-practices" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">11.2. </span>Clean Code / Best practices<a class="headerlink" href="#clean-code-best-practices" title="Link to this heading">#</a></h2>
 <p>Wir hatten zuvor schon einige Dinge zu lesbarem Code besprochen:</p>
 <ul class="simple">
 <li><p>Sinnvolle Variablen- und Funktionennamen</p></li>
@@ -514,8 +564,8 @@ Beautiful is better than ugly.
 <p>Na? …</p>
 <p>Hier nochmal das gleiche Beispiel mit besseren Variablen- und Funktionsnamen:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">kelvin_to_fahrenheit</span><span class="p">(</span><span class="n">temp_kelvin</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Umrechnen von Temperatur in Kelvin zu Fahrenheit.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Umrechnen von Temperatur in Kelvin zu Fahrenheit.</span>
+<span class="sd">    """</span>
     <span class="n">fahrenheit_factor</span> <span class="o">=</span> <span class="mi">9</span> <span class="o">/</span> <span class="mi">5</span>
     <span class="n">fahrenheit_offset</span> <span class="o">=</span> <span class="mi">32</span>
     <span class="n">absolute_zero</span> <span class="o">=</span> <span class="mf">273.15</span>
@@ -528,36 +578,36 @@ Beautiful is better than ugly.
 <p>Auch jetzt ist vielleicht nicht unbedingt auf den ersten Blick jeder Schritt der Funktion sofort klar. Aber es wird sofort deutlich was die Funktion überhaupt machen soll („Umrechnen von Temperaturen in Kelvin zu Fahrenheit“). Und auch die Rechenschritte können nun theoretisch überprüft werden, da klar ist was die Variablen zu bedeuten haben.</p>
 </section>
 <section id="beispiel-rock-paper-scissors">
-<h2><span class="section-number">12.3. </span>Beispiel: Rock-Paper-Scissors<a class="headerlink" href="#beispiel-rock-paper-scissors" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">11.3. </span>Beispiel: Rock-Paper-Scissors<a class="headerlink" href="#beispiel-rock-paper-scissors" title="Link to this heading">#</a></h2>
 <p>Wir wollen jetzt das Spiel Rock-Paper-Scissors (Stein-Schere-Papier) programmieren. Zuerst soll ein menschlicher Spieler gegen den Computer antreten.</p>
 <p>Dafür wir fangen einmal damit an, eine Funktion zu schreiben in der der Computer zufällig eine der drei Möglichkeiten auswählt. Für das Zufallselement nutzen wir wieder die Bibliothek <code class="docutils literal notranslate"><span class="pre">random</span></code>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
 
 <span class="k">def</span><span class="w"> </span><span class="nf">rock_paper_scissor</span><span class="p">():</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Returns randomly chosen string: &quot;rock&quot;, &quot;paper&quot;, or &quot;scissor&quot;.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Returns randomly chosen string: "rock", "paper", or "scissor".</span>
+<span class="sd">    """</span>
     <span class="n">choice</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="n">random_number</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">random_number</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-        <span class="n">choice</span> <span class="o">=</span> <span class="s2">&quot;rock&quot;</span>
+        <span class="n">choice</span> <span class="o">=</span> <span class="s2">"rock"</span>
     <span class="k">elif</span> <span class="n">random_number</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
-        <span class="n">choice</span> <span class="o">=</span> <span class="s2">&quot;paper&quot;</span>
+        <span class="n">choice</span> <span class="o">=</span> <span class="s2">"paper"</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">choice</span> <span class="o">=</span> <span class="s2">&quot;scissor&quot;</span>
+        <span class="n">choice</span> <span class="o">=</span> <span class="s2">"scissor"</span>
     <span class="k">return</span> <span class="n">choice</span>
 </pre></div>
 </div>
 <p>Die Funktion und die Variablen haben sinnvolle Namen, ein Docstring beschreibt ungefähr was die Funktion macht. Also alles in Ordnung, oder?</p>
 <p>Im Prinzip schon. Der Code läuft und man kann ihn verstehen. Aber es geht noch etwas besser:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">rock_paper_scissor</span><span class="p">():</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Returns randomly chosen string: &quot;rock&quot;, &quot;paper&quot;, or &quot;scissor&quot;.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Returns randomly chosen string: "rock", "paper", or "scissor".</span>
+<span class="sd">    """</span>
     <span class="n">random_number</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">random_number</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-        <span class="k">return</span> <span class="s2">&quot;rock&quot;</span>
+        <span class="k">return</span> <span class="s2">"rock"</span>
     <span class="k">if</span> <span class="n">random_number</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
-        <span class="k">return</span> <span class="s2">&quot;paper&quot;</span>
-    <span class="k">return</span> <span class="s2">&quot;scissor&quot;</span>
+        <span class="k">return</span> <span class="s2">"paper"</span>
+    <span class="k">return</span> <span class="s2">"scissor"</span>
 </pre></div>
 </div>
 <p>Warum besser?
@@ -566,14 +616,14 @@ Das wäre so etwas wie das <em>Simple is better than complex.</em> aus dem Pytho
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
 
 <span class="k">def</span><span class="w"> </span><span class="nf">rock_paper_scissor</span><span class="p">():</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Returns randomly chosen string: &quot;rock&quot;, &quot;paper&quot;, or &quot;scissor&quot;.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">choice</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">])</span>
-    <span class="k">if</span> <span class="n">choice</span> <span class="o">==</span> <span class="s2">&quot;a&quot;</span><span class="p">:</span>
-        <span class="k">return</span> <span class="s2">&quot;rock&quot;</span>
-    <span class="k">if</span> <span class="n">choice</span> <span class="o">==</span> <span class="s2">&quot;b&quot;</span><span class="p">:</span>
-        <span class="k">return</span> <span class="s2">&quot;paper&quot;</span>
-    <span class="k">return</span> <span class="s2">&quot;scissor&quot;</span>
+<span class="w">    </span><span class="sd">"""Returns randomly chosen string: "rock", "paper", or "scissor".</span>
+<span class="sd">    """</span>
+    <span class="n">choice</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="s2">"a"</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">])</span>
+    <span class="k">if</span> <span class="n">choice</span> <span class="o">==</span> <span class="s2">"a"</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">"rock"</span>
+    <span class="k">if</span> <span class="n">choice</span> <span class="o">==</span> <span class="s2">"b"</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">"paper"</span>
+    <span class="k">return</span> <span class="s2">"scissor"</span>
 </pre></div>
 </div>
 <p>Wie wäre das?</p>
@@ -582,9 +632,9 @@ Das wäre so etwas wie das <em>Simple is better than complex.</em> aus dem Pytho
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
 
 <span class="k">def</span><span class="w"> </span><span class="nf">rock_paper_scissor</span><span class="p">():</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Returns randomly chosen string: &quot;rock&quot;, &quot;paper&quot;, or &quot;scissor&quot;.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="s2">&quot;rock&quot;</span><span class="p">,</span> <span class="s2">&quot;paper&quot;</span><span class="p">,</span> <span class="s2">&quot;scissor&quot;</span><span class="p">])</span>
+<span class="w">    </span><span class="sd">"""Returns randomly chosen string: "rock", "paper", or "scissor".</span>
+<span class="sd">    """</span>
+    <span class="k">return</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="s2">"rock"</span><span class="p">,</span> <span class="s2">"paper"</span><span class="p">,</span> <span class="s2">"scissor"</span><span class="p">])</span>
 </pre></div>
 </div>
 <p>OK, in dem Fall sollte deutlich sein, dass der Code einfacher und eleganter geworden ist.
@@ -595,34 +645,34 @@ Die Lösung davor, die erst a, b, oder c auswählt macht nämlich einen völlig 
 <p>Natürlich kann man einfach los-programmieren. Für solch ein einfaches Spiel geht das auch noch halbwegs:</p>
 <!-- pytest-codeblocks:skip -->
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">game</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Yes! Rock-Paper-Scissors!&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Yes! Rock-Paper-Scissors!"</span><span class="p">)</span>
     <span class="n">computer_choice</span> <span class="o">=</span> <span class="n">rock_paper_scissor</span><span class="p">()</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;What is your choice?&quot;</span><span class="p">)</span>
-    <span class="n">human_choice</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;a) rock, b) paper, c) scissor ... :&quot;</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">human_choice</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">]:</span>
-        <span class="k">if</span> <span class="n">human_choice</span> <span class="o">==</span> <span class="s2">&quot;a&quot;</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">computer_choice</span> <span class="o">==</span> <span class="s2">&quot;paper&quot;</span><span class="p">:</span>
-                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Computer wins!&quot;</span><span class="p">)</span>
-            <span class="k">elif</span> <span class="n">computer_choice</span> <span class="o">==</span> <span class="s2">&quot;scissor&quot;</span><span class="p">:</span>
-                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Human wins!&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"What is your choice?"</span><span class="p">)</span>
+    <span class="n">human_choice</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"a) rock, b) paper, c) scissor ... :"</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">human_choice</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"a"</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">]:</span>
+        <span class="k">if</span> <span class="n">human_choice</span> <span class="o">==</span> <span class="s2">"a"</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">computer_choice</span> <span class="o">==</span> <span class="s2">"paper"</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">"Computer wins!"</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">computer_choice</span> <span class="o">==</span> <span class="s2">"scissor"</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">"Human wins!"</span><span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Drawn...&quot;</span><span class="p">)</span>
-        <span class="k">elif</span> <span class="n">human_choice</span> <span class="o">==</span> <span class="s2">&quot;b&quot;</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">computer_choice</span> <span class="o">==</span> <span class="s2">&quot;scissor&quot;</span><span class="p">:</span>
-                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Computer wins!&quot;</span><span class="p">)</span>
-            <span class="k">elif</span> <span class="n">computer_choice</span> <span class="o">==</span> <span class="s2">&quot;rock&quot;</span><span class="p">:</span>
-                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Human wins!&quot;</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">"Drawn..."</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">human_choice</span> <span class="o">==</span> <span class="s2">"b"</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">computer_choice</span> <span class="o">==</span> <span class="s2">"scissor"</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">"Computer wins!"</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">computer_choice</span> <span class="o">==</span> <span class="s2">"rock"</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">"Human wins!"</span><span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Drawn...&quot;</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">"Drawn..."</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">computer_choice</span> <span class="o">==</span> <span class="s2">&quot;rock&quot;</span><span class="p">:</span>
-                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Computer wins!&quot;</span><span class="p">)</span>
-            <span class="k">elif</span> <span class="n">computer_choice</span> <span class="o">==</span> <span class="s2">&quot;paper&quot;</span><span class="p">:</span>
-                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Human wins!&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">computer_choice</span> <span class="o">==</span> <span class="s2">"rock"</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">"Computer wins!"</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">computer_choice</span> <span class="o">==</span> <span class="s2">"paper"</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">"Human wins!"</span><span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Drawn...&quot;</span><span class="p">)</span>   
+                <span class="nb">print</span><span class="p">(</span><span class="s2">"Drawn..."</span><span class="p">)</span>   
     <span class="k">else</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Invalid input!&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Invalid input!"</span><span class="p">)</span>
             
             
 <span class="n">game</span><span class="p">()</span>
@@ -633,33 +683,33 @@ Die Lösung davor, die erst a, b, oder c auswählt macht nämlich einen völlig 
 <p>Die äußere <code class="docutils literal notranslate"><span class="pre">if</span></code>Verzweigung soll nur sicherstellen, dass keine falsche Eingabe stattgefunden hat. Das lässt sich aber auch mit <code class="docutils literal notranslate"><span class="pre">assert</span></code>erledigen:</p>
 <!-- pytest-codeblocks:skip -->
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">game</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Yes! Rock-Paper-Scissors!&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Yes! Rock-Paper-Scissors!"</span><span class="p">)</span>
     <span class="n">computer_choice</span> <span class="o">=</span> <span class="n">rock_paper_scissor</span><span class="p">()</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;I made my choice. What is yours?&quot;</span><span class="p">)</span>
-    <span class="n">human_choice</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;a) rock, b) paper, c) scissor ... :&quot;</span><span class="p">)</span>
-    <span class="k">assert</span> <span class="n">human_choice</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">],</span> <span class="s2">&quot;Invalid user input.&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"I made my choice. What is yours?"</span><span class="p">)</span>
+    <span class="n">human_choice</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"a) rock, b) paper, c) scissor ... :"</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">human_choice</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"a"</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">],</span> <span class="s2">"Invalid user input."</span>
     
-    <span class="k">if</span> <span class="n">human_choice</span> <span class="o">==</span> <span class="s2">&quot;a&quot;</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">computer_choice</span> <span class="o">==</span> <span class="s2">&quot;paper&quot;</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Computer wins!&quot;</span><span class="p">)</span>
-        <span class="k">elif</span> <span class="n">computer_choice</span> <span class="o">==</span> <span class="s2">&quot;scissor&quot;</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Human wins!&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">human_choice</span> <span class="o">==</span> <span class="s2">"a"</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">computer_choice</span> <span class="o">==</span> <span class="s2">"paper"</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"Computer wins!"</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">computer_choice</span> <span class="o">==</span> <span class="s2">"scissor"</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"Human wins!"</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Drawn...&quot;</span><span class="p">)</span>
-    <span class="k">elif</span> <span class="n">human_choice</span> <span class="o">==</span> <span class="s2">&quot;b&quot;</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">computer_choice</span> <span class="o">==</span> <span class="s2">&quot;scissor&quot;</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Computer wins!&quot;</span><span class="p">)</span>
-        <span class="k">elif</span> <span class="n">computer_choice</span> <span class="o">==</span> <span class="s2">&quot;rock&quot;</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Human wins!&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"Drawn..."</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">human_choice</span> <span class="o">==</span> <span class="s2">"b"</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">computer_choice</span> <span class="o">==</span> <span class="s2">"scissor"</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"Computer wins!"</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">computer_choice</span> <span class="o">==</span> <span class="s2">"rock"</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"Human wins!"</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Drawn...&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"Drawn..."</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">computer_choice</span> <span class="o">==</span> <span class="s2">&quot;rock&quot;</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Computer wins!&quot;</span><span class="p">)</span>
-        <span class="k">elif</span> <span class="n">computer_choice</span> <span class="o">==</span> <span class="s2">&quot;paper&quot;</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Human wins!&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">computer_choice</span> <span class="o">==</span> <span class="s2">"rock"</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"Computer wins!"</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">computer_choice</span> <span class="o">==</span> <span class="s2">"paper"</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"Human wins!"</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Drawn...&quot;</span><span class="p">)</span>   
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"Drawn..."</span><span class="p">)</span>   
             
             
 <span class="n">game</span><span class="p">()</span>
@@ -674,45 +724,45 @@ Die Lösung davor, die erst a, b, oder c auswählt macht nämlich einen völlig 
 <p>Ein Vorschlag für den Rest wäre der folgende Code:</p>
 <!-- pytest-codeblocks:skip -->
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">user_choice</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;What is your choice?&quot;</span><span class="p">)</span>
-    <span class="n">human_choice</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;a) rock, b) paper, c) scissor ... :&quot;</span><span class="p">)</span>
-    <span class="n">choices_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="s2">&quot;rock&quot;</span><span class="p">,</span>
-                    <span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="s2">&quot;paper&quot;</span><span class="p">,</span>
-                    <span class="s2">&quot;c&quot;</span><span class="p">:</span> <span class="s2">&quot;scissor&quot;</span><span class="p">}</span>
-    <span class="k">assert</span> <span class="n">human_choice</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">],</span> <span class="s2">&quot;Invalid user input.&quot;</span>    
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"What is your choice?"</span><span class="p">)</span>
+    <span class="n">human_choice</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"a) rock, b) paper, c) scissor ... :"</span><span class="p">)</span>
+    <span class="n">choices_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"a"</span><span class="p">:</span> <span class="s2">"rock"</span><span class="p">,</span>
+                    <span class="s2">"b"</span><span class="p">:</span> <span class="s2">"paper"</span><span class="p">,</span>
+                    <span class="s2">"c"</span><span class="p">:</span> <span class="s2">"scissor"</span><span class="p">}</span>
+    <span class="k">assert</span> <span class="n">human_choice</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"a"</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">],</span> <span class="s2">"Invalid user input."</span>    
     <span class="k">return</span> <span class="n">choices_dict</span><span class="p">[</span><span class="n">human_choice</span><span class="p">]</span>
     
 <span class="k">def</span><span class="w"> </span><span class="nf">who_won</span><span class="p">(</span><span class="n">hand1</span><span class="p">,</span> <span class="n">hand2</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Check which player wins.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Check which player wins.</span>
+<span class="sd">    """</span>
     <span class="k">if</span> <span class="n">hand1</span> <span class="o">==</span> <span class="n">hand2</span><span class="p">:</span>  <span class="c1"># Drawn</span>
         <span class="k">return</span> <span class="mi">0</span>
     <span class="c1"># Other combinations</span>
-    <span class="n">endings</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;rock-paper&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
-                <span class="s2">&quot;rock-scissor&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-                <span class="s2">&quot;paper-rock&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-                <span class="s2">&quot;paper-scissor&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
-                <span class="s2">&quot;scissor-paper&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-                <span class="s2">&quot;scissor-rock&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">}</span>
-    <span class="k">return</span> <span class="n">endings</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">hand1</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">hand2</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">]</span>
+    <span class="n">endings</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"rock-paper"</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
+                <span class="s2">"rock-scissor"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                <span class="s2">"paper-rock"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                <span class="s2">"paper-scissor"</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
+                <span class="s2">"scissor-paper"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                <span class="s2">"scissor-rock"</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">}</span>
+    <span class="k">return</span> <span class="n">endings</span><span class="p">[</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">hand1</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">hand2</span><span class="si">}</span><span class="s2">"</span><span class="p">]</span>
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">play_game</span><span class="p">():</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Play one round of rock-paper-scissors against the computer.</span>
-<span class="sd">    &quot;&quot;&quot;</span>      
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Yes! Rock-Paper-Scissors!&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="sd">"""Play one round of rock-paper-scissors against the computer.</span>
+<span class="sd">    """</span>      
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Yes! Rock-Paper-Scissors!"</span><span class="p">)</span>
     
     <span class="n">computer_choice</span> <span class="o">=</span> <span class="n">rock_paper_scissor</span><span class="p">()</span>
     <span class="n">human_choice</span> <span class="o">=</span> <span class="n">user_choice</span><span class="p">()</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Human: </span><span class="si">{</span><span class="n">human_choice</span><span class="si">}</span><span class="s2"> vs. computer: </span><span class="si">{</span><span class="n">computer_choice</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Human: </span><span class="si">{</span><span class="n">human_choice</span><span class="si">}</span><span class="s2"> vs. computer: </span><span class="si">{</span><span class="n">computer_choice</span><span class="si">}</span><span class="s2">."</span><span class="p">)</span>
     
     <span class="n">winner</span> <span class="o">=</span> <span class="n">who_won</span><span class="p">(</span><span class="n">human_choice</span><span class="p">,</span> <span class="n">computer_choice</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">winner</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Drawn... no winner&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Drawn... no winner"</span><span class="p">)</span>
     <span class="k">elif</span> <span class="n">winner</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Human won!&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Human won!"</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Computer wins!&quot;</span><span class="p">)</span>  
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Computer wins!"</span><span class="p">)</span>  
             
             
 <span class="n">play_game</span><span class="p">()</span>
@@ -730,32 +780,31 @@ Damit können sie auch viel einfacher verändert oder ergänzt werden.</p></li>
 <p>Apropos ergänzen: Mit den Code-Aufbau über die Funktionen ist es nun auch gut möglich das Spiel Rock-Paper-Scissors zu verändern zum Spiel <strong>Rock-Paper-Scissors-Lizard-Spock</strong> (siehe Serie <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Rock_paper_scissors_lizard_spock.svg">Big Bang Theory</a>)</p>
 </section>
 <section id="mehr-zum-python-ecosystem">
-<h2><span class="section-number">12.4. </span>Mehr zum Python-Ecosystem<a class="headerlink" href="#mehr-zum-python-ecosystem" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">11.4. </span>Mehr zum Python-Ecosystem<a class="headerlink" href="#mehr-zum-python-ecosystem" title="Link to this heading">#</a></h2>
 <p>In der ersten Vorlesung wurde schon einmal erwähnt, dass um Python herum ein ganzes Universum aus Bibliotheken und Tools existiert, was ganz nebenbei auch einer der Gründe für den Erfolg von Python ist.</p>
-<p>Bisher haben wir ausschließlich mit Standard-Bibliotheken gearbeitet, die bei einer normalen Python Installation gleich mit dabei sind.</p>
-<p>D.h. wenn wir <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">time</span></code> oder <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">random</span></code> aufgerufen haben, wurde die entsprechende Bibliothek einfach importiert und stand zur Verfügung. Das ist aber nicht die Regel. Sehr viele Bibliotheken müssen erst installiert werden.</p>
-<p>Ist eine Bibliothek noch nicht installiert liefert dies ansonsten einen <code class="docutils literal notranslate"><span class="pre">ModulNotFoundError</span></code>.</p>
+<p>Bisher haben wir ausschließlich mit Modulen aus der <strong>Standardbibliothek</strong> gearbeitet, die bei einer normalen Python-Installation direkt mit dabei sind. Wenn wir <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">time</span></code> oder <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">random</span></code> aufgerufen haben, musste also nichts zusätzlich installiert werden.</p>
+<p>Bei vielen Data-Science-Bibliotheken ist das anders. Ist ein Package noch nicht installiert, erhalten wir z.B. einen <code class="docutils literal notranslate"><span class="pre">ModuleNotFoundError</span></code>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
-
-<span class="go">ModuleNotFoundError: No module named &#39;seaborn&#39;</span>
+<span class="go">ModuleNotFoundError: No module named 'seaborn'</span>
 </pre></div>
 </div>
-<p>Also: Wo kommen diese Bibliotheken her? Wie installiert man sie? Und wie hängen sie voneinander ab?</p>
-<p>Vereinfacht ist es in etwa so:
-Der Quellcode (source code) der einzelnen Bibliotheken lebt irgendwo im Internet, in den meisten Fällen auf GitHub oder verwandten Plattformen. Die jeweiligen „releases“, d.h. die verschiedenen veröffentlichten Versionen davon werden zudem von sogenannten Package-Managing Systemen verwaltet, v.a. <strong>conda</strong> und <strong>pypi</strong>. Je nachdem über welches System eine Bibliothek installiert werden soll, bzw. je nachdem auf welcher der Plattformen eine Bibliothek verfügbar ist, können Bibliotheken  von der Konsole installiert werden :</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">seaborn</span>
-</pre></div>
-</div>
-<p>oder</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="n">seaborn</span>
+<p>Viele veröffentlichte Python-Packages liegen auf dem <strong>Python Package Index (PyPI)</strong>. PyPI ist dabei der Paket-Index; installiert und verwaltet werden die Pakete mit einem passenden Tool. Im Kurs nutzen wir dafür <strong>uv</strong>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>seaborn
 </pre></div>
 </div>
 <section id="bereits-installierte-bibliotheken">
-<h3><span class="section-number">12.4.1. </span>Bereits installierte Bibliotheken<a class="headerlink" href="#bereits-installierte-bibliotheken" title="Link to this heading">#</a></h3>
-<p>Um zu sehen, welche Bibliotheken bereits installiert sind, kann im Terminal <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">list</span></code> oder <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">list</span></code> ausgeführt werden. Dabei wird deutlich, dass (1) es ziemlich viele Bibliotheken gibt und (2) das alle Bibliotheken auch in bestimmten Versionen vorliegen!</p>
-<p>Und damit wären wir auch an einem der Probleme mit den Bibliotheken angekommen.</p>
-<p>Viele Python Bibliotheken verwenden wiederum selbst andere Python Bibliotheken, das sind dann „dependencies“, Abhängigkeiten der Module. Das Problem dabei ist nur, dass unterschiedliche Bibliotheken manchmal unterschiedliche Versionen benötigen. Es kann daher sein das eine Bibliothek <code class="docutils literal notranslate"><span class="pre">module_X</span></code> benötigt mit einer Version <code class="docutils literal notranslate"><span class="pre">&lt;3.0.0</span></code> während eine andere Bibliothek <code class="docutils literal notranslate"><span class="pre">module_X</span></code> mit einer Version <code class="docutils literal notranslate"><span class="pre">&gt;3.0.2</span></code> braucht um zu laufen. In solch einem Fall können nicht beide Bibliotheken gleichzeitig installiert werden!</p>
-<p>Um solchen Konflikten so weit es geht aus dem Weg zu gehen, verwenden viele Nutzer*Innen sogenannte <strong>Environments</strong>, also Umgebungen, die es erlauben verschiedene Python-Ecosystems parallel installiert zu haben. Wir werden zu einem späteren Zeitpunkt dafür <strong>conda</strong> nutzen.</p>
+<h3><span class="section-number">11.4.1. </span>Bereits installierte Bibliotheken<a class="headerlink" href="#bereits-installierte-bibliotheken" title="Link to this heading">#</a></h3>
+<p>Welche Packages in der aktuellen Umgebung installiert sind, können wir z.B. so anzeigen:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>uv<span class="w"> </span>pip<span class="w"> </span>list
+</pre></div>
+</div>
+<p>Dabei wird schnell deutlich, dass Packages immer in bestimmten Versionen installiert sind.</p>
+<p>Viele Python-Packages verwenden wiederum andere Packages. Diese Abhängigkeiten heißen <strong>Dependencies</strong>. Unterschiedliche Projekte können dabei unterschiedliche, teilweise nicht miteinander kompatible Versionen derselben Dependency benötigen.</p>
+<p>Darum verwenden wir für Projekte <strong>virtuelle Environments</strong>. Ein Environment isoliert die installierten Packages eines Projekts vom Rest des Systems. Unsere Standardvariante ist ein <code class="docutils literal notranslate"><span class="pre">.venv</span></code> im Projektordner:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>uv<span class="w"> </span>venv<span class="w"> </span>--python<span class="w"> </span><span class="m">3</span>.14
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">uv</span> <span class="pre">venv</span></code> erstellt ein normales Python-Virtual-Environment. Alternativ kann die Python-Standardbibliothek dasselbe Grundprinzip mit <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">venv</span> <span class="pre">.venv</span></code> umsetzen. Pakete installieren wir anschließend mit <code class="docutils literal notranslate"><span class="pre">uv</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">...</span></code> in dieses Environment. VS Code erkennt ein <code class="docutils literal notranslate"><span class="pre">.venv</span></code> im Projektordner in der Regel automatisch bzw. es kann über <strong>Python: Select Interpreter</strong> ausgewählt werden.</p>
 </section>
 </section>
 </section>
@@ -791,20 +840,20 @@ Der Quellcode (source code) der einzelnen Bibliotheken lebt irgendwo im Internet
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="05_error_handling.html"
-       title="previous page">
+       href="04_string_handling.html"
+       title="Vorherige Seite">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">zurück</p>
-        <p class="prev-next-title"><span class="section-number">11. </span>Error handling</p>
+        <p class="prev-next-title"><span class="section-number">10. </span>String handling</p>
       </div>
     </a>
     <a class="right-next"
        href="05_open_files.html"
-       title="next page">
+       title="Nächste Seite">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">weiter</p>
-        <p class="prev-next-title"><span class="section-number">13. </span>Dateien lesen und schreiben</p>
+        <p class="prev-next-title"><span class="section-number">12. </span>Dateien lesen und schreiben</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -819,20 +868,21 @@ Der Quellcode (source code) der einzelnen Bibliotheken lebt irgendwo im Internet
                 <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Inhalt
   </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#teams-vs-lonely-hacker">12.1. Teams vs. lonely hacker</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zen-of-python">12.1.1. Zen of Python</a></li>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#teams-vs-lonely-hacker">11.1. Teams vs. lonely hacker</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zen-of-python">11.1.1. Zen of Python</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clean-code-best-practices">12.2. Clean Code / Best practices</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#beispiel-rock-paper-scissors">12.3. Beispiel: Rock-Paper-Scissors</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mehr-zum-python-ecosystem">12.4. Mehr zum Python-Ecosystem</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bereits-installierte-bibliotheken">12.4.1. Bereits installierte Bibliotheken</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clean-code-best-practices">11.2. Clean Code / Best practices</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#beispiel-rock-paper-scissors">11.3. Beispiel: Rock-Paper-Scissors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mehr-zum-python-ecosystem">11.4. Mehr zum Python-Ecosystem</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bereits-installierte-bibliotheken">11.4.1. Bereits installierte Bibliotheken</a></li>
 </ul>
 </li>
 </ul>
@@ -859,7 +909,7 @@ Durch Florian Huber
 
   <p class="copyright">
     
-      © Copyright 2024.
+      © Copyright 2024
       <br/>
     
   </p>
@@ -883,8 +933,8 @@ Durch Florian Huber
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
-<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+  <script defer src="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
 
   <footer class="bd-footer">
   </footer>

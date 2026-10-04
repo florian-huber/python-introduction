@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>19. Pandas - Teil 2 &#8212; Einführung Programmieren mit Python</title>
+    <title>18. Pandas - Teil 2 &#8212; Einführung Programmieren mit Python</title>
   
   
   
@@ -27,33 +27,33 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- So that users can add custom icons -->
-  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <script defer src="../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
 
     <script src="../_static/documentation_options.js?v=91fba89f"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=f281be69"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
-    <script>let toggleHintShow = 'Click to show';</script>
-    <script>let toggleHintHide = 'Click to hide';</script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Klicken zum Anzeigen';</script>
+    <script>let toggleHintHide = 'Klicken zum Ausblenden';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../_static/togglebutton.js?v=b8b12719"></script>
     <script src="../_static/translations.js?v=79cc9f76"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../_static/design-tabs.js?v=f930bc37"></script>
@@ -62,28 +62,35 @@
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'lesson_material_german/10_pandas_2';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
     <link rel="search" title="Suche" href="../search.html" />
-    <link rel="next" title="20. Datenvisualisierung mit Python" href="12_data_visualization.html" />
-    <link rel="prev" title="18. Pandas" href="09_pandas.html" />
+    <link rel="next" title="19. Datenvisualisierung mit Python" href="12_data_visualization.html" />
+    <link rel="prev" title="17. Pandas" href="09_pandas.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="de"/>
   <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
   </head>
+  <body data-default-mode="">
   
   
-  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Zum Hauptinhalt springen</a></div>
 
-  
-  
-  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
-
+    <i class="fa-solid fa-arrow-up"></i>Zurück zum Anfang</button>
+  
+  
+  
   
   <dialog id="pst-search-dialog">
     
@@ -105,11 +112,55 @@
   </dialog>
 
   <div class="pst-async-banner-revealer d-none">
-  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Versionswarnung"></aside>
 </div>
 
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Website-Navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Suche" aria-label="Suche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Suche</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Suche" aria-label="Suche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Suche</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="Auf dieser Seite">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
     </header>
   
 
@@ -191,31 +242,30 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Error Handling und Best Practices I</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="05_error_handling.html">11. Error handling</a></li>
-<li class="toctree-l1"><a class="reference internal" href="05_one_step_back-best_practices.html">12. Clean code und „best practices“</a></li>
-<li class="toctree-l1"><a class="reference internal" href="05_open_files.html">13. Dateien lesen und schreiben</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_one_step_back-best_practices.html">11. Clean code und „best practices“</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_open_files.html">12. Dateien lesen und schreiben</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Klassen und Objekte</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="06_classes_objects.html">14. Objektorientierte Programmierung - Einführung</a></li>
-<li class="toctree-l1"><a class="reference internal" href="07_classes_objects_2.html">15. Objektorientierte Programmierung in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_classes_objects.html">13. Objektorientierte Programmierung - Einführung</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_classes_objects_2.html">14. Objektorientierte Programmierung in Python</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Arbeiten mit numerischen Daten - Numpy</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="08_numpy.html">16. Numerische Daten in Python mit NumPy</a></li>
-<li class="toctree-l1"><a class="reference internal" href="09_numpy_2.html">17. Numerische Daten in Python mit NumPy - Teil 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08_numpy.html">15. Numerische Daten in Python mit NumPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_numpy_2.html">16. Numerische Daten in Python mit NumPy - Teil 2</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Schritte Richtung Data Science</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="09_pandas.html">18. Pandas</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">19. Pandas - Teil 2</a></li>
-<li class="toctree-l1"><a class="reference internal" href="12_data_visualization.html">20. Datenvisualisierung mit Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="13_data_visualization_outlook.html">21. 2D/3D Visualisierung &amp; interaktive Plots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_pandas.html">17. Pandas</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">18. Pandas - Teil 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_data_visualization.html">19. Datenvisualisierung mit Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13_data_visualization_outlook.html">20. 2D/3D Visualisierung &amp; interaktive Plots</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">A few missing things</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="10_debugging.html">22. Python Debugging</a></li>
-<li class="toctree-l1"><a class="reference internal" href="14_generators.html">23. Generators / Iterators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_debugging.html">21. Python Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="14_generators.html">22. Generators / Iterators</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Source Code and Contributions</span></p>
 <ul class="nav bd-sidenav">
@@ -415,7 +465,7 @@
 
 
 <button onclick="toggleFullScreen()"
-  class="btn btn-sm btn-fullscreen-button"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
   title="Vollbildmodus"
   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
@@ -429,17 +479,17 @@
 
 
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Farbmodus" data-bs-title="Farbmodus"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Hell"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dunkel"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="Systemeinstellungen"></i>
 </button>
 
 
 <button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Suche" aria-label="Suche" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
 </button>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
 </div></div>
@@ -461,28 +511,28 @@
                 <h2> Inhalt </h2>
             </div>
             <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-cleaning">19.1. Data cleaning</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#und-jetzt-was-tun-mit-nans">19.1.1. Und jetzt? Was tun mit NaNs?</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#nan-ersetzen">19.1.1.1. NaN ersetzen</a></li>
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-cleaning">18.1. Data cleaning</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#und-jetzt-was-tun-mit-nans">18.1.1. Und jetzt? Was tun mit NaNs?</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#nan-ersetzen">18.1.1.1. NaN ersetzen</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nan-entfernen">19.1.2. NaN entfernen</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wichtig">19.1.3. Wichtig:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nan-entfernen">18.1.2. NaN entfernen</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wichtig">18.1.3. Wichtig:</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-selection">19.2. Data selection</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#option-1-masken">19.2.1. Option 1: Masken</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#option-2-query">19.2.2. Option 2: query</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#outlook-groupby">19.2.3. Outlook: groupby</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-selection">18.2. Data selection</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#option-1-masken">18.2.1. Option 1: Masken</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#option-2-query">18.2.2. Option 2: query</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#outlook-groupby">18.2.3. Outlook: groupby</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#groupby">19.3. Groupby</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting">19.4. Plotting</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#intermezzo-data-visualization">19.4.1. Intermezzo: data visualization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#groupby">18.3. Groupby</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting">18.4. Plotting</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#intermezzo-data-visualization">18.4.1. Intermezzo: data visualization</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas-ist-riesig">19.5. Pandas ist riesig!</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas-ist-riesig">18.5. Pandas ist riesig!</a></li>
 </ul>
             </nav>
         </div>
@@ -495,10 +545,10 @@
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="pandas-teil-2">
-<h1><span class="section-number">19. </span>Pandas - Teil 2<a class="headerlink" href="#pandas-teil-2" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">18. </span>Pandas - Teil 2<a class="headerlink" href="#pandas-teil-2" title="Link to this heading">#</a></h1>
 <p>Im ersten Teil haben wir gesehen, wie wir eine <code class="docutils literal notranslate"><span class="pre">.csv</span></code>-Datei einlesen und grundlegende Eigenschaften erkunden. Hier werden wir jetzt noch einige Schritte weitergehen im Umgang mit (komplexen) Datensets.</p>
 <section id="data-cleaning">
-<h2><span class="section-number">19.1. </span>Data cleaning<a class="headerlink" href="#data-cleaning" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">18.1. </span>Data cleaning<a class="headerlink" href="#data-cleaning" title="Link to this heading">#</a></h2>
 <p>Unter data cleaning versteht man das Umstellen und Bearbeiten von Daten mit dem Ziel, diese für die folgende Analyse besser nutzbar zu machen. Einen Schritt in diese Richtung haben wir letztes Mal bereits unternommen, indem wir die Anzahl der Spalten auf die wichtigsten reduziert haben.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -507,17 +557,30 @@
 <span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 
 <span class="n">root</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
-<span class="n">filename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="s2">&quot;../data&quot;</span><span class="p">,</span> <span class="s1">&#39;pokemon.csv&#39;</span><span class="p">)</span>
+<span class="n">filename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="s2">"../data"</span><span class="p">,</span> <span class="s1">'pokemon.csv'</span><span class="p">)</span>
 
-<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">","</span><span class="p">)</span>
 
 <span class="n">cols</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;type1&#39;</span><span class="p">,</span> <span class="s1">&#39;type2&#39;</span><span class="p">,</span> <span class="s1">&#39;speed&#39;</span><span class="p">,</span> <span class="s1">&#39;abilities&#39;</span><span class="p">,</span><span class="s1">&#39;attack&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;defense&#39;</span><span class="p">,</span> <span class="s1">&#39;height_m&#39;</span><span class="p">,</span> <span class="s1">&#39;hp&#39;</span><span class="p">,</span> <span class="s1">&#39;weight_kg&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;generation&#39;</span><span class="p">,</span> <span class="s1">&#39;is_legendary&#39;</span>
+    <span class="s1">'name'</span><span class="p">,</span> <span class="s1">'type1'</span><span class="p">,</span> <span class="s1">'type2'</span><span class="p">,</span> <span class="s1">'speed'</span><span class="p">,</span> <span class="s1">'abilities'</span><span class="p">,</span><span class="s1">'attack'</span><span class="p">,</span>
+    <span class="s1">'defense'</span><span class="p">,</span> <span class="s1">'height_m'</span><span class="p">,</span> <span class="s1">'hp'</span><span class="p">,</span> <span class="s1">'weight_kg'</span><span class="p">,</span>
+    <span class="s1">'generation'</span><span class="p">,</span> <span class="s1">'is_legendary'</span>
 <span class="p">]</span>
 
 <span class="n">data_selected</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">cols</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> 
+
+<span class="ne">ModuleNotFoundError</span>: No module named 'pandas'
 </pre></div>
 </div>
 </div>
@@ -530,7 +593,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class 'pandas.core.frame.DataFrame'&gt;
 RangeIndex: 801 entries, 0 to 800
 Data columns (total 12 columns):
  #   Column        Non-Null Count  Dtype  
@@ -828,11 +891,11 @@ dtype: bool
 </div></div></div>
 </div>
 <section id="und-jetzt-was-tun-mit-nans">
-<h3><span class="section-number">19.1.1. </span>Und jetzt? Was tun mit NaNs?<a class="headerlink" href="#und-jetzt-was-tun-mit-nans" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">18.1.1. </span>Und jetzt? Was tun mit NaNs?<a class="headerlink" href="#und-jetzt-was-tun-mit-nans" title="Link to this heading">#</a></h3>
 <p>Je nachdem was wir mit den Daten vorhaben, gibt es verschiedene Strategien mit den fehlenden Einträgen umzugehen. In vielen Fällen können wir sie einfach ignorieren. Wenn wir Mittelwerte (<code class="docutils literal notranslate"><span class="pre">.mean()</span></code>) oder Ähnliches berechnen, werde diese Werte automatisch nicht mitgezählt.</p>
 <p>In anderen Fällen wollen wir die Werte vielleicht ersetzten, z.B. durch „0“. Aber Vorsicht! Danach werden diese Werte nämlich doch mitgezählt wenn Summen oder Mittelwerte berechnet werden.</p>
 <section id="nan-ersetzen">
-<h4><span class="section-number">19.1.1.1. </span>NaN ersetzen<a class="headerlink" href="#nan-ersetzen" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">18.1.1.1. </span>NaN ersetzen<a class="headerlink" href="#nan-ersetzen" title="Link to this heading">#</a></h4>
 <p>Das Ersetzen geht bei Pandas mit <code class="docutils literal notranslate"><span class="pre">.fillna()</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -956,7 +1019,7 @@ dtype: bool
 <p>Wir können aber auch Strings oder andere Formate benutzen:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_selected</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s2">&quot;unknown&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_selected</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s2">"unknown"</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1076,7 +1139,7 @@ dtype: bool
 <p>Das kann sinnvoll sein, wenn wir die „unknown“ explizit mitzählen möchten:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_selected</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s2">&quot;unknown&quot;</span><span class="p">)[</span><span class="s2">&quot;type2&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_selected</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s2">"unknown"</span><span class="p">)[</span><span class="s2">"type2"</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1086,8 +1149,8 @@ unknown     384
 flying       95
 poison       34
 ground       34
-fairy        29
 psychic      29
+fairy        29
 fighting     25
 steel        22
 dark         21
@@ -1095,8 +1158,8 @@ grass        20
 water        17
 dragon       17
 ice          15
-ghost        14
 rock         14
+ghost        14
 fire         13
 electric      9
 bug           5
@@ -1109,7 +1172,7 @@ Name: count, dtype: int64
 </section>
 </section>
 <section id="nan-entfernen">
-<h3><span class="section-number">19.1.2. </span>NaN entfernen<a class="headerlink" href="#nan-entfernen" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">18.1.2. </span>NaN entfernen<a class="headerlink" href="#nan-entfernen" title="Link to this heading">#</a></h3>
 <p>Falls NaN nicht einfach ersetzt werden können und für die weiteren Schritte nicht vorkommen sollen, dann müssen entweder die entsprechenden Spalten oder Zeilen aus der Tabelle entfernt werden. Das geht in Pandas mit <code class="docutils literal notranslate"><span class="pre">.dropna()</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1334,7 +1397,7 @@ Name: count, dtype: int64
 </div>
 </section>
 <section id="wichtig">
-<h3><span class="section-number">19.1.3. </span>Wichtig:<a class="headerlink" href="#wichtig" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">18.1.3. </span>Wichtig:<a class="headerlink" href="#wichtig" title="Link to this heading">#</a></h3>
 <p>In Python gibt es zwei Möglichkeiten für Methoden die „ihr“ Objekt verändern wollen:</p>
 <ol class="arabic simple">
 <li><p>Objekt bleibt unverändert und veränderte Kopie wird über <code class="docutils literal notranslate"><span class="pre">return</span></code> ausgegeben.</p></li>
@@ -1465,14 +1528,14 @@ Name: count, dtype: int64
 </section>
 </section>
 <section id="data-selection">
-<h2><span class="section-number">19.2. </span>Data selection<a class="headerlink" href="#data-selection" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">18.2. </span>Data selection<a class="headerlink" href="#data-selection" title="Link to this heading">#</a></h2>
 <p>Gehen wir mit der Analyse der Daten einen Schritt weiter. Was, wenn wir mehr über einzelne Gruppen wissen möchten? Oder über Einträge die bestimmte Bedingungen erfüllen?</p>
 <section id="option-1-masken">
-<h3><span class="section-number">19.2.1. </span>Option 1: Masken<a class="headerlink" href="#option-1-masken" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">18.2.1. </span>Option 1: Masken<a class="headerlink" href="#option-1-masken" title="Link to this heading">#</a></h3>
 <p>Über Masken können wir ganz gezielt einzelne Fragen adressieren:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mask</span> <span class="o">=</span> <span class="n">data_selected</span><span class="p">[</span><span class="s2">&quot;type1&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;bug&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mask</span> <span class="o">=</span> <span class="n">data_selected</span><span class="p">[</span><span class="s2">"type1"</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"bug"</span>
 <span class="n">data_selected</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1593,25 +1656,25 @@ Name: count, dtype: int64
 <p>Über solche Masken können wir auch Eigenschaften über einzelne Gruppen abfragen:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_selected</span><span class="p">[</span><span class="n">mask</span><span class="p">][</span><span class="s2">&quot;weight_kg&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_selected</span><span class="p">[</span><span class="n">mask</span><span class="p">][</span><span class="s2">"weight_kg"</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(33.083333333333336)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>33.083333333333336
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="option-2-query">
-<h3><span class="section-number">19.2.2. </span>Option 2: query<a class="headerlink" href="#option-2-query" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">18.2.2. </span>Option 2: query<a class="headerlink" href="#option-2-query" title="Link to this heading">#</a></h3>
 <p>Pandas bietet auch die Möglichkeit statt mit einer Maske direkt mit der Methode <code class="docutils literal notranslate"><span class="pre">.query</span></code> zu arbeiten.
 Das sieht eventuell etwas netter aus, bietet aber ansonsten keine Vorteile zu den Masken.</p>
 <p>Da Masken sowohl bei Numpy wie auch bei Pandas gehen, bleiben wir im Folgenden bei den Masken.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_selected</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;type1 == &#39;bug&#39;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_selected</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">"type1 == 'bug'"</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1730,17 +1793,17 @@ Das sieht eventuell etwas netter aus, bietet aber ansonsten keine Vorteile zu de
 </div>
 </section>
 <section id="outlook-groupby">
-<h3><span class="section-number">19.2.3. </span>Outlook: groupby<a class="headerlink" href="#outlook-groupby" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">18.2.3. </span>Outlook: groupby<a class="headerlink" href="#outlook-groupby" title="Link to this heading">#</a></h3>
 <p>Für analysen von bestimmten Untergruppen bietet Pandas noch eine Funktion die das noch einfacher macht als mit Masken oder query zu arbeiten: <code class="docutils literal notranslate"><span class="pre">groupby()</span></code>.</p>
 </section>
 </section>
 <section id="groupby">
-<h2><span class="section-number">19.3. </span>Groupby<a class="headerlink" href="#groupby" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">18.3. </span>Groupby<a class="headerlink" href="#groupby" title="Link to this heading">#</a></h2>
 <p>Pandas <code class="docutils literal notranslate"><span class="pre">grouby</span></code> (siehe <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.groupby.html">Pandas documentation</a>).</p>
 <p>Mit grouby können bei Pandas alle Einträge mit bestimmten Kategorien zusammengefasst werden. Damit lassen sich leicht und schnell viele Eigenschaften vergleichen.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_selected</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;type1&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">numeric_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_selected</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">"type1"</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">numeric_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1990,7 +2053,7 @@ Das sieht eventuell etwas netter aus, bietet aber ansonsten keine Vorteile zu de
 <p>Hier sind die Einträge nach dem „type1“ alphabetisch sortiert. Um die Sortierung zu ändern fügen wir einfach ein <code class="docutils literal notranslate"><span class="pre">sort_values()</span></code>hinzu um nach der gewünschten Spalte zu sortieren:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_selected</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;type1&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">numeric_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">&quot;speed&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_selected</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">"type1"</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">numeric_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">"speed"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2240,7 +2303,7 @@ Das sieht eventuell etwas netter aus, bietet aber ansonsten keine Vorteile zu de
 <p>Groupby kann auch genutzt werden um die Anzahl der Elemente in den jeweiligen Gruppen zu zählen:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_selected</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;type1&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_selected</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">"type1"</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -2550,7 +2613,7 @@ Das sieht eventuell etwas netter aus, bietet aber ansonsten keine Vorteile zu de
 <p>Es ist sogar möglich, mehrere groupby Aktionen zu kombinieren und damit Gruppen und Untergruppen zu erstellen:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_selected</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;type1&quot;</span><span class="p">,</span> <span class="s2">&quot;is_legendary&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">numeric_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_selected</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">"type1"</span><span class="p">,</span> <span class="s2">"is_legendary"</span><span class="p">])</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">numeric_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2960,39 +3023,39 @@ Das sieht eventuell etwas netter aus, bietet aber ansonsten keine Vorteile zu de
 <p>Damit können wir einsehen, welche mittleren Werte ein Pokemon von einem bestimmtem Typ hat, je nachdem ob er „legendary“ ist oder nicht.</p>
 </section>
 <section id="plotting">
-<h2><span class="section-number">19.4. </span>Plotting<a class="headerlink" href="#plotting" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">18.4. </span>Plotting<a class="headerlink" href="#plotting" title="Link to this heading">#</a></h2>
 <p>Noch einige kurze Plotting-Beispiele zum Schluss.</p>
 <p>Da wir eben <code class="docutils literal notranslate"><span class="pre">groupby</span></code> benutzt haben, können wir dies auch verwenden um einen Plot zu erzeugen. „stacked=True“ bedeutet hierbei übrigens, dass die verschiedenen Balken aneinander gehängt werden sollen.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cols</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;attack&quot;</span><span class="p">,</span> <span class="s2">&quot;defense&quot;</span><span class="p">,</span> <span class="s2">&quot;hp&quot;</span><span class="p">,</span> <span class="s2">&quot;speed&quot;</span><span class="p">,</span> <span class="s2">&quot;weight_kg&quot;</span><span class="p">]</span>
-<span class="n">data_selected</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;type1&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">numeric_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="n">cols</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="n">stacked</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cols</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"attack"</span><span class="p">,</span> <span class="s2">"defense"</span><span class="p">,</span> <span class="s2">"hp"</span><span class="p">,</span> <span class="s2">"speed"</span><span class="p">,</span> <span class="s2">"weight_kg"</span><span class="p">]</span>
+<span class="n">data_selected</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">"type1"</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">numeric_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="n">cols</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="n">stacked</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: ylabel=&#39;type1&#39;&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: ylabel='type1'&gt;
 </pre></div>
 </div>
-<img alt="../_images/50bae027a93734b23085c53416e0d0ae67ac49b9352b479e05c95572f6b3636e.png" src="../_images/50bae027a93734b23085c53416e0d0ae67ac49b9352b479e05c95572f6b3636e.png" />
+<img alt="../_images/cf20c291930f5adb270e7125d8d74a056798e7119e57071cfc7ffbee4a71860b.png" src="../_images/cf20c291930f5adb270e7125d8d74a056798e7119e57071cfc7ffbee4a71860b.png" />
 </div>
 </div>
 <p>Es gibt schönere Plots, aber zumindest sehen wir so sehr schnell, dass vor allem der Eintrag „weight_kg“ sehr stark von der jeweiligen type1-Gruppe abhängt! Also gleich noch einen Plot dafür hinterher:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_selected</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;type1&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">numeric_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="s2">&quot;weight_kg&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">barh</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_selected</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">"type1"</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">numeric_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="s2">"weight_kg"</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">barh</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: ylabel=&#39;type1&#39;&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: ylabel='type1'&gt;
 </pre></div>
 </div>
-<img alt="../_images/13c451150a7c2ae3bfd054e53d8847f36d0ade1282387dae945e24bcf92aa755.png" src="../_images/13c451150a7c2ae3bfd054e53d8847f36d0ade1282387dae945e24bcf92aa755.png" />
+<img alt="../_images/e70cfb58c95341d051707d5b7203d01cd7661c729db96d27008462f551ddb961.png" src="../_images/e70cfb58c95341d051707d5b7203d01cd7661c729db96d27008462f551ddb961.png" />
 </div>
 </div>
 <section id="intermezzo-data-visualization">
-<h3><span class="section-number">19.4.1. </span>Intermezzo: data visualization<a class="headerlink" href="#intermezzo-data-visualization" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">18.4.1. </span>Intermezzo: data visualization<a class="headerlink" href="#intermezzo-data-visualization" title="Link to this heading">#</a></h3>
 <p>Warum ist der Plot hier oben ziemlich mies?</p>
 <p>–&gt; Die Reihenfolge macht es <strong>sehr</strong> unübersichtlich! Stellen Sie sich vor ich frage, welcher Typ auf der Position 3, 4, oder 5 steht…</p>
 <p>–&gt; Die Axenbeschriftung bei der x-Achse fehlt.</p>
@@ -3001,39 +3064,39 @@ Das sieht eventuell etwas netter aus, bietet aber ansonsten keine Vorteile zu de
 <p>Darum hier ein weiterer Versuch:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">data_selected</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;type1&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">numeric_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="s2">&quot;weight_kg&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">barh</span><span class="p">()</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;weight [kg]&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">data_selected</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">"type1"</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">numeric_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="s2">"weight_kg"</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">barh</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">"weight [kg]"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0, &#39;weight [kg]&#39;)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0, 'weight [kg]')
 </pre></div>
 </div>
-<img alt="../_images/6a048947f1b4e4a8ee8e5c0e3e90769b1fc4421f3b387ba99a9e82b726e3d2e4.png" src="../_images/6a048947f1b4e4a8ee8e5c0e3e90769b1fc4421f3b387ba99a9e82b726e3d2e4.png" />
+<img alt="../_images/8defcb72fb64f5ea31d75cc80f7c88c6dd9ce9f413beecb4ab132ea6ca5268ab.png" src="../_images/8defcb72fb64f5ea31d75cc80f7c88c6dd9ce9f413beecb4ab132ea6ca5268ab.png" />
 </div>
 </div>
 <p>Bei Pandas werden solche Aufrufe schnell sehr lang und kompliziert, da  immer mehr und mehr Funktionen/Methoden hintereinander gehangen werden  können. Um es etwas übersichtlicher zu machen kann auch mit  Zwischenschritten gearbeitet werden!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_groupby_type</span> <span class="o">=</span> <span class="n">data_selected</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;type1&quot;</span><span class="p">)</span>
-<span class="n">data_mean_weight</span> <span class="o">=</span> <span class="n">data_groupby_type</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">numeric_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="s2">&quot;weight_kg&quot;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_groupby_type</span> <span class="o">=</span> <span class="n">data_selected</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">"type1"</span><span class="p">)</span>
+<span class="n">data_mean_weight</span> <span class="o">=</span> <span class="n">data_groupby_type</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">numeric_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="s2">"weight_kg"</span><span class="p">]</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">data_mean_weight</span><span class="o">.</span><span class="n">sort_values</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">barh</span><span class="p">()</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;weight [kg]&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">"weight [kg]"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0, &#39;weight [kg]&#39;)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0, 'weight [kg]')
 </pre></div>
 </div>
-<img alt="../_images/6a048947f1b4e4a8ee8e5c0e3e90769b1fc4421f3b387ba99a9e82b726e3d2e4.png" src="../_images/6a048947f1b4e4a8ee8e5c0e3e90769b1fc4421f3b387ba99a9e82b726e3d2e4.png" />
+<img alt="../_images/8defcb72fb64f5ea31d75cc80f7c88c6dd9ce9f413beecb4ab132ea6ca5268ab.png" src="../_images/8defcb72fb64f5ea31d75cc80f7c88c6dd9ce9f413beecb4ab132ea6ca5268ab.png" />
 </div>
 </div>
 </section>
 </section>
 <section id="pandas-ist-riesig">
-<h2><span class="section-number">19.5. </span>Pandas ist riesig!<a class="headerlink" href="#pandas-ist-riesig" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">18.5. </span>Pandas ist riesig!<a class="headerlink" href="#pandas-ist-riesig" title="Link to this heading">#</a></h2>
 <p>Zum Schluss noch der Hinweis, das wir in 2-3, ja auch nicht in 4-5 Vorlesung den Umfang von Pandas abdecken können. Es geht also v.a. darum, dass Sie sich mit dem Umgang mit Pandas und DataFrames vertraut machen und die einfachen Operationen damit ausführen können (z.B. slicing, Sortieren). Für alles weitere können Sie jederzeit in Foren oder auf der Pandas Dokumentation nachschauen, ob es für ihre spezielle Frage nicht schon eine passende Pandas-Methode gibt:</p>
 <p>https://pandas.pydata.org/pandas-docs/stable/reference/frame.html</p>
 </section>
@@ -3071,19 +3134,19 @@ Das sieht eventuell etwas netter aus, bietet aber ansonsten keine Vorteile zu de
 <div class="prev-next-area">
     <a class="left-prev"
        href="09_pandas.html"
-       title="previous page">
+       title="Vorherige Seite">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">zurück</p>
-        <p class="prev-next-title"><span class="section-number">18. </span>Pandas</p>
+        <p class="prev-next-title"><span class="section-number">17. </span>Pandas</p>
       </div>
     </a>
     <a class="right-next"
        href="12_data_visualization.html"
-       title="next page">
+       title="Nächste Seite">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">weiter</p>
-        <p class="prev-next-title"><span class="section-number">20. </span>Datenvisualisierung mit Python</p>
+        <p class="prev-next-title"><span class="section-number">19. </span>Datenvisualisierung mit Python</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -3098,33 +3161,34 @@ Das sieht eventuell etwas netter aus, bietet aber ansonsten keine Vorteile zu de
                 <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Inhalt
   </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-cleaning">19.1. Data cleaning</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#und-jetzt-was-tun-mit-nans">19.1.1. Und jetzt? Was tun mit NaNs?</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#nan-ersetzen">19.1.1.1. NaN ersetzen</a></li>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-cleaning">18.1. Data cleaning</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#und-jetzt-was-tun-mit-nans">18.1.1. Und jetzt? Was tun mit NaNs?</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#nan-ersetzen">18.1.1.1. NaN ersetzen</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nan-entfernen">19.1.2. NaN entfernen</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wichtig">19.1.3. Wichtig:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nan-entfernen">18.1.2. NaN entfernen</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wichtig">18.1.3. Wichtig:</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-selection">19.2. Data selection</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#option-1-masken">19.2.1. Option 1: Masken</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#option-2-query">19.2.2. Option 2: query</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#outlook-groupby">19.2.3. Outlook: groupby</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-selection">18.2. Data selection</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#option-1-masken">18.2.1. Option 1: Masken</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#option-2-query">18.2.2. Option 2: query</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#outlook-groupby">18.2.3. Outlook: groupby</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#groupby">19.3. Groupby</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting">19.4. Plotting</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#intermezzo-data-visualization">19.4.1. Intermezzo: data visualization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#groupby">18.3. Groupby</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting">18.4. Plotting</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#intermezzo-data-visualization">18.4.1. Intermezzo: data visualization</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas-ist-riesig">19.5. Pandas ist riesig!</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas-ist-riesig">18.5. Pandas ist riesig!</a></li>
 </ul>
   </nav></div>
 
@@ -3149,7 +3213,7 @@ Durch Florian Huber
 
   <p class="copyright">
     
-      © Copyright 2024.
+      © Copyright 2024
       <br/>
     
   </p>
@@ -3173,8 +3237,8 @@ Durch Florian Huber
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
-<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+  <script defer src="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
 
   <footer class="bd-footer">
   </footer>

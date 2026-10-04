@@ -61,7 +61,7 @@ Numpy Arrays unterscheiden sich in vieler Hinsicht von den Listen:
 
 - Alle Elemente haben den selben Datentyp (z.B. alles float oder int). Darüber hinaus auch eine Vielzahl von weiteren numerischen Datentypen (https://numpy.org/doc/stable/user/basics.types.html)
 - Bei Tabellen/Matrizen/Tensoren müssen alle Einträge angegeben werden, d.h. es kann keine Tabelle angelegt werden in der die verschiedenen Zeilen unterschiedliche Anzahlen an Elementen enthalten. Bei einer verschachtelten Liste würde das gehen.
-- Bei Zahlen passt Python den Speicherbedarf dynamisch an. In Numpy Arrays wird allen Zahlen der gleiche Speicherplatz zur Verfügung gestellt also z.B. alle Einträge als `int64` (64 bit) auch wenn eventuell oft auch `int8` (8 bit) ausreichen würde.
+- Ein NumPy-Array hat einen gemeinsamen `dtype`; dadurch haben gleichartige Elemente eine feste Speichergröße. Ein Integer-Array kann z.B. `int64` verwenden (auf vielen 64-Bit-Systemen ein häufiger Standard), es sind aber auch Typen wie `int8`, `int16` oder `int32` möglich.
 
 ### Informationen zum Numpy Array
 

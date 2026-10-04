@@ -60,7 +60,7 @@ print("Da steht \"Stop\"!")  # => Da steht "Stop"!
 print("Ein backslash geht darum so: \\")
 ```
 
-Letzteres ist übrigens auch der Grund warum Pfade bei Python (zumindest unter Windows) oft mit `\\` angegeben werden, also z.B:
+Da der Backslash in String-Literalen ein Escape-Zeichen ist, muss er bei klassischen Windows-Pfaden häufig als `\\` geschrieben werden, z.B.:
 ```python
 path = "C:\\User\\Desktop\\"
 filename = path + "testfile.txt"
@@ -83,7 +83,7 @@ Wir werden nicht alle besprechen, aber die in meinen Augen Wichtigsten.
 
 Zur Wiederholung nochmal kurz was Sie machen können wenn Sie die passende Methode nicht mehr parat haben. Das kommt bei Python übrigens auch bei erfahrenen Programmierer*Innen ständig vor!
 
-Eine Möglichkeit ist das Nachschlagen in der [Python Dokumentation](https://docs.python.org/3.9/library/index.html). Eine andere sehr zugängliche Quelle ist [w3schools.com](https://www.w3schools.com/python/default.asp).
+Eine Möglichkeit ist das Nachschlagen in der [Python Dokumentation](https://docs.python.org/3/library/index.html). Eine andere sehr zugängliche Quelle ist [w3schools.com](https://www.w3schools.com/python/default.asp).
 
 Hier eine Tabelle mit den wichtigesten String-Methoden:
 

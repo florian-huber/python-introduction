@@ -54,13 +54,13 @@ Fangen wir einfach an und definieren einfach mal einen neuen Datentypen, bzw. ei
 
 ```python
 class Point:
-    pass  # pass bedeuted nur, dass nicht passiert
+    pass  # pass bedeutet hier: Dieser Block macht noch nichts.
 
 a = Point()
 print(a)  # => <__main__.Point object at 0x000001F9DB02BDC0>
 ```
 
-Mit `class` können wir in Python eine neue Klasse definieren. Im Prinzip können diese genau wie Variablen benannt werden, um aber Variablen, Funktionen und Klassen zu unterscheiden gibt es die Konvention das Klassen im sogenannten *camel case* benannt werden, also jedes Wort mit Großbuchstabe beginnt: `MyClass` oder `DoesWhatYouWant` etc.
+Mit `class` können wir in Python eine neue Klasse definieren. Für Klassennamen ist in Python die **CapWords-/PascalCase-Konvention** üblich: Jedes Wort beginnt mit einem Großbuchstaben, z.B. `MyClass` oder `DoesWhatYouWant`.
 
 Ein Objekt (d.h. eine Instanz einer Klasse) kann danach wie bei Funktionen generiert werden mit, hier war es `a = Point()`. Damit ist `a` ein Objekt der Klasse Point. Auch das können wir übrigens mit `type()` abfragen.
 
@@ -107,7 +107,7 @@ point2.position()  # => AttributeError: 'Point' object has no attribute 'x'
 
 `point2` ist eine neue Instanz der Klasse Point. Da die Methode `position()`zur Klasse Point gehört, ist diese natürlich verfügbar, aber die Attribute x und y wurde noch nicht definiert. Darum gibt es hier diese Fehlermeldung.
 
-Eigentlich sollte jedes Point-Objekt auf jeden Fall eine x und y-Position haben! Das ist auch möglich, und zwar über eine "init-Methode", auch Konstruktor (*constructor*) genannt. Das ist eine Methode die sofort beim Erstellen eines Objektes aufgerufen werden. In Python nutzen wir dafür eine Methode die mit  `__init__` benannt wird:
+Eigentlich sollte jedes Point-Objekt auf jeden Fall eine x und y-Position haben! Das ist auch möglich, und zwar über eine "init-Methode", auch Konstruktor (*constructor*) genannt. Das ist eine Methode die sofort beim Erstellen eines Objektes aufgerufen werden. In Python nutzen wir dafür die Methode `__init__`, die direkt nach dem Erzeugen einer neuen Instanz zur Initialisierung aufgerufen wird (im Einstieg oft vereinfachend als Konstruktor bezeichnet):
 
 ```python
 class Point:

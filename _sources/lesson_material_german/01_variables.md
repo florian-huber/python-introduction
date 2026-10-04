@@ -123,14 +123,14 @@ Es gibt einige einfache, aber wichtige Regeln für die Wahl von Variablennamen i
 - **Verwendet Kleinbuchstaben** und Unterstriche `_` zur Trennung von Wörtern, um die Lesbarkeit zu erhöhen.
 - **Vermeidet reservierte Keywords** oder Funktionsnamen, um Konflikte zu verhindern.
 - **Sprecht Englisch**: Auch wenn Variablennamen in anderen Sprachen (z. B. Deutsch) zulässig sind, wird Englisch üblicherweise bevorzugt, um den Code auch für andere verständlich zu halten.
-- **Achtet auf Sonderzeichen**: Vermeidet nach Möglichkeit Umlaute (ä, ö, ü) oder andere Sonderzeichen in Variablennamen, da sie nicht überall unterstützt werden und zu Komplikationen führen können.
+- **Achtet auf Sonderzeichen**: Python unterstützt auch Unicode-Zeichen wie Umlaute in Variablennamen. In gemeinsamem Code sind einfache englische ASCII-Namen aber meist leichter zu tippen, zu teilen und konsistent zu verwenden.
 
 
 
 ## Debugging!
 
-Mit **debugging** meinen wir das Beseitigen von Fehlern im Programmcode (Fehler = "bugs").
-Wir werden später noch detaillierter auf das Thema eingehen, aber gleich zu Beginn ist es hilfreich ein wenig Erfahrung zu sammeln mit der Art und Weise wie Python (bzw. der Python-Interpreter) Fehler im Code anzeigt. Hierbei geht es nicht um Fehler, die ein erfolgreiches Ausführen des Codes unmöglich machen.
+Mit **Debugging** meinen wir das systematische Finden und Beseitigen von Fehlern im Programmcode (Fehler = "bugs").
+Wir werden später noch detaillierter auf das Thema eingehen, aber gleich zu Beginn ist es hilfreich, Erfahrung damit zu sammeln, wie Python Fehler meldet. Dazu gehören Syntaxfehler ebenso wie Fehler, die erst während der Ausführung auftreten, und logische Fehler mit falschen Ergebnissen.
 
 ### Übung zum Debugging:
 

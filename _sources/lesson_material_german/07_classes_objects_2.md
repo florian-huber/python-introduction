@@ -53,11 +53,11 @@ print(my_object.class_value)
 print(my_object.instance_value)
 ```
 
-Wir sprechen hier auch von **Klassenattributen** (hier: `.class_value`) und **Instanzattributen** (hier: `.instance_value`). Über erzeugte Objekte sind bei Typen von Attributen verfügbar, in der Klasse selbst sind aber die Instanzattribute nicht vorhanden.
+Wir sprechen hier auch von **Klassenattributen** (hier: `.class_value`) und **Instanzattributen** (hier: `.instance_value`). Über erzeugte Objekte sind beide Arten von Attributen zugänglich; direkt über die Klasse sind Instanzattribute dagegen nicht vorhanden.
 
 Wie sieht es dann mit den Methoden aus? 
 
-Auch da haben wir bisher typischerweise mit `self` gearbeitet. Und entsprechen sprechen wir hier auch von **Instanzmethoden** (*instance methods*). Diese sind ebenfalls nur über erzeugte Objekte zugänglich.
+Auch da haben wir bisher typischerweise mit `self` gearbeitet. Entsprechend sprechen wir von **Instanzmethoden** (*instance methods*). Normalerweise rufen wir sie über ein Objekt auf; dabei übergibt Python dieses Objekt automatisch als erstes Argument (`self`).
 
 Beispiel:
 
@@ -68,14 +68,14 @@ class SuperPrint:
     def upper_print(self, text):
         print(text.upper())
 
-# Instanzmethode kann nicht über Klasse aufgerufen werden:
+# So fehlt das Objekt, das als self dienen soll:
 SuperPrint.upper_print("mein text soll größer werden")  # => TypeError
 
 # Und die Methode ist auch nicht (wie eine Funktion) global verfügbar:
 upper_print("mein text soll grösser werden")  # => NameError: name 'upper_print' is not defined
 ```
 
-Erst wenn ein Objekt der Klasse SuperPrint erzeugt wird, kann damit die Methode `upper_print()` ausgeführt werden. Die Methode gehört also zu allen Objekten der Klasse `SuperPrint` und ist ansonsten nicht verfügbar, weder über die Klasse selbst, noch global wie bei einer Funktion.
+Typischerweise erzeugen wir daher zuerst ein Objekt und rufen die Methode darüber auf. Technisch liegt die Funktion auch auf der Klasse und könnte mit einer explizit übergebenen Instanz aufgerufen werden (`SuperPrint.upper_print(printer, "text")`); die Schreibweise über das Objekt ist aber die normale Form. Global wie eine frei definierte Funktion ist `upper_print()` nicht verfügbar.
 
 <!-- pytest-codeblocks:cont -->
 
@@ -123,7 +123,7 @@ class Point:
 
     @classmethod
     def create_random_point(cls):
-        return Point(random.random(), random.random())
+        return cls(random.random(), random.random())
 
 
 random_point = Point.create_random_point()
@@ -315,22 +315,20 @@ Jetzt kommen wir zu noch ein paar weiteren Eigenschaften und Möglichkeiten der 
 
 ## Datenkapselung
 
-Datenkapselung ist im Prinzip nichts anderes als der Schutz von Daten (Attributen) vor unmittelbarem Zugriff. Wir haben schon gesehen, dass Attribute auch einfach eingesehen und geändert werden können, z.B. `point1.x = 5`. Aber *idealerweise* versuchen die meisten Programmieren*Innen ihre Klassen so zu designen, dass Attribute v.a. über sogennante "Getter" und "Setter"-Methoden aufgerufen werden. 
+Datenkapselung bedeutet, interne Details eines Objekts von seiner öffentlichen Schnittstelle zu trennen. In Python ist direkter Attributzugriff (`point1.x`) völlig normal. Zusätzliche Getter/Setter oder `@property` werden vor allem dann sinnvoll, wenn beim Lesen oder Schreiben noch Validierung oder andere Logik nötig ist.
 
-### Public -> Protected -> Private
+### Öffentliche Namen, Unterstrich-Konvention und Name Mangling
 
-Eine wichtige Eigenschaft von Klassen, auch im Zusammenhang mit der Datenabstraktion, ist die Möglichkeit die Zugriffsrechte auf die Attribute festzulegen. Python ist hierbei deutlich weniger strikt als viele andere Programmiersprachen, d.h. wir erstellen jetzt gleich keine high-security Programme. Aber es gibt auch in Python die wichtige Unterscheidung zwischen frei zugänglichen (public), geschützten (protected) und unzugänglichen (private) Attributen.
+Python erzwingt keine klassischen Zugriffsrechte wie `public`, `protected` oder `private`. Stattdessen gibt es Namenskonventionen und **Name Mangling**:
 
-Python hat hier also drei Stufen:
+• `name` (**öffentlich**):
+ Ein normaler Attributname; von außen les- und schreibbar.
 
-• name (**Public**): 
- Attribut ohne führende Unterstriche; sind innerhalb einer Klasse und auch von außen les- und schreibbar.
+• `_name` (**intern / "protected" per Konvention**):
+ Ebenfalls von außen zugänglich. Der führende Unterstrich signalisiert aber: Dieses Attribut gehört zur internen Implementierung und sollte normalerweise nicht direkt verwendet werden.
 
-• _name (**Protected**): 
- Man kann zwar von außen lesend und schreibend zugreifen, der/die Entwickler*In macht aber klar das man diese Attribute so nicht benutzen sollte; Protected-Attribute sind beim Importieren wichtig.
-
-• __name (**Private**): 
- Sind von außen weder sichtbar noch benutzbar 
+• `__name` (**Name Mangling**):
+ Python verändert den internen Namen, um versehentliche Namenskollisionen insbesondere bei Vererbung zu vermeiden. Das ist **kein echter Zugriffsschutz** und keine Sicherheitsfunktion.
 
 <!-- pytest-codeblocks:expect-error -->
 
@@ -344,13 +342,13 @@ spell = MagicSpell()
 
 print(spell.name)  # => Expecto Patronum
 print(spell._book)  # => Magic Spells IV
-print(spell.__explanation)  # => AttributeError: 'Spell' object has no attribute '__explanation'
+print(spell.__explanation)  # => AttributeError: 'MagicSpell' object has no attribute '__explanation'
 
 ```
 
 Hier ist also zu sehen, dass die *protected attributes*  durchaus noch ganz normal eingesehen werden können! Bei Python ist der eine Unterstrich vor einem Attributsname eher als ein Hinweis an Nutzer\*Innen und v.a. Entwickler\*Innen zu verstehen, diese Variablen nicht einfach zu verändern. Das entspricht in etwa einem "Zutritt auf eigene Gefahr"-Schild.
 
-Die Attribute mit Status *private* geben aber einen `AttributeError`, d.h. diese können tatsächlich nicht mehr wie zuvor aufgerufen und verändert werden.
+Bei einem Namen mit doppeltem Unterstrich schlägt der direkte Zugriff über `obj.__name` fehl, weil Python den Namen intern verändert (Name Mangling). Das Attribut ist damit aber nicht wirklich geheim oder unzugänglich.
 
 Das gleiche geht natürlich auch mit einem Konstruktor:
 
@@ -374,7 +372,7 @@ print(spell.__explanation)  # => AttributeError
 
 
 
-Bevor jemand jetzt aber auf die Idee kommt, damit sensible Daten zu schützen: Einen richtig strengen Schutz der Attribute gibt es bei Python nicht! Der Zugang wird nur bewusst erschwert. Theoretisch können die verstecken Attribute aber noch immer eingesehen werden mit:
+Bevor jemand jetzt aber auf die Idee kommt, damit sensible Daten zu schützen: Einen richtig strengen Schutz der Attribute gibt es bei Python nicht! Der Zugang wird nur bewusst erschwert. Theoretisch können die versteckten Attribute aber noch immer eingesehen werden mit:
 
 <!-- pytest-codeblocks:cont -->
 
@@ -382,7 +380,7 @@ Bevor jemand jetzt aber auf die Idee kommt, damit sensible Daten zu schützen: E
 print(spell._MagicSpell__explanation)  # nur zur Info, bitte diesen Weg nicht in Programmen nutzen!
 ```
 
-Oder, noch einfacher, einfach mal im "Variable Explorer" in Spyder öffnen...
+Auch im VS-Code-Debugger kann man solche internen Attribute unter **VARIABLES** sehen. Der doppelte Unterstrich ist also ausdrücklich kein Schutz für sensible Daten.
 
 Als kurzes Beispiel einmal den Fall, dass wir nicht wollen das Nutzer\*Innen .x oder .y eines `Point`-Objekts einfach ändern können:
 
@@ -408,7 +406,7 @@ print(a.get_position())
 # a.x  # => AttributeError
 ```
 
-Da man die Attribute mit Status nicht nur nicht einsehen kann, sondern diese auch nicht einmal als vorhanden angezeigt werden spricht man hier auch vom **Geheimnisprinzip** einem anderen Konzept im OOP. 
+Die eigentliche Idee der Kapselung ist daher nicht, Daten kryptografisch zu verstecken, sondern eine klare öffentliche Schnittstelle anzubieten und Implementierungsdetails möglichst nicht unnötig nach außen zu tragen.
 
 Ok. Schön. Aber wozu das Ganze?
 

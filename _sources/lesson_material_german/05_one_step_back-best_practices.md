@@ -351,40 +351,37 @@ Apropos ergänzen: Mit den Code-Aufbau über die Funktionen ist es nun auch gut 
 
 In der ersten Vorlesung wurde schon einmal erwähnt, dass um Python herum ein ganzes Universum aus Bibliotheken und Tools existiert, was ganz nebenbei auch einer der Gründe für den Erfolg von Python ist.
 
-Bisher haben wir ausschließlich mit Standard-Bibliotheken gearbeitet, die bei einer normalen Python Installation gleich mit dabei sind.
+Bisher haben wir ausschließlich mit Modulen aus der **Standardbibliothek** gearbeitet, die bei einer normalen Python-Installation direkt mit dabei sind. Wenn wir `import time` oder `import random` aufgerufen haben, musste also nichts zusätzlich installiert werden.
 
-D.h. wenn wir `import time` oder `import random` aufgerufen haben, wurde die entsprechende Bibliothek einfach importiert und stand zur Verfügung. Das ist aber nicht die Regel. Sehr viele Bibliotheken müssen erst installiert werden.
-
-Ist eine Bibliothek noch nicht installiert liefert dies ansonsten einen `ModulNotFoundError`.
+Bei vielen Data-Science-Bibliotheken ist das anders. Ist ein Package noch nicht installiert, erhalten wir z.B. einen `ModuleNotFoundError`:
 
 ```
 >>> import seaborn as sns
-
 ModuleNotFoundError: No module named 'seaborn'
 ```
 
-Also: Wo kommen diese Bibliotheken her? Wie installiert man sie? Und wie hängen sie voneinander ab?
+Viele veröffentlichte Python-Packages liegen auf dem **Python Package Index (PyPI)**. PyPI ist dabei der Paket-Index; installiert und verwaltet werden die Pakete mit einem passenden Tool. Im Kurs nutzen wir dafür **uv**:
 
-Vereinfacht ist es in etwa so:
-Der Quellcode (source code) der einzelnen Bibliotheken lebt irgendwo im Internet, in den meisten Fällen auf GitHub oder verwandten Plattformen. Die jeweiligen "releases", d.h. die verschiedenen veröffentlichten Versionen davon werden zudem von sogenannten Package-Managing Systemen verwaltet, v.a. **conda** und **pypi**. Je nachdem über welches System eine Bibliothek installiert werden soll, bzw. je nachdem auf welcher der Plattformen eine Bibliothek verfügbar ist, können Bibliotheken  von der Konsole installiert werden :
-
-```
-pip install seaborn
-```
-
-oder
-
-```
-conda install seaborn
+```bash
+uv pip install seaborn
 ```
 
 ### Bereits installierte Bibliotheken
 
-Um zu sehen, welche Bibliotheken bereits installiert sind, kann im Terminal `pip list` oder `conda list` ausgeführt werden. Dabei wird deutlich, dass (1) es ziemlich viele Bibliotheken gibt und (2) das alle Bibliotheken auch in bestimmten Versionen vorliegen!
+Welche Packages in der aktuellen Umgebung installiert sind, können wir z.B. so anzeigen:
 
-Und damit wären wir auch an einem der Probleme mit den Bibliotheken angekommen.
+```bash
+uv pip list
+```
 
-Viele Python Bibliotheken verwenden wiederum selbst andere Python Bibliotheken, das sind dann "dependencies", Abhängigkeiten der Module. Das Problem dabei ist nur, dass unterschiedliche Bibliotheken manchmal unterschiedliche Versionen benötigen. Es kann daher sein das eine Bibliothek `module_X` benötigt mit einer Version `<3.0.0` während eine andere Bibliothek `module_X` mit einer Version `>3.0.2` braucht um zu laufen. In solch einem Fall können nicht beide Bibliotheken gleichzeitig installiert werden!
+Dabei wird schnell deutlich, dass Packages immer in bestimmten Versionen installiert sind.
 
-Um solchen Konflikten so weit es geht aus dem Weg zu gehen, verwenden viele Nutzer*Innen sogenannte **Environments**, also Umgebungen, die es erlauben verschiedene Python-Ecosystems parallel installiert zu haben. Wir werden zu einem späteren Zeitpunkt dafür **conda** nutzen.
+Viele Python-Packages verwenden wiederum andere Packages. Diese Abhängigkeiten heißen **Dependencies**. Unterschiedliche Projekte können dabei unterschiedliche, teilweise nicht miteinander kompatible Versionen derselben Dependency benötigen.
 
+Darum verwenden wir für Projekte **virtuelle Environments**. Ein Environment isoliert die installierten Packages eines Projekts vom Rest des Systems. Unsere Standardvariante ist ein `.venv` im Projektordner:
+
+```bash
+uv venv --python 3.14
+```
+
+`uv venv` erstellt ein normales Python-Virtual-Environment. Alternativ kann die Python-Standardbibliothek dasselbe Grundprinzip mit `python -m venv .venv` umsetzen. Pakete installieren wir anschließend mit `uv pip install ...` in dieses Environment. VS Code erkennt ein `.venv` im Projektordner in der Regel automatisch bzw. es kann über **Python: Select Interpreter** ausgewählt werden.

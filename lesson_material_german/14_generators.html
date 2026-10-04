@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>23. Generators / Iterators &#8212; Einführung Programmieren mit Python</title>
+    <title>22. Generators / Iterators &#8212; Einführung Programmieren mit Python</title>
   
   
   
@@ -27,33 +27,33 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- So that users can add custom icons -->
-  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <script defer src="../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
 
     <script src="../_static/documentation_options.js?v=91fba89f"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=f281be69"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
-    <script>let toggleHintShow = 'Click to show';</script>
-    <script>let toggleHintHide = 'Click to hide';</script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Klicken zum Anzeigen';</script>
+    <script>let toggleHintHide = 'Klicken zum Ausblenden';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../_static/togglebutton.js?v=b8b12719"></script>
     <script src="../_static/translations.js?v=79cc9f76"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../_static/design-tabs.js?v=f930bc37"></script>
@@ -62,28 +62,35 @@
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'lesson_material_german/14_generators';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
     <link rel="search" title="Suche" href="../search.html" />
     <link rel="next" title="Source Code on GitHub" href="github.html" />
-    <link rel="prev" title="22. Python Debugging" href="10_debugging.html" />
+    <link rel="prev" title="21. Python Debugging" href="10_debugging.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="de"/>
   <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
   </head>
+  <body data-default-mode="">
   
   
-  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Zum Hauptinhalt springen</a></div>
 
-  
-  
-  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
-
+    <i class="fa-solid fa-arrow-up"></i>Zurück zum Anfang</button>
+  
+  
+  
   
   <dialog id="pst-search-dialog">
     
@@ -105,11 +112,55 @@
   </dialog>
 
   <div class="pst-async-banner-revealer d-none">
-  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Versionswarnung"></aside>
 </div>
 
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Website-Navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Suche" aria-label="Suche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Suche</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Suche" aria-label="Suche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Suche</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="Auf dieser Seite">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
     </header>
   
 
@@ -191,31 +242,30 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Error Handling und Best Practices I</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="05_error_handling.html">11. Error handling</a></li>
-<li class="toctree-l1"><a class="reference internal" href="05_one_step_back-best_practices.html">12. Clean code und „best practices“</a></li>
-<li class="toctree-l1"><a class="reference internal" href="05_open_files.html">13. Dateien lesen und schreiben</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_one_step_back-best_practices.html">11. Clean code und „best practices“</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_open_files.html">12. Dateien lesen und schreiben</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Klassen und Objekte</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="06_classes_objects.html">14. Objektorientierte Programmierung - Einführung</a></li>
-<li class="toctree-l1"><a class="reference internal" href="07_classes_objects_2.html">15. Objektorientierte Programmierung in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_classes_objects.html">13. Objektorientierte Programmierung - Einführung</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_classes_objects_2.html">14. Objektorientierte Programmierung in Python</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Arbeiten mit numerischen Daten - Numpy</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="08_numpy.html">16. Numerische Daten in Python mit NumPy</a></li>
-<li class="toctree-l1"><a class="reference internal" href="09_numpy_2.html">17. Numerische Daten in Python mit NumPy - Teil 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08_numpy.html">15. Numerische Daten in Python mit NumPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_numpy_2.html">16. Numerische Daten in Python mit NumPy - Teil 2</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Schritte Richtung Data Science</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="09_pandas.html">18. Pandas</a></li>
-<li class="toctree-l1"><a class="reference internal" href="10_pandas_2.html">19. Pandas - Teil 2</a></li>
-<li class="toctree-l1"><a class="reference internal" href="12_data_visualization.html">20. Datenvisualisierung mit Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="13_data_visualization_outlook.html">21. 2D/3D Visualisierung &amp; interaktive Plots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_pandas.html">17. Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_pandas_2.html">18. Pandas - Teil 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_data_visualization.html">19. Datenvisualisierung mit Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13_data_visualization_outlook.html">20. 2D/3D Visualisierung &amp; interaktive Plots</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">A few missing things</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="10_debugging.html">22. Python Debugging</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">23. Generators / Iterators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_debugging.html">21. Python Debugging</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">22. Generators / Iterators</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Source Code and Contributions</span></p>
 <ul class="nav bd-sidenav">
@@ -366,7 +416,7 @@
 
 
 <button onclick="toggleFullScreen()"
-  class="btn btn-sm btn-fullscreen-button"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
   title="Vollbildmodus"
   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
@@ -380,17 +430,17 @@
 
 
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Farbmodus" data-bs-title="Farbmodus"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Hell"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dunkel"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="Systemeinstellungen"></i>
 </button>
 
 
 <button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Suche" aria-label="Suche" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
 </button>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
 </div></div>
@@ -412,14 +462,14 @@
                 <h2> Inhalt </h2>
             </div>
             <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iterators">23.1. Iterators</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#was-bringt-das">23.1.1. Was bringt das?</a></li>
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iterators">22.1. Iterators</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#was-bringt-das">22.1.1. Was bringt das?</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generators">23.2. Generators</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#beispiel-city-name-generator">23.2.1. Beispiel: city name generator</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unendliche-sequenzen">23.2.2. Unendliche Sequenzen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generators">22.2. Generators</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#beispiel-city-name-generator">22.2.1. Beispiel: city name generator</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unendliche-sequenzen">22.2.2. Unendliche Sequenzen</a></li>
 </ul>
 </li>
 </ul>
@@ -434,7 +484,7 @@
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="generators-iterators">
-<h1><span class="section-number">23. </span>Generators / Iterators<a class="headerlink" href="#generators-iterators" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">22. </span>Generators / Iterators<a class="headerlink" href="#generators-iterators" title="Link to this heading">#</a></h1>
 <p>Wir starten mit einer kurzen Quiz-Frage:</p>
 <blockquote>
 <div><p>Wenn ein Pandas DataFrame erstellt wurde (z.B. indem wir eine .csv-Datei importiert haben mit <code class="docutils literal notranslate"><span class="pre">read_csv()</span></code>). Wo sind die Werte des DataFrames dann gespeichert?</p>
@@ -447,7 +497,7 @@
 <p>Je mehr wir aber in richtig Big Data schauen, umso wichtiger wird dieses Thema werden. Denn der Arbeitsspeicher ist zwar schnell, aber vom Umfang her sehr begrenzt. D.h. es kann in vielen Fällen zu Problemen führen wenn wir zu viele Daten gleichzeitig im Arbeitsspeicher vorhalten wollen.</p>
 <p>Eine Möglichkeit damit besser umzugehen, sind sogenannte Generatoren (<em>generators</em>). Diese bieten die Möglichkeit immer nur so viele Daten zu laden (oder erzeugen) wie aktuell benötigt. Bevor wir zu den <em>generators</em> kommen, starten wir aber mit einer allgemeineren Variante, dem Iterator (<em>iterator</em>).</p>
 <section id="iterators">
-<h2><span class="section-number">23.1. </span>Iterators<a class="headerlink" href="#iterators" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">22.1. </span>Iterators<a class="headerlink" href="#iterators" title="Link to this heading">#</a></h2>
 <p>Iteratoren (iterators) sind in Python Objekte, die durch eine Folge von Werten iterieren können. Sie ermöglichen es, über eine Reihe von Elementen in einer for-Schleife zu iterieren, ohne dass die genaue Anzahl der Elemente im Voraus bekannt sein muss. Ein Iterator-Objekt muss das Iterator-Protokoll implementieren, das die <strong>iter</strong>()- und <strong>next</strong>()-Methoden definiert.</p>
 <p>Die <strong>iter</strong>()-Methode gibt das Iterator-Objekt selbst zurück und wird automatisch aufgerufen, wenn eine for-Schleife gestartet wird. Die <strong>next</strong>()-Methode gibt das nächste Element der Folge zurück und wird automatisch aufgerufen, wenn die for-Schleife das nächste Element abfragt. Wenn kein weiteres Element vorhanden ist, wird eine StopIteration-Ausnahme ausgelöst.</p>
 <p>Ein Beispiel für die Verwendung von Iteratoren ist die Verwendung der built-in-Funktion <code class="docutils literal notranslate"><span class="pre">iter()</span></code> auf einer Liste oder einem Tupel:</p>
@@ -460,7 +510,7 @@
 </div>
 <p>In diesem Beispiel wird die <code class="docutils literal notranslate"><span class="pre">iter()</span></code>-Funktion verwendet, um einen Iterator für die numbers-Liste zu erstellen. Der Iterator wird in der Variablen <code class="docutils literal notranslate"><span class="pre">iterator</span></code> gespeichert. Die <code class="docutils literal notranslate"><span class="pre">next()</span></code>-Funktion wird verwendet, um das nächste  Element im Iterator abzufragen, welches dann ausgegeben wird.</p>
 <section id="was-bringt-das">
-<h3><span class="section-number">23.1.1. </span>Was bringt das?<a class="headerlink" href="#was-bringt-das" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">22.1.1. </span>Was bringt das?<a class="headerlink" href="#was-bringt-das" title="Link to this heading">#</a></h3>
 <p>Auf den ersten Blick ist in diesem Beispiel vielleicht nicht unbedingt klar, was das Interator-Konzept hier bringt. Immerhin könnten wir dafür auch einfach direkt eine for-Schleife nehmen:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
 <span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="n">numbers</span><span class="p">:</span>
@@ -471,23 +521,23 @@
 </section>
 </section>
 <section id="generators">
-<h2><span class="section-number">23.2. </span>Generators<a class="headerlink" href="#generators" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">22.2. </span>Generators<a class="headerlink" href="#generators" title="Link to this heading">#</a></h2>
 <p>Generatoren (generators) sind spezielle Iteratoren, die in Python mit  Hilfe der yield-Anweisung erstellt werden. Sie ermöglichen es, einen  Iterator zu erstellen, ohne die gesamte Folge im Speicher zu speichern.  Stattdessen werden nur die Werte erzeugt, die zurzeit benötigt werden.  Dies macht Generatoren besonders nützlich für die Verarbeitung von  großen Datenmengen oder für die Verarbeitung von unendlichen Folgen.</p>
 <p>In Python lassen sich Generatoren einfach erstellen und zwar fast genau wie wir bisher auch Funktionen definiert haben, mit der wichtigen Ausnahme dass wir <code class="docutils literal notranslate"><span class="pre">yield</span></code> statt <code class="docutils literal notranslate"><span class="pre">return</span></code> verwenden.
 Der Ausdruck <code class="docutils literal notranslate"><span class="pre">yield</span></code> gibt, genau wie return, Werte zurück wenn er im Code erreicht wird. Anders als <code class="docutils literal notranslate"><span class="pre">return</span></code> endet ein Funktionsaufruf allerdings nicht beim <code class="docutils literal notranslate"><span class="pre">yield</span></code> sondern läuft mit dem folgenden Aufruf danach weiter (also z.B. über ein <code class="docutils literal notranslate"><span class="pre">next()</span></code>). Hier ein kurzes Beispiel:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># A simple generator function</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">my_generator</span><span class="p">():</span>
     <span class="n">n</span> <span class="o">=</span> <span class="mi">1</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;This is printed first&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'This is printed first'</span><span class="p">)</span>
     <span class="c1"># Generator function contains yield statements</span>
     <span class="k">yield</span> <span class="n">n</span>
 
     <span class="n">n</span> <span class="o">+=</span> <span class="mi">1</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;This is printed second&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'This is printed second'</span><span class="p">)</span>
     <span class="k">yield</span> <span class="n">n</span>
 
     <span class="n">n</span> <span class="o">+=</span> <span class="mi">1</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;This is printed at last&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'This is printed at last'</span><span class="p">)</span>
     <span class="k">yield</span> <span class="n">n</span>
     
 <span class="n">a</span> <span class="o">=</span> <span class="n">my_generator</span><span class="p">()</span>
@@ -495,14 +545,14 @@ Der Ausdruck <code class="docutils literal notranslate"><span class="pre">yield<
 </pre></div>
 </div>
 <section id="beispiel-city-name-generator">
-<h3><span class="section-number">23.2.1. </span>Beispiel: city name generator<a class="headerlink" href="#beispiel-city-name-generator" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">22.2.1. </span>Beispiel: city name generator<a class="headerlink" href="#beispiel-city-name-generator" title="Link to this heading">#</a></h3>
 <p>Stellen wir uns vor, wir wollen sehr viele Stadtnahmen generieren (z.B. für ein Spiel). Dann können wir das auf bisherigem Wege machen über:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="k">def</span><span class="w"> </span><span class="nf">city_name_generator</span><span class="p">():</span>
-    <span class="n">beginnings</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Ober&quot;</span><span class="p">,</span> <span class="s2">&quot;Unter&quot;</span><span class="p">,</span> <span class="s2">&quot;Alt&quot;</span><span class="p">,</span> <span class="s2">&quot;Neu&quot;</span><span class="p">,</span> <span class="s2">&quot;Klein&quot;</span><span class="p">,</span> <span class="s2">&quot;Königs&quot;</span><span class="p">,</span> <span class="s2">&quot;Gold&quot;</span><span class="p">]</span>
-    <span class="n">middle</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;strom&quot;</span><span class="p">,</span> <span class="s2">&quot;see&quot;</span><span class="p">,</span> <span class="s2">&quot;wald&quot;</span><span class="p">,</span> <span class="s2">&quot;wies&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">]</span>
-    <span class="n">endings</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;hausen&quot;</span><span class="p">,</span> <span class="s2">&quot;heim&quot;</span><span class="p">,</span> <span class="s2">&quot;ingen&quot;</span><span class="p">,</span> <span class="s2">&quot;dorf&quot;</span><span class="p">,</span> <span class="s2">&quot;stadt&quot;</span><span class="p">,</span> <span class="s2">&quot;bach&quot;</span><span class="p">]</span>
+    <span class="n">beginnings</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Ober"</span><span class="p">,</span> <span class="s2">"Unter"</span><span class="p">,</span> <span class="s2">"Alt"</span><span class="p">,</span> <span class="s2">"Neu"</span><span class="p">,</span> <span class="s2">"Klein"</span><span class="p">,</span> <span class="s2">"Königs"</span><span class="p">,</span> <span class="s2">"Gold"</span><span class="p">]</span>
+    <span class="n">middle</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"strom"</span><span class="p">,</span> <span class="s2">"see"</span><span class="p">,</span> <span class="s2">"wald"</span><span class="p">,</span> <span class="s2">"wies"</span><span class="p">,</span> <span class="s2">""</span><span class="p">]</span>
+    <span class="n">endings</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"hausen"</span><span class="p">,</span> <span class="s2">"heim"</span><span class="p">,</span> <span class="s2">"ingen"</span><span class="p">,</span> <span class="s2">"dorf"</span><span class="p">,</span> <span class="s2">"stadt"</span><span class="p">,</span> <span class="s2">"bach"</span><span class="p">]</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">beginnings</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">middle</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">endings</span><span class="p">)</span>
     
 <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
@@ -513,9 +563,9 @@ Der Ausdruck <code class="docutils literal notranslate"><span class="pre">yield<
 <p>Wie können wir daraus einen echten Python-Generator machen?
 Eine Möglichkeit wäre wie folgt:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">city_name_generator</span><span class="p">():</span>
-    <span class="n">beginnings</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Ober&quot;</span><span class="p">,</span> <span class="s2">&quot;Unter&quot;</span><span class="p">,</span> <span class="s2">&quot;Alt&quot;</span><span class="p">,</span> <span class="s2">&quot;Neu&quot;</span><span class="p">,</span> <span class="s2">&quot;Klein&quot;</span><span class="p">,</span> <span class="s2">&quot;Königs&quot;</span><span class="p">,</span> <span class="s2">&quot;Gold&quot;</span><span class="p">]</span>
-    <span class="n">middle</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;strom&quot;</span><span class="p">,</span> <span class="s2">&quot;see&quot;</span><span class="p">,</span> <span class="s2">&quot;wald&quot;</span><span class="p">,</span> <span class="s2">&quot;wies&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">]</span>
-    <span class="n">endings</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;hausen&quot;</span><span class="p">,</span> <span class="s2">&quot;heim&quot;</span><span class="p">,</span> <span class="s2">&quot;ingen&quot;</span><span class="p">,</span> <span class="s2">&quot;dorf&quot;</span><span class="p">,</span> <span class="s2">&quot;stadt&quot;</span><span class="p">,</span> <span class="s2">&quot;bach&quot;</span><span class="p">]</span>
+    <span class="n">beginnings</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Ober"</span><span class="p">,</span> <span class="s2">"Unter"</span><span class="p">,</span> <span class="s2">"Alt"</span><span class="p">,</span> <span class="s2">"Neu"</span><span class="p">,</span> <span class="s2">"Klein"</span><span class="p">,</span> <span class="s2">"Königs"</span><span class="p">,</span> <span class="s2">"Gold"</span><span class="p">]</span>
+    <span class="n">middle</span> <span class="o">=</span> <span class="p">[</span><span class="s2">""</span><span class="p">,</span> <span class="s2">"strom"</span><span class="p">,</span> <span class="s2">"see"</span><span class="p">,</span> <span class="s2">"wald"</span><span class="p">,</span> <span class="s2">"wies"</span><span class="p">,</span> <span class="s2">""</span><span class="p">,</span> <span class="s2">""</span><span class="p">]</span>
+    <span class="n">endings</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"hausen"</span><span class="p">,</span> <span class="s2">"heim"</span><span class="p">,</span> <span class="s2">"ingen"</span><span class="p">,</span> <span class="s2">"dorf"</span><span class="p">,</span> <span class="s2">"stadt"</span><span class="p">,</span> <span class="s2">"bach"</span><span class="p">]</span>
     <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">beginnings</span><span class="p">:</span>
         <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">middle</span><span class="p">:</span>
             <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">endings</span><span class="p">:</span>
@@ -535,7 +585,7 @@ Eine Möglichkeit wäre wie folgt:</p>
 </div>
 </section>
 <section id="unendliche-sequenzen">
-<h3><span class="section-number">23.2.2. </span>Unendliche Sequenzen<a class="headerlink" href="#unendliche-sequenzen" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">22.2.2. </span>Unendliche Sequenzen<a class="headerlink" href="#unendliche-sequenzen" title="Link to this heading">#</a></h3>
 <p>Ein weiterer Anwendungsfall für Generatoren sind unendliche Sequenzen. Hier ein einfaches Beispiel:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">all_seventh</span><span class="p">():</span>
     <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span>
@@ -584,16 +634,16 @@ Eine Möglichkeit wäre wie folgt:</p>
 <div class="prev-next-area">
     <a class="left-prev"
        href="10_debugging.html"
-       title="previous page">
+       title="Vorherige Seite">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">zurück</p>
-        <p class="prev-next-title"><span class="section-number">22. </span>Python Debugging</p>
+        <p class="prev-next-title"><span class="section-number">21. </span>Python Debugging</p>
       </div>
     </a>
     <a class="right-next"
        href="github.html"
-       title="next page">
+       title="Nächste Seite">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">weiter</p>
         <p class="prev-next-title">Source Code on GitHub</p>
@@ -611,19 +661,20 @@ Eine Möglichkeit wäre wie folgt:</p>
                 <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Inhalt
   </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iterators">23.1. Iterators</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#was-bringt-das">23.1.1. Was bringt das?</a></li>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#iterators">22.1. Iterators</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#was-bringt-das">22.1.1. Was bringt das?</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generators">23.2. Generators</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#beispiel-city-name-generator">23.2.1. Beispiel: city name generator</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unendliche-sequenzen">23.2.2. Unendliche Sequenzen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generators">22.2. Generators</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#beispiel-city-name-generator">22.2.1. Beispiel: city name generator</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unendliche-sequenzen">22.2.2. Unendliche Sequenzen</a></li>
 </ul>
 </li>
 </ul>
@@ -650,7 +701,7 @@ Durch Florian Huber
 
   <p class="copyright">
     
-      © Copyright 2024.
+      © Copyright 2024
       <br/>
     
   </p>
@@ -674,8 +725,8 @@ Durch Florian Huber
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
-<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+  <script defer src="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
 
   <footer class="bd-footer">
   </footer>

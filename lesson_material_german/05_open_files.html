@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>13. Dateien lesen und schreiben &#8212; Einführung Programmieren mit Python</title>
+    <title>12. Dateien lesen und schreiben &#8212; Einführung Programmieren mit Python</title>
   
   
   
@@ -27,33 +27,33 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- So that users can add custom icons -->
-  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <script defer src="../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
 
     <script src="../_static/documentation_options.js?v=91fba89f"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=f281be69"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
-    <script>let toggleHintShow = 'Click to show';</script>
-    <script>let toggleHintHide = 'Click to hide';</script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Klicken zum Anzeigen';</script>
+    <script>let toggleHintHide = 'Klicken zum Ausblenden';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../_static/togglebutton.js?v=b8b12719"></script>
     <script src="../_static/translations.js?v=79cc9f76"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../_static/design-tabs.js?v=f930bc37"></script>
@@ -62,28 +62,35 @@
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'lesson_material_german/05_open_files';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
     <link rel="search" title="Suche" href="../search.html" />
-    <link rel="next" title="14. Objektorientierte Programmierung - Einführung" href="06_classes_objects.html" />
-    <link rel="prev" title="12. Clean code und „best practices“" href="05_one_step_back-best_practices.html" />
+    <link rel="next" title="13. Objektorientierte Programmierung - Einführung" href="06_classes_objects.html" />
+    <link rel="prev" title="11. Clean code und „best practices“" href="05_one_step_back-best_practices.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="de"/>
   <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
   </head>
+  <body data-default-mode="">
   
   
-  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Zum Hauptinhalt springen</a></div>
 
-  
-  
-  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
-
+    <i class="fa-solid fa-arrow-up"></i>Zurück zum Anfang</button>
+  
+  
+  
   
   <dialog id="pst-search-dialog">
     
@@ -105,11 +112,55 @@
   </dialog>
 
   <div class="pst-async-banner-revealer d-none">
-  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Versionswarnung"></aside>
 </div>
 
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Website-Navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Suche" aria-label="Suche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Suche</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Suche" aria-label="Suche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Suche</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="Auf dieser Seite">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
     </header>
   
 
@@ -191,31 +242,30 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Error Handling und Best Practices I</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="05_error_handling.html">11. Error handling</a></li>
-<li class="toctree-l1"><a class="reference internal" href="05_one_step_back-best_practices.html">12. Clean code und „best practices“</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">13. Dateien lesen und schreiben</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_one_step_back-best_practices.html">11. Clean code und „best practices“</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">12. Dateien lesen und schreiben</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Klassen und Objekte</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="06_classes_objects.html">14. Objektorientierte Programmierung - Einführung</a></li>
-<li class="toctree-l1"><a class="reference internal" href="07_classes_objects_2.html">15. Objektorientierte Programmierung in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_classes_objects.html">13. Objektorientierte Programmierung - Einführung</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_classes_objects_2.html">14. Objektorientierte Programmierung in Python</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Arbeiten mit numerischen Daten - Numpy</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="08_numpy.html">16. Numerische Daten in Python mit NumPy</a></li>
-<li class="toctree-l1"><a class="reference internal" href="09_numpy_2.html">17. Numerische Daten in Python mit NumPy - Teil 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08_numpy.html">15. Numerische Daten in Python mit NumPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_numpy_2.html">16. Numerische Daten in Python mit NumPy - Teil 2</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Schritte Richtung Data Science</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="09_pandas.html">18. Pandas</a></li>
-<li class="toctree-l1"><a class="reference internal" href="10_pandas_2.html">19. Pandas - Teil 2</a></li>
-<li class="toctree-l1"><a class="reference internal" href="12_data_visualization.html">20. Datenvisualisierung mit Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="13_data_visualization_outlook.html">21. 2D/3D Visualisierung &amp; interaktive Plots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_pandas.html">17. Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_pandas_2.html">18. Pandas - Teil 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_data_visualization.html">19. Datenvisualisierung mit Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13_data_visualization_outlook.html">20. 2D/3D Visualisierung &amp; interaktive Plots</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">A few missing things</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="10_debugging.html">22. Python Debugging</a></li>
-<li class="toctree-l1"><a class="reference internal" href="14_generators.html">23. Generators / Iterators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_debugging.html">21. Python Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="14_generators.html">22. Generators / Iterators</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Source Code and Contributions</span></p>
 <ul class="nav bd-sidenav">
@@ -366,7 +416,7 @@
 
 
 <button onclick="toggleFullScreen()"
-  class="btn btn-sm btn-fullscreen-button"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
   title="Vollbildmodus"
   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
@@ -380,17 +430,17 @@
 
 
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Farbmodus" data-bs-title="Farbmodus"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Hell"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dunkel"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="Systemeinstellungen"></i>
 </button>
 
 
 <button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Suche" aria-label="Suche" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
 </button>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
 </div></div>
@@ -412,11 +462,11 @@
                 <h2> Inhalt </h2>
             </div>
             <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#write">13.1. Write</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zeichenkodierung">13.2. Zeichenkodierung</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ascii">13.2.1. ASCII</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unicode">13.2.2. Unicode</a></li>
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#write">12.1. Write</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zeichenkodierung">12.2. Zeichenkodierung</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ascii">12.2.1. ASCII</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unicode">12.2.2. Unicode</a></li>
 </ul>
 </li>
 </ul>
@@ -431,14 +481,15 @@
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="dateien-lesen-und-schreiben">
-<h1><span class="section-number">13. </span>Dateien lesen und schreiben<a class="headerlink" href="#dateien-lesen-und-schreiben" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">12. </span>Dateien lesen und schreiben<a class="headerlink" href="#dateien-lesen-und-schreiben" title="Link to this heading">#</a></h1>
 <p>Bei Dateien unterscheidet man grundlegend zwischen Binärdateien und Textdateien. Binärdateien bestehen aus Bitmustern und erlauben es Daten effizient zu hinterlegen. Sie finden in vielen bekannten Datenformaten Verwendung, z.B. vielen Bild-, Video- oder Audio-Dateien. In der Regel sind solche Dateien aber nur mit passenden Tools (oder Python Bibliotheken) importierbar. Häufig werden Daten aber auch in <a class="reference external" href="https://de.wikipedia.org/wiki/Textdatei">Textdateien</a> gespeichert. Dies beinhaltet nicht nur die <code class="docutils literal notranslate"><span class="pre">.txt</span></code> Dateien oder Dateien mit „Text“, sondern im Prinzip alle Dateien die mit einem normalen Texteditor lesbar sind (also genau das Gegenstück zu den Binärdateien für die dies nicht gilt).</p>
 <p>Beispiele die uns im Laufe der Veranstaltung noch häufiger begegnen werden sind .csv, .yml oder .yaml. Aber auch die .py Dateien gehören zu den Textdateien.</p>
 <p>Dateien lassen sich in Python mit <code class="docutils literal notranslate"><span class="pre">open()</span></code> lesen und erstellen. Im Folgenden - sowie in der Praxis fast immer- werden wir uns nur mit Textdateien beschäftigen.</p>
 <p>Hier ein Beispiel für eine Datei <code class="docutils literal notranslate"><span class="pre">testfile.txt</span></code> die sich im selben Ordner befindet:</p>
 <!--pytest-codeblocks:skip-->
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;testfile.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">readline</span><span class="p">())</span>  <span class="c1"># =&gt; &#39;Hier mal ein wenig Text zum Testen.\n&#39;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"testfile.txt"</span><span class="p">,</span> <span class="s2">"r"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">readline</span><span class="p">())</span>  <span class="c1"># =&gt; 'Hier mal ein wenig Text zum Testen.\n'</span>
+<span class="n">data</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>Neben dem Dateinamen wird hier auch <code class="docutils literal notranslate"><span class="pre">&quot;r&quot;</span></code> angegeben, was für den Modus der
@@ -476,11 +527,11 @@ Funktion steht. Die wichtigsten Varianten davon finden sich in der Tabelle:</p>
 <td><p></p></td>
 </tr>
 <tr class="row-even"><td><p>x</p></td>
-<td><p></p></td>
-<td><p>Gleich wie r (rb),   aber existierende Dateien werden nicht überschrieben.</p></td>
+<td><p>exklusives Erstellen, Textmodus</p></td>
+<td><p>Erstellt eine neue Datei zum Schreiben. Falls die Datei bereits existiert, wird ein <code class="docutils literal notranslate"><span class="pre">FileExistsError</span></code> ausgelöst.</p></td>
 </tr>
 <tr class="row-odd"><td><p>xb</p></td>
-<td><p></p></td>
+<td><p>exklusives Erstellen, Binärmodus</p></td>
 <td><p></p></td>
 </tr>
 </tbody>
@@ -488,9 +539,10 @@ Funktion steht. Die wichtigsten Varianten davon finden sich in der Tabelle:</p>
 </div>
 <p>Es ist auch einfach möglich die Datei Zeile für Zeile auszulesen.</p>
 <!--pytest-codeblocks:skip-->
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;testfile.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"testfile.txt"</span><span class="p">,</span> <span class="s2">"r"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+<span class="n">data</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>Sollte die Datei sich nicht im selben Ordner befinden, muss der Pfad noch
@@ -504,56 +556,55 @@ zum Dateinamen hinzugefügt werden.</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">data</span> <span class="pre">=</span> <span class="pre">open(&quot;my_data/testfile2.txt&quot;,</span> <span class="pre">&quot;r&quot;)</span></code> oder:
 <code class="docutils literal notranslate"><span class="pre">data</span> <span class="pre">=</span> <span class="pre">open(&quot;my_data\\testfile2.txt&quot;,</span> <span class="pre">&quot;r&quot;)</span></code></p></li>
 </ul>
-<p>Eine weitere Möglichkeit (dazu kommen wir später noch ausführlicher), ist die Nutzung von Python-Bibliotheken zum Pfad-Handling, z.B. <code class="docutils literal notranslate"><span class="pre">os</span></code>.</p>
+<p>Eine weitere Möglichkeit (dazu kommen wir später noch ausführlicher), ist die Nutzung von Python-Modulen zum Pfad-Handling, z.B. <code class="docutils literal notranslate"><span class="pre">pathlib</span></code> oder <code class="docutils literal notranslate"><span class="pre">os</span></code>.</p>
 <section id="write">
-<h2><span class="section-number">13.1. </span>Write<a class="headerlink" href="#write" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">12.1. </span>Write<a class="headerlink" href="#write" title="Link to this heading">#</a></h2>
 <p>Das Schreiben von Dateien geschieht über <code class="docutils literal notranslate"><span class="pre">write()</span></code>. Aber auch hier wird
 zuerst eine Datei geöffnet um anschließend in diese Datei zu schreiben.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">output</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;ouput_file.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span>
-<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;Kommen wir nun zu etwas völlig anderem.&quot;</span>
-<span class="n">output</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">text</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">output</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"output_file.txt"</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">)</span>
+<span class="n">text</span> <span class="o">=</span> <span class="s2">"Kommen wir nun zu etwas völlig anderem."</span>
+<span class="n">output</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">text</span> <span class="o">+</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
 <span class="n">output</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>Während im mode „w“ (write) jedes Mal eine neue Datei erstellt wird, können
 wir mit „a“ auch eine vorhandene Datei weiter schreiben.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">output</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;ouput_file.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">)</span>
-<span class="n">output</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;So. Ja. Genau.</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="n">output</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;Ja &quot;</span> <span class="o">*</span> <span class="mi">5</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">output</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"output_file.txt"</span><span class="p">,</span> <span class="s2">"a"</span><span class="p">)</span>
+<span class="n">output</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">"So. Ja. Genau.</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+<span class="n">output</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">"Ja "</span> <span class="o">*</span> <span class="mi">5</span> <span class="o">+</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
 <span class="n">output</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>Im Alltag häufig einfach als open/close ist das verwenden von <code class="docutils literal notranslate"><span class="pre">with</span></code>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;ouput_file.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+<p>Im Alltag ist <code class="docutils literal notranslate"><span class="pre">with</span></code> meist bequemer und sicherer als ein manuelles <code class="docutils literal notranslate"><span class="pre">open()</span></code>/<code class="docutils literal notranslate"><span class="pre">close()</span></code>, weil die Datei am Ende des Blocks automatisch geschlossen wird:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"output_file.txt"</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">):</span>
-        <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Zeile </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2"> </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Zeile </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2"> </span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;ouput_file.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"output_file.txt"</span><span class="p">,</span> <span class="s2">"r"</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
     <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">file</span><span class="p">:</span>
-        <span class="k">if</span> <span class="s2">&quot;3&quot;</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
+        <span class="k">if</span> <span class="s2">"3"</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
             <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
 <section id="zeichenkodierung">
-<h2><span class="section-number">13.2. </span>Zeichenkodierung<a class="headerlink" href="#zeichenkodierung" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">12.2. </span>Zeichenkodierung<a class="headerlink" href="#zeichenkodierung" title="Link to this heading">#</a></h2>
 <p>Computer kennen erstmal keine Buchstaben oder Zeichen, sondern nur Bytes. Bytes sind Zahlen im Bereich von 0 bis 255. Um mit Zahlen einen Text darstellen zu können, braucht der Computer eine Zuordnungstabelle, in der steht, welche Zahl für welchen Buchstaben stehen soll.</p>
 <p>Es gibt zahlreiche verschiedene Kodierungen, die häufigsten sind aber:</p>
 <section id="ascii">
-<h3><span class="section-number">13.2.1. </span>ASCII<a class="headerlink" href="#ascii" title="Link to this heading">#</a></h3>
-<p>ASCII steht für <em>American Standard Code for Information Interchange</em> und kann 256 verschiedene Zeichen darstellen. Die meisten Sonderzeichen sind daher nicht enthalten.</p>
+<h3><span class="section-number">12.2.1. </span>ASCII<a class="headerlink" href="#ascii" title="Link to this heading">#</a></h3>
+<p>ASCII steht für <em>American Standard Code for Information Interchange</em> und definiert 128 Zeichen (0 bis 127), darunter die englischen Buchstaben, Ziffern und einige Steuerzeichen. Umlaute oder viele andere Schriftsysteme sind darin nicht enthalten.</p>
 </section>
 <section id="unicode">
-<h3><span class="section-number">13.2.2. </span>Unicode<a class="headerlink" href="#unicode" title="Link to this heading">#</a></h3>
-<p>Unicode ist mittlerweile der Standard, v.a. im Internet (HTML 4.0) und enthält mehr als 100.000 Zeichen.
-Es gibt verschiedene Unicode Kodierungen, am meisten genutzt in Python ist allerdings <strong>utf-8</strong> da dies relativ elegant (=Speicher sparend) die Zeichen kodieren kann.</p>
+<h3><span class="section-number">12.2.2. </span>Unicode<a class="headerlink" href="#unicode" title="Link to this heading">#</a></h3>
+<p>Unicode definiert einen sehr großen gemeinsamen Zeichenvorrat für Schriftsysteme und Symbole aus aller Welt. <strong>UTF-8</strong> ist eine weit verbreitete Kodierung, mit der Unicode-Zeichen als Bytes gespeichert werden. UTF-8 ist heute für Textdateien und Web-Inhalte ein sehr häufiger Standard.</p>
 <p>Für mehr Informationen zu diesem Thema: https://wiki.selfhtml.org/wiki/Zeichencodierung</p>
-<p>Sollten einmal Probleme mit Umlauten/Sonderzeichen auftreten, liegt dies in der Regal daran, dass bei einer Textdatei nicht richtig zwischen ASCII und utf-8 konvertiert wurde.</p>
-<p>Um sicher zu gehen, kann de Kodierung mit angegeben werden:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;ouput_file.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+<p>Sollten einmal Probleme mit Umlauten oder anderen Sonderzeichen auftreten, wurde eine Textdatei häufig mit einer anderen Kodierung gelesen oder geschrieben als erwartet.</p>
+<p>Um sicher zu gehen, kann die Kodierung mit angegeben werden:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"output_file.txt"</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">):</span>
-        <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Zeile </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2"> </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Zeile </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2"> </span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -592,19 +643,19 @@ Es gibt verschiedene Unicode Kodierungen, am meisten genutzt in Python ist aller
 <div class="prev-next-area">
     <a class="left-prev"
        href="05_one_step_back-best_practices.html"
-       title="previous page">
+       title="Vorherige Seite">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">zurück</p>
-        <p class="prev-next-title"><span class="section-number">12. </span>Clean code und „best practices“</p>
+        <p class="prev-next-title"><span class="section-number">11. </span>Clean code und „best practices“</p>
       </div>
     </a>
     <a class="right-next"
        href="06_classes_objects.html"
-       title="next page">
+       title="Nächste Seite">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">weiter</p>
-        <p class="prev-next-title"><span class="section-number">14. </span>Objektorientierte Programmierung - Einführung</p>
+        <p class="prev-next-title"><span class="section-number">13. </span>Objektorientierte Programmierung - Einführung</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -619,16 +670,17 @@ Es gibt verschiedene Unicode Kodierungen, am meisten genutzt in Python ist aller
                 <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Inhalt
   </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#write">13.1. Write</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zeichenkodierung">13.2. Zeichenkodierung</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ascii">13.2.1. ASCII</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unicode">13.2.2. Unicode</a></li>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#write">12.1. Write</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zeichenkodierung">12.2. Zeichenkodierung</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ascii">12.2.1. ASCII</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unicode">12.2.2. Unicode</a></li>
 </ul>
 </li>
 </ul>
@@ -655,7 +707,7 @@ Durch Florian Huber
 
   <p class="copyright">
     
-      © Copyright 2024.
+      © Copyright 2024
       <br/>
     
   </p>
@@ -679,8 +731,8 @@ Durch Florian Huber
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
-<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+  <script defer src="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
 
   <footer class="bd-footer">
   </footer>

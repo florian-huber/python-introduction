@@ -330,7 +330,7 @@ hogwarts = {
 print(hogwarts["Granger"]["surname"])  # => Hermione
 ```
 
-Bei den entsprechenden Einrückungen hilft zum Glück das IDE (Spyder, Visual Studio Code PyCharm etc.), denn das kann zu Beginn schnell etwas unübersichtlich werden. Und Python erlaubt oft verschiedene Einrückungen, z.B. ginge auch sowas:
+Bei den entsprechenden Einrückungen hilft zum Glück der Editor bzw. die IDE (z.B. Visual Studio Code oder PyCharm), denn das kann zu Beginn schnell etwas unübersichtlich werden. Und Python erlaubt oft verschiedene Einrückungen, z.B. ginge auch sowas:
 
 ```python
 hogwarts = {"Dumbeldore": {"surname" : "Albus",

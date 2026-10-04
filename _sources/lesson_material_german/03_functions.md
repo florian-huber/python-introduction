@@ -120,7 +120,7 @@ print(boxes_to_eggs(5))  # => 30
 print(boxes_to_eggs(5, 10))  # => 50
 print(boxes_to_eggs(5, eggs_per_box=10))  # => 50
 
-print(boxes_to_eggs(5, broken_eggs_per_box=0.25))  # => 25
+print(boxes_to_eggs(5, broken_eggs_per_box=0.25))  # => 28
 print(boxes_to_eggs(5, eggs_per_box=10,
                     broken_eggs_per_box=0.25))  # => 48
 print(boxes_to_eggs(5, broken_eggs_per_box=0.25,
