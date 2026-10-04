@@ -3,38 +3,48 @@ name: CI Tests
 on:
   push:
   pull_request:
-    types: [opened, reopened]
+
+permissions:
+  contents: read
 
 jobs:
-
   basic_checks:
     name: Basic environment and code checks / ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
+
     defaults:
       run:
-        shell: bash -l {0}
+        shell: bash
+
     strategy:
       fail-fast: false
       matrix:
-        os: ['ubuntu-latest', 'macos-latest', 'windows-latest']
-        
+        os: [ubuntu-latest, macos-latest, windows-latest]
+
     steps:
-      - uses: actions/checkout@v2
-      - uses: conda-incubator/setup-miniconda@v2
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Set up uv and Python 3.14
+        uses: astral-sh/setup-uv@v10.0.0
         with:
-          environment-file: environment.yml
-      - name: Python info
+          python-version: "3.14"
+          activate-environment: true
+          enable-cache: true
+
+      - name: Python and uv info
         run: |
           which python
           python --version
-      - name: Show conda info and list
+          uv --version
+
+      - name: Install test dependencies
         run: |
-          conda info
-          conda list
-      - name: Show pip list
-        run: |
-          pip list
+          uv pip install \
+            "pytest>=8.4.2,<9" \
+            numpy \
+            matplotlib \
+            "pytest-codeblocks @ git+https://github.com/florian-huber/pytest-codeblocks.git@allow_differnt_markdown_comments"
+
       - name: Test code examples
-        run: |
-          pip install git+https://github.com/florian-huber/pytest-codeblocks.git@allow_differnt_markdown_comments
-          pytest --codeblocks
+        run: pytest --codeblocks

@@ -7,39 +7,50 @@ on:
     inputs:
       tag:
         description: Tag for manually running the deploy book workflow
-        required: True
-        default: ''
+        required: true
+        type: string
 
-# This job installs dependencies, builds the book #TODO: and pushes it to `gh-pages`
+permissions:
+  contents: write
+
+concurrency:
+  group: deploy-book
+  cancel-in-progress: false
+
 jobs:
   deploy-book:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        shell: bash -l {0}
 
     steps:
-      - uses: actions/checkout@v2
-      - uses: mamba-org/setup-micromamba@v1
+      - name: Checkout repository
+        uses: actions/checkout@v7
         with:
-          environment-file: environment.yml
-      - name: Python info
+          ref: ${{ github.event_name == 'release' && github.event.release.tag_name || inputs.tag }}
+
+      - name: Set up uv and Python
+        uses: astral-sh/setup-uv@v10.0.0
+        with:
+          python-version: "3.13"
+          activate-environment: true
+          enable-cache: true
+
+      - name: Python and uv info
         run: |
-          which python
           python --version
-      - name: Show pip list
-        run: |
-          pip list
+          uv --version
 
-      # Build the book
+      - name: Install book dependencies
+        run: |
+          uv pip install \
+            "jupyter-book==1.0.4.post1" \
+            numpy \
+            matplotlib
+
       - name: Build the book
-        run: |
-          pip install jupyter-book
-          jupyter-book build .
+        run: jupyter-book build .
 
-      # Push the book's HTML to github-pages
-      - name: GitHub Pages action
-        uses: peaceiris/actions-gh-pages@v3.6.1
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./_build/html
