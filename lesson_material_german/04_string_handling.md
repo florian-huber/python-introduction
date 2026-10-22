@@ -368,7 +368,7 @@ Anders als `in` löst `.index()` einen `ValueError` aus, wenn die gesuchte Zeich
 
 ### Von Text zu Wortliste und Häufigkeiten
 
-Jetzt können wir mehrere bekannte Konzepte verbinden: Eine Funktion vereinheitlicht einen String und liefert eine **Liste**; eine zweite Funktion zählt die Listeneinträge und liefert ein **Dictionary**.
+Jetzt können wir mehrere bekannte Konzepte verbinden: Eine Funktion vereinheitlicht einen String und liefert eine **Liste**, eine zweite Funktion zählt die Listeneinträge und liefert ein **Dictionary**.
 
 ```python
 def text_zu_woertern(text):
@@ -404,10 +404,10 @@ print(analysiere_text(text))
 print(analysiere_text(""))  # => {}
 ```
 
-Jede Funktion lässt sich **einzeln** prüfen. `analysiere_text()` verbindet beide Schritte; die Zwischenergebnisse haben unterschiedliche Typen. Auch hier gilt: Wir entfernen bewusst nur die drei angegebenen Satzzeichen. Für eine allgemeine Textanalyse wären weitere Regeln nötig.
+Jede Funktion lässt sich **einzeln** prüfen. `analysiere_text()` verbindet beide Schritte. Die Zwischenergebnisse haben unterschiedliche Typen. Auch hier gilt: Wir entfernen bewusst nur die drei angegebenen Satzzeichen. Für eine allgemeine Textanalyse wären weitere Regeln nötig.
 
 ### Encodings (Zeichenkodierungen)
 
-Zeichen (*characters*) können auf einem Rechner auf verschiedene Arten kodiert werden. **Unicode** beschreibt einen großen Zeichenvorrat und ordnet Zeichen Nummern zu; **UTF-8** ist eine sehr verbreitete Kodierung dieses Zeichenvorrats in Bytes. **ASCII** ist ein älterer, kleinerer Zeichensatz, dessen Zeichen auch in Unicode enthalten sind.
+Zeichen (*characters*) können auf einem Rechner auf verschiedene Arten kodiert werden. **Unicode** beschreibt einen großen Zeichenvorrat und ordnet Zeichen Nummern zu. Dabei ist **UTF-8** eine sehr verbreitete Kodierung dieses Zeichenvorrats in Bytes. **ASCII** ist ein älterer, kleinerer Zeichensatz, dessen Zeichen auch in Unicode enthalten sind.
 
 Für den Moment werden wir damit nicht mehr machen. Sollten Sie beim Lesen oder Verarbeiten einer Textdatei einmal auf einen `UnicodeDecodeError` stoßen, wissen Sie jetzt wenigstens, unter welchem Schlagwort Sie weitersuchen können.
