@@ -221,16 +221,17 @@ Dictionaries sind ein häufig verwendeter Datentyp mit dem Daten als Schlüssel-
 <!-- pytest-codeblocks:skip -->
 
 ```python
-my_dict = {key1: value1,
-          key2: value2}
+my_dict = {key1: value1, key2: value2}
 ```
 
 Ein Beispiel könnte eine Zuordnung von Wörtern in zwei verschiedenen Sprachen sein, hier Deutsch-Englisch:
 
 ```python
-my_dict = {"Hallo": "hello",
-           "Tschüss": "bye",
-           "Danke": "thanks"}
+my_dict = {
+    "Hallo": "hello",
+    "Tschüss": "bye",
+    "Danke": "thanks"
+    }
 
 print(my_dict["Danke"])  # => thanks
 ```
@@ -238,10 +239,12 @@ print(my_dict["Danke"])  # => thanks
 Wie bei Sets, gibt es auch in Dictionaries keine Dopplungen:
 
 ```python
-my_dict = {"Hallo": "hello",
-           "Tschüss": "bye",
-           "Danke": "thanks",
-           "Hallo": "hi"}
+my_dict = {
+    "Hallo": "hello",
+    "Tschüss": "bye",
+    "Danke": "thanks",
+    "Hallo": "hi"
+    }
 
 print(my_dict["Hallo"])  # => 'hi'
 ```
@@ -249,9 +252,11 @@ print(my_dict["Hallo"])  # => 'hi'
 Einzelne Elemente aus einem Dictionary können mit dem entsprechenden Schlüssel ausgelesen werden:
 
 ```python
-my_dict = {"name": "Gilderoy Lockhart",
-           "function": "teacher",
-           "password": "goldlocks"}
+my_dict = {
+    "name": "Gilderoy Lockhart",
+    "function": "teacher",
+    "password": "goldlocks"
+    }
 
 x = my_dict["password"]
 
@@ -333,13 +338,20 @@ print(hogwarts["Granger"]["surname"])  # => Hermione
 Bei den entsprechenden Einrückungen hilft zum Glück der Editor bzw. die IDE (z.B. Visual Studio Code oder PyCharm), denn das kann zu Beginn schnell etwas unübersichtlich werden. Und Python erlaubt oft verschiedene Einrückungen, z.B. ginge auch sowas:
 
 ```python
-hogwarts = {"Dumbeldore": {"surname" : "Albus",
-                           "function" : "headmaster"},
-            "Lockhart": {"surname": "Gilderoy",
-                         "function": "teacher"},
-            "Granger": {"surname": "Hermione",
-                        "function": "pupil"},
-            } 
+hogwarts = {
+    "Dumbeldore": {
+        "surname" : "Albus",
+        "function" : "headmaster"
+        },
+    "Lockhart": {
+        "surname": "Gilderoy",
+        "function": "teacher"
+        },
+    "Granger": {
+        "surname": "Hermione",
+        "function": "pupil"
+        },
+    } 
 
 
 print(hogwarts["Granger"]["surname"])  # => Hermione
@@ -373,9 +385,11 @@ print(my_list[0])  # -> 1
 Das geht auch bei Dictionaries:
 
 ```python
-my_dict = {"name": "Gilderoy Lockhart",
-           "function": "teacher",
-           "password": "goldlocks"}
+my_dict = {
+    "name": "Gilderoy Lockhart",
+    "function": "teacher",
+    "password": "goldlocks"
+    }
 my_dict2 = my_dict.copy()
 my_dict2["function"] = "former teacher"
 print(my_dict["function"])  # -> "teacher"
@@ -386,13 +400,20 @@ Sobald wir aber beginnen mit tiefer verschachtelten veränderbaren Objekten zu a
 <!-- pytest-codeblocks:cont -->
 
 ```python
-hogwarts = {"Dumbeldore": {"surname" : "Albus",
-                           "function" : "headmaster"},
-            "Lockhart": {"surname": "Gilderoy",
-                         "function": "teacher"},
-            "Granger": {"surname": "Hermione",
-                        "function": "pupil"},
-            } 
+hogwarts = {
+    "Dumbeldore": {
+        "surname" : "Albus",
+        "function" : "headmaster"
+        },
+    "Lockhart": {
+        "surname": "Gilderoy",
+        "function": "teacher"
+        },
+    "Granger": {
+        "surname": "Hermione",
+        "function": "pupil"
+        },
+    } 
 
 hogwarts_book7 = hogwarts.copy()
 hogwarts_book7["Dumbeldore"]["function"] = "former headmaster"
@@ -411,13 +432,20 @@ Hier brauchen wir keine *shallow*, sondern eine *deep* (also tiefe) Kopie bei de
 ```python
 import copy
 
-hogwarts = {"Dumbeldore": {"surname" : "Albus",
-                           "function" : "headmaster"},
-            "Lockhart": {"surname": "Gilderoy",
-                         "function": "teacher"},
-            "Granger": {"surname": "Hermione",
-                        "function": "pupil"},
-            } 
+hogwarts = {
+    "Dumbeldore": {
+        "surname" : "Albus",
+        "function" : "headmaster"
+        },
+    "Lockhart": {
+        "surname": "Gilderoy",
+        "function": "teacher"
+        },
+    "Granger": {
+        "surname": "Hermione",
+        "function": "pupil"
+        },
+    } 
 
 hogwarts_book7 = copy.deepcopy(hogwarts)
 hogwarts_book7["Dumbeldore"]["function"] = "former headmaster"
