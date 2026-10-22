@@ -1,4 +1,4 @@
-# Datentypen II
+# Sets, Dictionaries, and Deep Copy
 
 Wir haben schon einige Datentypen gesehen. Jetzt wollen wir aber noch einmal genauer darauf eingehen und weitere wichtige Typen besprechen. Wir starten aber mit einer kurzen Wiederholung.
 

@@ -18,7 +18,7 @@ parts:
   - caption: Datentypen & String Handling
     numbered: true
     chapters:
-    - file: lesson_material_german/04_datatypes_2
+    - file: lesson_material_german/04_sets_dictionaries
     - file: lesson_material_german/04_string_handling
   - caption: Error Handling und Best Practices I
     numbered: true
