@@ -172,6 +172,8 @@ Es können beliebig viele Objekte einer Klasse erzeugt werden. Die Klasse bleibt
 ```python
 from random import randint
 
+point_collection = []
+
 for _ in range(10):
     new_point = Point(randint(-10, 10), randint(-10, 10))
     point_collection.append(new_point)

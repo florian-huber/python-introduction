@@ -66,8 +66,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
     <link rel="search" title="Suche" href="../search.html" />
-    <link rel="next" title="11. Clean code und „best practices“" href="05_one_step_back-best_practices.html" />
-    <link rel="prev" title="9. Datentypen II" href="04_datatypes_2.html" />
+    <link rel="next" title="11. Fehler behandeln mit try und except" href="04_try_except.html" />
+    <link rel="prev" title="9. Sets, Dictionaries, and Deep Copy" href="04_sets_dictionaries.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="de"/>
   <meta name="docsearch:version" content="" />
@@ -237,35 +237,36 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Datentypen &amp; String Handling</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="04_datatypes_2.html">9. Datentypen II</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_sets_dictionaries.html">9. Sets, Dictionaries, and Deep Copy</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">10. String handling</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Error Handling und Best Practices I</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="05_one_step_back-best_practices.html">11. Clean code und „best practices“</a></li>
-<li class="toctree-l1"><a class="reference internal" href="05_open_files.html">12. Dateien lesen und schreiben</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_try_except.html">11. Fehler behandeln mit <code class="docutils literal notranslate"><span class="pre">try</span></code> und <code class="docutils literal notranslate"><span class="pre">except</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_one_step_back-best_practices.html">12. Clean code und „best practices“</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_open_files.html">13. Dateien lesen und schreiben</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Klassen und Objekte</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="06_classes_objects.html">13. Objektorientierte Programmierung - Einführung</a></li>
-<li class="toctree-l1"><a class="reference internal" href="07_classes_objects_2.html">14. Objektorientierte Programmierung in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_classes_objects.html">14. Objektorientierte Programmierung - Einführung</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_classes_objects_2.html">15. Objektorientierte Programmierung in Python</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Arbeiten mit numerischen Daten - Numpy</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="08_numpy.html">15. Numerische Daten in Python mit NumPy</a></li>
-<li class="toctree-l1"><a class="reference internal" href="09_numpy_2.html">16. Numerische Daten in Python mit NumPy - Teil 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08_numpy.html">16. Numerische Daten in Python mit NumPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_numpy_2.html">17. Numerische Daten in Python mit NumPy - Teil 2</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Schritte Richtung Data Science</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="09_pandas.html">17. Pandas</a></li>
-<li class="toctree-l1"><a class="reference internal" href="10_pandas_2.html">18. Pandas - Teil 2</a></li>
-<li class="toctree-l1"><a class="reference internal" href="12_data_visualization.html">19. Datenvisualisierung mit Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="13_data_visualization_outlook.html">20. 2D/3D Visualisierung &amp; interaktive Plots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_pandas.html">18. Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_pandas_2.html">19. Pandas - Teil 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_data_visualization.html">20. Datenvisualisierung mit Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13_data_visualization_outlook.html">21. 2D/3D Visualisierung &amp; interaktive Plots</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">A few missing things</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="10_debugging.html">21. Python Debugging</a></li>
-<li class="toctree-l1"><a class="reference internal" href="14_generators.html">22. Generators / Iterators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_debugging.html">22. Python Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="14_generators.html">23. Generators / Iterators</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Source Code and Contributions</span></p>
 <ul class="nav bd-sidenav">
@@ -464,14 +465,15 @@
             <nav aria-label="Page">
                 <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stringverarbeitung">10.1. (Stringverarbeitung)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#escape-character-fix-the-string">10.2. Escape Character - fix the string</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#escape-character-fix-the-string">10.2. Escape Character – fix the string</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#string-methods">10.3. String methods</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#string-methoden-in-python">10.3.1. String-Methoden in Python</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#replace">10.3.2. <code class="docutils literal notranslate"><span class="pre">.replace()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#upper-und-lower">10.3.3. <code class="docutils literal notranslate"><span class="pre">.upper()</span></code> und <code class="docutils literal notranslate"><span class="pre">.lower()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strings-texte-teilen">10.3.4. Strings (Texte) teilen</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#string-abfragen">10.3.5. String abfragen</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#encodings-zeichen-kodierungen">10.3.6. Encodings (Zeichen-Kodierungen)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#von-text-zu-wortliste-und-haufigkeiten">10.3.6. Von Text zu Wortliste und Häufigkeiten</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#encodings-zeichenkodierungen">10.3.7. Encodings (Zeichenkodierungen)</a></li>
 </ul>
 </li>
 </ul>
@@ -490,19 +492,45 @@
 <section id="stringverarbeitung">
 <h2><span class="section-number">10.1. </span>(Stringverarbeitung)<a class="headerlink" href="#stringverarbeitung" title="Link to this heading">#</a></h2>
 <p>Strings sind neben numerischen Datentypen sicher eines der am häufigsten verwendeten Datenformate, nicht nur in Python.
-Denken Sie an den Umgang mit Texteingaben, Dateinamen, Kommentaren, Text-basierten Suchen, aber auch Textdateien etc.</p>
-<p>Zu Begin der Vorlesung haben wir schon einige String-Operationen kennengelernt:</p>
+Denken Sie an den Umgang mit Texteingaben, Dateinamen, Kommentaren, textbasierter Suche, aber auch Textdateien etc.</p>
+<p>Zu Beginn der Vorlesung haben wir schon einige String-Operationen kennengelernt:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"dies"</span> <span class="o">+</span> <span class="s2">"das"</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="mi">10</span> <span class="o">*</span> <span class="s2">"?"</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Strings zählen in Python zu den Sequenzen, darum können demensprechende Methoden genutzt werden, etwa:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"das"</span> <span class="ow">in</span> <span class="s2">"dasselbe"</span><span class="p">)</span>  <span class="c1"># =&gt; True</span>
+<p>Strings zählen in Python zu den <strong>Sequenzen</strong>, darum können entsprechende Operationen genutzt werden, etwa <code class="docutils literal notranslate"><span class="pre">in</span></code> und <code class="docutils literal notranslate"><span class="pre">not</span> <span class="pre">in</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"das"</span> <span class="ow">in</span> <span class="s2">"dasselbe"</span><span class="p">)</span>    <span class="c1"># =&gt; True</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">"x"</span> <span class="ow">not</span> <span class="ow">in</span> <span class="s2">"abcdefg"</span><span class="p">)</span>  <span class="c1"># =&gt; True</span>
 </pre></div>
 </div>
-<p>Ebenso das <strong>slicing</strong>:</p>
+<p>Ein String besteht aus einzelnen Zeichen. Wie bei Listen beginnt die Indizierung bei 0, und negative Indizes zählen vom Ende:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="s2">"Ja Nee"</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">))</span>  <span class="c1"># =&gt; 6 (das Leerzeichen zählt mit)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>   <span class="c1"># =&gt; J</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>  <span class="c1"># =&gt; e</span>
+
+<span class="k">for</span> <span class="n">zeichen</span> <span class="ow">in</span> <span class="n">s</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">zeichen</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Ebenso gibt es das <strong>Slicing</strong>, das wir schon bei Listen kennengelernt haben:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"Ja Nee"</span><span class="p">[:</span><span class="mi">2</span><span class="p">])</span>  <span class="c1"># =&gt; Ja</span>
+
+<span class="n">s</span> <span class="o">=</span> <span class="s2">"abcdefgh"</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">5</span><span class="p">])</span>    <span class="c1"># =&gt; cde (Stopgrenze ausgeschlossen)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">[:</span><span class="mi">3</span><span class="p">])</span>     <span class="c1"># =&gt; abc</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="mi">4</span><span class="p">:])</span>     <span class="c1"># =&gt; efgh</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">[::</span><span class="mi">2</span><span class="p">])</span>    <span class="c1"># =&gt; aceg</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>   <span class="c1"># =&gt; hgfedcba</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="mi">6</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">2</span><span class="p">])</span> <span class="c1"># =&gt; gec</span>
+</pre></div>
+</div>
+<p>Wie bei Listen können Start, Stop und Schrittweite angegeben werden. Bei einer negativen Schrittweite wird rückwärts gelesen. Strings sind allerdings <strong>unveränderlich</strong> (<em>immutable</em>): Einzelne Zeichen lassen sich nicht direkt überschreiben. Stattdessen erzeugen Operationen einen neuen String.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s2">"Haus"</span>
+<span class="c1"># text[0] = "M"  # Würde einen TypeError auslösen.</span>
+<span class="n">neu</span> <span class="o">=</span> <span class="s2">"M"</span> <span class="o">+</span> <span class="n">text</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>  <span class="c1"># =&gt; Haus</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">neu</span><span class="p">)</span>   <span class="c1"># =&gt; Maus</span>
 </pre></div>
 </div>
 <blockquote>
@@ -518,7 +546,7 @@ Denken Sie an den Umgang mit Texteingaben, Dateinamen, Kommentaren, Text-basiert
 b) 8<br />
 c) 9<br />
 d) alles gut</p>
-<p>Und was der Folgende:</p>
+<p>Und was der folgende?</p>
 </div></blockquote>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="s2">"nichts is gut!"</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="o">-</span><span class="mi">7</span><span class="p">:])</span>
@@ -531,104 +559,104 @@ c) ValueError</p>
 </div></blockquote>
 </section>
 <section id="escape-character-fix-the-string">
-<h2><span class="section-number">10.2. </span>Escape Character - fix the string<a class="headerlink" href="#escape-character-fix-the-string" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">10.2. </span>Escape Character – fix the string<a class="headerlink" href="#escape-character-fix-the-string" title="Link to this heading">#</a></h2>
 <p>Manche Zeichen oder Zeichenkombinationen werden von Python besonders interpretiert.
-Zum einen gibt es einige unmögliche Kombinationen, z.B.</p>
+Zum einen gibt es einige ungültige Kombinationen, zum Beispiel:</p>
 <!-- pytest-codeblocks:expect-error-->
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"Da steht "</span><span class="n">Stop</span><span class="s2">"!"</span><span class="p">)</span>  <span class="c1"># =&gt; SyntaxError: invalid syntax</span>
 </pre></div>
 </div>
-<p>In dem konkreten Fall kann es sogar durch die Verwendung verschiedener Anführungszeichen behoben werden:</p>
+<p>In diesem konkreten Fall lässt sich das Problem sogar durch die Verwendung verschiedener Anführungszeichen beheben:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">'Da steht "Stop"!'</span><span class="p">)</span>  <span class="c1"># =&gt; Da steht "Stop"!</span>
 </pre></div>
 </div>
-<p>Das kann behoben werden durch die Verwendung vom backslash („“) gefolgt durch das gewünschte Zeichen.</p>
+<p>Alternativ verwenden wir den Backslash (<code class="docutils literal notranslate"><span class="pre">\</span></code>) gefolgt von dem Zeichen, das wir im String darstellen möchten:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"Da steht </span><span class="se">\"</span><span class="s2">Stop</span><span class="se">\"</span><span class="s2">!"</span><span class="p">)</span>  <span class="c1"># =&gt; Da steht "Stop"!</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Ein backslash geht darum so: </span><span class="se">\\</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Ein Backslash geht darum so: </span><span class="se">\\</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Da der Backslash in String-Literalen ein Escape-Zeichen ist, muss er bei klassischen Windows-Pfaden häufig als <code class="docutils literal notranslate"><span class="pre">\\</span></code> geschrieben werden, z.B.:</p>
+<p>Da der Backslash in String-Literalen ein Escape-Zeichen ist, muss er bei klassischen Windows-Pfaden häufig als <code class="docutils literal notranslate"><span class="pre">\\</span></code> geschrieben werden, zum Beispiel:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">path</span> <span class="o">=</span> <span class="s2">"C:</span><span class="se">\\</span><span class="s2">User</span><span class="se">\\</span><span class="s2">Desktop</span><span class="se">\\</span><span class="s2">"</span>
 <span class="n">filename</span> <span class="o">=</span> <span class="n">path</span> <span class="o">+</span> <span class="s2">"testfile.txt"</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Auch andere Kombinationen mit „“ lösen bestimmtes Verhalten aus, am häufigsten benutzt davon ist wahrscheinlich „\n“ was einen Zeilenumbruch bedeutet.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"Damit können endlich endlos lange </span><span class="se">\n</span><span class="s2"> Texte geschrieben werden"</span><span class="p">)</span>
+<p>Für die eigentliche Arbeit mit Dateipfaden ist später auch <code class="docutils literal notranslate"><span class="pre">pathlib</span></code> nützlich. Hier geht es zunächst darum, den Backslash in <strong>Strings</strong> zu verstehen.</p>
+<p>Auch andere Kombinationen mit <code class="docutils literal notranslate"><span class="pre">\</span></code> lösen ein bestimmtes Verhalten aus. Besonders häufig sind <code class="docutils literal notranslate"><span class="pre">\n</span></code> für einen Zeilenumbruch und <code class="docutils literal notranslate"><span class="pre">\t</span></code> für einen Tabulator:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"Damit können endlich endlos lange</span><span class="se">\n</span><span class="s2">Texte geschrieben werden"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Spalte A</span><span class="se">\t</span><span class="s2">Spalte B"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Zeile eins</span><span class="se">\n</span><span class="s2">Zeile zwei"</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"Manchmal wird '</span><span class="se">\\</span><span class="s2">r' oder '</span><span class="se">\\</span><span class="s2">r</span><span class="se">\\</span><span class="s2">n' </span><span class="se">\r\n</span><span class="s2"> benutzt"</span><span class="p">,</span>
- 	  <span class="s2">"statt '</span><span class="se">\\</span><span class="s2">n' </span><span class="se">\n</span><span class="s2"> doch wir nehmen hier"</span><span class="p">,</span>
-      <span class="s2">"eigentlich immer nur '</span><span class="se">\\</span><span class="s2">n' </span><span class="se">\n</span><span class="s2"> </span><span class="se">\n</span><span class="s2"> </span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span>
-      <span class="s2">"wichtig ist dann noch </span><span class="se">\t</span><span class="s2"> tab."</span><span class="p">)</span>
+<p>Manchmal begegnen uns auch <code class="docutils literal notranslate"><span class="pre">\r</span></code> oder <code class="docutils literal notranslate"><span class="pre">\r\n</span></code> (zum Beispiel als Zeilenenden in Textdateien). Mit <code class="docutils literal notranslate"><span class="pre">repr()</span></code> sehen wir die Escape-Schreibweise, statt den Zeilenumbruch direkt auszugeben:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="s2">"eins</span><span class="se">\n</span><span class="s2">zwei"</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="s2">"eins</span><span class="se">\r\n</span><span class="s2">zwei"</span><span class="p">))</span>
 </pre></div>
 </div>
 </section>
 <section id="string-methods">
 <h2><span class="section-number">10.3. </span>String methods<a class="headerlink" href="#string-methods" title="Link to this heading">#</a></h2>
-<p>Darüber hinaus gibt es aber in Python noch eine grosse Zahl von speziellen <strong>String-Methoden</strong>.
-Wir werden nicht alle besprechen, aber die in meinen Augen Wichtigsten.</p>
-<p>Zur Wiederholung nochmal kurz was Sie machen können wenn Sie die passende Methode nicht mehr parat haben. Das kommt bei Python übrigens auch bei erfahrenen Programmierer*Innen ständig vor!</p>
-<p>Eine Möglichkeit ist das Nachschlagen in der <a class="reference external" href="https://docs.python.org/3/library/index.html">Python Dokumentation</a>. Eine andere sehr zugängliche Quelle ist <a class="reference external" href="https://www.w3schools.com/python/default.asp">w3schools.com</a>.</p>
-<p>Hier eine Tabelle mit den wichtigesten String-Methoden:</p>
+<p>Darüber hinaus gibt es in Python eine große Zahl spezieller <strong>String-Methoden</strong>.
+Wir werden nicht alle besprechen, aber die in meinen Augen wichtigsten.</p>
+<p>Zur Wiederholung noch einmal kurz, was Sie machen können, wenn Sie die passende Methode nicht mehr parat haben. Das kommt bei Python übrigens auch bei erfahrenen Programmierer*innen ständig vor!</p>
+<p>Eine Möglichkeit ist das Nachschlagen in der <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#string-methods">Python-Dokumentation</a>. Eine andere zugängliche Quelle ist <a class="reference external" href="https://www.w3schools.com/python/default.asp">w3schools.com</a>.</p>
+<p>Hier eine Tabelle mit den wichtigsten String-Methoden:</p>
 <section id="string-methoden-in-python">
 <h3><span class="section-number">10.3.1. </span>String-Methoden in Python<a class="headerlink" href="#string-methoden-in-python" title="Link to this heading">#</a></h3>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Methode</p></th>
-<th class="head"><p>Beschreibung (english)</p></th>
+<th class="head"><p>Beschreibung</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>count()</p></td>
-<td><p>Returns the number of times a specified   value occurs in a string</p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">count()</span></code></p></td>
+<td><p>Zählt das Vorkommen einer Zeichenfolge im String</p></td>
 </tr>
-<tr class="row-odd"><td><p>encode()</p></td>
-<td><p>Returns an encoded version of the   string</p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">encode()</span></code></p></td>
+<td><p>Kodiert einen String zu Bytes, z. B. als UTF-8</p></td>
 </tr>
-<tr class="row-even"><td><p>endswith()</p></td>
-<td><p>Returns true if the string ends with   the specified value</p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">endswith()</span></code></p></td>
+<td><p>Prüft, ob der String mit einer Zeichenfolge endet</p></td>
 </tr>
-<tr class="row-odd"><td><p>index()</p></td>
-<td><p>Searches the string for a specified   value and returns the position of where it was found</p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">index()</span></code></p></td>
+<td><p>Gibt die erste Position einer gesuchten Zeichenfolge zurück. Fehler, wenn sie fehlt</p></td>
 </tr>
-<tr class="row-even"><td><p>islower()</p></td>
-<td><p>Returns True if all characters in the   string are lower case</p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">islower()</span></code></p></td>
+<td><p>Prüft, ob die enthaltenen Buchstaben kleingeschrieben sind</p></td>
 </tr>
-<tr class="row-odd"><td><p>isupper()</p></td>
-<td><p>Returns True if all characters in the   string are upper case</p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">isupper()</span></code></p></td>
+<td><p>Prüft, ob die enthaltenen Buchstaben großgeschrieben sind</p></td>
 </tr>
-<tr class="row-even"><td><p>join()</p></td>
-<td><p>Joins the elements of an iterable to   the end of the string</p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">join()</span></code></p></td>
+<td><p>Verbindet mehrere Strings mit einem Trennstring</p></td>
 </tr>
-<tr class="row-odd"><td><p>lower()</p></td>
-<td><p>Converts a string into lower case</p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">lower()</span></code></p></td>
+<td><p>Gibt eine kleingeschriebene Version zurück</p></td>
 </tr>
-<tr class="row-even"><td><p>strip()</p></td>
-<td><p>Returns a trimmed version of the string</p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">strip()</span></code></p></td>
+<td><p>Entfernt Leerraum bzw. angegebene Zeichen an beiden Enden</p></td>
 </tr>
-<tr class="row-odd"><td><p>lstrip()</p></td>
-<td><p>Returns a left trim version of the   string</p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">lstrip()</span></code></p></td>
+<td><p>Wie <code class="docutils literal notranslate"><span class="pre">strip()</span></code>, aber nur am Anfang</p></td>
 </tr>
-<tr class="row-even"><td><p>replace()</p></td>
-<td><p>Returns a string where a specified   value is replaced with a specified value</p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">replace()</span></code></p></td>
+<td><p>Ersetzt angegebene Zeichenfolgen</p></td>
 </tr>
-<tr class="row-odd"><td><p>rstrip()</p></td>
-<td><p>Returns a right trim version of the   string</p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">rstrip()</span></code></p></td>
+<td><p>Wie <code class="docutils literal notranslate"><span class="pre">strip()</span></code>, aber nur am Ende</p></td>
 </tr>
-<tr class="row-even"><td><p>split()</p></td>
-<td><p>Splits the string at the specified   separator, and returns a list</p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">split()</span></code></p></td>
+<td><p>Zerlegt einen String in eine Liste</p></td>
 </tr>
-<tr class="row-odd"><td><p>splitlines()</p></td>
-<td><p>Splits the string at line breaks and   returns a list</p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">splitlines()</span></code></p></td>
+<td><p>Zerlegt einen String an Zeilenumbrüchen</p></td>
 </tr>
-<tr class="row-even"><td><p>startswith()</p></td>
-<td><p>Returns true if the string starts with   the specified value</p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">startswith()</span></code></p></td>
+<td><p>Prüft, ob der String mit einer Zeichenfolge beginnt</p></td>
 </tr>
-<tr class="row-odd"><td><p>strip()</p></td>
-<td><p>Returns a trimmed version of the string</p></td>
-</tr>
-<tr class="row-even"><td><p>upper()</p></td>
-<td><p>Converts a string into upper case</p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">upper()</span></code></p></td>
+<td><p>Gibt eine großgeschriebene Version zurück</p></td>
 </tr>
 </tbody>
 </table>
@@ -636,16 +664,16 @@ Wir werden nicht alle besprechen, aber die in meinen Augen Wichtigsten.</p>
 </section>
 <section id="replace">
 <h3><span class="section-number">10.3.2. </span><code class="docutils literal notranslate"><span class="pre">.replace()</span></code><a class="headerlink" href="#replace" title="Link to this heading">#</a></h3>
-<p>Recht häufig wollen wir bestimmte Zeichen, Wörter, oder Wortteile ersetzten. Das geht u.a. mit `replace()´.</p>
+<p>Recht häufig wollen wir bestimmte Zeichen, Wörter oder Wortteile ersetzen. Das geht unter anderem mit <code class="docutils literal notranslate"><span class="pre">.replace()</span></code>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="s2">"Nicht immer gefallen uns alle Zeichen"</span>
 <span class="n">s</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">"i"</span><span class="p">,</span> <span class="s2">"!"</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>  <span class="c1"># =&gt; nichts passiert?</span>
 </pre></div>
 </div>
-<p>Die Methoden ändern nicht den original-String, sondern geben einen neuen zurück:</p>
-<!-- pytest-codeblocks:cont -->
+<p>Die Methoden ändern den ursprünglichen String nicht, sondern geben einen <strong>neuen</strong> zurück. Wollen wir das Ergebnis später verwenden, speichern wir die Rückgabe:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">s_new</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">"i"</span><span class="p">,</span> <span class="s2">"!"</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">s_new</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>  <span class="c1"># weiterhin unverändert</span>
 </pre></div>
 </div>
 <p>Es lassen sich auch mehrere Methodenaufrufe kombinieren:</p>
@@ -654,7 +682,7 @@ Wir werden nicht alle besprechen, aber die in meinen Augen Wichtigsten.</p>
 </pre></div>
 </div>
 <blockquote>
-<div><h3 class="rubric" id="id1">Mini Quiz!</h3>
+<div><h3 class="rubric" id="id1">Mini-Quiz!</h3>
 <p>Spekulieren Sie: Was gibt der folgende Befehl aus?</p>
 </div></blockquote>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"abc"</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">"ab"</span><span class="p">,</span> <span class="s2">"cc"</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">"c"</span><span class="p">,</span> <span class="s2">"x"</span><span class="p">))</span>
@@ -669,49 +697,56 @@ d) abx</p>
 </section>
 <section id="upper-und-lower">
 <h3><span class="section-number">10.3.3. </span><code class="docutils literal notranslate"><span class="pre">.upper()</span></code> und <code class="docutils literal notranslate"><span class="pre">.lower()</span></code><a class="headerlink" href="#upper-und-lower" title="Link to this heading">#</a></h3>
-<p>Damit könnte man jetzt auch z.B. zwischen Gross- und Kleinschreibung wechseln, aber dafür gibt es eigene Methoden in Python –&gt; <code class="docutils literal notranslate"><span class="pre">.upper()</span></code> und <code class="docutils literal notranslate"><span class="pre">.lower()</span></code>
-Zum Beispiel sowas:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">tweet</span> <span class="o">=</span> <span class="s2">"this is not fair"</span>
-<span class="n">tweet_trumpified</span> <span class="o">=</span> <span class="n">tweet</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="o">+</span> <span class="s2">"!"</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">tweet_trumpified</span><span class="p">)</span>  <span class="c1"># =&gt; THIS IS NOT FAIR!</span>
-
+<p>Damit könnte man jetzt auch zwischen Groß- und Kleinschreibung wechseln, aber dafür gibt es eigene Methoden in Python: <code class="docutils literal notranslate"><span class="pre">.upper()</span></code> und <code class="docutils literal notranslate"><span class="pre">.lower()</span></code>.</p>
+<p>Zum Beispiel:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">post</span> <span class="o">=</span> <span class="s2">"this is not fair"</span>
+<span class="n">post_trumpified</span> <span class="o">=</span> <span class="n">post</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="o">+</span> <span class="s2">"!"</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">post_trumpified</span><span class="p">)</span>  <span class="c1"># =&gt; THIS IS NOT FAIR!</span>
 </pre></div>
 </div>
-<p>Und mit .lower() wieder halbwegs zurück:</p>
+<p>Und mit <code class="docutils literal notranslate"><span class="pre">.lower()</span></code> wieder in Kleinbuchstaben:</p>
 <!-- pytest-codeblocks:cont -->
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">tweet_moderated</span> <span class="o">=</span> <span class="n">tweet_trumpified</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">tweet_moderated</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">post_moderated</span> <span class="o">=</span> <span class="n">post_trumpified</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">post_moderated</span><span class="p">)</span>  <span class="c1"># =&gt; this is not fair!</span>
 </pre></div>
 </div>
-<p>Oft wollen wir Texte (oder Strings) in eine bestimmte Form bringen damit danach weitere Aktionen oder Analysen funktionieren.
-Zum Beispiel User-Eingaben vereinheitlichen:</p>
+<p>Oft wollen wir Texte (oder Strings) in eine bestimmte Form bringen, damit danach weitere Aktionen oder Analysen funktionieren.
+Zum Beispiel Benutzereingaben vereinheitlichen:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">eingabe1</span> <span class="o">=</span> <span class="s2">" Muster, Markus."</span>  <span class="c1"># Leerzeichen und Punkt stören</span>
-<span class="n">eingabe2</span> <span class="o">=</span> <span class="s2">"Test, Trude   "</span>  <span class="c1"># Gleich mehrere Leerzeichen?</span>
+<span class="n">eingabe2</span> <span class="o">=</span> <span class="s2">"Test, Trude   "</span>   <span class="c1"># Gleich mehrere Leerzeichen?</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">.strip()</span></code> wird genutzt um Leerzeichen (white spaces) an beiden Enden eines Strings zu entfernen. Es gibt auch <code class="docutils literal notranslate"><span class="pre">.</span> <span class="pre">rstrip()</span></code> und <code class="docutils literal notranslate"><span class="pre">.lstrip()</span></code> die nur auf das rechte oder linke Ende schauen.</p>
-<!-- pytest-codeblocks:cont -->
+<p><code class="docutils literal notranslate"><span class="pre">.strip()</span></code> wird genutzt, um Leerraum (<em>whitespace</em>) an <strong>beiden Enden</strong> eines Strings zu entfernen. Es gibt auch <code class="docutils literal notranslate"><span class="pre">.rstrip()</span></code> und <code class="docutils literal notranslate"><span class="pre">.lstrip()</span></code>, die nur das rechte oder linke Ende betrachten.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">eingabe1</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">eingabe2</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">.strip()</span></code> kann noch mehr. Es können nämlich auch weitere Zeichen mit angegeben werden die entfernt werde sollen (und auch mehrere gleichzeitig!)</p>
-<!-- pytest-codeblocks:cont -->
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">eingabe1</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">"!?. "</span><span class="p">))</span> 
-<span class="nb">print</span><span class="p">(</span><span class="n">eingabe2</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">"!?. "</span><span class="p">))</span>
+<p><code class="docutils literal notranslate"><span class="pre">.strip()</span></code> kann noch mehr: Wir können angeben, <strong>welche Zeichen</strong> entfernt werden dürfen (und auch mehrere gleichzeitig). Das sind einzelne erlaubte Zeichen, keine vollständige Zeichenfolge. Im Inneren eines Strings bleibt alles stehen.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">bereinigt1</span> <span class="o">=</span> <span class="n">eingabe1</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">"!?. "</span><span class="p">)</span>
+<span class="n">bereinigt2</span> <span class="o">=</span> <span class="n">eingabe2</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">"!?. "</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">bereinigt1</span><span class="p">)</span>  <span class="c1"># =&gt; Muster, Markus</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">bereinigt2</span><span class="p">)</span>  <span class="c1"># =&gt; Test, Trude</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">"...Hallo!!!"</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">"!."</span><span class="p">))</span>  <span class="c1"># =&gt; Hallo</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Hallo, Welt!"</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">"!."</span><span class="p">))</span>  <span class="c1"># =&gt; Hallo, Welt</span>
 </pre></div>
 </div>
+<p>Hier sollen nur die ausdrücklich genannten Zeichen entfernt werden. Ein pauschales Entfernen <strong>aller</strong> Satzzeichen wäre eine andere Aufgabe. Und auch hier bleibt die ursprüngliche Eingabe unverändert, solange wir nicht das Ergebnis speichern.</p>
 </section>
 <section id="strings-texte-teilen">
 <h3><span class="section-number">10.3.4. </span>Strings (Texte) teilen<a class="headerlink" href="#strings-texte-teilen" title="Link to this heading">#</a></h3>
-<p>Bei vielen Eingaben, v.a. aber natürlich bei längeren Texte/Strings wollen wir die Strings in kleiner, sinvolle Stückchen teilen.
-Dafür gibt es <code class="docutils literal notranslate"><span class="pre">.split()</span></code> Z.B. bei einer einfachen Eingabe wie:</p>
+<p>Bei vielen Eingaben, vor allem aber bei längeren Texten/Strings, wollen wir Strings in kleinere, sinnvolle Stückchen teilen.
+Dafür gibt es <code class="docutils literal notranslate"><span class="pre">.split()</span></code>. Zum Beispiel bei einer einfachen Eingabe:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="s2">"Muster, Markus"</span>
-<span class="n">pieces</span> <span class="o">=</span> <span class="n">name</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">","</span><span class="p">)</span>  <span class="c1"># Teilt den String bei jedem ','</span>
+<span class="n">pieces</span> <span class="o">=</span> <span class="n">name</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">","</span><span class="p">)</span>  <span class="c1"># Teilt den String bei jedem Komma.</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">pieces</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Das gibt eine Liste zurück mit den einzelnen Elementen.</p>
+<p>Das gibt eine <strong>Liste</strong> zurück. Das Leerzeichen vor <code class="docutils literal notranslate"><span class="pre">Markus</span></code> ist noch enthalten. Zum Beispiel lässt es sich mit <code class="docutils literal notranslate"><span class="pre">.strip()</span></code> entfernen:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">vorname</span> <span class="o">=</span> <span class="n">pieces</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">vorname</span><span class="p">)</span>  <span class="c1"># =&gt; Markus</span>
+</pre></div>
+</div>
 <p>Ein anderes Beispiel:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">satz</span> <span class="o">=</span> <span class="s2">"Viele Sätze haben viele Worte, manchmal sogar Zeichen!"</span>
 <span class="n">worte</span> <span class="o">=</span> <span class="n">satz</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">" "</span><span class="p">)</span>
@@ -719,59 +754,124 @@ Dafür gibt es <code class="docutils literal notranslate"><span class="pre">.spl
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Dieser Satz hat </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">worte</span><span class="p">)</span><span class="si">}</span><span class="s2"> Worte."</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Wenn wir auch noch die anderen Satzzeichen entfernen möchten, dann kann zusätzlich <code class="docutils literal notranslate"><span class="pre">.replace()</span></code> gebraucht werden.</p>
+<p><strong>Unterschied zwischen <code class="docutils literal notranslate"><span class="pre">.split()</span></code> und <code class="docutils literal notranslate"><span class="pre">.split(&quot;</span> <span class="pre">&quot;)</span></code>:</strong> Ohne Argument werden aufeinanderfolgende Leerraumzeichen (auch Tabs und Zeilenumbrüche) zusammengefasst. Mit einem <strong>expliziten</strong> Trennzeichen können dagegen leere Listeneinträge entstehen:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s2">"eins  zwei</span><span class="se">\t</span><span class="s2"> drei"</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>      <span class="c1"># =&gt; ['eins', 'zwei', 'drei']</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">" "</span><span class="p">))</span>   <span class="c1"># =&gt; ['eins', '', 'zwei\t', 'drei']</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"a,,b"</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">","</span><span class="p">))</span>  <span class="c1"># =&gt; ['a', '', 'b']</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">""</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>         <span class="c1"># =&gt; []</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">""</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">","</span><span class="p">))</span>      <span class="c1"># =&gt; ['']</span>
+</pre></div>
+</div>
+<p>Wenn wir auch bestimmte Satzzeichen entfernen möchten, kann zusätzlich <code class="docutils literal notranslate"><span class="pre">.replace()</span></code> genutzt werden:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">satz</span> <span class="o">=</span> <span class="s2">"Viele Sätze haben viele Worte, manchmal sogar Zeichen!"</span>
 <span class="n">satz_cleaned</span> <span class="o">=</span> <span class="n">satz</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">","</span><span class="p">,</span> <span class="s2">""</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">"!"</span><span class="p">,</span> <span class="s2">""</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">"."</span><span class="p">,</span> <span class="s2">""</span><span class="p">)</span>
-<span class="n">worte</span> <span class="o">=</span> <span class="n">satz_cleaned</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">" "</span><span class="p">)</span>
+<span class="n">worte</span> <span class="o">=</span> <span class="n">satz_cleaned</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>  <span class="c1"># Ohne Argument auch bei mehreren Leerzeichen praktisch.</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">worte</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Dieser Satz hat </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">worte</span><span class="p">)</span><span class="si">}</span><span class="s2"> Worte."</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Oder sowas:</p>
+<p>Hier werden <strong>nur</strong> Komma, Ausrufezeichen und Punkt entfernt, nicht automatisch andere Satzzeichen.</p>
+<p>Oder so etwas:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">mail</span> <span class="o">=</span> <span class="s2">"trude_97@monty-mail.com"</span>
 <span class="n">tag</span><span class="p">,</span> <span class="n">provider</span> <span class="o">=</span> <span class="n">mail</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"@"</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">tag</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">provider</span><span class="p">)</span>
 </pre></div>
 </div>
+<p>Die Umkehridee liefert <code class="docutils literal notranslate"><span class="pre">.join()</span></code>: Mehrere Strings werden mit einem gewünschten Trennzeichen zu einem String verbunden.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">namen</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Muster"</span><span class="p">,</span> <span class="s2">"Markus"</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">", "</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">namen</span><span class="p">))</span>  <span class="c1"># =&gt; Muster, Markus</span>
+
+<span class="n">worte</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Python"</span><span class="p">,</span> <span class="s2">"macht"</span><span class="p">,</span> <span class="s2">"Spaß"</span><span class="p">]</span>
+<span class="n">satz</span> <span class="o">=</span> <span class="s2">" "</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">worte</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">satz</span><span class="p">)</span>  <span class="c1"># =&gt; Python macht Spaß</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">satz</span><span class="p">))</span>  <span class="c1"># =&gt; &lt;class 'str'&gt;</span>
+</pre></div>
+</div>
 </section>
 <section id="string-abfragen">
 <h3><span class="section-number">10.3.5. </span>String abfragen<a class="headerlink" href="#string-abfragen" title="Link to this heading">#</a></h3>
-<p>Python kommt mit vielen Möglichkeiten um String-Inhalte abzufragen.
-(zusätzlich zu der Sequenzmethode die wir schon gesehen hatten wie: <code class="docutils literal notranslate"><span class="pre">&quot;x&quot;</span> <span class="pre">in</span> <span class="pre">&quot;xyz&quot;</span></code>)</p>
+<p>Python kommt mit vielen Möglichkeiten, String-Inhalte abzufragen (zusätzlich zur Sequenzoperation, die wir schon gesehen hatten, wie etwa <code class="docutils literal notranslate"><span class="pre">&quot;x&quot;</span> <span class="pre">in</span> <span class="pre">&quot;xyz&quot;</span></code>).</p>
 <p>Typische Beispiele wären <code class="docutils literal notranslate"><span class="pre">.startswith()</span></code> und <code class="docutils literal notranslate"><span class="pre">.endswith()</span></code>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="s2">"name: Markus"</span>
-<span class="n">s</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">"name:"</span><span class="p">)</span>  <span class="c1"># =&gt; True</span>
-<span class="n">s</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">"."</span><span class="p">)</span>  <span class="c1"># =&gt; False</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">"name:"</span><span class="p">))</span>  <span class="c1"># =&gt; True</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">"."</span><span class="p">))</span>        <span class="c1"># =&gt; False</span>
 </pre></div>
 </div>
-<p>Hierbei können auch mehrere Abfragen kombiniert werden</p>
+<p>Hierbei können auch mehrere Abfragen kombiniert werden:</p>
 <!-- pytest-codeblocks:cont -->
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">s</span><span class="o">.</span><span class="n">startswith</span><span class="p">((</span><span class="s2">"Name:"</span><span class="p">,</span> <span class="s2">"name:"</span><span class="p">,</span> <span class="s2">"NAME:"</span><span class="p">)):</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">"Ja, ist wohl ein Namenseintrag"</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Eine weitere sehr praktische Funktion (die es so ähnlich auch für Listen gibt) ist <code class="docutils literal notranslate"><span class="pre">.count()</span></code> um die Anzahl eines Elementes zu zählen.</p>
+<p>Eine weitere sehr praktische Methode (die es so ähnlich auch für Listen gibt) ist <code class="docutils literal notranslate"><span class="pre">.count()</span></code>, um die Anzahl von Vorkommen zu zählen:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="s2">"Die meisten Texte haben schon ein paar 'e's."</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">"s"</span><span class="p">))</span>  <span class="c1"># =&gt; 3</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">"s"</span><span class="p">))</span>   <span class="c1"># =&gt; 3</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">"te"</span><span class="p">))</span>  <span class="c1"># =&gt; 2</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">"Te"</span><span class="p">))</span>  <span class="c1"># =&gt; 1</span>
 </pre></div>
 </div>
-<p>Und <code class="docutils literal notranslate"><span class="pre">.index()</span></code> gibt die Position des ersten Elements zurück</p>
+<p><strong>Achtung:</strong> <code class="docutils literal notranslate"><span class="pre">str.count()</span></code> zählt das Vorkommen einer <strong>Zeichenfolge</strong>, nicht automatisch vollständige Wörter! Der Unterschied zur Zählung von Einträgen in einer Liste ist wichtig:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s2">"Hausaufgabe Haus"</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">text</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">"haus"</span><span class="p">))</span>  <span class="c1"># =&gt; 2: auch in 'Hausaufgabe'</span>
+
+<span class="n">woerter</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">woerter</span><span class="p">)</span>                <span class="c1"># =&gt; ['hausaufgabe', 'haus']</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">woerter</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">"haus"</span><span class="p">))</span>  <span class="c1"># =&gt; 1: genau ein vollständiger Listeneintrag</span>
+</pre></div>
+</div>
+<p>Und <code class="docutils literal notranslate"><span class="pre">.index()</span></code> gibt die Position des ersten Vorkommens zurück:</p>
 <!-- pytest-codeblocks:cont -->
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">index_te</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s2">"te"</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Stelle im String: </span><span class="si">{</span><span class="n">index_te</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">index_te</span><span class="p">])</span>
 </pre></div>
 </div>
+<p>Anders als <code class="docutils literal notranslate"><span class="pre">in</span></code> löst <code class="docutils literal notranslate"><span class="pre">.index()</span></code> einen <code class="docutils literal notranslate"><span class="pre">ValueError</span></code> aus, wenn die gesuchte Zeichenfolge fehlt. Deshalb kann es sinnvoll sein, zuvor die Zugehörigkeit zu prüfen.</p>
 </section>
-<section id="encodings-zeichen-kodierungen">
-<h3><span class="section-number">10.3.6. </span>Encodings (Zeichen-Kodierungen)<a class="headerlink" href="#encodings-zeichen-kodierungen" title="Link to this heading">#</a></h3>
-<p>(wurde schon beim Lesen/Schreiben von Dateien erwähnt, nicht Prüfungsrelevant)
-Zeichen (characters) können auf dem Rechner auf verschiedene Arten kodiert werden. Der typische Standard heisst <strong>Unicode</strong> und die bei weitem am häufigsten Vorkommende Variante ist <code class="docutils literal notranslate"><span class="pre">utf-8</span></code>. In Python findet sich aber auch noch oft <strong>ASCII</strong>.</p>
-<p>Für den Moment werden wir damit nicht mehr machen.
-Aber sollten Sie beim Lesen oder Hantieren eines Strings auf den Error <code class="docutils literal notranslate"><span class="pre">UnicodeDecodeError</span></code> stossen, dann wissen sie wenigstens unter welchem Schlagwort Sie weitersuchen können.</p>
+<section id="von-text-zu-wortliste-und-haufigkeiten">
+<h3><span class="section-number">10.3.6. </span>Von Text zu Wortliste und Häufigkeiten<a class="headerlink" href="#von-text-zu-wortliste-und-haufigkeiten" title="Link to this heading">#</a></h3>
+<p>Jetzt können wir mehrere bekannte Konzepte verbinden: Eine Funktion vereinheitlicht einen String und liefert eine <strong>Liste</strong>, eine zweite Funktion zählt die Listeneinträge und liefert ein <strong>Dictionary</strong>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">text_zu_woertern</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+    <span class="n">bereinigt</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">","</span><span class="p">,</span> <span class="s2">""</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">"."</span><span class="p">,</span> <span class="s2">""</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">"!"</span><span class="p">,</span> <span class="s2">""</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">bereinigt</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">zaehle_woerter</span><span class="p">(</span><span class="n">woerter</span><span class="p">):</span>
+    <span class="n">haeufigkeiten</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">wort</span> <span class="ow">in</span> <span class="n">woerter</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">wort</span> <span class="ow">in</span> <span class="n">haeufigkeiten</span><span class="p">:</span>
+            <span class="n">haeufigkeiten</span><span class="p">[</span><span class="n">wort</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">haeufigkeiten</span><span class="p">[</span><span class="n">wort</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">haeufigkeiten</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">analysiere_text</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+    <span class="n">woerter</span> <span class="o">=</span> <span class="n">text_zu_woertern</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>    <span class="c1"># str -&gt; list</span>
+    <span class="k">return</span> <span class="n">zaehle_woerter</span><span class="p">(</span><span class="n">woerter</span><span class="p">)</span>      <span class="c1"># list -&gt; dict</span>
+
+
+<span class="n">text</span> <span class="o">=</span> <span class="s2">"Tee, Kaffee, Tee! Wasser."</span>
+<span class="n">woerter</span> <span class="o">=</span> <span class="n">text_zu_woertern</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">woerter</span><span class="p">)</span>           <span class="c1"># =&gt; ['tee', 'kaffee', 'tee', 'wasser']</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">woerter</span><span class="p">))</span>     <span class="c1"># =&gt; &lt;class 'list'&gt;</span>
+
+<span class="n">haeufigkeiten</span> <span class="o">=</span> <span class="n">zaehle_woerter</span><span class="p">(</span><span class="n">woerter</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">haeufigkeiten</span><span class="p">)</span>     <span class="c1"># =&gt; {'tee': 2, 'kaffee': 1, 'wasser': 1}</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">haeufigkeiten</span><span class="p">))</span>  <span class="c1"># =&gt; &lt;class 'dict'&gt;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">analysiere_text</span><span class="p">(</span><span class="n">text</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">analysiere_text</span><span class="p">(</span><span class="s2">""</span><span class="p">))</span>  <span class="c1"># =&gt; {}</span>
+</pre></div>
+</div>
+<p>Jede Funktion lässt sich <strong>einzeln</strong> prüfen. <code class="docutils literal notranslate"><span class="pre">analysiere_text()</span></code> verbindet beide Schritte. Die Zwischenergebnisse haben unterschiedliche Typen. Auch hier gilt: Wir entfernen bewusst nur die drei angegebenen Satzzeichen. Für eine allgemeine Textanalyse wären weitere Regeln nötig.</p>
+</section>
+<section id="encodings-zeichenkodierungen">
+<h3><span class="section-number">10.3.7. </span>Encodings (Zeichenkodierungen)<a class="headerlink" href="#encodings-zeichenkodierungen" title="Link to this heading">#</a></h3>
+<p>Zeichen (<em>characters</em>) können auf einem Rechner auf verschiedene Arten kodiert werden. <strong>Unicode</strong> beschreibt einen großen Zeichenvorrat und ordnet Zeichen Nummern zu. Dabei ist <strong>UTF-8</strong> eine sehr verbreitete Kodierung dieses Zeichenvorrats in Bytes. <strong>ASCII</strong> ist ein älterer, kleinerer Zeichensatz, dessen Zeichen auch in Unicode enthalten sind.</p>
+<p>Für den Moment werden wir damit nicht mehr machen. Sollten Sie beim Lesen oder Verarbeiten einer Textdatei einmal auf einen <code class="docutils literal notranslate"><span class="pre">UnicodeDecodeError</span></code> stoßen, wissen Sie jetzt wenigstens, unter welchem Schlagwort Sie weitersuchen können.</p>
 </section>
 </section>
 </section>
@@ -807,20 +907,20 @@ Aber sollten Sie beim Lesen oder Hantieren eines Strings auf den Error <code cla
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="04_datatypes_2.html"
+       href="04_sets_dictionaries.html"
        title="Vorherige Seite">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">zurück</p>
-        <p class="prev-next-title"><span class="section-number">9. </span>Datentypen II</p>
+        <p class="prev-next-title"><span class="section-number">9. </span>Sets, Dictionaries, and Deep Copy</p>
       </div>
     </a>
     <a class="right-next"
-       href="05_one_step_back-best_practices.html"
+       href="04_try_except.html"
        title="Nächste Seite">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">weiter</p>
-        <p class="prev-next-title"><span class="section-number">11. </span>Clean code und „best practices“</p>
+        <p class="prev-next-title"><span class="section-number">11. </span>Fehler behandeln mit <code class="docutils literal notranslate"><span class="pre">try</span></code> und <code class="docutils literal notranslate"><span class="pre">except</span></code></p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -843,14 +943,15 @@ Aber sollten Sie beim Lesen oder Hantieren eines Strings auf den Error <code cla
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stringverarbeitung">10.1. (Stringverarbeitung)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#escape-character-fix-the-string">10.2. Escape Character - fix the string</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#escape-character-fix-the-string">10.2. Escape Character – fix the string</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#string-methods">10.3. String methods</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#string-methoden-in-python">10.3.1. String-Methoden in Python</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#replace">10.3.2. <code class="docutils literal notranslate"><span class="pre">.replace()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#upper-und-lower">10.3.3. <code class="docutils literal notranslate"><span class="pre">.upper()</span></code> und <code class="docutils literal notranslate"><span class="pre">.lower()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strings-texte-teilen">10.3.4. Strings (Texte) teilen</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#string-abfragen">10.3.5. String abfragen</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#encodings-zeichen-kodierungen">10.3.6. Encodings (Zeichen-Kodierungen)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#von-text-zu-wortliste-und-haufigkeiten">10.3.6. Von Text zu Wortliste und Häufigkeiten</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#encodings-zeichenkodierungen">10.3.7. Encodings (Zeichenkodierungen)</a></li>
 </ul>
 </li>
 </ul>

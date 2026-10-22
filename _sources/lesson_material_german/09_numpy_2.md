@@ -55,6 +55,8 @@ arr.sort(axis=0)
 
 Eine weitere sehr wichtige Sortier-Methode ist `argsort()`. Damit berechnet Numpy die Indices die alle Elemente nach Größe sortieren würden.
 
+<!-- pytest-codeblocks:cont -->
+
 ```python
 arr = np.array([6, 7, 8, 9, 3, 2, 3, 1, 0, 5])
 
@@ -66,12 +68,16 @@ Der Nutzen von `argsort()` wird bald deutlicher, wenn wir nämlich mit größere
 
 Wenn wir es mit mehrdimensionalen Arrays zu tun haben, beziehen sich `sort()` und auch `argsort()` immer nur auf eine Achse/eine Dimension. Um welche Richtung es geht kann bei beiden Funktionen mit `axis` angegeben werden, z.B. so:
 
+<!-- pytest-codeblocks:cont -->
+
 ```python
 arr = np.arange(0, 100).reshape(20, 5)
 sorted_idx = np.argsort(arr, axis=0)
 ```
 
 Was ist aber, wenn wir alle Werte in einem 2D-Array entsprechend der Größe in nur einer "Spalte" sortieren wollen. Argsort bietet im Prinzip die Möglichkeit dazu:
+
+<!-- pytest-codeblocks:cont -->
 
 ```python
 arr = np.random.random((20, 20))
@@ -89,6 +95,8 @@ Was aber, wenn wir nach mehreren Spalten/Zeilen gleichzeitig sortieren wollen? D
 
 `lexsort()` erlaubt es und in einem Array entlang mehrerer Werte zu sortieren.  Und auch, wenn wir Numpy bis hierhin nur für numerische Werte genutzt haben. Das Ganze geht auch mit anderen Datentypen wie z.B. strings:
 
+<!-- pytest-codeblocks:cont -->
+
 ```python
 surnames = ('Hertz',    'Galilei', 'Hertz')
 first_names = ('Heinrich', 'Galileo', 'Gustav')
@@ -97,6 +105,8 @@ print(idx)
 ```
 
 Aber häufiger noch sind nach wie vor die numerischen Beispiele. 
+
+<!-- pytest-codeblocks:cont -->
 
 ```python
 arr = np.array([[3, 2, 1, 2], 

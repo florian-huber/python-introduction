@@ -1,0 +1,675 @@
+
+<!DOCTYPE html>
+
+
+<html lang="de" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>11. Fehler behandeln mit try und except &#8212; Einführung Programmieren mit Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+
+    <script src="../_static/documentation_options.js?v=91fba89f"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Klicken zum Anzeigen';</script>
+    <script>let toggleHintHide = 'Klicken zum Ausblenden';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=b8b12719"></script>
+    <script src="../_static/translations.js?v=79cc9f76"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'lesson_material_german/04_try_except';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
+    <link rel="search" title="Suche" href="../search.html" />
+    <link rel="next" title="12. Clean code und „best practices“" href="05_one_step_back-best_practices.html" />
+    <link rel="prev" title="10. String handling" href="04_string_handling.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="de"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Zum Hauptinhalt springen</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Zurück zum Anfang</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Versionswarnung"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Website-Navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Suche" aria-label="Suche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Suche</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Suche" aria-label="Suche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Suche</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="Auf dieser Seite">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="cover.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/cover_logo_mini.png" class="logo__image only-light" alt="Einführung Programmieren mit Python - Home"/>
+    <img src="../_static/cover_logo_mini.png" class="logo__image only-dark pst-js-only" alt="Einführung Programmieren mit Python - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Suche" aria-label="Suche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Suche</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="cover.html">
+                    Einführung Programmieren mit Python für Data Science
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Einführung</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="00_introduction.html">1. Programmieren für Data Science und Künstliche Intelligenz</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_first_steps.html">2. Erste Schritte mit Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_data_types.html">3. Datentypen (<em>data types</em>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_variables.html">4. Variablen</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Abläufe, Funktionen und Module</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="02_control_structures_conditions_loop.html">5. Kontrollstrukturen und Bedingungen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_functions.html">6. Funktionen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_import_libraries_modules.html">7. Import aus Bibliotheken/Modulen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_special_functions.html">8. Special functions</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Datentypen &amp; String Handling</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="04_sets_dictionaries.html">9. Sets, Dictionaries, and Deep Copy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_string_handling.html">10. String handling</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Error Handling und Best Practices I</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">11. Fehler behandeln mit <code class="docutils literal notranslate"><span class="pre">try</span></code> und <code class="docutils literal notranslate"><span class="pre">except</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_one_step_back-best_practices.html">12. Clean code und „best practices“</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_open_files.html">13. Dateien lesen und schreiben</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Klassen und Objekte</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="06_classes_objects.html">14. Objektorientierte Programmierung - Einführung</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_classes_objects_2.html">15. Objektorientierte Programmierung in Python</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Arbeiten mit numerischen Daten - Numpy</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="08_numpy.html">16. Numerische Daten in Python mit NumPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_numpy_2.html">17. Numerische Daten in Python mit NumPy - Teil 2</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Schritte Richtung Data Science</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="09_pandas.html">18. Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_pandas_2.html">19. Pandas - Teil 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_data_visualization.html">20. Datenvisualisierung mit Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13_data_visualization_outlook.html">21. 2D/3D Visualisierung &amp; interaktive Plots</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">A few missing things</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="10_debugging.html">22. Python Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="14_generators.html">23. Generators / Iterators</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Source Code and Contributions</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="github.html">Source Code on GitHub</a></li>
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/florian-huber/python-introduction" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Quell-Repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/florian-huber/python-introduction/issues/new?title=Issue%20on%20page%20%2Flesson_material_german/04_try_except.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Öffnen Sie ein Problem"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Laden Sie diese Seite herunter">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/lesson_material_german/04_try_except.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Quelldatei herunterladen"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="In PDF drucken"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Vollbildmodus"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Farbmodus" data-bs-title="Farbmodus"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Hell"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dunkel"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="Systemeinstellungen"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Suche" aria-label="Suche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Fehler behandeln mit try und except</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Inhalt </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#try-und-except">11.1. <code class="docutils literal notranslate"><span class="pre">try</span></code> und <code class="docutils literal notranslate"><span class="pre">except</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#textdateien-string-leerfall-und-fehlende-datei">11.2. Textdateien: String, Leerfall und fehlende Datei</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="fehler-behandeln-mit-try-und-except">
+<h1><span class="section-number">11. </span>Fehler behandeln mit <code class="docutils literal notranslate"><span class="pre">try</span></code> und <code class="docutils literal notranslate"><span class="pre">except</span></code><a class="headerlink" href="#fehler-behandeln-mit-try-und-except" title="Link to this heading">#</a></h1>
+<p>Bei Eingaben und Datenzugriffen kann etwas schiefgehen. Bisher haben wir solche Fehler manchmal durch eine Bedingung verhindert, etwa durch <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">index</span> <span class="pre">&lt;</span> <span class="pre">len(liste)</span></code> oder <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">key</span> <span class="pre">in</span> <span class="pre">dictionary</span></code>. Es gibt aber auch Situationen, in denen wir eine <strong>Ausnahme</strong> (<em>Exception</em>) gezielt abfangen möchten.</p>
+<section id="try-und-except">
+<h2><span class="section-number">11.1. </span><code class="docutils literal notranslate"><span class="pre">try</span></code> und <code class="docutils literal notranslate"><span class="pre">except</span></code><a class="headerlink" href="#try-und-except" title="Link to this heading">#</a></h2>
+<p>Im <code class="docutils literal notranslate"><span class="pre">try</span></code>-Block steht Code, bei dem ein Fehler auftreten könnte. Passt der Fehlertyp zu einem <code class="docutils literal notranslate"><span class="pre">except</span></code>-Block, wird dort weitergearbeitet. Danach geht das Programm <strong>nach der gesamten <code class="docutils literal notranslate"><span class="pre">try</span></code>/<code class="docutils literal notranslate"><span class="pre">except</span></code>-Anweisung</strong> weiter und springt nicht zurück zur fehlerhaften Zeile.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s2">"zwölf"</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">zahl</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>  <span class="c1"># Kann ValueError auslösen.</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Gelesene Zahl:"</span><span class="p">,</span> <span class="n">zahl</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Das war keine gültige ganze Zahl."</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Das Programm läuft weiter."</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Für <code class="docutils literal notranslate"><span class="pre">text</span> <span class="pre">=</span> <span class="pre">&quot;12&quot;</span></code> gelingt die Umwandlung, der <code class="docutils literal notranslate"><span class="pre">except</span></code>-Block wird übersprungen. Für <code class="docutils literal notranslate"><span class="pre">&quot;zwölf&quot;</span></code> wird der <code class="docutils literal notranslate"><span class="pre">ValueError</span></code> abgefangen. <code class="docutils literal notranslate"><span class="pre">zahl</span></code> wird in diesem Fehlerfall <strong>nicht</strong> neu gesetzt. Darum sollte späterer Code nicht einfach davon ausgehen, dass die Umwandlung erfolgreich war.</p>
+<p>Wir können auch gezielt einen ungültigen Listenindex behandeln:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">farben</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"rot"</span><span class="p">,</span> <span class="s2">"blau"</span><span class="p">]</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">farben</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
+<span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Diesen Listenindex gibt es nicht."</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Hier geht es weiter."</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Merke:</strong> Möglichst konkrete Fehlertypen wie <code class="docutils literal notranslate"><span class="pre">ValueError</span></code> und <code class="docutils literal notranslate"><span class="pre">IndexError</span></code> abfangen. Ein pauschales <code class="docutils literal notranslate"><span class="pre">except:</span></code> kann Fehler verbergen, die man eigentlich untersuchen sollte. Nicht jede unerwartete Eingabe braucht <code class="docutils literal notranslate"><span class="pre">try</span></code>/<code class="docutils literal notranslate"><span class="pre">except</span></code>: Oft ist eine vorherige Prüfung mit <code class="docutils literal notranslate"><span class="pre">if</span></code> verständlicher.</p>
+</section>
+<section id="textdateien-string-leerfall-und-fehlende-datei">
+<h2><span class="section-number">11.2. </span>Textdateien: String, Leerfall und fehlende Datei<a class="headerlink" href="#textdateien-string-leerfall-und-fehlende-datei" title="Link to this heading">#</a></h2>
+<p>Im Praktikum kann ein <strong>vorgegebener Textloader</strong> zum Einsatz kommen. Eine sinnvolle Schnittstelle ist: <code class="docutils literal notranslate"><span class="pre">lade_text(dateiname)</span></code> liefert den Dateiinhalt als <strong>String</strong> zurück, bei einer fehlenden Datei liefert sie <code class="docutils literal notranslate"><span class="pre">None</span></code>. Ein <strong>leerer Dateiinhalt</strong> ist dagegen der leere String <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code> und <strong>nicht</strong> <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+<p>Da den beiden bisherigen Skripten noch keine konkrete Loader-Funktion beilag, zeigt der folgende Block eine <strong>kleine Beispielimplementierung</strong> dieser Schnittstelle. Wenn Sie im Praktikum einen Loader erhalten, verwenden Sie dort dessen vorgegebene Funktion. Sie müssen sie nicht selbst nachprogrammieren.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">lade_text</span><span class="p">(</span><span class="n">dateiname</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">dateiname</span><span class="p">,</span> <span class="s2">"r"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">datei</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">datei</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="k">except</span> <span class="ne">FileNotFoundError</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">None</span>
+</pre></div>
+</div>
+<p>Der Loader fängt <code class="docutils literal notranslate"><span class="pre">FileNotFoundError</span></code> <strong>innerhalb</strong> seiner Funktion ab. Deshalb erhält das aufrufende Programm bei fehlender Datei <code class="docutils literal notranslate"><span class="pre">None</span></code>, statt an dieser Stelle abzubrechen.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">inhalt</span> <span class="o">=</span> <span class="n">lade_text</span><span class="p">(</span><span class="s2">"beispiel.txt"</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">inhalt</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Datei nicht gefunden"</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">inhalt</span> <span class="o">==</span> <span class="s2">""</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Datei vorhanden, aber leer"</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Zeichen:"</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">inhalt</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Zeilen:"</span><span class="p">,</span> <span class="n">inhalt</span><span class="o">.</span><span class="n">splitlines</span><span class="p">())</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">beispiel.txt</span></code> ist hier ein Beispielname. Die Datei muss zum Testen tatsächlich vorhanden sein oder durch einen vorhandenen Dateinamen ersetzt werden. Die Unterschiede kann man auch ohne Datei gut untersuchen:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fehlend</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">leer</span> <span class="o">=</span> <span class="s2">""</span>
+<span class="n">mehrzeilig</span> <span class="o">=</span> <span class="s2">"Erste Zeile</span><span class="se">\n</span><span class="s2">Zweite Zeile</span><span class="se">\n</span><span class="s2">"</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">fehlend</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">)</span>        <span class="c1"># =&gt; True</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">leer</span> <span class="o">==</span> <span class="s2">""</span><span class="p">)</span>             <span class="c1"># =&gt; True</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">mehrzeilig</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mehrzeilig</span><span class="o">.</span><span class="n">splitlines</span><span class="p">())</span>  <span class="c1"># =&gt; ['Erste Zeile', 'Zweite Zeile']</span>
+</pre></div>
+</div>
+<p>Das <code class="docutils literal notranslate"><span class="pre">\n</span></code> gehört beim Einlesen als Zeilenumbruch zum String. Mit <code class="docutils literal notranslate"><span class="pre">.splitlines()</span></code> machen wir daraus eine Liste von Zeilen. Für das Durchlaufen der Zeilen gibt es dann wieder eine normale <code class="docutils literal notranslate"><span class="pre">for</span></code>-Schleife.</p>
+<blockquote>
+<div><p><strong>Kurze Verständnisfrage:</strong> Warum wäre <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">not</span> <span class="pre">inhalt:</span></code> hier ungeeignet, wenn wir zwischen „Datei fehlt“ und „Datei ist leer“ unterscheiden wollen? (Beides wird als <code class="docutils literal notranslate"><span class="pre">False</span></code> ausgewertet.)</p>
+</div></blockquote>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./lesson_material_german"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="04_string_handling.html"
+       title="Vorherige Seite">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">zurück</p>
+        <p class="prev-next-title"><span class="section-number">10. </span>String handling</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="05_one_step_back-best_practices.html"
+       title="Nächste Seite">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">weiter</p>
+        <p class="prev-next-title"><span class="section-number">12. </span>Clean code und „best practices“</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Inhalt
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#try-und-except">11.1. <code class="docutils literal notranslate"><span class="pre">try</span></code> und <code class="docutils literal notranslate"><span class="pre">except</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#textdateien-string-leerfall-und-fehlende-datei">11.2. Textdateien: String, Leerfall und fehlende Datei</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Durch Florian Huber
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

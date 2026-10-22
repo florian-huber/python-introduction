@@ -1,0 +1,1064 @@
+
+<!DOCTYPE html>
+
+
+<html lang="de" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>9. Sets, Dictionaries, and Deep Copy &#8212; Einführung Programmieren mit Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+
+    <script src="../_static/documentation_options.js?v=91fba89f"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Klicken zum Anzeigen';</script>
+    <script>let toggleHintHide = 'Klicken zum Ausblenden';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=b8b12719"></script>
+    <script src="../_static/translations.js?v=79cc9f76"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'lesson_material_german/04_sets_dictionaries';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
+    <link rel="search" title="Suche" href="../search.html" />
+    <link rel="next" title="10. String handling" href="04_string_handling.html" />
+    <link rel="prev" title="8. Special functions" href="03_special_functions.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="de"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Zum Hauptinhalt springen</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Zurück zum Anfang</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Versionswarnung"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Website-Navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Suche" aria-label="Suche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Suche</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Suche" aria-label="Suche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Suche</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="Auf dieser Seite">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="cover.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/cover_logo_mini.png" class="logo__image only-light" alt="Einführung Programmieren mit Python - Home"/>
+    <img src="../_static/cover_logo_mini.png" class="logo__image only-dark pst-js-only" alt="Einführung Programmieren mit Python - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Suche" aria-label="Suche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Suche</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="cover.html">
+                    Einführung Programmieren mit Python für Data Science
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Einführung</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="00_introduction.html">1. Programmieren für Data Science und Künstliche Intelligenz</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_first_steps.html">2. Erste Schritte mit Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_data_types.html">3. Datentypen (<em>data types</em>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_variables.html">4. Variablen</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Abläufe, Funktionen und Module</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="02_control_structures_conditions_loop.html">5. Kontrollstrukturen und Bedingungen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_functions.html">6. Funktionen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_import_libraries_modules.html">7. Import aus Bibliotheken/Modulen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_special_functions.html">8. Special functions</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Datentypen &amp; String Handling</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">9. Sets, Dictionaries, and Deep Copy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_string_handling.html">10. String handling</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Error Handling und Best Practices I</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="04_try_except.html">11. Fehler behandeln mit <code class="docutils literal notranslate"><span class="pre">try</span></code> und <code class="docutils literal notranslate"><span class="pre">except</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_one_step_back-best_practices.html">12. Clean code und „best practices“</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_open_files.html">13. Dateien lesen und schreiben</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Klassen und Objekte</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="06_classes_objects.html">14. Objektorientierte Programmierung - Einführung</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_classes_objects_2.html">15. Objektorientierte Programmierung in Python</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Arbeiten mit numerischen Daten - Numpy</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="08_numpy.html">16. Numerische Daten in Python mit NumPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_numpy_2.html">17. Numerische Daten in Python mit NumPy - Teil 2</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Schritte Richtung Data Science</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="09_pandas.html">18. Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_pandas_2.html">19. Pandas - Teil 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_data_visualization.html">20. Datenvisualisierung mit Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13_data_visualization_outlook.html">21. 2D/3D Visualisierung &amp; interaktive Plots</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">A few missing things</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="10_debugging.html">22. Python Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="14_generators.html">23. Generators / Iterators</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Source Code and Contributions</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="github.html">Source Code on GitHub</a></li>
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/florian-huber/python-introduction" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Quell-Repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/florian-huber/python-introduction/issues/new?title=Issue%20on%20page%20%2Flesson_material_german/04_sets_dictionaries.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Öffnen Sie ein Problem"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Laden Sie diese Seite herunter">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/lesson_material_german/04_sets_dictionaries.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Quelldatei herunterladen"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="In PDF drucken"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Vollbildmodus"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Farbmodus" data-bs-title="Farbmodus"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Hell"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dunkel"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="Systemeinstellungen"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Suche" aria-label="Suche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Sets, Dictionaries, and Deep Copy</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Inhalt </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zahlen">9.1. Zahlen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#strings">9.2. Strings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lists-tuples">9.3. Lists &amp; Tuples</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#boolean-und-none">9.4. Boolean und None</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sets-und-dictionaries">9.5. Sets und Dictionaries</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sets-mengen">9.5.1. Sets (Mengen)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dictionaries">9.6. Dictionaries</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#haufigkeiten-mit-einem-dictionary-zahlen">9.6.1. Häufigkeiten mit einem Dictionary zählen</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#liste-set-oder-dictionary">9.6.2. Liste, Set oder Dictionary?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nested-dictionaries">9.7. Nested dictionaries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#copy-deepcopy">9.8. =, copy(), deepcopy()</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="sets-dictionaries-and-deep-copy">
+<h1><span class="section-number">9. </span>Sets, Dictionaries, and Deep Copy<a class="headerlink" href="#sets-dictionaries-and-deep-copy" title="Link to this heading">#</a></h1>
+<p>Wir haben schon einige Datentypen gesehen. Jetzt wollen wir aber noch einmal genauer darauf eingehen und weitere wichtige Typen besprechen. Wir starten mit einer kurzen Wiederholung.</p>
+<p>Wichtig zu verstehen ist, dass Variablen in Python Namen sind, die auf Objekte verweisen. Zwei Namen können sich deshalb auf <strong>dieselbe veränderliche Liste</strong> beziehen.</p>
+<p>Daher gibt es so etwas:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">]</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">a</span>
+<span class="n">b</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>  <span class="c1"># =&gt; [5, 4]</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+<p>Kurze Wiederholung der Datentypen, mit denen wir schon gearbeitet haben:</p>
+<section id="zahlen">
+<h2><span class="section-number">9.1. </span>Zahlen<a class="headerlink" href="#zahlen" title="Link to this heading">#</a></h2>
+<p>Hier hatten wir schon häufiger Integer und Floats (<em>floating-point numbers</em>).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="mi">6</span><span class="p">))</span>    <span class="c1"># =&gt; &lt;class 'int'&gt;</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="mf">6.0</span><span class="p">))</span>  <span class="c1"># =&gt; &lt;class 'float'&gt;</span>
+</pre></div>
+</div>
+<p>Hatten wir noch nicht, und benötigen wir im Moment auch nicht. Aber nur der Vollständigkeit halber: komplexe Zahlen.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="mi">2</span><span class="n">j</span> <span class="o">+</span> <span class="mi">3</span><span class="p">))</span>  <span class="c1"># =&gt; &lt;class 'complex'&gt;</span>
+</pre></div>
+</div>
+</section>
+<section id="strings">
+<h2><span class="section-number">9.2. </span>Strings<a class="headerlink" href="#strings" title="Link to this heading">#</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="s2">"abcdefg"</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="s1">'abcdefg'</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="s2">"""abcdefg"""</span><span class="p">))</span>  <span class="c1"># Dreifache Anführungszeichen werden für Blockkommentare genutzt.</span>
+</pre></div>
+</div>
+</section>
+<section id="lists-tuples">
+<h2><span class="section-number">9.3. </span>Lists &amp; Tuples<a class="headerlink" href="#lists-tuples" title="Link to this heading">#</a></h2>
+<p>Wir hatten schon Listen und Tupel, die auf den ersten Blick ziemlich ähnlich sind.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"abc"</span><span class="p">,</span> <span class="s2">"ABC"</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mf">0.315</span><span class="p">]</span>
+<span class="n">my_tuple</span> <span class="o">=</span> <span class="p">(</span><span class="s2">"abc"</span><span class="p">,</span> <span class="s2">"ABC"</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mf">0.315</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">my_list</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">my_tuple</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>In der Handhabung unterscheiden sich beide Datentypen aber deutlich voneinander!</p>
+<p>Der Kernunterschied ist: <code class="docutils literal notranslate"><span class="pre">list</span></code> ist veränderbar (<em>mutable</em>), <code class="docutils literal notranslate"><span class="pre">tuple</span></code> nicht. Listen besitzen deshalb unter anderem Methoden zum Ergänzen und Verändern von Einträgen:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"abc"</span><span class="p">]</span>
+
+<span class="n">my_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"noch was"</span><span class="p">)</span>
+<span class="n">my_list</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s2">"xyz"</span><span class="p">)</span>
+<span class="n">my_list</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"XYZ"</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">my_list</span><span class="p">)</span>  <span class="c1"># =&gt; ['abc', 'xyz', 'XYZ']</span>
+</pre></div>
+</div>
+</section>
+<section id="boolean-und-none">
+<h2><span class="section-number">9.4. </span>Boolean und None<a class="headerlink" href="#boolean-und-none" title="Link to this heading">#</a></h2>
+<p>Weitere Typen, die wir jetzt schon häufiger gesehen haben, sind <code class="docutils literal notranslate"><span class="pre">bool</span></code> und <code class="docutils literal notranslate"><span class="pre">NoneType</span></code>. Ein Boolean kann nur <code class="docutils literal notranslate"><span class="pre">True</span></code> oder <code class="docutils literal notranslate"><span class="pre">False</span></code> sein. <code class="docutils literal notranslate"><span class="pre">None</span></code> ist ein besonderer Wert, der häufig „kein Ergebnis“ oder „nicht vorhanden“ bedeutet.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="kc">True</span><span class="p">))</span>   <span class="c1"># =&gt; &lt;class 'bool'&gt;</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="kc">None</span><span class="p">))</span>   <span class="c1"># =&gt; &lt;class 'NoneType'&gt;</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+<p>Es gibt in Python noch zwei weitere sehr häufig verwendete Datentypen:</p>
+</section>
+<section id="sets-und-dictionaries">
+<h2><span class="section-number">9.5. </span>Sets und Dictionaries<a class="headerlink" href="#sets-und-dictionaries" title="Link to this heading">#</a></h2>
+<section id="sets-mengen">
+<h3><span class="section-number">9.5.1. </span>Sets (Mengen)<a class="headerlink" href="#sets-mengen" title="Link to this heading">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_set</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"yes"</span><span class="p">,</span> <span class="s2">"no"</span><span class="p">,</span> <span class="s2">"maybe"</span><span class="p">}</span>
+
+<span class="c1"># Oder: aus einer Liste erzeugen</span>
+<span class="n">zweites_set</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="s2">"yes"</span><span class="p">,</span> <span class="s2">"no"</span><span class="p">,</span> <span class="s2">"yes"</span><span class="p">])</span>
+
+<span class="n">leeres_set</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+<span class="n">leeres_dict</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># Achtung: Das ist ein Dictionary, kein Set!</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">leeres_set</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">leeres_dict</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Sieht erst einmal wieder fast aus wie bei Tupeln und Listen. Allerdings macht das folgende Beispiel gleich klar, dass Sets ein anderer Datentyp sind:</p>
+<!-- pytest-codeblocks:expect-error -->
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_set</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># =&gt; TypeError: 'set' object is not subscriptable</span>
+</pre></div>
+</div>
+<p>Sets sind keine Sequenzen: Ihre Elemente haben <strong>keine Indizes</strong>. Andere Dinge, die bei Listen oder Tupeln funktionieren, gehen aber auch:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_set</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"yes"</span><span class="p">,</span> <span class="s2">"no"</span><span class="p">,</span> <span class="s2">"maybe"</span><span class="p">}</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">"maybe"</span> <span class="ow">in</span> <span class="n">my_set</span><span class="p">)</span>  <span class="c1"># =&gt; True</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">my_set</span><span class="p">))</span>         <span class="c1"># =&gt; 3</span>
+</pre></div>
+</div>
+<p>Sogar ein <code class="docutils literal notranslate"><span class="pre">for</span></code>-Loop geht:</p>
+<!-- pytest-codeblocks:cont -->
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">my_set</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Well, </span><span class="si">{</span><span class="n">s</span><span class="si">}</span><span class="s2">..."</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Wichtig:</strong> Sets garantieren keine feste Durchlauf- oder Ausgabereihenfolge. Die angezeigten Elemente können also in anderer Reihenfolge erscheinen, ohne dass sich der Inhalt der Menge unterscheidet.</p>
+<p>Die Unterschiede zwischen Sets (deutsch: Mengen) und Listen passen weitgehend zur Verwendung der Begriffe im Alltag oder in der Mathematik.</p>
+<p>Schauen wir uns das Ganze mal mit Tieren an…</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">animals</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"cat"</span><span class="p">,</span> <span class="s2">"dog"</span><span class="p">,</span> <span class="s2">"elephant"</span><span class="p">,</span> <span class="s2">"lion"</span><span class="p">,</span> <span class="s2">"dog"</span><span class="p">}</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">animals</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">animals</span><span class="p">))</span>  <span class="c1"># =&gt; 4: 'dog' ist nur einmal enthalten.</span>
+</pre></div>
+</div>
+<p>Noch deutlicher wird das Ganze, wenn wir Mengen zusammenführen.</p>
+<p>Stellen Sie sich vor, mehrere von Ihnen schreiben eine Liste mit Tieren auf (<code class="docutils literal notranslate"><span class="pre">animal_list</span></code>). Jetzt wollen wir diese zusammenführen:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">animal_list1</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"cat"</span><span class="p">,</span> <span class="s2">"dog"</span><span class="p">,</span> <span class="s2">"elephant"</span><span class="p">,</span> <span class="s2">"lion"</span><span class="p">]</span>
+<span class="n">animal_list2</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"parrot"</span><span class="p">,</span> <span class="s2">"cat"</span><span class="p">,</span> <span class="s2">"dog"</span><span class="p">,</span> <span class="s2">"goldfish"</span><span class="p">,</span> <span class="s2">"cow"</span><span class="p">]</span>
+
+<span class="n">all_animals</span> <span class="o">=</span> <span class="n">animal_list1</span> <span class="o">+</span> <span class="n">animal_list2</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">all_animals</span><span class="p">)</span>  <span class="c1"># Hier kommen 'cat' und 'dog' doppelt vor.</span>
+</pre></div>
+</div>
+<p>Bei Sets geht das mit <code class="docutils literal notranslate"><span class="pre">+</span></code> nicht:</p>
+<!-- pytest-codeblocks:expect-error -->
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">animal_set1</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"cat"</span><span class="p">,</span> <span class="s2">"dog"</span><span class="p">,</span> <span class="s2">"elephant"</span><span class="p">,</span> <span class="s2">"lion"</span><span class="p">}</span>
+<span class="n">animal_set2</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"parrot"</span><span class="p">,</span> <span class="s2">"cat"</span><span class="p">,</span> <span class="s2">"dog"</span><span class="p">,</span> <span class="s2">"goldfish"</span><span class="p">,</span> <span class="s2">"cow"</span><span class="p">}</span>
+
+<span class="n">all_animals</span> <span class="o">=</span> <span class="n">animal_set1</span> <span class="o">+</span> <span class="n">animal_set2</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">all_animals</span><span class="p">)</span>  <span class="c1"># =&gt; TypeError: unsupported operand type(s) for +: 'set' and 'set'</span>
+</pre></div>
+</div>
+<p>Bei Sets gibt es nämlich unterschiedliche Mengenoperationen. Für die <strong>Vereinigung</strong> (<em>union</em>) verwenden wir <code class="docutils literal notranslate"><span class="pre">|</span></code> (in der Mathematik: (A \cup B)). Sie enthält alle Elemente aus beiden Mengen, aber jedes nur einmal:</p>
+<!-- pytest-codeblocks:cont -->
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">all_animals</span> <span class="o">=</span> <span class="n">animal_set1</span> <span class="o">|</span> <span class="n">animal_set2</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">all_animals</span><span class="p">)</span>
+
+<span class="c1"># Dieselbe Operation als Methode:</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">animal_set1</span><span class="o">.</span><span class="n">union</span><span class="p">(</span><span class="n">animal_set2</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Es gibt aber noch ganz andere Verknüpfungen, zum Beispiel die <strong>Schnittmenge</strong> (<em>intersection</em>, (A \cap B)). Sie enthält nur Elemente, die in beiden Mengen vorkommen:</p>
+<!-- pytest-codeblocks:cont -->
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">most_popular</span> <span class="o">=</span> <span class="n">animal_set1</span> <span class="o">&amp;</span> <span class="n">animal_set2</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"In beiden Mengen: </span><span class="si">{</span><span class="n">most_popular</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+
+<span class="c1"># Entspricht auch: animal_set1.intersection(animal_set2)</span>
+</pre></div>
+</div>
+<blockquote>
+<div><h3 class="rubric" id="mini-quiz-welche-tiere-sind-in-der-schnittmenge-enthalten">Mini-QUIZ! Welche Tiere sind in der Schnittmenge enthalten?</h3>
+<p>a) <code class="docutils literal notranslate"><span class="pre">{'parrot',</span> <span class="pre">'goldfish',</span> <span class="pre">'cow'}</span></code><br />
+b) <code class="docutils literal notranslate"><span class="pre">{'cat',</span> <span class="pre">'dog'}</span></code><br />
+c) <code class="docutils literal notranslate"><span class="pre">{'elephant',</span> <span class="pre">'lion'}</span></code><br />
+d) <code class="docutils literal notranslate"><span class="pre">set()</span></code></p>
+<p>Die Reihenfolge innerhalb eines Sets ist dabei egal.</p>
+</div></blockquote>
+<p>Die <strong>Differenz</strong> <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">-</span> <span class="pre">b</span></code> enthält dagegen nur Elemente aus <code class="docutils literal notranslate"><span class="pre">a</span></code>, die <strong>nicht</strong> in <code class="docutils literal notranslate"><span class="pre">b</span></code> vorkommen. Die Richtung macht einen Unterschied. Auch die <em>symmetrische Differenz</em> <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">^</span> <span class="pre">b</span></code> ist möglich: Elemente, die in genau einer der Mengen vorkommen.</p>
+<p>Ein kleines Beispiel mit überschaubaren Zahlen zeigt alle vier wichtigen Operatoren:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">}</span>
+<span class="n">b</span> <span class="o">=</span> <span class="p">{</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">}</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">|</span> <span class="n">b</span><span class="p">)</span>  <span class="c1"># =&gt; {1, 2, 3, 4}  Vereinigung</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">&amp;</span> <span class="n">b</span><span class="p">)</span>  <span class="c1"># =&gt; {3}           Schnittmenge</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">-</span> <span class="n">b</span><span class="p">)</span>  <span class="c1"># =&gt; {1, 2}        Nur in a</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span>  <span class="c1"># =&gt; {4}           Nur in b</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">^</span> <span class="n">b</span><span class="p">)</span>  <span class="c1"># =&gt; {1, 2, 4}     In genau einer Menge</span>
+</pre></div>
+</div>
+<p>Wie verhalten sich diese Operationen, wenn eine Menge leer ist oder die Mengen keine gemeinsamen Elemente haben?</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">}</span>
+<span class="n">leer</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">|</span> <span class="n">leer</span><span class="p">)</span>      <span class="c1"># =&gt; {1, 2}</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">&amp;</span> <span class="n">leer</span><span class="p">)</span>      <span class="c1"># =&gt; set()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">-</span> <span class="n">leer</span><span class="p">)</span>      <span class="c1"># =&gt; {1, 2}</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">leer</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span>      <span class="c1"># =&gt; set()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">&amp;</span> <span class="p">{</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">})</span>    <span class="c1"># =&gt; set()</span>
+</pre></div>
+</div>
+<p>Sets können mit <code class="docutils literal notranslate"><span class="pre">.add()</span></code> um einzelne Elemente oder mit <code class="docutils literal notranslate"><span class="pre">.update()</span></code> um mehrere Elemente erweitert werden. Mit <code class="docutils literal notranslate"><span class="pre">.remove()</span></code> können Elemente entfernt werden (fehlt das Element, entsteht dabei ein <code class="docutils literal notranslate"><span class="pre">KeyError</span></code>).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">animals</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"cat"</span><span class="p">,</span> <span class="s2">"dog"</span><span class="p">,</span> <span class="s2">"elephant"</span><span class="p">,</span> <span class="s2">"lion"</span><span class="p">}</span>
+<span class="n">animals</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">"cow"</span><span class="p">)</span>
+<span class="n">animals</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">"cow"</span><span class="p">)</span>  <span class="c1"># Keine Dopplung</span>
+<span class="n">animals</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">"wolf"</span><span class="p">,</span> <span class="s2">"goat"</span><span class="p">})</span>
+<span class="n">animals</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">"lion"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">animals</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">animals</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Sequenzen (zum Beispiel Listen und Strings) lassen sich in Sets umwandeln. Ein Set aus einem String enthält seine <strong>unterschiedlichen Zeichen</strong>, also zunächst auch Leerzeichen!</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="s2">"dann am abend baden mit diamentendieben die bananen dabei haben"</span>
+</pre></div>
+</div>
+<blockquote>
+<div><h3 class="rubric" id="wie-viele-verschiedene-buchstaben-hat-der-satz-ohne-leerzeichen">Wie viele verschiedene Buchstaben hat der Satz (ohne Leerzeichen)?</h3>
+</div></blockquote>
+<!-- pytest-codeblocks:cont -->
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">characters</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">" "</span><span class="p">,</span> <span class="s2">""</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">characters</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Anzahl der Zeichen im String (mit Leerzeichen): </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Aber nur </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">characters</span><span class="p">)</span><span class="si">}</span><span class="s2"> unterschiedliche Buchstaben!"</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="dictionaries">
+<h2><span class="section-number">9.6. </span>Dictionaries<a class="headerlink" href="#dictionaries" title="Link to this heading">#</a></h2>
+<p>Dictionaries sind ein häufig verwendeter Datentyp, mit dem Daten als <strong>Schlüssel-Wert-Paare</strong> genutzt werden. Jeder Wert (<em>value</em>) ist einem Schlüssel (<em>key</em>) zugeordnet.</p>
+<p>Die allgemeine Schreibweise lautet beispielsweise <code class="docutils literal notranslate"><span class="pre">{schluessel:</span> <span class="pre">wert}</span></code>. Ein konkretes Beispiel könnte eine Zuordnung von Wörtern in zwei Sprachen sein, hier Deutsch–Englisch:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_dict</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">"Hallo"</span><span class="p">:</span> <span class="s2">"hello"</span><span class="p">,</span>
+    <span class="s2">"Tschüss"</span><span class="p">:</span> <span class="s2">"bye"</span><span class="p">,</span>
+    <span class="s2">"Danke"</span><span class="p">:</span> <span class="s2">"thanks"</span>
+<span class="p">}</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">my_dict</span><span class="p">[</span><span class="s2">"Danke"</span><span class="p">])</span>  <span class="c1"># =&gt; thanks</span>
+</pre></div>
+</div>
+<p>Wie bei Sets gibt es auch hier keine doppelten <strong>Schlüssel</strong>. Allerdings dürfen unterschiedliche Schlüssel durchaus denselben Wert haben. Wenn wir einem bereits vorhandenen Schlüssel einen neuen Wert zuweisen, wird der bisherige Wert ersetzt:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_dict</span><span class="p">[</span><span class="s2">"Hallo"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"hi"</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">my_dict</span><span class="p">[</span><span class="s2">"Hallo"</span><span class="p">])</span>  <span class="c1"># =&gt; hi</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">my_dict</span><span class="p">))</span>       <span class="c1"># =&gt; 3, weiterhin drei Schlüssel</span>
+</pre></div>
+</div>
+<p>Anders als Sets bewahren Dictionaries in aktuellem Python die <strong>Einfügereihenfolge ihrer Schlüssel</strong>. Sie sind deshalb trotzdem keine Listen: Der Zugriff erfolgt über Schlüssel und nicht über fortlaufende Positionen.</p>
+<p>Einzelne Werte können mit dem entsprechenden Schlüssel ausgelesen werden:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_dict</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Gilderoy Lockhart"</span><span class="p">,</span>
+    <span class="s2">"function"</span><span class="p">:</span> <span class="s2">"teacher"</span><span class="p">,</span>
+    <span class="s2">"subject"</span><span class="p">:</span> <span class="s2">"Defence Against the Dark Arts"</span>
+<span class="p">}</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">my_dict</span><span class="p">[</span><span class="s2">"subject"</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="c1"># Alternativ geht auch:</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">my_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"subject"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Vorsicht bei unbekannten Schlüsseln:</strong> <code class="docutils literal notranslate"><span class="pre">my_dict[&quot;room&quot;]</span></code> löst einen <code class="docutils literal notranslate"><span class="pre">KeyError</span></code> aus, wenn der Schlüssel fehlt. Darum prüfen wir vor einem unsicheren Zugriff, ob der Schlüssel existiert. Mit <code class="docutils literal notranslate"><span class="pre">.get()</span></code> lässt sich alternativ ein Ersatzwert angeben.</p>
+<!-- pytest-codeblocks:cont -->
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="s2">"room"</span> <span class="ow">in</span> <span class="n">my_dict</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">my_dict</span><span class="p">[</span><span class="s2">"room"</span><span class="p">])</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Kein Raum eingetragen"</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">my_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"room"</span><span class="p">,</span> <span class="s2">"unbekannt"</span><span class="p">))</span>  <span class="c1"># =&gt; unbekannt</span>
+</pre></div>
+</div>
+<p>Genau wie Listen und Sets sind auch Dictionaries veränderbar (<em>mutable</em>). Das bedeutet, dass Einträge hinzugefügt, entfernt oder verändert werden können:</p>
+<!-- pytest-codeblocks:cont -->
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_dict</span><span class="p">[</span><span class="s2">"function"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"former teacher"</span>  <span class="c1"># Vorhandenen Wert aktualisieren</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">my_dict</span><span class="p">[</span><span class="s2">"function"</span><span class="p">])</span>
+
+<span class="n">my_dict</span><span class="p">[</span><span class="s2">"hair color"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"blond"</span>  <span class="c1"># Neuen Eintrag hinzufügen</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">my_dict</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Um den gesamten Inhalt eines Dictionarys zu betrachten, gibt es folgende Möglichkeiten:</p>
+<!-- pytest-codeblocks:cont -->
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">my_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>    <span class="c1"># alle Schlüssel</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">my_dict</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>  <span class="c1"># alle Werte</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">my_dict</span><span class="o">.</span><span class="n">items</span><span class="p">())</span>   <span class="c1"># alle Schlüssel-Wert-Paare</span>
+</pre></div>
+</div>
+<p>Mit diesen Möglichkeiten können wir auch <code class="docutils literal notranslate"><span class="pre">for</span></code>-Schleifen nutzen. Ein direkter Durchlauf liefert <strong>Schlüssel</strong>:</p>
+<!-- pytest-codeblocks:cont -->
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">my_dict</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="s2">"=&gt;"</span><span class="p">,</span> <span class="n">my_dict</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Mit <code class="docutils literal notranslate"><span class="pre">.items()</span></code> bekommen wir Schlüssel und Wert gleichzeitig. Jedes Paar wird auf zwei Namen verteilt:</p>
+<!-- pytest-codeblocks:cont -->
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">my_dict</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2"> is </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">."</span><span class="p">)</span>
+</pre></div>
+</div>
+<section id="haufigkeiten-mit-einem-dictionary-zahlen">
+<h3><span class="section-number">9.6.1. </span>Häufigkeiten mit einem Dictionary zählen<a class="headerlink" href="#haufigkeiten-mit-einem-dictionary-zahlen" title="Link to this heading">#</a></h3>
+<p>Listen können Werte mehrfach enthalten, Sets dagegen nicht. Ein Dictionary eignet sich, wenn wir <strong>zusätzlich zählen wollen, wie oft etwas vorkommt</strong>. Wir bauen die Häufigkeiten mit einer Schleife auf:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">zaehle_woerter</span><span class="p">(</span><span class="n">woerter</span><span class="p">):</span>
+    <span class="n">haeufigkeiten</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">wort</span> <span class="ow">in</span> <span class="n">woerter</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">wort</span> <span class="ow">in</span> <span class="n">haeufigkeiten</span><span class="p">:</span>
+            <span class="n">haeufigkeiten</span><span class="p">[</span><span class="n">wort</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">haeufigkeiten</span><span class="p">[</span><span class="n">wort</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">haeufigkeiten</span>
+
+<span class="n">woerter</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"tee"</span><span class="p">,</span> <span class="s2">"kaffee"</span><span class="p">,</span> <span class="s2">"tee"</span><span class="p">,</span> <span class="s2">"wasser"</span><span class="p">,</span> <span class="s2">"tee"</span><span class="p">]</span>
+<span class="n">ergebnis</span> <span class="o">=</span> <span class="n">zaehle_woerter</span><span class="p">(</span><span class="n">woerter</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ergebnis</span><span class="p">)</span>       <span class="c1"># =&gt; {'tee': 3, 'kaffee': 1, 'wasser': 1}</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">ergebnis</span><span class="p">))</span> <span class="c1"># =&gt; &lt;class 'dict'&gt;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ergebnis</span><span class="p">[</span><span class="s2">"tee"</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">zaehle_woerter</span><span class="p">([]))</span>  <span class="c1"># =&gt; {}</span>
+</pre></div>
+</div>
+<p>Die Funktion erhält eine <strong>Liste</strong> und liefert ein <strong>Dictionary</strong> zurück. Der Eintrag für ein Wort wird beim ersten Auftreten angelegt und bei weiteren Treffern erhöht. Später können wir dafür auch Text mit <code class="docutils literal notranslate"><span class="pre">.split()</span></code> in eine Wortliste verwandeln (siehe <em>String handling</em>).</p>
+</section>
+<section id="liste-set-oder-dictionary">
+<h3><span class="section-number">9.6.2. </span>Liste, Set oder Dictionary?<a class="headerlink" href="#liste-set-oder-dictionary" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Datentyp</p></th>
+<th class="head"><p>Kennzeichen</p></th>
+<th class="head"><p>Typischer Einsatz</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">list</span></code></p></td>
+<td><p>Reihenfolge, Indizes, doppelte Einträge möglich</p></td>
+<td><p>Werte nacheinander speichern oder verändern</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">set</span></code></p></td>
+<td><p>Eindeutige Elemente, keine Indizes, keine garantierte Reihenfolge</p></td>
+<td><p>Zugehörigkeit und Mengenoperationen</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">dict</span></code></p></td>
+<td><p>Eindeutige Schlüssel mit zugeordneten Werten, Einfügereihenfolge bleibt erhalten</p></td>
+<td><p>Übersetzungen, Eigenschaften, Häufigkeiten</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section id="nested-dictionaries">
+<h2><span class="section-number">9.7. </span>Nested dictionaries<a class="headerlink" href="#nested-dictionaries" title="Link to this heading">#</a></h2>
+<p>Bei Listen hatten wir besprochen, dass eine Liste weitere Listen enthalten kann. Genauso kann ein Dictionary weitere Dictionaries enthalten. Damit lassen sich komplexere Schlüssel-Wert-Zuordnungen abbilden.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">hogwarts</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">"Dumbledore"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">"firstname"</span><span class="p">:</span> <span class="s2">"Albus"</span><span class="p">,</span>
+        <span class="s2">"function"</span><span class="p">:</span> <span class="s2">"headmaster"</span>
+    <span class="p">},</span>
+    <span class="s2">"Lockhart"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">"firstname"</span><span class="p">:</span> <span class="s2">"Gilderoy"</span><span class="p">,</span>
+        <span class="s2">"function"</span><span class="p">:</span> <span class="s2">"teacher"</span>
+    <span class="p">},</span>
+    <span class="s2">"Granger"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">"firstname"</span><span class="p">:</span> <span class="s2">"Hermione"</span><span class="p">,</span>
+        <span class="s2">"function"</span><span class="p">:</span> <span class="s2">"pupil"</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">hogwarts</span><span class="p">[</span><span class="s2">"Granger"</span><span class="p">][</span><span class="s2">"firstname"</span><span class="p">])</span>  <span class="c1"># =&gt; Hermione</span>
+</pre></div>
+</div>
+<p>Bei den entsprechenden Einrückungen hilft zum Glück der Editor bzw. die IDE (z. B. Visual Studio Code oder PyCharm), denn das kann zu Beginn schnell etwas unübersichtlich werden. Der erste Schlüssel wählt hier ein <strong>inneres Dictionary</strong>, der zweite darin einen Wert. Python erlaubt unterschiedliche sinnvolle Formatierungen, solange die Klammern und die Python-Syntax stimmen.</p>
+</section>
+<section id="copy-deepcopy">
+<h2><span class="section-number">9.8. </span>=, copy(), deepcopy()<a class="headerlink" href="#copy-deepcopy" title="Link to this heading">#</a></h2>
+<p><strong>Vorsicht: Hier mal etwas, das nicht sonderlich intuitiv ist …</strong></p>
+<p>Oft möchten wir bestimmte Objekte (zum Beispiel Dictionaries) kopieren, etwa um eine Kopie anschließend zu verändern.</p>
+<p>Dictionaries sind – wie Listen – veränderbare Datentypen in Python. Wir haben schon einmal gesehen, dass dies zu unerwarteten Resultaten führen kann:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">my_list2</span> <span class="o">=</span> <span class="n">my_list</span>
+<span class="n">my_list2</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">4321</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">my_list</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>  <span class="c1"># =&gt; 4321</span>
+</pre></div>
+</div>
+<p>Das Gleiche passiert bei Dictionaries: Die Zuweisung erzeugt <strong>kein neues Dictionary-Objekt</strong>, sondern einen zweiten Namen für dasselbe Objekt. Eine mögliche Lösung stellt die Methode <code class="docutils literal notranslate"><span class="pre">.copy()</span></code> dar.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">my_list2</span> <span class="o">=</span> <span class="n">my_list</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">my_list2</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">4321</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">my_list</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>  <span class="c1"># =&gt; 1</span>
+</pre></div>
+</div>
+<p>Das geht auch bei Dictionaries:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_dict</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Gilderoy Lockhart"</span><span class="p">,</span>
+    <span class="s2">"function"</span><span class="p">:</span> <span class="s2">"teacher"</span><span class="p">,</span>
+    <span class="s2">"subject"</span><span class="p">:</span> <span class="s2">"Defence Against the Dark Arts"</span>
+<span class="p">}</span>
+<span class="n">my_dict2</span> <span class="o">=</span> <span class="n">my_dict</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">my_dict2</span><span class="p">[</span><span class="s2">"function"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"former teacher"</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">my_dict</span><span class="p">[</span><span class="s2">"function"</span><span class="p">])</span>  <span class="c1"># =&gt; teacher</span>
+</pre></div>
+</div>
+<p>Sobald wir aber mit tiefer verschachtelten <strong>veränderlichen</strong> Objekten arbeiten, ergeben sich erneut Probleme:</p>
+<!-- pytest-codeblocks:cont -->
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">hogwarts</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">"Dumbledore"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">"firstname"</span><span class="p">:</span> <span class="s2">"Albus"</span><span class="p">,</span>
+        <span class="s2">"function"</span><span class="p">:</span> <span class="s2">"headmaster"</span>
+    <span class="p">},</span>
+    <span class="s2">"Lockhart"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">"firstname"</span><span class="p">:</span> <span class="s2">"Gilderoy"</span><span class="p">,</span>
+        <span class="s2">"function"</span><span class="p">:</span> <span class="s2">"teacher"</span>
+    <span class="p">},</span>
+    <span class="s2">"Granger"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">"firstname"</span><span class="p">:</span> <span class="s2">"Hermione"</span><span class="p">,</span>
+        <span class="s2">"function"</span><span class="p">:</span> <span class="s2">"pupil"</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">hogwarts_book7</span> <span class="o">=</span> <span class="n">hogwarts</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">hogwarts_book7</span><span class="p">[</span><span class="s2">"Dumbledore"</span><span class="p">][</span><span class="s2">"function"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"former headmaster"</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">hogwarts</span><span class="p">[</span><span class="s2">"Dumbledore"</span><span class="p">][</span><span class="s2">"function"</span><span class="p">])</span>  <span class="c1"># =&gt; former headmaster</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">hogwarts</span> <span class="ow">is</span> <span class="n">hogwarts_book7</span><span class="p">)</span>              <span class="c1"># =&gt; False</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">hogwarts</span><span class="p">[</span><span class="s2">"Granger"</span><span class="p">]</span> <span class="ow">is</span> <span class="n">hogwarts_book7</span><span class="p">[</span><span class="s2">"Granger"</span><span class="p">])</span>  <span class="c1"># =&gt; True</span>
+</pre></div>
+</div>
+<p>Das entspricht jetzt nicht unbedingt dem erwarteten Ergebnis. Wir haben <code class="docutils literal notranslate"><span class="pre">hogwarts_book7</span></code> verändert, aber damit (ohne es zu wollen) auch einen Eintrag im ursprünglichen Dictionary angepasst.</p>
+<p>Das liegt daran, dass wir mit <code class="docutils literal notranslate"><span class="pre">.copy()</span></code> eine sogenannte <strong>flache Kopie</strong> (<em>shallow copy</em>) erstellt haben. Die äußeren Dictionaries sind getrennte Objekte, ihre <strong>inneren Dictionaries</strong> werden hier weiterhin gemeinsam verwendet.</p>
+<p>Für verschachtelte Dictionaries klappt das also nicht immer so einfach. Mit <code class="docutils literal notranslate"><span class="pre">copy.deepcopy()</span></code> können wir auch die enthaltenen veränderlichen Objekte rekursiv kopieren:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">copy</span>
+
+<span class="n">hogwarts</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">"Dumbledore"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">"firstname"</span><span class="p">:</span> <span class="s2">"Albus"</span><span class="p">,</span>
+        <span class="s2">"function"</span><span class="p">:</span> <span class="s2">"headmaster"</span>
+    <span class="p">},</span>
+    <span class="s2">"Lockhart"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">"firstname"</span><span class="p">:</span> <span class="s2">"Gilderoy"</span><span class="p">,</span>
+        <span class="s2">"function"</span><span class="p">:</span> <span class="s2">"teacher"</span>
+    <span class="p">},</span>
+    <span class="s2">"Granger"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">"firstname"</span><span class="p">:</span> <span class="s2">"Hermione"</span><span class="p">,</span>
+        <span class="s2">"function"</span><span class="p">:</span> <span class="s2">"pupil"</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">hogwarts_book7</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">hogwarts</span><span class="p">)</span>
+<span class="n">hogwarts_book7</span><span class="p">[</span><span class="s2">"Dumbledore"</span><span class="p">][</span><span class="s2">"function"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"former headmaster"</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">hogwarts</span><span class="p">[</span><span class="s2">"Dumbledore"</span><span class="p">][</span><span class="s2">"function"</span><span class="p">])</span>  <span class="c1"># =&gt; headmaster</span>
+</pre></div>
+</div>
+<p>Das Gleiche gilt übrigens auch für Listen:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">copy</span>
+
+<span class="n">my_list1</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">15</span><span class="p">]</span>
+<span class="n">my_list2</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">my_list1</span><span class="p">)</span>
+
+<span class="n">my_list2</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">54321</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">my_list1</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>  <span class="c1"># =&gt; [1, 2, 3]</span>
+</pre></div>
+</div>
+<p><strong>Anmerkung:</strong> Eine tiefe Kopie erstellt bei Bedarf neue Kopien der enthaltenen Objekte. Unveränderliche Objekte wie Zahlen und Strings müssen dabei nicht zwingend neu angelegt werden. Für einfache Listen oder Dictionaries reicht oft <code class="docutils literal notranslate"><span class="pre">.copy()</span></code>, aber bei verschachtelten veränderlichen Objekten ist der Unterschied wichtig.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./lesson_material_german"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="03_special_functions.html"
+       title="Vorherige Seite">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">zurück</p>
+        <p class="prev-next-title"><span class="section-number">8. </span>Special functions</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="04_string_handling.html"
+       title="Nächste Seite">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">weiter</p>
+        <p class="prev-next-title"><span class="section-number">10. </span>String handling</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Inhalt
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zahlen">9.1. Zahlen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#strings">9.2. Strings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lists-tuples">9.3. Lists &amp; Tuples</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#boolean-und-none">9.4. Boolean und None</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sets-und-dictionaries">9.5. Sets und Dictionaries</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sets-mengen">9.5.1. Sets (Mengen)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dictionaries">9.6. Dictionaries</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#haufigkeiten-mit-einem-dictionary-zahlen">9.6.1. Häufigkeiten mit einem Dictionary zählen</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#liste-set-oder-dictionary">9.6.2. Liste, Set oder Dictionary?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nested-dictionaries">9.7. Nested dictionaries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#copy-deepcopy">9.8. =, copy(), deepcopy()</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Durch Florian Huber
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

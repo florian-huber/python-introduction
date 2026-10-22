@@ -357,6 +357,8 @@ Eine der wichtigsten Techniken im Umgang mit Sequenzen in Python ist das sogenan
 Dies wird in Python in eckigen Klammern und mit Hilfe von Integern und Doppelpunktzeichen angegeben.
 Es können dabei bis zu drei Werte angegeben werden in der Form:
 
+<!--pytest-codeblocks:expect-error-->
+
 ```python
 my_variable[start:stop:stepsize]
 ```
