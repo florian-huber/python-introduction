@@ -261,6 +261,7 @@ print(my_dict["Danke"])  # => thanks
 
 Wie bei Sets gibt es auch hier keine doppelten **Schlüssel**. Allerdings dürfen unterschiedliche Schlüssel durchaus denselben Wert haben. Wenn wir einem bereits vorhandenen Schlüssel einen neuen Wert zuweisen, wird der bisherige Wert ersetzt:
 
+<!-- pytest-codeblocks:cont -->
 ```python
 my_dict["Hallo"] = "hi"
 print(my_dict["Hallo"])  # => hi
