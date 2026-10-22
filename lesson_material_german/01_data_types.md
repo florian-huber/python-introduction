@@ -172,11 +172,7 @@ Davon zu unterscheiden ist **Duck Typing**. Dabei ist für Code häufig weniger 
 ## Datentypen ändern
 Es gibt Situationen, in denen wir explizit einen Datentyp ändern möchten, z. B. von `float` zu `int`:
 ```python
-print(5 + int(7.00001))  # 12
-```
-ergibt:
-```bash
-12
+print(5 + int(7.00001))  # ergibt: 12
 ```
 
 Nur Vorsicht! Dies ist keine Rundung, sondern ein Abschneiden der Nachkommastellen:

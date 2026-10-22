@@ -48,7 +48,7 @@ source .venv/bin/activate
 oder unter Windows PowerShell:
 
 ```powershell
-.\.venv\Scripts\Activate.ps1
+.\.venv\Scripts\activate
 ```
 
 VS Code erkennt ein lokales `.venv` normalerweise automatisch. Falls nicht, wählen wir es über **Python: Select Interpreter** aus.
