@@ -172,6 +172,7 @@ print(s)  # => nichts passiert?
 
 Die Methoden ändern den ursprünglichen String nicht, sondern geben einen **neuen** zurück. Wollen wir das Ergebnis später verwenden, speichern wir die Rückgabe:
 
+<!-- pytest-codeblocks:cont -->
 ```python
 s_new = s.replace("i", "!")
 print(s_new)
@@ -226,6 +227,7 @@ eingabe2 = "Test, Trude   "   # Gleich mehrere Leerzeichen?
 
 `.strip()` wird genutzt, um Leerraum (*whitespace*) an **beiden Enden** eines Strings zu entfernen. Es gibt auch `.rstrip()` und `.lstrip()`, die nur das rechte oder linke Ende betrachten.
 
+<!-- pytest-codeblocks:cont -->
 ```python
 print(eingabe1.strip())
 print(eingabe2.strip())
@@ -233,6 +235,7 @@ print(eingabe2.strip())
 
 `.strip()` kann noch mehr: Wir können angeben, **welche Zeichen** entfernt werden dürfen (und auch mehrere gleichzeitig). Das sind einzelne erlaubte Zeichen, keine vollständige Zeichenfolge. Im Inneren eines Strings bleibt alles stehen.
 
+<!-- pytest-codeblocks:cont -->
 ```python
 bereinigt1 = eingabe1.strip("!?. ")
 bereinigt2 = eingabe2.strip("!?. ")
@@ -258,6 +261,7 @@ print(pieces)
 
 Das gibt eine **Liste** zurück. Das Leerzeichen vor `Markus` ist noch enthalten. Zum Beispiel lässt es sich mit `.strip()` entfernen:
 
+<!-- pytest-codeblocks:cont -->
 ```python
 vorname = pieces[1].strip()
 print(vorname)  # => Markus
@@ -346,6 +350,7 @@ print(s.count("Te"))  # => 1
 
 **Achtung:** `str.count()` zählt das Vorkommen einer **Zeichenfolge**, nicht automatisch vollständige Wörter! Der Unterschied zur Zählung von Einträgen in einer Liste ist wichtig:
 
+<!-- pytest-codeblocks:cont -->
 ```python
 text = "Hausaufgabe Haus"
 print(text.lower().count("haus"))  # => 2: auch in 'Hausaufgabe'

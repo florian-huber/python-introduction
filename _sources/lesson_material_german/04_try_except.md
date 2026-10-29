@@ -52,6 +52,7 @@ def lade_text(dateiname):
 
 Der Loader fängt `FileNotFoundError` **innerhalb** seiner Funktion ab. Deshalb erhält das aufrufende Programm bei fehlender Datei `None`, statt an dieser Stelle abzubrechen.
 
+<!--pytest-codeblocks:expect-error-->
 ```python
 inhalt = lade_text("beispiel.txt")
 

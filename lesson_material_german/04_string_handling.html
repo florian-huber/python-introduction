@@ -671,6 +671,7 @@ Wir werden nicht alle besprechen, aber die in meinen Augen wichtigsten.</p>
 </pre></div>
 </div>
 <p>Die Methoden ändern den ursprünglichen String nicht, sondern geben einen <strong>neuen</strong> zurück. Wollen wir das Ergebnis später verwenden, speichern wir die Rückgabe:</p>
+<!-- pytest-codeblocks:cont -->
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">s_new</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">"i"</span><span class="p">,</span> <span class="s2">"!"</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">s_new</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>  <span class="c1"># weiterhin unverändert</span>
@@ -717,11 +718,13 @@ Zum Beispiel Benutzereingaben vereinheitlichen:</p>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">.strip()</span></code> wird genutzt, um Leerraum (<em>whitespace</em>) an <strong>beiden Enden</strong> eines Strings zu entfernen. Es gibt auch <code class="docutils literal notranslate"><span class="pre">.rstrip()</span></code> und <code class="docutils literal notranslate"><span class="pre">.lstrip()</span></code>, die nur das rechte oder linke Ende betrachten.</p>
+<!-- pytest-codeblocks:cont -->
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">eingabe1</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">eingabe2</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">.strip()</span></code> kann noch mehr: Wir können angeben, <strong>welche Zeichen</strong> entfernt werden dürfen (und auch mehrere gleichzeitig). Das sind einzelne erlaubte Zeichen, keine vollständige Zeichenfolge. Im Inneren eines Strings bleibt alles stehen.</p>
+<!-- pytest-codeblocks:cont -->
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">bereinigt1</span> <span class="o">=</span> <span class="n">eingabe1</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">"!?. "</span><span class="p">)</span>
 <span class="n">bereinigt2</span> <span class="o">=</span> <span class="n">eingabe2</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">"!?. "</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">bereinigt1</span><span class="p">)</span>  <span class="c1"># =&gt; Muster, Markus</span>
@@ -743,6 +746,7 @@ Dafür gibt es <code class="docutils literal notranslate"><span class="pre">.spl
 </pre></div>
 </div>
 <p>Das gibt eine <strong>Liste</strong> zurück. Das Leerzeichen vor <code class="docutils literal notranslate"><span class="pre">Markus</span></code> ist noch enthalten. Zum Beispiel lässt es sich mit <code class="docutils literal notranslate"><span class="pre">.strip()</span></code> entfernen:</p>
+<!-- pytest-codeblocks:cont -->
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">vorname</span> <span class="o">=</span> <span class="n">pieces</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">vorname</span><span class="p">)</span>  <span class="c1"># =&gt; Markus</span>
 </pre></div>
@@ -813,6 +817,7 @@ Dafür gibt es <code class="docutils literal notranslate"><span class="pre">.spl
 </pre></div>
 </div>
 <p><strong>Achtung:</strong> <code class="docutils literal notranslate"><span class="pre">str.count()</span></code> zählt das Vorkommen einer <strong>Zeichenfolge</strong>, nicht automatisch vollständige Wörter! Der Unterschied zur Zählung von Einträgen in einer Liste ist wichtig:</p>
+<!-- pytest-codeblocks:cont -->
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s2">"Hausaufgabe Haus"</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">text</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">"haus"</span><span class="p">))</span>  <span class="c1"># =&gt; 2: auch in 'Hausaufgabe'</span>
 

@@ -467,12 +467,23 @@
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#einfuhrung">14.1. Einführung</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objektorientierte-programmierung">14.2. Objektorientierte Programmierung</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eine-klasse-definieren">14.2.1. Eine Klasse definieren</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#attribute-methoden">14.2.2. Attribute &amp; Methoden</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eine-klasse-unendlich-viele-objekte">14.2.3. Eine Klasse, unendlich viele Objekte</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#objekte-die-andere-objekte-enthalten-komposition">14.2.4. Objekte die andere Objekte enthalten („Komposition“)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#methoden-die-objekte-nutzen">14.2.5. Methoden die Objekte nutzen</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#init-self-und-instanzattribute">14.2.2. <code class="docutils literal notranslate"><span class="pre">__init__()</span></code>, <code class="docutils literal notranslate"><span class="pre">self</span></code> und Instanzattribute</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lokale-variable-oder-attribut">14.2.3. Lokale Variable oder Attribut?</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instanzmethoden">14.3. Instanzmethoden</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#methoden-mit-zusatzlichen-parametern">14.3.1. Methoden mit zusätzlichen Parametern</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zustandsandernde-methoden">14.4. Zustandsändernde Methoden</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statische-methoden-staticmethod">14.5. Statische Methoden (<code class="docutils literal notranslate"><span class="pre">@staticmethod</span></code>)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eine-klasse-viele-objekte">14.6. Eine Klasse, viele Objekte</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ein-zweiter-kleiner-datentyp-display">14.7. Ein zweiter kleiner Datentyp: <code class="docutils literal notranslate"><span class="pre">Display</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#objekte-die-andere-objekte-enthalten-komposition">14.7.1. Objekte die andere Objekte enthalten („Komposition“)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#klassen-in-eigenen-dateien">14.8. Klassen in eigenen Dateien</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eine-kleine-testspur-aufruf-ruckgabe-folgezustand">14.9. Eine kleine Testspur: Aufruf → Rückgabe → Folgezustand</a></li>
 </ul>
             </nav>
         </div>
@@ -496,8 +507,8 @@
 <h2><span class="section-number">14.2. </span>Objektorientierte Programmierung<a class="headerlink" href="#objektorientierte-programmierung" title="Link to this heading">#</a></h2>
 <p>Objektorientierte Programmierung (oder „OOP“) ist ein Programmierstil oder wird manchmal auch als ein „Programmierparadigma“ bezeichnet um anzugeben, dass es um mehr als kleine Detailfragen geht sondern um eine grundlegende Herangehensweise oder Betrachtungsweise.</p>
 <p>Die ursprüngliche Motivation der objektorientierten Programmierung liegt wohl darin begründet, dass das Vorgehen häufig als sehr intuitiv empfunden wird. Das heißt, sobald man sich an die grundlegenden Prinzipien etwas gewöhnt hat…</p>
-<p>In der objektorientierten Programmierung wird alles durch <strong>Objekte</strong> beschrieben. Objekte haben Eigenschaften (die <strong>Attribute</strong>) und Fähigkeiten oder Tätigkeiten, die <strong>Methoden</strong>. Wichtig ist, das in Objekten beides zusammenkommt, d.h. Objekte besitzen Attribute und Methoden. Nehmen wir ein einfaches Beispiel: Ein Fahrrad hat bestimmte Eigenschaften, z.B. die Radgröße, die Farbe, die Anzahl der Gänge etc. Das wären die Attribute. Ein Fahrrad hat aber auch Methoden und zwar das Fahren, oder z.B. Klingeln.</p>
-<p><img alt="Beispiel einer Klasse Fahrrad" src="../_images/fig_oop_bike_class.png" /></p>
+<p>In der objektorientierten Programmierung wird alles durch <strong>Objekte</strong> beschrieben. Objekte haben Daten oder Parameter (die <strong>Attribute</strong>) und Fähigkeiten (die <strong>Methoden</strong>). Wichtig ist, das in Objekten beides zusammenkommt, d.h. Objekte besitzen Attribute und Methoden. Nehmen wir ein einfaches Beispiel: Ein Fahrrad hat bestimmte Parameter, z.B. die Radgröße, die Farbe, die Anzahl der Gänge etc. Das wären die Attribute. Ein Fahrrad hat aber auch Methoden und zwar das Fahren, oder z.B. Klingeln.</p>
+<p><img alt="Beispiel einer Klasse Fahrrad" src="lesson_material_german/C:/Users/flori/images/fig_oop_bike_class.png" /></p>
 <p>Gleich zu Beginn eine wichtige Unterscheidung die am Anfang oft für Verwirrung sorgt: <strong>Klasse vs. Objekt</strong>.
 Eine <strong>Klasse</strong> definiert einen Typen, sie ist also eine Art Vorlage. Ein Objekt (oder auch: <strong>Instanz</strong>) ist dagegen nur ein Exemplar das auf einer bestimmten Klasse beruht. Im Beispiel hier wäre <em>Fahrrad</em> eine Klasse und jedes echte an uns vorbeifahrende Fahrrad wäre jeweils ein Objekt der Klasse Fahrrad. Keines davon <strong>ist</strong> eine Vorlage für Fahrrad, sondern sie entsprechen der Vorlage Fahrrad weil sie die entsprechenden Eigenschaften und Methoden haben.</p>
 <p>Das heißt auch: Es gibt nur <strong>eine Klasse</strong> Fahrrad, aber theoretisch <strong>beliebig viele Objekte</strong> der Klasse Fahrrad.</p>
@@ -520,186 +531,475 @@ Eine <strong>Klasse</strong> definiert einen Typen, sie ist also eine Art Vorlag
 <h3><span class="section-number">14.2.1. </span>Eine Klasse definieren<a class="headerlink" href="#eine-klasse-definieren" title="Link to this heading">#</a></h3>
 <p>Eine Klasse ist nun eine Möglichkeit unsere eigenen Datentypen zu definieren.
 Wichtig: Klassen sind absolut nichts, das speziell für Python ist. Die meisten modernen Programmiersprachen erlauben es Klassen zu definieren.</p>
-<p>Fangen wir einfach an und definieren einfach mal einen neuen Datentypen, bzw. eine neue Klasse, namens <code class="docutils literal notranslate"><span class="pre">Point()</span></code>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Point</span><span class="p">:</span>
+<p>Als durchgängiges Beispiel verwenden wir einen <strong>Aufzug</strong>. Ein Aufzug passt gut zu objektorientierter Programmierung, weil er einerseits einen <strong>Zustand</strong> besitzt (z.B. aktuelle Etage und Türstatus) und andererseits bestimmte <strong>Aktionen</strong> ausführen kann (z.B. Tür öffnen oder in eine andere Etage fahren).</p>
+<p>Wir beginnen trotzdem ganz klein:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Elevator</span><span class="p">:</span>
     <span class="k">pass</span>  <span class="c1"># pass bedeutet hier: Dieser Block macht noch nichts.</span>
-
-<span class="n">a</span> <span class="o">=</span> <span class="n">Point</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>  <span class="c1"># =&gt; &lt;__main__.Point object at 0x000001F9DB02BDC0&gt;</span>
 </pre></div>
 </div>
-<p>Mit <code class="docutils literal notranslate"><span class="pre">class</span></code> können wir in Python eine neue Klasse definieren. Für Klassennamen ist in Python die <strong>CapWords-/PascalCase-Konvention</strong> üblich: Jedes Wort beginnt mit einem Großbuchstaben, z.B. <code class="docutils literal notranslate"><span class="pre">MyClass</span></code> oder <code class="docutils literal notranslate"><span class="pre">DoesWhatYouWant</span></code>.</p>
-<p>Ein Objekt (d.h. eine Instanz einer Klasse) kann danach wie bei Funktionen generiert werden mit, hier war es <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">Point()</span></code>. Damit ist <code class="docutils literal notranslate"><span class="pre">a</span></code> ein Objekt der Klasse Point. Auch das können wir übrigens mit <code class="docutils literal notranslate"><span class="pre">type()</span></code> abfragen.</p>
-<p>Eine Klasse enthält <strong>Attribute</strong> (attributes) und <strong>Methoden</strong> (methods).
-Attribute entsprechen Variablen und -wie oben schon erwähnt- Methoden entsprechen Funktionen.  Beides wird in Python über ein <code class="docutils literal notranslate"><span class="pre">.</span></code>aufgerufen. Wir beginnen mit den Attributen.</p>
-</section>
-<section id="attribute-methoden">
-<h3><span class="section-number">14.2.2. </span>Attribute &amp; Methoden<a class="headerlink" href="#attribute-methoden" title="Link to this heading">#</a></h3>
-<p>Attribute können einfach hinzugefügt, bzw. verändert werden. Objekte sind veränderbar, d.h. wir können  auch die Attribute anpassen:</p>
+<p>Mit <code class="docutils literal notranslate"><span class="pre">class</span></code> können wir in Python eine neue Klasse definieren. Für Klassennamen ist in Python die <strong>CapWords-/PascalCase-Konvention</strong> üblich: Jedes Wort beginnt mit einem Großbuchstaben, z.B. <code class="docutils literal notranslate"><span class="pre">Elevator</span></code>, <code class="docutils literal notranslate"><span class="pre">MyClass</span></code> oder <code class="docutils literal notranslate"><span class="pre">BuildingDisplay</span></code>.</p>
+<p>Die Klasse ist zunächst nur der <strong>Bauplan</strong>. Daraus können wir jetzt konkrete Objekte (Instanzen) erzeugen:</p>
 <!-- pytest-codeblocks:cont -->
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">point1</span> <span class="o">=</span> <span class="n">Point</span><span class="p">()</span>
-<span class="n">point1</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">4</span>
-<span class="n">point1</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="mi">3</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">point1</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">point1</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>  <span class="c1"># =&gt; 4 3</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">elevator_a</span> <span class="o">=</span> <span class="n">Elevator</span><span class="p">()</span>
+<span class="n">elevator_b</span> <span class="o">=</span> <span class="n">Elevator</span><span class="p">()</span>
 
-<span class="n">point1</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">point1</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">point1</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>  <span class="c1"># =&gt; 0 3</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">elevator_a</span><span class="p">))</span>  <span class="c1"># =&gt; &lt;class '__main__.Elevator'&gt;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">elevator_a</span> <span class="ow">is</span> <span class="n">elevator_b</span><span class="p">)</span>  <span class="c1"># =&gt; False</span>
 </pre></div>
 </div>
-<p>Und jetzt möchten wir eine erste Methode zu <code class="docutils literal notranslate"><span class="pre">Point</span></code>hinzufügen:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Point</span><span class="p">:</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">position</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
-        
-<span class="n">point1</span> <span class="o">=</span> <span class="n">Point</span><span class="p">()</span>
-<span class="n">point1</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">4</span>
-<span class="n">point1</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="mi">3</span>
-<span class="n">point1</span><span class="o">.</span><span class="n">position</span><span class="p">()</span>
+<p>Beide Objekte wurden mit derselben Klasse erzeugt, sind aber zwei <strong>verschiedene Instanzen</strong>. Genau wie zwei echte Aufzüge im selben Gebäude zwar nach demselben Bauplan gebaut sein können, aber nicht deshalb derselbe Aufzug sind.</p>
+</section>
+<section id="init-self-und-instanzattribute">
+<h3><span class="section-number">14.2.2. </span><code class="docutils literal notranslate"><span class="pre">__init__()</span></code>, <code class="docutils literal notranslate"><span class="pre">self</span></code> und Instanzattribute<a class="headerlink" href="#init-self-und-instanzattribute" title="Link to this heading">#</a></h3>
+<p>Ein echter Aufzug braucht natürlich mehr Informationen. Zum Beispiel:</p>
+<ul class="simple">
+<li><p>Welche Etagen darf er anfahren?</p></li>
+<li><p>Auf welcher Etage befindet er sich gerade?</p></li>
+<li><p>Ist die Tür offen oder geschlossen?</p></li>
+</ul>
+<p>Diese Informationen sollen jedes <code class="docutils literal notranslate"><span class="pre">Elevator</span></code>-Objekt von Anfang an besitzen. Dafür verwenden wir <code class="docutils literal notranslate"><span class="pre">__init__()</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Elevator</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">accessible_levels</span><span class="p">,</span> <span class="n">start_level</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">accessible_levels</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">accessible_levels</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">current_level</span> <span class="o">=</span> <span class="n">start_level</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">door_open</span> <span class="o">=</span> <span class="kc">False</span>
 </pre></div>
 </div>
-<p>Aber jetzt passiert folgendes:</p>
-<!-- pytest-codeblocks:expect-error -->
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">point2</span> <span class="o">=</span> <span class="n">Point</span><span class="p">()</span>
-<span class="n">point2</span><span class="o">.</span><span class="n">position</span><span class="p">()</span>  <span class="c1"># =&gt; AttributeError: 'Point' object has no attribute 'x'</span>
-</pre></div>
-</div>
-<p><code class="docutils literal notranslate"><span class="pre">point2</span></code> ist eine neue Instanz der Klasse Point. Da die Methode <code class="docutils literal notranslate"><span class="pre">position()</span></code>zur Klasse Point gehört, ist diese natürlich verfügbar, aber die Attribute x und y wurde noch nicht definiert. Darum gibt es hier diese Fehlermeldung.</p>
-<p>Eigentlich sollte jedes Point-Objekt auf jeden Fall eine x und y-Position haben! Das ist auch möglich, und zwar über eine „init-Methode“, auch Konstruktor (<em>constructor</em>) genannt. Das ist eine Methode die sofort beim Erstellen eines Objektes aufgerufen werden. In Python nutzen wir dafür die Methode <code class="docutils literal notranslate"><span class="pre">__init__</span></code>, die direkt nach dem Erzeugen einer neuen Instanz zur Initialisierung aufgerufen wird (im Einstieg oft vereinfachend als Konstruktor bezeichnet):</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Point</span><span class="p">:</span>
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span>
+<p><code class="docutils literal notranslate"><span class="pre">__init__()</span></code> wird direkt nach dem Erzeugen einer neuen Instanz zur Initialisierung aufgerufen (im Einstieg oft vereinfachend als Konstruktor bezeichnet).</p>
+<p>Hier sind <code class="docutils literal notranslate"><span class="pre">accessible_levels</span></code> und <code class="docutils literal notranslate"><span class="pre">start_level</span></code> <strong>Parameter</strong> der Methode. Mit <code class="docutils literal notranslate"><span class="pre">self.current_level</span> <span class="pre">=</span> <span class="pre">start_level</span></code> wird der übergebene Wert anschließend als <strong>Attribut des erzeugten Objekts</strong> gespeichert.</p>
+<p><code class="docutils literal notranslate"><span class="pre">self</span></code> steht dabei für das konkrete Objekt, das gerade erzeugt oder benutzt wird. Deshalb können zwei Aufzüge mit derselben Klasse unterschiedliche Zustände besitzen:</p>
+<!-- pytest-codeblocks:cont -->
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">elevator_a</span> <span class="o">=</span> <span class="n">Elevator</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="n">elevator_b</span> <span class="o">=</span> <span class="n">Elevator</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">start_level</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 
-    <span class="k">def</span><span class="w"> </span><span class="nf">position</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
-
-<span class="n">point1</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-<span class="n">point1</span><span class="o">.</span><span class="n">position</span><span class="p">()</span>  <span class="c1"># =&gt; 10 3</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">elevator_a</span><span class="o">.</span><span class="n">accessible_levels</span><span class="p">)</span>  <span class="c1"># =&gt; [-1, 0, 1, 2, 3]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">elevator_a</span><span class="o">.</span><span class="n">current_level</span><span class="p">)</span>      <span class="c1"># =&gt; 0</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">elevator_b</span><span class="o">.</span><span class="n">current_level</span><span class="p">)</span>      <span class="c1"># =&gt; 2</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">elevator_a</span><span class="o">.</span><span class="n">door_open</span><span class="p">)</span>          <span class="c1"># =&gt; False</span>
 </pre></div>
 </div>
+</section>
+<section id="lokale-variable-oder-attribut">
+<h3><span class="section-number">14.2.3. </span>Lokale Variable oder Attribut?<a class="headerlink" href="#lokale-variable-oder-attribut" title="Link to this heading">#</a></h3>
+<p>Der Unterschied zwischen einer lokalen Variable und einem Attribut ist wichtig:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Elevator</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">accessible_levels</span><span class="p">,</span> <span class="n">start_level</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+        <span class="n">levels</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">accessible_levels</span><span class="p">)</span>  <span class="c1"># lokale Variable</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">accessible_levels</span> <span class="o">=</span> <span class="n">levels</span>   <span class="c1"># Attribut</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">current_level</span> <span class="o">=</span> <span class="n">start_level</span>  <span class="c1"># Attribut</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">door_open</span> <span class="o">=</span> <span class="kc">False</span>            <span class="c1"># Attribut</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">levels</span></code> existiert nur während des Aufrufs von <code class="docutils literal notranslate"><span class="pre">__init__()</span></code>. <code class="docutils literal notranslate"><span class="pre">self.accessible_levels</span></code> bleibt dagegen am Objekt gespeichert und kann später wieder gelesen oder verändert werden.</p>
+<p>Und jedes Objekt besitzt seinen <strong>eigenen Zustand</strong>:</p>
+<!-- pytest-codeblocks:cont -->
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">elevator_a</span> <span class="o">=</span> <span class="n">Elevator</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="n">elevator_b</span> <span class="o">=</span> <span class="n">Elevator</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+
+<span class="n">elevator_a</span><span class="o">.</span><span class="n">current_level</span> <span class="o">=</span> <span class="mi">2</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">elevator_a</span><span class="o">.</span><span class="n">current_level</span><span class="p">)</span>  <span class="c1"># =&gt; 2</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">elevator_b</span><span class="o">.</span><span class="n">current_level</span><span class="p">)</span>  <span class="c1"># =&gt; 0</span>
+</pre></div>
+</div>
+<p>Die Veränderung von <code class="docutils literal notranslate"><span class="pre">elevator_a</span></code> verändert <code class="docutils literal notranslate"><span class="pre">elevator_b</span></code> nicht.</p>
 <p>OK. Kurzes mini-Quiz:</p>
 <blockquote>
 <div><h3 class="rubric" id="quiz">Quiz!</h3>
-<p>In Python ist „my name is“… : (alle zutreffenden Antworten auswählen)</p>
+<p>In Python ist <code class="docutils literal notranslate"><span class="pre">&quot;my</span> <span class="pre">name</span> <span class="pre">is&quot;</span></code> … (alle zutreffenden Antworten auswählen)</p>
 <p>A) … eine Instanz.
-B) … ein Klasse.
+B) … eine Klasse.
 C) … ein Objekt.
-D) … ein Funktion.</p>
+D) … eine Funktion.</p>
 </div></blockquote>
 <p>und</p>
 <blockquote>
-<div><p>Nächste Frage: „my name is“ ist…</p>
-<p>A) ein Objekt der Klasse ‚str‘ (string)
+<div><p>Nächste Frage: <code class="docutils literal notranslate"><span class="pre">&quot;my</span> <span class="pre">name</span> <span class="pre">is&quot;</span></code> ist …</p>
+<p>A) ein Objekt der Klasse <code class="docutils literal notranslate"><span class="pre">str</span></code> (String)
 B) ein Objekt ohne Klasse
-C) ein Objekt der Klasse ‚type‘</p>
+C) ein Objekt der Klasse <code class="docutils literal notranslate"><span class="pre">type</span></code></p>
 </div></blockquote>
-<p>Weiter geht’s…</p>
-<p>Jetzt soll die Klasse Point noch eine weitere Methode bekommen und zwar um den Abstand vom Mittelpunkt (0, 0) zu messen.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+<p>Weiter geht’s …</p>
+</section>
+</section>
+<section id="instanzmethoden">
+<h2><span class="section-number">14.3. </span>Instanzmethoden<a class="headerlink" href="#instanzmethoden" title="Link to this heading">#</a></h2>
+<p>Bisher haben unsere Aufzüge zwar einen Zustand, können aber noch nichts tun. Methoden geben den Objekten Verhalten.</p>
+<p>Wir beginnen mit einer Methode <strong>ohne zusätzlichen Parameter</strong>. Sie soll den aktuellen Zustand beschreiben:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Elevator</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">accessible_levels</span><span class="p">,</span> <span class="n">start_level</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">accessible_levels</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">accessible_levels</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">current_level</span> <span class="o">=</span> <span class="n">start_level</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">door_open</span> <span class="o">=</span> <span class="kc">False</span>
 
-<span class="k">class</span><span class="w"> </span><span class="nc">Point</span><span class="p">:</span>
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">position</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">center_distance</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
-
-<span class="n">a</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">center_distance</span><span class="p">())</span>  <span class="c1"># =&gt; 5.0</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">description</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">door_text</span> <span class="o">=</span> <span class="s2">"offen"</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">door_open</span> <span class="k">else</span> <span class="s2">"geschlossen"</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">"Etage </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">current_level</span><span class="si">}</span><span class="s2">, Tür </span><span class="si">{</span><span class="n">door_text</span><span class="si">}</span><span class="s2">"</span>
 </pre></div>
 </div>
-</section>
-<section id="eine-klasse-unendlich-viele-objekte">
-<h3><span class="section-number">14.2.3. </span>Eine Klasse, unendlich viele Objekte<a class="headerlink" href="#eine-klasse-unendlich-viele-objekte" title="Link to this heading">#</a></h3>
-<p>Es können beliebig viele Objekte einer Klasse erzeugt werden. Die Klasse bleibt dabei immer dieselbe. Und alle Objekte der Klasse (also alle Objekte die mit Hilfe derselben Klasse erzeugt wurden) verfügen über die gleichen Methoden.</p>
+<p><code class="docutils literal notranslate"><span class="pre">door_text</span></code> ist wieder nur eine <strong>lokale Variable</strong> der Methode. Die Methode liest Attribute des Objekts, verändert sie aber nicht.</p>
 <!-- pytest-codeblocks:cont -->
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">random</span><span class="w"> </span><span class="kn">import</span> <span class="n">randint</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">elevator</span> <span class="o">=</span> <span class="n">Elevator</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">start_level</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
-<span class="n">point_collection</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">before_level</span> <span class="o">=</span> <span class="n">elevator</span><span class="o">.</span><span class="n">current_level</span>
+<span class="n">before_door</span> <span class="o">=</span> <span class="n">elevator</span><span class="o">.</span><span class="n">door_open</span>
 
-<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
-    <span class="n">new_point</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="n">randint</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">randint</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
-    <span class="n">point_collection</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">new_point</span><span class="p">)</span>
+<span class="n">text</span> <span class="o">=</span> <span class="n">elevator</span><span class="o">.</span><span class="n">description</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>  <span class="c1"># =&gt; Etage 1, Tür geschlossen</span>
 
-<span class="k">for</span> <span class="n">point</span> <span class="ow">in</span> <span class="n">point_collection</span><span class="p">:</span>
-    <span class="n">point</span><span class="o">.</span><span class="n">position</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">elevator</span><span class="o">.</span><span class="n">current_level</span> <span class="o">==</span> <span class="n">before_level</span><span class="p">)</span>  <span class="c1"># =&gt; True</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">elevator</span><span class="o">.</span><span class="n">door_open</span> <span class="o">==</span> <span class="n">before_door</span><span class="p">)</span>        <span class="c1"># =&gt; True</span>
 </pre></div>
 </div>
-<p>Die Liste <code class="docutils literal notranslate"><span class="pre">point_collection</span></code> enthält anschließend 10 <code class="docutils literal notranslate"><span class="pre">Point</span></code> Objekte, die zwar alle die gleichen Methoden haben und damit auch alle über die Attribute x und y verfügen, aber die alle ganz unterschiedliche Werte für x und y haben können.</p>
+<p>Die Beschreibung wird als <strong>String zurückgegeben</strong>. Das ist etwas anderes als direkt in der Methode zu <code class="docutils literal notranslate"><span class="pre">print()</span></code>en: Das Hauptprogramm kann nun selbst entscheiden, was mit dem String passieren soll.</p>
+<section id="methoden-mit-zusatzlichen-parametern">
+<h3><span class="section-number">14.3.1. </span>Methoden mit zusätzlichen Parametern<a class="headerlink" href="#methoden-mit-zusatzlichen-parametern" title="Link to this heading">#</a></h3>
+<p>Methoden können genau wie Funktionen weitere Parameter erhalten. Zum Beispiel können wir fragen, wie weit eine gewünschte Etage von der aktuellen Position entfernt ist:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Elevator</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">accessible_levels</span><span class="p">,</span> <span class="n">start_level</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">accessible_levels</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">accessible_levels</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">current_level</span> <span class="o">=</span> <span class="n">start_level</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">door_open</span> <span class="o">=</span> <span class="kc">False</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">description</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">door_text</span> <span class="o">=</span> <span class="s2">"offen"</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">door_open</span> <span class="k">else</span> <span class="s2">"geschlossen"</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">"Etage </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">current_level</span><span class="si">}</span><span class="s2">, Tür </span><span class="si">{</span><span class="n">door_text</span><span class="si">}</span><span class="s2">"</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">distance_to</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">level</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">abs</span><span class="p">(</span><span class="n">level</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">current_level</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">distance_to()</span></code> benötigt neben dem Objekt (<code class="docutils literal notranslate"><span class="pre">self</span></code>) noch die gewünschte Etage <code class="docutils literal notranslate"><span class="pre">level</span></code>.</p>
+<!-- pytest-codeblocks:cont -->
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">elevator</span> <span class="o">=</span> <span class="n">Elevator</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">start_level</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">distance</span> <span class="o">=</span> <span class="n">elevator</span><span class="o">.</span><span class="n">distance_to</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">distance</span><span class="p">)</span>  <span class="c1"># =&gt; 2</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">elevator</span><span class="o">.</span><span class="n">current_level</span><span class="p">)</span>  <span class="c1"># =&gt; 1</span>
+</pre></div>
+</div>
+<p>Auch <code class="docutils literal notranslate"><span class="pre">distance_to()</span></code> ist eine <strong>lesende/berechnende Methode</strong>: Sie berechnet einen Wert aus dem Zustand des Objekts, verändert den Zustand aber nicht.</p>
 </section>
+</section>
+<section id="zustandsandernde-methoden">
+<h2><span class="section-number">14.4. </span>Zustandsändernde Methoden<a class="headerlink" href="#zustandsandernde-methoden" title="Link to this heading">#</a></h2>
+<p>Andere Methoden sollen den Zustand eines Objekts ganz bewusst verändern. Bei unserem Aufzug sind das zum Beispiel <code class="docutils literal notranslate"><span class="pre">open_door()</span></code>, <code class="docutils literal notranslate"><span class="pre">close_door()</span></code> und später <code class="docutils literal notranslate"><span class="pre">move_to()</span></code>.</p>
+<p>Dabei ist es hilfreich, wenn die Methode zusätzlich zurückgibt, ob die gewünschte Aktion tatsächlich durchgeführt wurde. Hier verwenden wir dafür <code class="docutils literal notranslate"><span class="pre">True</span></code> oder <code class="docutils literal notranslate"><span class="pre">False</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Elevator</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">accessible_levels</span><span class="p">,</span> <span class="n">start_level</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">accessible_levels</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">accessible_levels</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">current_level</span> <span class="o">=</span> <span class="n">start_level</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">door_open</span> <span class="o">=</span> <span class="kc">False</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">description</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">door_text</span> <span class="o">=</span> <span class="s2">"offen"</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">door_open</span> <span class="k">else</span> <span class="s2">"geschlossen"</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">"Etage </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">current_level</span><span class="si">}</span><span class="s2">, Tür </span><span class="si">{</span><span class="n">door_text</span><span class="si">}</span><span class="s2">"</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">distance_to</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">level</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">abs</span><span class="p">(</span><span class="n">level</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">current_level</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">open_door</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">door_open</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">door_open</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">return</span> <span class="kc">True</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">close_door</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">door_open</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">door_open</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="k">return</span> <span class="kc">True</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">move_to</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">level</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">door_open</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">if</span> <span class="n">level</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">accessible_levels</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">if</span> <span class="n">level</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">current_level</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">current_level</span> <span class="o">=</span> <span class="n">level</span>
+        <span class="k">return</span> <span class="kc">True</span>
+</pre></div>
+</div>
+<p>Jetzt können wir verschiedene Zustandsänderungen gezielt ausprobieren:</p>
+<!-- pytest-codeblocks:cont -->
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">elevator</span> <span class="o">=</span> <span class="n">Elevator</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">elevator</span><span class="o">.</span><span class="n">open_door</span><span class="p">())</span>   <span class="c1"># =&gt; True: Tür wurde geöffnet</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">elevator</span><span class="o">.</span><span class="n">open_door</span><span class="p">())</span>   <span class="c1"># =&gt; False: Tür war schon offen</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">elevator</span><span class="o">.</span><span class="n">close_door</span><span class="p">())</span>  <span class="c1"># =&gt; True: entgegengesetzte Änderung</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">elevator</span><span class="o">.</span><span class="n">door_open</span><span class="p">)</span>     <span class="c1"># =&gt; False</span>
+</pre></div>
+</div>
+<p>Die <strong>Rückgabe</strong> und der <strong>Folgezustand</strong> sind zwei verschiedene Dinge. <code class="docutils literal notranslate"><span class="pre">open_door()</span></code> gibt zum Beispiel <code class="docutils literal notranslate"><span class="pre">True</span></code> zurück und verändert gleichzeitig <code class="docutils literal notranslate"><span class="pre">self.door_open</span></code>.</p>
+<p>Auch beim Fahren können wir jetzt prüfen, ob eine Aktion erlaubt war:</p>
+<!-- pytest-codeblocks:cont -->
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">elevator</span><span class="o">.</span><span class="n">move_to</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>   <span class="c1"># =&gt; True</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">elevator</span><span class="o">.</span><span class="n">current_level</span><span class="p">)</span>  <span class="c1"># =&gt; 2</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">elevator</span><span class="o">.</span><span class="n">move_to</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>   <span class="c1"># =&gt; False: schon auf Etage 2</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">elevator</span><span class="o">.</span><span class="n">move_to</span><span class="p">(</span><span class="mi">8</span><span class="p">))</span>   <span class="c1"># =&gt; False: Etage nicht erreichbar</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">elevator</span><span class="o">.</span><span class="n">current_level</span><span class="p">)</span>  <span class="c1"># =&gt; 2</span>
+
+<span class="n">elevator</span><span class="o">.</span><span class="n">open_door</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">elevator</span><span class="o">.</span><span class="n">move_to</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>   <span class="c1"># =&gt; False: Tür ist offen</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">elevator</span><span class="o">.</span><span class="n">current_level</span><span class="p">)</span>  <span class="c1"># =&gt; 2</span>
+</pre></div>
+</div>
+<p>Das Beispiel zeigt einen wichtigen Unterschied:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">description()</span></code> und <code class="docutils literal notranslate"><span class="pre">distance_to()</span></code> <strong>lesen/berechnen</strong> etwas.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">open_door()</span></code>, <code class="docutils literal notranslate"><span class="pre">close_door()</span></code> und <code class="docutils literal notranslate"><span class="pre">move_to()</span></code> <strong>verändern den Zustand</strong> des Objekts.</p></li>
+</ul>
+</section>
+<section id="statische-methoden-staticmethod">
+<h2><span class="section-number">14.5. </span>Statische Methoden (<code class="docutils literal notranslate"><span class="pre">&#64;staticmethod</span></code>)<a class="headerlink" href="#statische-methoden-staticmethod" title="Link to this heading">#</a></h2>
+<p>Nicht jede Funktionalität, die thematisch zu einer Klasse gehört, benötigt tatsächlich ein konkretes Objekt.</p>
+<p>Für die Anzeige eines Stockwerks wollen wir zum Beispiel folgende Bezeichnungen verwenden:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">-1</span></code> → <code class="docutils literal notranslate"><span class="pre">UG</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">0</span></code> → <code class="docutils literal notranslate"><span class="pre">EG</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">1</span></code> → <code class="docutils literal notranslate"><span class="pre">1.</span> <span class="pre">OG</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">2</span></code> → <code class="docutils literal notranslate"><span class="pre">2.</span> <span class="pre">OG</span></code></p></li>
+</ul>
+<p>Dafür benötigen wir weder <code class="docutils literal notranslate"><span class="pre">current_level</span></code> noch irgendein anderes Attribut eines bestimmten Aufzugs. Solch eine Methode kann als <strong>statische Methode</strong> definiert werden:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Elevator</span><span class="p">:</span>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">level_label</span><span class="p">(</span><span class="n">level</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">level</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">"UG"</span>
+        <span class="k">if</span> <span class="n">level</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">"EG"</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">level</span><span class="si">}</span><span class="s2">. OG"</span>
+</pre></div>
+</div>
+<p>Eine statische Methode hat kein <code class="docutils literal notranslate"><span class="pre">self</span></code>. Wir können sie direkt über die Klasse aufrufen:</p>
+<!-- pytest-codeblocks:cont -->
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">Elevator</span><span class="o">.</span><span class="n">level_label</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>  <span class="c1"># =&gt; UG</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Elevator</span><span class="o">.</span><span class="n">level_label</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>   <span class="c1"># =&gt; EG</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Elevator</span><span class="o">.</span><span class="n">level_label</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>   <span class="c1"># =&gt; 3. OG</span>
+</pre></div>
+</div>
+<p>Die Entscheidung lautet also grob:</p>
+<ul class="simple">
+<li><p>Braucht die Methode <strong>Daten eines konkreten Objekts</strong>? → Instanzmethode mit <code class="docutils literal notranslate"><span class="pre">self</span></code>.</p></li>
+<li><p>Gehört die Funktion logisch zur Klasse, braucht aber <strong>keinen Objektzustand</strong>? → eventuell <code class="docutils literal notranslate"><span class="pre">&#64;staticmethod</span></code>.</p></li>
+</ul>
+</section>
+<section id="eine-klasse-viele-objekte">
+<h2><span class="section-number">14.6. </span>Eine Klasse, viele Objekte<a class="headerlink" href="#eine-klasse-viele-objekte" title="Link to this heading">#</a></h2>
+<p>Es können beliebig viele Objekte einer Klasse erzeugt werden. Die Klasse bleibt dabei dieselbe, die Zustände der einzelnen Objekte können aber unterschiedlich sein.</p>
+<p>Für das folgende Beispiel verwenden wir noch einmal unsere vollständige Aufzugsklasse:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Elevator</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">accessible_levels</span><span class="p">,</span> <span class="n">start_level</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">accessible_levels</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">accessible_levels</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">current_level</span> <span class="o">=</span> <span class="n">start_level</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">door_open</span> <span class="o">=</span> <span class="kc">False</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">description</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">door_text</span> <span class="o">=</span> <span class="s2">"offen"</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">door_open</span> <span class="k">else</span> <span class="s2">"geschlossen"</span>
+        <span class="n">level_text</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">level_label</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">current_level</span><span class="p">)</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">level_text</span><span class="si">}</span><span class="s2">, Tür </span><span class="si">{</span><span class="n">door_text</span><span class="si">}</span><span class="s2">"</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">distance_to</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">level</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">abs</span><span class="p">(</span><span class="n">level</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">current_level</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">open_door</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">door_open</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">door_open</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">return</span> <span class="kc">True</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">close_door</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">door_open</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">door_open</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="k">return</span> <span class="kc">True</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">move_to</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">level</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">door_open</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">if</span> <span class="n">level</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">accessible_levels</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">if</span> <span class="n">level</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">current_level</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">current_level</span> <span class="o">=</span> <span class="n">level</span>
+        <span class="k">return</span> <span class="kc">True</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">level_label</span><span class="p">(</span><span class="n">level</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">level</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">"UG"</span>
+        <span class="k">if</span> <span class="n">level</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">"EG"</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">level</span><span class="si">}</span><span class="s2">. OG"</span>
+</pre></div>
+</div>
+<p>Nun können wir mehrere Aufzüge in einer Liste verwalten:</p>
+<!-- pytest-codeblocks:cont -->
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">elevators</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">Elevator</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">start_level</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span>
+    <span class="n">Elevator</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="n">start_level</span><span class="o">=</span><span class="mi">2</span><span class="p">),</span>
+    <span class="n">Elevator</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">start_level</span><span class="o">=-</span><span class="mi">1</span><span class="p">),</span>
+<span class="p">]</span>
+
+<span class="k">for</span> <span class="n">elevator</span> <span class="ow">in</span> <span class="n">elevators</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">elevator</span><span class="o">.</span><span class="n">current_level</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">elevator</span><span class="o">.</span><span class="n">description</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>Hier enthält die Liste nicht Zahlen oder Strings, sondern drei selbst erzeugte <code class="docutils literal notranslate"><span class="pre">Elevator</span></code>-Objekte. In der Schleife können wir ihre Attribute lesen und ihre Methoden aufrufen.</p>
+</section>
+<section id="ein-zweiter-kleiner-datentyp-display">
+<h2><span class="section-number">14.7. </span>Ein zweiter kleiner Datentyp: <code class="docutils literal notranslate"><span class="pre">Display</span></code><a class="headerlink" href="#ein-zweiter-kleiner-datentyp-display" title="Link to this heading">#</a></h2>
+<p>Ein größerer Vorteil von OOP wird sichtbar, wenn verschiedene Objekte unterschiedliche Aufgaben übernehmen.</p>
+<p>Ein Aufzug könnte zum Beispiel ein kleines Display besitzen. Das Display muss nicht wissen, wie ein Aufzug fährt oder welche Türen geöffnet werden dürfen. Seine Aufgabe ist nur, eine Nachricht anzuzeigen bzw. zu speichern:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Display</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">message</span> <span class="o">=</span> <span class="s2">""</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">show</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">message</span> <span class="o">=</span> <span class="n">message</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">message</span>
+</pre></div>
+</div>
+<!-- pytest-codeblocks:cont -->
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">display</span> <span class="o">=</span> <span class="n">Display</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">display</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="s2">"↑ 2. OG"</span><span class="p">))</span>  <span class="c1"># =&gt; ↑ 2. OG</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">display</span><span class="o">.</span><span class="n">message</span><span class="p">)</span>           <span class="c1"># =&gt; ↑ 2. OG</span>
+</pre></div>
+</div>
 <section id="objekte-die-andere-objekte-enthalten-komposition">
-<h3><span class="section-number">14.2.4. </span>Objekte die andere Objekte enthalten („Komposition“)<a class="headerlink" href="#objekte-die-andere-objekte-enthalten-komposition" title="Link to this heading">#</a></h3>
-<p>Wie gerade eben gesehen, können wir beliebig viele Instanzen einer Klasse erzeugen (=Objekte). Häufig werden verschiedene Klassen für verschiedene Aufgaben oder Datentypen definiert. Diese können aber in vielfältiger weise miteinander interagieren.</p>
-<p>Eine Möglichkeit besteht darin, dass eine Klasse auf weitere Klassen zugreift. Stellen wir uns z.B. vor wir wollen eine Klasse Dreieck (oder auf Englisch: Triangle) erstellen. Dann könnte diese Klasse als Ecken unsere oben definierte <code class="docutils literal notranslate"><span class="pre">Point</span></code> Klasse verwenden.</p>
-<!-- pytest-codeblocks:skip -->
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Triangle</span><span class="p">:</span>
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">corners</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">corners</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
-        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">corners</span><span class="p">):</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">corners</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<h3><span class="section-number">14.7.1. </span>Objekte die andere Objekte enthalten („Komposition“)<a class="headerlink" href="#objekte-die-andere-objekte-enthalten-komposition" title="Link to this heading">#</a></h3>
+<p>Eine Klasse kann auch Objekte einer anderen Klasse als Attribut enthalten. Das nennt man <strong>Komposition</strong>.</p>
+<p>Wir können beispielsweise jedem Aufzug ein <code class="docutils literal notranslate"><span class="pre">Display</span></code> geben. Die folgende verkürzte Version konzentriert sich nur auf diesen neuen Aspekt:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Display</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">message</span> <span class="o">=</span> <span class="s2">""</span>
 
-<span class="n">tri_1</span> <span class="o">=</span> <span class="n">Triangle</span><span class="p">([(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mf">15.5</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">)])</span>
-<span class="n">tri_1</span><span class="o">.</span><span class="n">corners</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">position</span><span class="p">()</span>  <span class="c1"># --&gt; 15.5 7</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">show</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">message</span> <span class="o">=</span> <span class="n">message</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">message</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Elevator</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">accessible_levels</span><span class="p">,</span> <span class="n">display</span><span class="p">,</span> <span class="n">start_level</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">accessible_levels</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">accessible_levels</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">current_level</span> <span class="o">=</span> <span class="n">start_level</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">door_open</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">display</span> <span class="o">=</span> <span class="n">display</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">move_to</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">level</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">door_open</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">if</span> <span class="n">level</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">accessible_levels</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">if</span> <span class="n">level</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">current_level</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+
+        <span class="n">direction</span> <span class="o">=</span> <span class="s2">"↑"</span> <span class="k">if</span> <span class="n">level</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">current_level</span> <span class="k">else</span> <span class="s2">"↓"</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">direction</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">level_label</span><span class="p">(</span><span class="n">level</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">current_level</span> <span class="o">=</span> <span class="n">level</span>
+        <span class="k">return</span> <span class="kc">True</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">level_label</span><span class="p">(</span><span class="n">level</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">level</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">"UG"</span>
+        <span class="k">if</span> <span class="n">level</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">"EG"</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">level</span><span class="si">}</span><span class="s2">. OG"</span>
 </pre></div>
 </div>
-</section>
-<section id="methoden-die-objekte-nutzen">
-<h3><span class="section-number">14.2.5. </span>Methoden die Objekte nutzen<a class="headerlink" href="#methoden-die-objekte-nutzen" title="Link to this heading">#</a></h3>
-<p>Genau wie bei <code class="docutils literal notranslate"><span class="pre">__init__</span></code>, oder auch genau wie bei Funktionen, können Methoden beliebige Argumente nutzen (nicht nur <code class="docutils literal notranslate"><span class="pre">self</span></code>). Das können beliebige Datentypen sein wie List, Set, Dictionary etc. oder auch Objekte von uns selbst definierten Klassen. Es können sogar auch Objekte des gleichen Typs als Argumente verwendet werden. Zum Beispiel wenn wir den Abstand von einem <code class="docutils literal notranslate"><span class="pre">Point</span></code>-Objekt zu einem anderen <code class="docutils literal notranslate"><span class="pre">Point</span></code>-Objekt berechnen wollen:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
-
-<span class="k">class</span><span class="w"> </span><span class="nc">Point</span><span class="p">:</span>
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">position</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="nf">center_distance</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
-    
-    <span class="k">def</span><span class="w"> </span><span class="nf">distance_to_point</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">point</span><span class="p">):</span>
-        <span class="n">dist_x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">-</span> <span class="n">point</span><span class="o">.</span><span class="n">x</span>
-        <span class="n">dist_y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">-</span> <span class="n">point</span><span class="o">.</span><span class="n">y</span>
-        <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">dist_x</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">dist_y</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
-
-<span class="n">a</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-<span class="n">b</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="o">-</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">distance_to_point</span><span class="p">(</span><span class="n">b</span><span class="p">))</span>  <span class="c1"># =&gt; 12.083045973594572</span>
-</pre></div>
-</div>
-<p>Nochmal ein anderes Beispiel in dem wir eine Klasse <code class="docutils literal notranslate"><span class="pre">Fruit</span></code> definieren. Danach erstellen wir damit verschiedene <code class="docutils literal notranslate"><span class="pre">Fruit</span></code>-Objekte.</p>
 <!-- pytest-codeblocks:cont -->
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Fruit</span><span class="p">:</span>
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span>
-                 <span class="n">good_for</span><span class="o">=</span><span class="p">[]):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">good_for</span> <span class="o">=</span> <span class="n">good_for</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">main_display</span> <span class="o">=</span> <span class="n">Display</span><span class="p">()</span>
+<span class="n">elevator</span> <span class="o">=</span> <span class="n">Elevator</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">main_display</span><span class="p">)</span>
 
-    <span class="k">def</span><span class="w"> </span><span class="nf">juice</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">if</span> <span class="s2">"juice"</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">good_for</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Voilà! </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> juice!"</span><span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> juice? Better not."</span><span class="p">)</span>
-
-
-<span class="n">apple</span> <span class="o">=</span> <span class="n">Fruit</span><span class="p">(</span><span class="s2">"apple"</span><span class="p">,</span> <span class="n">good_for</span><span class="o">=</span><span class="p">[</span><span class="s2">"juice"</span><span class="p">,</span> <span class="s2">"cake"</span><span class="p">])</span>
-<span class="n">apple</span><span class="o">.</span><span class="n">juice</span><span class="p">()</span>
-
-<span class="n">banana</span> <span class="o">=</span> <span class="n">Fruit</span><span class="p">(</span><span class="s2">"banana"</span><span class="p">,</span> <span class="n">good_for</span><span class="o">=</span><span class="p">[</span><span class="s2">"cake"</span><span class="p">])</span>
-<span class="n">banana</span><span class="o">.</span><span class="n">juice</span><span class="p">()</span>
+<span class="n">elevator</span><span class="o">.</span><span class="n">move_to</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">elevator</span><span class="o">.</span><span class="n">current_level</span><span class="p">)</span>   <span class="c1"># =&gt; 2</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">main_display</span><span class="o">.</span><span class="n">message</span><span class="p">)</span>     <span class="c1"># =&gt; ↑ 2. OG</span>
 </pre></div>
 </div>
-<p>Super.</p>
-<p>Wir können jetzt eigene Klassen definieren.</p>
-<p>So what!? Was bringt das denn jetzt überhaupt?</p>
-<p>Eine ganze Reihe! Zum einen helfen Klassen um Programme sinnvoll zu strukturieren, denn mit Klassen können wir Objekte so entwerfen, dass sie genau die gewüschten Eigenschaften haben und mit allen nötigen Methoden ausgestattet sind. In unserem ersten Beispiel haben wir etwa dafür gesorgt, dass alle <code class="docutils literal notranslate"><span class="pre">Point</span></code> Objekte eine x-y position mitbringen. Und für alle können wir ohne jeglichen extra import die entsprechenden Methoden nutzen, hier war es <code class="docutils literal notranslate"><span class="pre">center_distance()</span></code>.</p>
+<p>Hier macht der Aufzug nicht selbst die komplette Anzeige. Stattdessen besitzt er ein <code class="docutils literal notranslate"><span class="pre">Display</span></code>-Objekt und ruft dessen Methode <code class="docutils literal notranslate"><span class="pre">show()</span></code> auf. Genau solche Zusammenarbeit zwischen Objekten wird uns bei größeren OOP-Beispielen wieder begegnen.</p>
 </section>
+</section>
+<section id="klassen-in-eigenen-dateien">
+<h2><span class="section-number">14.8. </span>Klassen in eigenen Dateien<a class="headerlink" href="#klassen-in-eigenen-dateien" title="Link to this heading">#</a></h2>
+<p>Genau wie Funktionen können Klassen in eigenen Python-Dateien liegen. In einem echten Projekt würden wir die Klassendefinition deshalb häufig vom eigentlichen Hauptprogramm trennen.</p>
+<p>Zum Beispiel könnte <code class="docutils literal notranslate"><span class="pre">elevator.py</span></code> unsere Klasse enthalten:</p>
+<!-- pytest-codeblocks:skip -->
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># elevator.py</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Elevator</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">accessible_levels</span><span class="p">,</span> <span class="n">start_level</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">accessible_levels</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">accessible_levels</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">current_level</span> <span class="o">=</span> <span class="n">start_level</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">door_open</span> <span class="o">=</span> <span class="kc">False</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">move_to</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">level</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">level</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">accessible_levels</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">current_level</span> <span class="o">=</span> <span class="n">level</span>
+        <span class="k">return</span> <span class="kc">True</span>
+</pre></div>
+</div>
+<p>Und das Hauptprogramm liegt in einer zweiten Datei <code class="docutils literal notranslate"><span class="pre">main.py</span></code>:</p>
+<!-- pytest-codeblocks:skip -->
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># main.py</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">elevator</span>
+
+<span class="n">building_elevator</span> <span class="o">=</span> <span class="n">elevator</span><span class="o">.</span><span class="n">Elevator</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="n">building_elevator</span><span class="o">.</span><span class="n">move_to</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">building_elevator</span><span class="o">.</span><span class="n">current_level</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Hier verwenden wir bewusst <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">elevator</span></code> und anschließend <code class="docutils literal notranslate"><span class="pre">elevator.Elevator(...)</span></code>. Damit ist direkt sichtbar, <strong>aus welchem Modul</strong> die Klasse kommt.</p>
+<p>Die beiden Codeblöcke sind für <code class="docutils literal notranslate"><span class="pre">pytest-codeblocks</span></code> mit <code class="docutils literal notranslate"><span class="pre">skip</span></code> markiert, weil sie zwei verschiedene Dateien darstellen und daher nicht als einzelner Markdown-Codeblock ausgeführt werden können.</p>
+</section>
+<section id="eine-kleine-testspur-aufruf-ruckgabe-folgezustand">
+<h2><span class="section-number">14.9. </span>Eine kleine Testspur: Aufruf → Rückgabe → Folgezustand<a class="headerlink" href="#eine-kleine-testspur-aufruf-ruckgabe-folgezustand" title="Link to this heading">#</a></h2>
+<p>Gerade bei zustandsändernden Methoden hilft eine kleine Testspur. Wir schauen dabei nicht nur auf die Rückgabe, sondern auch darauf, was danach im Objekt gespeichert ist.</p>
+<p>Dafür verwenden wir noch einmal eine kompakte Version unserer Klasse:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Elevator</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">accessible_levels</span><span class="p">,</span> <span class="n">start_level</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">accessible_levels</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">accessible_levels</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">current_level</span> <span class="o">=</span> <span class="n">start_level</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">door_open</span> <span class="o">=</span> <span class="kc">False</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">open_door</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">door_open</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">door_open</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">return</span> <span class="kc">True</span>
+</pre></div>
+</div>
+<!-- pytest-codeblocks:cont -->
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">elevator_a</span> <span class="o">=</span> <span class="n">Elevator</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="n">elevator_b</span> <span class="o">=</span> <span class="n">Elevator</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">elevator_a</span><span class="o">.</span><span class="n">open_door</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Aufruf: elevator_a.open_door()"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Rückgabe:"</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span>                  <span class="c1"># =&gt; True</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Folgezustand A:"</span><span class="p">,</span> <span class="n">elevator_a</span><span class="o">.</span><span class="n">door_open</span><span class="p">)</span>  <span class="c1"># =&gt; True</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Folgezustand B:"</span><span class="p">,</span> <span class="n">elevator_b</span><span class="o">.</span><span class="n">door_open</span><span class="p">)</span>  <span class="c1"># =&gt; False</span>
+
+<span class="k">assert</span> <span class="n">result</span> <span class="ow">is</span> <span class="kc">True</span>
+<span class="k">assert</span> <span class="n">elevator_a</span><span class="o">.</span><span class="n">door_open</span> <span class="ow">is</span> <span class="kc">True</span>
+<span class="k">assert</span> <span class="n">elevator_b</span><span class="o">.</span><span class="n">door_open</span> <span class="ow">is</span> <span class="kc">False</span>
+</pre></div>
+</div>
+<p>Damit prüfen wir drei Dinge getrennt:</p>
+<ol class="arabic simple">
+<li><p><strong>Was wurde aufgerufen?</strong></p></li>
+<li><p><strong>Was wurde zurückgegeben?</strong></p></li>
+<li><p><strong>Wie sieht der Objektzustand danach aus?</strong></p></li>
+</ol>
+<p>Und gleichzeitig sehen wir noch einmal: <code class="docutils literal notranslate"><span class="pre">elevator_b</span></code> bleibt vollständig unabhängig von der Änderung an <code class="docutils literal notranslate"><span class="pre">elevator_a</span></code>.</p>
+<p>Super.</p>
+<p>Wir können jetzt eigene Klassen definieren, daraus Objekte erzeugen und Zustände und Verhalten sinnvoll zusammenfassen.</p>
+<p>So what!? Was bringt das denn jetzt überhaupt?</p>
+<p>Eine ganze Reihe! Klassen helfen dabei Programme sinnvoll zu strukturieren. Mit Klassen können wir Objekte so entwerfen, dass sie genau die gewünschten Eigenschaften besitzen und die dazu passenden Methoden mitbringen. Bei unserem Aufzug liegen z.B. Position und Türstatus nicht als lose Variablen irgendwo im Programm, sondern gehören zum jeweiligen <code class="docutils literal notranslate"><span class="pre">Elevator</span></code>-Objekt. Gleichzeitig können mehrere Aufzüge mit derselben Klasse erzeugt werden, ohne dass ihre Zustände miteinander vermischt werden.</p>
 </section>
 </section>
 
@@ -772,12 +1072,23 @@ C) ein Objekt der Klasse ‚type‘</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#einfuhrung">14.1. Einführung</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objektorientierte-programmierung">14.2. Objektorientierte Programmierung</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eine-klasse-definieren">14.2.1. Eine Klasse definieren</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#attribute-methoden">14.2.2. Attribute &amp; Methoden</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eine-klasse-unendlich-viele-objekte">14.2.3. Eine Klasse, unendlich viele Objekte</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#objekte-die-andere-objekte-enthalten-komposition">14.2.4. Objekte die andere Objekte enthalten („Komposition“)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#methoden-die-objekte-nutzen">14.2.5. Methoden die Objekte nutzen</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#init-self-und-instanzattribute">14.2.2. <code class="docutils literal notranslate"><span class="pre">__init__()</span></code>, <code class="docutils literal notranslate"><span class="pre">self</span></code> und Instanzattribute</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lokale-variable-oder-attribut">14.2.3. Lokale Variable oder Attribut?</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instanzmethoden">14.3. Instanzmethoden</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#methoden-mit-zusatzlichen-parametern">14.3.1. Methoden mit zusätzlichen Parametern</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zustandsandernde-methoden">14.4. Zustandsändernde Methoden</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statische-methoden-staticmethod">14.5. Statische Methoden (<code class="docutils literal notranslate"><span class="pre">@staticmethod</span></code>)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eine-klasse-viele-objekte">14.6. Eine Klasse, viele Objekte</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ein-zweiter-kleiner-datentyp-display">14.7. Ein zweiter kleiner Datentyp: <code class="docutils literal notranslate"><span class="pre">Display</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#objekte-die-andere-objekte-enthalten-komposition">14.7.1. Objekte die andere Objekte enthalten („Komposition“)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#klassen-in-eigenen-dateien">14.8. Klassen in eigenen Dateien</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eine-kleine-testspur-aufruf-ruckgabe-folgezustand">14.9. Eine kleine Testspur: Aufruf → Rückgabe → Folgezustand</a></li>
 </ul>
   </nav></div>
 

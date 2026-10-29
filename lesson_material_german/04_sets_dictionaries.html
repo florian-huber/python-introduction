@@ -701,6 +701,7 @@ d) <code class="docutils literal notranslate"><span class="pre">set()</span></co
 </pre></div>
 </div>
 <p>Wie bei Sets gibt es auch hier keine doppelten <strong>Schlüssel</strong>. Allerdings dürfen unterschiedliche Schlüssel durchaus denselben Wert haben. Wenn wir einem bereits vorhandenen Schlüssel einen neuen Wert zuweisen, wird der bisherige Wert ersetzt:</p>
+<!-- pytest-codeblocks:cont -->
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_dict</span><span class="p">[</span><span class="s2">"Hallo"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"hi"</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">my_dict</span><span class="p">[</span><span class="s2">"Hallo"</span><span class="p">])</span>  <span class="c1"># =&gt; hi</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">my_dict</span><span class="p">))</span>       <span class="c1"># =&gt; 3, weiterhin drei Schlüssel</span>

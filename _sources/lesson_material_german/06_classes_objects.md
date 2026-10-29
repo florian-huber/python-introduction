@@ -1,6 +1,7 @@
 # Objektorientierte Programmierung - Einführung
 
 ## Einführung
+
 Bevor wir wirklich loslegen mit der objektorientierten Programmierung (*object-oriented programming*, oft auch einfach nur OOP), eine kurze Wiederholung.
 
 In den vorherigen Kapiteln haben wir uns ein wenig angeschaut, wie man Programme sinnvoll strukturieren kann. Ein zentrales Element hierfür sind **Funktionen**. Damit können ganze Programmteile als eigenständige Sub-Programme abgekapselt werden. Nicht immer wird der Code dadurch direkt viel einfacher, aber es ermöglicht es dem Programme eine logische Struktur zu geben und unterschiedliche Aspekte getrennt voneinander zu bearbeiten oder auch zu verbessern und auszubauen.
@@ -13,9 +14,9 @@ Objektorientierte Programmierung (oder "OOP") ist ein Programmierstil oder wird 
 
 Die ursprüngliche Motivation der objektorientierten Programmierung liegt wohl darin begründet, dass das Vorgehen häufig als sehr intuitiv empfunden wird. Das heißt, sobald man sich an die grundlegenden Prinzipien etwas gewöhnt hat...
 
-In der objektorientierten Programmierung wird alles durch **Objekte** beschrieben. Objekte haben Eigenschaften (die **Attribute**) und Fähigkeiten oder Tätigkeiten, die **Methoden**. Wichtig ist, das in Objekten beides zusammenkommt, d.h. Objekte besitzen Attribute und Methoden. Nehmen wir ein einfaches Beispiel: Ein Fahrrad hat bestimmte Eigenschaften, z.B. die Radgröße, die Farbe, die Anzahl der Gänge etc. Das wären die Attribute. Ein Fahrrad hat aber auch Methoden und zwar das Fahren, oder z.B. Klingeln.
+In der objektorientierten Programmierung wird alles durch **Objekte** beschrieben. Objekte haben Daten oder Parameter (die **Attribute**) und Fähigkeiten (die **Methoden**). Wichtig ist, das in Objekten beides zusammenkommt, d.h. Objekte besitzen Attribute und Methoden. Nehmen wir ein einfaches Beispiel: Ein Fahrrad hat bestimmte Parameter, z.B. die Radgröße, die Farbe, die Anzahl der Gänge etc. Das wären die Attribute. Ein Fahrrad hat aber auch Methoden und zwar das Fahren, oder z.B. Klingeln.
 
-![Beispiel einer Klasse Fahrrad](../images/fig_oop_bike_class.png)
+![Beispiel einer Klasse Fahrrad](C:/Users/flori/images/fig_oop_bike_class.png)
 
 Gleich zu Beginn eine wichtige Unterscheidung die am Anfang oft für Verwirrung sorgt: **Klasse vs. Objekt**.
 Eine **Klasse** definiert einen Typen, sie ist also eine Art Vorlage. Ein Objekt (oder auch: **Instanz**) ist dagegen nur ein Exemplar das auf einer bestimmten Klasse beruht. Im Beispiel hier wäre *Fahrrad* eine Klasse und jedes echte an uns vorbeifahrende Fahrrad wäre jeweils ein Objekt der Klasse Fahrrad. Keines davon **ist** eine Vorlage für Fahrrad, sondern sie entsprechen der Vorlage Fahrrad weil sie die entsprechenden Eigenschaften und Methoden haben.
@@ -31,7 +32,7 @@ numbers = [2, 5, 11, 3]
 print(type(numbers))  # => <class 'list'>
 ```
 
-Mit `type()` bekommen wir sogar den Hinweis, dass numbers zur Klasse `list` gehört. Wie alles andere in Python auch, ist numbers damit ein Objekt. 
+Mit `type()` bekommen wir sogar den Hinweis, dass numbers zur Klasse `list` gehört. Wie alles andere in Python auch, ist numbers damit ein Objekt.
 
 Wir haben gesehen, dass Listen in Python eine ganze Reihe von Methoden mitbringen, z.B:
 
@@ -41,230 +42,560 @@ numbers.sort()
 print(numbers)
 ```
 
-Hier ist `.sort()` die Methode. Wir müssen sie nirgendwo her importieren, sie ist einfach bei der Liste "mit dabei". 
+Hier ist `.sort()` die Methode. Wir müssen sie nirgendwo her importieren, sie ist einfach bei der Liste "mit dabei".
 
-Und genauso haben wir gesehn, dass andere Datentypen mit denen wir schon gearbeitet haben, wie integer, float, string, dictionary, set ebenfalls solche Methoden haben. 
+Und genauso haben wir gesehn, dass andere Datentypen mit denen wir schon gearbeitet haben, wie integer, float, string, dictionary, set ebenfalls solche Methoden haben.
 
 ### Eine Klasse definieren
 
 Eine Klasse ist nun eine Möglichkeit unsere eigenen Datentypen zu definieren.
 Wichtig: Klassen sind absolut nichts, das speziell für Python ist. Die meisten modernen Programmiersprachen erlauben es Klassen zu definieren.
 
-Fangen wir einfach an und definieren einfach mal einen neuen Datentypen, bzw. eine neue Klasse, namens `Point()`:
+Als durchgängiges Beispiel verwenden wir einen **Aufzug**. Ein Aufzug passt gut zu objektorientierter Programmierung, weil er einerseits einen **Zustand** besitzt (z.B. aktuelle Etage und Türstatus) und andererseits bestimmte **Aktionen** ausführen kann (z.B. Tür öffnen oder in eine andere Etage fahren).
+
+Wir beginnen trotzdem ganz klein:
 
 ```python
-class Point:
+class Elevator:
     pass  # pass bedeutet hier: Dieser Block macht noch nichts.
-
-a = Point()
-print(a)  # => <__main__.Point object at 0x000001F9DB02BDC0>
 ```
 
-Mit `class` können wir in Python eine neue Klasse definieren. Für Klassennamen ist in Python die **CapWords-/PascalCase-Konvention** üblich: Jedes Wort beginnt mit einem Großbuchstaben, z.B. `MyClass` oder `DoesWhatYouWant`.
+Mit `class` können wir in Python eine neue Klasse definieren. Für Klassennamen ist in Python die **CapWords-/PascalCase-Konvention** üblich: Jedes Wort beginnt mit einem Großbuchstaben, z.B. `Elevator`, `MyClass` oder `BuildingDisplay`.
 
-Ein Objekt (d.h. eine Instanz einer Klasse) kann danach wie bei Funktionen generiert werden mit, hier war es `a = Point()`. Damit ist `a` ein Objekt der Klasse Point. Auch das können wir übrigens mit `type()` abfragen.
-
-Eine Klasse enthält **Attribute** (attributes) und **Methoden** (methods).
-Attribute entsprechen Variablen und -wie oben schon erwähnt- Methoden entsprechen Funktionen.  Beides wird in Python über ein `.`aufgerufen. Wir beginnen mit den Attributen.
-
-### Attribute & Methoden
-
-Attribute können einfach hinzugefügt, bzw. verändert werden. Objekte sind veränderbar, d.h. wir können  auch die Attribute anpassen:
+Die Klasse ist zunächst nur der **Bauplan**. Daraus können wir jetzt konkrete Objekte (Instanzen) erzeugen:
 
 <!-- pytest-codeblocks:cont -->
 
 ```python
-point1 = Point()
-point1.x = 4
-point1.y = 3
-print(point1.x, point1.y)  # => 4 3
+elevator_a = Elevator()
+elevator_b = Elevator()
 
-point1.x = 0
-print(point1.x, point1.y)  # => 0 3
+print(type(elevator_a))  # => <class '__main__.Elevator'>
+print(elevator_a is elevator_b)  # => False
 ```
 
-Und jetzt möchten wir eine erste Methode zu `Point`hinzufügen:
+Beide Objekte wurden mit derselben Klasse erzeugt, sind aber zwei **verschiedene Instanzen**. Genau wie zwei echte Aufzüge im selben Gebäude zwar nach demselben Bauplan gebaut sein können, aber nicht deshalb derselbe Aufzug sind.
+
+### `__init__()`, `self` und Instanzattribute
+
+Ein echter Aufzug braucht natürlich mehr Informationen. Zum Beispiel:
+
+- Welche Etagen darf er anfahren?
+- Auf welcher Etage befindet er sich gerade?
+- Ist die Tür offen oder geschlossen?
+
+Diese Informationen sollen jedes `Elevator`-Objekt von Anfang an besitzen. Dafür verwenden wir `__init__()`:
 
 ```python
-class Point:
-    def position(self):
-        print(self.x, self.y)
-        
-point1 = Point()
-point1.x = 4
-point1.y = 3
-point1.position()
+class Elevator:
+    def __init__(self, accessible_levels, start_level=0):
+        self.accessible_levels = list(accessible_levels)
+        self.current_level = start_level
+        self.door_open = False
 ```
 
-Aber jetzt passiert folgendes:
+`__init__()` wird direkt nach dem Erzeugen einer neuen Instanz zur Initialisierung aufgerufen (im Einstieg oft vereinfachend als Konstruktor bezeichnet).
 
-<!-- pytest-codeblocks:expect-error -->
+Hier sind `accessible_levels` und `start_level` **Parameter** der Methode. Mit `self.current_level = start_level` wird der übergebene Wert anschließend als **Attribut des erzeugten Objekts** gespeichert.
+
+`self` steht dabei für das konkrete Objekt, das gerade erzeugt oder benutzt wird. Deshalb können zwei Aufzüge mit derselben Klasse unterschiedliche Zustände besitzen:
+
+<!-- pytest-codeblocks:cont -->
 
 ```python
-point2 = Point()
-point2.position()  # => AttributeError: 'Point' object has no attribute 'x'
+elevator_a = Elevator([-1, 0, 1, 2, 3])
+elevator_b = Elevator([0, 1, 2, 3], start_level=2)
+
+print(elevator_a.accessible_levels)  # => [-1, 0, 1, 2, 3]
+print(elevator_a.current_level)      # => 0
+print(elevator_b.current_level)      # => 2
+print(elevator_a.door_open)          # => False
 ```
 
-`point2` ist eine neue Instanz der Klasse Point. Da die Methode `position()`zur Klasse Point gehört, ist diese natürlich verfügbar, aber die Attribute x und y wurde noch nicht definiert. Darum gibt es hier diese Fehlermeldung.
+### Lokale Variable oder Attribut?
 
-Eigentlich sollte jedes Point-Objekt auf jeden Fall eine x und y-Position haben! Das ist auch möglich, und zwar über eine "init-Methode", auch Konstruktor (*constructor*) genannt. Das ist eine Methode die sofort beim Erstellen eines Objektes aufgerufen werden. In Python nutzen wir dafür die Methode `__init__`, die direkt nach dem Erzeugen einer neuen Instanz zur Initialisierung aufgerufen wird (im Einstieg oft vereinfachend als Konstruktor bezeichnet):
+Der Unterschied zwischen einer lokalen Variable und einem Attribut ist wichtig:
 
 ```python
-class Point:
-    def __init__(self, x, y):
-        self.x = x
-        self.y = y
-
-    def position(self):
-        print(self.x, self.y)
-
-point1 = Point(10, 3)
-point1.position()  # => 10 3
+class Elevator:
+    def __init__(self, accessible_levels, start_level=0):
+        levels = list(accessible_levels)  # lokale Variable
+        self.accessible_levels = levels   # Attribut
+        self.current_level = start_level  # Attribut
+        self.door_open = False            # Attribut
 ```
+
+`levels` existiert nur während des Aufrufs von `__init__()`. `self.accessible_levels` bleibt dagegen am Objekt gespeichert und kann später wieder gelesen oder verändert werden.
+
+Und jedes Objekt besitzt seinen **eigenen Zustand**:
+
+<!-- pytest-codeblocks:cont -->
+
+```python
+elevator_a = Elevator([-1, 0, 1, 2, 3])
+elevator_b = Elevator([-1, 0, 1, 2, 3])
+
+elevator_a.current_level = 2
+
+print(elevator_a.current_level)  # => 2
+print(elevator_b.current_level)  # => 0
+```
+
+Die Veränderung von `elevator_a` verändert `elevator_b` nicht.
 
 OK. Kurzes mini-Quiz:
 
->  ### Quiz!
+> ### Quiz!
 >
-> In Python ist "my name is"... : (alle zutreffenden Antworten auswählen)
+> In Python ist `"my name is"` ... (alle zutreffenden Antworten auswählen)
 >
 > A) ... eine Instanz.
-> B) ... ein Klasse.
+> B) ... eine Klasse.
 > C) ... ein Objekt.
-> D) ... ein Funktion.
+> D) ... eine Funktion.
 
 und
 
-> Nächste Frage: "my name is" ist...
+> Nächste Frage: `"my name is"` ist ...
 >
-> A) ein Objekt der Klasse 'str' (string)
+> A) ein Objekt der Klasse `str` (String)
 > B) ein Objekt ohne Klasse
-> C) ein Objekt der Klasse 'type'
+> C) ein Objekt der Klasse `type`
 
-Weiter geht's... 
+Weiter geht's ...
 
-Jetzt soll die Klasse Point noch eine weitere Methode bekommen und zwar um den Abstand vom Mittelpunkt (0, 0) zu messen.
+## Instanzmethoden
+
+Bisher haben unsere Aufzüge zwar einen Zustand, können aber noch nichts tun. Methoden geben den Objekten Verhalten.
+
+Wir beginnen mit einer Methode **ohne zusätzlichen Parameter**. Sie soll den aktuellen Zustand beschreiben:
 
 ```python
-import math
+class Elevator:
+    def __init__(self, accessible_levels, start_level=0):
+        self.accessible_levels = list(accessible_levels)
+        self.current_level = start_level
+        self.door_open = False
 
-class Point:
-    def __init__(self, x, y):
-        self.x = x
-        self.y = y
-
-    def position(self):
-        print(self.x, self.y)
-
-    def center_distance(self):
-        return math.sqrt(self.x ** 2 + self.y ** 2)
-
-a = Point(4, 3)
-print(a.center_distance())  # => 5.0
+    def description(self):
+        door_text = "offen" if self.door_open else "geschlossen"
+        return f"Etage {self.current_level}, Tür {door_text}"
 ```
 
-### Eine Klasse, unendlich viele Objekte
-
-Es können beliebig viele Objekte einer Klasse erzeugt werden. Die Klasse bleibt dabei immer dieselbe. Und alle Objekte der Klasse (also alle Objekte die mit Hilfe derselben Klasse erzeugt wurden) verfügen über die gleichen Methoden.
+`door_text` ist wieder nur eine **lokale Variable** der Methode. Die Methode liest Attribute des Objekts, verändert sie aber nicht.
 
 <!-- pytest-codeblocks:cont -->
 
 ```python
-from random import randint
+elevator = Elevator([-1, 0, 1, 2, 3], start_level=1)
 
-point_collection = []
+before_level = elevator.current_level
+before_door = elevator.door_open
 
-for _ in range(10):
-    new_point = Point(randint(-10, 10), randint(-10, 10))
-    point_collection.append(new_point)
+text = elevator.description()
+print(text)  # => Etage 1, Tür geschlossen
 
-for point in point_collection:
-    point.position()
+print(elevator.current_level == before_level)  # => True
+print(elevator.door_open == before_door)        # => True
 ```
 
-Die Liste `point_collection` enthält anschließend 10 `Point` Objekte, die zwar alle die gleichen Methoden haben und damit auch alle über die Attribute x und y verfügen, aber die alle ganz unterschiedliche Werte für x und y haben können.
+Die Beschreibung wird als **String zurückgegeben**. Das ist etwas anderes als direkt in der Methode zu `print()`en: Das Hauptprogramm kann nun selbst entscheiden, was mit dem String passieren soll.
 
+### Methoden mit zusätzlichen Parametern
 
+Methoden können genau wie Funktionen weitere Parameter erhalten. Zum Beispiel können wir fragen, wie weit eine gewünschte Etage von der aktuellen Position entfernt ist:
+
+```python
+class Elevator:
+    def __init__(self, accessible_levels, start_level=0):
+        self.accessible_levels = list(accessible_levels)
+        self.current_level = start_level
+        self.door_open = False
+
+    def description(self):
+        door_text = "offen" if self.door_open else "geschlossen"
+        return f"Etage {self.current_level}, Tür {door_text}"
+
+    def distance_to(self, level):
+        return abs(level - self.current_level)
+```
+
+`distance_to()` benötigt neben dem Objekt (`self`) noch die gewünschte Etage `level`.
+
+<!-- pytest-codeblocks:cont -->
+
+```python
+elevator = Elevator([-1, 0, 1, 2, 3], start_level=1)
+
+distance = elevator.distance_to(3)
+print(distance)  # => 2
+print(elevator.current_level)  # => 1
+```
+
+Auch `distance_to()` ist eine **lesende/berechnende Methode**: Sie berechnet einen Wert aus dem Zustand des Objekts, verändert den Zustand aber nicht.
+
+## Zustandsändernde Methoden
+
+Andere Methoden sollen den Zustand eines Objekts ganz bewusst verändern. Bei unserem Aufzug sind das zum Beispiel `open_door()`, `close_door()` und später `move_to()`.
+
+Dabei ist es hilfreich, wenn die Methode zusätzlich zurückgibt, ob die gewünschte Aktion tatsächlich durchgeführt wurde. Hier verwenden wir dafür `True` oder `False`:
+
+```python
+class Elevator:
+    def __init__(self, accessible_levels, start_level=0):
+        self.accessible_levels = list(accessible_levels)
+        self.current_level = start_level
+        self.door_open = False
+
+    def description(self):
+        door_text = "offen" if self.door_open else "geschlossen"
+        return f"Etage {self.current_level}, Tür {door_text}"
+
+    def distance_to(self, level):
+        return abs(level - self.current_level)
+
+    def open_door(self):
+        if self.door_open:
+            return False
+        self.door_open = True
+        return True
+
+    def close_door(self):
+        if not self.door_open:
+            return False
+        self.door_open = False
+        return True
+
+    def move_to(self, level):
+        if self.door_open:
+            return False
+        if level not in self.accessible_levels:
+            return False
+        if level == self.current_level:
+            return False
+
+        self.current_level = level
+        return True
+```
+
+Jetzt können wir verschiedene Zustandsänderungen gezielt ausprobieren:
+
+<!-- pytest-codeblocks:cont -->
+
+```python
+elevator = Elevator([-1, 0, 1, 2, 3])
+
+print(elevator.open_door())   # => True: Tür wurde geöffnet
+print(elevator.open_door())   # => False: Tür war schon offen
+print(elevator.close_door())  # => True: entgegengesetzte Änderung
+print(elevator.door_open)     # => False
+```
+
+Die **Rückgabe** und der **Folgezustand** sind zwei verschiedene Dinge. `open_door()` gibt zum Beispiel `True` zurück und verändert gleichzeitig `self.door_open`.
+
+Auch beim Fahren können wir jetzt prüfen, ob eine Aktion erlaubt war:
+
+<!-- pytest-codeblocks:cont -->
+
+```python
+print(elevator.move_to(2))   # => True
+print(elevator.current_level)  # => 2
+
+print(elevator.move_to(2))   # => False: schon auf Etage 2
+print(elevator.move_to(8))   # => False: Etage nicht erreichbar
+print(elevator.current_level)  # => 2
+
+elevator.open_door()
+print(elevator.move_to(3))   # => False: Tür ist offen
+print(elevator.current_level)  # => 2
+```
+
+Das Beispiel zeigt einen wichtigen Unterschied:
+
+- `description()` und `distance_to()` **lesen/berechnen** etwas.
+- `open_door()`, `close_door()` und `move_to()` **verändern den Zustand** des Objekts.
+
+## Statische Methoden (`@staticmethod`)
+
+Nicht jede Funktionalität, die thematisch zu einer Klasse gehört, benötigt tatsächlich ein konkretes Objekt.
+
+Für die Anzeige eines Stockwerks wollen wir zum Beispiel folgende Bezeichnungen verwenden:
+
+- `-1` → `UG`
+- `0` → `EG`
+- `1` → `1. OG`
+- `2` → `2. OG`
+
+Dafür benötigen wir weder `current_level` noch irgendein anderes Attribut eines bestimmten Aufzugs. Solch eine Methode kann als **statische Methode** definiert werden:
+
+```python
+class Elevator:
+    @staticmethod
+    def level_label(level):
+        if level == -1:
+            return "UG"
+        if level == 0:
+            return "EG"
+        return f"{level}. OG"
+```
+
+Eine statische Methode hat kein `self`. Wir können sie direkt über die Klasse aufrufen:
+
+<!-- pytest-codeblocks:cont -->
+
+```python
+print(Elevator.level_label(-1))  # => UG
+print(Elevator.level_label(0))   # => EG
+print(Elevator.level_label(3))   # => 3. OG
+```
+
+Die Entscheidung lautet also grob:
+
+- Braucht die Methode **Daten eines konkreten Objekts**? → Instanzmethode mit `self`.
+- Gehört die Funktion logisch zur Klasse, braucht aber **keinen Objektzustand**? → eventuell `@staticmethod`.
+
+## Eine Klasse, viele Objekte
+
+Es können beliebig viele Objekte einer Klasse erzeugt werden. Die Klasse bleibt dabei dieselbe, die Zustände der einzelnen Objekte können aber unterschiedlich sein.
+
+Für das folgende Beispiel verwenden wir noch einmal unsere vollständige Aufzugsklasse:
+
+```python
+class Elevator:
+    def __init__(self, accessible_levels, start_level=0):
+        self.accessible_levels = list(accessible_levels)
+        self.current_level = start_level
+        self.door_open = False
+
+    def description(self):
+        door_text = "offen" if self.door_open else "geschlossen"
+        level_text = self.level_label(self.current_level)
+        return f"{level_text}, Tür {door_text}"
+
+    def distance_to(self, level):
+        return abs(level - self.current_level)
+
+    def open_door(self):
+        if self.door_open:
+            return False
+        self.door_open = True
+        return True
+
+    def close_door(self):
+        if not self.door_open:
+            return False
+        self.door_open = False
+        return True
+
+    def move_to(self, level):
+        if self.door_open:
+            return False
+        if level not in self.accessible_levels:
+            return False
+        if level == self.current_level:
+            return False
+        self.current_level = level
+        return True
+
+    @staticmethod
+    def level_label(level):
+        if level == -1:
+            return "UG"
+        if level == 0:
+            return "EG"
+        return f"{level}. OG"
+```
+
+Nun können wir mehrere Aufzüge in einer Liste verwalten:
+
+<!-- pytest-codeblocks:cont -->
+
+```python
+elevators = [
+    Elevator([-1, 0, 1, 2, 3], start_level=0),
+    Elevator([0, 1, 2, 3, 4], start_level=2),
+    Elevator([-1, 0, 1], start_level=-1),
+]
+
+for elevator in elevators:
+    print(elevator.current_level)
+    print(elevator.description())
+```
+
+Hier enthält die Liste nicht Zahlen oder Strings, sondern drei selbst erzeugte `Elevator`-Objekte. In der Schleife können wir ihre Attribute lesen und ihre Methoden aufrufen.
+
+## Ein zweiter kleiner Datentyp: `Display`
+
+Ein größerer Vorteil von OOP wird sichtbar, wenn verschiedene Objekte unterschiedliche Aufgaben übernehmen.
+
+Ein Aufzug könnte zum Beispiel ein kleines Display besitzen. Das Display muss nicht wissen, wie ein Aufzug fährt oder welche Türen geöffnet werden dürfen. Seine Aufgabe ist nur, eine Nachricht anzuzeigen bzw. zu speichern:
+
+```python
+class Display:
+    def __init__(self):
+        self.message = ""
+
+    def show(self, message):
+        self.message = message
+        return self.message
+```
+
+<!-- pytest-codeblocks:cont -->
+
+```python
+display = Display()
+print(display.show("↑ 2. OG"))  # => ↑ 2. OG
+print(display.message)           # => ↑ 2. OG
+```
 
 ### Objekte die andere Objekte enthalten ("Komposition")
 
-Wie gerade eben gesehen, können wir beliebig viele Instanzen einer Klasse erzeugen (=Objekte). Häufig werden verschiedene Klassen für verschiedene Aufgaben oder Datentypen definiert. Diese können aber in vielfältiger weise miteinander interagieren.
+Eine Klasse kann auch Objekte einer anderen Klasse als Attribut enthalten. Das nennt man **Komposition**.
 
-Eine Möglichkeit besteht darin, dass eine Klasse auf weitere Klassen zugreift. Stellen wir uns z.B. vor wir wollen eine Klasse Dreieck (oder auf Englisch: Triangle) erstellen. Dann könnte diese Klasse als Ecken unsere oben definierte `Point` Klasse verwenden.
+Wir können beispielsweise jedem Aufzug ein `Display` geben. Die folgende verkürzte Version konzentriert sich nur auf diesen neuen Aspekt:
+
+```python
+class Display:
+    def __init__(self):
+        self.message = ""
+
+    def show(self, message):
+        self.message = message
+        return self.message
+
+
+class Elevator:
+    def __init__(self, accessible_levels, display, start_level=0):
+        self.accessible_levels = list(accessible_levels)
+        self.current_level = start_level
+        self.door_open = False
+        self.display = display
+
+    def move_to(self, level):
+        if self.door_open:
+            return False
+        if level not in self.accessible_levels:
+            return False
+        if level == self.current_level:
+            return False
+
+        direction = "↑" if level > self.current_level else "↓"
+        self.display.show(f"{direction} {self.level_label(level)}")
+        self.current_level = level
+        return True
+
+    @staticmethod
+    def level_label(level):
+        if level == -1:
+            return "UG"
+        if level == 0:
+            return "EG"
+        return f"{level}. OG"
+```
+
+<!-- pytest-codeblocks:cont -->
+
+```python
+main_display = Display()
+elevator = Elevator([-1, 0, 1, 2, 3], main_display)
+
+elevator.move_to(2)
+print(elevator.current_level)   # => 2
+print(main_display.message)     # => ↑ 2. OG
+```
+
+Hier macht der Aufzug nicht selbst die komplette Anzeige. Stattdessen besitzt er ein `Display`-Objekt und ruft dessen Methode `show()` auf. Genau solche Zusammenarbeit zwischen Objekten wird uns bei größeren OOP-Beispielen wieder begegnen.
+
+## Klassen in eigenen Dateien
+
+Genau wie Funktionen können Klassen in eigenen Python-Dateien liegen. In einem echten Projekt würden wir die Klassendefinition deshalb häufig vom eigentlichen Hauptprogramm trennen.
+
+Zum Beispiel könnte `elevator.py` unsere Klasse enthalten:
 
 <!-- pytest-codeblocks:skip -->
 
 ```python
-class Triangle:
-    def __init__(self, corners):
-        self.corners = dict()
-        for i, (x, y) in enumerate(corners):
-            self.corners[i+1] = Point(x, y)
+# elevator.py
+class Elevator:
+    def __init__(self, accessible_levels, start_level=0):
+        self.accessible_levels = list(accessible_levels)
+        self.current_level = start_level
+        self.door_open = False
 
-tri_1 = Triangle([(0, 0), (15.5, 7), (-1, -2)])
-tri_1.corners[2].position()  # --> 15.5 7
+    def move_to(self, level):
+        if level not in self.accessible_levels:
+            return False
+        self.current_level = level
+        return True
 ```
 
+Und das Hauptprogramm liegt in einer zweiten Datei `main.py`:
 
-
-### Methoden die Objekte nutzen
-
-Genau wie bei `__init__`, oder auch genau wie bei Funktionen, können Methoden beliebige Argumente nutzen (nicht nur `self`). Das können beliebige Datentypen sein wie List, Set, Dictionary etc. oder auch Objekte von uns selbst definierten Klassen. Es können sogar auch Objekte des gleichen Typs als Argumente verwendet werden. Zum Beispiel wenn wir den Abstand von einem `Point`-Objekt zu einem anderen `Point`-Objekt berechnen wollen:
+<!-- pytest-codeblocks:skip -->
 
 ```python
-import math
+# main.py
+import elevator
 
-class Point:
-    def __init__(self, x, y):
-        self.x = x
-        self.y = y
-
-    def position(self):
-        print(self.x, self.y)
-
-    def center_distance(self):
-        return math.sqrt(self.x ** 2 + self.y ** 2)
-    
-    def distance_to_point(self, point):
-        dist_x = self.x - point.x
-        dist_y = self.y - point.y
-        return math.sqrt(dist_x ** 2 + dist_y ** 2)
-
-a = Point(4, 3)
-b = Point(-7, 8)
-print(a.distance_to_point(b))  # => 12.083045973594572
+building_elevator = elevator.Elevator([-1, 0, 1, 2, 3])
+building_elevator.move_to(2)
+print(building_elevator.current_level)
 ```
 
-Nochmal ein anderes Beispiel in dem wir eine Klasse `Fruit` definieren. Danach erstellen wir damit verschiedene `Fruit`-Objekte.
+Hier verwenden wir bewusst `import elevator` und anschließend `elevator.Elevator(...)`. Damit ist direkt sichtbar, **aus welchem Modul** die Klasse kommt.
+
+Die beiden Codeblöcke sind für `pytest-codeblocks` mit `skip` markiert, weil sie zwei verschiedene Dateien darstellen und daher nicht als einzelner Markdown-Codeblock ausgeführt werden können.
+
+## Eine kleine Testspur: Aufruf → Rückgabe → Folgezustand
+
+Gerade bei zustandsändernden Methoden hilft eine kleine Testspur. Wir schauen dabei nicht nur auf die Rückgabe, sondern auch darauf, was danach im Objekt gespeichert ist.
+
+Dafür verwenden wir noch einmal eine kompakte Version unserer Klasse:
+
+```python
+class Elevator:
+    def __init__(self, accessible_levels, start_level=0):
+        self.accessible_levels = list(accessible_levels)
+        self.current_level = start_level
+        self.door_open = False
+
+    def open_door(self):
+        if self.door_open:
+            return False
+        self.door_open = True
+        return True
+```
 
 <!-- pytest-codeblocks:cont -->
 
 ```python
-class Fruit:
-    def __init__(self, name,
-                 good_for=[]):
-        self.name = name
-        self.good_for = good_for
+elevator_a = Elevator([-1, 0, 1, 2, 3])
+elevator_b = Elevator([-1, 0, 1, 2, 3])
 
-    def juice(self):
-        if "juice" in self.good_for:
-            print(f"Voilà! {self.name} juice!")
-        else:
-            print(f"{self.name} juice? Better not.")
+result = elevator_a.open_door()
 
+print("Aufruf: elevator_a.open_door()")
+print("Rückgabe:", result)                  # => True
+print("Folgezustand A:", elevator_a.door_open)  # => True
+print("Folgezustand B:", elevator_b.door_open)  # => False
 
-apple = Fruit("apple", good_for=["juice", "cake"])
-apple.juice()
-
-banana = Fruit("banana", good_for=["cake"])
-banana.juice()
+assert result is True
+assert elevator_a.door_open is True
+assert elevator_b.door_open is False
 ```
 
-Super. 
+Damit prüfen wir drei Dinge getrennt:
 
-Wir können jetzt eigene Klassen definieren. 
+1. **Was wurde aufgerufen?**
+2. **Was wurde zurückgegeben?**
+3. **Wie sieht der Objektzustand danach aus?**
+
+Und gleichzeitig sehen wir noch einmal: `elevator_b` bleibt vollständig unabhängig von der Änderung an `elevator_a`.
+
+Super.
+
+Wir können jetzt eigene Klassen definieren, daraus Objekte erzeugen und Zustände und Verhalten sinnvoll zusammenfassen.
 
 So what!? Was bringt das denn jetzt überhaupt?
 
-Eine ganze Reihe! Zum einen helfen Klassen um Programme sinnvoll zu strukturieren, denn mit Klassen können wir Objekte so entwerfen, dass sie genau die gewüschten Eigenschaften haben und mit allen nötigen Methoden ausgestattet sind. In unserem ersten Beispiel haben wir etwa dafür gesorgt, dass alle `Point` Objekte eine x-y position mitbringen. Und für alle können wir ohne jeglichen extra import die entsprechenden Methoden nutzen, hier war es `center_distance()`.
-
+Eine ganze Reihe! Klassen helfen dabei Programme sinnvoll zu strukturieren. Mit Klassen können wir Objekte so entwerfen, dass sie genau die gewünschten Eigenschaften besitzen und die dazu passenden Methoden mitbringen. Bei unserem Aufzug liegen z.B. Position und Türstatus nicht als lose Variablen irgendwo im Programm, sondern gehören zum jeweiligen `Elevator`-Objekt. Gleichzeitig können mehrere Aufzüge mit derselben Klasse erzeugt werden, ohne dass ihre Zustände miteinander vermischt werden.

@@ -521,6 +521,7 @@
 </pre></div>
 </div>
 <p>Der Loader fängt <code class="docutils literal notranslate"><span class="pre">FileNotFoundError</span></code> <strong>innerhalb</strong> seiner Funktion ab. Deshalb erhält das aufrufende Programm bei fehlender Datei <code class="docutils literal notranslate"><span class="pre">None</span></code>, statt an dieser Stelle abzubrechen.</p>
+<!--pytest-codeblocks:expect-error-->
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">inhalt</span> <span class="o">=</span> <span class="n">lade_text</span><span class="p">(</span><span class="s2">"beispiel.txt"</span><span class="p">)</span>
 
 <span class="k">if</span> <span class="n">inhalt</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
