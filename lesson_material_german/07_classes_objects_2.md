@@ -1,555 +1,663 @@
-# Objektorientierte Programmierung in Python
+# Objektorientierte Programmierung in Python – Teil 2
 
-Wir haben bisher gesehen wie wir Klassen in Python definieren und wie wir damit Objekte erzeugen. Wir haben gesehen wie wir Methoden definieren und Attribute zuweisen und auch wie wir die `__init__()`-Methode einsetzten können.
+In der letzten Einheit haben wir eigene Klassen definiert, Objekte erzeugt und ihren Zustand über Attribute und Methoden verändert. Als größeres Beispiel diente ein `Elevator`: Er kann einen aktuellen Zustand besitzen, Methoden ausführen und mit einem `Display`-Objekt zusammenarbeiten.
 
-## Klasse vs. Objekt/Instanz
+In diesem zweiten Teil geht es weniger darum, noch mehr Syntax kennenzulernen. Stattdessen schauen wir uns an, wie **mehrere Objekte zusammenarbeiten** und wie Klassen sinnvoll zueinander in Beziehung stehen können.
 
-Zu Beginn gibt es bei der OOP (Objektorientierten Programmierung) oft einige Verwirrungen. Nicht selten geht es dabei auch um den fundamentalen Unterschied zwischen Klasse und dem erzeugten Objekt.
+Im Mittelpunkt stehen dabei:
 
-In den meisten Fällen, und allen die wir bisher besprochen haben, können wir die Klasse als eine abstrakte Vorlage für die später damit erzeugten Objekte sehen. D.h. die Klasse definiert, welche Eigenschaften (Attribute) und Fähigkeiten (Methoden) Objekte haben sollen.
+- Objekte als Attribute und in Listen,
+- gemeinsame Referenzen auf dasselbe Objekt,
+- **Komposition**: ein Objekt *hat* andere Objekte,
+- **Vererbung**: ein Objekt *ist eine spezielle Form* eines anderen Typs,
+- `super()`, Überschreiben von Methoden und `isinstance()`,
+- sowie die Verteilung mehrerer Klassen auf verschiedene Module.
 
-Über `class XYZ:` wird so eine abstrakte Klasse *definiert*. Der eigentliche Code darin wird aber erst ausführbar, wenn ein Objekt der Klasse erzeugt wird (`a = XZY()`). Attribute die erst im Konstruktor (`__init__()`) gesetzt werden, werden dabei erst erzeugt wenn auch ein Objekt der Klasse erzeugt wird. Darum funktioniert auch der folgende Code nicht:
+## Objekte können andere Objekte enthalten
 
-<!-- pytest-codeblocks:expect-error -->
+Schon im letzten Kapitel hatten wir einen kleinen `Display`-Datentyp:
 
 ```python
-class DoNothing:
+class Display:
     def __init__(self):
-        self.chill = True
+        self.message = ""
 
-print(DoNothing.chill)  # => AttributeError: type object 'DoNothing' has no attribute 'chill'
+    def show(self, message):
+        self.message = message
+        return self.message
 ```
 
-Das geht also nicht, sondern erst wenn ein Objekt erstellt wird:
-<!-- pytest-codeblocks:cont -->
-
-```python
-a = DoNothing()
-print(a.chill) # => True
-```
-
-### Was ist `self`?
-
-Das Argument `self` bezieht sich auf die jeweilige Instanz einer Klasse, d.h. das Objekt selbst. Code in dem `self` auftaucht, kann also immer nur von erzeugten Objekten aus sinnvoll ausgeführt werden. 
-(Übrigens: Statt self könnte auch ein abweichender Name verwendet werden, aber da `self` überall der Standard ist werden wir davon keinen Gebrauch machen.)
-
-Was ist aber mit Code, z.B. zugewiesenen Attributen, die ohne `self` auskommen?
-
-Ein Beispiel wäre sowas:
-
-```python
-class MyClass:
-    class_value = 111
-    def __init__(self):
-        self.instance_value = 2222
-
-# Erst die Klasse direkt nutzen
-print(MyClass.class_value)  # --> 111
-# print(MyClass.instance_value)  # --> AttributeError
-
-# Jetzt eine Instanz der Klasse erzeugen und nutzen
-my_object = MyClass()
-print(my_object.class_value)
-print(my_object.instance_value)
-```
-
-Wir sprechen hier auch von **Klassenattributen** (hier: `.class_value`) und **Instanzattributen** (hier: `.instance_value`). Über erzeugte Objekte sind beide Arten von Attributen zugänglich; direkt über die Klasse sind Instanzattribute dagegen nicht vorhanden.
-
-Wie sieht es dann mit den Methoden aus? 
-
-Auch da haben wir bisher typischerweise mit `self` gearbeitet. Entsprechend sprechen wir von **Instanzmethoden** (*instance methods*). Normalerweise rufen wir sie über ein Objekt auf; dabei übergibt Python dieses Objekt automatisch als erstes Argument (`self`).
-
-Beispiel:
-
-<!-- pytest-codeblocks:expect-error -->
-
-```python
-class SuperPrint:
-    def upper_print(self, text):
-        print(text.upper())
-
-# So fehlt das Objekt, das als self dienen soll:
-SuperPrint.upper_print("mein text soll größer werden")  # => TypeError
-
-# Und die Methode ist auch nicht (wie eine Funktion) global verfügbar:
-upper_print("mein text soll grösser werden")  # => NameError: name 'upper_print' is not defined
-```
-
-Typischerweise erzeugen wir daher zuerst ein Objekt und rufen die Methode darüber auf. Technisch liegt die Funktion auch auf der Klasse und könnte mit einer explizit übergebenen Instanz aufgerufen werden (`SuperPrint.upper_print(printer, "text")`); die Schreibweise über das Objekt ist aber die normale Form. Global wie eine frei definierte Funktion ist `upper_print()` nicht verfügbar.
+Ein `Elevator` kann ein solches Display als Attribut besitzen. Wichtig ist dabei: Wir erzeugen das Display **außerhalb** des Aufzugs und übergeben das bereits existierende Objekt an den Konstruktor.
 
 <!-- pytest-codeblocks:cont -->
 
 ```python
-printer = SuperPrint()
-printer.upper_print("mein text soll grösser werden")
+class Elevator:
+    def __init__(self, name, accessible_levels, display):
+        self.name = name
+        self.accessible_levels = list(accessible_levels)
+        self.current_level = 0
+        self.display = display
+
+    def description(self):
+        return f"Aufzug {self.name}: Etage {self.current_level}"
+
+    def move_to(self, level):
+        if level not in self.accessible_levels:
+            return False
+        if level == self.current_level:
+            return False
+
+        self.current_level = level
+        self.display.show(f"Aufzug {self.name}: Etage {level}")
+        return True
 ```
 
-### Klassenmethoden (class methods)
-
-Wir haben gerade gesehen, dass die Methoden die wir bisher programmiert haben (mit `self`) sich nur über erzeugte Objekte ausführen lassen (**Instanzmethode**). Aber es gibt auch **Klassenmethoden** die über die Klasse aufrufbar sind.
-
-Klassenmethoden werden in Python üblicherweise explizit als solche ausgewiesen über einen sogenannten "Decorator". Was das genau ist, werden wir an dieser Stelle aber noch nicht behandeln (kommt später).  Das SuperPrint Beispiele sähe damit wie folgt aus (`@classmethod` ist dabei der erwähnte Decorator):
+<!-- pytest-codeblocks:cont -->
 
 ```python
-class SuperPrint:
-    @classmethod
-    def upper_print(cls, text):
-        print(text.upper())
+main_display = Display()
+elevator = Elevator("A", [-1, 0, 1, 2, 3], main_display)
 
-SuperPrint.upper_print("mein text soll größer werden")
+print(elevator.display is main_display)  # => True
 ```
 
-Auch hier gibt es ein spezielles erstes Argument das wir nun aber nicht `self` sondern `cls` (für class) nennen.
+Das ist ein wichtiger Punkt: `main_display` und `elevator.display` verweisen auf **dasselbe Objekt**.
 
-Jetzt die Frage: Wann nutzen wir Klassenmethoden?
+Der Aufzug hat also keine Kopie des Displays erhalten.
 
-Wie schon erwähnt, werden wir überwiegend mit Instanzmethoden arbeiten. Aber es gibt auch Fälle in denen Klassenmethoden sinnvoll sind. Ein Beispiel könnte eine Erweiterung der `Point` Klasse sein, die wir schon einmal erstellt hatten. Stellen wir uns nun vor, wir wollen eine neue Methode hinzufügen die ein Point-Objekt mit zufälliger Position erzeugt, etwas `create_random_point()`. Wenn wir diese Methode aber wie bisher mit `self` definieren können wir sie ja nur über erzeugte Objekte aufrufen. Das würde dann bedeutet wir müssen ein Point-Objekt erzeugen um damit dann ein neues Point-Objekt erstellen zu können... nicht sehr intuitiv. An einer solchen Stelle ist eine Klassenmethode die bessere Wahl:
+<!-- pytest-codeblocks:cont -->
 
 ```python
-import math
-import random
+main_display.show("Wartung")
 
-
-class Point:
-    def __init__(self, x, y):
-        self.x = x
-        self.y = y
-
-    def position(self):
-        print(self.x, self.y)
-
-    def center_distance(self):
-        return math.sqrt(self.x ** 2 + self.y ** 2)
-
-    @classmethod
-    def create_random_point(cls):
-        return cls(random.random(), random.random())
-
-
-random_point = Point.create_random_point()
-random_point.position()
+print(main_display.message)       # => Wartung
+print(elevator.display.message)   # => Wartung
 ```
 
-Da die Klassenmethode in diesem Fall eine Instanz erzeugt spricht man auch von einer **factory method**.
+Die Änderung ist über beide Zugänge sichtbar, weil beide Namen auf dasselbe Objekt verweisen.
 
+Genau wie bei Listen oder Dictionaries gilt also auch für selbst definierte Objekte: Wenn wir ein Objekt weitergeben, erzeugen wir dadurch nicht automatisch eine Kopie.
 
+## Mehrere Objekte verwalten
+
+Ein Gebäude kann mehrere Aufzüge besitzen. Dafür können wir eine weitere Klasse verwenden:
+
+<!-- pytest-codeblocks:cont -->
+
+```python
+class Building:
+    def __init__(self, name):
+        self.name = name
+        self.elevators = []
+
+    def add_elevator(self, elevator):
+        self.elevators.append(elevator)
+
+    def number_of_elevators(self):
+        return len(self.elevators)
+```
+
+Jedes `Building`-Objekt bekommt dabei seine **eigene** Liste.
+
+<!-- pytest-codeblocks:cont -->
+
+```python
+building_a = Building("Hauptgebäude")
+building_b = Building("Labor")
+
+display_a = Display()
+display_b = Display()
+
+elevator_a = Elevator("A", [-1, 0, 1, 2, 3], display_a)
+elevator_b = Elevator("B", [0, 1, 2, 3, 4], display_b)
+
+building_a.add_elevator(elevator_a)
+building_a.add_elevator(elevator_b)
+
+print(building_a.number_of_elevators())  # => 2
+print(building_b.number_of_elevators())  # => 0
+print(building_a.elevators is building_b.elevators)  # => False
+```
+
+`self.elevators = []` muss deshalb in `__init__()` stehen. Würden mehrere Gebäude dieselbe Liste teilen, hätten wir sehr schnell schwer nachvollziehbare Seiteneffekte.
+
+### Methoden von enthaltenen Objekten nutzen
+
+Eine verwaltende Klasse muss nicht alle Informationen selbst noch einmal speichern.
+
+Wenn wir Beschreibungen aller Aufzüge wollen, können wir einfach die bereits vorhandene Methode jedes `Elevator`-Objekts aufrufen:
+
+<!-- pytest-codeblocks:cont -->
+
+```python
+class Building:
+    def __init__(self, name):
+        self.name = name
+        self.elevators = []
+
+    def add_elevator(self, elevator):
+        self.elevators.append(elevator)
+
+    def descriptions(self):
+        result = []
+        for elevator in self.elevators:
+            result.append(elevator.description())
+        return result
+```
+
+<!-- pytest-codeblocks:cont -->
+
+```python
+building = Building("Hauptgebäude")
+building.add_elevator(
+    Elevator("A", [-1, 0, 1, 2, 3], Display())
+)
+building.add_elevator(
+    Elevator("B", [0, 1, 2, 3, 4], Display())
+)
+
+print(building.descriptions())
+# => ['Aufzug A: Etage 0', 'Aufzug B: Etage 0']
+```
+
+Die Liste `building.elevators` enthält weiterhin `Elevator`-Objekte. `descriptions()` erzeugt lediglich eine **neue Liste** mit den zurückgegebenen Strings.
+
+Das ist oft ein guter OOP-Stil: Die Klasse `Building` verwaltet die Objekte, aber die Objekte selbst wissen, wie sie sich beschreiben.
+
+### Verhalten delegieren
+
+Das gleiche Prinzip gilt für Aktionen. Ein Gebäude könnte zum Beispiel alle Aufzüge ins Erdgeschoss schicken:
+
+<!-- pytest-codeblocks:cont -->
+
+```python
+class Building:
+    def __init__(self, name):
+        self.name = name
+        self.elevators = []
+
+    def add_elevator(self, elevator):
+        self.elevators.append(elevator)
+
+    def move_all_to(self, level):
+        results = []
+        for elevator in self.elevators:
+            results.append(elevator.move_to(level))
+        return results
+```
+
+<!-- pytest-codeblocks:cont -->
+
+```python
+building = Building("Hauptgebäude")
+
+elevator_a = Elevator("A", [-1, 0, 1, 2, 3], Display())
+elevator_b = Elevator("B", [0, 1, 2, 3, 4], Display())
+
+elevator_a.move_to(2)
+elevator_b.move_to(3)
+
+building.add_elevator(elevator_a)
+building.add_elevator(elevator_b)
+
+print(building.move_all_to(0))  # => [True, True]
+print(elevator_a.current_level)  # => 0
+print(elevator_b.current_level)  # => 0
+```
+
+`Building.move_all_to()` verändert nicht selbst die Attribute `current_level`. Die Methode **delegiert** die eigentliche Aktion an die enthaltenen `Elevator`-Objekte.
+
+Damit vermeiden wir auch einen typischen Fehler: denselben Zustand an mehreren Stellen zu speichern.
 
 ---
 
+## Hat-ein oder Ist-ein?
 
+Wenn zwei Klassen miteinander zu tun haben, gibt es zwei sehr unterschiedliche Beziehungen.
 
-Neben den bisher besprochene Verbindung von Methoden und Attributen, gibt es noch viele andere Möglichkeiten durch die Objektorientierte Programmierung. Eine besonders häufig genannte ist die sogenannte **Vererbung**.
+### Hat-ein: Komposition
 
-## Vererbung (inheritance)
+Ein Gebäude **hat** Aufzüge.
 
-Klassen können anderen Klassen ihre Eigenschaften vererben. Das ist in der Praxis tatsächlich an manchen Stellen sehr nützlich! 
+Ein Aufzug **hat** ein Display.
+
+Das sind Beispiele für **Komposition**: Ein Objekt enthält oder verwendet andere Objekte.
+
+```text
+Building
+  └── Elevator
+        └── Display
+```
+
+### Ist-ein: Vererbung
+
+Manchmal ist ein neuer Typ dagegen eine speziellere Form eines bereits vorhandenen Typs.
+
+Ein **Lastenaufzug ist ein Aufzug**.
+
+Hier kann **Vererbung** sinnvoll sein.
+
+Nicht jede Beziehung zwischen zwei Klassen sollte über Vererbung gelöst werden. Die Frage
+
+> "Ist X wirklich eine spezielle Form von Y?"
+
+ist oft ein guter erster Test.
+
+Ein Gebäude ist zum Beispiel **kein** Aufzug. Deshalb wäre `class Building(Elevator)` kein sinnvolles Modell.
+
+## Vererbung
 
 Im Fahrrad-Beispiel aus dem vorherigen Kapitel wäre das in etwa eine Unterart von Fahrrad die aber die Kerneigenschaften von Fahrrad übernehmen (also "erben") soll, z.B. ein eBike.
 ![Vererbung am Beispiel der Klasse Fahrrad](../images/fig_oop_inheritance.png	)
 
-Wir können uns das aber auch direkt an einem einfachen Code-Beispiel anschauen. Wir haben gerade Punkte definiert (`Point`-Klasse) und möchten jetzt auch andere geometrische Typen entwerfen. Dann müssen wir nicht unbedingt alles neu definieren, sondern es geht auch das Folgende:
+Wir verwenden für die folgenden Beispiele eine etwas kompaktere `Elevator`-Klasse:
 
 ```python
-# Schon oben ausgeführt:
-import math
+class Elevator:
+    def __init__(self, name, accessible_levels):
+        self.name = name
+        self.accessible_levels = list(accessible_levels)
+        self.current_level = 0
 
-class Point:
-    def __init__(self, x, y):
-        self.x = x
-        self.y = y
+    def description(self):
+        return f"Aufzug {self.name}: Etage {self.current_level}"
 
-    def position(self):
-        print(self.x, self.y)
+    def move_to(self, level):
+        if level not in self.accessible_levels:
+            return False
+        if level == self.current_level:
+            return False
 
-    def center_distance(self):
-        return math.sqrt(self.x ** 2 + self.y ** 2)
-    
-    def distance_to_point(self, point):
-        dist_x = self.x - point.x
-        dist_y = self.y - point.y
-        return math.sqrt(dist_x ** 2 + dist_y ** 2)
-    
-# Neue Klasse definieren:    
-class Circle(Point):
-    def __init__(self, x, y, radius):
-        self.x = x
-        self.y = y
-        self.radius = radius
-
-a = Circle(11, 2, 5)
-print(a.center_distance())  # => 11.180339887498949
+        self.current_level = level
+        return True
 ```
 
-Ohne das wir eine Methode neu definiert haben, funktioniert schon der Aufruf `.center_distance()`!
-
-Das liegt daran, dass wir hier gesagt haben das `Circle` auf die Klasse `Point`zurückgreifen darf. Man spricht hier von "Vererbung" und demensprechend auch davon, dass `Circle` das Kind (*child*) ist von `Point`. 
-
-`Point` wird die "Basisklasse" oder auch Super-, Ober- oder Elternklasse genannt (*parent class*), während `Circle` in diesem Beispiel die "abgeleitete Klasse" oder auch Sub-, Unter-, oder Kindklasse heißt (*child class*).
-
-Es lassen sich damit auch interessante Zugehörigkeits- oder Type-Abfragen machen. So ist `a` im oberen Beispiel ein Objekt der Klasse `Circle`, aber ist eben auch auf eine Art verbunden mit der *parent class*  `Point`. In Python können solche Zugehörigkeiten abgefragt werden mit `isinstance()`:
+Jetzt definieren wir eine Unterklasse:
 
 <!-- pytest-codeblocks:cont -->
 
 ```python
-print(isinstance(a, Point))  # => True
-print(isinstance(a, Circle))  # => True
+class FreightElevator(Elevator):
+    pass
 ```
 
-### super()
-
-Im Beispiel oben haben wir in der abgeleiteten Klasse (`Circle`) die komplette init-Methode überschrieben durch eine neue. Das wirkt vielleicht -zu recht- etwas merkwürdig, denn die Methoden sind sich eigentlich sehr ähnlich und ein größerer Teil des Codes kommt somit mehrfach vor.
-
-Es gibt auch noch eine andere Möglichkeit den Konstruktor (`__init__()`) anzupassen und gleichzeitig auf den Konstruktor der *parent class* zuzugreifen und zwar mit `super()`:
+Obwohl `FreightElevator` selbst noch keine Methoden enthält, erbt die Klasse die Funktionalität von `Elevator`.
 
 <!-- pytest-codeblocks:cont -->
 
 ```python
-class Circle(Point):
-    def __init__(self, x, y, radius):
-        super().__init__(x, y)  # damit wird der Konstruktor der parent class ausgeführt
-        self.radius = radius
+freight = FreightElevator("F1", [-1, 0, 1, 2])
 
-a = Circle(11, 2, 5)
-print(a.center_distance())
+print(freight.description())  # => Aufzug F1: Etage 0
+print(freight.move_to(2))     # => True
+print(freight.current_level)  # => 2
 ```
 
-V.a. wenn der Konstruktor einer Klasse viele Parameter setzt und/oder weitere Schritte enthält macht der Einsatz von `super()`an dieser Stelle den Code einfacher.
+`FreightElevator` hat hier sowohl die Initialisierung als auch die Methoden von `Elevator` geerbt.
 
-## Umfangreichers Beispiel (Übung --> Spiel Pig)
+Wir nennen:
 
-Ein weiterer wichtiger Punkt den wir in der Übung angefangen haben, war ein Gefühl dafür zu bekommen wann, warum, und wie man Klassen überhaupt einsetzt. Als Beispiel dafür haben wir angefangen ein erstes kleines Spiel zu programmieren: Pig (oder "Böse Eins"). Die Spielregeln sind einfach:
+- `Elevator` die **Basisklasse** oder Oberklasse,
+- `FreightElevator` die **Unterklasse** oder abgeleitete Klasse.
 
-Spielregeln:
+## Zusätzliche Attribute mit `super()`
 
-* 2 Spieler*Innen spielen gegeneinander und wechseln sich ab. Beide starten mit 0 Punkten.
-* Spieler\*In der/die an der Reihe ist würfelt mit 1 Würfel (Zufallszahl -> 1-6). Die Ergebnisse werden zusammengezählt, bis Spieler\*In beschließt zu stoppen, oder: bis eine Eins gewürfelt wird. Wurde gestoppt ohne das eine Eins kam, dann werden die Punkte alle dazugezählt. Wurde eine Eins gewürfelt,  gibt es keine Punkte dazu.
-* Wer als erstes 100 Punkte erreicht, gewinnt.
+Ein Lastenaufzug braucht vielleicht eine zusätzliche Information, die normale Aufzüge nicht besitzen: seine maximale Last.
 
-Um dieses Spiel objektorientiert zu programmieren, muss erst überlegt werden welche Klassen es denn geben soll/muss. Typischerweise orientiert man sich bei der Suche danach an den wichtigsten Gegenständen/Elementen/Akteuren. In diesem Beispiel würden z.B. folgende Klassen Sinn machen:
-
-* Würfel --> class Dice
-* Spieler*In --> class Player
-* Spiel/Spielregeln/Spielablauf/Spielmechanik --> class PigGame
-
-Als nächstes muss geschaut werden, welche Eigenschaften (Attribute) und Handlungen/Möglichkeiten (Methoden) die Klassen bräuchten. Am einfachsten dabei ist die Klasse `Dice`, den die muss v.a. würfeln können was ja nichts anderes ist als Zufallszahlen von 1 bis 6 zu liefern.
+Dann definieren wir einen eigenen Konstruktor:
 
 ```python
-from random import randint
+class Elevator:
+    def __init__(self, name, accessible_levels):
+        self.name = name
+        self.accessible_levels = list(accessible_levels)
+        self.current_level = 0
+
+    def description(self):
+        return f"Aufzug {self.name}: Etage {self.current_level}"
+
+    def move_to(self, level):
+        if level not in self.accessible_levels:
+            return False
+        if level == self.current_level:
+            return False
+
+        self.current_level = level
+        return True
 
 
-class Dice:
-    def __init__(self, sides=6):
-        self.sides = sides
-
-    def roll(self):
-        return randint(1, self.sides)
+class FreightElevator(Elevator):
+    def __init__(self, name, accessible_levels, max_load):
+        super().__init__(name, accessible_levels)
+        self.max_load = max_load
 ```
 
-Wie oben bereits erwähnt, macht diese Klasse aber erstmal nichts. Dazu muss erst ein `Dice`-Objekt ereugt werden.
+Mit `super().__init__(name, accessible_levels)` rufen wir die Initialisierung der Basisklasse auf. Dort werden `name`, `accessible_levels` und `current_level` gesetzt.
+
+Danach ergänzt die Unterklasse nur noch ihr zusätzliches Attribut `max_load`.
 
 <!-- pytest-codeblocks:cont -->
 
 ```python
-dice = Dice()
-print(dice.roll())
+freight = FreightElevator(
+    "F1",
+    [-1, 0, 1, 2],
+    max_load=1600,
+)
+
+print(freight.name)           # => F1
+print(freight.current_level)  # => 0
+print(freight.max_load)       # => 1600
 ```
 
-Die zweite Klasse ist dann `Player` und das wird schon deutlich schwieriger!
+Ohne den Aufruf von `super().__init__(...)` müssten wir die Initialisierung der Basisklasse wiederholen oder die entsprechenden Attribute würden fehlen.
+
+## Methoden überschreiben
+
+Eine Unterklasse kann eine geerbte Methode durch eine eigene Version ersetzen.
+
+Für den Lastenaufzug wollen wir eine ausführlichere Beschreibung:
 
 ```python
-class Player:
+class Elevator:
+    def __init__(self, name, accessible_levels):
+        self.name = name
+        self.accessible_levels = list(accessible_levels)
+        self.current_level = 0
+
+    def description(self):
+        return f"Aufzug {self.name}: Etage {self.current_level}"
+
+
+class FreightElevator(Elevator):
+    def __init__(self, name, accessible_levels, max_load):
+        super().__init__(name, accessible_levels)
+        self.max_load = max_load
+
+    def description(self):
+        return (
+            f"Lastenaufzug {self.name}: "
+            f"Etage {self.current_level}, "
+            f"max. {self.max_load} kg"
+        )
+```
+
+<!-- pytest-codeblocks:cont -->
+
+```python
+normal = Elevator("A", [-1, 0, 1, 2, 3])
+freight = FreightElevator("F1", [-1, 0, 1, 2], 1600)
+
+print(normal.description())
+# => Aufzug A: Etage 0
+
+print(freight.description())
+# => Lastenaufzug F1: Etage 0, max. 1600 kg
+```
+
+Beide Objekte besitzen eine Methode namens `description()`. Welche Version ausgeführt wird, hängt aber vom tatsächlichen Objekt ab.
+
+Das nennt man **Überschreiben** (*method overriding*).
+
+### Eine vorhandene Methode erweitern
+
+Manchmal wollen wir die Methode der Basisklasse nicht komplett neu schreiben, sondern nur ihr Ergebnis ergänzen.
+
+Auch dafür kann `super()` verwendet werden:
+
+```python
+class Elevator:
+    def __init__(self, name, accessible_levels):
+        self.name = name
+        self.accessible_levels = list(accessible_levels)
+        self.current_level = 0
+
+    def description(self):
+        return f"Aufzug {self.name}: Etage {self.current_level}"
+
+
+class FreightElevator(Elevator):
+    def __init__(self, name, accessible_levels, max_load):
+        super().__init__(name, accessible_levels)
+        self.max_load = max_load
+
+    def description(self):
+        base_text = super().description()
+        return f"{base_text}, max. {self.max_load} kg"
+```
+
+<!-- pytest-codeblocks:cont -->
+
+```python
+freight = FreightElevator("F1", [-1, 0, 1, 2], 1600)
+print(freight.description())
+# => Aufzug F1: Etage 0, max. 1600 kg
+```
+
+## `isinstance()`: Gehört ein Objekt zu diesem Typ?
+
+Mit `isinstance()` können wir prüfen, ob ein Objekt eine Instanz einer bestimmten Klasse ist.
+
+Bei Vererbung ist dabei wichtig: Ein Objekt einer Unterklasse gilt auch als Objekt der Basisklasse.
+
+```python
+class Elevator:
+    pass
+
+
+class FreightElevator(Elevator):
+    pass
+
+
+normal = Elevator()
+freight = FreightElevator()
+
+print(isinstance(normal, Elevator))          # => True
+print(isinstance(normal, FreightElevator))   # => False
+
+print(isinstance(freight, FreightElevator))  # => True
+print(isinstance(freight, Elevator))         # => True
+```
+
+Der letzte Wert ist besonders wichtig.
+
+Ein `FreightElevator` **ist ein** `Elevator`.
+
+Ein exakter Typvergleich beantwortet dagegen eine engere Frage:
+
+<!-- pytest-codeblocks:cont -->
+
+```python
+print(type(freight) is FreightElevator)  # => True
+print(type(freight) is Elevator)         # => False
+```
+
+Für viele OOP-Anwendungen ist `isinstance()` deshalb passender als ein exakter Vergleich mit `type(...)`.
+
+Wenn eine Funktion oder Sammlung "alle Aufzüge" akzeptieren soll, möchten wir normalerweise auch Unterklassen akzeptieren.
+
+## Typprüfung beim Aufnehmen von Objekten
+
+Wir können jetzt unsere verwaltende Klasse entsprechend absichern:
+
+```python
+class Elevator:
     def __init__(self, name):
-        self.score = 0
         self.name = name
 
-    def move(self, dice):
-        print(f"\n{self.name}'s turn -----------")
-        print(f"Current score: {self.score} ---------")
-        additional_score = 0
-        while True:
-            roll = dice.roll()
-            additional_score += roll
-            print(f"{self.name} got a {roll}! Total={additional_score}")
-            if roll == 1:
-                break
-            user_choice = input("Continue (y/n)? >>> ")
-            if user_choice == "n":
-                self.score += additional_score
-                print(f"+ {additional_score} --> {self.score}")
-                break
-```
+    def description(self):
+        return f"Aufzug {self.name}"
 
-Jede(r) Spieler*In hat zwei Eigenschaften: einen Namen (`.name`) und einen Punktestand (`.score`). Dazu kommt eine Methode um einen Spielzug zu machen (`.make_move()`). Diese Methode haben wir in der Übung erstellt und getestet. Ein sehr wichtiges Element vom Objektorientiertem Ansatz kann man an dieser Stelle schon gut sehen: Objekte werden an andere Objekte weiter gegeben. Es muss also erstmal ein Würfel-Objekt erstellt werden damit ein `Player`-Objekt spielen kann!
 
-<!-- pytest-codeblocks:skip -->
+class FreightElevator(Elevator):
+    def __init__(self, name, max_load):
+        super().__init__(name)
+        self.max_load = max_load
 
-```python
-player1 = Player("Helmut")
-player2 = Player("Sandra")
-dice = Dice()
+    def description(self):
+        return f"Lastenaufzug {self.name}, max. {self.max_load} kg"
 
-player1.make_move(dice)
-player2.make_move(dice)
-```
 
-Also: Genauso wie ich in einem echten Würfelspiel den Würfel (ein Objekt) an eine(n) Spieler*In geben würde, wird auch hier das Objekt `Dice` an `Player` gegeben. Und zwar nicht die als feste Eigenschaft (also: Attribut), sondern nur als Argument in der Methode `.make_move()`. Vielleicht erscheint das jetzt erstmal etwas seltsam. Immerhin ist ein Würfelwurf auch nichts besonders kompliziertes und ich könnte ja auch einfach eine Funktion dafür schreiben oder sogar nur direkt `random.randint(1, 6)` aufrufen. 
-
-Der Hauptvorteil ist, dass klar strukturiert ist welche Eigenschaften wo festgelegt werden. Nämlich immer nur bei den dazugehörigen Objekten. Sprich: Wenn `player1` dran ist, geht der Würfel an die entprechende `make_move()`Methode, usw.
-
-Wenn das Spiel jetzt mit einem anderen Würfel stattfinden soll, muss nur der Würfel verändert werden, z.B. so:
-
-<!-- pytest-codeblocks:skip -->
-
-```python
-player1 = Player("Helmut")
-player2 = Player("Sandra")
-dice = Dice(sides=4)
-
-player1.make_move(dice)
-player2.make_move(dice)
-```
-
----
-
-Jetzt kommen wir zu noch ein paar weiteren Eigenschaften und Möglichkeiten der Objektorientierten Programmierung.
-
-## Datenkapselung
-
-Datenkapselung bedeutet, interne Details eines Objekts von seiner öffentlichen Schnittstelle zu trennen. In Python ist direkter Attributzugriff (`point1.x`) völlig normal. Zusätzliche Getter/Setter oder `@property` werden vor allem dann sinnvoll, wenn beim Lesen oder Schreiben noch Validierung oder andere Logik nötig ist.
-
-### Öffentliche Namen, Unterstrich-Konvention und Name Mangling
-
-Python erzwingt keine klassischen Zugriffsrechte wie `public`, `protected` oder `private`. Stattdessen gibt es Namenskonventionen und **Name Mangling**:
-
-• `name` (**öffentlich**):
- Ein normaler Attributname; von außen les- und schreibbar.
-
-• `_name` (**intern / "protected" per Konvention**):
- Ebenfalls von außen zugänglich. Der führende Unterstrich signalisiert aber: Dieses Attribut gehört zur internen Implementierung und sollte normalerweise nicht direkt verwendet werden.
-
-• `__name` (**Name Mangling**):
- Python verändert den internen Namen, um versehentliche Namenskollisionen insbesondere bei Vererbung zu vermeiden. Das ist **kein echter Zugriffsschutz** und keine Sicherheitsfunktion.
-
-<!-- pytest-codeblocks:expect-error -->
-
-```python
-class MagicSpell:
-    name = "Expecto Patronum"
-    _book = "Magic Spells IV"
-    __explanation = "Here is how it works..."
-
-spell = MagicSpell()
-
-print(spell.name)  # => Expecto Patronum
-print(spell._book)  # => Magic Spells IV
-print(spell.__explanation)  # => AttributeError: 'MagicSpell' object has no attribute '__explanation'
-
-```
-
-Hier ist also zu sehen, dass die *protected attributes*  durchaus noch ganz normal eingesehen werden können! Bei Python ist der eine Unterstrich vor einem Attributsname eher als ein Hinweis an Nutzer\*Innen und v.a. Entwickler\*Innen zu verstehen, diese Variablen nicht einfach zu verändern. Das entspricht in etwa einem "Zutritt auf eigene Gefahr"-Schild.
-
-Bei einem Namen mit doppeltem Unterstrich schlägt der direkte Zugriff über `obj.__name` fehl, weil Python den Namen intern verändert (Name Mangling). Das Attribut ist damit aber nicht wirklich geheim oder unzugänglich.
-
-Das gleiche geht natürlich auch mit einem Konstruktor:
-
-<!-- pytest-codeblocks:expect-error -->
-
-```python
-class MagicSpell:
-    def __init__(self, name, book, explanation):
+class Building:
+    def __init__(self, name):
         self.name = name
-        self._book = book
-        self.__explanation = explanation
+        self.elevators = []
 
-spell = MagicSpell("Expecto Patronum",
-                   "Magic Spells IV",
-                   "Here is how it works...")
+    def add_elevator(self, elevator):
+        if not isinstance(elevator, Elevator):
+            return False
 
-print(spell.name)  # => Expecto Patronum
-print(spell._book)  # => Magic Spells IV
-print(spell.__explanation)  # => AttributeError
+        self.elevators.append(elevator)
+        return True
+
+    def descriptions(self):
+        result = []
+        for elevator in self.elevators:
+            result.append(elevator.description())
+        return result
 ```
-
-
-
-Bevor jemand jetzt aber auf die Idee kommt, damit sensible Daten zu schützen: Einen richtig strengen Schutz der Attribute gibt es bei Python nicht! Der Zugang wird nur bewusst erschwert. Theoretisch können die versteckten Attribute aber noch immer eingesehen werden mit:
 
 <!-- pytest-codeblocks:cont -->
 
 ```python
-print(spell._MagicSpell__explanation)  # nur zur Info, bitte diesen Weg nicht in Programmen nutzen!
+building = Building("Hauptgebäude")
+
+normal = Elevator("A")
+freight = FreightElevator("F1", 1600)
+
+print(building.add_elevator(normal))        # => True
+print(building.add_elevator(freight))       # => True
+print(building.add_elevator("kein Aufzug")) # => False
+
+print(len(building.elevators))  # => 2
+print(building.descriptions())
+# => ['Aufzug A', 'Lastenaufzug F1, max. 1600 kg']
 ```
 
-Auch im VS-Code-Debugger kann man solche internen Attribute unter **VARIABLES** sehen. Der doppelte Unterstrich ist also ausdrücklich kein Schutz für sensible Daten.
+Hier sieht man mehrere OOP-Ideen zusammen:
 
-Als kurzes Beispiel einmal den Fall, dass wir nicht wollen das Nutzer\*Innen .x oder .y eines `Point`-Objekts einfach ändern können:
+1. `Building` **hat** eine Liste von Aufzügen.
+2. Die Liste enthält die bereits erzeugten Objekte.
+3. `FreightElevator` **ist ein** `Elevator`.
+4. Deshalb akzeptiert `isinstance(freight, Elevator)` auch die Unterklasse.
+5. `descriptions()` ruft einfach bei jedem Objekt `description()` auf.
+6. Beim Lastenaufzug wird automatisch die überschriebene Version verwendet.
+
+Die verwaltende Klasse muss dafür nicht mit `if type(...) == ...` zwischen allen Unterklassen unterscheiden.
+
+## Klassen auf mehrere Dateien verteilen
+
+Bei mehreren Klassen wird es schnell sinnvoll, den Code auf Module zu verteilen.
+
+Eine mögliche Struktur wäre:
+
+```text
+projekt/
+├── elevators.py
+├── building.py
+└── main.py
+```
+
+### `elevators.py`
+
+<!-- pytest-codeblocks:skip -->
 
 ```python
-class Point:
-    def __init__(self, x, y):
-        self.__x = x
-        self.__y = y
+# elevators.py
 
-    def get_position(self):
-        return self.__x, self.__y
+class Elevator:
+    def __init__(self, name):
+        self.name = name
 
-    def set_position(self, x, y):
-        self.__x = x
-        self.__y = y
+    def description(self):
+        return f"Aufzug {self.name}"
 
-a = Point(10, 3)
-print(a.get_position())
 
-a.set_position(8, 4)
-print(a.get_position())
+class FreightElevator(Elevator):
+    def __init__(self, name, max_load):
+        super().__init__(name)
+        self.max_load = max_load
 
-# a.x  # => AttributeError
+    def description(self):
+        return f"Lastenaufzug {self.name}, max. {self.max_load} kg"
 ```
 
-Die eigentliche Idee der Kapselung ist daher nicht, Daten kryptografisch zu verstecken, sondern eine klare öffentliche Schnittstelle anzubieten und Implementierungsdetails möglichst nicht unnötig nach außen zu tragen.
+### `building.py`
 
-Ok. Schön. Aber wozu das Ganze?
-
-Die (oder zumindest eine) Idee dahinter ist, dass Entwickler*Innen die entwickelten Klassen für bestimmte Nutzungen vorgesehen haben und zum einen "falsche" Nutzung vermeiden möchten, zum Anderen aber auch eine Nutzung nicht unnötig erschweren wollen indem zu viele Details über die genaue Implementierung sichtbar sind.
-
-Oder anders: Wenn wir eine Python Klasse nutzen, interessiert uns meistens vor allem **wie** sie genutzen werden kann und weniger wie der Code dahinter aussieht. Ein Beispiel: Wenn wir eine Liste erstellen, z.B. mit `my_list = [3, 5, 7, 1, 4]` und diese dann sortieren wollen, dann reicht es erstmal völlig wenn wir wissen, dass es dafür eine passende Methode namens `.sort()` gibt (und wie wir diese benutzen). Welche Unterfunktionen etc. dahinter stecken ist erstmal nicht unsere Hauptsorge.
-
-Naja, aber manchmal ist ein Blick unter die Motorhaube doch ganz nett...
-
-## Magic methods
-
-Magic methods oder auch **Dunder** (von **d**ouble **under**), heißen nicht nur *magic*, sie wirken am Anfang wohl auch ein wenig so. Denn zum einen haben hier alle (zumindest von mir) wahrscheinlich noch nie etwas davon gehört und zum Anderen können Experimente damit sehr seltsame Konsequenzen haben.
-
-Es kann z.B. passieren, dass bestimmte Variablen nicht machen was sie *sollen*, vielleicht so:
-
-```
->>> a
-5
->>> a + 7
-12.123456
->>> a - 1
-4.1010101
-```
-
-Was passiert hier? 
-
-Python kaputt?
-
-Irgendwelche Ideen?
-
-...
-
-...
-
-... 
-
-OK, vielleicht erstmal etwas Anderes: Was sind Dunder/magic methods jetzt eigentlich?
-
-Das sind Methoden deren Namen mit zwei Unterstrichen umgeben sind. Sie sind nicht für direkte Aufrufe bestimmt sondern werden von bestimmten Aktionen ausgelöst, z.B. auch Operatoren. So ist z.B. `__add__()` die Methode die bei Benutzung von `+` augerufen wird:
+<!-- pytest-codeblocks:skip -->
 
 ```python
-a = 5
-print(a.__add__(7))  # => 12
-print(a + 7)  # => 12
+# building.py
+
+import elevators
+
+
+class Building:
+    def __init__(self, name):
+        self.name = name
+        self.elevators = []
+
+    def add_elevator(self, elevator):
+        if not isinstance(elevator, elevators.Elevator):
+            return False
+
+        self.elevators.append(elevator)
+        return True
+
+    def descriptions(self):
+        return [
+            elevator.description()
+            for elevator in self.elevators
+        ]
 ```
 
-Beide Möglichkeiten sind hierbei identisch, mit der Ausnahme dass das direkte Verwenden von `.__add__()` nicht so vorgesehen ist.
+### `main.py`
 
-Es gibt wirklich **sehr viele** solcher Methoden (siehe z.B. [tutorialstecher.com](https://www.tutorialsteacher.com/python/magic-methods-in-python))! Einige Beispiele die wir (ohne es zu wissen) schon selbst benutzt haben sind:
-
-+ `__add__()` für `+`
-+ `__sub__()` für `-`
-+ `__mul__()` für `*`
-+ `__truediv__()` für `/`
-+ `__eq__()` für `==`
-
-Aber auch Methoden die bei der Typen-Umwandlung genutzt werden, z.B.:
-
-+ `__str__()` für `str()`
-+ `__float__()` für `float()`
-
-
-
-Jetzt vielleicht eine Idee, was in dem *seltsamen* Code-Beispiel oben passiert sein könnte?
-
-Hinweis: Kurz mit `type()` testen was `a` eigentlich ist!
-
-```
->>> type(a)
-<class '__main__.FunkyNumber'>
-```
-
-**Tadaa!**
-
-`a` ist gar kein `int` wie vielleicht gedacht, sondern ein Objekt der Klasse `FunkyNumber`:
+<!-- pytest-codeblocks:skip -->
 
 ```python
-class FunkyNumber(int):
-    def __init__(self, value):
-        self.value = value
+# main.py
 
-    def __add__(self, x):
-        return self.value + x + 0.123456
+import building
+import elevators
 
-    def __sub__(self, x):
-        return self.value - x + 0.1010101
-    
-a = FunkyNumber(5)
-print(a + 7)
-print(a - 1)
-print(a * 7)
+
+office = building.Building("Hauptgebäude")
+
+office.add_elevator(elevators.Elevator("A"))
+office.add_elevator(
+    elevators.FreightElevator("F1", 1600)
+)
+
+print(office.descriptions())
 ```
 
-Super funky. Aber was kann das Ganze noch (außer Verwirrung stiften natürlich) ?
+Die Abhängigkeiten laufen hier in eine klare Richtung:
 
-Es gibt tatsächlich ziemlich viele sinnvolle Verwendungen für *magic methods* beim objektorientierten Programmieren in Python. Ein Beispiel können wir uns anschauen indem wir wieder zurück zu unserem Standardbeispiel mit der Klasse `Point` gehen. Den manche Dinge funktionieren dort eventuell nicht so wie wir es uns wünschen würden und *magic methods* können da helfen.
-
-```python
-import math
-
-class Point:
-    def __init__(self, x, y):
-        self.x = x
-        self.y = y
-
-    def center_distance(self):
-        return math.sqrt(self.x ** 2 + self.y ** 2)
-    
-a = Point(10, 3)
-b = Point(10, 3)
-print(a == b)  # => False
+```text
+main.py
+ ├── building.py
+ │     └── elevators.py
+ └── elevators.py
 ```
 
-Was wir hier sehen ist, dass zwei Punkte von Python nicht als gleich (`==`) angesehen werden obwohl sie exakt die gleichen Koordinaten haben. Der Grund ist der, das Python erstmal davon ausgeht, das zwei Objekte nur gleich sind wenn sie auch auf das selbe Objekt verweisen. Sprich: 
+`elevators.py` muss nichts über `Building` wissen und importiert `building.py` deshalb nicht.
 
-<!-- pytest-codeblocks:cont -->
+So vermeiden wir unnötige **zyklische Importe**, bei denen sich zwei Module gegenseitig importieren.
 
-```Python
-a = Point(10, 3)
-b = a
-print(a == b)  # => True
-```
+## Was nehmen wir aus OOP Teil 2 mit?
 
-Es würde aber (je nach Anwendung) auch Sinn machen, dass zwei Punkte als gleich zu verstehen sind falls ihre Koordinaten gleich sind. Mit *magic methods* können wir das erreichen.
+Nach den beiden OOP-Einheiten sind vor allem diese Fragen wichtig:
 
-```python
-import math
+- Welcher Zustand gehört zu welchem Objekt?
+- Wenn ich ein Objekt weitergebe: Arbeite ich noch mit derselben Instanz?
+- **Hat** ein Objekt ein anderes Objekt? → häufig Komposition.
+- **Ist** ein Typ eine speziellere Form eines anderen Typs? → eventuell Vererbung.
+- Kann ich vorhandene Initialisierung mit `super().__init__()` wiederverwenden?
+- Soll eine Unterklasse eine geerbte Methode übernehmen oder überschreiben?
+- Soll eine Typprüfung auch Unterklassen akzeptieren? → häufig `isinstance()`.
+- Welche Klasse ist für welchen Zustand und welches Verhalten verantwortlich?
+- Wie verteile ich mehrere Klassen sinnvoll auf Module, ohne unnötige Abhängigkeiten zu erzeugen?
 
-class Point:
-    def __init__(self, x, y):
-        self.x = x
-        self.y = y
-        
-    def __eq__(self, p):
-        return (self.x == p.x) and (self.y == p.y)
-
-    def center_distance(self):
-        return math.sqrt(self.x ** 2 + self.y ** 2)
-    
-a = Point(10, 3)
-b = Point(10, 3)
-print(a == b)  # => True
-```
-
-Übrigens: auch innerhalb der Standard-Datentypen in Python findet sich die ein oder andere "kreative" Lösung. Ein gutes Beispiel dafür ist die Multiplikation bei Strings, also das`5 * "-"`  möglich ist und `"-----"` ergibt, ist ebenfalls etwas das mit *magic methods* eben einfach definiert werden kann.
-
+Mehr fortgeschrittene OOP-Themen gibt es natürlich noch reichlich. Für den Moment ist aber wichtiger, diese wenigen Bausteine sicher einsetzen und miteinander kombinieren zu können.
