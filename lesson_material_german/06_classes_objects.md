@@ -16,7 +16,7 @@ Die ursprüngliche Motivation der objektorientierten Programmierung liegt wohl d
 
 In der objektorientierten Programmierung wird alles durch **Objekte** beschrieben. Objekte haben Daten oder Parameter (die **Attribute**) und Fähigkeiten (die **Methoden**). Wichtig ist, das in Objekten beides zusammenkommt, d.h. Objekte besitzen Attribute und Methoden. Nehmen wir ein einfaches Beispiel: Ein Fahrrad hat bestimmte Parameter, z.B. die Radgröße, die Farbe, die Anzahl der Gänge etc. Das wären die Attribute. Ein Fahrrad hat aber auch Methoden und zwar das Fahren, oder z.B. Klingeln.
 
-![Beispiel einer Klasse Fahrrad](C:/Users/flori/images/fig_oop_bike_class.png)
+![Beispiel einer Klasse Fahrrad](../images/fig_oop_bike_class.png)
 
 Gleich zu Beginn eine wichtige Unterscheidung die am Anfang oft für Verwirrung sorgt: **Klasse vs. Objekt**.
 Eine **Klasse** definiert einen Typen, sie ist also eine Art Vorlage. Ein Objekt (oder auch: **Instanz**) ist dagegen nur ein Exemplar das auf einer bestimmten Klasse beruht. Im Beispiel hier wäre *Fahrrad* eine Klasse und jedes echte an uns vorbeifahrende Fahrrad wäre jeweils ein Objekt der Klasse Fahrrad. Keines davon **ist** eine Vorlage für Fahrrad, sondern sie entsprechen der Vorlage Fahrrad weil sie die entsprechenden Eigenschaften und Methoden haben.
@@ -592,10 +592,8 @@ Damit prüfen wir drei Dinge getrennt:
 
 Und gleichzeitig sehen wir noch einmal: `elevator_b` bleibt vollständig unabhängig von der Änderung an `elevator_a`.
 
-Super.
-
 Wir können jetzt eigene Klassen definieren, daraus Objekte erzeugen und Zustände und Verhalten sinnvoll zusammenfassen.
 
-So what!? Was bringt das denn jetzt überhaupt?
+**OK. So what!?** Was bringt das denn jetzt überhaupt?
 
 Eine ganze Reihe! Klassen helfen dabei Programme sinnvoll zu strukturieren. Mit Klassen können wir Objekte so entwerfen, dass sie genau die gewünschten Eigenschaften besitzen und die dazu passenden Methoden mitbringen. Bei unserem Aufzug liegen z.B. Position und Türstatus nicht als lose Variablen irgendwo im Programm, sondern gehören zum jeweiligen `Elevator`-Objekt. Gleichzeitig können mehrere Aufzüge mit derselben Klasse erzeugt werden, ohne dass ihre Zustände miteinander vermischt werden.
