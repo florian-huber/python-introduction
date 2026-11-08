@@ -646,6 +646,145 @@ main.py
 
 So werden unnötige **zyklische Importe** vermieden, bei denen sich zwei Module gegenseitig importieren.
 
+## Getter, Setter und Properties
+
+Bisher haben wir Attribute unserer Objekte meistens direkt gelesen und verändert. Bei einem `Elevator` könnten wir zum Beispiel schreiben:
+
+```python
+elevator.level = 3
+```
+
+Das ist technisch möglich, kann aber problematisch sein. Der Aufzug könnte dadurch plötzlich auf einer Etage stehen, die gar nicht erreichbar ist.
+Außerdem würden dabei andere Regeln umgangen: Vielleicht darf sich der Aufzug bei geöffneter Tür nicht bewegen oder bei einer Bewegung müsste zusätzlich ein Display aktualisiert werden.
+
+Darum kann es sinnvoll sein, bestimmte Attribute als **interne Attribute** zu behandeln. In Python wird dafür üblicherweise ein führender Unterstrich verwendet:
+
+```python
+self._level = 0
+```
+
+Der Unterstrich verhindert den Zugriff nicht technisch. Er signalisiert aber: **Dieses Attribut gehört zur internen Implementierung der Klasse und sollte von außen nicht direkt verändert werden.**
+
+Eine klassische Möglichkeit wäre, eigene Getter- und Setter-Methoden anzubieten:
+
+```python
+def get_level(self):
+    return self._level
+
+def set_level(self, new_level):
+    if new_level in self.accessible_levels:
+        self._level = new_level
+```
+
+Ein **Getter** liest dabei einen Wert, während ein **Setter** kontrolliert, wie ein Wert verändert werden darf.
+
+In Python wird für solche Zugriffe allerdings häufig `@property` verwendet.
+Damit können wir nach außen weiterhin einen normalen Attributzugriff anbieten, obwohl intern eine Methode ausgeführt wird.
+
+Für unseren Aufzug ist es sinnvoll, die aktuelle Etage von außen **lesen**, aber nicht direkt setzen zu können. Änderungen sollen ausschließlich über `move_to()` stattfinden:
+
+```python
+class Elevator:
+    def __init__(self, name, accessible_levels):
+        self.name = name
+        self.accessible_levels = list(accessible_levels)
+
+        self._level = 0
+        self._door_open = False
+
+    @property
+    def level(self):
+        return self._level
+
+    @property
+    def door_open(self):
+        return self._door_open
+
+    def open_door(self):
+        if self._door_open:
+            return False
+
+        self._door_open = True
+        return True
+
+    def close_door(self):
+        if not self._door_open:
+            return False
+
+        self._door_open = False
+        return True
+
+    def move_to(self, new_level):
+        if self._door_open:
+            return False
+
+        if new_level not in self.accessible_levels:
+            return False
+
+        if new_level == self._level:
+            return False
+
+        self._level = new_level
+        return True
+
+    def description(self):
+        door = "offen" if self._door_open else "geschlossen"
+        return (
+            f"Aufzug {self.name}: "
+            f"Etage {self._level}, Tür {door}"
+        )
+```
+
+Jetzt können wir die aktuelle Etage bequem lesen:
+
+```python
+elevator = Elevator("A", [-1, 0, 1, 2, 3])
+
+print(elevator.level)       # => 0
+print(elevator.door_open)   # => False
+
+print(elevator.move_to(2))  # => True
+print(elevator.level)       # => 2
+```
+
+Aber dieser Zugriff funktioniert absichtlich nicht:
+
+<!-- pytest-codeblocks:expect-error -->
+
+```python
+elevator.level = 3
+# => AttributeError: property 'level' of 'Elevator' object has no setter
+```
+
+Wir haben für `level` zwar einen Getter über `@property` definiert, aber keinen Setter. Dadurch kann Code außerhalb der Klasse die aktuelle Etage lesen, aber nicht versehentlich mit einer einfachen Zuweisung verändern.
+
+Wenn ein direktes Setzen sinnvoll wäre, könnte eine Property zusätzlich einen Setter bekommen:
+
+```python
+@property
+def level(self):
+    return self._level
+
+@level.setter
+def level(self, new_level):
+    if new_level not in self.accessible_levels:
+        raise ValueError("Etage ist nicht erreichbar.")
+    self._level = new_level
+```
+
+Dann wäre auch
+
+```python
+elevator.level = 2
+```
+
+möglich, wobei im Hintergrund die Setter-Methode ausgeführt würde.
+
+Für unseren `Elevator` ist das aber gerade **nicht** die beste Schnittstelle: Eine Bewegung besteht aus mehr als einer einfachen Wertzuweisung. Deshalb bleibt `level` nach außen nur lesbar und Zustandsänderungen laufen kontrolliert über `move_to()`.
+
+Das ist eine wichtige Idee der **Kapselung**: Nicht jeder interne Zustand eines Objekts muss von außen beliebig verändert werden können.
+Eine Klasse kann stattdessen eine kleine, klar definierte Schnittstelle anbieten und selbst dafür sorgen, dass ihre Objekte in einem sinnvollen Zustand bleiben.
+
 ## Ausblick
 
 Mit Klassen, Objekten, Komposition und Vererbung haben wir nur einen ersten Teil der Möglichkeiten objektorientierter Programmierung kennengelernt.
