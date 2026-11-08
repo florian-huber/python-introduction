@@ -134,6 +134,8 @@ print(arr2[sorted_idx[:10]])
 
 Wir haben bereits eine Möglichkeit gesehen, Werte in einem Numpy Array auszuwählen und zwar über eine Maske, also z.B.
 
+<!-- pytest-codeblocks:cont -->
+
 ```python
 arr = np.random.randint(0, 100, size=(10, 10))
 # select using mask
@@ -148,6 +150,8 @@ print(arr)
 #### numpy.where
 
 Oft möchten wir aber die genauen Indizes (also die Positionen im Array) erhalten für Werte die unseren Suchkriterien entsprechen. Das geht mit `numpy.where`, hier ein Beispiel:
+
+<!-- pytest-codeblocks:cont -->
 
 ```python
 arr = np.random.randint(0, 100, size=(10, 10))
