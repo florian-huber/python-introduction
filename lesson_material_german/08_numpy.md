@@ -152,6 +152,8 @@ Aber was bringt das jetzt, dass ich mit Boolean bestimmte Elemente adressieren k
 
 Das Ganze macht v.a. dann Sinn wenn es mit Bedingungen/Abfragen verbunden wird! Werte in Numpy Arrays können nämlich einfach über Bedingungen abgefragt werden:
 
+<!-- pytest-codeblocks:cont -->
+
 ```python
 import numpy as np
 
