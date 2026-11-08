@@ -644,20 +644,18 @@ main.py
 
 `elevators.py` muss nichts über `Building` wissen und importiert `building.py` deshalb nicht.
 
-So vermeiden wir unnötige **zyklische Importe**, bei denen sich zwei Module gegenseitig importieren.
+So werden unnötige **zyklische Importe** vermieden, bei denen sich zwei Module gegenseitig importieren.
 
-## Was nehmen wir aus OOP Teil 2 mit?
+## Ausblick
 
-Nach den beiden OOP-Einheiten sind vor allem diese Fragen wichtig:
+Mit Klassen, Objekten, Komposition und Vererbung haben wir nur einen ersten Teil der Möglichkeiten objektorientierter Programmierung kennengelernt.
+In größeren Python-Projekten kommen weitere Konzepte dazu, zum Beispiel **Klassenmethoden**, **Properties** oder abstrakte Basisklassen.
+Sie helfen dabei, die öffentliche Schnittstelle einer Klasse klarer zu gestalten und genauer festzulegen, wie Objekte erzeugt oder verwendet werden sollen.
 
-- Welcher Zustand gehört zu welchem Objekt?
-- Wenn ich ein Objekt weitergebe: Arbeite ich noch mit derselben Instanz?
-- **Hat** ein Objekt ein anderes Objekt? → häufig Komposition.
-- **Ist** ein Typ eine speziellere Form eines anderen Typs? → eventuell Vererbung.
-- Kann ich vorhandene Initialisierung mit `super().__init__()` wiederverwenden?
-- Soll eine Unterklasse eine geerbte Methode übernehmen oder überschreiben?
-- Soll eine Typprüfung auch Unterklassen akzeptieren? → häufig `isinstance()`.
-- Welche Klasse ist für welchen Zustand und welches Verhalten verantwortlich?
-- Wie verteile ich mehrere Klassen sinnvoll auf Module, ohne unnötige Abhängigkeiten zu erzeugen?
+Außerdem können Klassen in Python durch sogenannte **Magic Methods** enger mit der Sprache zusammenarbeiten.
+Methoden wie `__str__()`, `__eq__()` oder `__len__()` legen beispielsweise fest, wie ein Objekt als Text dargestellt, mit einem anderen Objekt verglichen oder mit `len()` verwendet wird.
+Dadurch können selbst definierte Klassen sich ähnlich natürlich verhalten wie eingebaute Python-Typen.
 
-Mehr fortgeschrittene OOP-Themen gibt es natürlich noch reichlich. Für den Moment ist aber wichtiger, diese wenigen Bausteine sicher einsetzen und miteinander kombinieren zu können.
+Mit zunehmender Größe eines Programms wird außerdem immer wichtiger, **wann eine neue Klasse überhaupt sinnvoll ist** und wie Klassen zusammenarbeiten sollen.
+Vererbung ist dabei nur eine Möglichkeit, häufig ist eine einfache Komposition mehrerer kleiner Objekte die übersichtlichere Lösung.
+Die Frage, welche Daten und welches Verhalten zu welchem Objekt gehören, bleibt auch bei deutlich größeren Softwareprojekten zentral.
