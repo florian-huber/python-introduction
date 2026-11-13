@@ -36,7 +36,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=6a604523" />
   
   <!-- So that users can add custom icons -->
   <script defer src="../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
@@ -56,7 +56,7 @@
     <script src="../_static/togglebutton.js?v=b8b12719"></script>
     <script src="../_static/translations.js?v=79cc9f76"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script data-sd-tabs-storage-prefix="sphinx-design-tab-id-" src="../_static/design-tabs.js?v=fcb327ea"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
@@ -254,7 +254,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Arbeiten mit numerischen Daten - Numpy</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="08_numpy.html">16. Numerische Daten in Python mit NumPy</a></li>
-<li class="toctree-l1"><a class="reference internal" href="09_numpy_2.html">17. Numerische Daten in Python mit NumPy - Teil 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_numpy_2.html">17. Numerische Daten in Python mit NumPy – Teil 2</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Schritte Richtung Data Science</span></p>
 <ul class="nav bd-sidenav">
@@ -262,11 +262,6 @@
 <li class="toctree-l1"><a class="reference internal" href="10_pandas_2.html">19. Pandas - Teil 2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="12_data_visualization.html">20. Datenvisualisierung mit Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="13_data_visualization_outlook.html">21. 2D/3D Visualisierung &amp; interaktive Plots</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">A few missing things</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="10_debugging.html">22. Python Debugging</a></li>
-<li class="toctree-l1"><a class="reference internal" href="14_generators.html">23. Generators / Iterators</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Source Code and Contributions</span></p>
 <ul class="nav bd-sidenav">
@@ -1064,17 +1059,20 @@
 <section id="getter-setter-und-properties">
 <h2><span class="section-number">15.10. </span>Getter, Setter und Properties<a class="headerlink" href="#getter-setter-und-properties" title="Link to this heading">#</a></h2>
 <p>Bisher haben wir Attribute unserer Objekte meistens direkt gelesen und verändert. Bei einem <code class="docutils literal notranslate"><span class="pre">Elevator</span></code> könnten wir zum Beispiel schreiben:</p>
+<!-- pytest-codeblocks:skip -->
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">elevator</span><span class="o">.</span><span class="n">level</span> <span class="o">=</span> <span class="mi">3</span>
 </pre></div>
 </div>
 <p>Das ist technisch möglich, kann aber problematisch sein. Der Aufzug könnte dadurch plötzlich auf einer Etage stehen, die gar nicht erreichbar ist.
 Außerdem würden dabei andere Regeln umgangen: Vielleicht darf sich der Aufzug bei geöffneter Tür nicht bewegen oder bei einer Bewegung müsste zusätzlich ein Display aktualisiert werden.</p>
 <p>Darum kann es sinnvoll sein, bestimmte Attribute als <strong>interne Attribute</strong> zu behandeln. In Python wird dafür üblicherweise ein führender Unterstrich verwendet:</p>
+<!-- pytest-codeblocks:skip -->
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="bp">self</span><span class="o">.</span><span class="n">_level</span> <span class="o">=</span> <span class="mi">0</span>
 </pre></div>
 </div>
 <p>Der Unterstrich verhindert den Zugriff nicht technisch. Er signalisiert aber: <strong>Dieses Attribut gehört zur internen Implementierung der Klasse und sollte von außen nicht direkt verändert werden.</strong></p>
 <p>Eine klassische Möglichkeit wäre, eigene Getter- und Setter-Methoden anzubieten:</p>
+<!-- pytest-codeblocks:skip -->
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_level</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_level</span>
 
@@ -1139,6 +1137,7 @@ Damit können wir nach außen weiterhin einen normalen Attributzugriff anbieten,
 </pre></div>
 </div>
 <p>Jetzt können wir die aktuelle Etage bequem lesen:</p>
+<!-- pytest-codeblocks:cont -->
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">elevator</span> <span class="o">=</span> <span class="n">Elevator</span><span class="p">(</span><span class="s2">"A"</span><span class="p">,</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">elevator</span><span class="o">.</span><span class="n">level</span><span class="p">)</span>       <span class="c1"># =&gt; 0</span>
@@ -1156,6 +1155,7 @@ Damit können wir nach außen weiterhin einen normalen Attributzugriff anbieten,
 </div>
 <p>Wir haben für <code class="docutils literal notranslate"><span class="pre">level</span></code> zwar einen Getter über <code class="docutils literal notranslate"><span class="pre">&#64;property</span></code> definiert, aber keinen Setter. Dadurch kann Code außerhalb der Klasse die aktuelle Etage lesen, aber nicht versehentlich mit einer einfachen Zuweisung verändern.</p>
 <p>Wenn ein direktes Setzen sinnvoll wäre, könnte eine Property zusätzlich einen Setter bekommen:</p>
+<!-- pytest-codeblocks:skip -->
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@property</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">level</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_level</span>
@@ -1168,6 +1168,7 @@ Damit können wir nach außen weiterhin einen normalen Attributzugriff anbieten,
 </pre></div>
 </div>
 <p>Dann wäre auch</p>
+<!-- pytest-codeblocks:skip -->
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">elevator</span><span class="o">.</span><span class="n">level</span> <span class="o">=</span> <span class="mi">2</span>
 </pre></div>
 </div>

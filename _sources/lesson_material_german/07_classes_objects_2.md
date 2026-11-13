@@ -650,6 +650,9 @@ So werden unnötige **zyklische Importe** vermieden, bei denen sich zwei Module 
 
 Bisher haben wir Attribute unserer Objekte meistens direkt gelesen und verändert. Bei einem `Elevator` könnten wir zum Beispiel schreiben:
 
+<!-- pytest-codeblocks:skip -->
+
+
 ```python
 elevator.level = 3
 ```
@@ -659,6 +662,8 @@ Außerdem würden dabei andere Regeln umgangen: Vielleicht darf sich der Aufzug 
 
 Darum kann es sinnvoll sein, bestimmte Attribute als **interne Attribute** zu behandeln. In Python wird dafür üblicherweise ein führender Unterstrich verwendet:
 
+<!-- pytest-codeblocks:skip -->
+
 ```python
 self._level = 0
 ```
@@ -666,6 +671,8 @@ self._level = 0
 Der Unterstrich verhindert den Zugriff nicht technisch. Er signalisiert aber: **Dieses Attribut gehört zur internen Implementierung der Klasse und sollte von außen nicht direkt verändert werden.**
 
 Eine klassische Möglichkeit wäre, eigene Getter- und Setter-Methoden anzubieten:
+
+<!-- pytest-codeblocks:skip -->
 
 ```python
 def get_level(self):
@@ -737,6 +744,8 @@ class Elevator:
 
 Jetzt können wir die aktuelle Etage bequem lesen:
 
+<!-- pytest-codeblocks:cont -->
+
 ```python
 elevator = Elevator("A", [-1, 0, 1, 2, 3])
 
@@ -760,6 +769,8 @@ Wir haben für `level` zwar einen Getter über `@property` definiert, aber keine
 
 Wenn ein direktes Setzen sinnvoll wäre, könnte eine Property zusätzlich einen Setter bekommen:
 
+<!-- pytest-codeblocks:skip -->
+
 ```python
 @property
 def level(self):
@@ -773,6 +784,8 @@ def level(self, new_level):
 ```
 
 Dann wäre auch
+
+<!-- pytest-codeblocks:skip -->
 
 ```python
 elevator.level = 2

@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>22. Python Debugging &#8212; Einführung Programmieren mit Python</title>
+    <title>Python Debugging &#8212; Einführung Programmieren mit Python</title>
   
   
   
@@ -36,7 +36,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=6a604523" />
   
   <!-- So that users can add custom icons -->
   <script defer src="../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
@@ -56,7 +56,7 @@
     <script src="../_static/togglebutton.js?v=b8b12719"></script>
     <script src="../_static/translations.js?v=79cc9f76"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script data-sd-tabs-storage-prefix="sphinx-design-tab-id-" src="../_static/design-tabs.js?v=fcb327ea"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
@@ -66,8 +66,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
     <link rel="search" title="Suche" href="../search.html" />
-    <link rel="next" title="23. Generators / Iterators" href="14_generators.html" />
-    <link rel="prev" title="21. 2D/3D Visualisierung &amp; interaktive Plots" href="13_data_visualization_outlook.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="de"/>
   <meta name="docsearch:version" content="" />
@@ -169,6 +167,8 @@
       
       
       
+        
+      
       <dialog id="pst-primary-sidebar-modal"></dialog>
       <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
@@ -254,7 +254,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Arbeiten mit numerischen Daten - Numpy</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="08_numpy.html">16. Numerische Daten in Python mit NumPy</a></li>
-<li class="toctree-l1"><a class="reference internal" href="09_numpy_2.html">17. Numerische Daten in Python mit NumPy - Teil 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_numpy_2.html">17. Numerische Daten in Python mit NumPy – Teil 2</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Schritte Richtung Data Science</span></p>
 <ul class="nav bd-sidenav">
@@ -262,11 +262,6 @@
 <li class="toctree-l1"><a class="reference internal" href="10_pandas_2.html">19. Pandas - Teil 2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="12_data_visualization.html">20. Datenvisualisierung mit Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="13_data_visualization_outlook.html">21. 2D/3D Visualisierung &amp; interaktive Plots</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">A few missing things</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">22. Python Debugging</a></li>
-<li class="toctree-l1"><a class="reference internal" href="14_generators.html">23. Generators / Iterators</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Source Code and Contributions</span></p>
 <ul class="nav bd-sidenav">
@@ -464,14 +459,14 @@
             </div>
             <nav aria-label="Page">
                 <ul class="pst-show_toc_level nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ein-wenig-wie-hieroglyphen-lesen">22.1. Ein wenig wie Hieroglyphen lesen…</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mehr-code-mehr-text-mehr-fehlerquellen">22.2. Mehr Code, mehr Text, mehr Fehlerquellen</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jedes-zeichen-zahlt-beim-computer-aber-nicht-beim-menschen">22.2.1. Jedes Zeichen zählt… beim Computer aber NICHT beim Menschen!</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#oft-wird-der-fehler-nicht-dort-entdeckt-wo-er-gemacht-wird">22.2.2. Oft wird der Fehler nicht dort entdeckt wo er gemacht wird.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ein-wenig-wie-hieroglyphen-lesen">Ein wenig wie Hieroglyphen lesen…</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mehr-code-mehr-text-mehr-fehlerquellen">Mehr Code, mehr Text, mehr Fehlerquellen</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jedes-zeichen-zahlt-beim-computer-aber-nicht-beim-menschen">Jedes Zeichen zählt… beim Computer aber NICHT beim Menschen!</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#oft-wird-der-fehler-nicht-dort-entdeckt-wo-er-gemacht-wird">Oft wird der Fehler nicht dort entdeckt wo er gemacht wird.</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ein-minenfeld-file-import">22.3. Ein Minenfeld: File import!</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wo-muss-ich-hinschauen">22.3.1. Wo muss ich hinschauen?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ein-minenfeld-file-import">Ein Minenfeld: File import!</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wo-muss-ich-hinschauen">Wo muss ich hinschauen?</a></li>
 </ul>
 </li>
 </ul>
@@ -486,9 +481,9 @@
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="python-debugging">
-<h1><span class="section-number">22. </span>Python Debugging<a class="headerlink" href="#python-debugging" title="Link to this heading">#</a></h1>
+<h1>Python Debugging<a class="headerlink" href="#python-debugging" title="Link to this heading">#</a></h1>
 <section id="ein-wenig-wie-hieroglyphen-lesen">
-<h2><span class="section-number">22.1. </span>Ein wenig wie Hieroglyphen lesen…<a class="headerlink" href="#ein-wenig-wie-hieroglyphen-lesen" title="Link to this heading">#</a></h2>
+<h2>Ein wenig wie Hieroglyphen lesen…<a class="headerlink" href="#ein-wenig-wie-hieroglyphen-lesen" title="Link to this heading">#</a></h2>
 <p>Inzwischen haben Sie schon eine Menge erste Programmiererfahrung mit Python sammeln können. Und sicher kennen Sie darum inzwischen auch die Situation, dass sie einen bestimmten Code zum Laufen bringen wollen, aber ständig nur Error-Nachrichten zurück bekommen! Und trotz allem hin- und her probieren will der Code einfach nicht so laufen wie gewünscht.</p>
 <p>Die schlechte Nachricht zuerst: das bleibt so. Auch mit mehr Programmiererfahrung. :(</p>
 <p>Die gute Nachricht ist aber, dass die Fehlermeldung nach und nach anfangen etwas mehr Sinn zu machen, so dass auch oft schneller klar wird wo der eigentliche Fehler liegt.</p>
@@ -503,11 +498,11 @@
 <p>Das passiert ständig: Tippfehler. <code class="docutils literal notranslate"><span class="pre">primt</span></code> gibt es nicht, wir wollten natürlich auch <code class="docutils literal notranslate"><span class="pre">print</span></code> schreiben. Zack, gelöst. Einfach.</p>
 </section>
 <section id="mehr-code-mehr-text-mehr-fehlerquellen">
-<h2><span class="section-number">22.2. </span>Mehr Code, mehr Text, mehr Fehlerquellen<a class="headerlink" href="#mehr-code-mehr-text-mehr-fehlerquellen" title="Link to this heading">#</a></h2>
+<h2>Mehr Code, mehr Text, mehr Fehlerquellen<a class="headerlink" href="#mehr-code-mehr-text-mehr-fehlerquellen" title="Link to this heading">#</a></h2>
 <p>So ein Einzeiler wie oben ist natürlich auch deshalb so leicht zu lösen, weil der Fehler ja nur an wenigen Stellen entstanden sein kann. In der Regel arbeiten wir aber jetzt schon mit deutlich komplizierterem Code, mit selbst geschriebenen Funktionen und Klassen, mit importierten Bibliotheken und und und…</p>
 <p>Und hier wird es schnell unübersichtlich, und zwar aus verschiedenen Gründen.</p>
 <section id="jedes-zeichen-zahlt-beim-computer-aber-nicht-beim-menschen">
-<h3><span class="section-number">22.2.1. </span>Jedes Zeichen zählt… beim Computer aber NICHT beim Menschen!<a class="headerlink" href="#jedes-zeichen-zahlt-beim-computer-aber-nicht-beim-menschen" title="Link to this heading">#</a></h3>
+<h3>Jedes Zeichen zählt… beim Computer aber NICHT beim Menschen!<a class="headerlink" href="#jedes-zeichen-zahlt-beim-computer-aber-nicht-beim-menschen" title="Link to this heading">#</a></h3>
 <p>Die menschliche, visuelle Wahrnehmung ist gut um schnell das grobe Ganze zu erfassen. Aber eben nicht immer auch so gut darin, kleine Abweichungen zu erkennen. Wahrscheinlich können sie darum den folgenden Text relativ problemlos lesen:</p>
 <p><em>Wir könenn als Mneschen schenll den Ihalnt von Teetxn vrestheen und schenll veile Wötrer leesn. Aebr wir snid nchit bdnrseoes gut im Etneckden von keilenn Fehelrn wie zum Biespiel vretaueschtn Bchustbaen oder feehlnedn Stazzechein.</em></p>
 <p>Dieses Phänomen ist in der Forschung gut bekannt, siehe <a class="reference external" href="https://en.wikipedia.org/wiki/Transposed_letter_effect">wikipedia</a> oder <a class="reference external" href="https://www.mrc-cbu.cam.ac.uk/people/matt.davis/cmabridge/">hier</a>. Verkürzt bedeutet es, dass wir eben nicht so gut darin sind kleine Buchstabendreher zu entdecken. Programmiersprachen sind da aber ein wenig anders. Darum scheitern wir ständig an unseren kleinen Tippfehlern…</p>
@@ -558,7 +553,7 @@ Wir müssen nicht mal selber suchen, denn der Pfeil (<code class="docutils liter
 </ul>
 </section>
 <section id="oft-wird-der-fehler-nicht-dort-entdeckt-wo-er-gemacht-wird">
-<h3><span class="section-number">22.2.2. </span>Oft wird der Fehler nicht dort entdeckt wo er gemacht wird.<a class="headerlink" href="#oft-wird-der-fehler-nicht-dort-entdeckt-wo-er-gemacht-wird" title="Link to this heading">#</a></h3>
+<h3>Oft wird der Fehler nicht dort entdeckt wo er gemacht wird.<a class="headerlink" href="#oft-wird-der-fehler-nicht-dort-entdeckt-wo-er-gemacht-wird" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Funktionen, Bibliotheken, Klassen… sind häufig sehr verschachtelt.</p></li>
 <li><p>Häufig bekommen wir sehr lange Fehlermeldungen zurück die, die auf sehr tief verschachtelte Funktionen oder Klassen verweisen in denen der Fehler von Python eine Ausnahme (exception) auslöst.</p></li>
@@ -673,7 +668,7 @@ Der Fehler hier liegt woanders. Nicht die 9 ist das Problem, sondern die Art wie
 </section>
 </section>
 <section id="ein-minenfeld-file-import">
-<h2><span class="section-number">22.3. </span>Ein Minenfeld: File import!<a class="headerlink" href="#ein-minenfeld-file-import" title="Link to this heading">#</a></h2>
+<h2>Ein Minenfeld: File import!<a class="headerlink" href="#ein-minenfeld-file-import" title="Link to this heading">#</a></h2>
 <p>In den Übungen haben wir jetzt schon öfter die kleinen Schwierigkeiten beim Importieren von Dateien genossen. Zwei Fehler dürften dabei alle inzwischen einmal selber mitbekommen haben: <code class="docutils literal notranslate"><span class="pre">UnicodeDecodeError</span></code> und am beliebtesten: <code class="docutils literal notranslate"><span class="pre">FileNotFoundError</span></code>!</p>
 <p>Fangen wir also an eine Datei zu importieren: „NetflixOriginals.csv“</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
@@ -845,7 +840,7 @@ Der Fehler hier liegt woanders. Nicht die 9 ist das Problem, sondern die Art wie
 </div>
 <p>Hier sieht man gut die Verschachtelung von vielen, vielen Funktionen/Methoden!</p>
 <section id="wo-muss-ich-hinschauen">
-<h3><span class="section-number">22.3.1. </span>Wo muss ich hinschauen?<a class="headerlink" href="#wo-muss-ich-hinschauen" title="Link to this heading">#</a></h3>
+<h3>Wo muss ich hinschauen?<a class="headerlink" href="#wo-muss-ich-hinschauen" title="Link to this heading">#</a></h3>
 <p>Bei den ganzen Beispiel oben haben wir dazu schon viel gesehen. In den Fehlermeldungen stehen verschiedene Sachen drin, aber der wichtigste Hinweis kommt <strong>ganz zum Schluss</strong>. Dort steht was für eine Art Fehler vorliegt und häufig auch noch der Name der Funktion/Variable/Klasse… mit dem etwas nicht stimmt.</p>
 <p>Häufige weitere Hinweise sind:</p>
 <ul>
@@ -910,24 +905,6 @@ Meistens bedeutet das, dass entweder <code class="docutils literal notranslate">
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
-    <a class="left-prev"
-       href="13_data_visualization_outlook.html"
-       title="Vorherige Seite">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">zurück</p>
-        <p class="prev-next-title"><span class="section-number">21. </span>2D/3D Visualisierung &amp; interaktive Plots</p>
-      </div>
-    </a>
-    <a class="right-next"
-       href="14_generators.html"
-       title="Nächste Seite">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">weiter</p>
-        <p class="prev-next-title"><span class="section-number">23. </span>Generators / Iterators</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
 </div>
                 </footer>
               
@@ -946,14 +923,14 @@ Meistens bedeutet das, dass entweder <code class="docutils literal notranslate">
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="pst-show_toc_level nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ein-wenig-wie-hieroglyphen-lesen">22.1. Ein wenig wie Hieroglyphen lesen…</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mehr-code-mehr-text-mehr-fehlerquellen">22.2. Mehr Code, mehr Text, mehr Fehlerquellen</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jedes-zeichen-zahlt-beim-computer-aber-nicht-beim-menschen">22.2.1. Jedes Zeichen zählt… beim Computer aber NICHT beim Menschen!</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#oft-wird-der-fehler-nicht-dort-entdeckt-wo-er-gemacht-wird">22.2.2. Oft wird der Fehler nicht dort entdeckt wo er gemacht wird.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ein-wenig-wie-hieroglyphen-lesen">Ein wenig wie Hieroglyphen lesen…</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mehr-code-mehr-text-mehr-fehlerquellen">Mehr Code, mehr Text, mehr Fehlerquellen</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jedes-zeichen-zahlt-beim-computer-aber-nicht-beim-menschen">Jedes Zeichen zählt… beim Computer aber NICHT beim Menschen!</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#oft-wird-der-fehler-nicht-dort-entdeckt-wo-er-gemacht-wird">Oft wird der Fehler nicht dort entdeckt wo er gemacht wird.</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ein-minenfeld-file-import">22.3. Ein Minenfeld: File import!</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wo-muss-ich-hinschauen">22.3.1. Wo muss ich hinschauen?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ein-minenfeld-file-import">Ein Minenfeld: File import!</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wo-muss-ich-hinschauen">Wo muss ich hinschauen?</a></li>
 </ul>
 </li>
 </ul>

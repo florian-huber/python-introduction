@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>17. Numerische Daten in Python mit NumPy - Teil 2 &#8212; Einführung Programmieren mit Python</title>
+    <title>17. Numerische Daten in Python mit NumPy – Teil 2 &#8212; Einführung Programmieren mit Python</title>
   
   
   
@@ -36,7 +36,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=6a604523" />
   
   <!-- So that users can add custom icons -->
   <script defer src="../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
@@ -56,7 +56,7 @@
     <script src="../_static/togglebutton.js?v=b8b12719"></script>
     <script src="../_static/translations.js?v=79cc9f76"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script data-sd-tabs-storage-prefix="sphinx-design-tab-id-" src="../_static/design-tabs.js?v=fcb327ea"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
@@ -254,7 +254,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Arbeiten mit numerischen Daten - Numpy</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="08_numpy.html">16. Numerische Daten in Python mit NumPy</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">17. Numerische Daten in Python mit NumPy - Teil 2</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">17. Numerische Daten in Python mit NumPy – Teil 2</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Schritte Richtung Data Science</span></p>
 <ul class="nav bd-sidenav">
@@ -262,11 +262,6 @@
 <li class="toctree-l1"><a class="reference internal" href="10_pandas_2.html">19. Pandas - Teil 2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="12_data_visualization.html">20. Datenvisualisierung mit Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="13_data_visualization_outlook.html">21. 2D/3D Visualisierung &amp; interaktive Plots</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">A few missing things</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="10_debugging.html">22. Python Debugging</a></li>
-<li class="toctree-l1"><a class="reference internal" href="14_generators.html">23. Generators / Iterators</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Source Code and Contributions</span></p>
 <ul class="nav bd-sidenav">
@@ -454,7 +449,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Numerische Daten in Python mit NumPy - Teil 2</h1>
+    <h1>Numerische Daten in Python mit NumPy – Teil 2</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -464,18 +459,27 @@
             </div>
             <nav aria-label="Page">
                 <ul class="pst-show_toc_level nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arrays-anschauen">17.1. Arrays anschauen</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sortieren">17.2. Sortieren!</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#argsort">17.2.1. Argsort</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lexsort">17.2.2. Lexsort</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#groszere-arrays-anschauen">17.1. Größere Arrays anschauen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#slices-und-views">17.2. Slices und Views</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sortieren-mit-sort">17.3. Sortieren mit <code class="docutils literal notranslate"><span class="pre">sort()</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sortieren-entlang-einer-achse">17.3.1. Sortieren entlang einer Achse</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eintrage-auswahlen-finden">17.3. Einträge auswählen/finden</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy-where">17.3.1. numpy.where</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#argsort-sortierreihenfolge-als-indizes">17.4. <code class="docutils literal notranslate"><span class="pre">argsort()</span></code>: Sortierreihenfolge als Indizes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mehrdimensionale-daten-mit-argsort">17.5. Mehrdimensionale Daten mit <code class="docutils literal notranslate"><span class="pre">argsort()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#argpartition-nur-die-groszten-oder-kleinsten-elemente-finden">17.6. <code class="docutils literal notranslate"><span class="pre">argpartition()</span></code>: nur die größten oder kleinsten Elemente finden</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nach-mehreren-schlusseln-sortieren-lexsort">17.7. Nach mehreren Schlüsseln sortieren: <code class="docutils literal notranslate"><span class="pre">lexsort()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#positionen-mit-where-finden">17.8. Positionen mit <code class="docutils literal notranslate"><span class="pre">where()</span></code> finden</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#maximum-und-minimum-finden-argmax-und-argmin">17.9. Maximum und Minimum finden: <code class="docutils literal notranslate"><span class="pre">argmax()</span></code> und <code class="docutils literal notranslate"><span class="pre">argmin()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arrays-zusammenfugen">17.10. Arrays zusammenfügen</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d">17.10.1. 1D</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-untereinander">17.10.2. 2D: untereinander</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-nebeneinander">17.10.3. 2D: nebeneinander</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arrays-kombinieren">17.4. Arrays kombinieren</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#berechnungen-mit-numpy">17.5. Berechnungen mit Numpy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#form-wieder-auf-1d-bringen">17.11. Form wieder auf 1D bringen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mathematische-funktionen-auf-ganzen-arrays">17.12. Mathematische Funktionen auf ganzen Arrays</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zufallsdaten-fur-kleine-simulationen">17.13. Zufallsdaten für kleine Simulationen</a></li>
 </ul>
             </nav>
         </div>
@@ -488,203 +492,371 @@
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="numerische-daten-in-python-mit-numpy-teil-2">
-<h1><span class="section-number">17. </span>Numerische Daten in Python mit NumPy - Teil 2<a class="headerlink" href="#numerische-daten-in-python-mit-numpy-teil-2" title="Link to this heading">#</a></h1>
-<p>Wir haben uns jetzt einige Basics mit Numpy angeschaut. Dabei ging es v.a. um das <strong>Erstellen von Numpy Arrays</strong> und das <strong>Slicing</strong> um die gewünschten Einträge aus den Arrays zu erhalten. Dabei kamen auch schon ein paar der großen Vorteile von Numpy zur Sprache, z.B. können mit Numpy Arrays wirklich sehr große (numerische) Datenarrays bearbeitet werden und zwar auch Arrays mit vielen Dimensionen (siehe <code class="docutils literal notranslate"><span class="pre">.ndim</span></code>). Ebenso können mit Numpy sehr effizient große Mengen an Zufallszahlen erstellt werden und zwar aus sehr vielen verschiedenen Verteilungen (<code class="docutils literal notranslate"><span class="pre">numpy.random</span></code>).</p>
-<p>Hier werden wir auf einige weitern sehr wichtigen und hilfreichen Funktionalitäten von Numpy eingehen, u.a. da <strong>Sortieren</strong> von Arrays, das finden bestimmter Werte und die hohe Performance als einer der Kernvorteile von Numpy.</p>
-<p>Aber zuerst kurz zu einer guten Möglichkeit, größere Arrays anzuschauen (noch nicht groß wie in <em>„big data“</em> , aber schon deutlich zu groß um sich das Ganze einfach mit  <code class="docutils literal notranslate"><span class="pre">print()</span></code> anzuschauen).</p>
-<section id="arrays-anschauen">
-<h2><span class="section-number">17.1. </span>Arrays anschauen<a class="headerlink" href="#arrays-anschauen" title="Link to this heading">#</a></h2>
-<p>In der Praxis arbeiten wir oft mit großen, teilweise mehrdimensionalen NumPy-Arrays. Das macht den Umgang am Anfang etwas gewöhnungsbedürftig, weil <code class="docutils literal notranslate"><span class="pre">print()</span></code> bei größeren Arrays schnell unübersichtlich wird.</p>
-<p>In <strong>VS Code</strong> können Variablen beim Debuggen im Bereich <strong>VARIABLES</strong> untersucht werden. Für NumPy-Arrays steht über die Python-/Jupyter-Werkzeuge außerdem ein <strong>Data Viewer</strong> zur Verfügung. Bei Arrays mit drei oder mehr Dimensionen können dort Slices über Achse und Index ausgewählt werden.</p>
+<h1><span class="section-number">17. </span>Numerische Daten in Python mit NumPy – Teil 2<a class="headerlink" href="#numerische-daten-in-python-mit-numpy-teil-2" title="Link to this heading">#</a></h1>
+<p>Im ersten NumPy-Kapitel ging es um die Grundlagen: Arrays erzeugen, ihre Form verstehen, Werte auswählen, elementweise rechnen, Masken verwenden und Kennzahlen entlang verschiedener Achsen berechnen.</p>
+<p>Jetzt kommen einige weitere Werkzeuge hinzu, die besonders beim <strong>Sortieren, Suchen, Auswählen und Kombinieren größerer Arrays</strong> praktisch sind.</p>
+<section id="groszere-arrays-anschauen">
+<h2><span class="section-number">17.1. </span>Größere Arrays anschauen<a class="headerlink" href="#groszere-arrays-anschauen" title="Link to this heading">#</a></h2>
+<p>Bei größeren Arrays wird <code class="docutils literal notranslate"><span class="pre">print()</span></code> schnell unübersichtlich.</p>
+<p>In <strong>VS Code</strong> können Variablen beim Debuggen im Bereich <strong>VARIABLES</strong> untersucht werden. Für NumPy-Arrays steht über die Python-/Jupyter-Werkzeuge außerdem ein Data Viewer zur Verfügung.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
-<span class="n">arr1</span> <span class="o">=</span> <span class="mi">20</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">((</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">))</span>
+<span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">()</span>
+<span class="n">arr</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">random</span><span class="p">((</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">arr</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Die folgende Abbildung stammt noch aus der früher verwendeten IDE Spyder. Sie zeigt aber dasselbe Grundprinzip der Auswahl von <strong>Axis</strong> und <strong>Index</strong>; die Oberfläche in VS Code sieht anders aus.</p>
+<p>Bei drei oder mehr Dimensionen betrachtet man typischerweise gezielt einzelne Slices, Kennzahlen oder Visualisierungen statt das komplette Array auszugeben.</p>
+<p>Die folgende Abbildung stammt noch aus der früher verwendeten IDE Spyder. Sie illustriert aber weiterhin das Grundprinzip, bei höherdimensionalen Arrays eine <strong>Achse</strong> und einen <strong>Index</strong> auszuwählen:</p>
 <p><img alt="Spyder Variable Explorer of 3D numpy array" src="../_images/spyder_variable_explorer_numpy_array.png" /></p>
-<p>Natürlich ist auch ein Data Viewer begrenzt. Für sehr große Arrays mit sehr vielen Elementen oder Dimensionen betrachtet man meist gezielt kleine Ausschnitte, Kennzahlen oder Visualisierungen statt das gesamte Array auf einmal.</p>
 </section>
-<section id="sortieren">
-<h2><span class="section-number">17.2. </span>Sortieren!<a class="headerlink" href="#sortieren" title="Link to this heading">#</a></h2>
-<p>Schon bei den Listen hatten wir die Möglichkeit mit der <code class="docutils literal notranslate"><span class="pre">.sort()</span></code> Methode die Elemente zu sortieren. Keine große Überraschung also, dass auch Numpy Arrays eine Sortiermethode mitbringen. In Wirklichkeit gibt es in NumPy sogar viele verschiedene!</p>
-<p>Als erstes können wir Arrays genau wie Listen sortieren und zwar mit <code class="docutils literal notranslate"><span class="pre">.sort()</span></code>:</p>
+<section id="slices-und-views">
+<h2><span class="section-number">17.2. </span>Slices und Views<a class="headerlink" href="#slices-und-views" title="Link to this heading">#</a></h2>
+<p>Ein wichtiges NumPy-Detail: Einfaches Slicing erzeugt häufig keine unabhängige Kopie, sondern einen sogenannten <strong>View</strong> auf dieselben Daten.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
-<span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
-<span class="n">arr</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>  <span class="c1"># sort from small to large</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">])</span>
+
+<span class="n">part</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span>
+<span class="n">part</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">999</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">part</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Auch 2D (oder noch höher-dimensionale Arrays) können damit sortiert werden, dabei wird die Sortierung allerdings immer nur entlang <em>einer</em> Achse durchgeführt:</p>
+<p>Die Änderung in <code class="docutils literal notranslate"><span class="pre">part</span></code> ist auch in <code class="docutils literal notranslate"><span class="pre">data</span></code> sichtbar.</p>
+<p>Wenn das nicht gewünscht ist:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
-<span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">((</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">))</span>
-<span class="n">arr</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">])</span>
 
-<span class="c1"># or</span>
-<span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">((</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">))</span>
-<span class="n">arr</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">part</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">part</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">999</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">part</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 </pre></div>
 </div>
-<section id="argsort">
-<h3><span class="section-number">17.2.1. </span>Argsort<a class="headerlink" href="#argsort" title="Link to this heading">#</a></h3>
-<p>Eine weitere sehr wichtige Sortier-Methode ist <code class="docutils literal notranslate"><span class="pre">argsort()</span></code>. Damit berechnet Numpy die Indices die alle Elemente nach Größe sortieren würden.</p>
+<p>Damit ist <code class="docutils literal notranslate"><span class="pre">part</span></code> unabhängig.</p>
+</section>
+<section id="sortieren-mit-sort">
+<h2><span class="section-number">17.3. </span>Sortieren mit <code class="docutils literal notranslate"><span class="pre">sort()</span></code><a class="headerlink" href="#sortieren-mit-sort" title="Link to this heading">#</a></h2>
+<p>Mit <code class="docutils literal notranslate"><span class="pre">np.sort()</span></code> erhalten wir eine <strong>sortierte Kopie</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="n">values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+
+<span class="n">sorted_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">sorted_values</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Das ursprüngliche Array bleibt dabei unverändert.</p>
+<p>Die Methode <code class="docutils literal notranslate"><span class="pre">.sort()</span></code> sortiert dagegen das Array selbst:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="n">values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+
+<span class="n">values</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+</pre></div>
+</div>
+<section id="sortieren-entlang-einer-achse">
+<h3><span class="section-number">17.3.1. </span>Sortieren entlang einer Achse<a class="headerlink" href="#sortieren-entlang-einer-achse" title="Link to this heading">#</a></h3>
+<p>Bei 2D-Arrays wird entlang einer Achse sortiert:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+    <span class="p">[[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span>
+     <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]</span>
+<span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Vor dem Ausführen: Welche Werte werden jeweils miteinander verglichen?</p>
+</section>
+</section>
+<section id="argsort-sortierreihenfolge-als-indizes">
+<h2><span class="section-number">17.4. </span><code class="docutils literal notranslate"><span class="pre">argsort()</span></code>: Sortierreihenfolge als Indizes<a class="headerlink" href="#argsort-sortierreihenfolge-als-indizes" title="Link to this heading">#</a></h2>
+<p>Manchmal wollen wir nicht nur sortierte Werte, sondern wissen, <strong>an welchen Positionen</strong> diese Werte ursprünglich standen.</p>
+<p>Dafür gibt es <code class="docutils literal notranslate"><span class="pre">np.argsort()</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="n">scores</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">51</span><span class="p">,</span> <span class="mi">88</span><span class="p">,</span> <span class="mi">73</span><span class="p">,</span> <span class="mi">95</span><span class="p">,</span> <span class="mi">64</span><span class="p">])</span>
+
+<span class="n">order</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">scores</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">order</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">scores</span><span class="p">[</span><span class="n">order</span><span class="p">])</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">order</span></code> enthält die Indizes, die <code class="docutils literal notranslate"><span class="pre">scores</span></code> aufsteigend sortieren würden.</p>
+<p>Für die höchsten drei Werte können wir beispielsweise schreiben:</p>
 <!-- pytest-codeblocks:cont -->
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">top3_indices</span> <span class="o">=</span> <span class="n">order</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">:][::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 
-<span class="n">order</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Die Top3 Einträge sind Nummer: </span><span class="si">{</span><span class="n">order</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">][:</span><span class="mi">3</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">top3_indices</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">scores</span><span class="p">[</span><span class="n">top3_indices</span><span class="p">])</span>
 </pre></div>
 </div>
-<p>Der Nutzen von <code class="docutils literal notranslate"><span class="pre">argsort()</span></code> wird bald deutlicher, wenn wir nämlich mit größeren, komplexeren Daten arbeiten. Dort wollen wir nämlich nicht immer eine gesamte Tabelle sortieren um dann die höchsten Elemente zu sehen, sondern wir möchten häufig nur wissen: Wo stehen die 10 höchsten/niedrigsten Werte in der Tabelle.</p>
-<p>Wenn wir es mit mehrdimensionalen Arrays zu tun haben, beziehen sich <code class="docutils literal notranslate"><span class="pre">sort()</span></code> und auch <code class="docutils literal notranslate"><span class="pre">argsort()</span></code> immer nur auf eine Achse/eine Dimension. Um welche Richtung es geht kann bei beiden Funktionen mit <code class="docutils literal notranslate"><span class="pre">axis</span></code> angegeben werden, z.B. so:</p>
-<!-- pytest-codeblocks:cont -->
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
-<span class="n">sorted_idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Was ist aber, wenn wir alle Werte in einem 2D-Array entsprechend der Größe in nur einer „Spalte“ sortieren wollen. Argsort bietet im Prinzip die Möglichkeit dazu:</p>
-<!-- pytest-codeblocks:cont -->
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">((</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">))</span>
-
-<span class="c1"># Indizes der ersten "Reihe" sortieren</span>
-<span class="n">sorted_idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-
-<span class="c1"># Um damit eine tatsächliche Sortierung vorzunehmen</span>
-<span class="n">arr_sorted</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">take_along_axis</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">sorted_idx</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Was aber, wenn wir nach mehreren Spalten/Zeilen gleichzeitig sortieren wollen? Dafür können wir <code class="docutils literal notranslate"><span class="pre">lexsort()</span></code> benutzen.</p>
-</section>
-<section id="lexsort">
-<h3><span class="section-number">17.2.2. </span>Lexsort<a class="headerlink" href="#lexsort" title="Link to this heading">#</a></h3>
-<p><code class="docutils literal notranslate"><span class="pre">lexsort()</span></code> erlaubt es und in einem Array entlang mehrerer Werte zu sortieren.  Und auch, wenn wir Numpy bis hierhin nur für numerische Werte genutzt haben. Das Ganze geht auch mit anderen Datentypen wie z.B. strings:</p>
-<!-- pytest-codeblocks:cont -->
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">surnames</span> <span class="o">=</span> <span class="p">(</span><span class="s1">'Hertz'</span><span class="p">,</span>    <span class="s1">'Galilei'</span><span class="p">,</span> <span class="s1">'Hertz'</span><span class="p">)</span>
-<span class="n">first_names</span> <span class="o">=</span> <span class="p">(</span><span class="s1">'Heinrich'</span><span class="p">,</span> <span class="s1">'Galileo'</span><span class="p">,</span> <span class="s1">'Gustav'</span><span class="p">)</span>
-<span class="n">idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">lexsort</span><span class="p">((</span><span class="n">first_names</span><span class="p">,</span> <span class="n">surnames</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Aber häufiger noch sind nach wie vor die numerischen Beispiele.</p>
-<!-- pytest-codeblocks:cont -->
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> 
-                <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">]])</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">lexsort</span><span class="p">(</span><span class="n">arr</span><span class="p">))</span>
-</pre></div>
-</div>
-<p>Auch <code class="docutils literal notranslate"><span class="pre">np.lexsort()</span></code> besitzt einen <code class="docutils literal notranslate"><span class="pre">axis</span></code>-Parameter. Wichtig ist dabei, dass die <strong>letzte</strong> übergebene Sortier-Schlüsselreihe die primäre Sortierung bestimmt.</p>
-<p>Alternativ können die benötigten 1D-Arrays als Tuple übergeben werden:</p>
+<p>Das ist besonders praktisch, wenn parallel weitere Daten existieren:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
-<span class="n">arr1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>
-<span class="n">arr2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>
+<span class="n">names</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="s2">"Ada"</span><span class="p">,</span> <span class="s2">"Linus"</span><span class="p">,</span> <span class="s2">"Grace"</span><span class="p">,</span> <span class="s2">"Guido"</span><span class="p">])</span>
+<span class="n">scores</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">82</span><span class="p">,</span> <span class="mi">91</span><span class="p">,</span> <span class="mi">88</span><span class="p">,</span> <span class="mi">75</span><span class="p">])</span>
 
-<span class="n">sorted_idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">lexsort</span><span class="p">((</span><span class="n">arr2</span><span class="p">,</span> <span class="n">arr1</span><span class="p">))[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">arr1</span><span class="p">[</span><span class="n">sorted_idx</span><span class="p">[:</span><span class="mi">10</span><span class="p">]])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">arr2</span><span class="p">[</span><span class="n">sorted_idx</span><span class="p">[:</span><span class="mi">10</span><span class="p">]])</span>
+<span class="n">order</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">scores</span><span class="p">)[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">names</span><span class="p">[</span><span class="n">order</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">scores</span><span class="p">[</span><span class="n">order</span><span class="p">])</span>
 </pre></div>
 </div>
 </section>
-</section>
-<section id="eintrage-auswahlen-finden">
-<h2><span class="section-number">17.3. </span>Einträge auswählen/finden<a class="headerlink" href="#eintrage-auswahlen-finden" title="Link to this heading">#</a></h2>
-<p>Wir haben bereits eine Möglichkeit gesehen, Werte in einem Numpy Array auszuwählen und zwar über eine Maske, also z.B.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
-<span class="c1"># select using mask</span>
-<span class="n">mask</span> <span class="o">=</span> <span class="n">arr</span> <span class="o">&lt;</span> <span class="mi">5</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="n">mask</span><span class="p">])</span>
-
-<span class="c1"># or: select and change</span>
-<span class="n">arr</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
-</pre></div>
-</div>
-<section id="numpy-where">
-<h3><span class="section-number">17.3.1. </span>numpy.where<a class="headerlink" href="#numpy-where" title="Link to this heading">#</a></h3>
-<p>Oft möchten wir aber die genauen Indizes (also die Positionen im Array) erhalten für Werte die unseren Suchkriterien entsprechen. Das geht mit <code class="docutils literal notranslate"><span class="pre">numpy.where</span></code>, hier ein Beispiel:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
-
-<span class="n">selected_idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">arr</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">selected_idx</span><span class="p">)</span>  <span class="c1"># -&gt; gibt die Positionen im Array aus die Werte &lt;5 enthalten.</span>
-</pre></div>
-</div>
-</section>
-</section>
-<section id="arrays-kombinieren">
-<h2><span class="section-number">17.4. </span>Arrays kombinieren<a class="headerlink" href="#arrays-kombinieren" title="Link to this heading">#</a></h2>
-<p>In Numpy gibt es die Möglichkeit Arrays zu verbinden, sofern deren Abmessungen es zulassen.</p>
-<p>Zum einen kann dies über <code class="docutils literal notranslate"><span class="pre">vstack</span></code>, <code class="docutils literal notranslate"><span class="pre">hstack</span></code>, <code class="docutils literal notranslate"><span class="pre">dstack</span></code> gemacht werden.</p>
-<p>Eine andere Option ist über <code class="docutils literal notranslate"><span class="pre">concatenate</span></code>.</p>
-</section>
-<section id="berechnungen-mit-numpy">
-<h2><span class="section-number">17.5. </span>Berechnungen mit Numpy<a class="headerlink" href="#berechnungen-mit-numpy" title="Link to this heading">#</a></h2>
-<p>Numpy Arrays sind in Python das Standard-Format um mit großen (numerischen) Datenmengen zu arbeiten. Bisher haben wir gesehen, was es alles für Grundfunktionen/methoden mit Numpy Arrays gibt. Jetzt aber noch ein paar Beispiele die illustrieren sollen, wie und warum diese Arrays so gerne in der Praxis eingesetzt werden.</p>
-<p>Wir werden dafür eine weitere Bibliothek nutzen: <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>, das ist in Python die am häufigsten genutzte Bibliothek um Daten zu plotten.</p>
-<p><strong>(1) Werte-Berechnungen mit mathematischen Funktionen.</strong>
-Numpy bringt einige mathematische Funktionen mit, z.B. <code class="docutils literal notranslate"><span class="pre">np.sin()</span></code>(Sinus), <code class="docutils literal notranslate"><span class="pre">np.cos()</span></code> (Cosinus), <code class="docutils literal notranslate"><span class="pre">np.exp()</span></code>(Exponentialfunktion) oder <code class="docutils literal notranslate"><span class="pre">np.log()</span></code>(Logarithmus). Sehr, sehr viele weiter Optionen finden sich z.B. in der Bibliothek SciPy (https://scipy.org/).</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
-
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s2">"darkblue"</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Hier werden 500 Datenpunkte erzeugt mit x-Werten die gleichmäßig zwischen -10 und 10 verteilt sind. Von allen wird der Sinus berechnet und anschließend graphisch dargestellt.</p>
-<p><strong>(2) Operationen auf vielen Datenpunkten gleichzeitig + Zufallszahlen.</strong>
-Numpy bietet enorme Möglichkeiten für die Nutzung von Zufallszahlen. Wir hatten vorher auch schon die Bibliothek <code class="docutils literal notranslate"><span class="pre">random</span></code> kennengelernt, doch damit ließ sich immer nur eine Zufallszahl nach der anderen erzeugen. Mit Numpy können (für unsere Zwecke) beliebig große Arrays aus Zufallszahlen erzeugt werden. Darüber hinaus bietet Numpy sehr verschiedene Arten von Zufallsverteilungen!</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
-
-<span class="n">xy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">100</span><span class="p">))</span>
-<span class="n">sizes</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">xy</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:],</span> <span class="n">xy</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">:],</span> <span class="n">s</span><span class="o">=</span><span class="n">sizes</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Eine andere Verteilung bekommt man mit <code class="docutils literal notranslate"><span class="pre">np.random.randn()</span></code>(Normalverteilung!):</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
-
-<span class="n">xy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">xy</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:],</span> <span class="n">xy</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">:],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
-</pre></div>
-</div>
-<p><strong>(3) Statistik und Simulationen</strong>
-NumPy erlaubt es große Mengen an Zufallszahlen zu generieren und damit zu arbeiten. Das hat in der Praxis viele verschiedene Verwendungen, wie z.B. für die Modellierung von stochastischen Prozessen oder für Computer-Simulationen.</p>
+<section id="mehrdimensionale-daten-mit-argsort">
+<h2><span class="section-number">17.5. </span>Mehrdimensionale Daten mit <code class="docutils literal notranslate"><span class="pre">argsort()</span></code><a class="headerlink" href="#mehrdimensionale-daten-mit-argsort" title="Link to this heading">#</a></h2>
+<p>Bei mehrdimensionalen Arrays bezieht sich <code class="docutils literal notranslate"><span class="pre">argsort()</span></code> ebenfalls auf eine bestimmte Achse:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
-<span class="n">random_numbers</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">((</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">1000</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Mean: </span><span class="si">{</span><span class="n">random_numbers</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Numbers &gt; 0.5: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">random_numbers</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0.5</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Numbers &lt; 0.5: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">random_numbers</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">0.5</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+    <span class="p">[[</span><span class="mi">30</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">],</span>
+     <span class="p">[</span> <span class="mi">4</span><span class="p">,</span>  <span class="mi">6</span><span class="p">,</span>  <span class="mi">5</span><span class="p">]]</span>
+<span class="p">)</span>
+
+<span class="n">indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">indices</span><span class="p">)</span>
 </pre></div>
 </div>
-<p><strong>(4) Speed!</strong>
-Numpy ist zum Teil in Sprachen wie C implementiert und für viele Rechenoperationen deutlich schneller als das „normale“ Python. Ein Beispiel:</p>
+<p>Mit <code class="docutils literal notranslate"><span class="pre">np.take_along_axis()</span></code> können diese Indizes auf das ursprüngliche Array angewendet werden:</p>
 <!-- pytest-codeblocks:cont -->
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sorted_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">take_along_axis</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">indices</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Pure Python ......................"</span><span class="p">)</span>
-<span class="n">generated_numbers</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mf">1e7</span><span class="p">)</span>
-<span class="n">tstart</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
-<span class="n">numbers</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">generated_numbers</span><span class="p">):</span>
-    <span class="n">numbers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">())</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">numbers</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Calculation took </span><span class="si">{</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">tstart</span><span class="si">}</span><span class="s2">s"</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">NumPy ......................"</span><span class="p">)</span>
-<span class="n">tstart</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
-<span class="n">numbers</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="n">generated_numbers</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">numbers</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Calculation took </span><span class="si">{</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">tstart</span><span class="si">}</span><span class="s2">s"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sorted_data</span><span class="p">)</span>
 </pre></div>
 </div>
+</section>
+<section id="argpartition-nur-die-groszten-oder-kleinsten-elemente-finden">
+<h2><span class="section-number">17.6. </span><code class="docutils literal notranslate"><span class="pre">argpartition()</span></code>: nur die größten oder kleinsten Elemente finden<a class="headerlink" href="#argpartition-nur-die-groszten-oder-kleinsten-elemente-finden" title="Link to this heading">#</a></h2>
+<p>Wenn wir nur einige besonders große oder kleine Werte brauchen, müssen wir nicht zwingend das gesamte Array vollständig sortieren.</p>
+<p><code class="docutils literal notranslate"><span class="pre">np.argpartition()</span></code> liefert Indizes für eine <strong>partielle Sortierung</strong>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="n">values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">12</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">17</span><span class="p">])</span>
+
+<span class="n">indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argpartition</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">)[</span><span class="o">-</span><span class="mi">3</span><span class="p">:]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">indices</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">values</span><span class="p">[</span><span class="n">indices</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Damit bekommen wir die drei größten Werte, aber ihre Reihenfolge innerhalb dieser Auswahl ist <strong>nicht garantiert sortiert</strong>.</p>
+<p>Falls wir sie anschließend sortiert ausgeben wollen:</p>
+<!-- pytest-codeblocks:cont -->
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">top_values</span> <span class="o">=</span> <span class="n">values</span><span class="p">[</span><span class="n">indices</span><span class="p">]</span>
+<span class="n">top_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">top_values</span><span class="p">)[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">top_values</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">argpartition()</span></code> ist besonders interessant, wenn nur die Top-k-Elemente eines großen Arrays benötigt werden.</p>
+</section>
+<section id="nach-mehreren-schlusseln-sortieren-lexsort">
+<h2><span class="section-number">17.7. </span>Nach mehreren Schlüsseln sortieren: <code class="docutils literal notranslate"><span class="pre">lexsort()</span></code><a class="headerlink" href="#nach-mehreren-schlusseln-sortieren-lexsort" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">np.lexsort()</span></code> kann anhand mehrerer Sortierschlüssel eine gemeinsame Reihenfolge bestimmen.</p>
+<p>Beispiel mit Namen:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="n">surnames</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="s2">"Hertz"</span><span class="p">,</span> <span class="s2">"Galilei"</span><span class="p">,</span> <span class="s2">"Hertz"</span><span class="p">])</span>
+<span class="n">first_names</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="s2">"Heinrich"</span><span class="p">,</span> <span class="s2">"Galileo"</span><span class="p">,</span> <span class="s2">"Gustav"</span><span class="p">])</span>
+
+<span class="n">order</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">lexsort</span><span class="p">((</span><span class="n">first_names</span><span class="p">,</span> <span class="n">surnames</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">order</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">surnames</span><span class="p">[</span><span class="n">order</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">first_names</span><span class="p">[</span><span class="n">order</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Wichtig:</p>
+<blockquote>
+<div><p>Bei <code class="docutils literal notranslate"><span class="pre">lexsort()</span></code> ist der <strong>letzte</strong> angegebene Schlüssel der primäre Sortierschlüssel.</p>
+</div></blockquote>
+<p>Im Beispiel wird also zuerst nach <code class="docutils literal notranslate"><span class="pre">surnames</span></code> sortiert. Bei gleichen Nachnamen entscheidet <code class="docutils literal notranslate"><span class="pre">first_names</span></code>.</p>
+<p>Das gleiche Prinzip funktioniert mit numerischen Daten:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="n">group</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+<span class="n">score</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">80</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">85</span><span class="p">,</span> <span class="mi">90</span><span class="p">])</span>
+
+<span class="n">order</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">lexsort</span><span class="p">((</span><span class="n">score</span><span class="p">,</span> <span class="n">group</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">group</span><span class="p">[</span><span class="n">order</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">score</span><span class="p">[</span><span class="n">order</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Hier ist <code class="docutils literal notranslate"><span class="pre">group</span></code> der primäre Schlüssel und <code class="docutils literal notranslate"><span class="pre">score</span></code> löst Gleichstände innerhalb derselben Gruppe auf.</p>
+</section>
+<section id="positionen-mit-where-finden">
+<h2><span class="section-number">17.8. </span>Positionen mit <code class="docutils literal notranslate"><span class="pre">where()</span></code> finden<a class="headerlink" href="#positionen-mit-where-finden" title="Link to this heading">#</a></h2>
+<p>Boolesche Masken geben direkt die passenden Werte zurück:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="n">values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">14</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">values</span><span class="p">[</span><span class="n">values</span> <span class="o">&gt;=</span> <span class="mi">10</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Manchmal brauchen wir stattdessen die <strong>Positionen</strong> der Treffer.</p>
+<p>Dafür kann <code class="docutils literal notranslate"><span class="pre">np.where()</span></code> verwendet werden:</p>
+<!-- pytest-codeblocks:cont -->
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">values</span> <span class="o">&gt;=</span> <span class="mi">10</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">indices</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">values</span><span class="p">[</span><span class="n">indices</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Bei einem 1D-Array enthält das Ergebnis ein Tupel mit einem Index-Array.</p>
+<p>Bei 2D-Daten werden Zeilen- und Spaltenpositionen getrennt geliefert:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+    <span class="p">[[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+     <span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">]]</span>
+<span class="p">)</span>
+
+<span class="n">rows</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">data</span> <span class="o">&gt;=</span> <span class="mi">7</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">rows</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">columns</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">rows</span><span class="p">,</span> <span class="n">columns</span><span class="p">])</span>
+</pre></div>
+</div>
+</section>
+<section id="maximum-und-minimum-finden-argmax-und-argmin">
+<h2><span class="section-number">17.9. </span>Maximum und Minimum finden: <code class="docutils literal notranslate"><span class="pre">argmax()</span></code> und <code class="docutils literal notranslate"><span class="pre">argmin()</span></code><a class="headerlink" href="#maximum-und-minimum-finden-argmax-und-argmin" title="Link to this heading">#</a></h2>
+<p>Wenn nicht nur der größte Wert, sondern seine Position benötigt wird:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="n">values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">7</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">values</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">values</span><span class="o">.</span><span class="n">argmax</span><span class="p">())</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">values</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">values</span><span class="o">.</span><span class="n">argmin</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>Auch hier kann bei mehrdimensionalen Arrays eine Achse angegeben werden.</p>
+</section>
+<section id="arrays-zusammenfugen">
+<h2><span class="section-number">17.10. </span>Arrays zusammenfügen<a class="headerlink" href="#arrays-zusammenfugen" title="Link to this heading">#</a></h2>
+<p>Mit <code class="docutils literal notranslate"><span class="pre">np.concatenate()</span></code> werden Arrays entlang einer vorhandenen Achse verbunden.</p>
+<section id="d">
+<h3><span class="section-number">17.10.1. </span>1D<a class="headerlink" href="#d" title="Link to this heading">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
+
+<span class="n">combined</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">combined</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="d-untereinander">
+<h3><span class="section-number">17.10.2. </span>2D: untereinander<a class="headerlink" href="#d-untereinander" title="Link to this heading">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+    <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+     <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]]</span>
+<span class="p">)</span>
+
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+    <span class="p">[[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span>
+     <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">]]</span>
+<span class="p">)</span>
+
+<span class="n">combined</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">combined</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">combined</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="d-nebeneinander">
+<h3><span class="section-number">17.10.3. </span>2D: nebeneinander<a class="headerlink" href="#d-nebeneinander" title="Link to this heading">#</a></h3>
+<!-- pytest-codeblocks:cont -->
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">combined</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">combined</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">combined</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Die Dimensionen müssen dabei außerhalb der Verbindungsachse zusammenpassen.</p>
+<p>NumPy bietet außerdem bequemere Kurzformen wie <code class="docutils literal notranslate"><span class="pre">np.vstack()</span></code> und <code class="docutils literal notranslate"><span class="pre">np.hstack()</span></code>. Für den Einstieg ist <code class="docutils literal notranslate"><span class="pre">concatenate(...,</span> <span class="pre">axis=...)</span></code> aber besonders hilfreich, weil die verwendete Achse ausdrücklich sichtbar bleibt.</p>
+</section>
+</section>
+<section id="form-wieder-auf-1d-bringen">
+<h2><span class="section-number">17.11. </span>Form wieder auf 1D bringen<a class="headerlink" href="#form-wieder-auf-1d-bringen" title="Link to this heading">#</a></h2>
+<p>Aus dem ersten Kapitel kennen wir <code class="docutils literal notranslate"><span class="pre">reshape()</span></code>.</p>
+<p>Für eine eindimensionale Darstellung gibt es unter anderem <code class="docutils literal notranslate"><span class="pre">.flatten()</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+
+<span class="n">flat</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">flat</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">flatten()</span></code> erzeugt eine Kopie.</p>
+<p>Mit <code class="docutils literal notranslate"><span class="pre">ravel()</span></code> kann NumPy dagegen nach Möglichkeit eine flache Ansicht auf dieselben Daten liefern. Für Code, bei dem Unabhängigkeit wichtig ist, sollte dieser Unterschied bewusst sein.</p>
+</section>
+<section id="mathematische-funktionen-auf-ganzen-arrays">
+<h2><span class="section-number">17.12. </span>Mathematische Funktionen auf ganzen Arrays<a class="headerlink" href="#mathematische-funktionen-auf-ganzen-arrays" title="Link to this heading">#</a></h2>
+<p>NumPy-Funktionen arbeiten typischerweise direkt elementweise auf Arrays:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Auch hier brauchen wir keine eigene Schleife.</p>
+<p>Ein typisches Beispiel für eine regelmäßig verteilte x-Achse ist <code class="docutils literal notranslate"><span class="pre">np.linspace()</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Bei <code class="docutils literal notranslate"><span class="pre">linspace()</span></code> geben wir im Unterschied zu <code class="docutils literal notranslate"><span class="pre">arange()</span></code> die gewünschte <strong>Anzahl der Werte</strong> an.</p>
+</section>
+<section id="zufallsdaten-fur-kleine-simulationen">
+<h2><span class="section-number">17.13. </span>Zufallsdaten für kleine Simulationen<a class="headerlink" href="#zufallsdaten-fur-kleine-simulationen" title="Link to this heading">#</a></h2>
+<p>Aus Teil 1 kennen wir den modernen Zufallsgenerator:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">()</span>
+
+<span class="n">dice_rolls</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">integers</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">dice_rolls</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dice_rolls</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">dice_rolls</span> <span class="o">==</span> <span class="mi">6</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Damit können sehr einfach größere Mengen zufälliger Daten erzeugt und anschließend mit den bereits bekannten Array-Operationen ausgewertet werden.
+s</p>
 </section>
 </section>
 
@@ -754,18 +926,27 @@ Numpy ist zum Teil in Sprachen wie C implementiert und für viele Rechenoperatio
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="pst-show_toc_level nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arrays-anschauen">17.1. Arrays anschauen</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sortieren">17.2. Sortieren!</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#argsort">17.2.1. Argsort</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lexsort">17.2.2. Lexsort</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#groszere-arrays-anschauen">17.1. Größere Arrays anschauen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#slices-und-views">17.2. Slices und Views</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sortieren-mit-sort">17.3. Sortieren mit <code class="docutils literal notranslate"><span class="pre">sort()</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sortieren-entlang-einer-achse">17.3.1. Sortieren entlang einer Achse</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eintrage-auswahlen-finden">17.3. Einträge auswählen/finden</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy-where">17.3.1. numpy.where</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#argsort-sortierreihenfolge-als-indizes">17.4. <code class="docutils literal notranslate"><span class="pre">argsort()</span></code>: Sortierreihenfolge als Indizes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mehrdimensionale-daten-mit-argsort">17.5. Mehrdimensionale Daten mit <code class="docutils literal notranslate"><span class="pre">argsort()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#argpartition-nur-die-groszten-oder-kleinsten-elemente-finden">17.6. <code class="docutils literal notranslate"><span class="pre">argpartition()</span></code>: nur die größten oder kleinsten Elemente finden</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nach-mehreren-schlusseln-sortieren-lexsort">17.7. Nach mehreren Schlüsseln sortieren: <code class="docutils literal notranslate"><span class="pre">lexsort()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#positionen-mit-where-finden">17.8. Positionen mit <code class="docutils literal notranslate"><span class="pre">where()</span></code> finden</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#maximum-und-minimum-finden-argmax-und-argmin">17.9. Maximum und Minimum finden: <code class="docutils literal notranslate"><span class="pre">argmax()</span></code> und <code class="docutils literal notranslate"><span class="pre">argmin()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arrays-zusammenfugen">17.10. Arrays zusammenfügen</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d">17.10.1. 1D</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-untereinander">17.10.2. 2D: untereinander</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-nebeneinander">17.10.3. 2D: nebeneinander</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arrays-kombinieren">17.4. Arrays kombinieren</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#berechnungen-mit-numpy">17.5. Berechnungen mit Numpy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#form-wieder-auf-1d-bringen">17.11. Form wieder auf 1D bringen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mathematische-funktionen-auf-ganzen-arrays">17.12. Mathematische Funktionen auf ganzen Arrays</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zufallsdaten-fur-kleine-simulationen">17.13. Zufallsdaten für kleine Simulationen</a></li>
 </ul>
   </nav></div>
 
