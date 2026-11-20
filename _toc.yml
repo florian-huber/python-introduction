@@ -24,7 +24,7 @@ parts:
     numbered: true
     chapters:
     - file: lesson_material_german/04_try_except
-    - file: lesson_material_german/05_one_step_back-best_practices
+    - file: lesson_material_german/05_environments
     - file: lesson_material_german/05_open_files
   - caption: Klassen und Objekte
     numbered: true
