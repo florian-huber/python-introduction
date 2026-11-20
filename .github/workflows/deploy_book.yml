@@ -21,27 +21,25 @@ jobs:
         uses: actions/checkout@v7
 
       - name: Set up uv and Python
-        uses: astral-sh/setup-uv@v10.0.0
+        uses: astral-sh/setup-uv@v10
         with:
           python-version: "3.13"
-          activate-environment: true
           enable-cache: true
 
       - name: Python and uv info
         run: |
-          which python
-          python --version
           uv --version
-
-      - name: Install book dependencies
-        run: |
-          uv pip install \
-            "jupyter-book==1.0.4.post1" \
-            numpy \
-            matplotlib
+          uv run --no-project python --version
 
       - name: Build the book
-        run: jupyter-book build .
+        run: |
+          uv run --no-project \
+            --with "jupyter-book==1.0.4.post1" \
+            --with ipykernel \
+            --with numpy \
+            --with pandas \
+            --with matplotlib \
+            jupyter-book build .
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4

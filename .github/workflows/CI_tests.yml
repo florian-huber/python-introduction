@@ -19,32 +19,32 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest, macos-latest, windows-latest]
+        os:
+          - ubuntu-latest
+          - macos-latest
+          - windows-latest
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v7
 
       - name: Set up uv and Python 3.14
-        uses: astral-sh/setup-uv@v10.0.0
+        uses: astral-sh/setup-uv@v10
         with:
           python-version: "3.14"
-          activate-environment: true
           enable-cache: true
 
       - name: Python and uv info
         run: |
-          which python
-          python --version
           uv --version
-
-      - name: Install test dependencies
-        run: |
-          uv pip install \
-            "pytest>=8.4.2,<9" \
-            numpy \
-            matplotlib \
-            "pytest-codeblocks @ git+https://github.com/florian-huber/pytest-codeblocks.git@allow_differnt_markdown_comments"
+          uv run --no-project python --version
 
       - name: Test code examples
-        run: pytest --codeblocks
+        run: |
+          uv run --no-project \
+            --with "pytest>=8.4.2,<9" \
+            --with numpy \
+            --with pandas \
+            --with matplotlib \
+            --with "pytest-codeblocks @ git+https://github.com/florian-huber/pytest-codeblocks.git@allow_differnt_markdown_comments" \
+            pytest --codeblocks
