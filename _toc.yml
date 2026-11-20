@@ -25,6 +25,7 @@ parts:
     chapters:
     - file: lesson_material_german/04_try_except
     - file: lesson_material_german/05_environments
+    - file: lesson_material_german/05_paths_and_directories
     - file: lesson_material_german/05_open_files
   - caption: Klassen und Objekte
     numbered: true
