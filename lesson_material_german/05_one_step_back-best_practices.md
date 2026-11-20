@@ -1,69 +1,64 @@
 # Python-Umgebungen, Packages und `uv`
 
-Python selbst bringt bereits viele nützliche Module mit. `random`, `math`, `pathlib` oder `csv` gehören zum Beispiel zur **Standardbibliothek** und stehen nach einer normalen Python-Installation direkt zur Verfügung.
+Python selbst bringt bereits viele nützliche Module mit. `random`, `math` oder `sys` gehören zum Beispiel zur **Standardbibliothek** und stehen nach einer normalen Python-Installation direkt zur Verfügung.
 
-Für Data Science brauchen wir aber häufig zusätzliche Bibliotheken wie **NumPy**, **pandas**, **matplotlib** oder **scikit-learn**. Diese sind nicht automatisch Bestandteil von Python und müssen für das jeweilige Projekt installiert werden.
+Daneben gibt es sehr viele zusätzliche Python-Packages, die nicht automatisch mit Python installiert werden. Solche Packages können wir für einzelne Projekte installieren. Wichtig ist dabei vor allem, **wo** sie installiert werden und wie wir später nachvollziehen können, welche Packages zu einem Projekt gehören.
 
 In diesem Kapitel geht es deshalb vor allem um drei Fragen:
 
-1. Wo werden zusätzliche Python-Packages installiert?
-2. Wie verhindern wir, dass sich verschiedene Projekte gegenseitig beeinflussen?
-3. Wie verwalten wir diese Pakete mit `uv`?
+1. Was ist eine virtuelle Python-Umgebung?
+2. Wie installieren wir zusätzliche Packages mit `uv`?
+3. Wie halten wir die Abhängigkeiten eines Projekts nachvollziehbar fest?
 
-## Standardbibliothek oder externes Package?
+## Welche Python-Umgebung benutze ich gerade?
 
-Ein Modul aus der Standardbibliothek können wir direkt importieren:
+Wenn mehrere Python-Versionen oder virtuelle Umgebungen auf einem Rechner vorhanden sind, ist nicht immer sofort offensichtlich, welcher Interpreter gerade verwendet wird.
 
-```python
-import random
-
-print(random.randint(1, 6))
-```
-
-Bei einem externen Package funktioniert der Import erst, wenn es in der verwendeten Python-Umgebung installiert wurde.
-
-Zum Beispiel:
+Mit der Standardbibliothek können wir uns den verwendeten Interpreter anzeigen lassen:
 
 ```python
-import numpy as np
+import sys
 
-print(np.array([1, 2, 3]))
+print(sys.executable)
+print(sys.version)
 ```
 
-Falls NumPy in der aktuellen Umgebung fehlt, erhalten wir typischerweise:
+`sys.executable` zeigt den Pfad zu dem Python-Interpreter, mit dem das aktuelle Programm ausgeführt wird.
 
-```text
-ModuleNotFoundError: No module named 'numpy'
+Auch im Terminal können wir die Python-Version prüfen:
+
+```bash
+python --version
 ```
 
-Viele externe Python-Packages werden über den **Python Package Index (PyPI)** veröffentlicht. PyPI ist der Paket-Index; ein Tool wie `uv` lädt passende Versionen herunter und installiert sie.
+Je nach Betriebssystem kann stattdessen auch `python3 --version` nötig sein.
 
 ## Warum virtuelle Umgebungen?
 
-Stellen wir uns zwei Projekte vor:
+Stellen wir uns zwei verschiedene Projekte vor:
 
 ```text
 projekt_a/
 projekt_b/
 ```
 
-Beide verwenden Python, benötigen aber möglicherweise unterschiedliche Bibliotheken oder unterschiedliche Versionen derselben Bibliothek.
+Beide verwenden Python, benötigen aber möglicherweise unterschiedliche zusätzliche Packages oder unterschiedliche Versionen derselben Packages.
 
-Wenn alle Packages global in dieselbe Python-Installation installiert würden, könnten sich Projekte gegenseitig beeinflussen.
+Wenn alles global in dieselbe Python-Installation installiert würde, könnten sich verschiedene Projekte gegenseitig beeinflussen.
 
-Eine **virtuelle Umgebung** (*virtual environment*) löst dieses Problem. Sie enthält eine projektspezifische Python-Umgebung mit den dort installierten Packages.
+Eine **virtuelle Umgebung** (*virtual environment*) löst dieses Problem. Sie enthält eine eigene Python-Umgebung für ein bestimmtes Projekt.
 
-Typischerweise heißt dieser Ordner:
+Typischerweise liegt sie im Projektordner und heißt:
 
 ```text
 .venv/
 ```
 
-Die `.venv` gehört zum lokalen Arbeitsverzeichnis und sollte normalerweise **nicht in Git eingecheckt** werden.
+Die `.venv` enthält installierte Packages und technische Dateien der Umgebung. Sie gehört normalerweise **nicht in Git** und kann jederzeit neu erzeugt werden.
 
 ## `uv`
 
-Im Kurs verwenden wir **uv** zum Verwalten von Python-Versionen, virtuellen Umgebungen und Abhängigkeiten.
+Im Kurs verwenden wir **uv**, um Python-Versionen, virtuelle Umgebungen und externe Packages zu verwalten.
 
 Prüfen, ob `uv` verfügbar ist:
 
@@ -71,23 +66,25 @@ Prüfen, ob `uv` verfügbar ist:
 uv --version
 ```
 
-Die offizielle Dokumentation befindet sich unter:
+Die offizielle Dokumentation findet sich unter:
 
 <https://docs.astral.sh/uv/>
 
-`uv` kann auch Python-Versionen verwalten. Zum Beispiel:
+### Python-Versionen mit uv
+
+`uv` kann bei Bedarf auch Python-Versionen installieren:
 
 ```bash
 uv python install 3.14
 ```
 
-und:
+Verfügbare beziehungsweise gefundene Python-Versionen können angezeigt werden mit:
 
 ```bash
 uv python list
 ```
 
-Eine Python-Version kann für ein Projekt festgehalten werden:
+Für einen Projektordner kann eine gewünschte Version festgehalten werden:
 
 ```bash
 uv python pin 3.14
@@ -99,7 +96,7 @@ Dadurch entsteht eine Datei namens `.python-version`.
 
 ## Variante 1: Eine einfache virtuelle Umgebung
 
-Für kleine Übungen oder einen Ordner mit einzelnen Skripten reicht oft eine normale virtuelle Umgebung.
+Für kleine Übungen oder einen Ordner mit einzelnen Python-Dateien reicht oft eine normale virtuelle Umgebung.
 
 Im Projektordner:
 
@@ -107,43 +104,33 @@ Im Projektordner:
 uv venv --python 3.14
 ```
 
-Dadurch wird eine `.venv` erzeugt.
+Dadurch wird standardmäßig ein Ordner `.venv` angelegt.
 
-### Packages installieren
-
-Nun können wir zum Beispiel NumPy installieren:
+Danach kann ein zusätzliches Package installiert werden, zum Beispiel:
 
 ```bash
-uv pip install numpy
+uv pip install requests
 ```
 
-Mehrere Packages können gleichzeitig installiert werden:
+Für diesen Abschnitt ist nicht wichtig, was `requests` genau macht. Es dient nur als Beispiel für ein Package, das **nicht** zur Python-Standardbibliothek gehört.
+
+Mehrere Packages können gemeinsam installiert werden:
 
 ```bash
-uv pip install numpy pandas matplotlib
+uv pip install requests rich
 ```
 
-`uv pip install` sucht im aktuellen Ordner automatisch nach einer passenden virtuellen Umgebung, insbesondere nach `.venv`.
-
-Welche Packages dort installiert sind:
+Welche Packages in der aktuellen Umgebung installiert sind, zeigt:
 
 ```bash
 uv pip list
 ```
 
-Danach können sie in Python importiert werden:
-
-```python
-import numpy as np
-import pandas as pd
-
-print(np.arange(5))
-print(pd.DataFrame({"value": [10, 20, 30]}))
-```
+`uv pip install` sucht automatisch nach einer passenden virtuellen Umgebung, insbesondere nach einer `.venv` im aktuellen Ordner oder in einem übergeordneten Ordner.
 
 ### Umgebung aktivieren
 
-Eine virtuelle Umgebung kann auch klassisch aktiviert werden.
+Eine virtuelle Umgebung kann klassisch aktiviert werden.
 
 macOS/Linux:
 
@@ -157,37 +144,43 @@ Windows PowerShell:
 .venv\Scripts\Activate.ps1
 ```
 
-Danach beziehen sich `python` und andere installierte Programme in diesem Terminal auf diese Umgebung.
+Danach beziehen sich `python` und andere Programme im Terminal auf diese Umgebung.
 
-Mit:
+Das kann wieder geprüft werden mit:
 
-```bash
-python --version
+```python
+import sys
+
+print(sys.executable)
 ```
 
-kann überprüft werden, welcher Python-Interpreter gerade verwendet wird.
-
-In VS Code sollte ebenfalls der Interpreter aus `.venv` ausgewählt werden. Das geht über:
+In VS Code sollte ebenfalls der Interpreter aus `.venv` ausgewählt sein. Das geht über die Command Palette mit:
 
 ```text
 Python: Select Interpreter
 ```
 
-### Eine Umgebung kann neu erzeugt werden
+### Eine `.venv` ist austauschbar
 
-Die `.venv` enthält installierte Dateien, aber nicht den eigentlichen Quellcode des Projekts.
+Die virtuelle Umgebung enthält nicht den eigentlichen Quellcode des Projekts. Wenn `.venv` gelöscht wird, sollte das Projekt deshalb nicht verloren sein.
 
-Wenn eine Umgebung kaputtgeht oder gelöscht wird, ist das normalerweise kein Problem: Sie kann neu erstellt und die benötigten Packages können erneut installiert werden.
+Die Umgebung kann neu erzeugt werden:
 
-Genau deshalb ist es wichtig, die **Abhängigkeiten eines Projekts separat zu dokumentieren**.
+```bash
+uv venv --python 3.14
+```
+
+Danach müssten die benötigten Packages allerdings erneut installiert werden.
+
+Damit kommen wir zu einem wichtigen Problem: **Wo steht eigentlich, welche Packages ein Projekt benötigt?**
 
 ---
 
 ## Variante 2: Ein uv-Projekt
 
-Für ein richtiges Softwareprojekt ist es praktischer, wenn uv nicht nur die Umgebung verwaltet, sondern auch speichert, welche Packages das Projekt benötigt.
+Für ein länger laufendes Projekt ist es praktischer, wenn die benötigten Packages nicht nur installiert, sondern auch als **Dependencies** des Projekts dokumentiert werden.
 
-Ein neues Projekt kann mit:
+Ein Projekt kann mit
 
 ```bash
 uv init
@@ -201,167 +194,121 @@ Dabei entsteht unter anderem eine Datei:
 pyproject.toml
 ```
 
-Sie beschreibt das Python-Projekt und enthält auch dessen direkte Abhängigkeiten.
+Diese Datei beschreibt das Python-Projekt und kann auch dessen direkte Abhängigkeiten enthalten.
 
-### Eine Dependency hinzufügen
+## Ein Package zum Projekt hinzufügen
 
-NumPy zum Projekt hinzufügen:
-
-```bash
-uv add numpy
-```
-
-Mehrere Bibliotheken:
+In einem uv-Projekt verwenden wir dafür bevorzugt:
 
 ```bash
-uv add numpy pandas matplotlib
+uv add requests
 ```
 
-`uv add` macht mehrere Dinge:
+`uv add` trägt das Package in `pyproject.toml` ein und aktualisiert gleichzeitig die Projektumgebung und die Lockdatei.
 
-1. Das Package wird als Dependency in `pyproject.toml` eingetragen.
-2. Die passenden Versionen aller benötigten Dependencies werden bestimmt.
-3. Die Projektumgebung `.venv` wird aktualisiert.
-4. Die aufgelösten Versionen werden in `uv.lock` festgehalten.
-
-Für ein uv-Projekt ist deshalb `uv add` normalerweise die bessere Wahl als ein manuelles `uv pip install`.
-
-Ein Ausschnitt aus einer `pyproject.toml` könnte dann ungefähr so aussehen:
+Ein stark vereinfachter Ausschnitt aus `pyproject.toml` könnte danach so aussehen:
 
 ```toml
 [project]
-name = "data-analysis"
-version = "0.1.0"
 dependencies = [
-    "matplotlib",
-    "numpy",
-    "pandas",
+    "requests",
 ]
 ```
 
-Die genaue Reihenfolge und zusätzliche Einträge können abweichen.
+Weitere Dependencies werden genauso ergänzt:
+
+```bash
+uv add rich
+```
+
+Entfernen geht mit:
+
+```bash
+uv remove rich
+```
+
+Für ein uv-Projekt ist `uv add` normalerweise die passendere Variante als ein bloßes `uv pip install`, weil die Abhängigkeit damit **Teil der Projektbeschreibung** wird.
 
 ## `uv.lock`
 
-Neben `pyproject.toml` erzeugt uv eine Datei namens:
+Zusätzlich zu `pyproject.toml` verwendet uv eine Datei namens:
 
 ```text
 uv.lock
 ```
 
-Der Unterschied ist vereinfacht:
+Vereinfacht gesagt:
 
-- `pyproject.toml` beschreibt, **welche direkten Abhängigkeiten** unser Projekt haben soll.
-- `uv.lock` hält fest, **welche konkreten Versionen** für dieses Projekt aufgelöst wurden.
+- `pyproject.toml` beschreibt, **welche Dependencies das Projekt benötigt**.
+- `uv.lock` hält fest, **welche konkreten Paketversionen und abhängigen Pakete dafür aufgelöst wurden**.
 
-Beide Dateien gehören normalerweise ins Git-Repository.
+Das hilft dabei, auf verschiedenen Rechnern möglichst dieselbe Projektumgebung wiederherzustellen.
 
-Die `.venv` dagegen nicht.
+`uv.lock` wird von uv automatisch verwaltet. `uv run` und andere Projektbefehle prüfen dabei, ob Projektbeschreibung, Lockdatei und Umgebung zusammenpassen.
 
-Eine typische Struktur kann also so aussehen:
+## Programme mit `uv run` starten
 
-```text
-my_project/
-├── .venv/
-├── .python-version
-├── pyproject.toml
-├── uv.lock
-├── analysis.py
-└── README.md
-```
-
-## Python-Code mit `uv run` ausführen
-
-In einem uv-Projekt können wir ein Skript direkt in der passenden Projektumgebung starten:
+Ein Python-Programm kann innerhalb der Projektumgebung so gestartet werden:
 
 ```bash
-uv run python analysis.py
+uv run python main.py
 ```
 
-Oder kürzer:
+Oder auch:
 
 ```bash
-uv run analysis.py
+uv run main.py
 ```
 
-`uv run` prüft dabei automatisch, ob die Umgebung zu `pyproject.toml` und `uv.lock` passt, und synchronisiert sie bei Bedarf.
+Der große Vorteil: Die virtuelle Umgebung muss vorher nicht manuell aktiviert werden. `uv run` stellt sicher, dass das Kommando in der Projektumgebung ausgeführt wird.
 
-Das ist besonders praktisch, weil die Umgebung vorher nicht manuell aktiviert werden muss.
-
-Beispiel `analysis.py`:
+Angenommen `main.py` enthält nur bereits bekannte Python-Grundlagen:
 
 ```python
-import numpy as np
-import pandas as pd
+from random import choice
 
-values = np.arange(1, 6)
-
-table = pd.DataFrame({
-    "value": values,
-    "squared": values ** 2,
-})
-
-print(table)
+names = ["Ada", "Grace", "Linus"]
+print(choice(names))
 ```
 
-Start:
+Dann kann die Datei beispielsweise mit
 
 ```bash
-uv run python analysis.py
+uv run python main.py
 ```
+
+gestartet werden.
 
 ## Ein vorhandenes Projekt einrichten
 
-Wenn ein Repository bereits `pyproject.toml` und `uv.lock` enthält, müssen die Packages nicht einzeln von Hand installiert werden.
+Wenn ein Repository bereits `pyproject.toml` und `uv.lock` enthält, müssen die Dependencies nicht einzeln von Hand installiert werden.
 
-Stattdessen:
+Im Projektordner genügt:
 
 ```bash
 uv sync
 ```
 
-`uv sync` erzeugt beziehungsweise aktualisiert die `.venv` so, dass sie zum Projekt passt.
+Damit wird die Projektumgebung an die festgehaltenen Dependencies angepasst.
 
-Ein typischer Ablauf nach dem Klonen eines Projekts ist deshalb:
+Ein typischer Ablauf nach dem Klonen eines bestehenden Projekts ist damit:
 
 ```bash
 git clone ...
 cd projektname
 uv sync
-uv run python analysis.py
+uv run python main.py
 ```
-
-## Packages entfernen oder ergänzen
-
-Eine Dependency entfernen:
-
-```bash
-uv remove matplotlib
-```
-
-Eine weitere hinzufügen:
-
-```bash
-uv add seaborn
-```
-
-Eine bestimmte Versionsanforderung kann ebenfalls angegeben werden:
-
-```bash
-uv add "numpy>=2,<3"
-```
-
-Solche Versionsgrenzen sind vor allem dann wichtig, wenn ein Projekt nur mit bestimmten Bibliotheksversionen kompatibel ist.
 
 ## Abhängigkeiten anschauen
 
-Installierte Packages der Umgebung:
+Installierte Packages in der aktuellen Umgebung:
 
 ```bash
 uv pip list
 ```
 
-Die Abhängigkeitsstruktur eines uv-Projekts kann außerdem mit:
+Die Abhängigkeitsstruktur eines uv-Projekts kann mit
 
 ```bash
 uv tree
@@ -369,121 +316,109 @@ uv tree
 
 angezeigt werden.
 
-Dabei sieht man, dass ein direkt installiertes Package häufig wiederum weitere Packages benötigt.
+Dabei wird schnell sichtbar, dass ein direkt hinzugefügtes Package oft selbst weitere Packages benötigt. Solche Abhängigkeiten heißen **Dependencies**.
 
-Diese indirekt benötigten Packages heißen **Dependencies** oder Abhängigkeiten.
+## Was gehört in Git?
 
-## Was sollte in Git?
-
-Für ein uv-Projekt ist als Faustregel sinnvoll:
-
-**In Git:**
+Eine typische Projektstruktur könnte so aussehen:
 
 ```text
+my_project/
+├── .venv/
+├── .python-version
+├── pyproject.toml
+├── uv.lock
+├── main.py
+└── README.md
+```
+
+Normalerweise gehören ins Repository:
+
+```text
+.python-version
 pyproject.toml
 uv.lock
-.python-version
 eigener Python-Code
 README.md
 ```
 
-**Nicht in Git:**
+Nicht ins Repository gehört typischerweise:
 
 ```text
 .venv/
 __pycache__/
 ```
 
-Die virtuelle Umgebung wird lokal neu erzeugt. `pyproject.toml` und `uv.lock` enthalten die Informationen, die dafür benötigt werden.
+Die `.venv` wird lokal neu erzeugt. `pyproject.toml` und `uv.lock` enthalten die relevanten Informationen, um die Umgebung wiederherzustellen.
 
 ## `uv pip install` oder `uv add`?
 
-Beide Befehle installieren Packages, aber sie haben unterschiedliche Rollen.
+Die beiden Befehle sehen ähnlich aus, erfüllen aber unterschiedliche Rollen.
 
-### `uv pip install`
+### Einfache Umgebung
 
-Gut geeignet für:
-
-- eine einfache virtuelle Umgebung,
-- schnelle Experimente,
-- einen Ordner ohne uv-Projektverwaltung.
-
-Beispiel:
+Für einen kleinen Ordner ohne uv-Projektverwaltung:
 
 ```bash
 uv venv
-uv pip install numpy pandas
+uv pip install requests
 ```
 
-### `uv add`
+### Verwaltetes uv-Projekt
 
-Geeignet für ein uv-Projekt:
+Für ein Projekt, dessen Dependencies dauerhaft dokumentiert werden sollen:
 
 ```bash
 uv init
-uv add numpy pandas
+uv add requests
+uv run python main.py
 ```
 
-Hier werden die Dependencies zusätzlich dauerhaft im Projekt dokumentiert.
+Der zweite Weg wird mit zunehmender Projektgröße wichtiger, weil die Abhängigkeiten nicht nur auf einem einzelnen Rechner installiert, sondern im Projekt selbst dokumentiert sind.
 
-Für länger laufende Kurs- und Softwareprojekte verwenden wir deshalb bevorzugt:
+## Ein typischer kleiner Workflow
 
-```text
-uv init
-uv add ...
-uv run ...
-uv sync
-```
-
-## Ein kurzer typischer Workflow
-
-Ein neues Projekt:
+Ein neuer Projektordner:
 
 ```bash
-mkdir my_analysis
-cd my_analysis
-
+mkdir my_project
+cd my_project
 uv init
 uv python pin 3.14
-uv add numpy pandas matplotlib
+uv add requests
 ```
 
-Dann eine Datei `analysis.py` schreiben und starten:
+Danach wird Python-Code geschrieben und zum Beispiel so gestartet:
 
 ```bash
-uv run python analysis.py
+uv run python main.py
 ```
 
-Später kommt eine weitere Bibliothek dazu:
+Wenn später eine weitere externe Bibliothek benötigt wird:
 
 ```bash
-uv add seaborn
+uv add rich
 ```
 
-Jemand anderes klont das Projekt:
+Auf einem anderen Rechner kann dasselbe Projekt mit
 
 ```bash
-git clone ...
-cd my_analysis
 uv sync
-uv run python analysis.py
 ```
 
-Damit haben beide Personen eine reproduzierbare Projektumgebung, ohne den kompletten `.venv`-Ordner austauschen zu müssen.
+wieder eingerichtet werden.
 
----
+## Kurz zusammengefasst
 
-## Ein kleiner Rest "Best Practice"
+Für den Moment sind vor allem diese Unterschiede wichtig:
 
-An dieser Stelle brauchen wir noch keine ausführliche Clean-Code-Diskussion. Zwei Dinge lohnen sich aber schon jetzt:
+- Python bringt eine **Standardbibliothek** bereits mit.
+- Zusätzliche Packages werden separat installiert.
+- Eine `.venv` hält die Umgebung eines Projekts vom Rest des Rechners getrennt.
+- `uv pip install ...` installiert Packages in eine Umgebung.
+- `uv add ...` fügt eine Dependency zu einem uv-Projekt hinzu.
+- `pyproject.toml` und `uv.lock` dokumentieren das Projekt und seine Dependencies.
+- `uv run ...` führt Programme in der passenden Projektumgebung aus.
+- `uv sync` stellt eine vorhandene Projektumgebung wieder her.
 
-1. Verwendet verständliche Namen für Variablen, Funktionen und Dateien.
-2. Trennt euren eigenen Code von der technischen Projektumgebung.
-
-Zum zweiten Punkt gehört insbesondere:
-
-- eigener Code kommt ins Repository,
-- Dependencies werden in `pyproject.toml` und `uv.lock` beschrieben,
-- `.venv` wird lokal erzeugt und nicht geteilt.
-
-Später im Kurs werden wir genauer darauf eingehen, wie Code strukturiert, getestet, formatiert und langfristig wartbar gemacht wird.
+Fragen zu Code-Qualität, Tests, Formatierung und größerer Projektstruktur kommen später im Kurs ausführlicher zurück. Hier geht es zunächst darum, dass Python-Projekte **eine klar definierte und reproduzierbare Umgebung** bekommen.
