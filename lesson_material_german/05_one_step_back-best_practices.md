@@ -1,387 +1,489 @@
-# Clean code und "best practices"
+# Python-Umgebungen, Packages und `uv`
 
-In den ersten Kapitels haben wir schon viele wichtige Grundlagen in Python gesehen:
+Python selbst bringt bereits viele nützliche Module mit. `random`, `math`, `pathlib` oder `csv` gehören zum Beispiel zur **Standardbibliothek** und stehen nach einer normalen Python-Installation direkt zur Verfügung.
 
-* Verschiedene **Datentypen**: Zahlen, Strings, List, Tuple, Dictionary, Set, Boolean, None
-* `for`- und `while`-Schleifen
-* Verzweigungen: if-elif-else
-* Bedingungen
-* Funktionen
-* Fehlerhandling mit try-except
-* Bibliotheken
+Für Data Science brauchen wir aber häufig zusätzliche Bibliotheken wie **NumPy**, **pandas**, **matplotlib** oder **scikit-learn**. Diese sind nicht automatisch Bestandteil von Python und müssen für das jeweilige Projekt installiert werden.
 
-Höchste Zeit um einen kleinen Schritt zurück zu machen und den Blick freizugeben für das **big picture**, das große Ganze. 
+In diesem Kapitel geht es deshalb vor allem um drei Fragen:
 
-## Teams vs. lonely hacker
+1. Wo werden zusätzliche Python-Packages installiert?
+2. Wie verhindern wir, dass sich verschiedene Projekte gegenseitig beeinflussen?
+3. Wie verwalten wir diese Pakete mit `uv`?
 
-Wir haben etwas ausführlicher über Teams und Pair Programming gesprochen --> bisher nur in den Slides auf Moodle zu finden.
+## Standardbibliothek oder externes Package?
 
-Danach ging es um **Code Quality** und **Clean Code**, angefangen mit:
-
-### Zen of Python
-
-Bitte einmal den folgenden `import` ausprobieren:
-
-```python
-import this
-```
-
-Was Folgendes liefern sollte:
-
-```
-The Zen of Python, by Tim Peters
-
-Beautiful is better than ugly.
-Explicit is better than implicit.
-Simple is better than complex.
-Complex is better than complicated.
-Flat is better than nested.
-Sparse is better than dense.
-Readability counts.
-Special cases aren't special enough to break the rules.
-Although practicality beats purity.
-Errors should never pass silently.
-Unless explicitly silenced.
-In the face of ambiguity, refuse the temptation to guess.
-There should be one-- and preferably only one --obvious way to do it.
-Although that way may not be obvious at first unless you're Dutch.
-Now is better than never.
-Although never is often better than *right* now.
-If the implementation is hard to explain, it's a bad idea.
-If the implementation is easy to explain, it may be a good idea.
-Namespaces are one honking great idea -- let's do more of those!
-```
-
-Darüber wie heilig oder ironisch diese  Zen-Regeln sind, und darüber was genau sie bedeuten sollen, gibt es unterschiedliche Meinungen.
-
-Ein Großteil der Regeln bezieht sich darauf, den Code so zu schreiben, dass er gut lesbar und verständlich ist. Was aber genau nun aber an Code schön (*beautiful*) oder hässlich (*ugly*) ist, was genau gut oder nicht so gut lesbar ist, darüber gibt es in der Praxis ziemlich verschiedenen Meinungen. Vor allem für Programmier-Anfänger*Innen sind solche Style-Fragen oft schwer zu beantworten, zum einen wegen der noch fehlenden Erfahrung (also weniger Vergleichsmöglichkeiten), aber auch weil es ja schon schwierig genug ist Code zum laufen zu bringen! Warum muss der dann auch noch *schön* sein?!
-
-Darum müsste das **Zen of Python** für Programmier-Anfänger*Innen eigentlich besser beginnen mit:
-
-```
-Working code is a big achievement! (no matter how ugly)
-Beautiful is better than ugly.
-...
-```
-
-Auch wenn die Schönheit des Codes v.a. zu Beginn kein guter Maßstab ist. Lesbaren, verständlichen Code zu schreiben, ist auch für Programmier-Anfänger*Innen ein gutes Ziel.
-
-## Clean Code / Best practices
-
-Wir hatten zuvor schon einige Dinge zu lesbarem Code besprochen:
-
-+ Sinnvolle Variablen- und Funktionennamen
-+ Nutzung von Funktionen (auch lokalen Funktionen) um Code besser zu strukturieren.
-+ Code Dokumentation durch Kommentare im Code oder Docstrings bei Funktionen.
-
-Nochmal ein Beispiel dazu: Was macht der folgende Code:
-
-```python
-def handle_x(x):
-    b = 9 / 5
-    c = 32
-    d = 273.15
-    e = x - d
-    return e * b + c
-
-print(handle_x(400))
-```
-
-Na? ...
-
-
-
-Hier nochmal das gleiche Beispiel mit besseren Variablen- und Funktionsnamen:
-
-```python
-def kelvin_to_fahrenheit(temp_kelvin: float):
-    """Umrechnen von Temperatur in Kelvin zu Fahrenheit.
-    """
-    fahrenheit_factor = 9 / 5
-    fahrenheit_offset = 32
-    absolute_zero = 273.15
-    temp_celsius = temp_kelvin - absolute_zero
-    return temp_celsius * fahrenheit_factor + fahrenheit_offset
-
-print(kelvin_to_fahrenheit(400))
-```
-
-Auch jetzt ist vielleicht nicht unbedingt auf den ersten Blick jeder Schritt der Funktion sofort klar. Aber es wird sofort deutlich was die Funktion überhaupt machen soll ("Umrechnen von Temperaturen in Kelvin zu Fahrenheit"). Und auch die Rechenschritte können nun theoretisch überprüft werden, da klar ist was die Variablen zu bedeuten haben.
-
-## Beispiel: Rock-Paper-Scissors
-
-Wir wollen jetzt das Spiel Rock-Paper-Scissors (Stein-Schere-Papier) programmieren. Zuerst soll ein menschlicher Spieler gegen den Computer antreten. 
-
-Dafür wir fangen einmal damit an, eine Funktion zu schreiben in der der Computer zufällig eine der drei Möglichkeiten auswählt. Für das Zufallselement nutzen wir wieder die Bibliothek `random`.
+Ein Modul aus der Standardbibliothek können wir direkt importieren:
 
 ```python
 import random
 
-def rock_paper_scissor():
-    """Returns randomly chosen string: "rock", "paper", or "scissor".
-    """
-    choice = None
-    random_number = random.randint(1, 3)
-    if random_number == 1:
-        choice = "rock"
-    elif random_number == 2:
-        choice = "paper"
-    else:
-        choice = "scissor"
-    return choice
+print(random.randint(1, 6))
 ```
 
-Die Funktion und die Variablen haben sinnvolle Namen, ein Docstring beschreibt ungefähr was die Funktion macht. Also alles in Ordnung, oder?
+Bei einem externen Package funktioniert der Import erst, wenn es in der verwendeten Python-Umgebung installiert wurde.
 
-Im Prinzip schon. Der Code läuft und man kann ihn verstehen. Aber es geht noch etwas besser:
+Zum Beispiel:
 
 ```python
-def rock_paper_scissor():
-    """Returns randomly chosen string: "rock", "paper", or "scissor".
-    """
-    random_number = random.randint(1, 3)
-    if random_number == 1:
-        return "rock"
-    if random_number == 2:
-        return "paper"
-    return "scissor"
+import numpy as np
+
+print(np.array([1, 2, 3]))
 ```
 
-Warum besser?
-Das wäre so etwas wie das *Simple is better than complex.* aus dem Python-Zen (und vielleicht ist der Code auch hübscher?). Wir geben hier nämlich direkt die entsprechenden Strings über `return` zurück. Damit brauchen wir kein elif-else mehr. Und auch die Variable `choice` fällt dadurch weg.
+Falls NumPy in der aktuellen Umgebung fehlt, erhalten wir typischerweise:
 
-Wir können die Funktion aber auch anders aufbauen, z.B. mit `random.choice()`. 
-
-```python
-import random
-
-def rock_paper_scissor():
-    """Returns randomly chosen string: "rock", "paper", or "scissor".
-    """
-    choice = random.choice(["a", "b", "c"])
-    if choice == "a":
-        return "rock"
-    if choice == "b":
-        return "paper"
-    return "scissor"
+```text
+ModuleNotFoundError: No module named 'numpy'
 ```
 
-Wie wäre das? 
+Viele externe Python-Packages werden über den **Python Package Index (PyPI)** veröffentlicht. PyPI ist der Paket-Index; ein Tool wie `uv` lädt passende Versionen herunter und installiert sie.
 
-Besser? Schlechter? Anders?
+## Warum virtuelle Umgebungen?
 
-Wenn man aber schon weiß, dass mit `random.choice()` ein String ausgewählt werden kann, dann geht es auch noch ein ganzen Stück einfacher/eleganter:
+Stellen wir uns zwei Projekte vor:
 
-```python
-import random
-
-def rock_paper_scissor():
-    """Returns randomly chosen string: "rock", "paper", or "scissor".
-    """
-    return random.choice(["rock", "paper", "scissor"])
+```text
+projekt_a/
+projekt_b/
 ```
 
-OK, in dem Fall sollte deutlich sein, dass der Code einfacher und eleganter geworden ist.
-Die Lösung davor, die erst a, b, oder c auswählt macht nämlich einen völlig unnötigen Umweg.
+Beide verwenden Python, benötigen aber möglicherweise unterschiedliche Bibliotheken oder unterschiedliche Versionen derselben Bibliothek.
 
-Um aber auf solch eine Lösung zu kommen, muss natürlich überhaupt erstmal bekannt (und präsent) sein, dass es `random.choice()` gibt und dass es so eingesetzt werden kann! In Python ist genau so eine Situation recht typisch. Irgendwo, in irgendeiner Bibliothek gibt es eine Funktion die das macht was gerade benötigt wird. Schön, wenn das gerade hinhaut. Aber keine Sorge: Niemand kennt alle diese Möglichkeiten und darum schreiben unzählige Python-Programmieren*Innen täglich kleine Funktionen selbst, auch wenn es vielleicht irgendwo dafür schon eine Bibliothek gibt. Auch die erste Lösung-Strategie über eine Zufallszahl mit `random.randint()` ist daher völlig OK. 
+Wenn alle Packages global in dieselbe Python-Installation installiert würden, könnten sich Projekte gegenseitig beeinflussen.
 
-Aber jetzt: Weiter im Spiel!
+Eine **virtuelle Umgebung** (*virtual environment*) löst dieses Problem. Sie enthält eine projektspezifische Python-Umgebung mit den dort installierten Packages.
 
-Wie baue ich jetzt ein ganzen Rock-Paper-Scissors Spiel?
+Typischerweise heißt dieser Ordner:
 
-Natürlich kann man einfach los-programmieren. Für solch ein einfaches Spiel geht das auch noch halbwegs:
-
-<!-- pytest-codeblocks:skip -->
-
-```python
-def game():
-    print("Yes! Rock-Paper-Scissors!")
-    computer_choice = rock_paper_scissor()
-    print("What is your choice?")
-    human_choice = input("a) rock, b) paper, c) scissor ... :")
-    if human_choice.lower() in ["a", "b", "c"]:
-        if human_choice == "a":
-            if computer_choice == "paper":
-                print("Computer wins!")
-            elif computer_choice == "scissor":
-                print("Human wins!")
-            else:
-                print("Drawn...")
-        elif human_choice == "b":
-            if computer_choice == "scissor":
-                print("Computer wins!")
-            elif computer_choice == "rock":
-                print("Human wins!")
-            else:
-                print("Drawn...")
-        else:
-            if computer_choice == "rock":
-                print("Computer wins!")
-            elif computer_choice == "paper":
-                print("Human wins!")
-            else:
-                print("Drawn...")   
-    else:
-        print("Invalid input!")
-            
-            
-game()
+```text
+.venv/
 ```
 
-Das funktioniert auch. Aber es könnte ruhig etwas lesbarer und besser strukturiert sein.
+Die `.venv` gehört zum lokalen Arbeitsverzeichnis und sollte normalerweise **nicht in Git eingecheckt** werden.
 
-Ein Zen-Spruch der hier zutreffen würde ist *Flat is better than nested*. Denn wir sehen hier drei verschachtelte`if`-Verzweigungen!
+## `uv`
 
-Die äußere `if`Verzweigung soll nur sicherstellen, dass keine falsche Eingabe stattgefunden hat. Das lässt sich aber auch mit `assert`erledigen:
+Im Kurs verwenden wir **uv** zum Verwalten von Python-Versionen, virtuellen Umgebungen und Abhängigkeiten.
 
-<!-- pytest-codeblocks:skip -->
-
-```python
-def game():
-    print("Yes! Rock-Paper-Scissors!")
-    computer_choice = rock_paper_scissor()
-    print("I made my choice. What is yours?")
-    human_choice = input("a) rock, b) paper, c) scissor ... :")
-    assert human_choice.lower() in ["a", "b", "c"], "Invalid user input."
-    
-    if human_choice == "a":
-        if computer_choice == "paper":
-            print("Computer wins!")
-        elif computer_choice == "scissor":
-            print("Human wins!")
-        else:
-            print("Drawn...")
-    elif human_choice == "b":
-        if computer_choice == "scissor":
-            print("Computer wins!")
-        elif computer_choice == "rock":
-            print("Human wins!")
-        else:
-            print("Drawn...")
-    else:
-        if computer_choice == "rock":
-            print("Computer wins!")
-        elif computer_choice == "paper":
-            print("Human wins!")
-        else:
-            print("Drawn...")   
-            
-            
-game()
-```
-
-Ok. Schon besser.
-
-Besser lesbar - und wie wir nachher sehen werden auch rubuster und vielseitiger- sind oft Lösungen bei denen der Code in kleinere Teile, z.B. Funktionen gegliedert ist.
-
-Welche Funktionen könnten wir hier getrennt definieren?
-
-Wie wäre es z.B. mit einem folgenden Schema:
-
-`computer_choice`--> `player_choice`-->`who_won`-->`print result` ?
-
-Den ersten Teil haben wir schon mit unserer Funktion `rock_paper_scissor()` abgedeckt. 
-
-Ein Vorschlag für den Rest wäre der folgende Code:
-
-<!-- pytest-codeblocks:skip -->
-
-```python
-def user_choice():
-    print("What is your choice?")
-    human_choice = input("a) rock, b) paper, c) scissor ... :")
-    choices_dict = {"a": "rock",
-                    "b": "paper",
-                    "c": "scissor"}
-    assert human_choice in ["a", "b", "c"], "Invalid user input."    
-    return choices_dict[human_choice]
-    
-def who_won(hand1, hand2):
-    """Check which player wins.
-    """
-    if hand1 == hand2:  # Drawn
-        return 0
-    # Other combinations
-    endings = {"rock-paper": -1,
-                "rock-scissor": 1,
-                "paper-rock": 1,
-                "paper-scissor": -1,
-                "scissor-paper": 1,
-                "scissor-rock": -1}
-    return endings[f"{hand1}-{hand2}"]
-
-
-def play_game():
-    """Play one round of rock-paper-scissors against the computer.
-    """      
-    print("Yes! Rock-Paper-Scissors!")
-    
-    computer_choice = rock_paper_scissor()
-    human_choice = user_choice()
-    print(f"Human: {human_choice} vs. computer: {computer_choice}.")
-    
-    winner = who_won(human_choice, computer_choice)
-    if winner == 0:
-        print("Drawn... no winner")
-    elif winner == 1:
-        print("Human won!")
-    else:
-        print("Computer wins!")  
-            
-            
-play_game()
-```
-
-Der Code sieht erstmal nicht unbedingt einfacher aus!
-
-Allerdings hat er trotzdem einige Vorteile:
-
-+ der Code von `play_game()` reicht aus um den Code-Ablauf zu verstehen (die Details sind nun alle in den entsprechenden Funktionen "versteckt")
-+ Die Funktionen sind so definiert, dass schnell Änderungen am Spiel vorgenommen werden können!
-  Zum Beispiel gibt `who_won()` zurück wer gewonnen hat, unabhängig davon ob es um einen Computer oder einen menschlicher Spieler geht! Damit könnte schnell eine Variante programmiert werden, bei der zwei menschliche Spieler gegeneinander spielen --> `play_game_two_players()`o.ä.
-+ Die Bedingungen um zu Gewinnen sind hier deutlich lesbarer.
-  Damit können sie auch viel einfacher verändert oder ergänzt werden.
-
-Apropos ergänzen: Mit den Code-Aufbau über die Funktionen ist es nun auch gut möglich das Spiel Rock-Paper-Scissors zu verändern zum Spiel **Rock-Paper-Scissors-Lizard-Spock** (siehe Serie [Big Bang Theory](https://commons.wikimedia.org/wiki/File:Rock_paper_scissors_lizard_spock.svg))
-
-
-
-## Mehr zum Python-Ecosystem
-
-In der ersten Vorlesung wurde schon einmal erwähnt, dass um Python herum ein ganzes Universum aus Bibliotheken und Tools existiert, was ganz nebenbei auch einer der Gründe für den Erfolg von Python ist.
-
-Bisher haben wir ausschließlich mit Modulen aus der **Standardbibliothek** gearbeitet, die bei einer normalen Python-Installation direkt mit dabei sind. Wenn wir `import time` oder `import random` aufgerufen haben, musste also nichts zusätzlich installiert werden.
-
-Bei vielen Data-Science-Bibliotheken ist das anders. Ist ein Package noch nicht installiert, erhalten wir z.B. einen `ModuleNotFoundError`:
-
-```
->>> import seaborn as sns
-ModuleNotFoundError: No module named 'seaborn'
-```
-
-Viele veröffentlichte Python-Packages liegen auf dem **Python Package Index (PyPI)**. PyPI ist dabei der Paket-Index; installiert und verwaltet werden die Pakete mit einem passenden Tool. Im Kurs nutzen wir dafür **uv**:
+Prüfen, ob `uv` verfügbar ist:
 
 ```bash
-uv pip install seaborn
+uv --version
 ```
 
-### Bereits installierte Bibliotheken
+Die offizielle Dokumentation befindet sich unter:
 
-Welche Packages in der aktuellen Umgebung installiert sind, können wir z.B. so anzeigen:
+<https://docs.astral.sh/uv/>
+
+`uv` kann auch Python-Versionen verwalten. Zum Beispiel:
 
 ```bash
-uv pip list
+uv python install 3.14
 ```
 
-Dabei wird schnell deutlich, dass Packages immer in bestimmten Versionen installiert sind.
+und:
 
-Viele Python-Packages verwenden wiederum andere Packages. Diese Abhängigkeiten heißen **Dependencies**. Unterschiedliche Projekte können dabei unterschiedliche, teilweise nicht miteinander kompatible Versionen derselben Dependency benötigen.
+```bash
+uv python list
+```
 
-Darum verwenden wir für Projekte **virtuelle Environments**. Ein Environment isoliert die installierten Packages eines Projekts vom Rest des Systems. Unsere Standardvariante ist ein `.venv` im Projektordner:
+Eine Python-Version kann für ein Projekt festgehalten werden:
+
+```bash
+uv python pin 3.14
+```
+
+Dadurch entsteht eine Datei namens `.python-version`.
+
+---
+
+## Variante 1: Eine einfache virtuelle Umgebung
+
+Für kleine Übungen oder einen Ordner mit einzelnen Skripten reicht oft eine normale virtuelle Umgebung.
+
+Im Projektordner:
 
 ```bash
 uv venv --python 3.14
 ```
 
-`uv venv` erstellt ein normales Python-Virtual-Environment. Alternativ kann die Python-Standardbibliothek dasselbe Grundprinzip mit `python -m venv .venv` umsetzen. Pakete installieren wir anschließend mit `uv pip install ...` in dieses Environment. VS Code erkennt ein `.venv` im Projektordner in der Regel automatisch bzw. es kann über **Python: Select Interpreter** ausgewählt werden.
+Dadurch wird eine `.venv` erzeugt.
+
+### Packages installieren
+
+Nun können wir zum Beispiel NumPy installieren:
+
+```bash
+uv pip install numpy
+```
+
+Mehrere Packages können gleichzeitig installiert werden:
+
+```bash
+uv pip install numpy pandas matplotlib
+```
+
+`uv pip install` sucht im aktuellen Ordner automatisch nach einer passenden virtuellen Umgebung, insbesondere nach `.venv`.
+
+Welche Packages dort installiert sind:
+
+```bash
+uv pip list
+```
+
+Danach können sie in Python importiert werden:
+
+```python
+import numpy as np
+import pandas as pd
+
+print(np.arange(5))
+print(pd.DataFrame({"value": [10, 20, 30]}))
+```
+
+### Umgebung aktivieren
+
+Eine virtuelle Umgebung kann auch klassisch aktiviert werden.
+
+macOS/Linux:
+
+```bash
+source .venv/bin/activate
+```
+
+Windows PowerShell:
+
+```powershell
+.venv\Scripts\Activate.ps1
+```
+
+Danach beziehen sich `python` und andere installierte Programme in diesem Terminal auf diese Umgebung.
+
+Mit:
+
+```bash
+python --version
+```
+
+kann überprüft werden, welcher Python-Interpreter gerade verwendet wird.
+
+In VS Code sollte ebenfalls der Interpreter aus `.venv` ausgewählt werden. Das geht über:
+
+```text
+Python: Select Interpreter
+```
+
+### Eine Umgebung kann neu erzeugt werden
+
+Die `.venv` enthält installierte Dateien, aber nicht den eigentlichen Quellcode des Projekts.
+
+Wenn eine Umgebung kaputtgeht oder gelöscht wird, ist das normalerweise kein Problem: Sie kann neu erstellt und die benötigten Packages können erneut installiert werden.
+
+Genau deshalb ist es wichtig, die **Abhängigkeiten eines Projekts separat zu dokumentieren**.
+
+---
+
+## Variante 2: Ein uv-Projekt
+
+Für ein richtiges Softwareprojekt ist es praktischer, wenn uv nicht nur die Umgebung verwaltet, sondern auch speichert, welche Packages das Projekt benötigt.
+
+Ein neues Projekt kann mit:
+
+```bash
+uv init
+```
+
+initialisiert werden.
+
+Dabei entsteht unter anderem eine Datei:
+
+```text
+pyproject.toml
+```
+
+Sie beschreibt das Python-Projekt und enthält auch dessen direkte Abhängigkeiten.
+
+### Eine Dependency hinzufügen
+
+NumPy zum Projekt hinzufügen:
+
+```bash
+uv add numpy
+```
+
+Mehrere Bibliotheken:
+
+```bash
+uv add numpy pandas matplotlib
+```
+
+`uv add` macht mehrere Dinge:
+
+1. Das Package wird als Dependency in `pyproject.toml` eingetragen.
+2. Die passenden Versionen aller benötigten Dependencies werden bestimmt.
+3. Die Projektumgebung `.venv` wird aktualisiert.
+4. Die aufgelösten Versionen werden in `uv.lock` festgehalten.
+
+Für ein uv-Projekt ist deshalb `uv add` normalerweise die bessere Wahl als ein manuelles `uv pip install`.
+
+Ein Ausschnitt aus einer `pyproject.toml` könnte dann ungefähr so aussehen:
+
+```toml
+[project]
+name = "data-analysis"
+version = "0.1.0"
+dependencies = [
+    "matplotlib",
+    "numpy",
+    "pandas",
+]
+```
+
+Die genaue Reihenfolge und zusätzliche Einträge können abweichen.
+
+## `uv.lock`
+
+Neben `pyproject.toml` erzeugt uv eine Datei namens:
+
+```text
+uv.lock
+```
+
+Der Unterschied ist vereinfacht:
+
+- `pyproject.toml` beschreibt, **welche direkten Abhängigkeiten** unser Projekt haben soll.
+- `uv.lock` hält fest, **welche konkreten Versionen** für dieses Projekt aufgelöst wurden.
+
+Beide Dateien gehören normalerweise ins Git-Repository.
+
+Die `.venv` dagegen nicht.
+
+Eine typische Struktur kann also so aussehen:
+
+```text
+my_project/
+├── .venv/
+├── .python-version
+├── pyproject.toml
+├── uv.lock
+├── analysis.py
+└── README.md
+```
+
+## Python-Code mit `uv run` ausführen
+
+In einem uv-Projekt können wir ein Skript direkt in der passenden Projektumgebung starten:
+
+```bash
+uv run python analysis.py
+```
+
+Oder kürzer:
+
+```bash
+uv run analysis.py
+```
+
+`uv run` prüft dabei automatisch, ob die Umgebung zu `pyproject.toml` und `uv.lock` passt, und synchronisiert sie bei Bedarf.
+
+Das ist besonders praktisch, weil die Umgebung vorher nicht manuell aktiviert werden muss.
+
+Beispiel `analysis.py`:
+
+```python
+import numpy as np
+import pandas as pd
+
+values = np.arange(1, 6)
+
+table = pd.DataFrame({
+    "value": values,
+    "squared": values ** 2,
+})
+
+print(table)
+```
+
+Start:
+
+```bash
+uv run python analysis.py
+```
+
+## Ein vorhandenes Projekt einrichten
+
+Wenn ein Repository bereits `pyproject.toml` und `uv.lock` enthält, müssen die Packages nicht einzeln von Hand installiert werden.
+
+Stattdessen:
+
+```bash
+uv sync
+```
+
+`uv sync` erzeugt beziehungsweise aktualisiert die `.venv` so, dass sie zum Projekt passt.
+
+Ein typischer Ablauf nach dem Klonen eines Projekts ist deshalb:
+
+```bash
+git clone ...
+cd projektname
+uv sync
+uv run python analysis.py
+```
+
+## Packages entfernen oder ergänzen
+
+Eine Dependency entfernen:
+
+```bash
+uv remove matplotlib
+```
+
+Eine weitere hinzufügen:
+
+```bash
+uv add seaborn
+```
+
+Eine bestimmte Versionsanforderung kann ebenfalls angegeben werden:
+
+```bash
+uv add "numpy>=2,<3"
+```
+
+Solche Versionsgrenzen sind vor allem dann wichtig, wenn ein Projekt nur mit bestimmten Bibliotheksversionen kompatibel ist.
+
+## Abhängigkeiten anschauen
+
+Installierte Packages der Umgebung:
+
+```bash
+uv pip list
+```
+
+Die Abhängigkeitsstruktur eines uv-Projekts kann außerdem mit:
+
+```bash
+uv tree
+```
+
+angezeigt werden.
+
+Dabei sieht man, dass ein direkt installiertes Package häufig wiederum weitere Packages benötigt.
+
+Diese indirekt benötigten Packages heißen **Dependencies** oder Abhängigkeiten.
+
+## Was sollte in Git?
+
+Für ein uv-Projekt ist als Faustregel sinnvoll:
+
+**In Git:**
+
+```text
+pyproject.toml
+uv.lock
+.python-version
+eigener Python-Code
+README.md
+```
+
+**Nicht in Git:**
+
+```text
+.venv/
+__pycache__/
+```
+
+Die virtuelle Umgebung wird lokal neu erzeugt. `pyproject.toml` und `uv.lock` enthalten die Informationen, die dafür benötigt werden.
+
+## `uv pip install` oder `uv add`?
+
+Beide Befehle installieren Packages, aber sie haben unterschiedliche Rollen.
+
+### `uv pip install`
+
+Gut geeignet für:
+
+- eine einfache virtuelle Umgebung,
+- schnelle Experimente,
+- einen Ordner ohne uv-Projektverwaltung.
+
+Beispiel:
+
+```bash
+uv venv
+uv pip install numpy pandas
+```
+
+### `uv add`
+
+Geeignet für ein uv-Projekt:
+
+```bash
+uv init
+uv add numpy pandas
+```
+
+Hier werden die Dependencies zusätzlich dauerhaft im Projekt dokumentiert.
+
+Für länger laufende Kurs- und Softwareprojekte verwenden wir deshalb bevorzugt:
+
+```text
+uv init
+uv add ...
+uv run ...
+uv sync
+```
+
+## Ein kurzer typischer Workflow
+
+Ein neues Projekt:
+
+```bash
+mkdir my_analysis
+cd my_analysis
+
+uv init
+uv python pin 3.14
+uv add numpy pandas matplotlib
+```
+
+Dann eine Datei `analysis.py` schreiben und starten:
+
+```bash
+uv run python analysis.py
+```
+
+Später kommt eine weitere Bibliothek dazu:
+
+```bash
+uv add seaborn
+```
+
+Jemand anderes klont das Projekt:
+
+```bash
+git clone ...
+cd my_analysis
+uv sync
+uv run python analysis.py
+```
+
+Damit haben beide Personen eine reproduzierbare Projektumgebung, ohne den kompletten `.venv`-Ordner austauschen zu müssen.
+
+---
+
+## Ein kleiner Rest "Best Practice"
+
+An dieser Stelle brauchen wir noch keine ausführliche Clean-Code-Diskussion. Zwei Dinge lohnen sich aber schon jetzt:
+
+1. Verwendet verständliche Namen für Variablen, Funktionen und Dateien.
+2. Trennt euren eigenen Code von der technischen Projektumgebung.
+
+Zum zweiten Punkt gehört insbesondere:
+
+- eigener Code kommt ins Repository,
+- Dependencies werden in `pyproject.toml` und `uv.lock` beschrieben,
+- `.venv` wird lokal erzeugt und nicht geteilt.
+
+Später im Kurs werden wir genauer darauf eingehen, wie Code strukturiert, getestet, formatiert und langfristig wartbar gemacht wird.
