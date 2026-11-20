@@ -1,0 +1,11 @@
+name,city,score,source_file
+Anna,Düsseldorf,12,team_alpha.csv
+Béla,Köln,15,team_alpha.csv
+Chloë,Aachen,11,team_alpha.csv
+Deniz,Bonn,9,team_beta.CSV
+Émile,Münster,14,team_beta.CSV
+Franz,Essen,10,team_beta.CSV
+Iris,Düsseldorf,16,archive/2026/team_new.csv
+Jörg,Krefeld,12,archive/2026/team_new.csv
+Greta,Wuppertal,8,archive/2025/team_old.csv
+Hanno,Dortmund,13,archive/2025/team_old.csv
