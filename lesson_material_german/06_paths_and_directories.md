@@ -47,6 +47,7 @@ Alle **relativen Pfade** werden von diesem Arbeitsordner aus interpretiert.
 
 Wenn wir das Kursrepository geöffnet haben, können wir zum Beispiel schreiben:
 
+<!-- pytest-codeblocks:skip -->
 ```python
 import os
 
@@ -61,7 +62,6 @@ Das ist ein relativer Pfad.
 Mit `os.path.abspath()` können wir uns den dazugehörigen absoluten Pfad anzeigen lassen:
 
 <!-- pytest-codeblocks:skip -->
-
 ```python
 print(os.path.abspath(input_folder))
 ```
@@ -75,7 +75,7 @@ Ein **relativer Pfad** hängt vom aktuellen Arbeitsordner ab. Ein **absoluter Pf
 Pfade sollten nicht per Hand mit `/` oder `\` zusammengesetzt werden.
 
 Stattdessen:
-
+<!-- pytest-codeblocks:skip -->
 ```python
 import os
 
@@ -119,7 +119,6 @@ Später verwenden wir genau diese Idee, um im Ergebnis nicht vollständige absol
 Mit `os.listdir()` erhalten wir die **direkten Namen** in einem Ordner:
 
 <!-- pytest-codeblocks:skip -->
-
 ```python
 import os
 
@@ -151,7 +150,6 @@ Ein Name allein sagt noch nicht, ob es sich um eine Datei oder einen Ordner hand
 Für eine Prüfung mit `os.path.isfile()` brauchen wir wieder einen vollständigen Pfad:
 
 <!-- pytest-codeblocks:skip -->
-
 ```python
 import os
 
@@ -182,6 +180,7 @@ Nun interessieren uns nur CSV-Dateien.
 
 Ein einfacher Filter ist:
 
+<!-- pytest-codeblocks:skip -->
 ```python
 filename = "team_beta.CSV"
 
@@ -199,7 +198,6 @@ team_beta.csv
 Für den Inhalt des Eingabeordners:
 
 <!-- pytest-codeblocks:skip -->
-
 ```python
 import os
 
@@ -250,7 +248,6 @@ input/archive/2026/
 Dafür verwenden wir `os.walk()`.
 
 <!-- pytest-codeblocks:skip -->
-
 ```python
 import os
 
@@ -280,7 +277,6 @@ full_path = os.path.join(root, filename)
 Zum Beispiel:
 
 <!-- pytest-codeblocks:skip -->
-
 ```python
 import os
 
@@ -310,7 +306,6 @@ import pandas as pd
 Beginnen wir mit einer bekannten gültigen Datei:
 
 <!-- pytest-codeblocks:skip -->
-
 ```python
 import os
 import pandas as pd
@@ -327,6 +322,7 @@ Die Datei enthält Namen mit Umlauten beziehungsweise anderen Unicode-Zeichen.
 
 Mit:
 
+<!-- pytest-codeblocks:skip -->
 ```python
 encoding="utf-8"
 ```
@@ -351,7 +347,6 @@ Wir testen sie einzeln.
 ### Leere Datei
 
 <!-- pytest-codeblocks:skip -->
-
 ```python
 import os
 import pandas as pd
@@ -374,7 +369,6 @@ aus.
 ### Kaputte CSV-Struktur
 
 <!-- pytest-codeblocks:skip -->
-
 ```python
 import os
 import pandas as pd
@@ -399,7 +393,6 @@ pandas.errors.ParserError
 `latin1.csv` wurde absichtlich **nicht** als UTF-8 gespeichert.
 
 <!-- pytest-codeblocks:skip -->
-
 ```python
 import os
 import pandas as pd
@@ -422,7 +415,6 @@ UnicodeDecodeError
 `bad_number.csv` kann zunächst problemlos als CSV gelesen werden:
 
 <!-- pytest-codeblocks:skip -->
-
 ```python
 import os
 import pandas as pd
@@ -441,7 +433,6 @@ Aber in der Spalte `score` steht ein Textwert.
 Wenn wir ausdrücklich eine numerische Spalte verlangen:
 
 <!-- pytest-codeblocks:skip -->
-
 ```python
 data["score"] = pd.to_numeric(
     data["score"],
@@ -469,7 +460,6 @@ Das ist ein anderes Problem als eine kaputte CSV-Datei:
 Jetzt kombinieren wir die bekannten Fehlertypen.
 
 <!-- pytest-codeblocks:skip -->
-
 ```python
 import pandas as pd
 
@@ -520,7 +510,6 @@ Nun durchlaufen wir alle CSV-Dateien.
 Eine fehlerhafte Datei soll **nicht das ganze Programm stoppen**.
 
 <!-- pytest-codeblocks:skip -->
-
 ```python
 import os
 
@@ -582,6 +571,7 @@ archive/2025/team_old.csv
 
 Dafür verwenden wir:
 
+<!-- pytest-codeblocks:skip -->
 ```python
 relative_name = os.path.relpath(
     file_path,
@@ -598,7 +588,6 @@ Damit bleibt der Dateiname relativ zur Eingabemappe.
 Jetzt kombinieren wir alles.
 
 <!-- pytest-codeblocks:skip -->
-
 ```python
 import os
 import pandas as pd
@@ -650,7 +639,6 @@ folder-handling/output/
 Die Ausgabe liegt also bewusst **außerhalb der Eingabemappe**.
 
 <!-- pytest-codeblocks:skip -->
-
 ```python
 import os
 import pandas as pd
@@ -707,6 +695,7 @@ Dort liegen nur Dateien, die bei unserer Verarbeitung scheitern.
 
 Setzt:
 
+<!-- pytest-codeblocks:skip -->
 ```python
 input_folder = os.path.join(
     "data",
@@ -719,12 +708,14 @@ und führt die Sammellogik erneut aus.
 
 Da keine gültige Datei gelesen wird, bleibt:
 
+<!-- pytest-codeblocks:skip -->
 ```python
 tables = []
 ```
 
 Dann erzeugen wir trotzdem:
 
+<!-- pytest-codeblocks:skip -->
 ```python
 result = pd.DataFrame(
     columns=["name", "city", "score", "source_file"]
@@ -733,6 +724,7 @@ result = pd.DataFrame(
 
 und speichern sie mit:
 
+<!-- pytest-codeblocks:skip -->
 ```python
 result.to_csv(output_path, index=False, encoding="utf-8")
 ```
@@ -752,7 +744,6 @@ Das ist häufig deutlich hilfreicher als überhaupt keine Ergebnisdatei zu erzeu
 Der folgende Code kombiniert die wesentlichen Schritte.
 
 <!-- pytest-codeblocks:skip -->
-
 ```python
 import os
 
@@ -863,6 +854,7 @@ Dabei werden fehlerhafte Dateien gemeldet und ausgelassen. Danach werden weitere
 
 Die wichtigsten Muster sind:
 
+<!-- pytest-codeblocks:skip -->
 ```python
 import os
 
@@ -882,6 +874,7 @@ os.walk(...)
 
 Für CSV-Dateien zusätzlich:
 
+<!-- pytest-codeblocks:skip -->
 ```python
 import pandas as pd
 
