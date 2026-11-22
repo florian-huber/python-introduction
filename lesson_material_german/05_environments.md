@@ -86,6 +86,7 @@ uv python list
 
 Für einen Projektordner kann eine gewünschte Version festgehalten werden:
 
+<!-- pytest-codeblocks:skip -->
 ```bash
 uv python pin 3.14
 ```
@@ -100,6 +101,7 @@ Für kleine Übungen oder einen Ordner mit einzelnen Python-Dateien reicht oft e
 
 Im Projektordner:
 
+<!-- pytest-codeblocks:skip -->
 ```bash
 uv venv --python 3.14
 ```
