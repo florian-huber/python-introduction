@@ -113,6 +113,7 @@ Hier werden die Stadtnamen immer nur generiert, wenn wir den Generator mit `next
 
 Was ist aber jetzt, wenn wir alle Stadtnamen auf einmal haben wollen? Das geht mit einer entsprechend langen for-Schleife. Aber auch indem wir mit `list()` erzwingen, dass alle Elemente in eine Liste umgewandelt werden:
 
+<!--pytest-codeblocks:cont-->
 ```python
 # create a new instance of the generator to start with beginning
 city = city_name_generator()

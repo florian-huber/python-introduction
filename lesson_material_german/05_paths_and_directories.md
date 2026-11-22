@@ -270,6 +270,7 @@ Die Einträge in `files` sind wieder nur Dateinamen.
 
 Den vollständigen Pfad erhalten wir mit:
 
+<!-- pytest-codeblocks:skip -->
 ```python
 full_path = os.path.join(root, filename)
 ```
