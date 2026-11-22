@@ -1,0 +1,1414 @@
+
+<!DOCTYPE html>
+
+
+<html lang="de" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Navigieren durch Ordner, Pfade und CSV-Dateien &#8212; Einführung Programmieren mit Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=6a604523" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+
+    <script src="../_static/documentation_options.js?v=91fba89f"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Klicken zum Anzeigen';</script>
+    <script>let toggleHintHide = 'Klicken zum Ausblenden';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=b8b12719"></script>
+    <script src="../_static/translations.js?v=79cc9f76"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script data-sd-tabs-storage-prefix="sphinx-design-tab-id-" src="../_static/design-tabs.js?v=fcb327ea"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'lesson_material_german/06_paths_and_directories';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
+    <link rel="search" title="Suche" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="de"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Zum Hauptinhalt springen</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Zurück zum Anfang</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Versionswarnung"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Website-Navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Suche" aria-label="Suche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Suche</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Suche" aria-label="Suche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Suche</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="Auf dieser Seite">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="cover.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/cover_logo_mini.png" class="logo__image only-light" alt="Einführung Programmieren mit Python - Home"/>
+    <img src="../_static/cover_logo_mini.png" class="logo__image only-dark pst-js-only" alt="Einführung Programmieren mit Python - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Suche" aria-label="Suche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Suche</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="cover.html">
+                    Einführung Programmieren mit Python für Data Science
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Einführung</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="00_introduction.html">1. Programmieren für Data Science und Künstliche Intelligenz</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_first_steps.html">2. Erste Schritte mit Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_data_types.html">3. Datentypen (<em>data types</em>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_variables.html">4. Variablen</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Abläufe, Funktionen und Module</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="02_control_structures_conditions_loop.html">5. Kontrollstrukturen und Bedingungen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_functions.html">6. Funktionen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_import_libraries_modules.html">7. Import aus Bibliotheken/Modulen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_special_functions.html">8. Special functions</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Datentypen &amp; String Handling</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="04_sets_dictionaries.html">9. Sets, Dictionaries, and Deep Copy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_string_handling.html">10. String handling</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Error Handling und Best Practices I</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="04_try_except.html">11. Fehler behandeln mit <code class="docutils literal notranslate"><span class="pre">try</span></code> und <code class="docutils literal notranslate"><span class="pre">except</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_environments.html">12. Python-Umgebungen, Packages und <code class="docutils literal notranslate"><span class="pre">uv</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_open_files.html">13. Dateien lesen und schreiben</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Klassen und Objekte</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="06_classes_objects.html">14. Objektorientierte Programmierung - Einführung</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_classes_objects_2.html">15. Objektorientierte Programmierung in Python – Teil 2</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Arbeiten mit numerischen Daten - Numpy</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="08_numpy.html">16. Numerische Daten in Python mit NumPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_numpy_2.html">17. Numerische Daten in Python mit NumPy – Teil 2</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Schritte Richtung Data Science</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="09_pandas.html">18. Pandas – Teil 1: DataFrames verstehen und Daten auswählen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_pandas_2.html">19. Pandas – Teil 2: Daten bereinigen und zusammenfassen</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="12_data_visualization.html">20. Datenvisualisierung mit Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13_data_visualization_outlook.html">21. 2D/3D Visualisierung &amp; interaktive Plots</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Source Code and Contributions</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="github.html">Source Code on GitHub</a></li>
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/florian-huber/python-introduction" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Quell-Repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/florian-huber/python-introduction/issues/new?title=Issue%20on%20page%20%2Flesson_material_german/06_paths_and_directories.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Öffnen Sie ein Problem"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Laden Sie diese Seite herunter">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/lesson_material_german/06_paths_and_directories.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Quelldatei herunterladen"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="In PDF drucken"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Vollbildmodus"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Farbmodus" data-bs-title="Farbmodus"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Hell"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dunkel"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="Systemeinstellungen"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Suche" aria-label="Suche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Navigieren durch Ordner, Pfade und CSV-Dateien</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Inhalt </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Navigieren durch Ordner, Pfade und CSV-Dateien</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wo-arbeitet-python-gerade">1. Wo arbeitet Python gerade?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pfade-mit-join-zusammensetzen">2. Pfade mit <code class="docutils literal notranslate"><span class="pre">join()</span></code> zusammensetzen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#was-liegt-direkt-in-einem-ordner">3. Was liegt direkt in einem Ordner?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#datei-oder-ordner">4. Datei oder Ordner?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#csv-dateinamen-auswahlen">5. CSV-Dateinamen auswählen</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#endung-ist-nicht-inhalt">Endung ist nicht Inhalt</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unterordner-mit-os-walk-durchsuchen">6. Unterordner mit <code class="docutils literal notranslate"><span class="pre">os.walk()</span></code> durchsuchen</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#csv-dateien-einlesen">CSV-Dateien einlesen</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eine-gultige-utf-8-csv-lesen">7. Eine gültige UTF-8-CSV lesen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nicht-jede-csv-datei-ist-gultig">8. Nicht jede <code class="docutils literal notranslate"><span class="pre">.csv</span></code>-Datei ist gültig</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#leere-datei">Leere Datei</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kaputte-csv-struktur">Kaputte CSV-Struktur</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#falsche-zeichenkodierung">Falsche Zeichenkodierung</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nicht-numerischer-wert">Nicht-numerischer Wert</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#dateien-robust-verarbeiten">Dateien robust verarbeiten</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eine-datei-mit-try-except-laden">9. Eine Datei mit <code class="docutils literal notranslate"><span class="pre">try</span></code>/<code class="docutils literal notranslate"><span class="pre">except</span></code> laden</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fehlerhafte-datei-uberspringen-und-weitermachen">10. Fehlerhafte Datei überspringen und weitermachen</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#mehrere-dateien-zu-einem-ergebnis-zusammenfuhren">Mehrere Dateien zu einem Ergebnis zusammenführen</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#relative-dateinamen-speichern">11. Relative Dateinamen speichern</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gultige-dateien-sammeln">12. Gültige Dateien sammeln</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ausgabe-auszerhalb-der-eingabemappe-speichern">13. Ausgabe außerhalb der Eingabemappe speichern</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#was-passiert-bei-null-gultigen-dateien">14. Was passiert bei null gültigen Dateien?</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#komplettes-beispiel">Komplettes Beispiel</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zusammenfassung">Zusammenfassung</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="navigieren-durch-ordner-pfade-und-csv-dateien">
+<h1>Navigieren durch Ordner, Pfade und CSV-Dateien<a class="headerlink" href="#navigieren-durch-ordner-pfade-und-csv-dateien" title="Link to this heading">#</a></h1>
+<p>In diesem Kapitel arbeiten wir direkt mit einer vorbereiteten Ordnerstruktur. Sie liegt im Kursprojekt unter:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>data/folder-handling/
+</pre></div>
+</div>
+<p>Die wichtigsten Teile sehen so aus:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>folder-handling/
+├── input/
+│   ├── archive/
+│   │   ├── 2025/
+│   │   │   └── team_old.csv
+│   │   └── 2026/
+│   │       └── team_new.csv
+│   ├── bad_number.csv
+│   ├── broken_parser.csv
+│   ├── empty.csv
+│   ├── latin1.csv
+│   ├── photo.jpg
+│   ├── README.txt
+│   ├── team_alpha.csv
+│   └── team_beta.CSV
+├── input_invalid_only/
+└── output/
+    └── combined_scores.csv
+</pre></div>
+</div>
+<p>Wir verwenden zunächst nur <code class="docutils literal notranslate"><span class="pre">os</span></code> und <code class="docutils literal notranslate"><span class="pre">os.path</span></code>. Später lesen wir die CSV-Dateien mit <code class="docutils literal notranslate"><span class="pre">pandas</span></code>.</p>
+<hr class="docutils" />
+<section id="wo-arbeitet-python-gerade">
+<h2>1. Wo arbeitet Python gerade?<a class="headerlink" href="#wo-arbeitet-python-gerade" title="Link to this heading">#</a></h2>
+<p>Python hat immer einen aktuellen <strong>Arbeitsordner</strong> (<em>current working directory</em>).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>Alle <strong>relativen Pfade</strong> werden von diesem Arbeitsordner aus interpretiert.</p>
+<p>Wenn wir das Kursrepository geöffnet haben, können wir zum Beispiel schreiben:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="n">base_folder</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">"data"</span><span class="p">,</span> <span class="s2">"folder-handling"</span><span class="p">)</span>
+<span class="n">input_folder</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">base_folder</span><span class="p">,</span> <span class="s2">"input"</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">input_folder</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Das ist ein relativer Pfad.</p>
+<p>Mit <code class="docutils literal notranslate"><span class="pre">os.path.abspath()</span></code> können wir uns den dazugehörigen absoluten Pfad anzeigen lassen:</p>
+<!-- pytest-codeblocks:skip -->
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">input_folder</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Ein <strong>relativer Pfad</strong> hängt vom aktuellen Arbeitsordner ab. Ein <strong>absoluter Pfad</strong> beschreibt den vollständigen Ort im Dateisystem.</p>
+</section>
+<hr class="docutils" />
+<section id="pfade-mit-join-zusammensetzen">
+<h2>2. Pfade mit <code class="docutils literal notranslate"><span class="pre">join()</span></code> zusammensetzen<a class="headerlink" href="#pfade-mit-join-zusammensetzen" title="Link to this heading">#</a></h2>
+<p>Pfade sollten nicht per Hand mit <code class="docutils literal notranslate"><span class="pre">/</span></code> oder <code class="docutils literal notranslate"><span class="pre">\</span></code> zusammengesetzt werden.</p>
+<p>Stattdessen:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="n">base_folder</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">"data"</span><span class="p">,</span> <span class="s2">"folder-handling"</span><span class="p">)</span>
+<span class="n">input_folder</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">base_folder</span><span class="p">,</span> <span class="s2">"input"</span><span class="p">)</span>
+
+<span class="n">file_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">input_folder</span><span class="p">,</span> <span class="s2">"team_alpha.csv"</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">os.path.join()</span></code> verwendet automatisch den passenden Pfadtrenner des Betriebssystems.</p>
+<p>Wir können uns auch wieder einen Pfad <strong>relativ zu einem bestimmten Ausgangspunkt</strong> anzeigen lassen:</p>
+<!-- pytest-codeblocks:skip -->
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">absolute_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+
+<span class="n">relative_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">relpath</span><span class="p">(</span>
+    <span class="n">absolute_path</span><span class="p">,</span>
+    <span class="n">start</span><span class="o">=</span><span class="n">input_folder</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">relative_path</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Das Ergebnis ist hier:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>team_alpha.csv
+</pre></div>
+</div>
+<p>Später verwenden wir genau diese Idee, um im Ergebnis nicht vollständige absolute Pfade zu speichern, sondern nur sinnvolle relative Dateinamen.</p>
+</section>
+<hr class="docutils" />
+<section id="was-liegt-direkt-in-einem-ordner">
+<h2>3. Was liegt direkt in einem Ordner?<a class="headerlink" href="#was-liegt-direkt-in-einem-ordner" title="Link to this heading">#</a></h2>
+<p>Mit <code class="docutils literal notranslate"><span class="pre">os.listdir()</span></code> erhalten wir die <strong>direkten Namen</strong> in einem Ordner:</p>
+<!-- pytest-codeblocks:skip -->
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="n">input_folder</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">"data"</span><span class="p">,</span> <span class="s2">"folder-handling"</span><span class="p">,</span> <span class="s2">"input"</span><span class="p">)</span>
+
+<span class="n">entries</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">input_folder</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">entries</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Die Reihenfolge kann sich zwischen Betriebssystemen unterscheiden.</p>
+<p>Wichtig: <code class="docutils literal notranslate"><span class="pre">listdir()</span></code> liefert zunächst nur <strong>Namen</strong>.</p>
+<p>Zum Beispiel:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>team_alpha.csv
+archive
+README.txt
+</pre></div>
+</div>
+<p>Ein Name allein sagt noch nicht, ob es sich um eine Datei oder einen Ordner handelt.</p>
+</section>
+<hr class="docutils" />
+<section id="datei-oder-ordner">
+<h2>4. Datei oder Ordner?<a class="headerlink" href="#datei-oder-ordner" title="Link to this heading">#</a></h2>
+<p>Für eine Prüfung mit <code class="docutils literal notranslate"><span class="pre">os.path.isfile()</span></code> brauchen wir wieder einen vollständigen Pfad:</p>
+<!-- pytest-codeblocks:skip -->
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="n">input_folder</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">"data"</span><span class="p">,</span> <span class="s2">"folder-handling"</span><span class="p">,</span> <span class="s2">"input"</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">input_folder</span><span class="p">):</span>
+    <span class="n">full_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">input_folder</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">full_path</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="s2">"-&gt; Datei"</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="s2">"-&gt; keine Datei"</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Das Muster ist wichtig:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>listdir()  -&gt; Name
+join()     -&gt; Pfad
+isfile()   -&gt; prüfen
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="csv-dateinamen-auswahlen">
+<h2>5. CSV-Dateinamen auswählen<a class="headerlink" href="#csv-dateinamen-auswahlen" title="Link to this heading">#</a></h2>
+<p>Nun interessieren uns nur CSV-Dateien.</p>
+<p>Ein einfacher Filter ist:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">filename</span> <span class="o">=</span> <span class="s2">"team_beta.CSV"</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">filename</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">".csv"</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Durch <code class="docutils literal notranslate"><span class="pre">.lower()</span></code> akzeptieren wir auch Schreibweisen wie:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>team_beta.CSV
+team_beta.Csv
+team_beta.csv
+</pre></div>
+</div>
+<p>Für den Inhalt des Eingabeordners:</p>
+<!-- pytest-codeblocks:skip -->
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="n">input_folder</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">"data"</span><span class="p">,</span> <span class="s2">"folder-handling"</span><span class="p">,</span> <span class="s2">"input"</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">input_folder</span><span class="p">):</span>
+    <span class="n">full_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">input_folder</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">full_path</span><span class="p">)</span> <span class="ow">and</span> <span class="n">name</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">".csv"</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+</pre></div>
+</div>
+<section id="endung-ist-nicht-inhalt">
+<h3>Endung ist nicht Inhalt<a class="headerlink" href="#endung-ist-nicht-inhalt" title="Link to this heading">#</a></h3>
+<p>Im Ordner liegt auch:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>photo.jpg
+</pre></div>
+</div>
+<p>Wir benutzen diese Datei <strong>nur als Beispiel</strong>:</p>
+<blockquote>
+<div><p>Eine Dateiendung ist zunächst nur ein Teil des Dateinamens.</p>
+</div></blockquote>
+<p>Aus <code class="docutils literal notranslate"><span class="pre">.jpg</span></code> folgt nicht automatisch, dass unser Python-Code weiß, ob der Inhalt wirklich ein gültiges JPEG-Bild ist.</p>
+<p>Genauso bedeutet <code class="docutils literal notranslate"><span class="pre">.csv</span></code> zunächst nur:</p>
+<blockquote>
+<div><p>Der Dateiname sieht wie ein CSV-Dateiname aus.</p>
+</div></blockquote>
+<p>Ob die Datei wirklich als CSV gelesen werden kann, erfahren wir erst beim Einlesen.</p>
+<p>Wir lesen <code class="docutils literal notranslate"><span class="pre">photo.jpg</span></code> in diesem Kapitel <strong>nicht</strong> als Bild ein.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="unterordner-mit-os-walk-durchsuchen">
+<h2>6. Unterordner mit <code class="docutils literal notranslate"><span class="pre">os.walk()</span></code> durchsuchen<a class="headerlink" href="#unterordner-mit-os-walk-durchsuchen" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">os.listdir()</span></code> betrachtet nur einen einzelnen Ordner.</p>
+<p>Im Beispiel liegen aber weitere CSV-Dateien unter:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>input/archive/2025/
+input/archive/2026/
+</pre></div>
+</div>
+<p>Dafür verwenden wir <code class="docutils literal notranslate"><span class="pre">os.walk()</span></code>.</p>
+<!-- pytest-codeblocks:skip -->
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="n">input_folder</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">"data"</span><span class="p">,</span> <span class="s2">"folder-handling"</span><span class="p">,</span> <span class="s2">"input"</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">root</span><span class="p">,</span> <span class="n">dirs</span><span class="p">,</span> <span class="n">files</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="n">input_folder</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"root:"</span><span class="p">,</span> <span class="n">root</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"dirs:"</span><span class="p">,</span> <span class="n">dirs</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"files:"</span><span class="p">,</span> <span class="n">files</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Bei jedem Schritt bekommen wir:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">root</span></code>: den Ordner, der gerade betrachtet wird</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dirs</span></code>: die direkten Unterordner in diesem Ordner</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">files</span></code>: die direkten Dateinamen in diesem Ordner</p></li>
+</ul>
+<p>Die Einträge in <code class="docutils literal notranslate"><span class="pre">files</span></code> sind wieder nur Dateinamen.</p>
+<p>Den vollständigen Pfad erhalten wir mit:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">full_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Zum Beispiel:</p>
+<!-- pytest-codeblocks:skip -->
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="n">input_folder</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">"data"</span><span class="p">,</span> <span class="s2">"folder-handling"</span><span class="p">,</span> <span class="s2">"input"</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">root</span><span class="p">,</span> <span class="n">dirs</span><span class="p">,</span> <span class="n">files</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="n">input_folder</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">filename</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">filename</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">".csv"</span><span class="p">):</span>
+            <span class="n">full_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">full_path</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Damit finden wir auch CSV-Dateien in Unterordnern.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="csv-dateien-einlesen">
+<h1>CSV-Dateien einlesen<a class="headerlink" href="#csv-dateien-einlesen" title="Link to this heading">#</a></h1>
+<p>Ab hier verwenden wir zusätzlich <code class="docutils literal notranslate"><span class="pre">pandas</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+</pre></div>
+</div>
+<section id="eine-gultige-utf-8-csv-lesen">
+<h2>7. Eine gültige UTF-8-CSV lesen<a class="headerlink" href="#eine-gultige-utf-8-csv-lesen" title="Link to this heading">#</a></h2>
+<p>Beginnen wir mit einer bekannten gültigen Datei:</p>
+<!-- pytest-codeblocks:skip -->
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="n">input_folder</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">"data"</span><span class="p">,</span> <span class="s2">"folder-handling"</span><span class="p">,</span> <span class="s2">"input"</span><span class="p">)</span>
+<span class="n">file_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">input_folder</span><span class="p">,</span> <span class="s2">"team_alpha.csv"</span><span class="p">)</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Die Datei enthält Namen mit Umlauten beziehungsweise anderen Unicode-Zeichen.</p>
+<p>Mit:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span>
+</pre></div>
+</div>
+<p>legen wir ausdrücklich fest, welche Zeichenkodierung wir erwarten.</p>
+</section>
+<hr class="docutils" />
+<section id="nicht-jede-csv-datei-ist-gultig">
+<h2>8. Nicht jede <code class="docutils literal notranslate"><span class="pre">.csv</span></code>-Datei ist gültig<a class="headerlink" href="#nicht-jede-csv-datei-ist-gultig" title="Link to this heading">#</a></h2>
+<p>Im Eingabeordner liegen absichtlich verschiedene Problemfälle:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>empty.csv
+broken_parser.csv
+latin1.csv
+bad_number.csv
+</pre></div>
+</div>
+<p>Wir testen sie einzeln.</p>
+<section id="leere-datei">
+<h3>Leere Datei<a class="headerlink" href="#leere-datei" title="Link to this heading">#</a></h3>
+<!-- pytest-codeblocks:skip -->
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+    <span class="s2">"data"</span><span class="p">,</span> <span class="s2">"folder-handling"</span><span class="p">,</span> <span class="s2">"input"</span><span class="p">,</span> <span class="s2">"empty.csv"</span>
+<span class="p">)</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Pandas löst hier einen:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>pandas.errors.EmptyDataError
+</pre></div>
+</div>
+<p>aus.</p>
+</section>
+<section id="kaputte-csv-struktur">
+<h3>Kaputte CSV-Struktur<a class="headerlink" href="#kaputte-csv-struktur" title="Link to this heading">#</a></h3>
+<!-- pytest-codeblocks:skip -->
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+    <span class="s2">"data"</span><span class="p">,</span> <span class="s2">"folder-handling"</span><span class="p">,</span> <span class="s2">"input"</span><span class="p">,</span> <span class="s2">"broken_parser.csv"</span>
+<span class="p">)</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Hier ist die CSV-Struktur absichtlich beschädigt.</p>
+<p>Das führt zu einem:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>pandas.errors.ParserError
+</pre></div>
+</div>
+</section>
+<section id="falsche-zeichenkodierung">
+<h3>Falsche Zeichenkodierung<a class="headerlink" href="#falsche-zeichenkodierung" title="Link to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">latin1.csv</span></code> wurde absichtlich <strong>nicht</strong> als UTF-8 gespeichert.</p>
+<!-- pytest-codeblocks:skip -->
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+    <span class="s2">"data"</span><span class="p">,</span> <span class="s2">"folder-handling"</span><span class="p">,</span> <span class="s2">"input"</span><span class="p">,</span> <span class="s2">"latin1.csv"</span>
+<span class="p">)</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Beim Versuch, sie als UTF-8 zu lesen, entsteht ein:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>UnicodeDecodeError
+</pre></div>
+</div>
+</section>
+<section id="nicht-numerischer-wert">
+<h3>Nicht-numerischer Wert<a class="headerlink" href="#nicht-numerischer-wert" title="Link to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">bad_number.csv</span></code> kann zunächst problemlos als CSV gelesen werden:</p>
+<!-- pytest-codeblocks:skip -->
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+    <span class="s2">"data"</span><span class="p">,</span> <span class="s2">"folder-handling"</span><span class="p">,</span> <span class="s2">"input"</span><span class="p">,</span> <span class="s2">"bad_number.csv"</span>
+<span class="p">)</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Aber in der Spalte <code class="docutils literal notranslate"><span class="pre">score</span></code> steht ein Textwert.</p>
+<p>Wenn wir ausdrücklich eine numerische Spalte verlangen:</p>
+<!-- pytest-codeblocks:skip -->
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="s2">"score"</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span>
+    <span class="n">data</span><span class="p">[</span><span class="s2">"score"</span><span class="p">],</span>
+    <span class="n">errors</span><span class="o">=</span><span class="s2">"raise"</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>entsteht ein:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>ValueError
+</pre></div>
+</div>
+<p>Das ist ein anderes Problem als eine kaputte CSV-Datei:</p>
+<ul class="simple">
+<li><p>Die Datei konnte gelesen werden.</p></li>
+<li><p>Aber ein bestimmter Wert entspricht nicht unserer Erwartung.</p></li>
+</ul>
+</section>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="dateien-robust-verarbeiten">
+<h1>Dateien robust verarbeiten<a class="headerlink" href="#dateien-robust-verarbeiten" title="Link to this heading">#</a></h1>
+<section id="eine-datei-mit-try-except-laden">
+<h2>9. Eine Datei mit <code class="docutils literal notranslate"><span class="pre">try</span></code>/<code class="docutils literal notranslate"><span class="pre">except</span></code> laden<a class="headerlink" href="#eine-datei-mit-try-except-laden" title="Link to this heading">#</a></h2>
+<p>Jetzt kombinieren wir die bekannten Fehlertypen.</p>
+<!-- pytest-codeblocks:skip -->
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">load_csv</span><span class="p">(</span><span class="n">file_path</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span>
+        <span class="n">data</span><span class="p">[</span><span class="s2">"score"</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span>
+            <span class="n">data</span><span class="p">[</span><span class="s2">"score"</span><span class="p">],</span>
+            <span class="n">errors</span><span class="o">=</span><span class="s2">"raise"</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">data</span>
+
+    <span class="k">except</span> <span class="ne">OSError</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"OS-Fehler:"</span><span class="p">,</span> <span class="n">file_path</span><span class="p">,</span> <span class="n">error</span><span class="p">)</span>
+
+    <span class="k">except</span> <span class="ne">UnicodeDecodeError</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Falsche Kodierung:"</span><span class="p">,</span> <span class="n">file_path</span><span class="p">)</span>
+
+    <span class="k">except</span> <span class="n">pd</span><span class="o">.</span><span class="n">errors</span><span class="o">.</span><span class="n">ParserError</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"CSV konnte nicht geparst werden:"</span><span class="p">,</span> <span class="n">file_path</span><span class="p">)</span>
+
+    <span class="k">except</span> <span class="n">pd</span><span class="o">.</span><span class="n">errors</span><span class="o">.</span><span class="n">EmptyDataError</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"CSV ist leer:"</span><span class="p">,</span> <span class="n">file_path</span><span class="p">)</span>
+
+    <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Ungültiger Zahlenwert:"</span><span class="p">,</span> <span class="n">file_path</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="kc">None</span>
+</pre></div>
+</div>
+<p>Damit behandeln wir gezielt:</p>
+<ul class="simple">
+<li><p>OS-Fehler</p></li>
+<li><p>Kodierungsfehler</p></li>
+<li><p>Parserfehler</p></li>
+<li><p>leere Dateien</p></li>
+<li><p>ungültige Zahlenwerte</p></li>
+</ul>
+<p>Ein <strong>OS-Fehler</strong> kann zum Beispiel auftreten, wenn eine Datei zwischenzeitlich gelöscht wurde oder nicht zugreifbar ist.</p>
+</section>
+<hr class="docutils" />
+<section id="fehlerhafte-datei-uberspringen-und-weitermachen">
+<h2>10. Fehlerhafte Datei überspringen und weitermachen<a class="headerlink" href="#fehlerhafte-datei-uberspringen-und-weitermachen" title="Link to this heading">#</a></h2>
+<p>Nun durchlaufen wir alle CSV-Dateien.</p>
+<p>Eine fehlerhafte Datei soll <strong>nicht das ganze Programm stoppen</strong>.</p>
+<!-- pytest-codeblocks:skip -->
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="n">input_folder</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+    <span class="s2">"data"</span><span class="p">,</span> <span class="s2">"folder-handling"</span><span class="p">,</span> <span class="s2">"input"</span>
+<span class="p">)</span>
+
+<span class="k">for</span> <span class="n">root</span><span class="p">,</span> <span class="n">dirs</span><span class="p">,</span> <span class="n">files</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="n">input_folder</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">filename</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">filename</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">".csv"</span><span class="p">):</span>
+            <span class="k">continue</span>
+
+        <span class="n">file_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+
+        <span class="n">data</span> <span class="o">=</span> <span class="n">load_csv</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">data</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">continue</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Erfolgreich:"</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Das wichtige Muster innerhalb der Schleife ist:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>data = load_csv(file_path)
+
+if data is None:
+    continue
+</pre></div>
+</div>
+<p>Eine fehlerhafte Datei wird ausgelassen.</p>
+<p>Danach läuft die Schleife mit der <strong>nächsten Datei</strong> weiter.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="mehrere-dateien-zu-einem-ergebnis-zusammenfuhren">
+<h1>Mehrere Dateien zu einem Ergebnis zusammenführen<a class="headerlink" href="#mehrere-dateien-zu-einem-ergebnis-zusammenfuhren" title="Link to this heading">#</a></h1>
+<section id="relative-dateinamen-speichern">
+<h2>11. Relative Dateinamen speichern<a class="headerlink" href="#relative-dateinamen-speichern" title="Link to this heading">#</a></h2>
+<p>Für das spätere Ergebnis möchten wir wissen, aus welcher Datei jede Zeile stammt.</p>
+<p>Aber wir wollen keinen langen absoluten Pfad wie:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>/home/.../python-introduction/data/folder-handling/input/archive/2025/team_old.csv
+</pre></div>
+</div>
+<p>speichern.</p>
+<p>Stattdessen soll im Ergebnis zum Beispiel stehen:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>team_alpha.csv
+archive/2025/team_old.csv
+</pre></div>
+</div>
+<p>Dafür verwenden wir:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">relative_name</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">relpath</span><span class="p">(</span>
+    <span class="n">file_path</span><span class="p">,</span>
+    <span class="n">start</span><span class="o">=</span><span class="n">input_folder</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Damit bleibt der Dateiname relativ zur Eingabemappe.</p>
+</section>
+<hr class="docutils" />
+<section id="gultige-dateien-sammeln">
+<h2>12. Gültige Dateien sammeln<a class="headerlink" href="#gultige-dateien-sammeln" title="Link to this heading">#</a></h2>
+<p>Jetzt kombinieren wir alles.</p>
+<!-- pytest-codeblocks:skip -->
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="n">input_folder</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+    <span class="s2">"data"</span><span class="p">,</span> <span class="s2">"folder-handling"</span><span class="p">,</span> <span class="s2">"input"</span>
+<span class="p">)</span>
+
+<span class="n">tables</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">root</span><span class="p">,</span> <span class="n">dirs</span><span class="p">,</span> <span class="n">files</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="n">input_folder</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">filename</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">filename</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">".csv"</span><span class="p">):</span>
+            <span class="k">continue</span>
+
+        <span class="n">file_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">load_csv</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">data</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">continue</span>
+
+        <span class="n">relative_name</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">relpath</span><span class="p">(</span>
+            <span class="n">file_path</span><span class="p">,</span>
+            <span class="n">start</span><span class="o">=</span><span class="n">input_folder</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="n">data</span><span class="p">[</span><span class="s2">"source_file"</span><span class="p">]</span> <span class="o">=</span> <span class="n">relative_name</span>
+        <span class="n">tables</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">tables</span></code> enthält anschließend nur erfolgreich gelesene Tabellen.</p>
+</section>
+<hr class="docutils" />
+<section id="ausgabe-auszerhalb-der-eingabemappe-speichern">
+<h2>13. Ausgabe außerhalb der Eingabemappe speichern<a class="headerlink" href="#ausgabe-auszerhalb-der-eingabemappe-speichern" title="Link to this heading">#</a></h2>
+<p>Die Ergebnisdatei soll <strong>nicht</strong> in <code class="docutils literal notranslate"><span class="pre">input/</span></code> liegen.</p>
+<p>Warum?</p>
+<p>Wenn wir später erneut durch <code class="docutils literal notranslate"><span class="pre">input/</span></code> laufen, soll unsere eigene Ergebnisdatei nicht plötzlich wieder als Eingabedatei auftauchen.</p>
+<p>Darum verwenden wir:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>folder-handling/output/
+</pre></div>
+</div>
+<p>Die Ausgabe liegt also bewusst <strong>außerhalb der Eingabemappe</strong>.</p>
+<!-- pytest-codeblocks:skip -->
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="n">base_folder</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+    <span class="s2">"data"</span><span class="p">,</span> <span class="s2">"folder-handling"</span>
+<span class="p">)</span>
+
+<span class="n">output_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+    <span class="n">base_folder</span><span class="p">,</span>
+    <span class="s2">"output"</span><span class="p">,</span>
+    <span class="s2">"combined_scores.csv"</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="k">if</span> <span class="n">tables</span><span class="p">:</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">tables</span><span class="p">,</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+        <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">"name"</span><span class="p">,</span> <span class="s2">"city"</span><span class="p">,</span> <span class="s2">"score"</span><span class="p">,</span> <span class="s2">"source_file"</span><span class="p">]</span>
+    <span class="p">)</span>
+
+<span class="n">result</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span>
+    <span class="n">output_path</span><span class="p">,</span>
+    <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Gespeichert:"</span><span class="p">,</span> <span class="n">output_path</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Im vorbereiteten Ordner existiert <code class="docutils literal notranslate"><span class="pre">combined_scores.csv</span></code> bereits.</p>
+<p><code class="docutils literal notranslate"><span class="pre">to_csv()</span></code> überschreibt diese Datei standardmäßig.</p>
+<p>Das ist hier absichtlich sichtbar:</p>
+<blockquote>
+<div><p>Wenn unter <code class="docutils literal notranslate"><span class="pre">output_path</span></code> bereits eine Datei existiert, wird ihr bisheriger Inhalt ersetzt.</p>
+</div></blockquote>
+<p>Deshalb sollten Ein- und Ausgabepfade bewusst gewählt werden.</p>
+</section>
+<hr class="docutils" />
+<section id="was-passiert-bei-null-gultigen-dateien">
+<h2>14. Was passiert bei null gültigen Dateien?<a class="headerlink" href="#was-passiert-bei-null-gultigen-dateien" title="Link to this heading">#</a></h2>
+<p>Auch diesen Fall sollten wir testen.</p>
+<p>Dafür gibt es den vorbereiteten Ordner:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>data/folder-handling/input_invalid_only/
+</pre></div>
+</div>
+<p>Dort liegen nur Dateien, die bei unserer Verarbeitung scheitern.</p>
+<p>Setzt:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">input_folder</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+    <span class="s2">"data"</span><span class="p">,</span>
+    <span class="s2">"folder-handling"</span><span class="p">,</span>
+    <span class="s2">"input_invalid_only"</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>und führt die Sammellogik erneut aus.</p>
+<p>Da keine gültige Datei gelesen wird, bleibt:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">tables</span> <span class="o">=</span> <span class="p">[]</span>
+</pre></div>
+</div>
+<p>Dann erzeugen wir trotzdem:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+    <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">"name"</span><span class="p">,</span> <span class="s2">"city"</span><span class="p">,</span> <span class="s2">"score"</span><span class="p">,</span> <span class="s2">"source_file"</span><span class="p">]</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>und speichern sie mit:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">output_path</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Die Ergebnisdatei enthält dann <strong>keine Datenzeilen</strong>, aber weiterhin ihre Kopfzeile:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>name,city,score,source_file
+</pre></div>
+</div>
+<p>Das ist häufig deutlich hilfreicher als überhaupt keine Ergebnisdatei zu erzeugen.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="komplettes-beispiel">
+<h1>Komplettes Beispiel<a class="headerlink" href="#komplettes-beispiel" title="Link to this heading">#</a></h1>
+<p>Der folgende Code kombiniert die wesentlichen Schritte.</p>
+<!-- pytest-codeblocks:skip -->
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">load_csv</span><span class="p">(</span><span class="n">file_path</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span>
+
+        <span class="n">data</span><span class="p">[</span><span class="s2">"score"</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span>
+            <span class="n">data</span><span class="p">[</span><span class="s2">"score"</span><span class="p">],</span>
+            <span class="n">errors</span><span class="o">=</span><span class="s2">"raise"</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">data</span>
+
+    <span class="k">except</span> <span class="ne">OSError</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"OS-Fehler:"</span><span class="p">,</span> <span class="n">file_path</span><span class="p">,</span> <span class="n">error</span><span class="p">)</span>
+
+    <span class="k">except</span> <span class="ne">UnicodeDecodeError</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Falsche Kodierung:"</span><span class="p">,</span> <span class="n">file_path</span><span class="p">)</span>
+
+    <span class="k">except</span> <span class="n">pd</span><span class="o">.</span><span class="n">errors</span><span class="o">.</span><span class="n">ParserError</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Parserfehler:"</span><span class="p">,</span> <span class="n">file_path</span><span class="p">)</span>
+
+    <span class="k">except</span> <span class="n">pd</span><span class="o">.</span><span class="n">errors</span><span class="o">.</span><span class="n">EmptyDataError</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Leere Datei:"</span><span class="p">,</span> <span class="n">file_path</span><span class="p">)</span>
+
+    <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Ungültiger Zahlenwert:"</span><span class="p">,</span> <span class="n">file_path</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="kc">None</span>
+
+
+<span class="n">base_folder</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+    <span class="s2">"data"</span><span class="p">,</span>
+    <span class="s2">"folder-handling"</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">input_folder</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+    <span class="n">base_folder</span><span class="p">,</span>
+    <span class="s2">"input"</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">output_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+    <span class="n">base_folder</span><span class="p">,</span>
+    <span class="s2">"output"</span><span class="p">,</span>
+    <span class="s2">"combined_scores.csv"</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">tables</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">root</span><span class="p">,</span> <span class="n">dirs</span><span class="p">,</span> <span class="n">files</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="n">input_folder</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">filename</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">filename</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">".csv"</span><span class="p">):</span>
+            <span class="k">continue</span>
+
+        <span class="n">file_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+
+        <span class="n">data</span> <span class="o">=</span> <span class="n">load_csv</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">data</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">continue</span>
+
+        <span class="n">relative_name</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">relpath</span><span class="p">(</span>
+            <span class="n">file_path</span><span class="p">,</span>
+            <span class="n">start</span><span class="o">=</span><span class="n">input_folder</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="n">data</span><span class="p">[</span><span class="s2">"source_file"</span><span class="p">]</span> <span class="o">=</span> <span class="n">relative_name</span>
+        <span class="n">tables</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="n">tables</span><span class="p">:</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span>
+        <span class="n">tables</span><span class="p">,</span>
+        <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+        <span class="n">columns</span><span class="o">=</span><span class="p">[</span>
+            <span class="s2">"name"</span><span class="p">,</span>
+            <span class="s2">"city"</span><span class="p">,</span>
+            <span class="s2">"score"</span><span class="p">,</span>
+            <span class="s2">"source_file"</span><span class="p">,</span>
+        <span class="p">]</span>
+    <span class="p">)</span>
+
+
+<span class="n">result</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span>
+    <span class="n">output_path</span><span class="p">,</span>
+    <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Erfolgreiche Tabellen:"</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">tables</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Ergebniszeilen:"</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">result</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Ausgabe:"</span><span class="p">,</span> <span class="n">output_path</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Dabei werden fehlerhafte Dateien gemeldet und ausgelassen. Danach werden weitere Dateien trotzdem verarbeitet.</p>
+<hr class="docutils" />
+<section id="zusammenfassung">
+<h2>Zusammenfassung<a class="headerlink" href="#zusammenfassung" title="Link to this heading">#</a></h2>
+<p>Die wichtigsten Muster sind:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">relpath</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+
+<span class="n">filename</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">".csv"</span><span class="p">)</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Für CSV-Dateien zusätzlich:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>und bei einer robusten Verarbeitung unter anderem:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>OSError
+UnicodeDecodeError
+pandas.errors.ParserError
+pandas.errors.EmptyDataError
+ValueError
+</pre></div>
+</div>
+<p>Wichtig ist die Trennung verschiedener Fragen:</p>
+<ol class="arabic simple">
+<li><p><strong>Wie heißt der Eintrag?</strong></p></li>
+<li><p><strong>Wo liegt er?</strong></p></li>
+<li><p><strong>Ist es tatsächlich eine Datei?</strong></p></li>
+<li><p><strong>Hat der Name die gewünschte Endung?</strong></p></li>
+<li><p><strong>Kann der Inhalt erfolgreich eingelesen werden?</strong></p></li>
+<li><p><strong>Entsprechen die gelesenen Werte den erwarteten Datentypen?</strong></p></li>
+</ol>
+<p>Genau diese Schritte machen Dateiverarbeitung nachvollziehbar und robust.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./lesson_material_german"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Inhalt
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Navigieren durch Ordner, Pfade und CSV-Dateien</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wo-arbeitet-python-gerade">1. Wo arbeitet Python gerade?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pfade-mit-join-zusammensetzen">2. Pfade mit <code class="docutils literal notranslate"><span class="pre">join()</span></code> zusammensetzen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#was-liegt-direkt-in-einem-ordner">3. Was liegt direkt in einem Ordner?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#datei-oder-ordner">4. Datei oder Ordner?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#csv-dateinamen-auswahlen">5. CSV-Dateinamen auswählen</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#endung-ist-nicht-inhalt">Endung ist nicht Inhalt</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unterordner-mit-os-walk-durchsuchen">6. Unterordner mit <code class="docutils literal notranslate"><span class="pre">os.walk()</span></code> durchsuchen</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#csv-dateien-einlesen">CSV-Dateien einlesen</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eine-gultige-utf-8-csv-lesen">7. Eine gültige UTF-8-CSV lesen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nicht-jede-csv-datei-ist-gultig">8. Nicht jede <code class="docutils literal notranslate"><span class="pre">.csv</span></code>-Datei ist gültig</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#leere-datei">Leere Datei</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kaputte-csv-struktur">Kaputte CSV-Struktur</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#falsche-zeichenkodierung">Falsche Zeichenkodierung</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nicht-numerischer-wert">Nicht-numerischer Wert</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#dateien-robust-verarbeiten">Dateien robust verarbeiten</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eine-datei-mit-try-except-laden">9. Eine Datei mit <code class="docutils literal notranslate"><span class="pre">try</span></code>/<code class="docutils literal notranslate"><span class="pre">except</span></code> laden</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fehlerhafte-datei-uberspringen-und-weitermachen">10. Fehlerhafte Datei überspringen und weitermachen</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#mehrere-dateien-zu-einem-ergebnis-zusammenfuhren">Mehrere Dateien zu einem Ergebnis zusammenführen</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#relative-dateinamen-speichern">11. Relative Dateinamen speichern</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gultige-dateien-sammeln">12. Gültige Dateien sammeln</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ausgabe-auszerhalb-der-eingabemappe-speichern">13. Ausgabe außerhalb der Eingabemappe speichern</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#was-passiert-bei-null-gultigen-dateien">14. Was passiert bei null gültigen Dateien?</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#komplettes-beispiel">Komplettes Beispiel</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zusammenfassung">Zusammenfassung</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Durch Florian Huber
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

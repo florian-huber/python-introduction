@@ -1,83 +1,239 @@
 # Fehler behandeln mit `try` und `except`
 
-Bei Eingaben und Datenzugriffen kann etwas schiefgehen. Bisher haben wir solche Fehler manchmal durch eine Bedingung verhindert, etwa durch `if index < len(liste)` oder `if key in dictionary`. Es gibt aber auch Situationen, in denen wir eine **Ausnahme** (*Exception*) gezielt abfangen möchten.
+Beim Programmieren können Situationen auftreten, in denen eine Operation nicht wie geplant ausgeführt werden kann. Python signalisiert solche Probleme häufig mit einer **Exception** (Ausnahme), zum Beispiel `ValueError`, `IndexError` oder `TypeError`.
+
+Manchmal ist es sinnvoll, eine solche Exception gezielt abzufangen und kontrolliert darauf zu reagieren.
 
 ## `try` und `except`
 
-Im `try`-Block steht Code, bei dem ein Fehler auftreten könnte. Passt der Fehlertyp zu einem `except`-Block, wird dort weitergearbeitet. Danach geht das Programm **nach der gesamten `try`/`except`-Anweisung** weiter und springt nicht zurück zur fehlerhaften Zeile.
+Im `try`-Block steht Code, bei dem eine bestimmte Exception auftreten könnte. Im passenden `except`-Block legen wir fest, was in diesem Fall passieren soll.
 
 ```python
 text = "zwölf"
 
 try:
-    zahl = int(text)  # Kann ValueError auslösen.
-    print("Gelesene Zahl:", zahl)
+    number = int(text)
+    print("Zahl:", number)
 except ValueError:
     print("Das war keine gültige ganze Zahl.")
 
 print("Das Programm läuft weiter.")
 ```
 
-Für `text = "12"` gelingt die Umwandlung, der `except`-Block wird übersprungen. Für `"zwölf"` wird der `ValueError` abgefangen. `zahl` wird in diesem Fehlerfall **nicht** neu gesetzt. Darum sollte späterer Code nicht einfach davon ausgehen, dass die Umwandlung erfolgreich war.
+`int("zwölf")` würde normalerweise einen `ValueError` auslösen und das Programm an dieser Stelle abbrechen. Hier wird genau dieser Fehlertyp abgefangen.
 
-Wir können auch gezielt einen ungültigen Listenindex behandeln:
+Mit einem anderen Wert funktioniert derselbe Code ohne Fehler:
 
 ```python
-farben = ["rot", "blau"]
+text = "12"
 
 try:
-    print(farben[4])
+    number = int(text)
+    print("Zahl:", number)
+except ValueError:
+    print("Das war keine gültige ganze Zahl.")
+```
+
+Der `except`-Block wird nur ausgeführt, wenn im `try`-Block tatsächlich ein passender Fehler auftritt.
+
+## Konkrete Exceptions abfangen
+
+Ein weiteres Beispiel ist ein ungültiger Listenindex:
+
+```python
+colors = ["rot", "blau"]
+
+try:
+    print(colors[4])
 except IndexError:
     print("Diesen Listenindex gibt es nicht.")
 
 print("Hier geht es weiter.")
 ```
 
-**Merke:** Möglichst konkrete Fehlertypen wie `ValueError` und `IndexError` abfangen. Ein pauschales `except:` kann Fehler verbergen, die man eigentlich untersuchen sollte. Nicht jede unerwartete Eingabe braucht `try`/`except`: Oft ist eine vorherige Prüfung mit `if` verständlicher.
+Wir sollten möglichst den **konkreten Fehlertyp** abfangen, den wir tatsächlich erwarten.
 
-## Textdateien: String, Leerfall und fehlende Datei
-
-Im Praktikum kann ein **vorgegebener Textloader** zum Einsatz kommen. Eine sinnvolle Schnittstelle ist: `lade_text(dateiname)` liefert den Dateiinhalt als **String** zurück, bei einer fehlenden Datei liefert sie `None`. Ein **leerer Dateiinhalt** ist dagegen der leere String `""` und **nicht** `None`.
-
-Da den beiden bisherigen Skripten noch keine konkrete Loader-Funktion beilag, zeigt der folgende Block eine **kleine Beispielimplementierung** dieser Schnittstelle. Wenn Sie im Praktikum einen Loader erhalten, verwenden Sie dort dessen vorgegebene Funktion. Sie müssen sie nicht selbst nachprogrammieren.
+Also lieber:
 
 ```python
-def lade_text(dateiname):
-    try:
-        with open(dateiname, "r", encoding="utf-8") as datei:
-            return datei.read()
-    except FileNotFoundError:
-        return None
+try:
+    number = int("abc")
+except ValueError:
+    print("Ungültige Zahl")
 ```
 
-Der Loader fängt `FileNotFoundError` **innerhalb** seiner Funktion ab. Deshalb erhält das aufrufende Programm bei fehlender Datei `None`, statt an dieser Stelle abzubrechen.
+als ein pauschales:
 
-<!--pytest-codeblocks:expect-error-->
+```text
+except:
+    ...
+```
+
+Ein nacktes `except:` fängt sehr viele unterschiedliche Fehler ab und kann dadurch auch Programmierfehler verstecken, die wir eigentlich sehen und beheben möchten.
+
+## Mehrere mögliche Fehlertypen
+
+Falls unterschiedliche Fehler sinnvoll unterschiedlich behandelt werden sollen, können mehrere `except`-Blöcke verwendet werden:
+
 ```python
-inhalt = lade_text("beispiel.txt")
+values = [10, 20, 30]
+index = 1
+divisor = 0
 
-if inhalt is None:
-    print("Datei nicht gefunden")
-elif inhalt == "":
-    print("Datei vorhanden, aber leer")
+try:
+    result = values[index] / divisor
+    print(result)
+except IndexError:
+    print("Der Index existiert nicht.")
+except ZeroDivisionError:
+    print("Division durch 0 ist nicht möglich.")
+```
+
+Welche Exception hier auftritt, hängt davon ab, welche Operation zuerst fehlschlägt.
+
+## `if` oder `try`?
+
+Nicht jede Situation braucht `try` und `except`.
+
+Wenn sich eine Bedingung einfach vorher prüfen lässt, ist ein normales `if` häufig gut lesbar:
+
+```python
+numbers = [10, 20, 30]
+index = 5
+
+if index < len(numbers):
+    print(numbers[index])
 else:
-    print("Zeichen:", len(inhalt))
-    print("Zeilen:", inhalt.splitlines())
+    print("Index zu groß.")
 ```
 
-`beispiel.txt` ist hier ein Beispielname. Die Datei muss zum Testen tatsächlich vorhanden sein oder durch einen vorhandenen Dateinamen ersetzt werden. Die Unterschiede kann man auch ohne Datei gut untersuchen:
+`try`/`except` ist besonders nützlich, wenn eine Operation selbst fehlschlagen kann und wir gezielt mit diesem Fehler umgehen möchten.
+
+**Wichtig:**
+
+- Nur den Code in `try` schreiben, bei dem die erwartete Exception auftreten kann.
+- Möglichst konkrete Exceptions abfangen.
+- Exceptions nicht einfach stillschweigend ignorieren.
+- `try`/`except` ist kein Ersatz für jede normale `if`-Bedingung.
+
+---
+
+## Zusatz: Fehler mit `raise` bewusst auslösen
+
+Exceptions entstehen nicht nur automatisch. Wir können sie auch selbst auslösen.
+
+Dafür gibt es `raise`.
+
+Angenommen eine Funktion soll nur positive Preise akzeptieren:
 
 ```python
-fehlend = None
-leer = ""
-mehrzeilig = "Erste Zeile\nZweite Zeile\n"
+def price_with_tax(price, tax_rate):
+    if price < 0:
+        raise ValueError("price darf nicht negativ sein")
 
-print(fehlend is None)        # => True
-print(leer == "")             # => True
-print(len(mehrzeilig))
-print(mehrzeilig.splitlines())  # => ['Erste Zeile', 'Zweite Zeile']
+    return price * (1 + tax_rate)
+
+
+print(price_with_tax(100, 0.19))
 ```
 
-Das `\n` gehört beim Einlesen als Zeilenumbruch zum String. Mit `.splitlines()` machen wir daraus eine Liste von Zeilen. Für das Durchlaufen der Zeilen gibt es dann wieder eine normale `for`-Schleife.
+Bei einem ungültigen Wert wird bewusst ein `ValueError` erzeugt:
 
-> **Kurze Verständnisfrage:** Warum wäre `if not inhalt:` hier ungeeignet, wenn wir zwischen „Datei fehlt“ und „Datei ist leer“ unterscheiden wollen? (Beides wird als `False` ausgewertet.)
+<!-- pytest-codeblocks:expect-error -->
+
+```python
+def price_with_tax(price, tax_rate):
+    if price < 0:
+        raise ValueError("price darf nicht negativ sein")
+
+    return price * (1 + tax_rate)
+
+
+price_with_tax(-20, 0.19)
+```
+
+`raise` ist sinnvoll, wenn eine Funktion mit bestimmten Eingaben nicht sinnvoll weiterarbeiten kann.
+
+Der aufrufende Code kann diese Exception wiederum abfangen:
+
+```python
+def price_with_tax(price, tax_rate):
+    if price < 0:
+        raise ValueError("price darf nicht negativ sein")
+
+    return price * (1 + tax_rate)
+
+
+try:
+    result = price_with_tax(-20, 0.19)
+except ValueError as error:
+    print("Fehler:", error)
+```
+
+Mit
+
+```text
+except ValueError as error:
+```
+
+bekommen wir zusätzlich Zugriff auf das Exception-Objekt und damit zum Beispiel auf die Fehlermeldung.
+
+## Zusatz: Annahmen mit `assert` prüfen
+
+Mit `assert` können Entwicklerinnen und Entwickler Annahmen über den eigenen Programmzustand überprüfen.
+
+Ein einfaches Beispiel:
+
+```python
+numbers = [2, 4, 6]
+
+doubled = [number * 2 for number in numbers]
+
+assert len(doubled) == len(numbers)
+```
+
+Solange die Bedingung `True` ist, passiert nichts.
+
+Ist die Bedingung `False`, wird ein `AssertionError` ausgelöst:
+
+<!-- pytest-codeblocks:expect-error -->
+
+```python
+result = 5 + 5
+
+assert result == 11, "Das Ergebnis entspricht nicht unserer Erwartung."
+```
+
+Eine optionale Nachricht hinter dem Komma hilft dabei, die verletzte Annahme zu verstehen.
+
+### `assert` ist nicht dasselbe wie normale Eingabeprüfung
+
+`assert` ist vor allem für **interne Annahmen und Entwicklerchecks** gedacht. Assertions können beim Start von Python mit Optimierungsoptionen deaktiviert werden.
+
+Darum sollten wir wichtige Prüfungen von Benutzereingaben oder Daten nicht ausschließlich mit `assert` durchführen.
+
+Für ungültige Funktionsargumente ist zum Beispiel `raise` geeigneter:
+
+```python
+def remaining_capacity(total, used):
+    if total < 0 or used < 0 or used > total:
+        raise ValueError("Ungültige Kapazitätswerte.")
+
+    remaining = total - used
+
+    # Interne Annahme: Nach der Prüfung oben
+    # darf remaining nicht negativ sein.
+    assert remaining >= 0
+
+    return remaining
+
+
+print(remaining_capacity(10, 4))
+```
+
+Hier haben die beiden Konstruktionen unterschiedliche Aufgaben:
+
+- `raise ValueError(...)` prüft Werte, die von außen an die Funktion übergeben werden.
+- `assert ...` dokumentiert und kontrolliert eine Annahme über den internen Programmzustand.
+
+Für den normalen Einstieg reicht zunächst `try` und `except`. `raise` und `assert` werden besonders interessant, wenn Programme größer werden und Funktionen klarere Verträge darüber bekommen, welche Eingaben erlaubt sind und welche Zustände intern gelten sollen.

@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>19. Pandas - Teil 2 &#8212; Einführung Programmieren mit Python</title>
+    <title>19. Pandas – Teil 2: Daten bereinigen und zusammenfassen &#8212; Einführung Programmieren mit Python</title>
   
   
   
@@ -67,7 +67,7 @@
     <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
     <link rel="search" title="Suche" href="../search.html" />
     <link rel="next" title="20. Datenvisualisierung mit Python" href="12_data_visualization.html" />
-    <link rel="prev" title="18. Pandas" href="09_pandas.html" />
+    <link rel="prev" title="18. Pandas – Teil 1: DataFrames verstehen und Daten auswählen" href="09_pandas.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="de"/>
   <meta name="docsearch:version" content="" />
@@ -243,7 +243,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Error Handling und Best Practices I</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="04_try_except.html">11. Fehler behandeln mit <code class="docutils literal notranslate"><span class="pre">try</span></code> und <code class="docutils literal notranslate"><span class="pre">except</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="05_one_step_back-best_practices.html">12. Clean code und „best practices“</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_environments.html">12. Python-Umgebungen, Packages und <code class="docutils literal notranslate"><span class="pre">uv</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="05_open_files.html">13. Dateien lesen und schreiben</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Klassen und Objekte</span></p>
@@ -258,8 +258,9 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Schritte Richtung Data Science</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="09_pandas.html">18. Pandas</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">19. Pandas - Teil 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_pandas.html">18. Pandas – Teil 1: DataFrames verstehen und Daten auswählen</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">19. Pandas – Teil 2: Daten bereinigen und zusammenfassen</a></li>
+
 <li class="toctree-l1"><a class="reference internal" href="12_data_visualization.html">20. Datenvisualisierung mit Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="13_data_visualization_outlook.html">21. 2D/3D Visualisierung &amp; interaktive Plots</a></li>
 </ul>
@@ -498,7 +499,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Pandas - Teil 2</h1>
+    <h1>Pandas – Teil 2: Daten bereinigen und zusammenfassen</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -508,28 +509,27 @@
             </div>
             <nav aria-label="Page">
                 <ul class="pst-show_toc_level nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-cleaning">19.1. Data cleaning</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#und-jetzt-was-tun-mit-nans">19.1.1. Und jetzt? Was tun mit NaNs?</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#nan-ersetzen">19.1.1.1. NaN ersetzen</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">19. Pandas – Teil 2: Daten bereinigen und zusammenfassen</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fehlende-werte">19.1. Fehlende Werte</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fehlende-werte-beim-zahlen-sichtbar-machen">19.1.1. Fehlende Werte beim Zählen sichtbar machen</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nan-entfernen">19.1.2. NaN entfernen</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wichtig">19.1.3. Wichtig:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fehlende-werte-behandeln">19.2. Fehlende Werte behandeln</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filtern-und-kennzahlen-berechnen">19.3. Filtern und Kennzahlen berechnen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#werte-gezielt-verandern">19.4. Werte gezielt verändern</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-selection">19.2. Data selection</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#option-1-masken">19.2.1. Option 1: Masken</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#option-2-query">19.2.2. Option 2: query</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#outlook-groupby">19.2.3. Outlook: groupby</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#groupby-gruppen-zusammenfassen">19. <code class="docutils literal notranslate"><span class="pre">groupby()</span></code>: Gruppen zusammenfassen</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wie-grosz-sind-die-gruppen">19.1. Wie groß sind die Gruppen?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mittelwerte-pro-gruppe">19.2. Mittelwerte pro Gruppe</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nach-mehreren-merkmalen-gruppieren">19.3. Nach mehreren Merkmalen gruppieren</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mehrere-kennzahlen-mit-agg">19.4. Mehrere Kennzahlen mit <code class="docutils literal notranslate"><span class="pre">.agg()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kurzer-ausblick-plotten-direkt-aus-pandas">19.5. Kurzer Ausblick: Plotten direkt aus pandas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zusammenfassung">19.6. Zusammenfassung</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#groupby">19.3. Groupby</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting">19.4. Plotting</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#intermezzo-data-visualization">19.4.1. Intermezzo: data visualization</a></li>
 </ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas-ist-riesig">19.5. Pandas ist riesig!</a></li>
-</ul>
+
             </nav>
         </div>
     </div>
@@ -540,626 +540,330 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="pandas-teil-2">
-<h1><span class="section-number">19. </span>Pandas - Teil 2<a class="headerlink" href="#pandas-teil-2" title="Link to this heading">#</a></h1>
-<p>Im ersten Teil haben wir gesehen, wie wir eine <code class="docutils literal notranslate"><span class="pre">.csv</span></code>-Datei einlesen und grundlegende Eigenschaften erkunden. Hier werden wir jetzt noch einige Schritte weitergehen im Umgang mit (komplexen) Datensets.</p>
-<section id="data-cleaning">
-<h2><span class="section-number">19.1. </span>Data cleaning<a class="headerlink" href="#data-cleaning" title="Link to this heading">#</a></h2>
-<p>Unter data cleaning versteht man das Umstellen und Bearbeiten von Daten mit dem Ziel, diese für die folgende Analyse besser nutzbar zu machen. Einen Schritt in diese Richtung haben wir letztes Mal bereits unternommen, indem wir die Anzahl der Spalten auf die wichtigsten reduziert haben.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="pandas-teil-2-daten-bereinigen-und-zusammenfassen">
+<h1><span class="section-number">19. </span>Pandas – Teil 2: Daten bereinigen und zusammenfassen<a class="headerlink" href="#pandas-teil-2-daten-bereinigen-und-zusammenfassen" title="Link to this heading">#</a></h1>
+<p>Im ersten Teil haben wir ein <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> eingelesen, untersucht, gefiltert und sortiert.</p>
+<p>Jetzt geht es um drei typische nächste Schritte:</p>
+<ol class="arabic simple">
+<li><p>fehlende Werte erkennen und behandeln,</p></li>
+<li><p>Daten gezielt verändern,</p></li>
+<li><p>Gruppen mit <code class="docutils literal notranslate"><span class="pre">groupby()</span></code> zusammenfassen.</p></li>
+</ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 
-<span class="n">root</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
-<span class="n">filename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="s2">"../data"</span><span class="p">,</span> <span class="s1">'pokemon.csv'</span><span class="p">)</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 
-<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">","</span><span class="p">)</span>
+<span class="n">data_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">".."</span><span class="p">,</span> <span class="s2">"data"</span><span class="p">,</span> <span class="s2">"pokemon.csv"</span><span class="p">)</span>
+<span class="n">pokemon</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">data_path</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span>
 
-<span class="n">cols</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="s1">'name'</span><span class="p">,</span> <span class="s1">'type1'</span><span class="p">,</span> <span class="s1">'type2'</span><span class="p">,</span> <span class="s1">'speed'</span><span class="p">,</span> <span class="s1">'abilities'</span><span class="p">,</span><span class="s1">'attack'</span><span class="p">,</span>
-    <span class="s1">'defense'</span><span class="p">,</span> <span class="s1">'height_m'</span><span class="p">,</span> <span class="s1">'hp'</span><span class="p">,</span> <span class="s1">'weight_kg'</span><span class="p">,</span>
-    <span class="s1">'generation'</span><span class="p">,</span> <span class="s1">'is_legendary'</span>
+<span class="n">columns</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">"name"</span><span class="p">,</span>
+    <span class="s2">"type1"</span><span class="p">,</span>
+    <span class="s2">"type2"</span><span class="p">,</span>
+    <span class="s2">"speed"</span><span class="p">,</span>
+    <span class="s2">"attack"</span><span class="p">,</span>
+    <span class="s2">"defense"</span><span class="p">,</span>
+    <span class="s2">"hp"</span><span class="p">,</span>
+    <span class="s2">"weight_kg"</span><span class="p">,</span>
+    <span class="s2">"generation"</span><span class="p">,</span>
+    <span class="s2">"is_legendary"</span><span class="p">,</span>
 <span class="p">]</span>
 
-<span class="n">data_selected</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">cols</span><span class="p">]</span>
+<span class="n">pokemon_small</span> <span class="o">=</span> <span class="n">pokemon</span><span class="p">[</span><span class="n">columns</span><span class="p">]</span>
+
+<span class="n">pokemon_small</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> 
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
-<span class="ne">ModuleNotFoundError</span>: No module named 'pandas'
-</pre></div>
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>name</th>
+      <th>type1</th>
+      <th>type2</th>
+      <th>speed</th>
+      <th>attack</th>
+      <th>defense</th>
+      <th>hp</th>
+      <th>weight_kg</th>
+      <th>generation</th>
+      <th>is_legendary</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Bulbasaur</td>
+      <td>grass</td>
+      <td>poison</td>
+      <td>45</td>
+      <td>49</td>
+      <td>49</td>
+      <td>45</td>
+      <td>6.9</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Ivysaur</td>
+      <td>grass</td>
+      <td>poison</td>
+      <td>60</td>
+      <td>62</td>
+      <td>63</td>
+      <td>60</td>
+      <td>13.0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Venusaur</td>
+      <td>grass</td>
+      <td>poison</td>
+      <td>80</td>
+      <td>100</td>
+      <td>123</td>
+      <td>80</td>
+      <td>100.0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Charmander</td>
+      <td>fire</td>
+      <td>NaN</td>
+      <td>65</td>
+      <td>52</td>
+      <td>43</td>
+      <td>39</td>
+      <td>8.5</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Charmeleon</td>
+      <td>fire</td>
+      <td>NaN</td>
+      <td>80</td>
+      <td>64</td>
+      <td>58</td>
+      <td>58</td>
+      <td>19.0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
-</div>
-</div>
-<p>Mit <code class="docutils literal notranslate"><span class="pre">data_selected.info()</span></code> können wir sehen, das einige Spalten nicht die benötigten 801 Einträge enthalten.</p>
+<section id="fehlende-werte">
+<h2><span class="section-number">19.1. </span>Fehlende Werte<a class="headerlink" href="#fehlende-werte" title="Link to this heading">#</a></h2>
+<p>Reale Datensätze sind oft unvollständig. pandas kann fehlende Werte – abhängig vom Datentyp – unterschiedlich darstellen, zum Beispiel als <code class="docutils literal notranslate"><span class="pre">NaN</span></code>, <code class="docutils literal notranslate"><span class="pre">NA</span></code> oder <code class="docutils literal notranslate"><span class="pre">NaT</span></code>.</p>
+<p>Für unsere Analyse müssen wir diese internen Details normalerweise nicht unterscheiden. Mit <code class="docutils literal notranslate"><span class="pre">.isna()</span></code> können wir allgemein prüfen, ob Werte fehlen.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_selected</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pokemon_small</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class 'pandas.core.frame.DataFrame'&gt;
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>name</th>
+      <th>type1</th>
+      <th>type2</th>
+      <th>speed</th>
+      <th>attack</th>
+      <th>defense</th>
+      <th>hp</th>
+      <th>weight_kg</th>
+      <th>generation</th>
+      <th>is_legendary</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Mit <code class="docutils literal notranslate"><span class="pre">.sum()</span></code> können wir die <code class="docutils literal notranslate"><span class="pre">True</span></code>-Werte pro Spalte zählen und sehen sofort, wo Werte fehlen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">missing_per_column</span> <span class="o">=</span> <span class="n">pokemon_small</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+
+<span class="n">missing_per_column</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>type2           384
+weight_kg        20
+type1             0
+name              0
+attack            0
+speed             0
+defense           0
+hp                0
+generation        0
+is_legendary      0
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">info()</span></code> zeigt ebenfalls, wie viele nicht-fehlende Werte jede Spalte enthält.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pokemon_small</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class 'pandas.DataFrame'&gt;
 RangeIndex: 801 entries, 0 to 800
-Data columns (total 12 columns):
+Data columns (total 10 columns):
  #   Column        Non-Null Count  Dtype  
 ---  ------        --------------  -----  
- 0   name          801 non-null    object 
- 1   type1         801 non-null    object 
- 2   type2         417 non-null    object 
+ 0   name          801 non-null    str    
+ 1   type1         801 non-null    str    
+ 2   type2         417 non-null    str    
  3   speed         801 non-null    int64  
- 4   abilities     801 non-null    object 
- 5   attack        801 non-null    int64  
- 6   defense       801 non-null    int64  
- 7   height_m      781 non-null    float64
- 8   hp            801 non-null    int64  
- 9   weight_kg     781 non-null    float64
- 10  generation    801 non-null    int64  
- 11  is_legendary  801 non-null    int64  
-dtypes: float64(2), int64(6), object(4)
-memory usage: 75.2+ KB
+ 4   attack        801 non-null    int64  
+ 5   defense       801 non-null    int64  
+ 6   hp            801 non-null    int64  
+ 7   weight_kg     781 non-null    float64
+ 8   generation    801 non-null    int64  
+ 9   is_legendary  801 non-null    int64  
+dtypes: float64(1), int64(6), str(3)
+memory usage: 62.7 KB
 </pre></div>
 </div>
 </div>
 </div>
-<p>Wenn wir uns die Tabelle anschauen (z.B. mit <code class="docutils literal notranslate"><span class="pre">data_selected.head()</span></code>) , sehen wir, dass einige Einträge <code class="docutils literal notranslate"><span class="pre">NaN</span></code> heißen. Dies steht für Not-a-Number und ist das Numpy Format für fehlende/unbekannte Einträge.</p>
+<section id="fehlende-werte-beim-zahlen-sichtbar-machen">
+<h3><span class="section-number">19.1.1. </span>Fehlende Werte beim Zählen sichtbar machen<a class="headerlink" href="#fehlende-werte-beim-zahlen-sichtbar-machen" title="Link to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">value_counts()</span></code> lässt fehlende Werte standardmäßig weg. Mit <code class="docutils literal notranslate"><span class="pre">dropna=False</span></code> können wir sie ausdrücklich mitzählen.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_selected</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>name</th>
-      <th>type1</th>
-      <th>type2</th>
-      <th>speed</th>
-      <th>abilities</th>
-      <th>attack</th>
-      <th>defense</th>
-      <th>height_m</th>
-      <th>hp</th>
-      <th>weight_kg</th>
-      <th>generation</th>
-      <th>is_legendary</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>Bulbasaur</td>
-      <td>grass</td>
-      <td>poison</td>
-      <td>45</td>
-      <td>['Overgrow', 'Chlorophyll']</td>
-      <td>49</td>
-      <td>49</td>
-      <td>0.7</td>
-      <td>45</td>
-      <td>6.9</td>
-      <td>1</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>Ivysaur</td>
-      <td>grass</td>
-      <td>poison</td>
-      <td>60</td>
-      <td>['Overgrow', 'Chlorophyll']</td>
-      <td>62</td>
-      <td>63</td>
-      <td>1.0</td>
-      <td>60</td>
-      <td>13.0</td>
-      <td>1</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>Venusaur</td>
-      <td>grass</td>
-      <td>poison</td>
-      <td>80</td>
-      <td>['Overgrow', 'Chlorophyll']</td>
-      <td>100</td>
-      <td>123</td>
-      <td>2.0</td>
-      <td>80</td>
-      <td>100.0</td>
-      <td>1</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>Charmander</td>
-      <td>fire</td>
-      <td>NaN</td>
-      <td>65</td>
-      <td>['Blaze', 'Solar Power']</td>
-      <td>52</td>
-      <td>43</td>
-      <td>0.6</td>
-      <td>39</td>
-      <td>8.5</td>
-      <td>1</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>Charmeleon</td>
-      <td>fire</td>
-      <td>NaN</td>
-      <td>80</td>
-      <td>['Blaze', 'Solar Power']</td>
-      <td>64</td>
-      <td>58</td>
-      <td>1.1</td>
-      <td>58</td>
-      <td>19.0</td>
-      <td>1</td>
-      <td>0</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
-<p>Pandas bietet eine Reihe von Möglichkeiten mit solchen fehlenden Werten  umzugehen. NaN’s gibt es auch in Numpy, nur haben wir sie uns dort nicht explizit  angeschaut. In Numpy kann solch ein Eintrag erstellt werden als <code class="docutils literal notranslate"><span class="pre">np.nan</span></code>.</p>
-<p>In Pandas können diese über <code class="docutils literal notranslate"><span class="pre">.isnull()</span></code> oder <code class="docutils literal notranslate"><span class="pre">isna()</span></code> abgefragt werden, wobei das <code class="docutils literal notranslate"><span class="pre">.any()</span></code> angibt das der Wert True ausgegeben werden soll wenn mindestens ein Element ein NaN ist. Beide Methoden machen hier das Gleiche auch wenn „isnull“ vielleicht verwirrend ist, denn es gibt nicht wieder ob ein Wert Null ist, sondern nur ob ein Wert nicht vorhanden ist (NaN –&gt; True).</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_selected</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">any</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>name            False
-type1           False
-type2            True
-speed           False
-abilities       False
-attack          False
-defense         False
-height_m         True
-hp              False
-weight_kg        True
-generation      False
-is_legendary    False
-dtype: bool
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_selected</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">any</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>name            False
-type1           False
-type2            True
-speed           False
-abilities       False
-attack          False
-defense         False
-height_m         True
-hp              False
-weight_kg        True
-generation      False
-is_legendary    False
-dtype: bool
-</pre></div>
-</div>
-</div>
-</div>
-<p>Wir können nun alle Spalten anzeigen in denen einzelne Werte fehlen:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">columns_with_nan</span> <span class="o">=</span> <span class="n">data_selected</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="n">data_selected</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">any</span><span class="p">()]</span>
-<span class="n">data_selected</span><span class="p">[</span><span class="n">columns_with_nan</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>type2</th>
-      <th>height_m</th>
-      <th>weight_kg</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>poison</td>
-      <td>0.7</td>
-      <td>6.9</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>poison</td>
-      <td>1.0</td>
-      <td>13.0</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>poison</td>
-      <td>2.0</td>
-      <td>100.0</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>NaN</td>
-      <td>0.6</td>
-      <td>8.5</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>NaN</td>
-      <td>1.1</td>
-      <td>19.0</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>796</th>
-      <td>flying</td>
-      <td>9.2</td>
-      <td>999.9</td>
-    </tr>
-    <tr>
-      <th>797</th>
-      <td>steel</td>
-      <td>0.3</td>
-      <td>0.1</td>
-    </tr>
-    <tr>
-      <th>798</th>
-      <td>dragon</td>
-      <td>5.5</td>
-      <td>888.0</td>
-    </tr>
-    <tr>
-      <th>799</th>
-      <td>NaN</td>
-      <td>2.4</td>
-      <td>230.0</td>
-    </tr>
-    <tr>
-      <th>800</th>
-      <td>fairy</td>
-      <td>1.0</td>
-      <td>80.5</td>
-    </tr>
-  </tbody>
-</table>
-<p>801 rows × 3 columns</p>
-</div></div></div>
-</div>
-<section id="und-jetzt-was-tun-mit-nans">
-<h3><span class="section-number">19.1.1. </span>Und jetzt? Was tun mit NaNs?<a class="headerlink" href="#und-jetzt-was-tun-mit-nans" title="Link to this heading">#</a></h3>
-<p>Je nachdem was wir mit den Daten vorhaben, gibt es verschiedene Strategien mit den fehlenden Einträgen umzugehen. In vielen Fällen können wir sie einfach ignorieren. Wenn wir Mittelwerte (<code class="docutils literal notranslate"><span class="pre">.mean()</span></code>) oder Ähnliches berechnen, werde diese Werte automatisch nicht mitgezählt.</p>
-<p>In anderen Fällen wollen wir die Werte vielleicht ersetzten, z.B. durch „0“. Aber Vorsicht! Danach werden diese Werte nämlich doch mitgezählt wenn Summen oder Mittelwerte berechnet werden.</p>
-<section id="nan-ersetzen">
-<h4><span class="section-number">19.1.1.1. </span>NaN ersetzen<a class="headerlink" href="#nan-ersetzen" title="Link to this heading">#</a></h4>
-<p>Das Ersetzen geht bei Pandas mit <code class="docutils literal notranslate"><span class="pre">.fillna()</span></code>:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_selected</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>name</th>
-      <th>type1</th>
-      <th>type2</th>
-      <th>speed</th>
-      <th>abilities</th>
-      <th>attack</th>
-      <th>defense</th>
-      <th>height_m</th>
-      <th>hp</th>
-      <th>weight_kg</th>
-      <th>generation</th>
-      <th>is_legendary</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>Bulbasaur</td>
-      <td>grass</td>
-      <td>poison</td>
-      <td>45</td>
-      <td>['Overgrow', 'Chlorophyll']</td>
-      <td>49</td>
-      <td>49</td>
-      <td>0.7</td>
-      <td>45</td>
-      <td>6.9</td>
-      <td>1</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>Ivysaur</td>
-      <td>grass</td>
-      <td>poison</td>
-      <td>60</td>
-      <td>['Overgrow', 'Chlorophyll']</td>
-      <td>62</td>
-      <td>63</td>
-      <td>1.0</td>
-      <td>60</td>
-      <td>13.0</td>
-      <td>1</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>Venusaur</td>
-      <td>grass</td>
-      <td>poison</td>
-      <td>80</td>
-      <td>['Overgrow', 'Chlorophyll']</td>
-      <td>100</td>
-      <td>123</td>
-      <td>2.0</td>
-      <td>80</td>
-      <td>100.0</td>
-      <td>1</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>Charmander</td>
-      <td>fire</td>
-      <td>0</td>
-      <td>65</td>
-      <td>['Blaze', 'Solar Power']</td>
-      <td>52</td>
-      <td>43</td>
-      <td>0.6</td>
-      <td>39</td>
-      <td>8.5</td>
-      <td>1</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>Charmeleon</td>
-      <td>fire</td>
-      <td>0</td>
-      <td>80</td>
-      <td>['Blaze', 'Solar Power']</td>
-      <td>64</td>
-      <td>58</td>
-      <td>1.1</td>
-      <td>58</td>
-      <td>19.0</td>
-      <td>1</td>
-      <td>0</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
-<p>Wir können aber auch Strings oder andere Formate benutzen:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_selected</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s2">"unknown"</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>name</th>
-      <th>type1</th>
-      <th>type2</th>
-      <th>speed</th>
-      <th>abilities</th>
-      <th>attack</th>
-      <th>defense</th>
-      <th>height_m</th>
-      <th>hp</th>
-      <th>weight_kg</th>
-      <th>generation</th>
-      <th>is_legendary</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>Bulbasaur</td>
-      <td>grass</td>
-      <td>poison</td>
-      <td>45</td>
-      <td>['Overgrow', 'Chlorophyll']</td>
-      <td>49</td>
-      <td>49</td>
-      <td>0.7</td>
-      <td>45</td>
-      <td>6.9</td>
-      <td>1</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>Ivysaur</td>
-      <td>grass</td>
-      <td>poison</td>
-      <td>60</td>
-      <td>['Overgrow', 'Chlorophyll']</td>
-      <td>62</td>
-      <td>63</td>
-      <td>1.0</td>
-      <td>60</td>
-      <td>13.0</td>
-      <td>1</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>Venusaur</td>
-      <td>grass</td>
-      <td>poison</td>
-      <td>80</td>
-      <td>['Overgrow', 'Chlorophyll']</td>
-      <td>100</td>
-      <td>123</td>
-      <td>2.0</td>
-      <td>80</td>
-      <td>100.0</td>
-      <td>1</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>Charmander</td>
-      <td>fire</td>
-      <td>unknown</td>
-      <td>65</td>
-      <td>['Blaze', 'Solar Power']</td>
-      <td>52</td>
-      <td>43</td>
-      <td>0.6</td>
-      <td>39</td>
-      <td>8.5</td>
-      <td>1</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>Charmeleon</td>
-      <td>fire</td>
-      <td>unknown</td>
-      <td>80</td>
-      <td>['Blaze', 'Solar Power']</td>
-      <td>64</td>
-      <td>58</td>
-      <td>1.1</td>
-      <td>58</td>
-      <td>19.0</td>
-      <td>1</td>
-      <td>0</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
-<p>Das kann sinnvoll sein, wenn wir die „unknown“ explizit mitzählen möchten:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_selected</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s2">"unknown"</span><span class="p">)[</span><span class="s2">"type2"</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pokemon_small</span><span class="p">[</span><span class="s2">"type2"</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">dropna</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>type2
-unknown     384
+NaN         384
 flying       95
 poison       34
 ground       34
-psychic      29
 fairy        29
+psychic      29
 fighting     25
 steel        22
 dark         21
 grass        20
-water        17
-dragon       17
-ice          15
-rock         14
-ghost        14
-fire         13
-electric      9
-bug           5
-normal        4
 Name: count, dtype: int64
 </pre></div>
 </div>
@@ -1167,12 +871,19 @@ Name: count, dtype: int64
 </div>
 </section>
 </section>
-<section id="nan-entfernen">
-<h3><span class="section-number">19.1.2. </span>NaN entfernen<a class="headerlink" href="#nan-entfernen" title="Link to this heading">#</a></h3>
-<p>Falls NaN nicht einfach ersetzt werden können und für die weiteren Schritte nicht vorkommen sollen, dann müssen entweder die entsprechenden Spalten oder Zeilen aus der Tabelle entfernt werden. Das geht in Pandas mit <code class="docutils literal notranslate"><span class="pre">.dropna()</span></code>.</p>
+<section id="fehlende-werte-behandeln">
+<h2><span class="section-number">19.2. </span>Fehlende Werte behandeln<a class="headerlink" href="#fehlende-werte-behandeln" title="Link to this heading">#</a></h2>
+<p>Welche Strategie sinnvoll ist, hängt von der Bedeutung der Daten ab. Es gibt <strong>keine allgemeine Regel</strong>, nach der fehlende Werte immer gelöscht oder immer ersetzt werden sollten.</p>
+<p>Für <code class="docutils literal notranslate"><span class="pre">type2</span></code> können wir zum Beispiel ausdrücklich den Text <code class="docutils literal notranslate"><span class="pre">&quot;unknown&quot;</span></code> verwenden:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_selected</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pokemon_filled</span> <span class="o">=</span> <span class="n">pokemon_small</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="n">pokemon_filled</span><span class="p">[</span><span class="s2">"type2"</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">pokemon_filled</span><span class="p">[</span><span class="s2">"type2"</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s2">"unknown"</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">pokemon_filled</span><span class="p">[[</span><span class="s2">"name"</span><span class="p">,</span> <span class="s2">"type1"</span><span class="p">,</span> <span class="s2">"type2"</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1198,15 +909,6 @@ Name: count, dtype: int64
       <th>name</th>
       <th>type1</th>
       <th>type2</th>
-      <th>speed</th>
-      <th>abilities</th>
-      <th>attack</th>
-      <th>defense</th>
-      <th>height_m</th>
-      <th>hp</th>
-      <th>weight_kg</th>
-      <th>generation</th>
-      <th>is_legendary</th>
     </tr>
   </thead>
   <tbody>
@@ -1215,591 +917,384 @@ Name: count, dtype: int64
       <td>Bulbasaur</td>
       <td>grass</td>
       <td>poison</td>
-      <td>45</td>
-      <td>['Overgrow', 'Chlorophyll']</td>
-      <td>49</td>
-      <td>49</td>
-      <td>0.7</td>
-      <td>45</td>
-      <td>6.9</td>
-      <td>1</td>
-      <td>0</td>
     </tr>
     <tr>
       <th>1</th>
       <td>Ivysaur</td>
       <td>grass</td>
       <td>poison</td>
-      <td>60</td>
-      <td>['Overgrow', 'Chlorophyll']</td>
-      <td>62</td>
-      <td>63</td>
-      <td>1.0</td>
-      <td>60</td>
-      <td>13.0</td>
-      <td>1</td>
-      <td>0</td>
     </tr>
     <tr>
       <th>2</th>
       <td>Venusaur</td>
       <td>grass</td>
       <td>poison</td>
-      <td>80</td>
-      <td>['Overgrow', 'Chlorophyll']</td>
-      <td>100</td>
-      <td>123</td>
-      <td>2.0</td>
-      <td>80</td>
-      <td>100.0</td>
-      <td>1</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>Charizard</td>
-      <td>fire</td>
-      <td>flying</td>
-      <td>100</td>
-      <td>['Blaze', 'Solar Power']</td>
-      <td>104</td>
-      <td>78</td>
-      <td>1.7</td>
-      <td>78</td>
-      <td>90.5</td>
-      <td>1</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>11</th>
-      <td>Butterfree</td>
-      <td>bug</td>
-      <td>flying</td>
-      <td>70</td>
-      <td>['Compoundeyes', 'Tinted Lens']</td>
-      <td>45</td>
-      <td>50</td>
-      <td>1.1</td>
-      <td>60</td>
-      <td>32.0</td>
-      <td>1</td>
-      <td>0</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
-<p>Oder für die Entfernung aller Spalten mit NaNs:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_selected</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>name</th>
-      <th>type1</th>
-      <th>speed</th>
-      <th>abilities</th>
-      <th>attack</th>
-      <th>defense</th>
-      <th>hp</th>
-      <th>generation</th>
-      <th>is_legendary</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>Bulbasaur</td>
-      <td>grass</td>
-      <td>45</td>
-      <td>['Overgrow', 'Chlorophyll']</td>
-      <td>49</td>
-      <td>49</td>
-      <td>45</td>
-      <td>1</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>Ivysaur</td>
-      <td>grass</td>
-      <td>60</td>
-      <td>['Overgrow', 'Chlorophyll']</td>
-      <td>62</td>
-      <td>63</td>
-      <td>60</td>
-      <td>1</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>Venusaur</td>
-      <td>grass</td>
-      <td>80</td>
-      <td>['Overgrow', 'Chlorophyll']</td>
-      <td>100</td>
-      <td>123</td>
-      <td>80</td>
-      <td>1</td>
-      <td>0</td>
     </tr>
     <tr>
       <th>3</th>
       <td>Charmander</td>
       <td>fire</td>
-      <td>65</td>
-      <td>['Blaze', 'Solar Power']</td>
-      <td>52</td>
-      <td>43</td>
-      <td>39</td>
-      <td>1</td>
-      <td>0</td>
+      <td>unknown</td>
     </tr>
     <tr>
       <th>4</th>
       <td>Charmeleon</td>
       <td>fire</td>
-      <td>80</td>
-      <td>['Blaze', 'Solar Power']</td>
-      <td>64</td>
-      <td>58</td>
-      <td>58</td>
-      <td>1</td>
-      <td>0</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
-</section>
-<section id="wichtig">
-<h3><span class="section-number">19.1.3. </span>Wichtig:<a class="headerlink" href="#wichtig" title="Link to this heading">#</a></h3>
-<p>In Python gibt es zwei Möglichkeiten für Methoden die „ihr“ Objekt verändern wollen:</p>
-<ol class="arabic simple">
-<li><p>Objekt bleibt unverändert und veränderte Kopie wird über <code class="docutils literal notranslate"><span class="pre">return</span></code> ausgegeben.</p></li>
-<li><p>Objekt selbst wird verändert.</p></li>
-</ol>
-<p>Bei Pandas findet in der Regel (1) statt, siehe auch https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#indexing-view-versus-copy.</p>
-<p>Das bedeutet, wenn wir ein verändertes DataFrame erhalten wollen müssen wir dies mit <code class="docutils literal notranslate"><span class="pre">=</span></code> erstellen:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_na_removed</span> <span class="o">=</span> <span class="n">data_selected</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
-<span class="n">data_na_removed</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>name</th>
-      <th>type1</th>
-      <th>type2</th>
-      <th>speed</th>
-      <th>abilities</th>
-      <th>attack</th>
-      <th>defense</th>
-      <th>height_m</th>
-      <th>hp</th>
-      <th>weight_kg</th>
-      <th>generation</th>
-      <th>is_legendary</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>Bulbasaur</td>
-      <td>grass</td>
-      <td>poison</td>
-      <td>45</td>
-      <td>['Overgrow', 'Chlorophyll']</td>
-      <td>49</td>
-      <td>49</td>
-      <td>0.7</td>
-      <td>45</td>
-      <td>6.9</td>
-      <td>1</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>Ivysaur</td>
-      <td>grass</td>
-      <td>poison</td>
-      <td>60</td>
-      <td>['Overgrow', 'Chlorophyll']</td>
-      <td>62</td>
-      <td>63</td>
-      <td>1.0</td>
-      <td>60</td>
-      <td>13.0</td>
-      <td>1</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>Venusaur</td>
-      <td>grass</td>
-      <td>poison</td>
-      <td>80</td>
-      <td>['Overgrow', 'Chlorophyll']</td>
-      <td>100</td>
-      <td>123</td>
-      <td>2.0</td>
-      <td>80</td>
-      <td>100.0</td>
-      <td>1</td>
-      <td>0</td>
+      <td>unknown</td>
     </tr>
     <tr>
       <th>5</th>
       <td>Charizard</td>
       <td>fire</td>
       <td>flying</td>
-      <td>100</td>
-      <td>['Blaze', 'Solar Power']</td>
-      <td>104</td>
-      <td>78</td>
-      <td>1.7</td>
-      <td>78</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Squirtle</td>
+      <td>water</td>
+      <td>unknown</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Wartortle</td>
+      <td>water</td>
+      <td>unknown</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Blastoise</td>
+      <td>water</td>
+      <td>unknown</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Caterpie</td>
+      <td>bug</td>
+      <td>unknown</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Alternativ können Zeilen mit fehlenden Werten entfernt werden. Dabei sollte möglichst klar angegeben werden, <strong>welche Spalten für diese Entscheidung wichtig sind</strong>.</p>
+<p>Hier entfernen wir nur Zeilen, bei denen <code class="docutils literal notranslate"><span class="pre">type2</span></code> fehlt:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pokemon_with_two_types</span> <span class="o">=</span> <span class="n">pokemon_small</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span>
+    <span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s2">"type2"</span><span class="p">]</span>
+<span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">pokemon_small</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pokemon_with_two_types</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(801, 10)
+(417, 10)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ein ungezieltes <code class="docutils literal notranslate"><span class="pre">dropna()</span></code> ohne <code class="docutils literal notranslate"><span class="pre">subset</span></code> entfernt dagegen jede Zeile, in der <strong>irgendeine</strong> betrachtete Spalte fehlt. Das kann deutlich mehr Daten entfernen als beabsichtigt.</p>
+</section>
+<section id="filtern-und-kennzahlen-berechnen">
+<h2><span class="section-number">19.3. </span>Filtern und Kennzahlen berechnen<a class="headerlink" href="#filtern-und-kennzahlen-berechnen" title="Link to this heading">#</a></h2>
+<p>Aus Teil 1 kennen wir boolesche Masken.</p>
+<p>Wir verwenden <code class="docutils literal notranslate"><span class="pre">.loc</span></code>, um passende Zeilen und die gewünschte Spalte gemeinsam auszuwählen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bug_mask</span> <span class="o">=</span> <span class="n">pokemon_small</span><span class="p">[</span><span class="s2">"type1"</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"bug"</span>
+
+<span class="n">pokemon_small</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span>
+    <span class="n">bug_mask</span><span class="p">,</span>
+    <span class="p">[</span><span class="s2">"name"</span><span class="p">,</span> <span class="s2">"weight_kg"</span><span class="p">],</span>
+<span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>name</th>
+      <th>weight_kg</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>9</th>
+      <td>Caterpie</td>
+      <td>2.9</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>Metapod</td>
+      <td>9.9</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>Butterfree</td>
+      <td>32.0</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>Weedle</td>
+      <td>3.2</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>Kakuna</td>
+      <td>10.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mean_bug_weight</span> <span class="o">=</span> <span class="n">pokemon_small</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span>
+    <span class="n">bug_mask</span><span class="p">,</span>
+    <span class="s2">"weight_kg"</span><span class="p">,</span>
+<span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">mean_bug_weight</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>33.083333333333336
+</pre></div>
+</div>
+</div>
+</div>
+<p>Das ist gut geeignet, wenn wir <strong>eine bestimmte Gruppe</strong> untersuchen möchten.</p>
+<p>Wenn wir dieselbe Berechnung für viele Gruppen durchführen wollen, wird <code class="docutils literal notranslate"><span class="pre">groupby()</span></code> praktischer.</p>
+</section>
+<section id="werte-gezielt-verandern">
+<h2><span class="section-number">19.4. </span>Werte gezielt verändern<a class="headerlink" href="#werte-gezielt-verandern" title="Link to this heading">#</a></h2>
+<p>Für eine bewusste Arbeitskopie können wir <code class="docutils literal notranslate"><span class="pre">.copy()</span></code> verwenden.</p>
+<p>Änderungen an ausgewählten Zeilen und Spalten schreiben wir mit <code class="docutils literal notranslate"><span class="pre">.loc[...]</span> <span class="pre">=</span> <span class="pre">...</span></code>. Dadurch ist klar, <strong>wo</strong> die Änderung stattfinden soll.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pokemon_work</span> <span class="o">=</span> <span class="n">pokemon_small</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="n">pokemon_work</span><span class="p">[</span><span class="s2">"weight_class"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"normal"</span>
+
+<span class="n">heavy_mask</span> <span class="o">=</span> <span class="n">pokemon_work</span><span class="p">[</span><span class="s2">"weight_kg"</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">100</span>
+
+<span class="n">pokemon_work</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span>
+    <span class="n">heavy_mask</span><span class="p">,</span>
+    <span class="s2">"weight_class"</span><span class="p">,</span>
+<span class="p">]</span> <span class="o">=</span> <span class="s2">"heavy"</span>
+
+<span class="n">pokemon_work</span><span class="p">[</span>
+    <span class="p">[</span><span class="s2">"name"</span><span class="p">,</span> <span class="s2">"weight_kg"</span><span class="p">,</span> <span class="s2">"weight_class"</span><span class="p">]</span>
+<span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>name</th>
+      <th>weight_kg</th>
+      <th>weight_class</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Bulbasaur</td>
+      <td>6.9</td>
+      <td>normal</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Ivysaur</td>
+      <td>13.0</td>
+      <td>normal</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Venusaur</td>
+      <td>100.0</td>
+      <td>heavy</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Charmander</td>
+      <td>8.5</td>
+      <td>normal</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Charmeleon</td>
+      <td>19.0</td>
+      <td>normal</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Charizard</td>
       <td>90.5</td>
-      <td>1</td>
-      <td>0</td>
+      <td>normal</td>
     </tr>
     <tr>
-      <th>11</th>
-      <td>Butterfree</td>
-      <td>bug</td>
-      <td>flying</td>
-      <td>70</td>
-      <td>['Compoundeyes', 'Tinted Lens']</td>
-      <td>45</td>
-      <td>50</td>
-      <td>1.1</td>
-      <td>60</td>
-      <td>32.0</td>
-      <td>1</td>
-      <td>0</td>
+      <th>6</th>
+      <td>Squirtle</td>
+      <td>9.0</td>
+      <td>normal</td>
     </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
-</section>
-</section>
-<section id="data-selection">
-<h2><span class="section-number">19.2. </span>Data selection<a class="headerlink" href="#data-selection" title="Link to this heading">#</a></h2>
-<p>Gehen wir mit der Analyse der Daten einen Schritt weiter. Was, wenn wir mehr über einzelne Gruppen wissen möchten? Oder über Einträge die bestimmte Bedingungen erfüllen?</p>
-<section id="option-1-masken">
-<h3><span class="section-number">19.2.1. </span>Option 1: Masken<a class="headerlink" href="#option-1-masken" title="Link to this heading">#</a></h3>
-<p>Über Masken können wir ganz gezielt einzelne Fragen adressieren:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mask</span> <span class="o">=</span> <span class="n">data_selected</span><span class="p">[</span><span class="s2">"type1"</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"bug"</span>
-<span class="n">data_selected</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>name</th>
-      <th>type1</th>
-      <th>type2</th>
-      <th>speed</th>
-      <th>abilities</th>
-      <th>attack</th>
-      <th>defense</th>
-      <th>height_m</th>
-      <th>hp</th>
-      <th>weight_kg</th>
-      <th>generation</th>
-      <th>is_legendary</th>
+    <tr>
+      <th>7</th>
+      <td>Wartortle</td>
+      <td>22.5</td>
+      <td>normal</td>
     </tr>
-  </thead>
-  <tbody>
+    <tr>
+      <th>8</th>
+      <td>Blastoise</td>
+      <td>85.5</td>
+      <td>normal</td>
+    </tr>
     <tr>
       <th>9</th>
       <td>Caterpie</td>
-      <td>bug</td>
-      <td>NaN</td>
-      <td>45</td>
-      <td>['Shield Dust', 'Run Away']</td>
-      <td>30</td>
-      <td>35</td>
-      <td>0.3</td>
-      <td>45</td>
       <td>2.9</td>
-      <td>1</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>Metapod</td>
-      <td>bug</td>
-      <td>NaN</td>
-      <td>30</td>
-      <td>['Shed Skin']</td>
-      <td>20</td>
-      <td>55</td>
-      <td>0.7</td>
-      <td>50</td>
-      <td>9.9</td>
-      <td>1</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>11</th>
-      <td>Butterfree</td>
-      <td>bug</td>
-      <td>flying</td>
-      <td>70</td>
-      <td>['Compoundeyes', 'Tinted Lens']</td>
-      <td>45</td>
-      <td>50</td>
-      <td>1.1</td>
-      <td>60</td>
-      <td>32.0</td>
-      <td>1</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>12</th>
-      <td>Weedle</td>
-      <td>bug</td>
-      <td>poison</td>
-      <td>50</td>
-      <td>['Shield Dust', 'Run Away']</td>
-      <td>35</td>
-      <td>30</td>
-      <td>0.3</td>
-      <td>40</td>
-      <td>3.2</td>
-      <td>1</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>13</th>
-      <td>Kakuna</td>
-      <td>bug</td>
-      <td>poison</td>
-      <td>35</td>
-      <td>['Shed Skin']</td>
-      <td>25</td>
-      <td>50</td>
-      <td>0.6</td>
-      <td>45</td>
-      <td>10.0</td>
-      <td>1</td>
-      <td>0</td>
+      <td>normal</td>
     </tr>
   </tbody>
 </table>
 </div></div></div>
 </div>
-<p>Über solche Masken können wir auch Eigenschaften über einzelne Gruppen abfragen:</p>
+<p>Vermeidet für Änderungen Konstruktionen wie:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>df[mask]["column"] = value
+</pre></div>
+</div>
+<p>Die Auswahl und die Zuweisung sollten stattdessen gemeinsam über <code class="docutils literal notranslate"><span class="pre">.loc</span></code> erfolgen:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">mask</span><span class="p">,</span> <span class="s2">"column"</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="groupby-gruppen-zusammenfassen">
+<h1><span class="section-number">19. </span><code class="docutils literal notranslate"><span class="pre">groupby()</span></code>: Gruppen zusammenfassen<a class="headerlink" href="#groupby-gruppen-zusammenfassen" title="Link to this heading">#</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">groupby()</span></code> folgt gedanklich einem einfachen Muster:</p>
+<ol class="arabic simple">
+<li><p><strong>split</strong> – Daten in Gruppen aufteilen,</p></li>
+<li><p><strong>apply</strong> – pro Gruppe eine Berechnung durchführen,</p></li>
+<li><p><strong>combine</strong> – die Ergebnisse wieder zusammenführen.</p></li>
+</ol>
+<p>Wir gruppieren zuerst nach <code class="docutils literal notranslate"><span class="pre">type1</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_selected</span><span class="p">[</span><span class="n">mask</span><span class="p">][</span><span class="s2">"weight_kg"</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">grouped_by_type</span> <span class="o">=</span> <span class="n">pokemon_small</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">"type1"</span><span class="p">)</span>
+
+<span class="n">grouped_by_type</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>33.083333333333336
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;pandas.api.typing.DataFrameGroupBy object at 0x7c5234680ad0&gt;
 </pre></div>
 </div>
 </div>
 </div>
-</section>
-<section id="option-2-query">
-<h3><span class="section-number">19.2.2. </span>Option 2: query<a class="headerlink" href="#option-2-query" title="Link to this heading">#</a></h3>
-<p>Pandas bietet auch die Möglichkeit statt mit einer Maske direkt mit der Methode <code class="docutils literal notranslate"><span class="pre">.query</span></code> zu arbeiten.
-Das sieht eventuell etwas netter aus, bietet aber ansonsten keine Vorteile zu den Masken.</p>
-<p>Da Masken sowohl bei Numpy wie auch bei Pandas gehen, bleiben wir im Folgenden bei den Masken.</p>
+<section id="wie-grosz-sind-die-gruppen">
+<h2><span class="section-number">19.1. </span>Wie groß sind die Gruppen?<a class="headerlink" href="#wie-grosz-sind-die-gruppen" title="Link to this heading">#</a></h2>
+<p>Wenn wir wissen möchten, <strong>wie viele Zeilen</strong> zu jeder Gruppe gehören, verwenden wir <code class="docutils literal notranslate"><span class="pre">.size()</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_selected</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">"type1 == 'bug'"</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">type_counts</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">pokemon_small</span>
+    <span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">"type1"</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">size</span><span class="p">()</span>
+    <span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">type_counts</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>name</th>
-      <th>type1</th>
-      <th>type2</th>
-      <th>speed</th>
-      <th>abilities</th>
-      <th>attack</th>
-      <th>defense</th>
-      <th>height_m</th>
-      <th>hp</th>
-      <th>weight_kg</th>
-      <th>generation</th>
-      <th>is_legendary</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>9</th>
-      <td>Caterpie</td>
-      <td>bug</td>
-      <td>NaN</td>
-      <td>45</td>
-      <td>['Shield Dust', 'Run Away']</td>
-      <td>30</td>
-      <td>35</td>
-      <td>0.3</td>
-      <td>45</td>
-      <td>2.9</td>
-      <td>1</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>Metapod</td>
-      <td>bug</td>
-      <td>NaN</td>
-      <td>30</td>
-      <td>['Shed Skin']</td>
-      <td>20</td>
-      <td>55</td>
-      <td>0.7</td>
-      <td>50</td>
-      <td>9.9</td>
-      <td>1</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>11</th>
-      <td>Butterfree</td>
-      <td>bug</td>
-      <td>flying</td>
-      <td>70</td>
-      <td>['Compoundeyes', 'Tinted Lens']</td>
-      <td>45</td>
-      <td>50</td>
-      <td>1.1</td>
-      <td>60</td>
-      <td>32.0</td>
-      <td>1</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>12</th>
-      <td>Weedle</td>
-      <td>bug</td>
-      <td>poison</td>
-      <td>50</td>
-      <td>['Shield Dust', 'Run Away']</td>
-      <td>35</td>
-      <td>30</td>
-      <td>0.3</td>
-      <td>40</td>
-      <td>3.2</td>
-      <td>1</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>13</th>
-      <td>Kakuna</td>
-      <td>bug</td>
-      <td>poison</td>
-      <td>35</td>
-      <td>['Shed Skin']</td>
-      <td>25</td>
-      <td>50</td>
-      <td>0.6</td>
-      <td>45</td>
-      <td>10.0</td>
-      <td>1</td>
-      <td>0</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>type1
+water       114
+normal      105
+grass        78
+bug          72
+psychic      53
+fire         52
+rock         45
+electric     39
+poison       32
+ground       32
+dark         29
+fighting     28
+dragon       27
+ghost        27
+steel        24
+ice          23
+fairy        18
+flying        3
+dtype: int64
+</pre></div>
 </div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">.size()</span></code> zählt die Zeilen einer Gruppe.</p>
+<p><code class="docutils literal notranslate"><span class="pre">.count()</span></code> beantwortet eine andere Frage: Es zählt für jede Spalte die <strong>nicht-fehlenden Werte</strong>. Deshalb kann <code class="docutils literal notranslate"><span class="pre">.count()</span></code> bei fehlenden Daten je nach Spalte unterschiedliche Ergebnisse liefern.</p>
 </section>
-<section id="outlook-groupby">
-<h3><span class="section-number">19.2.3. </span>Outlook: groupby<a class="headerlink" href="#outlook-groupby" title="Link to this heading">#</a></h3>
-<p>Für analysen von bestimmten Untergruppen bietet Pandas noch eine Funktion die das noch einfacher macht als mit Masken oder query zu arbeiten: <code class="docutils literal notranslate"><span class="pre">groupby()</span></code>.</p>
-</section>
-</section>
-<section id="groupby">
-<h2><span class="section-number">19.3. </span>Groupby<a class="headerlink" href="#groupby" title="Link to this heading">#</a></h2>
-<p>Pandas <code class="docutils literal notranslate"><span class="pre">grouby</span></code> (siehe <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.groupby.html">Pandas documentation</a>).</p>
-<p>Mit grouby können bei Pandas alle Einträge mit bestimmten Kategorien zusammengefasst werden. Damit lassen sich leicht und schnell viele Eigenschaften vergleichen.</p>
+<section id="mittelwerte-pro-gruppe">
+<h2><span class="section-number">19.2. </span>Mittelwerte pro Gruppe<a class="headerlink" href="#mittelwerte-pro-gruppe" title="Link to this heading">#</a></h2>
+<p>Für Mittelwerte wählen wir hier bewusst zuerst die numerischen Spalten aus, die uns interessieren.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_selected</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">"type1"</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">numeric_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numeric_columns</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">"speed"</span><span class="p">,</span>
+    <span class="s2">"attack"</span><span class="p">,</span>
+    <span class="s2">"defense"</span><span class="p">,</span>
+    <span class="s2">"hp"</span><span class="p">,</span>
+    <span class="s2">"weight_kg"</span><span class="p">,</span>
+<span class="p">]</span>
+
+<span class="n">mean_by_type</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">pokemon_small</span>
+    <span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">"type1"</span><span class="p">)[</span><span class="n">numeric_columns</span><span class="p">]</span>
+    <span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="p">)</span>
+
+<span class="n">mean_by_type</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1825,17 +1320,11 @@ Das sieht eventuell etwas netter aus, bietet aber ansonsten keine Vorteile zu de
       <th>speed</th>
       <th>attack</th>
       <th>defense</th>
-      <th>height_m</th>
       <th>hp</th>
       <th>weight_kg</th>
-      <th>generation</th>
-      <th>is_legendary</th>
     </tr>
     <tr>
       <th>type1</th>
-      <th></th>
-      <th></th>
-      <th></th>
       <th></th>
       <th></th>
       <th></th>
@@ -1849,207 +1338,52 @@ Das sieht eventuell etwas netter aus, bietet aber ansonsten keine Vorteile zu de
       <td>63.569444</td>
       <td>70.125000</td>
       <td>70.847222</td>
-      <td>0.883333</td>
       <td>56.722222</td>
       <td>33.083333</td>
-      <td>3.763889</td>
-      <td>0.041667</td>
     </tr>
     <tr>
       <th>dark</th>
       <td>75.310345</td>
       <td>87.793103</td>
       <td>70.517241</td>
-      <td>1.296552</td>
       <td>72.551724</td>
       <td>69.096552</td>
-      <td>4.275862</td>
-      <td>0.103448</td>
     </tr>
     <tr>
       <th>dragon</th>
       <td>76.111111</td>
       <td>106.407407</td>
       <td>86.259259</td>
-      <td>1.937037</td>
       <td>79.851852</td>
       <td>107.125926</td>
-      <td>4.296296</td>
-      <td>0.259259</td>
     </tr>
     <tr>
       <th>electric</th>
       <td>85.410256</td>
       <td>70.820513</td>
       <td>61.820513</td>
-      <td>0.981579</td>
       <td>60.512821</td>
       <td>37.944737</td>
-      <td>3.461538</td>
-      <td>0.128205</td>
     </tr>
     <tr>
       <th>fairy</th>
       <td>53.666667</td>
       <td>62.111111</td>
       <td>68.166667</td>
-      <td>0.794444</td>
       <td>73.944444</td>
       <td>23.555556</td>
-      <td>4.277778</td>
-      <td>0.055556</td>
-    </tr>
-    <tr>
-      <th>fighting</th>
-      <td>64.285714</td>
-      <td>99.178571</td>
-      <td>66.392857</td>
-      <td>1.196429</td>
-      <td>71.428571</td>
-      <td>58.675000</td>
-      <td>3.750000</td>
-      <td>0.000000</td>
-    </tr>
-    <tr>
-      <th>fire</th>
-      <td>73.346154</td>
-      <td>81.500000</td>
-      <td>67.788462</td>
-      <td>1.168000</td>
-      <td>68.730769</td>
-      <td>66.096000</td>
-      <td>3.634615</td>
-      <td>0.096154</td>
-    </tr>
-    <tr>
-      <th>flying</th>
-      <td>99.666667</td>
-      <td>66.666667</td>
-      <td>65.000000</td>
-      <td>1.166667</td>
-      <td>68.000000</td>
-      <td>52.000000</td>
-      <td>5.666667</td>
-      <td>0.333333</td>
-    </tr>
-    <tr>
-      <th>ghost</th>
-      <td>58.333333</td>
-      <td>72.740741</td>
-      <td>79.518519</td>
-      <td>1.251852</td>
-      <td>63.370370</td>
-      <td>69.570370</td>
-      <td>4.370370</td>
-      <td>0.037037</td>
-    </tr>
-    <tr>
-      <th>grass</th>
-      <td>59.025641</td>
-      <td>73.769231</td>
-      <td>70.871795</td>
-      <td>0.938961</td>
-      <td>65.358974</td>
-      <td>33.255844</td>
-      <td>3.935897</td>
-      <td>0.051282</td>
-    </tr>
-    <tr>
-      <th>ground</th>
-      <td>59.968750</td>
-      <td>94.812500</td>
-      <td>83.906250</td>
-      <td>1.340741</td>
-      <td>73.187500</td>
-      <td>150.044444</td>
-      <td>3.343750</td>
-      <td>0.062500</td>
-    </tr>
-    <tr>
-      <th>ice</th>
-      <td>62.739130</td>
-      <td>73.304348</td>
-      <td>71.913043</td>
-      <td>1.208696</td>
-      <td>72.086957</td>
-      <td>103.260870</td>
-      <td>3.565217</td>
-      <td>0.086957</td>
-    </tr>
-    <tr>
-      <th>normal</th>
-      <td>69.533333</td>
-      <td>75.161905</td>
-      <td>59.695238</td>
-      <td>1.024752</td>
-      <td>76.723810</td>
-      <td>46.158416</td>
-      <td>3.495238</td>
-      <td>0.028571</td>
-    </tr>
-    <tr>
-      <th>poison</th>
-      <td>64.187500</td>
-      <td>72.656250</td>
-      <td>70.031250</td>
-      <td>1.160000</td>
-      <td>65.593750</td>
-      <td>33.830000</td>
-      <td>3.093750</td>
-      <td>0.000000</td>
-    </tr>
-    <tr>
-      <th>psychic</th>
-      <td>75.150943</td>
-      <td>65.566038</td>
-      <td>69.264151</td>
-      <td>1.063462</td>
-      <td>72.943396</td>
-      <td>57.328846</td>
-      <td>3.849057</td>
-      <td>0.320755</td>
-    </tr>
-    <tr>
-      <th>rock</th>
-      <td>57.422222</td>
-      <td>90.666667</td>
-      <td>96.266667</td>
-      <td>1.304878</td>
-      <td>66.333333</td>
-      <td>92.946341</td>
-      <td>3.800000</td>
-      <td>0.088889</td>
-    </tr>
-    <tr>
-      <th>steel</th>
-      <td>56.583333</td>
-      <td>93.083333</td>
-      <td>120.208333</td>
-      <td>1.875000</td>
-      <td>66.791667</td>
-      <td>188.841667</td>
-      <td>4.208333</td>
-      <td>0.250000</td>
-    </tr>
-    <tr>
-      <th>water</th>
-      <td>63.921053</td>
-      <td>73.307018</td>
-      <td>73.482456</td>
-      <td>1.283333</td>
-      <td>70.219298</td>
-      <td>51.071930</td>
-      <td>3.210526</td>
-      <td>0.052632</td>
     </tr>
   </tbody>
 </table>
 </div></div></div>
 </div>
-<p>Hier sind die Einträge nach dem „type1“ alphabetisch sortiert. Um die Sortierung zu ändern fügen wir einfach ein <code class="docutils literal notranslate"><span class="pre">sort_values()</span></code>hinzu um nach der gewünschten Spalte zu sortieren:</p>
+<p>Das Ergebnis ist wieder ein <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>. Der Gruppenschlüssel <code class="docutils literal notranslate"><span class="pre">type1</span></code> ist nun der Index.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_selected</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">"type1"</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">numeric_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">"speed"</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mean_by_type</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span>
+    <span class="s2">"speed"</span><span class="p">,</span>
+    <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2075,17 +1409,11 @@ Das sieht eventuell etwas netter aus, bietet aber ansonsten keine Vorteile zu de
       <th>speed</th>
       <th>attack</th>
       <th>defense</th>
-      <th>height_m</th>
       <th>hp</th>
       <th>weight_kg</th>
-      <th>generation</th>
-      <th>is_legendary</th>
     </tr>
     <tr>
       <th>type1</th>
-      <th></th>
-      <th></th>
-      <th></th>
       <th></th>
       <th></th>
       <th></th>
@@ -2095,211 +1423,166 @@ Das sieht eventuell etwas netter aus, bietet aber ansonsten keine Vorteile zu de
   </thead>
   <tbody>
     <tr>
-      <th>fairy</th>
-      <td>53.666667</td>
-      <td>62.111111</td>
-      <td>68.166667</td>
-      <td>0.794444</td>
-      <td>73.944444</td>
-      <td>23.555556</td>
-      <td>4.277778</td>
-      <td>0.055556</td>
+      <th>flying</th>
+      <td>99.666667</td>
+      <td>66.666667</td>
+      <td>65.000000</td>
+      <td>68.000000</td>
+      <td>52.000000</td>
     </tr>
     <tr>
-      <th>steel</th>
-      <td>56.583333</td>
-      <td>93.083333</td>
-      <td>120.208333</td>
-      <td>1.875000</td>
-      <td>66.791667</td>
-      <td>188.841667</td>
-      <td>4.208333</td>
-      <td>0.250000</td>
+      <th>electric</th>
+      <td>85.410256</td>
+      <td>70.820513</td>
+      <td>61.820513</td>
+      <td>60.512821</td>
+      <td>37.944737</td>
     </tr>
     <tr>
-      <th>rock</th>
-      <td>57.422222</td>
-      <td>90.666667</td>
-      <td>96.266667</td>
-      <td>1.304878</td>
-      <td>66.333333</td>
-      <td>92.946341</td>
-      <td>3.800000</td>
-      <td>0.088889</td>
-    </tr>
-    <tr>
-      <th>ghost</th>
-      <td>58.333333</td>
-      <td>72.740741</td>
-      <td>79.518519</td>
-      <td>1.251852</td>
-      <td>63.370370</td>
-      <td>69.570370</td>
-      <td>4.370370</td>
-      <td>0.037037</td>
-    </tr>
-    <tr>
-      <th>grass</th>
-      <td>59.025641</td>
-      <td>73.769231</td>
-      <td>70.871795</td>
-      <td>0.938961</td>
-      <td>65.358974</td>
-      <td>33.255844</td>
-      <td>3.935897</td>
-      <td>0.051282</td>
-    </tr>
-    <tr>
-      <th>ground</th>
-      <td>59.968750</td>
-      <td>94.812500</td>
-      <td>83.906250</td>
-      <td>1.340741</td>
-      <td>73.187500</td>
-      <td>150.044444</td>
-      <td>3.343750</td>
-      <td>0.062500</td>
-    </tr>
-    <tr>
-      <th>ice</th>
-      <td>62.739130</td>
-      <td>73.304348</td>
-      <td>71.913043</td>
-      <td>1.208696</td>
-      <td>72.086957</td>
-      <td>103.260870</td>
-      <td>3.565217</td>
-      <td>0.086957</td>
-    </tr>
-    <tr>
-      <th>bug</th>
-      <td>63.569444</td>
-      <td>70.125000</td>
-      <td>70.847222</td>
-      <td>0.883333</td>
-      <td>56.722222</td>
-      <td>33.083333</td>
-      <td>3.763889</td>
-      <td>0.041667</td>
-    </tr>
-    <tr>
-      <th>water</th>
-      <td>63.921053</td>
-      <td>73.307018</td>
-      <td>73.482456</td>
-      <td>1.283333</td>
-      <td>70.219298</td>
-      <td>51.071930</td>
-      <td>3.210526</td>
-      <td>0.052632</td>
-    </tr>
-    <tr>
-      <th>poison</th>
-      <td>64.187500</td>
-      <td>72.656250</td>
-      <td>70.031250</td>
-      <td>1.160000</td>
-      <td>65.593750</td>
-      <td>33.830000</td>
-      <td>3.093750</td>
-      <td>0.000000</td>
-    </tr>
-    <tr>
-      <th>fighting</th>
-      <td>64.285714</td>
-      <td>99.178571</td>
-      <td>66.392857</td>
-      <td>1.196429</td>
-      <td>71.428571</td>
-      <td>58.675000</td>
-      <td>3.750000</td>
-      <td>0.000000</td>
-    </tr>
-    <tr>
-      <th>normal</th>
-      <td>69.533333</td>
-      <td>75.161905</td>
-      <td>59.695238</td>
-      <td>1.024752</td>
-      <td>76.723810</td>
-      <td>46.158416</td>
-      <td>3.495238</td>
-      <td>0.028571</td>
-    </tr>
-    <tr>
-      <th>fire</th>
-      <td>73.346154</td>
-      <td>81.500000</td>
-      <td>67.788462</td>
-      <td>1.168000</td>
-      <td>68.730769</td>
-      <td>66.096000</td>
-      <td>3.634615</td>
-      <td>0.096154</td>
-    </tr>
-    <tr>
-      <th>psychic</th>
-      <td>75.150943</td>
-      <td>65.566038</td>
-      <td>69.264151</td>
-      <td>1.063462</td>
-      <td>72.943396</td>
-      <td>57.328846</td>
-      <td>3.849057</td>
-      <td>0.320755</td>
+      <th>dragon</th>
+      <td>76.111111</td>
+      <td>106.407407</td>
+      <td>86.259259</td>
+      <td>79.851852</td>
+      <td>107.125926</td>
     </tr>
     <tr>
       <th>dark</th>
       <td>75.310345</td>
       <td>87.793103</td>
       <td>70.517241</td>
-      <td>1.296552</td>
       <td>72.551724</td>
       <td>69.096552</td>
-      <td>4.275862</td>
-      <td>0.103448</td>
     </tr>
     <tr>
-      <th>dragon</th>
-      <td>76.111111</td>
-      <td>106.407407</td>
-      <td>86.259259</td>
-      <td>1.937037</td>
-      <td>79.851852</td>
-      <td>107.125926</td>
-      <td>4.296296</td>
-      <td>0.259259</td>
+      <th>psychic</th>
+      <td>75.150943</td>
+      <td>65.566038</td>
+      <td>69.264151</td>
+      <td>72.943396</td>
+      <td>57.328846</td>
     </tr>
     <tr>
-      <th>electric</th>
-      <td>85.410256</td>
-      <td>70.820513</td>
-      <td>61.820513</td>
-      <td>0.981579</td>
-      <td>60.512821</td>
-      <td>37.944737</td>
-      <td>3.461538</td>
-      <td>0.128205</td>
+      <th>fire</th>
+      <td>73.346154</td>
+      <td>81.500000</td>
+      <td>67.788462</td>
+      <td>68.730769</td>
+      <td>66.096000</td>
     </tr>
     <tr>
-      <th>flying</th>
-      <td>99.666667</td>
-      <td>66.666667</td>
-      <td>65.000000</td>
-      <td>1.166667</td>
-      <td>68.000000</td>
-      <td>52.000000</td>
-      <td>5.666667</td>
-      <td>0.333333</td>
+      <th>normal</th>
+      <td>69.533333</td>
+      <td>75.161905</td>
+      <td>59.695238</td>
+      <td>76.723810</td>
+      <td>46.158416</td>
+    </tr>
+    <tr>
+      <th>fighting</th>
+      <td>64.285714</td>
+      <td>99.178571</td>
+      <td>66.392857</td>
+      <td>71.428571</td>
+      <td>58.675000</td>
+    </tr>
+    <tr>
+      <th>poison</th>
+      <td>64.187500</td>
+      <td>72.656250</td>
+      <td>70.031250</td>
+      <td>65.593750</td>
+      <td>33.830000</td>
+    </tr>
+    <tr>
+      <th>water</th>
+      <td>63.921053</td>
+      <td>73.307018</td>
+      <td>73.482456</td>
+      <td>70.219298</td>
+      <td>51.071930</td>
     </tr>
   </tbody>
 </table>
 </div></div></div>
 </div>
-<p>Groupby kann auch genutzt werden um die Anzahl der Elemente in den jeweiligen Gruppen zu zählen:</p>
+</section>
+<section id="nach-mehreren-merkmalen-gruppieren">
+<h2><span class="section-number">19.3. </span>Nach mehreren Merkmalen gruppieren<a class="headerlink" href="#nach-mehreren-merkmalen-gruppieren" title="Link to this heading">#</a></h2>
+<p>Gruppierungen können auch mehrere Schlüssel besitzen.</p>
+<p>Hier fragen wir beispielsweise, wie viele Pokémon es für jede Kombination aus <code class="docutils literal notranslate"><span class="pre">type1</span></code> und <code class="docutils literal notranslate"><span class="pre">is_legendary</span></code> gibt:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_selected</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">"type1"</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pokemon_small</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span>
+    <span class="p">[</span><span class="s2">"type1"</span><span class="p">,</span> <span class="s2">"is_legendary"</span><span class="p">]</span>
+<span class="p">)</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>type1     is_legendary
+bug       0                69
+          1                 3
+dark      0                26
+          1                 3
+dragon    0                20
+          1                 7
+electric  0                34
+          1                 5
+fairy     0                17
+          1                 1
+fighting  0                28
+fire      0                47
+          1                 5
+flying    0                 2
+          1                 1
+ghost     0                26
+          1                 1
+grass     0                74
+          1                 4
+ground    0                30
+          1                 2
+ice       0                21
+          1                 2
+normal    0               102
+          1                 3
+poison    0                32
+psychic   0                36
+          1                17
+rock      0                41
+          1                 4
+steel     0                18
+          1                 6
+water     0               108
+          1                 6
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="mehrere-kennzahlen-mit-agg">
+<h2><span class="section-number">19.4. </span>Mehrere Kennzahlen mit <code class="docutils literal notranslate"><span class="pre">.agg()</span></code><a class="headerlink" href="#mehrere-kennzahlen-mit-agg" title="Link to this heading">#</a></h2>
+<p>Häufig möchten wir pro Gruppe verschiedene Kennzahlen gleichzeitig berechnen.</p>
+<p>Mit <code class="docutils literal notranslate"><span class="pre">.agg()</span></code> können wir dafür benannte Ergebnisse definieren:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">summary_by_type</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">pokemon_small</span>
+    <span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">"type1"</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">agg</span><span class="p">(</span>
+        <span class="n">number</span><span class="o">=</span><span class="p">(</span><span class="s2">"name"</span><span class="p">,</span> <span class="s2">"size"</span><span class="p">),</span>
+        <span class="n">mean_speed</span><span class="o">=</span><span class="p">(</span><span class="s2">"speed"</span><span class="p">,</span> <span class="s2">"mean"</span><span class="p">),</span>
+        <span class="n">mean_attack</span><span class="o">=</span><span class="p">(</span><span class="s2">"attack"</span><span class="p">,</span> <span class="s2">"mean"</span><span class="p">),</span>
+        <span class="n">mean_weight</span><span class="o">=</span><span class="p">(</span><span class="s2">"weight_kg"</span><span class="p">,</span> <span class="s2">"mean"</span><span class="p">),</span>
+    <span class="p">)</span>
+    <span class="o">.</span><span class="n">sort_values</span><span class="p">(</span>
+        <span class="s2">"mean_speed"</span><span class="p">,</span>
+        <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">summary_by_type</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2322,27 +1605,13 @@ Das sieht eventuell etwas netter aus, bietet aber ansonsten keine Vorteile zu de
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>name</th>
-      <th>type2</th>
-      <th>speed</th>
-      <th>abilities</th>
-      <th>attack</th>
-      <th>defense</th>
-      <th>height_m</th>
-      <th>hp</th>
-      <th>weight_kg</th>
-      <th>generation</th>
-      <th>is_legendary</th>
+      <th>number</th>
+      <th>mean_speed</th>
+      <th>mean_attack</th>
+      <th>mean_weight</th>
     </tr>
     <tr>
       <th>type1</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
       <th></th>
       <th></th>
       <th></th>
@@ -2351,750 +1620,136 @@ Das sieht eventuell etwas netter aus, bietet aber ansonsten keine Vorteile zu de
   </thead>
   <tbody>
     <tr>
-      <th>bug</th>
-      <td>72</td>
-      <td>54</td>
-      <td>72</td>
-      <td>72</td>
-      <td>72</td>
-      <td>72</td>
-      <td>72</td>
-      <td>72</td>
-      <td>72</td>
-      <td>72</td>
-      <td>72</td>
+      <th>flying</th>
+      <td>3</td>
+      <td>99.666667</td>
+      <td>66.666667</td>
+      <td>52.000000</td>
+    </tr>
+    <tr>
+      <th>electric</th>
+      <td>39</td>
+      <td>85.410256</td>
+      <td>70.820513</td>
+      <td>37.944737</td>
+    </tr>
+    <tr>
+      <th>dragon</th>
+      <td>27</td>
+      <td>76.111111</td>
+      <td>106.407407</td>
+      <td>107.125926</td>
     </tr>
     <tr>
       <th>dark</th>
       <td>29</td>
-      <td>20</td>
-      <td>29</td>
-      <td>29</td>
-      <td>29</td>
-      <td>29</td>
-      <td>29</td>
-      <td>29</td>
-      <td>29</td>
-      <td>29</td>
-      <td>29</td>
-    </tr>
-    <tr>
-      <th>dragon</th>
-      <td>27</td>
-      <td>15</td>
-      <td>27</td>
-      <td>27</td>
-      <td>27</td>
-      <td>27</td>
-      <td>27</td>
-      <td>27</td>
-      <td>27</td>
-      <td>27</td>
-      <td>27</td>
-    </tr>
-    <tr>
-      <th>electric</th>
-      <td>39</td>
-      <td>13</td>
-      <td>39</td>
-      <td>39</td>
-      <td>39</td>
-      <td>39</td>
-      <td>38</td>
-      <td>39</td>
-      <td>38</td>
-      <td>39</td>
-      <td>39</td>
-    </tr>
-    <tr>
-      <th>fairy</th>
-      <td>18</td>
-      <td>2</td>
-      <td>18</td>
-      <td>18</td>
-      <td>18</td>
-      <td>18</td>
-      <td>18</td>
-      <td>18</td>
-      <td>18</td>
-      <td>18</td>
-      <td>18</td>
-    </tr>
-    <tr>
-      <th>fighting</th>
-      <td>28</td>
-      <td>6</td>
-      <td>28</td>
-      <td>28</td>
-      <td>28</td>
-      <td>28</td>
-      <td>28</td>
-      <td>28</td>
-      <td>28</td>
-      <td>28</td>
-      <td>28</td>
-    </tr>
-    <tr>
-      <th>fire</th>
-      <td>52</td>
-      <td>25</td>
-      <td>52</td>
-      <td>52</td>
-      <td>52</td>
-      <td>52</td>
-      <td>50</td>
-      <td>52</td>
-      <td>50</td>
-      <td>52</td>
-      <td>52</td>
-    </tr>
-    <tr>
-      <th>flying</th>
-      <td>3</td>
-      <td>2</td>
-      <td>3</td>
-      <td>3</td>
-      <td>3</td>
-      <td>3</td>
-      <td>3</td>
-      <td>3</td>
-      <td>3</td>
-      <td>3</td>
-      <td>3</td>
-    </tr>
-    <tr>
-      <th>ghost</th>
-      <td>27</td>
-      <td>18</td>
-      <td>27</td>
-      <td>27</td>
-      <td>27</td>
-      <td>27</td>
-      <td>27</td>
-      <td>27</td>
-      <td>27</td>
-      <td>27</td>
-      <td>27</td>
-    </tr>
-    <tr>
-      <th>grass</th>
-      <td>78</td>
-      <td>41</td>
-      <td>78</td>
-      <td>78</td>
-      <td>78</td>
-      <td>78</td>
-      <td>77</td>
-      <td>78</td>
-      <td>77</td>
-      <td>78</td>
-      <td>78</td>
-    </tr>
-    <tr>
-      <th>ground</th>
-      <td>32</td>
-      <td>22</td>
-      <td>32</td>
-      <td>32</td>
-      <td>32</td>
-      <td>32</td>
-      <td>27</td>
-      <td>32</td>
-      <td>27</td>
-      <td>32</td>
-      <td>32</td>
-    </tr>
-    <tr>
-      <th>ice</th>
-      <td>23</td>
-      <td>11</td>
-      <td>23</td>
-      <td>23</td>
-      <td>23</td>
-      <td>23</td>
-      <td>23</td>
-      <td>23</td>
-      <td>23</td>
-      <td>23</td>
-      <td>23</td>
-    </tr>
-    <tr>
-      <th>normal</th>
-      <td>105</td>
-      <td>44</td>
-      <td>105</td>
-      <td>105</td>
-      <td>105</td>
-      <td>105</td>
-      <td>101</td>
-      <td>105</td>
-      <td>101</td>
-      <td>105</td>
-      <td>105</td>
-    </tr>
-    <tr>
-      <th>poison</th>
-      <td>32</td>
-      <td>19</td>
-      <td>32</td>
-      <td>32</td>
-      <td>32</td>
-      <td>32</td>
-      <td>30</td>
-      <td>32</td>
-      <td>30</td>
-      <td>32</td>
-      <td>32</td>
+      <td>75.310345</td>
+      <td>87.793103</td>
+      <td>69.096552</td>
     </tr>
     <tr>
       <th>psychic</th>
       <td>53</td>
-      <td>18</td>
-      <td>53</td>
-      <td>53</td>
-      <td>53</td>
-      <td>53</td>
-      <td>52</td>
-      <td>53</td>
-      <td>52</td>
-      <td>53</td>
-      <td>53</td>
+      <td>75.150943</td>
+      <td>65.566038</td>
+      <td>57.328846</td>
     </tr>
     <tr>
-      <th>rock</th>
-      <td>45</td>
-      <td>34</td>
-      <td>45</td>
-      <td>45</td>
-      <td>45</td>
-      <td>45</td>
-      <td>41</td>
-      <td>45</td>
-      <td>41</td>
-      <td>45</td>
-      <td>45</td>
+      <th>fire</th>
+      <td>52</td>
+      <td>73.346154</td>
+      <td>81.500000</td>
+      <td>66.096000</td>
     </tr>
     <tr>
-      <th>steel</th>
-      <td>24</td>
-      <td>20</td>
-      <td>24</td>
-      <td>24</td>
-      <td>24</td>
-      <td>24</td>
-      <td>24</td>
-      <td>24</td>
-      <td>24</td>
-      <td>24</td>
-      <td>24</td>
+      <th>normal</th>
+      <td>105</td>
+      <td>69.533333</td>
+      <td>75.161905</td>
+      <td>46.158416</td>
+    </tr>
+    <tr>
+      <th>fighting</th>
+      <td>28</td>
+      <td>64.285714</td>
+      <td>99.178571</td>
+      <td>58.675000</td>
+    </tr>
+    <tr>
+      <th>poison</th>
+      <td>32</td>
+      <td>64.187500</td>
+      <td>72.656250</td>
+      <td>33.830000</td>
     </tr>
     <tr>
       <th>water</th>
       <td>114</td>
-      <td>53</td>
-      <td>114</td>
-      <td>114</td>
-      <td>114</td>
-      <td>114</td>
-      <td>114</td>
-      <td>114</td>
-      <td>114</td>
-      <td>114</td>
-      <td>114</td>
+      <td>63.921053</td>
+      <td>73.307018</td>
+      <td>51.071930</td>
     </tr>
   </tbody>
 </table>
 </div></div></div>
 </div>
-<p>Es ist sogar möglich, mehrere groupby Aktionen zu kombinieren und damit Gruppen und Untergruppen zu erstellen:</p>
+<p>Diese Form ist besonders praktisch, weil direkt sichtbar ist:</p>
+<ul class="simple">
+<li><p>welche Eingabespalte verwendet wird,</p></li>
+<li><p>welche Berechnung durchgeführt wird,</p></li>
+<li><p>wie die Ergebnis-Spalte heißen soll.</p></li>
+</ul>
+</section>
+<section id="kurzer-ausblick-plotten-direkt-aus-pandas">
+<h2><span class="section-number">19.5. </span>Kurzer Ausblick: Plotten direkt aus pandas<a class="headerlink" href="#kurzer-ausblick-plotten-direkt-aus-pandas" title="Link to this heading">#</a></h2>
+<p>pandas kann einfache Diagramme direkt aus einer <code class="docutils literal notranslate"><span class="pre">Series</span></code> oder einem <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> erzeugen. Im Hintergrund wird dafür typischerweise <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> verwendet.</p>
+<p>Wir plotten hier <strong>eine einzige sinnvoll vergleichbare Größe</strong>: das mittlere Gewicht je Typ.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_selected</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">"type1"</span><span class="p">,</span> <span class="s2">"is_legendary"</span><span class="p">])</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">numeric_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mean_weight</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">summary_by_type</span><span class="p">[</span><span class="s2">"mean_weight"</span><span class="p">]</span>
+    <span class="o">.</span><span class="n">sort_values</span><span class="p">()</span>
+<span class="p">)</span>
 
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
+<span class="n">ax</span> <span class="o">=</span> <span class="n">mean_weight</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span>
+    <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<span class="p">)</span>
 
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th></th>
-      <th>speed</th>
-      <th>attack</th>
-      <th>defense</th>
-      <th>height_m</th>
-      <th>hp</th>
-      <th>weight_kg</th>
-      <th>generation</th>
-    </tr>
-    <tr>
-      <th>type1</th>
-      <th>is_legendary</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th rowspan="2" valign="top">bug</th>
-      <th>0</th>
-      <td>61.565217</td>
-      <td>67.434783</td>
-      <td>70.000000</td>
-      <td>0.839130</td>
-      <td>55.579710</td>
-      <td>28.128986</td>
-      <td>3.652174</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>109.666667</td>
-      <td>132.000000</td>
-      <td>90.333333</td>
-      <td>1.900000</td>
-      <td>83.000000</td>
-      <td>147.033333</td>
-      <td>6.333333</td>
-    </tr>
-    <tr>
-      <th rowspan="2" valign="top">dark</th>
-      <th>0</th>
-      <td>73.730769</td>
-      <td>85.538462</td>
-      <td>69.500000</td>
-      <td>0.953846</td>
-      <td>64.807692</td>
-      <td>33.165385</td>
-      <td>4.115385</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>89.000000</td>
-      <td>107.333333</td>
-      <td>79.333333</td>
-      <td>4.266667</td>
-      <td>139.666667</td>
-      <td>380.500000</td>
-      <td>5.666667</td>
-    </tr>
-    <tr>
-      <th rowspan="2" valign="top">dragon</th>
-      <th>0</th>
-      <td>68.000000</td>
-      <td>98.650000</td>
-      <td>78.900000</td>
-      <td>1.390000</td>
-      <td>67.500000</td>
-      <td>65.065000</td>
-      <td>4.300000</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>99.285714</td>
-      <td>128.571429</td>
-      <td>107.285714</td>
-      <td>3.500000</td>
-      <td>115.142857</td>
-      <td>227.300000</td>
-      <td>4.285714</td>
-    </tr>
-    <tr>
-      <th rowspan="2" valign="top">electric</th>
-      <th>0</th>
-      <td>82.411765</td>
-      <td>67.000000</td>
-      <td>59.558824</td>
-      <td>0.809091</td>
-      <td>57.294118</td>
-      <td>31.206061</td>
-      <td>3.323529</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>105.800000</td>
-      <td>96.800000</td>
-      <td>77.200000</td>
-      <td>2.120000</td>
-      <td>82.400000</td>
-      <td>82.420000</td>
-      <td>4.400000</td>
-    </tr>
-    <tr>
-      <th rowspan="2" valign="top">fairy</th>
-      <th>0</th>
-      <td>51.000000</td>
-      <td>58.058824</td>
-      <td>66.588235</td>
-      <td>0.664706</td>
-      <td>70.882353</td>
-      <td>12.294118</td>
-      <td>4.176471</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>99.000000</td>
-      <td>131.000000</td>
-      <td>95.000000</td>
-      <td>3.000000</td>
-      <td>126.000000</td>
-      <td>215.000000</td>
-      <td>6.000000</td>
-    </tr>
-    <tr>
-      <th>fighting</th>
-      <th>0</th>
-      <td>64.285714</td>
-      <td>99.178571</td>
-      <td>66.392857</td>
-      <td>1.196429</td>
-      <td>71.428571</td>
-      <td>58.675000</td>
-      <td>3.750000</td>
-    </tr>
-    <tr>
-      <th rowspan="2" valign="top">fire</th>
-      <th>0</th>
-      <td>72.063830</td>
-      <td>78.574468</td>
-      <td>64.553191</td>
-      <td>1.046667</td>
-      <td>65.787234</td>
-      <td>49.395556</td>
-      <td>3.702128</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>85.400000</td>
-      <td>109.000000</td>
-      <td>98.200000</td>
-      <td>2.260000</td>
-      <td>96.400000</td>
-      <td>216.400000</td>
-      <td>3.000000</td>
-    </tr>
-    <tr>
-      <th rowspan="2" valign="top">flying</th>
-      <th>0</th>
-      <td>89.000000</td>
-      <td>50.000000</td>
-      <td>57.500000</td>
-      <td>1.000000</td>
-      <td>62.500000</td>
-      <td>46.500000</td>
-      <td>6.000000</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>121.000000</td>
-      <td>100.000000</td>
-      <td>80.000000</td>
-      <td>1.500000</td>
-      <td>79.000000</td>
-      <td>63.000000</td>
-      <td>5.000000</td>
-    </tr>
-    <tr>
-      <th rowspan="2" valign="top">ghost</th>
-      <th>0</th>
-      <td>57.115385</td>
-      <td>70.923077</td>
-      <td>78.730769</td>
-      <td>1.126923</td>
-      <td>60.038462</td>
-      <td>43.400000</td>
-      <td>4.384615</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>90.000000</td>
-      <td>120.000000</td>
-      <td>100.000000</td>
-      <td>4.500000</td>
-      <td>150.000000</td>
-      <td>750.000000</td>
-      <td>4.000000</td>
-    </tr>
-    <tr>
-      <th rowspan="2" valign="top">grass</th>
-      <th>0</th>
-      <td>56.554054</td>
-      <td>70.945946</td>
-      <td>69.391892</td>
-      <td>0.930137</td>
-      <td>64.567568</td>
-      <td>31.684932</td>
-      <td>3.837838</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>104.750000</td>
-      <td>126.000000</td>
-      <td>98.250000</td>
-      <td>1.100000</td>
-      <td>80.000000</td>
-      <td>61.925000</td>
-      <td>5.750000</td>
-    </tr>
-    <tr>
-      <th rowspan="2" valign="top">ground</th>
-      <th>0</th>
-      <td>57.933333</td>
-      <td>90.300000</td>
-      <td>81.166667</td>
-      <td>1.248000</td>
-      <td>71.766667</td>
-      <td>121.328000</td>
-      <td>3.300000</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>90.500000</td>
-      <td>162.500000</td>
-      <td>125.000000</td>
-      <td>2.500000</td>
-      <td>94.500000</td>
-      <td>509.000000</td>
-      <td>4.000000</td>
-    </tr>
-    <tr>
-      <th rowspan="2" valign="top">ice</th>
-      <th>0</th>
-      <td>62.285714</td>
-      <td>73.857143</td>
-      <td>69.238095</td>
-      <td>1.157143</td>
-      <td>70.857143</td>
-      <td>102.123810</td>
-      <td>3.714286</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>67.500000</td>
-      <td>67.500000</td>
-      <td>100.000000</td>
-      <td>1.750000</td>
-      <td>85.000000</td>
-      <td>115.200000</td>
-      <td>2.000000</td>
-    </tr>
-    <tr>
-      <th rowspan="2" valign="top">normal</th>
-      <th>0</th>
-      <td>68.166667</td>
-      <td>73.372549</td>
-      <td>58.313725</td>
-      <td>0.979592</td>
-      <td>75.745098</td>
-      <td>39.954082</td>
-      <td>3.470588</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>116.000000</td>
-      <td>136.000000</td>
-      <td>106.666667</td>
-      <td>2.500000</td>
-      <td>110.000000</td>
-      <td>248.833333</td>
-      <td>4.333333</td>
-    </tr>
-    <tr>
-      <th>poison</th>
-      <th>0</th>
-      <td>64.187500</td>
-      <td>72.656250</td>
-      <td>70.031250</td>
-      <td>1.160000</td>
-      <td>65.593750</td>
-      <td>33.830000</td>
-      <td>3.093750</td>
-    </tr>
-    <tr>
-      <th rowspan="2" valign="top">psychic</th>
-      <th>0</th>
-      <td>65.444444</td>
-      <td>50.138889</td>
-      <td>57.277778</td>
-      <td>0.869444</td>
-      <td>65.194444</td>
-      <td>24.561111</td>
-      <td>3.500000</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>95.705882</td>
-      <td>98.235294</td>
-      <td>94.647059</td>
-      <td>1.500000</td>
-      <td>89.352941</td>
-      <td>131.056250</td>
-      <td>4.588235</td>
-    </tr>
-    <tr>
-      <th rowspan="2" valign="top">rock</th>
-      <th>0</th>
-      <td>53.975610</td>
-      <td>88.731707</td>
-      <td>94.756098</td>
-      <td>1.297297</td>
-      <td>64.756098</td>
-      <td>88.013514</td>
-      <td>3.658537</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>92.750000</td>
-      <td>110.500000</td>
-      <td>111.750000</td>
-      <td>1.375000</td>
-      <td>82.500000</td>
-      <td>138.575000</td>
-      <td>5.250000</td>
-    </tr>
-    <tr>
-      <th rowspan="2" valign="top">steel</th>
-      <th>0</th>
-      <td>49.111111</td>
-      <td>91.833333</td>
-      <td>120.444444</td>
-      <td>1.394444</td>
-      <td>58.611111</td>
-      <td>128.483333</td>
-      <td>4.000000</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>79.000000</td>
-      <td>96.833333</td>
-      <td>119.500000</td>
-      <td>3.316667</td>
-      <td>91.333333</td>
-      <td>369.916667</td>
-      <td>4.833333</td>
-    </tr>
-    <tr>
-      <th rowspan="2" valign="top">water</th>
-      <th>0</th>
-      <td>62.212963</td>
-      <td>71.898148</td>
-      <td>71.916667</td>
-      <td>1.227778</td>
-      <td>69.018519</td>
-      <td>45.149074</td>
-      <td>3.157407</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>94.666667</td>
-      <td>98.666667</td>
-      <td>101.666667</td>
-      <td>2.283333</td>
-      <td>91.833333</td>
-      <td>157.683333</td>
-      <td>4.166667</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">"Mittleres Gewicht [kg]"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">"Typ"</span><span class="p">)</span>
+</pre></div>
 </div>
-<p>Damit können wir einsehen, welche mittleren Werte ein Pokemon von einem bestimmtem Typ hat, je nachdem ob er „legendary“ ist oder nicht.</p>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, 'Typ')
+</pre></div>
+</div>
+<img alt="../_images/d3279667b6f3c6563ec1e20f743cc5be3bfb38364d659b3be2b4be7124b4abf1.png" src="../_images/d3279667b6f3c6563ec1e20f743cc5be3bfb38364d659b3be2b4be7124b4abf1.png" />
+</div>
+</div>
+<p>Für komplexere Visualisierungen gibt es spezialisierte Bibliotheken. Hier reicht uns die Idee, dass das Ergebnis einer pandas-Auswertung direkt visualisiert werden kann.</p>
 </section>
-<section id="plotting">
-<h2><span class="section-number">19.4. </span>Plotting<a class="headerlink" href="#plotting" title="Link to this heading">#</a></h2>
-<p>Noch einige kurze Plotting-Beispiele zum Schluss.</p>
-<p>Da wir eben <code class="docutils literal notranslate"><span class="pre">groupby</span></code> benutzt haben, können wir dies auch verwenden um einen Plot zu erzeugen. „stacked=True“ bedeutet hierbei übrigens, dass die verschiedenen Balken aneinander gehängt werden sollen.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cols</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"attack"</span><span class="p">,</span> <span class="s2">"defense"</span><span class="p">,</span> <span class="s2">"hp"</span><span class="p">,</span> <span class="s2">"speed"</span><span class="p">,</span> <span class="s2">"weight_kg"</span><span class="p">]</span>
-<span class="n">data_selected</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">"type1"</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">numeric_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="n">cols</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="n">stacked</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<section id="zusammenfassung">
+<h2><span class="section-number">19.6. </span>Zusammenfassung<a class="headerlink" href="#zusammenfassung" title="Link to this heading">#</a></h2>
+<p>Wichtige Muster aus diesem Kapitel:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+
+<span class="n">df</span><span class="p">[</span><span class="s2">"column"</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="o">...</span><span class="p">])</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">mask</span><span class="p">,</span> <span class="n">columns</span><span class="p">]</span>
+<span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">mask</span><span class="p">,</span> <span class="s2">"column"</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">"group"</span><span class="p">)</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">"group"</span><span class="p">)[</span><span class="n">columns</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">"group"</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span>
+    <span class="n">new_name</span><span class="o">=</span><span class="p">(</span><span class="s2">"column"</span><span class="p">,</span> <span class="s2">"mean"</span><span class="p">),</span>
+<span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: ylabel='type1'&gt;
-</pre></div>
-</div>
-<img alt="../_images/cf20c291930f5adb270e7125d8d74a056798e7119e57071cfc7ffbee4a71860b.png" src="../_images/cf20c291930f5adb270e7125d8d74a056798e7119e57071cfc7ffbee4a71860b.png" />
-</div>
-</div>
-<p>Es gibt schönere Plots, aber zumindest sehen wir so sehr schnell, dass vor allem der Eintrag „weight_kg“ sehr stark von der jeweiligen type1-Gruppe abhängt! Also gleich noch einen Plot dafür hinterher:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_selected</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">"type1"</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">numeric_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="s2">"weight_kg"</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">barh</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: ylabel='type1'&gt;
-</pre></div>
-</div>
-<img alt="../_images/e70cfb58c95341d051707d5b7203d01cd7661c729db96d27008462f551ddb961.png" src="../_images/e70cfb58c95341d051707d5b7203d01cd7661c729db96d27008462f551ddb961.png" />
-</div>
-</div>
-<section id="intermezzo-data-visualization">
-<h3><span class="section-number">19.4.1. </span>Intermezzo: data visualization<a class="headerlink" href="#intermezzo-data-visualization" title="Link to this heading">#</a></h3>
-<p>Warum ist der Plot hier oben ziemlich mies?</p>
-<p>–&gt; Die Reihenfolge macht es <strong>sehr</strong> unübersichtlich! Stellen Sie sich vor ich frage, welcher Typ auf der Position 3, 4, oder 5 steht…</p>
-<p>–&gt; Die Axenbeschriftung bei der x-Achse fehlt.</p>
-<p>Allgemein: Pandas plottet mit Hilfe von <a class="reference external" href="https://matplotlib.org/"><code class="docutils literal notranslate"><span class="pre">matplotlib</span></code></a>. Für Aufwendigere Grafiken und Anpassungen werden die Plots darum auch  mit matplotlib programmiert. Aber Pandas gibt eben einen schnellen  Zugang um verschiedene Plots zu erkunden.</p>
-<p>Einfache Anpassungen lassen sich auch durchaus gut mit Pandas machen, bzw. können auch matplotlib Befehle mit Pandas kombiniert werden.</p>
-<p>Darum hier ein weiterer Versuch:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">data_selected</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">"type1"</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">numeric_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="s2">"weight_kg"</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">barh</span><span class="p">()</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">"weight [kg]"</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0, 'weight [kg]')
-</pre></div>
-</div>
-<img alt="../_images/8defcb72fb64f5ea31d75cc80f7c88c6dd9ce9f413beecb4ab132ea6ca5268ab.png" src="../_images/8defcb72fb64f5ea31d75cc80f7c88c6dd9ce9f413beecb4ab132ea6ca5268ab.png" />
-</div>
-</div>
-<p>Bei Pandas werden solche Aufrufe schnell sehr lang und kompliziert, da  immer mehr und mehr Funktionen/Methoden hintereinander gehangen werden  können. Um es etwas übersichtlicher zu machen kann auch mit  Zwischenschritten gearbeitet werden!</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_groupby_type</span> <span class="o">=</span> <span class="n">data_selected</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">"type1"</span><span class="p">)</span>
-<span class="n">data_mean_weight</span> <span class="o">=</span> <span class="n">data_groupby_type</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">numeric_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="s2">"weight_kg"</span><span class="p">]</span>
-<span class="n">ax</span> <span class="o">=</span> <span class="n">data_mean_weight</span><span class="o">.</span><span class="n">sort_values</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">barh</span><span class="p">()</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">"weight [kg]"</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0, 'weight [kg]')
-</pre></div>
-</div>
-<img alt="../_images/8defcb72fb64f5ea31d75cc80f7c88c6dd9ce9f413beecb4ab132ea6ca5268ab.png" src="../_images/8defcb72fb64f5ea31d75cc80f7c88c6dd9ce9f413beecb4ab132ea6ca5268ab.png" />
-</div>
-</div>
-</section>
-</section>
-<section id="pandas-ist-riesig">
-<h2><span class="section-number">19.5. </span>Pandas ist riesig!<a class="headerlink" href="#pandas-ist-riesig" title="Link to this heading">#</a></h2>
-<p>Zum Schluss noch der Hinweis, das wir in 2-3, ja auch nicht in 4-5 Vorlesung den Umfang von Pandas abdecken können. Es geht also v.a. darum, dass Sie sich mit dem Umgang mit Pandas und DataFrames vertraut machen und die einfachen Operationen damit ausführen können (z.B. slicing, Sortieren). Für alles weitere können Sie jederzeit in Foren oder auf der Pandas Dokumentation nachschauen, ob es für ihre spezielle Frage nicht schon eine passende Pandas-Methode gibt:</p>
-<p>https://pandas.pydata.org/pandas-docs/stable/reference/frame.html</p>
+<p>pandas kann noch sehr viel mehr – zum Beispiel Tabellen zusammenführen (<code class="docutils literal notranslate"><span class="pre">merge</span></code>), Zeitreihen verarbeiten oder Daten umformen. Für den Einstieg sind Auswahl, fehlende Werte und <code class="docutils literal notranslate"><span class="pre">groupby()</span></code> aber einige der wichtigsten Werkzeuge.</p>
 </section>
 </section>
 
@@ -3134,7 +1789,7 @@ Das sieht eventuell etwas netter aus, bietet aber ansonsten keine Vorteile zu de
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">zurück</p>
-        <p class="prev-next-title"><span class="section-number">18. </span>Pandas</p>
+        <p class="prev-next-title"><span class="section-number">18. </span>Pandas – Teil 1: DataFrames verstehen und Daten auswählen</p>
       </div>
     </a>
     <a class="right-next"
@@ -3164,28 +1819,27 @@ Das sieht eventuell etwas netter aus, bietet aber ansonsten keine Vorteile zu de
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="pst-show_toc_level nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-cleaning">19.1. Data cleaning</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#und-jetzt-was-tun-mit-nans">19.1.1. Und jetzt? Was tun mit NaNs?</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#nan-ersetzen">19.1.1.1. NaN ersetzen</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">19. Pandas – Teil 2: Daten bereinigen und zusammenfassen</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fehlende-werte">19.1. Fehlende Werte</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fehlende-werte-beim-zahlen-sichtbar-machen">19.1.1. Fehlende Werte beim Zählen sichtbar machen</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nan-entfernen">19.1.2. NaN entfernen</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wichtig">19.1.3. Wichtig:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fehlende-werte-behandeln">19.2. Fehlende Werte behandeln</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filtern-und-kennzahlen-berechnen">19.3. Filtern und Kennzahlen berechnen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#werte-gezielt-verandern">19.4. Werte gezielt verändern</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-selection">19.2. Data selection</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#option-1-masken">19.2.1. Option 1: Masken</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#option-2-query">19.2.2. Option 2: query</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#outlook-groupby">19.2.3. Outlook: groupby</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#groupby-gruppen-zusammenfassen">19. <code class="docutils literal notranslate"><span class="pre">groupby()</span></code>: Gruppen zusammenfassen</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wie-grosz-sind-die-gruppen">19.1. Wie groß sind die Gruppen?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mittelwerte-pro-gruppe">19.2. Mittelwerte pro Gruppe</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nach-mehreren-merkmalen-gruppieren">19.3. Nach mehreren Merkmalen gruppieren</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mehrere-kennzahlen-mit-agg">19.4. Mehrere Kennzahlen mit <code class="docutils literal notranslate"><span class="pre">.agg()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kurzer-ausblick-plotten-direkt-aus-pandas">19.5. Kurzer Ausblick: Plotten direkt aus pandas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zusammenfassung">19.6. Zusammenfassung</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#groupby">19.3. Groupby</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting">19.4. Plotting</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#intermezzo-data-visualization">19.4.1. Intermezzo: data visualization</a></li>
 </ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas-ist-riesig">19.5. Pandas ist riesig!</a></li>
-</ul>
+
   </nav></div>
 
 </div></div>

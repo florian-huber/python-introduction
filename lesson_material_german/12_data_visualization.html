@@ -67,7 +67,7 @@
     <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
     <link rel="search" title="Suche" href="../search.html" />
     <link rel="next" title="21. 2D/3D Visualisierung &amp; interaktive Plots" href="13_data_visualization_outlook.html" />
-    <link rel="prev" title="19. Pandas - Teil 2" href="10_pandas_2.html" />
+    <link rel="prev" title="19. Pandas – Teil 2: Daten bereinigen und zusammenfassen" href="10_pandas_2.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="de"/>
   <meta name="docsearch:version" content="" />
@@ -243,7 +243,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Error Handling und Best Practices I</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="04_try_except.html">11. Fehler behandeln mit <code class="docutils literal notranslate"><span class="pre">try</span></code> und <code class="docutils literal notranslate"><span class="pre">except</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="05_one_step_back-best_practices.html">12. Clean code und „best practices“</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_environments.html">12. Python-Umgebungen, Packages und <code class="docutils literal notranslate"><span class="pre">uv</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="05_open_files.html">13. Dateien lesen und schreiben</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Klassen und Objekte</span></p>
@@ -258,8 +258,9 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Schritte Richtung Data Science</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="09_pandas.html">18. Pandas</a></li>
-<li class="toctree-l1"><a class="reference internal" href="10_pandas_2.html">19. Pandas - Teil 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_pandas.html">18. Pandas – Teil 1: DataFrames verstehen und Daten auswählen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_pandas_2.html">19. Pandas – Teil 2: Daten bereinigen und zusammenfassen</a></li>
+
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">20. Datenvisualisierung mit Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="13_data_visualization_outlook.html">21. 2D/3D Visualisierung &amp; interaktive Plots</a></li>
 </ul>
@@ -1365,18 +1366,88 @@ Wir müssen uns immer auch Gedanken machen, wie das Layout und Format aussieht. 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">26</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> 
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1"># More fake data...</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
-<span class="ne">ModuleNotFoundError</span>: No module named 'pandas'
-</pre></div>
-</div>
-</div>
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>age</th>
+      <th>length</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>20</td>
+      <td>178</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>75</td>
+      <td>169</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>36</td>
+      <td>140</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>39</td>
+      <td>163</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>33</td>
+      <td>163</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>195</th>
+      <td>36</td>
+      <td>166</td>
+    </tr>
+    <tr>
+      <th>196</th>
+      <td>28</td>
+      <td>166</td>
+    </tr>
+    <tr>
+      <th>197</th>
+      <td>50</td>
+      <td>163</td>
+    </tr>
+    <tr>
+      <th>198</th>
+      <td>62</td>
+      <td>182</td>
+    </tr>
+    <tr>
+      <th>199</th>
+      <td>43</td>
+      <td>174</td>
+    </tr>
+  </tbody>
+</table>
+<p>200 rows × 2 columns</p>
+</div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1392,7 +1463,7 @@ Wir müssen uns immer auch Gedanken machen, wie das Layout und Format aussieht. 
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[&lt;Axes: title={'center': 'length'}&gt;]], dtype=object)
 </pre></div>
 </div>
-<img alt="../_images/a4d5aa53cb78be2b73730d6e529f0046ffaa8884724dd211378651ec7da0c08e.png" src="../_images/a4d5aa53cb78be2b73730d6e529f0046ffaa8884724dd211378651ec7da0c08e.png" />
+<img alt="../_images/93d7ad0bc0e585ba00e00359347e825919be10c458e42e47d730ad13811fc37b.png" src="../_images/93d7ad0bc0e585ba00e00359347e825919be10c458e42e47d730ad13811fc37b.png" />
 </div>
 </div>
 <p>Pandas erlaubt also extrem schnell (also: mit wenig Code) bestimmte Plots basierend auf einem vorliegenden Dataframe zu erzeugen. Da intern dafür Matplotlib genutzt wird können wir Pandas auch die in Matplotlib genutzten Parameter übergeben.</p>
@@ -1406,7 +1477,7 @@ Wir müssen uns immer auch Gedanken machen, wie das Layout und Format aussieht. 
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[&lt;Axes: title={'center': 'length'}&gt;]], dtype=object)
 </pre></div>
 </div>
-<img alt="../_images/a7ea1088210f9f7d973f3eb034b78a279c3b042b9cfedda3f75ab14ac2fa175b.png" src="../_images/a7ea1088210f9f7d973f3eb034b78a279c3b042b9cfedda3f75ab14ac2fa175b.png" />
+<img alt="../_images/febd2ad5506ff63979659bf385c7a0fde2d0ef99d939f2e44a117f7dd1869f79.png" src="../_images/febd2ad5506ff63979659bf385c7a0fde2d0ef99d939f2e44a117f7dd1869f79.png" />
 </div>
 </div>
 <p>Wir können aber auch damit weiterarbeiten wir mit einer Matplotlib <code class="docutils literal notranslate"><span class="pre">Figure</span></code> (denn das ist genau das was eigentlich zurückgegeben wird von Pandas!).</p>
@@ -1422,7 +1493,7 @@ Wir müssen uns immer auch Gedanken machen, wie das Layout und Format aussieht. 
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(160.0, 200.0)
 </pre></div>
 </div>
-<img alt="../_images/39a86bf83f0ef00b15f50ba86d9e504232ca2aa16a7e3b8232539881cdbac92f.png" src="../_images/39a86bf83f0ef00b15f50ba86d9e504232ca2aa16a7e3b8232539881cdbac92f.png" />
+<img alt="../_images/c7e7b47f3df4457075fe0fc640518518f2033d3d318d1a9bfa2f05bd98c264b4.png" src="../_images/c7e7b47f3df4457075fe0fc640518518f2033d3d318d1a9bfa2f05bd98c264b4.png" />
 </div>
 </div>
 <p>Für komplexere Anpassungen kann es aber auch hier gut sein, wieder auf den Objekt-orientierten Ansatz umzusteigen.</p>
@@ -1450,7 +1521,7 @@ Wir müssen uns immer auch Gedanken machen, wie das Layout und Format aussieht. 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/0211128fa376a1812b29f35a8964d819ea9b76567d35cd6f714881f4940bd599.png" src="../_images/0211128fa376a1812b29f35a8964d819ea9b76567d35cd6f714881f4940bd599.png" />
+<img alt="../_images/653cf95ddc46e4b2e0ed0fa1895b09d91f807f3be873a6d5725f9542cbcfa9ce.png" src="../_images/653cf95ddc46e4b2e0ed0fa1895b09d91f807f3be873a6d5725f9542cbcfa9ce.png" />
 </div>
 </div>
 </section>
@@ -1468,7 +1539,7 @@ Wir müssen uns immer auch Gedanken machen, wie das Layout und Format aussieht. 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/17bc83a36980aba148a29627208cbb5d442bc3828cff7723f155db32db3eb3ae.png" src="../_images/17bc83a36980aba148a29627208cbb5d442bc3828cff7723f155db32db3eb3ae.png" />
+<img alt="../_images/fda3da53edaf567fb0e5e84cb1518a115c23c79d346016d2fb72c6eca16d1710.png" src="../_images/fda3da53edaf567fb0e5e84cb1518a115c23c79d346016d2fb72c6eca16d1710.png" />
 </div>
 </div>
 <p>Auch mit dem „<em>pyplot-style</em>“ können die einzelnen Subplots individuell angepasst werden.<br />
@@ -1513,7 +1584,7 @@ Für komplexe Plots (mit vielen Subplots) ist aber in der Regel das Objekt-Orien
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/428fdfd2ff76d093c85aaa825d34e528953531e37047e68dc16ebd2dbd202cd8.png" src="../_images/428fdfd2ff76d093c85aaa825d34e528953531e37047e68dc16ebd2dbd202cd8.png" />
+<img alt="../_images/46b7f4c6f4597077c33ca80152c9ac37ddd6d90c984444f59b2d738cfd34aad6.png" src="../_images/46b7f4c6f4597077c33ca80152c9ac37ddd6d90c984444f59b2d738cfd34aad6.png" />
 </div>
 </div>
 </section>
@@ -1541,7 +1612,7 @@ Für komplexe Plots (mit vielen Subplots) ist aber in der Regel das Objekt-Orien
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/e3ccc0115d55699a06364d1c67aa096b57d94d92e45e2143409a6333d0dfe44a.png" src="../_images/e3ccc0115d55699a06364d1c67aa096b57d94d92e45e2143409a6333d0dfe44a.png" />
+<img alt="../_images/62da28be29dc5a2a4b8167e50d4df05a4acafc6076dcffa475255165a211f77a.png" src="../_images/62da28be29dc5a2a4b8167e50d4df05a4acafc6076dcffa475255165a211f77a.png" />
 </div>
 </div>
 </section>
@@ -1584,7 +1655,7 @@ Für komplexe Plots (mit vielen Subplots) ist aber in der Regel das Objekt-Orien
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">zurück</p>
-        <p class="prev-next-title"><span class="section-number">19. </span>Pandas - Teil 2</p>
+        <p class="prev-next-title"><span class="section-number">19. </span>Pandas – Teil 2: Daten bereinigen und zusammenfassen</p>
       </div>
     </a>
     <a class="right-next"

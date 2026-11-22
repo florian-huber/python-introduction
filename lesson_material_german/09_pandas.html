@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>18. Pandas &#8212; Einführung Programmieren mit Python</title>
+    <title>18. Pandas – Teil 1: DataFrames verstehen und Daten auswählen &#8212; Einführung Programmieren mit Python</title>
   
   
   
@@ -66,7 +66,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
     <link rel="search" title="Suche" href="../search.html" />
-    <link rel="next" title="19. Pandas - Teil 2" href="10_pandas_2.html" />
+    <link rel="next" title="19. Pandas – Teil 2: Daten bereinigen und zusammenfassen" href="10_pandas_2.html" />
     <link rel="prev" title="17. Numerische Daten in Python mit NumPy – Teil 2" href="09_numpy_2.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="de"/>
@@ -243,7 +243,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Error Handling und Best Practices I</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="04_try_except.html">11. Fehler behandeln mit <code class="docutils literal notranslate"><span class="pre">try</span></code> und <code class="docutils literal notranslate"><span class="pre">except</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="05_one_step_back-best_practices.html">12. Clean code und „best practices“</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_environments.html">12. Python-Umgebungen, Packages und <code class="docutils literal notranslate"><span class="pre">uv</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="05_open_files.html">13. Dateien lesen und schreiben</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Klassen und Objekte</span></p>
@@ -258,8 +258,9 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Schritte Richtung Data Science</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">18. Pandas</a></li>
-<li class="toctree-l1"><a class="reference internal" href="10_pandas_2.html">19. Pandas - Teil 2</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">18. Pandas – Teil 1: DataFrames verstehen und Daten auswählen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_pandas_2.html">19. Pandas – Teil 2: Daten bereinigen und zusammenfassen</a></li>
+
 <li class="toctree-l1"><a class="reference internal" href="12_data_visualization.html">20. Datenvisualisierung mit Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="13_data_visualization_outlook.html">21. 2D/3D Visualisierung &amp; interaktive Plots</a></li>
 </ul>
@@ -498,7 +499,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Pandas</h1>
+    <h1>Pandas – Teil 1: DataFrames verstehen und Daten auswählen</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -508,18 +509,18 @@
             </div>
             <nav aria-label="Page">
                 <ul class="pst-show_toc_level nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter-notebook">18.1. Jupyter Notebook</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#slicing-und-indexing">18.2. Slicing und Indexing</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#elemente-hinzufugen-entfernen">18.2.1. Elemente hinzufügen/entfernen</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#now-go-data-science">18.2.2. Now: go Data Science</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#daten-importieren">18.2.3. Daten importieren</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#neues-kleineres-dataframe-erzeugen">18.2.3.1. Neues, kleineres DataFrame erzeugen</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wie-bekomme-ich-nun-die-werte">18.2.4. Wie bekomme ich nun die Werte</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sortieren">18.3. Sortieren</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kurz-zum-notebook">18.1. Kurz zum Notebook</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ein-erstes-dataframe">18.2. Ein erstes <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#series-und-dataframe">18.3. <code class="docutils literal notranslate"><span class="pre">Series</span></code> und <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zeilen-und-spalten-auswahlen-loc-und-iloc">18.4. Zeilen und Spalten auswählen: <code class="docutils literal notranslate"><span class="pre">loc</span></code> und <code class="docutils literal notranslate"><span class="pre">iloc</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spalten-hinzufugen-und-entfernen">18.5. Spalten hinzufügen und entfernen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eine-csv-datei-einlesen">18.6. Eine CSV-Datei einlesen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ein-kleineres-arbeits-dataframe">18.7. Ein kleineres Arbeits-DataFrame</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#erste-kennzahlen">18.8. Erste Kennzahlen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mit-bedingungen-auswahlen">18.9. Mit Bedingungen auswählen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sortieren">18.10. Sortieren</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#falls-wirklich-ein-numpy-array-benotigt-wird">18.11. Falls wirklich ein NumPy-Array benötigt wird</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zwischenfazit">18.12. Zwischenfazit</a></li>
 </ul>
             </nav>
         </div>
@@ -531,88 +532,44 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="pandas">
-<h1><span class="section-number">18. </span>Pandas<a class="headerlink" href="#pandas" title="Link to this heading">#</a></h1>
-<p>Numpy ist <strong>das</strong> Python-Tool wenn es um den Umgang mit großen Zahlenmengen geht. Aber für viele Data Science-artige Aufgaben fehlen bestimmte Dinge. Und genau darum gibt es <strong>Pandas</strong> (das intern u.a. Numpy Arrays benutzt):</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="pandas-teil-1-dataframes-verstehen-und-daten-auswahlen">
+<h1><span class="section-number">18. </span>Pandas – Teil 1: DataFrames verstehen und Daten auswählen<a class="headerlink" href="#pandas-teil-1-dataframes-verstehen-und-daten-auswahlen" title="Link to this heading">#</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">pandas</span></code> ist eine der wichtigsten Python-Bibliotheken für <strong>tabellarische Daten</strong>.</p>
+<p>NumPy-Arrays sind besonders gut geeignet, wenn viele gleichartige numerische Werte effizient verarbeitet werden sollen. Ein <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> ergänzt dazu unter anderem:</p>
 <ul class="simple">
-<li><p>Heterogene Datentypen innerhalb einer Tabelle</p></li>
-<li><p>Labels</p></li>
-<li><p>Mehr Möglichkeiten zum Umgang mit fehlenden Werten</p></li>
-<li><p>Mehr Datentypen</p></li>
+<li><p>benannte Spalten,</p></li>
+<li><p>einen Index für die Zeilen,</p></li>
+<li><p>unterschiedliche Datentypen in verschiedenen Spalten,</p></li>
+<li><p>viele Werkzeuge zum Filtern, Sortieren und Zusammenfassen von Daten.</p></li>
 </ul>
-<p>Pandas (der Name steht für <strong>Pan</strong>el <strong>Da</strong>ta) wird üblicherweise wie folgt importiert:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
-</pre></div>
-</div>
-<p>In Numpy haben wir uns v.a. mit den Numpy Arrays beschäftigt, der zentrale Datentyp in Numpy.</p>
-<p>In Pandas gibt es zwei Datentypen mit denen wir arbeiten werden: <strong>DataFrame</strong> und <strong>Series</strong>. Wir starten mit ersterem.</p>
+<p>Üblicherweise importieren wir pandas so:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-
-<span class="n">my_dict</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">"city"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"Essen"</span><span class="p">,</span> <span class="s2">"Bochum"</span><span class="p">,</span> <span class="s2">"Dortmund"</span><span class="p">],</span>
-    <span class="s2">"inhabitants"</span><span class="p">:</span> <span class="p">[</span><span class="mi">591032</span><span class="p">,</span> <span class="mi">364454</span><span class="p">,</span> <span class="mi">587696</span><span class="p">],</span>
-    <span class="s2">"xyz"</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="p">}</span>
-
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">my_dict</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s2">"a"</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> 
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">my_dict</span> <span class="o">=</span> <span class="p">{</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named 'pandas'
 </pre></div>
 </div>
 </div>
 </div>
-<section id="jupyter-notebook">
-<h2><span class="section-number">18.1. </span>Jupyter Notebook<a class="headerlink" href="#jupyter-notebook" title="Link to this heading">#</a></h2>
-<p>Bisher haben wir unseren Python Code entweder in einer Konsole geschrieben (eigentlich nur test-weise), oder eben hauptsächlich in einer Entwicklungsumgebung wie Spyder. Letzteres ist und bleibt auch der bevorzugte Weg um umfangreicheren Code zu entwickeln.</p>
-<p>Allerdings gibt es noch eine alternative Umgebung in der sehr gut mit Python gearbeitet werden kann und die sich besonders für Data Science Aufgaben, bzw. erste Erkundungen von Datensets eignet: <strong>Jupyter Notebook</strong>. Die ganzen folgenden Code-Beispiele werden darum auch in solchen Notebooks dargestellt.</p>
-<p>Jupyter Notebook ist Teil der Anaconda-Installation und erzeugt Notebook-Dateien die mit <code class="docutils literal notranslate"><span class="pre">.ipynb</span></code> enden. Jupyter Notebook kann über das Startmenü (unter Anaconda) gestartet werden, oder über den Befehl <code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">notebook</span></code> aus dem Terminal.</p>
-<p>In der Vorlesung wird die Verwendung von Jupyter notebooks vorgeführt und wir werden uns in der nächsten Übung auch damit beschäftigen. Ansonsten gibt es im Internet viel Material zur Benutzung der notebooks, z.B. hier: https://realpython.com/jupyter-notebook-introduction/.</p>
+<section id="kurz-zum-notebook">
+<h2><span class="section-number">18.1. </span>Kurz zum Notebook<a class="headerlink" href="#kurz-zum-notebook" title="Link to this heading">#</a></h2>
+<p>In VS Code kann eine <code class="docutils literal notranslate"><span class="pre">.ipynb</span></code>-Datei Zelle für Zelle ausgeführt werden. Wählt dafür den Python-Interpreter beziehungsweise Kernel eures Projekts, normalerweise aus <code class="docutils literal notranslate"><span class="pre">.venv</span></code>.</p>
+<p>Die Zellen teilen sich einen gemeinsamen Zustand: Variablen aus einer bereits ausgeführten Zelle können in späteren Zellen weiterverwendet werden. Für einen reproduzierbaren Ablauf ist es deshalb sinnvoll, das Notebook <strong>von oben nach unten</strong> auszuführen.</p>
+</section>
+<section id="ein-erstes-dataframe">
+<h2><span class="section-number">18.2. </span>Ein erstes <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code><a class="headerlink" href="#ein-erstes-dataframe" title="Link to this heading">#</a></h2>
+<p>Wir beginnen mit einer kleinen, bewusst einfachen Tabelle. Ein Dictionary eignet sich gut, um ein <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> zu erzeugen: Die Schlüssel werden zu Spaltennamen.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-
-<span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="p">[</span><span class="s2">"Essen"</span><span class="p">,</span> <span class="mi">591032</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]],</span>
-    <span class="p">[</span><span class="s2">"Bochum"</span><span class="p">,</span> <span class="mi">364454</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]],</span>
-    <span class="p">[</span><span class="s2">"Dortmund"</span><span class="p">,</span> <span class="mi">587696</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]]</span>
-<span class="p">]</span>
-
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
-    <span class="n">my_list</span><span class="p">,</span>
-    <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">"city"</span><span class="p">,</span> <span class="s2">"inhabitants"</span><span class="p">,</span> <span class="s2">"xyz"</span><span class="p">],</span>
-    <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s2">"a"</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cities</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+    <span class="p">{</span>
+        <span class="s2">"city"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"Essen"</span><span class="p">,</span> <span class="s2">"Bochum"</span><span class="p">,</span> <span class="s2">"Dortmund"</span><span class="p">],</span>
+        <span class="s2">"inhabitants"</span><span class="p">:</span> <span class="p">[</span><span class="mi">591032</span><span class="p">,</span> <span class="mi">364454</span><span class="p">,</span> <span class="mi">587696</span><span class="p">],</span>
+        <span class="s2">"area_km2"</span><span class="p">:</span> <span class="p">[</span><span class="mf">210.3</span><span class="p">,</span> <span class="mf">145.7</span><span class="p">,</span> <span class="mf">280.7</span><span class="p">],</span>
+    <span class="p">},</span>
+    <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s2">"E"</span><span class="p">,</span> <span class="s2">"B"</span><span class="p">,</span> <span class="s2">"D"</span><span class="p">],</span>
 <span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="slicing-und-indexing">
-<h2><span class="section-number">18.2. </span>Slicing und Indexing<a class="headerlink" href="#slicing-und-indexing" title="Link to this heading">#</a></h2>
-<p>Slicing und Indexing, also das gezielte „zerschneiden“ (slicing) und Adressieren (indexing) von Tabellen um nur bestimmte Daten wiederzugeben ist eines der zentralen Elemente bei der Arbeit mit größeren Datenmengen. Bei Numpy haben wir schon gesehen, wie mächtig, aber auch wie schwierig das sein kann. In Pandas gibt es sogar oft noch mehr Optionen und es kann schnell etwas unübersichtlich werden. Allerdings: Gute Slicing/Indexing-Skills in Pandas werden ziemlich schnell zu echten Superkräften wenn es um Data Science geht!</p>
-<p>OK, aber starten wir erstmal einfach.</p>
-<p>Wir haben gerade gesehen, dass ein Dictionary in ein DataFrame umgesetzt werden kann. Und die Inhalte können auch auf eine Ähnliche Art abgerufen werden, nämlich über die Spaltennamen (entweder einzeln oder als Liste):</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">"inhabitants"</span><span class="p">]</span>
 
-<span class="n">cols</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"city"</span><span class="p">,</span> <span class="s2">"inhabitants"</span><span class="p">]</span>
-<span class="n">df</span><span class="p">[</span><span class="n">cols</span><span class="p">]</span>
+<span class="n">cities</span>
 </pre></div>
 </div>
 </div>
@@ -637,165 +594,159 @@
       <th></th>
       <th>city</th>
       <th>inhabitants</th>
+      <th>area_km2</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>a</th>
+      <th>E</th>
       <td>Essen</td>
       <td>591032</td>
+      <td>210.3</td>
     </tr>
     <tr>
-      <th>b</th>
+      <th>B</th>
       <td>Bochum</td>
       <td>364454</td>
+      <td>145.7</td>
     </tr>
     <tr>
-      <th>c</th>
+      <th>D</th>
       <td>Dortmund</td>
       <td>587696</td>
+      <td>280.7</td>
     </tr>
   </tbody>
 </table>
 </div></div></div>
 </div>
-<p>Um bestimmte Zeilen auszuwählen ist es möglich <code class="docutils literal notranslate"><span class="pre">.loc</span></code> zu nutzen, also <code class="docutils literal notranslate"><span class="pre">.loc[&quot;a&quot;]</span></code> für eine Zeile oder eine Liste oder Range für mehrere Zeilen</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
-    <span class="s2">"city"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"Essen"</span><span class="p">,</span> <span class="s2">"Bochum"</span><span class="p">,</span> <span class="s2">"Dortmund"</span><span class="p">],</span>
-    <span class="s2">"inhabitants"</span><span class="p">:</span> <span class="p">[</span><span class="mi">591032</span><span class="p">,</span> <span class="mi">364454</span><span class="p">,</span> <span class="mi">587696</span><span class="p">],</span>
-    <span class="s2">"xyz"</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="mi">3</span><span class="p">)},</span>
-    <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s2">"a"</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">])</span>
-                  
-<span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">"a"</span><span class="p">]</span>
-
-<span class="c1"># oder über liste</span>
-<span class="n">rows</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"a"</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">]</span>
-<span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">rows</span><span class="p">]</span>
-
-<span class="c1"># oder über range mit :</span>
-<span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">"a"</span><span class="p">:</span><span class="s2">"b"</span><span class="p">]</span>
-
-<span class="c1"># Das kann auch mit Spalten kombiniert werden</span>
-<span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">"a"</span><span class="p">,</span> <span class="p">[</span><span class="s2">"city"</span><span class="p">,</span> <span class="s2">"inhabitants"</span><span class="p">]]</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>city            Essen
-inhabitants    591032
-Name: a, dtype: object
-</pre></div>
-</div>
-</div>
-</div>
-<p>Alternativ gibt es noch einen Weg über die Indices und zwar mit <code class="docutils literal notranslate"><span class="pre">.iloc</span></code> und das sieht dann plötzlich wieder aus wie bei Numpy:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>city</th>
-      <th>inhabitants</th>
-      <th>xyz</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>a</th>
-      <td>Essen</td>
-      <td>591032</td>
-      <td>0.647414</td>
-    </tr>
-    <tr>
-      <th>b</th>
-      <td>Bochum</td>
-      <td>364454</td>
-      <td>0.034891</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># oder auch Zeilen und Spalten</span>
-<span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">:]</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>inhabitants</th>
-      <th>xyz</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>a</th>
-      <td>591032</td>
-      <td>0.647414</td>
-    </tr>
-    <tr>
-      <th>b</th>
-      <td>364454</td>
-      <td>0.034891</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
-<p>Zusammenfassung:</p>
+<p>Ein <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> ist zweidimensional: Es hat Zeilen und Spalten. Zusätzlich besitzt es Beschriftungen:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">[</span> <span class="pre">]</span></code> um Spalten zu wählen</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">.loc[row_labels,</span> <span class="pre">column_labels]</span></code>  um über die Labels (Zeilen und Spaltennamen) Elemente auszuwählen</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">.iloc[row_positions,</span> <span class="pre">column_positions]</span></code>  um über die Indices Elemente auszuwählen</p></li>
+<li><p><strong>columns</strong>: Namen der Spalten</p></li>
+<li><p><strong>index</strong>: Beschriftungen der Zeilen</p></li>
 </ul>
-<section id="elemente-hinzufugen-entfernen">
-<h3><span class="section-number">18.2.1. </span>Elemente hinzufügen/entfernen<a class="headerlink" href="#elemente-hinzufugen-entfernen" title="Link to this heading">#</a></h3>
-<p>Einem DataFrame können weitere Spalten genau wie bei Dictionaries hinzugefügt werden:</p>
+<p>Anders als bei einem NumPy-Array müssen nicht alle Spalten denselben Datentyp haben.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">"height"</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">116</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">86</span><span class="p">]</span>
-<span class="n">df</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">cities</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cities</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cities</span><span class="o">.</span><span class="n">dtypes</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cities</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index(['E', 'B', 'D'], dtype='str')
+Index(['city', 'inhabitants', 'area_km2'], dtype='str')
+city               str
+inhabitants      int64
+area_km2       float64
+dtype: object
+(3, 3)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="series-und-dataframe">
+<h2><span class="section-number">18.3. </span><code class="docutils literal notranslate"><span class="pre">Series</span></code> und <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code><a class="headerlink" href="#series-und-dataframe" title="Link to this heading">#</a></h2>
+<p>Eine einzelne Spalte wird in pandas meistens als <strong><code class="docutils literal notranslate"><span class="pre">Series</span></code></strong> zurückgegeben. Eine <code class="docutils literal notranslate"><span class="pre">Series</span></code> ist eine eindimensionale Datenstruktur mit Index.</p>
+<p>Der Unterschied zwischen diesen beiden Ausdrücken ist wichtig:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">one_column</span> <span class="o">=</span> <span class="n">cities</span><span class="p">[</span><span class="s2">"city"</span><span class="p">]</span>
+<span class="n">one_column_as_table</span> <span class="o">=</span> <span class="n">cities</span><span class="p">[[</span><span class="s2">"city"</span><span class="p">]]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">one_column</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">one_column_as_table</span><span class="p">))</span>
+
+<span class="n">one_column</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class 'pandas.Series'&gt;
+&lt;class 'pandas.DataFrame'&gt;
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>E       Essen
+B      Bochum
+D    Dortmund
+Name: city, dtype: str
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">one_column_as_table</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>city</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>E</th>
+      <td>Essen</td>
+    </tr>
+    <tr>
+      <th>B</th>
+      <td>Bochum</td>
+    </tr>
+    <tr>
+      <th>D</th>
+      <td>Dortmund</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">cities[&quot;city&quot;]</span></code> liefert eine <code class="docutils literal notranslate"><span class="pre">Series</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">cities[[&quot;city&quot;]]</span></code> bekommt dagegen eine <strong>Liste von Spaltennamen</strong> und liefert deshalb wieder ein <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> – hier eben mit nur einer Spalte.</p>
+</section>
+<section id="zeilen-und-spalten-auswahlen-loc-und-iloc">
+<h2><span class="section-number">18.4. </span>Zeilen und Spalten auswählen: <code class="docutils literal notranslate"><span class="pre">loc</span></code> und <code class="docutils literal notranslate"><span class="pre">iloc</span></code><a class="headerlink" href="#zeilen-und-spalten-auswahlen-loc-und-iloc" title="Link to this heading">#</a></h2>
+<p>Mit <code class="docutils literal notranslate"><span class="pre">.loc[...]</span></code> wählen wir anhand von <strong>Labels</strong> aus.</p>
+<p>Mit <code class="docutils literal notranslate"><span class="pre">.iloc[...]</span></code> wählen wir anhand von <strong>Positionen</strong> aus.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cities</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">"B"</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>city           Bochum
+inhabitants    364454
+area_km2        145.7
+Name: B, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cities</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="s2">"E"</span><span class="p">,</span> <span class="s2">"D"</span><span class="p">],</span> <span class="p">[</span><span class="s2">"city"</span><span class="p">,</span> <span class="s2">"inhabitants"</span><span class="p">]]</span>
 </pre></div>
 </div>
 </div>
@@ -820,57 +771,264 @@ Name: a, dtype: object
       <th></th>
       <th>city</th>
       <th>inhabitants</th>
-      <th>xyz</th>
-      <th>height</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>a</th>
+      <th>E</th>
       <td>Essen</td>
       <td>591032</td>
-      <td>0.337808</td>
-      <td>116</td>
     </tr>
     <tr>
-      <th>b</th>
-      <td>Bochum</td>
-      <td>364454</td>
-      <td>0.949433</td>
-      <td>100</td>
-    </tr>
-    <tr>
-      <th>c</th>
+      <th>D</th>
       <td>Dortmund</td>
       <td>587696</td>
-      <td>0.073108</td>
-      <td>86</td>
     </tr>
   </tbody>
 </table>
 </div></div></div>
 </div>
-<p>Der umgekehrte Schritt wäre, eine Spalte komplett zu entfernen, das geht mit <code class="docutils literal notranslate"><span class="pre">del</span> <span class="pre">df[&quot;xyz&quot;]</span></code>.</p>
+<p>Eine Besonderheit von <code class="docutils literal notranslate"><span class="pre">.loc</span></code>: Bei einem Slice mit Labels ist die <strong>Stopgrenze enthalten</strong>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cities</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">"E"</span><span class="p">:</span><span class="s2">"D"</span><span class="p">,</span> <span class="s2">"city"</span><span class="p">:</span><span class="s2">"inhabitants"</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>city</th>
+      <th>inhabitants</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>E</th>
+      <td>Essen</td>
+      <td>591032</td>
+    </tr>
+    <tr>
+      <th>B</th>
+      <td>Bochum</td>
+      <td>364454</td>
+    </tr>
+    <tr>
+      <th>D</th>
+      <td>Dortmund</td>
+      <td>587696</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">.iloc</span></code> verhält sich dagegen wie die bekannten Python-Slices: Die Stopposition ist <strong>nicht enthalten</strong>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cities</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>city</th>
+      <th>inhabitants</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>E</th>
+      <td>Essen</td>
+      <td>591032</td>
+    </tr>
+    <tr>
+      <th>B</th>
+      <td>Bochum</td>
+      <td>364454</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Als Kurzfassung:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">df[&quot;spalte&quot;]</span></code> → eine Spalte als <code class="docutils literal notranslate"><span class="pre">Series</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">df[[&quot;spalte1&quot;,</span> <span class="pre">&quot;spalte2&quot;]]</span></code> → mehrere Spalten als <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">df.loc[zeilen_labels,</span> <span class="pre">spalten_labels]</span></code> → Auswahl über Labels</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">df.iloc[zeilen_positionen,</span> <span class="pre">spalten_positionen]</span></code> → Auswahl über Positionen</p></li>
+</ul>
 </section>
-<section id="now-go-data-science">
-<h3><span class="section-number">18.2.2. </span>Now: go Data Science<a class="headerlink" href="#now-go-data-science" title="Link to this heading">#</a></h3>
-<p>Bisher haben wir uns nur einfache Beispiele angeschaut um die Methoden von Pandas ein wenig kennenzulernen. Interessant wird das Ganze aber eigentlich erst wenn wir anfangen mit größeren Datensets zu spielen. Wann ein Datenset als „groß“ gilt ist natürlich relativ, hier meine ich damit v.a. Daten die zumindest so groß sind, dass wir sie nicht mit einem kurzem Blick auf eine Tabelle vollständig verstehen können.</p>
-<p>Für diesen Zweck fangen wir hier an mit dem „Pokemon Dataset“ zu arbeiten das man auf „Kaggle“ herunterladen kann: https://www.kaggle.com/rounakbanik/pokemon</p>
+<section id="spalten-hinzufugen-und-entfernen">
+<h2><span class="section-number">18.5. </span>Spalten hinzufügen und entfernen<a class="headerlink" href="#spalten-hinzufugen-und-entfernen" title="Link to this heading">#</a></h2>
+<p>Neue Spalten können direkt berechnet werden. Die Rechnung wird elementweise auf die Spalte angewendet.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cities</span><span class="p">[</span><span class="s2">"inhabitants_millions"</span><span class="p">]</span> <span class="o">=</span> <span class="n">cities</span><span class="p">[</span><span class="s2">"inhabitants"</span><span class="p">]</span> <span class="o">/</span> <span class="mi">1_000_000</span>
+
+<span class="n">cities</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>city</th>
+      <th>inhabitants</th>
+      <th>area_km2</th>
+      <th>inhabitants_millions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>E</th>
+      <td>Essen</td>
+      <td>591032</td>
+      <td>210.3</td>
+      <td>0.591032</td>
+    </tr>
+    <tr>
+      <th>B</th>
+      <td>Bochum</td>
+      <td>364454</td>
+      <td>145.7</td>
+      <td>0.364454</td>
+    </tr>
+    <tr>
+      <th>D</th>
+      <td>Dortmund</td>
+      <td>587696</td>
+      <td>280.7</td>
+      <td>0.587696</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Mit <code class="docutils literal notranslate"><span class="pre">.drop(columns=...)</span></code> können wir eine neue Tabelle ohne bestimmte Spalten erzeugen. Ohne weitere Optionen bleibt das ursprüngliche <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> dabei erhalten.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cities_small</span> <span class="o">=</span> <span class="n">cities</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="s2">"area_km2"</span><span class="p">)</span>
+
+<span class="n">cities_small</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>city</th>
+      <th>inhabitants</th>
+      <th>inhabitants_millions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>E</th>
+      <td>Essen</td>
+      <td>591032</td>
+      <td>0.591032</td>
+    </tr>
+    <tr>
+      <th>B</th>
+      <td>Bochum</td>
+      <td>364454</td>
+      <td>0.364454</td>
+    </tr>
+    <tr>
+      <th>D</th>
+      <td>Dortmund</td>
+      <td>587696</td>
+      <td>0.587696</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
 </section>
-<section id="daten-importieren">
-<h3><span class="section-number">18.2.3. </span>Daten importieren<a class="headerlink" href="#daten-importieren" title="Link to this heading">#</a></h3>
-<p>Das Laden von Daten aus Textdateien geht in der Regel recht einfach mit Pandas, da Pandas entsprechende Funktionen dafür bereitstellt. U.a. zum importieren von CSV oder Excel-Dateien.</p>
+<section id="eine-csv-datei-einlesen">
+<h2><span class="section-number">18.6. </span>Eine CSV-Datei einlesen<a class="headerlink" href="#eine-csv-datei-einlesen" title="Link to this heading">#</a></h2>
+<p>Jetzt wechseln wir zu einem größeren Datensatz. Dabei verwenden wir bewusst wieder <code class="docutils literal notranslate"><span class="pre">os.path.join()</span></code>, wie im vorherigen Kapitel zu Ordnern und Pfaden.</p>
+<p>Die Datei <code class="docutils literal notranslate"><span class="pre">pokemon.csv</span></code> liegt im Kursprojekt im Ordner <code class="docutils literal notranslate"><span class="pre">data</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 
-<span class="n">root</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
-<span class="n">filename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="s2">"../data"</span><span class="p">,</span> <span class="s1">'pokemon.csv'</span><span class="p">)</span>  <span class="c1"># je nach eigenem Pfad anpassen!</span>
+<span class="n">data_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">".."</span><span class="p">,</span> <span class="s2">"data"</span><span class="p">,</span> <span class="s2">"pokemon.csv"</span><span class="p">)</span>
 
-<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">","</span><span class="p">)</span>
-<span class="c1"># hier geht auch: data = pd.read_csv(filename) da delimiter="," der "default"-Parameter ist</span>
-
-<span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="n">pokemon</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">data_path</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Nach dem Einlesen sollten wir nicht sofort komplizierte Analysen starten. Zuerst verschaffen wir uns einen Überblick.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pokemon</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1044,8 +1202,7 @@ Name: a, dtype: object
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># oder wir schauen die letzten Zeilen zuerst an</span>
-<span class="n">data</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pokemon</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1092,54 +1249,6 @@ Name: a, dtype: object
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th>796</th>
-      <td>['Beast Boost']</td>
-      <td>0.25</td>
-      <td>1.0</td>
-      <td>0.5</td>
-      <td>2.0</td>
-      <td>0.5</td>
-      <td>1.0</td>
-      <td>2.0</td>
-      <td>0.5</td>
-      <td>1.0</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>797</td>
-      <td>107</td>
-      <td>101</td>
-      <td>61</td>
-      <td>steel</td>
-      <td>flying</td>
-      <td>999.9</td>
-      <td>7</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>797</th>
-      <td>['Beast Boost']</td>
-      <td>1.00</td>
-      <td>1.0</td>
-      <td>0.5</td>
-      <td>0.5</td>
-      <td>0.5</td>
-      <td>2.0</td>
-      <td>4.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>798</td>
-      <td>59</td>
-      <td>31</td>
-      <td>109</td>
-      <td>grass</td>
-      <td>steel</td>
-      <td>0.1</td>
-      <td>7</td>
-      <td>1</td>
-    </tr>
     <tr>
       <th>798</th>
       <td>['Beast Boost']</td>
@@ -1214,18 +1323,21 @@ Name: a, dtype: object
     </tr>
   </tbody>
 </table>
-<p>5 rows × 41 columns</p>
+<p>3 rows × 41 columns</p>
 </div></div></div>
 </div>
-<p>Die Tabelle ist hier erstmal zu groß, darum können wir uns erst die Spaltennamen anschauen:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">columns</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"Form:"</span><span class="p">,</span> <span class="n">pokemon</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Spalten:"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pokemon</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index(['abilities', 'against_bug', 'against_dark', 'against_dragon',
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Form: (801, 41)
+Spalten:
+Index(['abilities', 'against_bug', 'against_dark', 'against_dragon',
        'against_electric', 'against_fairy', 'against_fight', 'against_fire',
        'against_flying', 'against_ghost', 'against_grass', 'against_ground',
        'against_ice', 'against_normal', 'against_poison', 'against_psychic',
@@ -1235,25 +1347,146 @@ Name: a, dtype: object
        'japanese_name', 'name', 'percentage_male', 'pokedex_number',
        'sp_attack', 'sp_defense', 'speed', 'type1', 'type2', 'weight_kg',
        'generation', 'is_legendary'],
-      dtype='object')
+      dtype='str')
 </pre></div>
 </div>
 </div>
 </div>
-<section id="neues-kleineres-dataframe-erzeugen">
-<h4><span class="section-number">18.2.3.1. </span>Neues, kleineres DataFrame erzeugen<a class="headerlink" href="#neues-kleineres-dataframe-erzeugen" title="Link to this heading">#</a></h4>
-<p>Das sind ziemlich viele Spalten! Wir nehmen darum erstmal nur ein paar davon für die nächsten Schritte.</p>
+<p><code class="docutils literal notranslate"><span class="pre">.dtypes</span></code> zeigt den Datentyp jeder Spalte. <code class="docutils literal notranslate"><span class="pre">info()</span></code> fasst zusätzlich unter anderem die Anzahl nicht-fehlender Einträge zusammen.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cols</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="s1">'name'</span><span class="p">,</span> <span class="s1">'type1'</span><span class="p">,</span> <span class="s1">'type2'</span><span class="p">,</span>
-    <span class="s1">'speed'</span><span class="p">,</span> <span class="s1">'abilities'</span><span class="p">,</span> <span class="s1">'attack'</span><span class="p">,</span>
-    <span class="s1">'defense'</span><span class="p">,</span> <span class="s1">'height_m'</span><span class="p">,</span> <span class="s1">'hp'</span><span class="p">,</span> <span class="s1">'weight_kg'</span><span class="p">,</span>
-    <span class="s1">'generation'</span><span class="p">,</span> <span class="s1">'is_legendary'</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pokemon</span><span class="o">.</span><span class="n">dtypes</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>abilities                str
+against_bug          float64
+against_dark         float64
+against_dragon       float64
+against_electric     float64
+against_fairy        float64
+against_fight        float64
+against_fire         float64
+against_flying       float64
+against_ghost        float64
+against_grass        float64
+against_ground       float64
+against_ice          float64
+against_normal       float64
+against_poison       float64
+against_psychic      float64
+against_rock         float64
+against_steel        float64
+against_water        float64
+attack                 int64
+base_egg_steps         int64
+base_happiness         int64
+base_total             int64
+capture_rate             str
+classfication            str
+defense                int64
+experience_growth      int64
+height_m             float64
+hp                     int64
+japanese_name            str
+name                     str
+percentage_male      float64
+pokedex_number         int64
+sp_attack              int64
+sp_defense             int64
+speed                  int64
+type1                    str
+type2                    str
+weight_kg            float64
+generation             int64
+is_legendary           int64
+dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pokemon</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class 'pandas.DataFrame'&gt;
+RangeIndex: 801 entries, 0 to 800
+Data columns (total 41 columns):
+ #   Column             Non-Null Count  Dtype  
+---  ------             --------------  -----  
+ 0   abilities          801 non-null    str    
+ 1   against_bug        801 non-null    float64
+ 2   against_dark       801 non-null    float64
+ 3   against_dragon     801 non-null    float64
+ 4   against_electric   801 non-null    float64
+ 5   against_fairy      801 non-null    float64
+ 6   against_fight      801 non-null    float64
+ 7   against_fire       801 non-null    float64
+ 8   against_flying     801 non-null    float64
+ 9   against_ghost      801 non-null    float64
+ 10  against_grass      801 non-null    float64
+ 11  against_ground     801 non-null    float64
+ 12  against_ice        801 non-null    float64
+ 13  against_normal     801 non-null    float64
+ 14  against_poison     801 non-null    float64
+ 15  against_psychic    801 non-null    float64
+ 16  against_rock       801 non-null    float64
+ 17  against_steel      801 non-null    float64
+ 18  against_water      801 non-null    float64
+ 19  attack             801 non-null    int64  
+ 20  base_egg_steps     801 non-null    int64  
+ 21  base_happiness     801 non-null    int64  
+ 22  base_total         801 non-null    int64  
+ 23  capture_rate       801 non-null    str    
+ 24  classfication      801 non-null    str    
+ 25  defense            801 non-null    int64  
+ 26  experience_growth  801 non-null    int64  
+ 27  height_m           781 non-null    float64
+ 28  hp                 801 non-null    int64  
+ 29  japanese_name      801 non-null    str    
+ 30  name               801 non-null    str    
+ 31  percentage_male    703 non-null    float64
+ 32  pokedex_number     801 non-null    int64  
+ 33  sp_attack          801 non-null    int64  
+ 34  sp_defense         801 non-null    int64  
+ 35  speed              801 non-null    int64  
+ 36  type1              801 non-null    str    
+ 37  type2              417 non-null    str    
+ 38  weight_kg          781 non-null    float64
+ 39  generation         801 non-null    int64  
+ 40  is_legendary       801 non-null    int64  
+dtypes: float64(21), int64(13), str(7)
+memory usage: 256.7 KB
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="ein-kleineres-arbeits-dataframe">
+<h2><span class="section-number">18.7. </span>Ein kleineres Arbeits-DataFrame<a class="headerlink" href="#ein-kleineres-arbeits-dataframe" title="Link to this heading">#</a></h2>
+<p>Der Datensatz besitzt viele Spalten. Für die nächsten Schritte wählen wir nur einige davon aus.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">"name"</span><span class="p">,</span>
+    <span class="s2">"type1"</span><span class="p">,</span>
+    <span class="s2">"type2"</span><span class="p">,</span>
+    <span class="s2">"speed"</span><span class="p">,</span>
+    <span class="s2">"attack"</span><span class="p">,</span>
+    <span class="s2">"defense"</span><span class="p">,</span>
+    <span class="s2">"hp"</span><span class="p">,</span>
+    <span class="s2">"weight_kg"</span><span class="p">,</span>
+    <span class="s2">"generation"</span><span class="p">,</span>
+    <span class="s2">"is_legendary"</span><span class="p">,</span>
 <span class="p">]</span>
 
-<span class="n">data_selected</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">cols</span><span class="p">]</span>
-<span class="n">data_selected</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="n">pokemon_small</span> <span class="o">=</span> <span class="n">pokemon</span><span class="p">[</span><span class="n">columns</span><span class="p">]</span>
+
+<span class="n">pokemon_small</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1280,10 +1513,8 @@ Name: a, dtype: object
       <th>type1</th>
       <th>type2</th>
       <th>speed</th>
-      <th>abilities</th>
       <th>attack</th>
       <th>defense</th>
-      <th>height_m</th>
       <th>hp</th>
       <th>weight_kg</th>
       <th>generation</th>
@@ -1297,10 +1528,8 @@ Name: a, dtype: object
       <td>grass</td>
       <td>poison</td>
       <td>45</td>
-      <td>['Overgrow', 'Chlorophyll']</td>
       <td>49</td>
       <td>49</td>
-      <td>0.7</td>
       <td>45</td>
       <td>6.9</td>
       <td>1</td>
@@ -1312,10 +1541,8 @@ Name: a, dtype: object
       <td>grass</td>
       <td>poison</td>
       <td>60</td>
-      <td>['Overgrow', 'Chlorophyll']</td>
       <td>62</td>
       <td>63</td>
-      <td>1.0</td>
       <td>60</td>
       <td>13.0</td>
       <td>1</td>
@@ -1327,10 +1554,8 @@ Name: a, dtype: object
       <td>grass</td>
       <td>poison</td>
       <td>80</td>
-      <td>['Overgrow', 'Chlorophyll']</td>
       <td>100</td>
       <td>123</td>
-      <td>2.0</td>
       <td>80</td>
       <td>100.0</td>
       <td>1</td>
@@ -1342,10 +1567,8 @@ Name: a, dtype: object
       <td>fire</td>
       <td>NaN</td>
       <td>65</td>
-      <td>['Blaze', 'Solar Power']</td>
       <td>52</td>
       <td>43</td>
-      <td>0.6</td>
       <td>39</td>
       <td>8.5</td>
       <td>1</td>
@@ -1357,10 +1580,8 @@ Name: a, dtype: object
       <td>fire</td>
       <td>NaN</td>
       <td>80</td>
-      <td>['Blaze', 'Solar Power']</td>
       <td>64</td>
       <td>58</td>
-      <td>1.1</td>
       <td>58</td>
       <td>19.0</td>
       <td>1</td>
@@ -1370,10 +1591,13 @@ Name: a, dtype: object
 </table>
 </div></div></div>
 </div>
-<p>Einen ersten Eindruck der Daten (zumindest der numerischen Einträge), können wir uns verschaffen über:</p>
+</section>
+<section id="erste-kennzahlen">
+<h2><span class="section-number">18.8. </span>Erste Kennzahlen<a class="headerlink" href="#erste-kennzahlen" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">.describe()</span></code> fasst numerische Spalten zusammen. Unter anderem sehen wir Anzahl, Mittelwert, Standardabweichung, Minimum, Quartile und Maximum.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_selected</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pokemon_small</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1399,7 +1623,6 @@ Name: a, dtype: object
       <th>speed</th>
       <th>attack</th>
       <th>defense</th>
-      <th>height_m</th>
       <th>hp</th>
       <th>weight_kg</th>
       <th>generation</th>
@@ -1412,7 +1635,6 @@ Name: a, dtype: object
       <td>801.000000</td>
       <td>801.000000</td>
       <td>801.000000</td>
-      <td>781.000000</td>
       <td>801.000000</td>
       <td>781.000000</td>
       <td>801.000000</td>
@@ -1423,7 +1645,6 @@ Name: a, dtype: object
       <td>66.334582</td>
       <td>77.857678</td>
       <td>73.008739</td>
-      <td>1.163892</td>
       <td>68.958801</td>
       <td>61.378105</td>
       <td>3.690387</td>
@@ -1434,7 +1655,6 @@ Name: a, dtype: object
       <td>28.907662</td>
       <td>32.158820</td>
       <td>30.769159</td>
-      <td>1.080326</td>
       <td>26.576015</td>
       <td>109.354766</td>
       <td>1.930420</td>
@@ -1445,7 +1665,6 @@ Name: a, dtype: object
       <td>5.000000</td>
       <td>5.000000</td>
       <td>5.000000</td>
-      <td>0.100000</td>
       <td>1.000000</td>
       <td>0.100000</td>
       <td>1.000000</td>
@@ -1456,7 +1675,6 @@ Name: a, dtype: object
       <td>45.000000</td>
       <td>55.000000</td>
       <td>50.000000</td>
-      <td>0.600000</td>
       <td>50.000000</td>
       <td>9.000000</td>
       <td>2.000000</td>
@@ -1467,7 +1685,6 @@ Name: a, dtype: object
       <td>65.000000</td>
       <td>75.000000</td>
       <td>70.000000</td>
-      <td>1.000000</td>
       <td>65.000000</td>
       <td>27.300000</td>
       <td>4.000000</td>
@@ -1478,7 +1695,6 @@ Name: a, dtype: object
       <td>85.000000</td>
       <td>100.000000</td>
       <td>90.000000</td>
-      <td>1.500000</td>
       <td>80.000000</td>
       <td>64.800000</td>
       <td>5.000000</td>
@@ -1489,7 +1705,6 @@ Name: a, dtype: object
       <td>180.000000</td>
       <td>185.000000</td>
       <td>230.000000</td>
-      <td>14.500000</td>
       <td>255.000000</td>
       <td>999.900000</td>
       <td>7.000000</td>
@@ -1499,26 +1714,30 @@ Name: a, dtype: object
 </table>
 </div></div></div>
 </div>
-<p>Danach kommen wir zum eigentlichen Kern der Pandas Analyse. Durch das Kombinieren von Slicing/Indexing und weiteren Pandas-Methoden können verschiedene Aspekte der Daten schnell und gut erkundet werden.</p>
-<p>Z.B um zu schauen welche Typen von Pokemon es gibt:</p>
+<p>Bei kategorialen Spalten sind häufig andere Fragen interessant:</p>
+<ul class="simple">
+<li><p>Welche verschiedenen Werte gibt es?</p></li>
+<li><p>Wie oft kommt jeder Wert vor?</p></li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_selected</span><span class="p">[</span><span class="s2">"type1"</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pokemon_small</span><span class="p">[</span><span class="s2">"type1"</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array(['grass', 'fire', 'water', 'bug', 'normal', 'poison', 'electric',
-       'ground', 'fairy', 'fighting', 'psychic', 'rock', 'ghost', 'ice',
-       'dragon', 'dark', 'steel', 'flying'], dtype=object)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;StringArray&gt;
+[   'grass',     'fire',    'water',      'bug',   'normal',   'poison',
+ 'electric',   'ground',    'fairy', 'fighting',  'psychic',     'rock',
+    'ghost',      'ice',   'dragon',     'dark',    'steel',   'flying']
+Length: 18, dtype: str
 </pre></div>
 </div>
 </div>
 </div>
-<p>Oder um zu schauen, wie viele es von jedem Typ gibt:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_selected</span><span class="p">[</span><span class="s2">"type1"</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pokemon_small</span><span class="p">[</span><span class="s2">"type1"</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1548,38 +1767,253 @@ Name: count, dtype: int64
 </div>
 </div>
 </section>
-</section>
-<section id="wie-bekomme-ich-nun-die-werte">
-<h3><span class="section-number">18.2.4. </span>Wie bekomme ich nun die Werte<a class="headerlink" href="#wie-bekomme-ich-nun-die-werte" title="Link to this heading">#</a></h3>
-<p>Pandas gibt in den meisten Fällen entweder ein <strong>DataFrame</strong> (Tabelle) zurück, oder eine <strong>Series</strong> (eine einzelne Spalte mit Zeilennamen). In manchen Fällen wollen wir aber nur die eigentlichen Werte aus der Spalte (oder aus der Tabelle) haben. Dafür gibt es in Pandas die Möglichkeit ein Numpy Array auszugeben mit <code class="docutils literal notranslate"><span class="pre">.values</span></code>.</p>
+<section id="mit-bedingungen-auswahlen">
+<h2><span class="section-number">18.9. </span>Mit Bedingungen auswählen<a class="headerlink" href="#mit-bedingungen-auswahlen" title="Link to this heading">#</a></h2>
+<p>Die booleschen Masken aus NumPy funktionieren auch sehr gut mit pandas.</p>
+<p>Zuerst erzeugen wir nur die Bedingung:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">values</span> <span class="o">=</span> <span class="n">data_selected</span><span class="p">[</span><span class="s2">"type1"</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">values</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">values</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fast_mask</span> <span class="o">=</span> <span class="n">pokemon_small</span><span class="p">[</span><span class="s2">"speed"</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">100</span>
+
+<span class="n">fast_mask</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[114 105  78  72  53  52  45  39  32  32  29  28  27  27  24  23  18   3]
-&lt;class 'numpy.ndarray'&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    False
+1    False
+2    False
+3    False
+4    False
+Name: speed, dtype: bool
 </pre></div>
 </div>
 </div>
 </div>
-</section>
+<p>Die Maske kann anschließend mit <code class="docutils literal notranslate"><span class="pre">.loc</span></code> benutzt werden. So können wir gleichzeitig passende Zeilen <strong>und</strong> bestimmte Spalten auswählen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pokemon_small</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span>
+    <span class="n">fast_mask</span><span class="p">,</span>
+    <span class="p">[</span><span class="s2">"name"</span><span class="p">,</span> <span class="s2">"type1"</span><span class="p">,</span> <span class="s2">"speed"</span><span class="p">],</span>
+<span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>name</th>
+      <th>type1</th>
+      <th>speed</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>5</th>
+      <td>Charizard</td>
+      <td>fire</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>Beedrill</td>
+      <td>bug</td>
+      <td>145</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>Pidgeot</td>
+      <td>normal</td>
+      <td>121</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>Fearow</td>
+      <td>normal</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>Raichu</td>
+      <td>electric</td>
+      <td>110</td>
+    </tr>
+    <tr>
+      <th>37</th>
+      <td>Ninetales</td>
+      <td>fire</td>
+      <td>109</td>
+    </tr>
+    <tr>
+      <th>50</th>
+      <td>Dugtrio</td>
+      <td>ground</td>
+      <td>110</td>
+    </tr>
+    <tr>
+      <th>52</th>
+      <td>Persian</td>
+      <td>normal</td>
+      <td>115</td>
+    </tr>
+    <tr>
+      <th>63</th>
+      <td>Kadabra</td>
+      <td>psychic</td>
+      <td>105</td>
+    </tr>
+    <tr>
+      <th>64</th>
+      <td>Alakazam</td>
+      <td>psychic</td>
+      <td>150</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Mehrere Bedingungen werden – genau wie bei NumPy – mit <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> und <code class="docutils literal notranslate"><span class="pre">|</span></code> kombiniert. Jede Teilbedingung wird geklammert.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">strong_and_fast</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="p">(</span><span class="n">pokemon_small</span><span class="p">[</span><span class="s2">"speed"</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">100</span><span class="p">)</span>
+    <span class="o">&amp;</span> <span class="p">(</span><span class="n">pokemon_small</span><span class="p">[</span><span class="s2">"attack"</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">100</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">pokemon_small</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span>
+    <span class="n">strong_and_fast</span><span class="p">,</span>
+    <span class="p">[</span><span class="s2">"name"</span><span class="p">,</span> <span class="s2">"type1"</span><span class="p">,</span> <span class="s2">"speed"</span><span class="p">,</span> <span class="s2">"attack"</span><span class="p">],</span>
+<span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>name</th>
+      <th>type1</th>
+      <th>speed</th>
+      <th>attack</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>5</th>
+      <td>Charizard</td>
+      <td>fire</td>
+      <td>100</td>
+      <td>104</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>Beedrill</td>
+      <td>bug</td>
+      <td>145</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <th>50</th>
+      <td>Dugtrio</td>
+      <td>ground</td>
+      <td>110</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <th>77</th>
+      <td>Rapidash</td>
+      <td>fire</td>
+      <td>105</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <th>84</th>
+      <td>Dodrio</td>
+      <td>normal</td>
+      <td>110</td>
+      <td>110</td>
+    </tr>
+    <tr>
+      <th>114</th>
+      <td>Kangaskhan</td>
+      <td>normal</td>
+      <td>100</td>
+      <td>125</td>
+    </tr>
+    <tr>
+      <th>122</th>
+      <td>Scyther</td>
+      <td>bug</td>
+      <td>105</td>
+      <td>110</td>
+    </tr>
+    <tr>
+      <th>126</th>
+      <td>Pinsir</td>
+      <td>bug</td>
+      <td>105</td>
+      <td>155</td>
+    </tr>
+    <tr>
+      <th>127</th>
+      <td>Tauros</td>
+      <td>normal</td>
+      <td>110</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <th>141</th>
+      <td>Aerodactyl</td>
+      <td>rock</td>
+      <td>150</td>
+      <td>135</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
 </section>
 <section id="sortieren">
-<h2><span class="section-number">18.3. </span>Sortieren<a class="headerlink" href="#sortieren" title="Link to this heading">#</a></h2>
-<p>Anders als by Numpy und Listen gibt es bei Pandas keine Methode <code class="docutils literal notranslate"><span class="pre">.sort()</span></code>, sondern zwei verschiedene Methoden:</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">.sort_index()</span></code> - Sortiert nach dem Index</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">.sort_values()</span></code> - Sortiert nach Spaltenwerten</p></li>
-</ul>
-<p>Anders als bei Listen gibt es kein Parameter „reverse“ sondern dafür <code class="docutils literal notranslate"><span class="pre">ascending</span></code>, das zur Umkehrung der Sortierung auf <code class="docutils literal notranslate"><span class="pre">False</span></code> gesetzte werden kann.</p>
+<h2><span class="section-number">18.10. </span>Sortieren<a class="headerlink" href="#sortieren" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">.sort_values()</span></code> sortiert nach den Werten einer oder mehrerer Spalten.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_selected</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([</span><span class="s2">"speed"</span><span class="p">,</span> <span class="s2">"name"</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pokemon_small</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span>
+    <span class="s2">"speed"</span><span class="p">,</span>
+    <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1606,10 +2040,8 @@ Name: count, dtype: int64
       <th>type1</th>
       <th>type2</th>
       <th>speed</th>
-      <th>abilities</th>
       <th>attack</th>
       <th>defense</th>
-      <th>height_m</th>
       <th>hp</th>
       <th>weight_kg</th>
       <th>generation</th>
@@ -1618,94 +2050,43 @@ Name: count, dtype: int64
   </thead>
   <tbody>
     <tr>
-      <th>445</th>
-      <td>Munchlax</td>
-      <td>normal</td>
+      <th>385</th>
+      <td>Deoxys</td>
+      <td>psychic</td>
       <td>NaN</td>
-      <td>5</td>
-      <td>['Pickup', 'Thick Fat', 'Gluttony']</td>
-      <td>85</td>
-      <td>40</td>
-      <td>0.6</td>
-      <td>135</td>
-      <td>105.0</td>
-      <td>4</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>770</th>
-      <td>Pyukumuku</td>
-      <td>water</td>
-      <td>NaN</td>
-      <td>5</td>
-      <td>['Innards Out', 'Unaware']</td>
-      <td>60</td>
-      <td>130</td>
-      <td>0.3</td>
-      <td>55</td>
-      <td>1.2</td>
-      <td>7</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>212</th>
-      <td>Shuckle</td>
-      <td>bug</td>
-      <td>rock</td>
-      <td>5</td>
-      <td>['Sturdy', 'Gluttony', 'Contrary']</td>
-      <td>10</td>
-      <td>230</td>
-      <td>0.6</td>
-      <td>20</td>
-      <td>20.5</td>
-      <td>2</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>437</th>
-      <td>Bonsly</td>
-      <td>rock</td>
-      <td>NaN</td>
-      <td>10</td>
-      <td>['Sturdy', 'Rock Head', 'Rattled']</td>
-      <td>80</td>
+      <td>180</td>
       <td>95</td>
-      <td>0.5</td>
+      <td>90</td>
       <td>50</td>
-      <td>15.0</td>
-      <td>4</td>
+      <td>60.8</td>
+      <td>3</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>290</th>
+      <td>Ninjask</td>
+      <td>bug</td>
+      <td>flying</td>
+      <td>160</td>
+      <td>90</td>
+      <td>45</td>
+      <td>61</td>
+      <td>12.0</td>
+      <td>3</td>
       <td>0</td>
     </tr>
     <tr>
-      <th>596</th>
-      <td>Ferroseed</td>
-      <td>grass</td>
-      <td>steel</td>
-      <td>10</td>
-      <td>['Iron Barbs']</td>
-      <td>50</td>
-      <td>91</td>
-      <td>0.6</td>
-      <td>44</td>
-      <td>18.8</td>
-      <td>5</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
+      <th>794</th>
+      <td>Pheromosa</td>
+      <td>bug</td>
+      <td>fighting</td>
+      <td>151</td>
+      <td>137</td>
+      <td>37</td>
+      <td>71</td>
+      <td>25.0</td>
+      <td>7</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>64</th>
@@ -1713,10 +2094,8 @@ Name: count, dtype: int64
       <td>psychic</td>
       <td>NaN</td>
       <td>150</td>
-      <td>['Synchronize', 'Inner Focus', 'Magic Guard']</td>
       <td>50</td>
       <td>65</td>
-      <td>1.5</td>
       <td>55</td>
       <td>48.0</td>
       <td>1</td>
@@ -1728,68 +2107,89 @@ Name: count, dtype: int64
       <td>electric</td>
       <td>NaN</td>
       <td>150</td>
-      <td>['Soundproof', 'Static', 'Aftermath']</td>
       <td>50</td>
       <td>70</td>
-      <td>1.2</td>
       <td>60</td>
       <td>66.6</td>
       <td>1</td>
       <td>0</td>
     </tr>
     <tr>
-      <th>794</th>
-      <td>Pheromosa</td>
-      <td>bug</td>
-      <td>fighting</td>
-      <td>151</td>
-      <td>['Beast Boost']</td>
-      <td>137</td>
-      <td>37</td>
-      <td>1.8</td>
-      <td>71</td>
-      <td>25.0</td>
-      <td>7</td>
+      <th>141</th>
+      <td>Aerodactyl</td>
+      <td>rock</td>
+      <td>flying</td>
+      <td>150</td>
+      <td>135</td>
+      <td>85</td>
+      <td>80</td>
+      <td>59.0</td>
       <td>1</td>
+      <td>0</td>
     </tr>
     <tr>
-      <th>290</th>
-      <td>Ninjask</td>
-      <td>bug</td>
-      <td>flying</td>
-      <td>160</td>
-      <td>['Speed Boost', 'Infiltrator']</td>
-      <td>90</td>
-      <td>45</td>
-      <td>0.8</td>
-      <td>61</td>
-      <td>12.0</td>
+      <th>253</th>
+      <td>Sceptile</td>
+      <td>grass</td>
+      <td>NaN</td>
+      <td>145</td>
+      <td>110</td>
+      <td>75</td>
+      <td>70</td>
+      <td>52.2</td>
       <td>3</td>
       <td>0</td>
     </tr>
     <tr>
-      <th>385</th>
-      <td>Deoxys</td>
+      <th>14</th>
+      <td>Beedrill</td>
+      <td>bug</td>
+      <td>poison</td>
+      <td>145</td>
+      <td>150</td>
+      <td>40</td>
+      <td>65</td>
+      <td>29.5</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>616</th>
+      <td>Accelgor</td>
+      <td>bug</td>
+      <td>NaN</td>
+      <td>145</td>
+      <td>70</td>
+      <td>40</td>
+      <td>80</td>
+      <td>25.3</td>
+      <td>5</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>149</th>
+      <td>Mewtwo</td>
       <td>psychic</td>
       <td>NaN</td>
-      <td>180</td>
-      <td>['Pressure']</td>
-      <td>95</td>
-      <td>90</td>
-      <td>1.7</td>
-      <td>50</td>
-      <td>60.8</td>
-      <td>3</td>
+      <td>140</td>
+      <td>150</td>
+      <td>70</td>
+      <td>106</td>
+      <td>122.0</td>
+      <td>1</td>
       <td>1</td>
     </tr>
   </tbody>
 </table>
-<p>801 rows × 12 columns</p>
 </div></div></div>
 </div>
+<p>Bei mehreren Sortierschlüsseln können wir für jede Spalte eine eigene Richtung angeben. Hier wird zuerst nach <code class="docutils literal notranslate"><span class="pre">speed</span></code> absteigend und bei gleichem Tempo nach <code class="docutils literal notranslate"><span class="pre">name</span></code> aufsteigend sortiert.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_selected</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([</span><span class="s2">"speed"</span><span class="p">,</span> <span class="s2">"name"</span><span class="p">],</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pokemon_small</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span>
+    <span class="p">[</span><span class="s2">"speed"</span><span class="p">,</span> <span class="s2">"name"</span><span class="p">],</span>
+    <span class="n">ascending</span><span class="o">=</span><span class="p">[</span><span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">],</span>
+<span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1816,10 +2216,8 @@ Name: count, dtype: int64
       <th>type1</th>
       <th>type2</th>
       <th>speed</th>
-      <th>abilities</th>
       <th>attack</th>
       <th>defense</th>
-      <th>height_m</th>
       <th>hp</th>
       <th>weight_kg</th>
       <th>generation</th>
@@ -1833,10 +2231,8 @@ Name: count, dtype: int64
       <td>psychic</td>
       <td>NaN</td>
       <td>180</td>
-      <td>['Pressure']</td>
       <td>95</td>
       <td>90</td>
-      <td>1.7</td>
       <td>50</td>
       <td>60.8</td>
       <td>3</td>
@@ -1848,10 +2244,8 @@ Name: count, dtype: int64
       <td>bug</td>
       <td>flying</td>
       <td>160</td>
-      <td>['Speed Boost', 'Infiltrator']</td>
       <td>90</td>
       <td>45</td>
-      <td>0.8</td>
       <td>61</td>
       <td>12.0</td>
       <td>3</td>
@@ -1863,27 +2257,23 @@ Name: count, dtype: int64
       <td>bug</td>
       <td>fighting</td>
       <td>151</td>
-      <td>['Beast Boost']</td>
       <td>137</td>
       <td>37</td>
-      <td>1.8</td>
       <td>71</td>
       <td>25.0</td>
       <td>7</td>
       <td>1</td>
     </tr>
     <tr>
-      <th>100</th>
-      <td>Electrode</td>
-      <td>electric</td>
-      <td>NaN</td>
+      <th>141</th>
+      <td>Aerodactyl</td>
+      <td>rock</td>
+      <td>flying</td>
       <td>150</td>
-      <td>['Soundproof', 'Static', 'Aftermath']</td>
-      <td>50</td>
-      <td>70</td>
-      <td>1.2</td>
-      <td>60</td>
-      <td>66.6</td>
+      <td>135</td>
+      <td>85</td>
+      <td>80</td>
+      <td>59.0</td>
       <td>1</td>
       <td>0</td>
     </tr>
@@ -1893,110 +2283,125 @@ Name: count, dtype: int64
       <td>psychic</td>
       <td>NaN</td>
       <td>150</td>
-      <td>['Synchronize', 'Inner Focus', 'Magic Guard']</td>
       <td>50</td>
       <td>65</td>
-      <td>1.5</td>
       <td>55</td>
       <td>48.0</td>
       <td>1</td>
       <td>0</td>
     </tr>
     <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>596</th>
-      <td>Ferroseed</td>
-      <td>grass</td>
-      <td>steel</td>
-      <td>10</td>
-      <td>['Iron Barbs']</td>
-      <td>50</td>
-      <td>91</td>
-      <td>0.6</td>
-      <td>44</td>
-      <td>18.8</td>
-      <td>5</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>437</th>
-      <td>Bonsly</td>
-      <td>rock</td>
+      <th>100</th>
+      <td>Electrode</td>
+      <td>electric</td>
       <td>NaN</td>
-      <td>10</td>
-      <td>['Sturdy', 'Rock Head', 'Rattled']</td>
-      <td>80</td>
-      <td>95</td>
-      <td>0.5</td>
+      <td>150</td>
       <td>50</td>
-      <td>15.0</td>
-      <td>4</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>212</th>
-      <td>Shuckle</td>
-      <td>bug</td>
-      <td>rock</td>
-      <td>5</td>
-      <td>['Sturdy', 'Gluttony', 'Contrary']</td>
-      <td>10</td>
-      <td>230</td>
-      <td>0.6</td>
-      <td>20</td>
-      <td>20.5</td>
-      <td>2</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>770</th>
-      <td>Pyukumuku</td>
-      <td>water</td>
-      <td>NaN</td>
-      <td>5</td>
-      <td>['Innards Out', 'Unaware']</td>
+      <td>70</td>
       <td>60</td>
-      <td>130</td>
-      <td>0.3</td>
-      <td>55</td>
-      <td>1.2</td>
-      <td>7</td>
+      <td>66.6</td>
+      <td>1</td>
       <td>0</td>
     </tr>
     <tr>
-      <th>445</th>
-      <td>Munchlax</td>
-      <td>normal</td>
+      <th>616</th>
+      <td>Accelgor</td>
+      <td>bug</td>
       <td>NaN</td>
-      <td>5</td>
-      <td>['Pickup', 'Thick Fat', 'Gluttony']</td>
-      <td>85</td>
+      <td>145</td>
+      <td>70</td>
       <td>40</td>
-      <td>0.6</td>
-      <td>135</td>
-      <td>105.0</td>
-      <td>4</td>
+      <td>80</td>
+      <td>25.3</td>
+      <td>5</td>
       <td>0</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>Beedrill</td>
+      <td>bug</td>
+      <td>poison</td>
+      <td>145</td>
+      <td>150</td>
+      <td>40</td>
+      <td>65</td>
+      <td>29.5</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>253</th>
+      <td>Sceptile</td>
+      <td>grass</td>
+      <td>NaN</td>
+      <td>145</td>
+      <td>110</td>
+      <td>75</td>
+      <td>70</td>
+      <td>52.2</td>
+      <td>3</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>149</th>
+      <td>Mewtwo</td>
+      <td>psychic</td>
+      <td>NaN</td>
+      <td>140</td>
+      <td>150</td>
+      <td>70</td>
+      <td>106</td>
+      <td>122.0</td>
+      <td>1</td>
+      <td>1</td>
     </tr>
   </tbody>
 </table>
-<p>801 rows × 12 columns</p>
 </div></div></div>
 </div>
+</section>
+<section id="falls-wirklich-ein-numpy-array-benotigt-wird">
+<h2><span class="section-number">18.11. </span>Falls wirklich ein NumPy-Array benötigt wird<a class="headerlink" href="#falls-wirklich-ein-numpy-array-benotigt-wird" title="Link to this heading">#</a></h2>
+<p>Meistens ist es sinnvoll, beim Arbeiten mit tabellarischen Daten im <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> beziehungsweise in der <code class="docutils literal notranslate"><span class="pre">Series</span></code> zu bleiben.</p>
+<p>Falls eine andere Bibliothek ausdrücklich ein NumPy-Array erwartet, verwenden wir <code class="docutils literal notranslate"><span class="pre">.to_numpy()</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">speed_array</span> <span class="o">=</span> <span class="n">pokemon_small</span><span class="p">[</span><span class="s2">"speed"</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">speed_array</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">speed_array</span><span class="p">[:</span><span class="mi">10</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class 'numpy.ndarray'&gt;
+[ 45  60  80  65  80 100  43  58  78  45]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Dabei gehen pandas-spezifische Informationen wie der Spaltenname und der Index verloren.</p>
+</section>
+<section id="zwischenfazit">
+<h2><span class="section-number">18.12. </span>Zwischenfazit<a class="headerlink" href="#zwischenfazit" title="Link to this heading">#</a></h2>
+<p>Die wichtigsten Muster aus diesem ersten Teil sind:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">"column"</span><span class="p">]</span>
+<span class="n">df</span><span class="p">[[</span><span class="s2">"column1"</span><span class="p">,</span> <span class="s2">"column2"</span><span class="p">]]</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">rows</span><span class="p">,</span> <span class="n">columns</span><span class="p">]</span>
+<span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">row_positions</span><span class="p">,</span> <span class="n">column_positions</span><span class="p">]</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="n">df</span><span class="o">.</span><span class="n">shape</span>
+<span class="n">df</span><span class="o">.</span><span class="n">dtypes</span>
+<span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+
+<span class="n">df</span><span class="p">[</span><span class="s2">"column"</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+<span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">mask</span><span class="p">,</span> <span class="n">columns</span><span class="p">]</span>
+<span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Im zweiten Teil schauen wir uns fehlende Werte, gezieltes Verändern und das Zusammenfassen von Gruppen an.</p>
 </section>
 </section>
 
@@ -2044,7 +2449,7 @@ Name: count, dtype: int64
        title="Nächste Seite">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">weiter</p>
-        <p class="prev-next-title"><span class="section-number">19. </span>Pandas - Teil 2</p>
+        <p class="prev-next-title"><span class="section-number">19. </span>Pandas – Teil 2: Daten bereinigen und zusammenfassen</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -2066,18 +2471,18 @@ Name: count, dtype: int64
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="pst-show_toc_level nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter-notebook">18.1. Jupyter Notebook</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#slicing-und-indexing">18.2. Slicing und Indexing</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#elemente-hinzufugen-entfernen">18.2.1. Elemente hinzufügen/entfernen</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#now-go-data-science">18.2.2. Now: go Data Science</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#daten-importieren">18.2.3. Daten importieren</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#neues-kleineres-dataframe-erzeugen">18.2.3.1. Neues, kleineres DataFrame erzeugen</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wie-bekomme-ich-nun-die-werte">18.2.4. Wie bekomme ich nun die Werte</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sortieren">18.3. Sortieren</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kurz-zum-notebook">18.1. Kurz zum Notebook</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ein-erstes-dataframe">18.2. Ein erstes <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#series-und-dataframe">18.3. <code class="docutils literal notranslate"><span class="pre">Series</span></code> und <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zeilen-und-spalten-auswahlen-loc-und-iloc">18.4. Zeilen und Spalten auswählen: <code class="docutils literal notranslate"><span class="pre">loc</span></code> und <code class="docutils literal notranslate"><span class="pre">iloc</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spalten-hinzufugen-und-entfernen">18.5. Spalten hinzufügen und entfernen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eine-csv-datei-einlesen">18.6. Eine CSV-Datei einlesen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ein-kleineres-arbeits-dataframe">18.7. Ein kleineres Arbeits-DataFrame</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#erste-kennzahlen">18.8. Erste Kennzahlen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mit-bedingungen-auswahlen">18.9. Mit Bedingungen auswählen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sortieren">18.10. Sortieren</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#falls-wirklich-ein-numpy-array-benotigt-wird">18.11. Falls wirklich ein NumPy-Array benötigt wird</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zwischenfazit">18.12. Zwischenfazit</a></li>
 </ul>
   </nav></div>
 

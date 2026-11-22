@@ -66,7 +66,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
     <link rel="search" title="Suche" href="../search.html" />
-    <link rel="next" title="12. Clean code und „best practices“" href="05_one_step_back-best_practices.html" />
+    <link rel="next" title="12. Python-Umgebungen, Packages und uv" href="05_environments.html" />
     <link rel="prev" title="10. String handling" href="04_string_handling.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="de"/>
@@ -243,7 +243,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Error Handling und Best Practices I</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">11. Fehler behandeln mit <code class="docutils literal notranslate"><span class="pre">try</span></code> und <code class="docutils literal notranslate"><span class="pre">except</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="05_one_step_back-best_practices.html">12. Clean code und „best practices“</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_environments.html">12. Python-Umgebungen, Packages und <code class="docutils literal notranslate"><span class="pre">uv</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="05_open_files.html">13. Dateien lesen und schreiben</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Klassen und Objekte</span></p>
@@ -258,8 +258,9 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Schritte Richtung Data Science</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="09_pandas.html">18. Pandas</a></li>
-<li class="toctree-l1"><a class="reference internal" href="10_pandas_2.html">19. Pandas - Teil 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_pandas.html">18. Pandas – Teil 1: DataFrames verstehen und Daten auswählen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_pandas_2.html">19. Pandas – Teil 2: Daten bereinigen und zusammenfassen</a></li>
+
 <li class="toctree-l1"><a class="reference internal" href="12_data_visualization.html">20. Datenvisualisierung mit Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="13_data_visualization_outlook.html">21. 2D/3D Visualisierung &amp; interaktive Plots</a></li>
 </ul>
@@ -460,7 +461,14 @@
             <nav aria-label="Page">
                 <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#try-und-except">11.1. <code class="docutils literal notranslate"><span class="pre">try</span></code> und <code class="docutils literal notranslate"><span class="pre">except</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#textdateien-string-leerfall-und-fehlende-datei">11.2. Textdateien: String, Leerfall und fehlende Datei</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#konkrete-exceptions-abfangen">11.2. Konkrete Exceptions abfangen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mehrere-mogliche-fehlertypen">11.3. Mehrere mögliche Fehlertypen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#if-oder-try">11.4. <code class="docutils literal notranslate"><span class="pre">if</span></code> oder <code class="docutils literal notranslate"><span class="pre">try</span></code>?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zusatz-fehler-mit-raise-bewusst-auslosen">11.5. Zusatz: Fehler mit <code class="docutils literal notranslate"><span class="pre">raise</span></code> bewusst auslösen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zusatz-annahmen-mit-assert-prufen">11.6. Zusatz: Annahmen mit <code class="docutils literal notranslate"><span class="pre">assert</span></code> prüfen</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#assert-ist-nicht-dasselbe-wie-normale-eingabeprufung">11.6.1. <code class="docutils literal notranslate"><span class="pre">assert</span></code> ist nicht dasselbe wie normale Eingabeprüfung</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -474,75 +482,200 @@
                   
   <section class="tex2jax_ignore mathjax_ignore" id="fehler-behandeln-mit-try-und-except">
 <h1><span class="section-number">11. </span>Fehler behandeln mit <code class="docutils literal notranslate"><span class="pre">try</span></code> und <code class="docutils literal notranslate"><span class="pre">except</span></code><a class="headerlink" href="#fehler-behandeln-mit-try-und-except" title="Link to this heading">#</a></h1>
-<p>Bei Eingaben und Datenzugriffen kann etwas schiefgehen. Bisher haben wir solche Fehler manchmal durch eine Bedingung verhindert, etwa durch <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">index</span> <span class="pre">&lt;</span> <span class="pre">len(liste)</span></code> oder <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">key</span> <span class="pre">in</span> <span class="pre">dictionary</span></code>. Es gibt aber auch Situationen, in denen wir eine <strong>Ausnahme</strong> (<em>Exception</em>) gezielt abfangen möchten.</p>
+<p>Beim Programmieren können Situationen auftreten, in denen eine Operation nicht wie geplant ausgeführt werden kann. Python signalisiert solche Probleme häufig mit einer <strong>Exception</strong> (Ausnahme), zum Beispiel <code class="docutils literal notranslate"><span class="pre">ValueError</span></code>, <code class="docutils literal notranslate"><span class="pre">IndexError</span></code> oder <code class="docutils literal notranslate"><span class="pre">TypeError</span></code>.</p>
+<p>Manchmal ist es sinnvoll, eine solche Exception gezielt abzufangen und kontrolliert darauf zu reagieren.</p>
 <section id="try-und-except">
 <h2><span class="section-number">11.1. </span><code class="docutils literal notranslate"><span class="pre">try</span></code> und <code class="docutils literal notranslate"><span class="pre">except</span></code><a class="headerlink" href="#try-und-except" title="Link to this heading">#</a></h2>
-<p>Im <code class="docutils literal notranslate"><span class="pre">try</span></code>-Block steht Code, bei dem ein Fehler auftreten könnte. Passt der Fehlertyp zu einem <code class="docutils literal notranslate"><span class="pre">except</span></code>-Block, wird dort weitergearbeitet. Danach geht das Programm <strong>nach der gesamten <code class="docutils literal notranslate"><span class="pre">try</span></code>/<code class="docutils literal notranslate"><span class="pre">except</span></code>-Anweisung</strong> weiter und springt nicht zurück zur fehlerhaften Zeile.</p>
+<p>Im <code class="docutils literal notranslate"><span class="pre">try</span></code>-Block steht Code, bei dem eine bestimmte Exception auftreten könnte. Im passenden <code class="docutils literal notranslate"><span class="pre">except</span></code>-Block legen wir fest, was in diesem Fall passieren soll.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s2">"zwölf"</span>
 
 <span class="k">try</span><span class="p">:</span>
-    <span class="n">zahl</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>  <span class="c1"># Kann ValueError auslösen.</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"Gelesene Zahl:"</span><span class="p">,</span> <span class="n">zahl</span><span class="p">)</span>
+    <span class="n">number</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Zahl:"</span><span class="p">,</span> <span class="n">number</span><span class="p">)</span>
 <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">"Das war keine gültige ganze Zahl."</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">"Das Programm läuft weiter."</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Für <code class="docutils literal notranslate"><span class="pre">text</span> <span class="pre">=</span> <span class="pre">&quot;12&quot;</span></code> gelingt die Umwandlung, der <code class="docutils literal notranslate"><span class="pre">except</span></code>-Block wird übersprungen. Für <code class="docutils literal notranslate"><span class="pre">&quot;zwölf&quot;</span></code> wird der <code class="docutils literal notranslate"><span class="pre">ValueError</span></code> abgefangen. <code class="docutils literal notranslate"><span class="pre">zahl</span></code> wird in diesem Fehlerfall <strong>nicht</strong> neu gesetzt. Darum sollte späterer Code nicht einfach davon ausgehen, dass die Umwandlung erfolgreich war.</p>
-<p>Wir können auch gezielt einen ungültigen Listenindex behandeln:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">farben</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"rot"</span><span class="p">,</span> <span class="s2">"blau"</span><span class="p">]</span>
+<p><code class="docutils literal notranslate"><span class="pre">int(&quot;zwölf&quot;)</span></code> würde normalerweise einen <code class="docutils literal notranslate"><span class="pre">ValueError</span></code> auslösen und das Programm an dieser Stelle abbrechen. Hier wird genau dieser Fehlertyp abgefangen.</p>
+<p>Mit einem anderen Wert funktioniert derselbe Code ohne Fehler:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s2">"12"</span>
 
 <span class="k">try</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">farben</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
+    <span class="n">number</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Zahl:"</span><span class="p">,</span> <span class="n">number</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Das war keine gültige ganze Zahl."</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Der <code class="docutils literal notranslate"><span class="pre">except</span></code>-Block wird nur ausgeführt, wenn im <code class="docutils literal notranslate"><span class="pre">try</span></code>-Block tatsächlich ein passender Fehler auftritt.</p>
+</section>
+<section id="konkrete-exceptions-abfangen">
+<h2><span class="section-number">11.2. </span>Konkrete Exceptions abfangen<a class="headerlink" href="#konkrete-exceptions-abfangen" title="Link to this heading">#</a></h2>
+<p>Ein weiteres Beispiel ist ein ungültiger Listenindex:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"rot"</span><span class="p">,</span> <span class="s2">"blau"</span><span class="p">]</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">colors</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
 <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">"Diesen Listenindex gibt es nicht."</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">"Hier geht es weiter."</span><span class="p">)</span>
 </pre></div>
 </div>
-<p><strong>Merke:</strong> Möglichst konkrete Fehlertypen wie <code class="docutils literal notranslate"><span class="pre">ValueError</span></code> und <code class="docutils literal notranslate"><span class="pre">IndexError</span></code> abfangen. Ein pauschales <code class="docutils literal notranslate"><span class="pre">except:</span></code> kann Fehler verbergen, die man eigentlich untersuchen sollte. Nicht jede unerwartete Eingabe braucht <code class="docutils literal notranslate"><span class="pre">try</span></code>/<code class="docutils literal notranslate"><span class="pre">except</span></code>: Oft ist eine vorherige Prüfung mit <code class="docutils literal notranslate"><span class="pre">if</span></code> verständlicher.</p>
+<p>Wir sollten möglichst den <strong>konkreten Fehlertyp</strong> abfangen, den wir tatsächlich erwarten.</p>
+<p>Also lieber:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="n">number</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="s2">"abc"</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Ungültige Zahl"</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>als ein pauschales:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>except:
+    ...
+</pre></div>
+</div>
+<p>Ein nacktes <code class="docutils literal notranslate"><span class="pre">except:</span></code> fängt sehr viele unterschiedliche Fehler ab und kann dadurch auch Programmierfehler verstecken, die wir eigentlich sehen und beheben möchten.</p>
 </section>
-<section id="textdateien-string-leerfall-und-fehlende-datei">
-<h2><span class="section-number">11.2. </span>Textdateien: String, Leerfall und fehlende Datei<a class="headerlink" href="#textdateien-string-leerfall-und-fehlende-datei" title="Link to this heading">#</a></h2>
-<p>Im Praktikum kann ein <strong>vorgegebener Textloader</strong> zum Einsatz kommen. Eine sinnvolle Schnittstelle ist: <code class="docutils literal notranslate"><span class="pre">lade_text(dateiname)</span></code> liefert den Dateiinhalt als <strong>String</strong> zurück, bei einer fehlenden Datei liefert sie <code class="docutils literal notranslate"><span class="pre">None</span></code>. Ein <strong>leerer Dateiinhalt</strong> ist dagegen der leere String <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code> und <strong>nicht</strong> <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
-<p>Da den beiden bisherigen Skripten noch keine konkrete Loader-Funktion beilag, zeigt der folgende Block eine <strong>kleine Beispielimplementierung</strong> dieser Schnittstelle. Wenn Sie im Praktikum einen Loader erhalten, verwenden Sie dort dessen vorgegebene Funktion. Sie müssen sie nicht selbst nachprogrammieren.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">lade_text</span><span class="p">(</span><span class="n">dateiname</span><span class="p">):</span>
-    <span class="k">try</span><span class="p">:</span>
-        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">dateiname</span><span class="p">,</span> <span class="s2">"r"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">datei</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">datei</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-    <span class="k">except</span> <span class="ne">FileNotFoundError</span><span class="p">:</span>
-        <span class="k">return</span> <span class="kc">None</span>
+<section id="mehrere-mogliche-fehlertypen">
+<h2><span class="section-number">11.3. </span>Mehrere mögliche Fehlertypen<a class="headerlink" href="#mehrere-mogliche-fehlertypen" title="Link to this heading">#</a></h2>
+<p>Falls unterschiedliche Fehler sinnvoll unterschiedlich behandelt werden sollen, können mehrere <code class="docutils literal notranslate"><span class="pre">except</span></code>-Blöcke verwendet werden:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">values</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">divisor</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">values</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">/</span> <span class="n">divisor</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Der Index existiert nicht."</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">ZeroDivisionError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Division durch 0 ist nicht möglich."</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Der Loader fängt <code class="docutils literal notranslate"><span class="pre">FileNotFoundError</span></code> <strong>innerhalb</strong> seiner Funktion ab. Deshalb erhält das aufrufende Programm bei fehlender Datei <code class="docutils literal notranslate"><span class="pre">None</span></code>, statt an dieser Stelle abzubrechen.</p>
-<!--pytest-codeblocks:expect-error-->
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">inhalt</span> <span class="o">=</span> <span class="n">lade_text</span><span class="p">(</span><span class="s2">"beispiel.txt"</span><span class="p">)</span>
+<p>Welche Exception hier auftritt, hängt davon ab, welche Operation zuerst fehlschlägt.</p>
+</section>
+<section id="if-oder-try">
+<h2><span class="section-number">11.4. </span><code class="docutils literal notranslate"><span class="pre">if</span></code> oder <code class="docutils literal notranslate"><span class="pre">try</span></code>?<a class="headerlink" href="#if-oder-try" title="Link to this heading">#</a></h2>
+<p>Nicht jede Situation braucht <code class="docutils literal notranslate"><span class="pre">try</span></code> und <code class="docutils literal notranslate"><span class="pre">except</span></code>.</p>
+<p>Wenn sich eine Bedingung einfach vorher prüfen lässt, ist ein normales <code class="docutils literal notranslate"><span class="pre">if</span></code> häufig gut lesbar:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">5</span>
 
-<span class="k">if</span> <span class="n">inhalt</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"Datei nicht gefunden"</span><span class="p">)</span>
-<span class="k">elif</span> <span class="n">inhalt</span> <span class="o">==</span> <span class="s2">""</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"Datei vorhanden, aber leer"</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">index</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">numbers</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">numbers</span><span class="p">[</span><span class="n">index</span><span class="p">])</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"Zeichen:"</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">inhalt</span><span class="p">))</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"Zeilen:"</span><span class="p">,</span> <span class="n">inhalt</span><span class="o">.</span><span class="n">splitlines</span><span class="p">())</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Index zu groß."</span><span class="p">)</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">beispiel.txt</span></code> ist hier ein Beispielname. Die Datei muss zum Testen tatsächlich vorhanden sein oder durch einen vorhandenen Dateinamen ersetzt werden. Die Unterschiede kann man auch ohne Datei gut untersuchen:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fehlend</span> <span class="o">=</span> <span class="kc">None</span>
-<span class="n">leer</span> <span class="o">=</span> <span class="s2">""</span>
-<span class="n">mehrzeilig</span> <span class="o">=</span> <span class="s2">"Erste Zeile</span><span class="se">\n</span><span class="s2">Zweite Zeile</span><span class="se">\n</span><span class="s2">"</span>
+<p><code class="docutils literal notranslate"><span class="pre">try</span></code>/<code class="docutils literal notranslate"><span class="pre">except</span></code> ist besonders nützlich, wenn eine Operation selbst fehlschlagen kann und wir gezielt mit diesem Fehler umgehen möchten.</p>
+<p><strong>Wichtig:</strong></p>
+<ul class="simple">
+<li><p>Nur den Code in <code class="docutils literal notranslate"><span class="pre">try</span></code> schreiben, bei dem die erwartete Exception auftreten kann.</p></li>
+<li><p>Möglichst konkrete Exceptions abfangen.</p></li>
+<li><p>Exceptions nicht einfach stillschweigend ignorieren.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">try</span></code>/<code class="docutils literal notranslate"><span class="pre">except</span></code> ist kein Ersatz für jede normale <code class="docutils literal notranslate"><span class="pre">if</span></code>-Bedingung.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="zusatz-fehler-mit-raise-bewusst-auslosen">
+<h2><span class="section-number">11.5. </span>Zusatz: Fehler mit <code class="docutils literal notranslate"><span class="pre">raise</span></code> bewusst auslösen<a class="headerlink" href="#zusatz-fehler-mit-raise-bewusst-auslosen" title="Link to this heading">#</a></h2>
+<p>Exceptions entstehen nicht nur automatisch. Wir können sie auch selbst auslösen.</p>
+<p>Dafür gibt es <code class="docutils literal notranslate"><span class="pre">raise</span></code>.</p>
+<p>Angenommen eine Funktion soll nur positive Preise akzeptieren:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">price_with_tax</span><span class="p">(</span><span class="n">price</span><span class="p">,</span> <span class="n">tax_rate</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">price</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"price darf nicht negativ sein"</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">fehlend</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">)</span>        <span class="c1"># =&gt; True</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">leer</span> <span class="o">==</span> <span class="s2">""</span><span class="p">)</span>             <span class="c1"># =&gt; True</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">mehrzeilig</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">mehrzeilig</span><span class="o">.</span><span class="n">splitlines</span><span class="p">())</span>  <span class="c1"># =&gt; ['Erste Zeile', 'Zweite Zeile']</span>
+    <span class="k">return</span> <span class="n">price</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">tax_rate</span><span class="p">)</span>
+
+
+<span class="nb">print</span><span class="p">(</span><span class="n">price_with_tax</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mf">0.19</span><span class="p">))</span>
 </pre></div>
 </div>
-<p>Das <code class="docutils literal notranslate"><span class="pre">\n</span></code> gehört beim Einlesen als Zeilenumbruch zum String. Mit <code class="docutils literal notranslate"><span class="pre">.splitlines()</span></code> machen wir daraus eine Liste von Zeilen. Für das Durchlaufen der Zeilen gibt es dann wieder eine normale <code class="docutils literal notranslate"><span class="pre">for</span></code>-Schleife.</p>
-<blockquote>
-<div><p><strong>Kurze Verständnisfrage:</strong> Warum wäre <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">not</span> <span class="pre">inhalt:</span></code> hier ungeeignet, wenn wir zwischen „Datei fehlt“ und „Datei ist leer“ unterscheiden wollen? (Beides wird als <code class="docutils literal notranslate"><span class="pre">False</span></code> ausgewertet.)</p>
-</div></blockquote>
+<p>Bei einem ungültigen Wert wird bewusst ein <code class="docutils literal notranslate"><span class="pre">ValueError</span></code> erzeugt:</p>
+<!-- pytest-codeblocks:expect-error -->
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">price_with_tax</span><span class="p">(</span><span class="n">price</span><span class="p">,</span> <span class="n">tax_rate</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">price</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"price darf nicht negativ sein"</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">price</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">tax_rate</span><span class="p">)</span>
+
+
+<span class="n">price_with_tax</span><span class="p">(</span><span class="o">-</span><span class="mi">20</span><span class="p">,</span> <span class="mf">0.19</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">raise</span></code> ist sinnvoll, wenn eine Funktion mit bestimmten Eingaben nicht sinnvoll weiterarbeiten kann.</p>
+<p>Der aufrufende Code kann diese Exception wiederum abfangen:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">price_with_tax</span><span class="p">(</span><span class="n">price</span><span class="p">,</span> <span class="n">tax_rate</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">price</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"price darf nicht negativ sein"</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">price</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">tax_rate</span><span class="p">)</span>
+
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">price_with_tax</span><span class="p">(</span><span class="o">-</span><span class="mi">20</span><span class="p">,</span> <span class="mf">0.19</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Fehler:"</span><span class="p">,</span> <span class="n">error</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Mit</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>except ValueError as error:
+</pre></div>
+</div>
+<p>bekommen wir zusätzlich Zugriff auf das Exception-Objekt und damit zum Beispiel auf die Fehlermeldung.</p>
+</section>
+<section id="zusatz-annahmen-mit-assert-prufen">
+<h2><span class="section-number">11.6. </span>Zusatz: Annahmen mit <code class="docutils literal notranslate"><span class="pre">assert</span></code> prüfen<a class="headerlink" href="#zusatz-annahmen-mit-assert-prufen" title="Link to this heading">#</a></h2>
+<p>Mit <code class="docutils literal notranslate"><span class="pre">assert</span></code> können Entwicklerinnen und Entwickler Annahmen über den eigenen Programmzustand überprüfen.</p>
+<p>Ein einfaches Beispiel:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+
+<span class="n">doubled</span> <span class="o">=</span> <span class="p">[</span><span class="n">number</span> <span class="o">*</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="n">numbers</span><span class="p">]</span>
+
+<span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">doubled</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Solange die Bedingung <code class="docutils literal notranslate"><span class="pre">True</span></code> ist, passiert nichts.</p>
+<p>Ist die Bedingung <code class="docutils literal notranslate"><span class="pre">False</span></code>, wird ein <code class="docutils literal notranslate"><span class="pre">AssertionError</span></code> ausgelöst:</p>
+<!-- pytest-codeblocks:expect-error -->
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="mi">5</span> <span class="o">+</span> <span class="mi">5</span>
+
+<span class="k">assert</span> <span class="n">result</span> <span class="o">==</span> <span class="mi">11</span><span class="p">,</span> <span class="s2">"Das Ergebnis entspricht nicht unserer Erwartung."</span>
+</pre></div>
+</div>
+<p>Eine optionale Nachricht hinter dem Komma hilft dabei, die verletzte Annahme zu verstehen.</p>
+<section id="assert-ist-nicht-dasselbe-wie-normale-eingabeprufung">
+<h3><span class="section-number">11.6.1. </span><code class="docutils literal notranslate"><span class="pre">assert</span></code> ist nicht dasselbe wie normale Eingabeprüfung<a class="headerlink" href="#assert-ist-nicht-dasselbe-wie-normale-eingabeprufung" title="Link to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">assert</span></code> ist vor allem für <strong>interne Annahmen und Entwicklerchecks</strong> gedacht. Assertions können beim Start von Python mit Optimierungsoptionen deaktiviert werden.</p>
+<p>Darum sollten wir wichtige Prüfungen von Benutzereingaben oder Daten nicht ausschließlich mit <code class="docutils literal notranslate"><span class="pre">assert</span></code> durchführen.</p>
+<p>Für ungültige Funktionsargumente ist zum Beispiel <code class="docutils literal notranslate"><span class="pre">raise</span></code> geeigneter:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">remaining_capacity</span><span class="p">(</span><span class="n">total</span><span class="p">,</span> <span class="n">used</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">total</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">used</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">used</span> <span class="o">&gt;</span> <span class="n">total</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"Ungültige Kapazitätswerte."</span><span class="p">)</span>
+
+    <span class="n">remaining</span> <span class="o">=</span> <span class="n">total</span> <span class="o">-</span> <span class="n">used</span>
+
+    <span class="c1"># Interne Annahme: Nach der Prüfung oben</span>
+    <span class="c1"># darf remaining nicht negativ sein.</span>
+    <span class="k">assert</span> <span class="n">remaining</span> <span class="o">&gt;=</span> <span class="mi">0</span>
+
+    <span class="k">return</span> <span class="n">remaining</span>
+
+
+<span class="nb">print</span><span class="p">(</span><span class="n">remaining_capacity</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Hier haben die beiden Konstruktionen unterschiedliche Aufgaben:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">raise</span> <span class="pre">ValueError(...)</span></code> prüft Werte, die von außen an die Funktion übergeben werden.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">assert</span> <span class="pre">...</span></code> dokumentiert und kontrolliert eine Annahme über den internen Programmzustand.</p></li>
+</ul>
+<p>Für den normalen Einstieg reicht zunächst <code class="docutils literal notranslate"><span class="pre">try</span></code> und <code class="docutils literal notranslate"><span class="pre">except</span></code>. <code class="docutils literal notranslate"><span class="pre">raise</span></code> und <code class="docutils literal notranslate"><span class="pre">assert</span></code> werden besonders interessant, wenn Programme größer werden und Funktionen klarere Verträge darüber bekommen, welche Eingaben erlaubt sind und welche Zustände intern gelten sollen.</p>
+</section>
 </section>
 </section>
 
@@ -586,11 +719,11 @@
       </div>
     </a>
     <a class="right-next"
-       href="05_one_step_back-best_practices.html"
+       href="05_environments.html"
        title="Nächste Seite">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">weiter</p>
-        <p class="prev-next-title"><span class="section-number">12. </span>Clean code und „best practices“</p>
+        <p class="prev-next-title"><span class="section-number">12. </span>Python-Umgebungen, Packages und <code class="docutils literal notranslate"><span class="pre">uv</span></code></p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -613,7 +746,14 @@
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#try-und-except">11.1. <code class="docutils literal notranslate"><span class="pre">try</span></code> und <code class="docutils literal notranslate"><span class="pre">except</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#textdateien-string-leerfall-und-fehlende-datei">11.2. Textdateien: String, Leerfall und fehlende Datei</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#konkrete-exceptions-abfangen">11.2. Konkrete Exceptions abfangen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mehrere-mogliche-fehlertypen">11.3. Mehrere mögliche Fehlertypen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#if-oder-try">11.4. <code class="docutils literal notranslate"><span class="pre">if</span></code> oder <code class="docutils literal notranslate"><span class="pre">try</span></code>?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zusatz-fehler-mit-raise-bewusst-auslosen">11.5. Zusatz: Fehler mit <code class="docutils literal notranslate"><span class="pre">raise</span></code> bewusst auslösen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zusatz-annahmen-mit-assert-prufen">11.6. Zusatz: Annahmen mit <code class="docutils literal notranslate"><span class="pre">assert</span></code> prüfen</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#assert-ist-nicht-dasselbe-wie-normale-eingabeprufung">11.6.1. <code class="docutils literal notranslate"><span class="pre">assert</span></code> ist nicht dasselbe wie normale Eingabeprüfung</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 

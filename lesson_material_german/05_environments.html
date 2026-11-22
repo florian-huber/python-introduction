@@ -1,0 +1,966 @@
+
+<!DOCTYPE html>
+
+
+<html lang="de" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>12. Python-Umgebungen, Packages und uv &#8212; Einführung Programmieren mit Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=6a604523" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
+
+    <script src="../_static/documentation_options.js?v=91fba89f"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Klicken zum Anzeigen';</script>
+    <script>let toggleHintHide = 'Klicken zum Ausblenden';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=b8b12719"></script>
+    <script src="../_static/translations.js?v=79cc9f76"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script data-sd-tabs-storage-prefix="sphinx-design-tab-id-" src="../_static/design-tabs.js?v=fcb327ea"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'lesson_material_german/05_environments';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
+    <link rel="search" title="Suche" href="../search.html" />
+    <link rel="next" title="13. Dateien lesen und schreiben" href="05_open_files.html" />
+    <link rel="prev" title="11. Fehler behandeln mit try und except" href="04_try_except.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="de"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Zum Hauptinhalt springen</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Zurück zum Anfang</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Versionswarnung"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Website-Navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Suche" aria-label="Suche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Suche</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Suche" aria-label="Suche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Suche</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="Auf dieser Seite">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="cover.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/cover_logo_mini.png" class="logo__image only-light" alt="Einführung Programmieren mit Python - Home"/>
+    <img src="../_static/cover_logo_mini.png" class="logo__image only-dark pst-js-only" alt="Einführung Programmieren mit Python - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Suche" aria-label="Suche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Suche</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="cover.html">
+                    Einführung Programmieren mit Python für Data Science
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Einführung</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="00_introduction.html">1. Programmieren für Data Science und Künstliche Intelligenz</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_first_steps.html">2. Erste Schritte mit Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_data_types.html">3. Datentypen (<em>data types</em>)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_variables.html">4. Variablen</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Abläufe, Funktionen und Module</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="02_control_structures_conditions_loop.html">5. Kontrollstrukturen und Bedingungen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_functions.html">6. Funktionen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_import_libraries_modules.html">7. Import aus Bibliotheken/Modulen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_special_functions.html">8. Special functions</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Datentypen &amp; String Handling</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="04_sets_dictionaries.html">9. Sets, Dictionaries, and Deep Copy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_string_handling.html">10. String handling</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Error Handling und Best Practices I</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="04_try_except.html">11. Fehler behandeln mit <code class="docutils literal notranslate"><span class="pre">try</span></code> und <code class="docutils literal notranslate"><span class="pre">except</span></code></a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">12. Python-Umgebungen, Packages und <code class="docutils literal notranslate"><span class="pre">uv</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_open_files.html">13. Dateien lesen und schreiben</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Klassen und Objekte</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="06_classes_objects.html">14. Objektorientierte Programmierung - Einführung</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_classes_objects_2.html">15. Objektorientierte Programmierung in Python – Teil 2</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Arbeiten mit numerischen Daten - Numpy</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="08_numpy.html">16. Numerische Daten in Python mit NumPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_numpy_2.html">17. Numerische Daten in Python mit NumPy – Teil 2</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Schritte Richtung Data Science</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="09_pandas.html">18. Pandas – Teil 1: DataFrames verstehen und Daten auswählen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_pandas_2.html">19. Pandas – Teil 2: Daten bereinigen und zusammenfassen</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="12_data_visualization.html">20. Datenvisualisierung mit Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13_data_visualization_outlook.html">21. 2D/3D Visualisierung &amp; interaktive Plots</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Source Code and Contributions</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="github.html">Source Code on GitHub</a></li>
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/florian-huber/python-introduction" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Quell-Repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/florian-huber/python-introduction/issues/new?title=Issue%20on%20page%20%2Flesson_material_german/05_environments.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Öffnen Sie ein Problem"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Laden Sie diese Seite herunter">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/lesson_material_german/05_environments.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Quelldatei herunterladen"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="In PDF drucken"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Vollbildmodus"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Farbmodus" data-bs-title="Farbmodus"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Hell"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dunkel"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="Systemeinstellungen"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Suche" aria-label="Suche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Python-Umgebungen, Packages und uv</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Inhalt </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#welche-python-umgebung-benutze-ich-gerade">12.1. Welche Python-Umgebung benutze ich gerade?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#warum-virtuelle-umgebungen">12.2. Warum virtuelle Umgebungen?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uv">12.3. <code class="docutils literal notranslate"><span class="pre">uv</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#python-versionen-mit-uv">12.3.1. Python-Versionen mit uv</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variante-1-eine-einfache-virtuelle-umgebung">12.4. Variante 1: Eine einfache virtuelle Umgebung</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#umgebung-aktivieren">12.4.1. Umgebung aktivieren</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eine-venv-ist-austauschbar">12.4.2. Eine <code class="docutils literal notranslate"><span class="pre">.venv</span></code> ist austauschbar</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variante-2-ein-uv-projekt">12.5. Variante 2: Ein uv-Projekt</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ein-package-zum-projekt-hinzufugen">12.6. Ein Package zum Projekt hinzufügen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uv-lock">12.7. <code class="docutils literal notranslate"><span class="pre">uv.lock</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#programme-mit-uv-run-starten">12.8. Programme mit <code class="docutils literal notranslate"><span class="pre">uv</span> <span class="pre">run</span></code> starten</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ein-vorhandenes-projekt-einrichten">12.9. Ein vorhandenes Projekt einrichten</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#abhangigkeiten-anschauen">12.10. Abhängigkeiten anschauen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#was-gehort-in-git">12.11. Was gehört in Git?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uv-pip-install-oder-uv-add">12.12. <code class="docutils literal notranslate"><span class="pre">uv</span> <span class="pre">pip</span> <span class="pre">install</span></code> oder <code class="docutils literal notranslate"><span class="pre">uv</span> <span class="pre">add</span></code>?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#einfache-umgebung">12.12.1. Einfache Umgebung</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#verwaltetes-uv-projekt">12.12.2. Verwaltetes uv-Projekt</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ein-typischer-kleiner-workflow">12.13. Ein typischer kleiner Workflow</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kurz-zusammengefasst">12.14. Kurz zusammengefasst</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="python-umgebungen-packages-und-uv">
+<h1><span class="section-number">12. </span>Python-Umgebungen, Packages und <code class="docutils literal notranslate"><span class="pre">uv</span></code><a class="headerlink" href="#python-umgebungen-packages-und-uv" title="Link to this heading">#</a></h1>
+<p>Python selbst bringt bereits viele nützliche Module mit. <code class="docutils literal notranslate"><span class="pre">random</span></code>, <code class="docutils literal notranslate"><span class="pre">math</span></code> oder <code class="docutils literal notranslate"><span class="pre">sys</span></code> gehören zum Beispiel zur <strong>Standardbibliothek</strong> und stehen nach einer normalen Python-Installation direkt zur Verfügung.</p>
+<p>Daneben gibt es sehr viele zusätzliche Python-Packages, die nicht automatisch mit Python installiert werden. Solche Packages können wir für einzelne Projekte installieren. Wichtig ist dabei vor allem, <strong>wo</strong> sie installiert werden und wie wir später nachvollziehen können, welche Packages zu einem Projekt gehören.</p>
+<p>In diesem Kapitel geht es deshalb vor allem um drei Fragen:</p>
+<ol class="arabic simple">
+<li><p>Was ist eine virtuelle Python-Umgebung?</p></li>
+<li><p>Wie installieren wir zusätzliche Packages mit <code class="docutils literal notranslate"><span class="pre">uv</span></code>?</p></li>
+<li><p>Wie halten wir die Abhängigkeiten eines Projekts nachvollziehbar fest?</p></li>
+</ol>
+<section id="welche-python-umgebung-benutze-ich-gerade">
+<h2><span class="section-number">12.1. </span>Welche Python-Umgebung benutze ich gerade?<a class="headerlink" href="#welche-python-umgebung-benutze-ich-gerade" title="Link to this heading">#</a></h2>
+<p>Wenn mehrere Python-Versionen oder virtuelle Umgebungen auf einem Rechner vorhanden sind, ist nicht immer sofort offensichtlich, welcher Interpreter gerade verwendet wird.</p>
+<p>Mit der Standardbibliothek können wir uns den verwendeten Interpreter anzeigen lassen:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">executable</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">version</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">sys.executable</span></code> zeigt den Pfad zu dem Python-Interpreter, mit dem das aktuelle Programm ausgeführt wird.</p>
+<p>Auch im Terminal können wir die Python-Version prüfen:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>--version
+</pre></div>
+</div>
+<p>Je nach Betriebssystem kann stattdessen auch <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">--version</span></code> nötig sein.</p>
+</section>
+<section id="warum-virtuelle-umgebungen">
+<h2><span class="section-number">12.2. </span>Warum virtuelle Umgebungen?<a class="headerlink" href="#warum-virtuelle-umgebungen" title="Link to this heading">#</a></h2>
+<p>Stellen wir uns zwei verschiedene Projekte vor:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>projekt_a/
+projekt_b/
+</pre></div>
+</div>
+<p>Beide verwenden Python, benötigen aber möglicherweise unterschiedliche zusätzliche Packages oder unterschiedliche Versionen derselben Packages.</p>
+<p>Wenn alles global in dieselbe Python-Installation installiert würde, könnten sich verschiedene Projekte gegenseitig beeinflussen.</p>
+<p>Eine <strong>virtuelle Umgebung</strong> (<em>virtual environment</em>) löst dieses Problem. Sie enthält eine eigene Python-Umgebung für ein bestimmtes Projekt.</p>
+<p>Typischerweise liegt sie im Projektordner und heißt:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>.venv/
+</pre></div>
+</div>
+<p>Die <code class="docutils literal notranslate"><span class="pre">.venv</span></code> enthält installierte Packages und technische Dateien der Umgebung. Sie gehört normalerweise <strong>nicht in Git</strong> und kann jederzeit neu erzeugt werden.</p>
+</section>
+<section id="uv">
+<h2><span class="section-number">12.3. </span><code class="docutils literal notranslate"><span class="pre">uv</span></code><a class="headerlink" href="#uv" title="Link to this heading">#</a></h2>
+<p>Im Kurs verwenden wir <strong>uv</strong>, um Python-Versionen, virtuelle Umgebungen und externe Packages zu verwalten.</p>
+<p>Prüfen, ob <code class="docutils literal notranslate"><span class="pre">uv</span></code> verfügbar ist:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>uv<span class="w"> </span>--version
+</pre></div>
+</div>
+<p>Die offizielle Dokumentation findet sich unter:</p>
+<p><a class="reference external" href="https://docs.astral.sh/uv/">https://docs.astral.sh/uv/</a></p>
+<section id="python-versionen-mit-uv">
+<h3><span class="section-number">12.3.1. </span>Python-Versionen mit uv<a class="headerlink" href="#python-versionen-mit-uv" title="Link to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">uv</span></code> kann bei Bedarf auch Python-Versionen installieren:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>uv<span class="w"> </span>python<span class="w"> </span>install<span class="w"> </span><span class="m">3</span>.14
+</pre></div>
+</div>
+<p>Verfügbare beziehungsweise gefundene Python-Versionen können angezeigt werden mit:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>uv<span class="w"> </span>python<span class="w"> </span>list
+</pre></div>
+</div>
+<p>Für einen Projektordner kann eine gewünschte Version festgehalten werden:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>uv<span class="w"> </span>python<span class="w"> </span>pin<span class="w"> </span><span class="m">3</span>.14
+</pre></div>
+</div>
+<p>Dadurch entsteht eine Datei namens <code class="docutils literal notranslate"><span class="pre">.python-version</span></code>.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="variante-1-eine-einfache-virtuelle-umgebung">
+<h2><span class="section-number">12.4. </span>Variante 1: Eine einfache virtuelle Umgebung<a class="headerlink" href="#variante-1-eine-einfache-virtuelle-umgebung" title="Link to this heading">#</a></h2>
+<p>Für kleine Übungen oder einen Ordner mit einzelnen Python-Dateien reicht oft eine normale virtuelle Umgebung.</p>
+<p>Im Projektordner:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>uv<span class="w"> </span>venv<span class="w"> </span>--python<span class="w"> </span><span class="m">3</span>.14
+</pre></div>
+</div>
+<p>Dadurch wird standardmäßig ein Ordner <code class="docutils literal notranslate"><span class="pre">.venv</span></code> angelegt.</p>
+<p>Danach kann ein zusätzliches Package installiert werden, zum Beispiel:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>requests
+</pre></div>
+</div>
+<p>Für diesen Abschnitt ist nicht wichtig, was <code class="docutils literal notranslate"><span class="pre">requests</span></code> genau macht. Es dient nur als Beispiel für ein Package, das <strong>nicht</strong> zur Python-Standardbibliothek gehört.</p>
+<p>Mehrere Packages können gemeinsam installiert werden:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>requests<span class="w"> </span>rich
+</pre></div>
+</div>
+<p>Welche Packages in der aktuellen Umgebung installiert sind, zeigt:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>uv<span class="w"> </span>pip<span class="w"> </span>list
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">uv</span> <span class="pre">pip</span> <span class="pre">install</span></code> sucht automatisch nach einer passenden virtuellen Umgebung, insbesondere nach einer <code class="docutils literal notranslate"><span class="pre">.venv</span></code> im aktuellen Ordner oder in einem übergeordneten Ordner.</p>
+<section id="umgebung-aktivieren">
+<h3><span class="section-number">12.4.1. </span>Umgebung aktivieren<a class="headerlink" href="#umgebung-aktivieren" title="Link to this heading">#</a></h3>
+<p>Eine virtuelle Umgebung kann klassisch aktiviert werden.</p>
+<p>macOS/Linux:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span><span class="w"> </span>.venv/bin/activate
+</pre></div>
+</div>
+<p>Windows PowerShell:</p>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="p">.</span><span class="n">venv</span><span class="p">\</span><span class="n">Scripts</span><span class="p">\</span><span class="n">Activate</span><span class="p">.</span><span class="n">ps1</span>
+</pre></div>
+</div>
+<p>Danach beziehen sich <code class="docutils literal notranslate"><span class="pre">python</span></code> und andere Programme im Terminal auf diese Umgebung.</p>
+<p>Das kann wieder geprüft werden mit:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">executable</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>In VS Code sollte ebenfalls der Interpreter aus <code class="docutils literal notranslate"><span class="pre">.venv</span></code> ausgewählt sein. Das geht über die Command Palette mit:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Python: Select Interpreter
+</pre></div>
+</div>
+</section>
+<section id="eine-venv-ist-austauschbar">
+<h3><span class="section-number">12.4.2. </span>Eine <code class="docutils literal notranslate"><span class="pre">.venv</span></code> ist austauschbar<a class="headerlink" href="#eine-venv-ist-austauschbar" title="Link to this heading">#</a></h3>
+<p>Die virtuelle Umgebung enthält nicht den eigentlichen Quellcode des Projekts. Wenn <code class="docutils literal notranslate"><span class="pre">.venv</span></code> gelöscht wird, sollte das Projekt deshalb nicht verloren sein.</p>
+<p>Die Umgebung kann neu erzeugt werden:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>uv<span class="w"> </span>venv<span class="w"> </span>--python<span class="w"> </span><span class="m">3</span>.14
+</pre></div>
+</div>
+<p>Danach müssten die benötigten Packages allerdings erneut installiert werden.</p>
+<p>Damit kommen wir zu einem wichtigen Problem: <strong>Wo steht eigentlich, welche Packages ein Projekt benötigt?</strong></p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="variante-2-ein-uv-projekt">
+<h2><span class="section-number">12.5. </span>Variante 2: Ein uv-Projekt<a class="headerlink" href="#variante-2-ein-uv-projekt" title="Link to this heading">#</a></h2>
+<p>Für ein länger laufendes Projekt ist es praktischer, wenn die benötigten Packages nicht nur installiert, sondern auch als <strong>Dependencies</strong> des Projekts dokumentiert werden.</p>
+<p>Ein Projekt kann mit</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>uv<span class="w"> </span>init
+</pre></div>
+</div>
+<p>initialisiert werden.</p>
+<p>Dabei entsteht unter anderem eine Datei:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>pyproject.toml
+</pre></div>
+</div>
+<p>Diese Datei beschreibt das Python-Projekt und kann auch dessen direkte Abhängigkeiten enthalten.</p>
+</section>
+<section id="ein-package-zum-projekt-hinzufugen">
+<h2><span class="section-number">12.6. </span>Ein Package zum Projekt hinzufügen<a class="headerlink" href="#ein-package-zum-projekt-hinzufugen" title="Link to this heading">#</a></h2>
+<p>In einem uv-Projekt verwenden wir dafür bevorzugt:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>uv<span class="w"> </span>add<span class="w"> </span>requests
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">uv</span> <span class="pre">add</span></code> trägt das Package in <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> ein und aktualisiert gleichzeitig die Projektumgebung und die Lockdatei.</p>
+<p>Ein stark vereinfachter Ausschnitt aus <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> könnte danach so aussehen:</p>
+<div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="k">[project]</span>
+<span class="n">dependencies</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">"requests"</span><span class="p">,</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>Weitere Dependencies werden genauso ergänzt:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>uv<span class="w"> </span>add<span class="w"> </span>rich
+</pre></div>
+</div>
+<p>Entfernen geht mit:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>uv<span class="w"> </span>remove<span class="w"> </span>rich
+</pre></div>
+</div>
+<p>Für ein uv-Projekt ist <code class="docutils literal notranslate"><span class="pre">uv</span> <span class="pre">add</span></code> normalerweise die passendere Variante als ein bloßes <code class="docutils literal notranslate"><span class="pre">uv</span> <span class="pre">pip</span> <span class="pre">install</span></code>, weil die Abhängigkeit damit <strong>Teil der Projektbeschreibung</strong> wird.</p>
+</section>
+<section id="uv-lock">
+<h2><span class="section-number">12.7. </span><code class="docutils literal notranslate"><span class="pre">uv.lock</span></code><a class="headerlink" href="#uv-lock" title="Link to this heading">#</a></h2>
+<p>Zusätzlich zu <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> verwendet uv eine Datei namens:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>uv.lock
+</pre></div>
+</div>
+<p>Vereinfacht gesagt:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> beschreibt, <strong>welche Dependencies das Projekt benötigt</strong>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">uv.lock</span></code> hält fest, <strong>welche konkreten Paketversionen und abhängigen Pakete dafür aufgelöst wurden</strong>.</p></li>
+</ul>
+<p>Das hilft dabei, auf verschiedenen Rechnern möglichst dieselbe Projektumgebung wiederherzustellen.</p>
+<p><code class="docutils literal notranslate"><span class="pre">uv.lock</span></code> wird von uv automatisch verwaltet. <code class="docutils literal notranslate"><span class="pre">uv</span> <span class="pre">run</span></code> und andere Projektbefehle prüfen dabei, ob Projektbeschreibung, Lockdatei und Umgebung zusammenpassen.</p>
+</section>
+<section id="programme-mit-uv-run-starten">
+<h2><span class="section-number">12.8. </span>Programme mit <code class="docutils literal notranslate"><span class="pre">uv</span> <span class="pre">run</span></code> starten<a class="headerlink" href="#programme-mit-uv-run-starten" title="Link to this heading">#</a></h2>
+<p>Ein Python-Programm kann innerhalb der Projektumgebung so gestartet werden:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>uv<span class="w"> </span>run<span class="w"> </span>python<span class="w"> </span>main.py
+</pre></div>
+</div>
+<p>Oder auch:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>uv<span class="w"> </span>run<span class="w"> </span>main.py
+</pre></div>
+</div>
+<p>Der große Vorteil: Die virtuelle Umgebung muss vorher nicht manuell aktiviert werden. <code class="docutils literal notranslate"><span class="pre">uv</span> <span class="pre">run</span></code> stellt sicher, dass das Kommando in der Projektumgebung ausgeführt wird.</p>
+<p>Angenommen <code class="docutils literal notranslate"><span class="pre">main.py</span></code> enthält nur bereits bekannte Python-Grundlagen:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">random</span><span class="w"> </span><span class="kn">import</span> <span class="n">choice</span>
+
+<span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Ada"</span><span class="p">,</span> <span class="s2">"Grace"</span><span class="p">,</span> <span class="s2">"Linus"</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">choice</span><span class="p">(</span><span class="n">names</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Dann kann die Datei beispielsweise mit</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>uv<span class="w"> </span>run<span class="w"> </span>python<span class="w"> </span>main.py
+</pre></div>
+</div>
+<p>gestartet werden.</p>
+</section>
+<section id="ein-vorhandenes-projekt-einrichten">
+<h2><span class="section-number">12.9. </span>Ein vorhandenes Projekt einrichten<a class="headerlink" href="#ein-vorhandenes-projekt-einrichten" title="Link to this heading">#</a></h2>
+<p>Wenn ein Repository bereits <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> und <code class="docutils literal notranslate"><span class="pre">uv.lock</span></code> enthält, müssen die Dependencies nicht einzeln von Hand installiert werden.</p>
+<p>Im Projektordner genügt:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>uv<span class="w"> </span>sync
+</pre></div>
+</div>
+<p>Damit wird die Projektumgebung an die festgehaltenen Dependencies angepasst.</p>
+<p>Ein typischer Ablauf nach dem Klonen eines bestehenden Projekts ist damit:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>...
+<span class="nb">cd</span><span class="w"> </span>projektname
+uv<span class="w"> </span>sync
+uv<span class="w"> </span>run<span class="w"> </span>python<span class="w"> </span>main.py
+</pre></div>
+</div>
+</section>
+<section id="abhangigkeiten-anschauen">
+<h2><span class="section-number">12.10. </span>Abhängigkeiten anschauen<a class="headerlink" href="#abhangigkeiten-anschauen" title="Link to this heading">#</a></h2>
+<p>Installierte Packages in der aktuellen Umgebung:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>uv<span class="w"> </span>pip<span class="w"> </span>list
+</pre></div>
+</div>
+<p>Die Abhängigkeitsstruktur eines uv-Projekts kann mit</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>uv<span class="w"> </span>tree
+</pre></div>
+</div>
+<p>angezeigt werden.</p>
+<p>Dabei wird schnell sichtbar, dass ein direkt hinzugefügtes Package oft selbst weitere Packages benötigt. Solche Abhängigkeiten heißen <strong>Dependencies</strong>.</p>
+</section>
+<section id="was-gehort-in-git">
+<h2><span class="section-number">12.11. </span>Was gehört in Git?<a class="headerlink" href="#was-gehort-in-git" title="Link to this heading">#</a></h2>
+<p>Eine typische Projektstruktur könnte so aussehen:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>my_project/
+├── .venv/
+├── .python-version
+├── pyproject.toml
+├── uv.lock
+├── main.py
+└── README.md
+</pre></div>
+</div>
+<p>Normalerweise gehören ins Repository:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>.python-version
+pyproject.toml
+uv.lock
+eigener Python-Code
+README.md
+</pre></div>
+</div>
+<p>Nicht ins Repository gehört typischerweise:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>.venv/
+__pycache__/
+</pre></div>
+</div>
+<p>Die <code class="docutils literal notranslate"><span class="pre">.venv</span></code> wird lokal neu erzeugt. <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> und <code class="docutils literal notranslate"><span class="pre">uv.lock</span></code> enthalten die relevanten Informationen, um die Umgebung wiederherzustellen.</p>
+</section>
+<section id="uv-pip-install-oder-uv-add">
+<h2><span class="section-number">12.12. </span><code class="docutils literal notranslate"><span class="pre">uv</span> <span class="pre">pip</span> <span class="pre">install</span></code> oder <code class="docutils literal notranslate"><span class="pre">uv</span> <span class="pre">add</span></code>?<a class="headerlink" href="#uv-pip-install-oder-uv-add" title="Link to this heading">#</a></h2>
+<p>Die beiden Befehle sehen ähnlich aus, erfüllen aber unterschiedliche Rollen.</p>
+<section id="einfache-umgebung">
+<h3><span class="section-number">12.12.1. </span>Einfache Umgebung<a class="headerlink" href="#einfache-umgebung" title="Link to this heading">#</a></h3>
+<p>Für einen kleinen Ordner ohne uv-Projektverwaltung:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>uv<span class="w"> </span>venv
+uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>requests
+</pre></div>
+</div>
+</section>
+<section id="verwaltetes-uv-projekt">
+<h3><span class="section-number">12.12.2. </span>Verwaltetes uv-Projekt<a class="headerlink" href="#verwaltetes-uv-projekt" title="Link to this heading">#</a></h3>
+<p>Für ein Projekt, dessen Dependencies dauerhaft dokumentiert werden sollen:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>uv<span class="w"> </span>init
+uv<span class="w"> </span>add<span class="w"> </span>requests
+uv<span class="w"> </span>run<span class="w"> </span>python<span class="w"> </span>main.py
+</pre></div>
+</div>
+<p>Der zweite Weg wird mit zunehmender Projektgröße wichtiger, weil die Abhängigkeiten nicht nur auf einem einzelnen Rechner installiert, sondern im Projekt selbst dokumentiert sind.</p>
+</section>
+</section>
+<section id="ein-typischer-kleiner-workflow">
+<h2><span class="section-number">12.13. </span>Ein typischer kleiner Workflow<a class="headerlink" href="#ein-typischer-kleiner-workflow" title="Link to this heading">#</a></h2>
+<p>Ein neuer Projektordner:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>my_project
+<span class="nb">cd</span><span class="w"> </span>my_project
+uv<span class="w"> </span>init
+uv<span class="w"> </span>python<span class="w"> </span>pin<span class="w"> </span><span class="m">3</span>.14
+uv<span class="w"> </span>add<span class="w"> </span>requests
+</pre></div>
+</div>
+<p>Danach wird Python-Code geschrieben und zum Beispiel so gestartet:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>uv<span class="w"> </span>run<span class="w"> </span>python<span class="w"> </span>main.py
+</pre></div>
+</div>
+<p>Wenn später eine weitere externe Bibliothek benötigt wird:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>uv<span class="w"> </span>add<span class="w"> </span>rich
+</pre></div>
+</div>
+<p>Auf einem anderen Rechner kann dasselbe Projekt mit</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>uv<span class="w"> </span>sync
+</pre></div>
+</div>
+<p>wieder eingerichtet werden.</p>
+</section>
+<section id="kurz-zusammengefasst">
+<h2><span class="section-number">12.14. </span>Kurz zusammengefasst<a class="headerlink" href="#kurz-zusammengefasst" title="Link to this heading">#</a></h2>
+<p>Für den Moment sind vor allem diese Unterschiede wichtig:</p>
+<ul class="simple">
+<li><p>Python bringt eine <strong>Standardbibliothek</strong> bereits mit.</p></li>
+<li><p>Zusätzliche Packages werden separat installiert.</p></li>
+<li><p>Eine <code class="docutils literal notranslate"><span class="pre">.venv</span></code> hält die Umgebung eines Projekts vom Rest des Rechners getrennt.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">uv</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">...</span></code> installiert Packages in eine Umgebung.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">uv</span> <span class="pre">add</span> <span class="pre">...</span></code> fügt eine Dependency zu einem uv-Projekt hinzu.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> und <code class="docutils literal notranslate"><span class="pre">uv.lock</span></code> dokumentieren das Projekt und seine Dependencies.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">uv</span> <span class="pre">run</span> <span class="pre">...</span></code> führt Programme in der passenden Projektumgebung aus.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">uv</span> <span class="pre">sync</span></code> stellt eine vorhandene Projektumgebung wieder her.</p></li>
+</ul>
+<p>Fragen zu Code-Qualität, Tests, Formatierung und größerer Projektstruktur kommen später im Kurs ausführlicher zurück. Hier geht es zunächst darum, dass Python-Projekte <strong>eine klar definierte und reproduzierbare Umgebung</strong> bekommen.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./lesson_material_german"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="04_try_except.html"
+       title="Vorherige Seite">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">zurück</p>
+        <p class="prev-next-title"><span class="section-number">11. </span>Fehler behandeln mit <code class="docutils literal notranslate"><span class="pre">try</span></code> und <code class="docutils literal notranslate"><span class="pre">except</span></code></p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="05_open_files.html"
+       title="Nächste Seite">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">weiter</p>
+        <p class="prev-next-title"><span class="section-number">13. </span>Dateien lesen und schreiben</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Inhalt
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#welche-python-umgebung-benutze-ich-gerade">12.1. Welche Python-Umgebung benutze ich gerade?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#warum-virtuelle-umgebungen">12.2. Warum virtuelle Umgebungen?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uv">12.3. <code class="docutils literal notranslate"><span class="pre">uv</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#python-versionen-mit-uv">12.3.1. Python-Versionen mit uv</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variante-1-eine-einfache-virtuelle-umgebung">12.4. Variante 1: Eine einfache virtuelle Umgebung</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#umgebung-aktivieren">12.4.1. Umgebung aktivieren</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eine-venv-ist-austauschbar">12.4.2. Eine <code class="docutils literal notranslate"><span class="pre">.venv</span></code> ist austauschbar</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variante-2-ein-uv-projekt">12.5. Variante 2: Ein uv-Projekt</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ein-package-zum-projekt-hinzufugen">12.6. Ein Package zum Projekt hinzufügen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uv-lock">12.7. <code class="docutils literal notranslate"><span class="pre">uv.lock</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#programme-mit-uv-run-starten">12.8. Programme mit <code class="docutils literal notranslate"><span class="pre">uv</span> <span class="pre">run</span></code> starten</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ein-vorhandenes-projekt-einrichten">12.9. Ein vorhandenes Projekt einrichten</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#abhangigkeiten-anschauen">12.10. Abhängigkeiten anschauen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#was-gehort-in-git">12.11. Was gehört in Git?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uv-pip-install-oder-uv-add">12.12. <code class="docutils literal notranslate"><span class="pre">uv</span> <span class="pre">pip</span> <span class="pre">install</span></code> oder <code class="docutils literal notranslate"><span class="pre">uv</span> <span class="pre">add</span></code>?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#einfache-umgebung">12.12.1. Einfache Umgebung</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#verwaltetes-uv-projekt">12.12.2. Verwaltetes uv-Projekt</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ein-typischer-kleiner-workflow">12.13. Ein typischer kleiner Workflow</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kurz-zusammengefasst">12.14. Kurz zusammengefasst</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Durch Florian Huber
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
