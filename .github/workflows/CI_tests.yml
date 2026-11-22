@@ -46,5 +46,5 @@ jobs:
             --with numpy \
             --with pandas \
             --with matplotlib \
-            --with "pytest-codeblocks @ git+https://github.com/florian-huber/pytest-codeblocks.git@allow_differnt_markdown_comments" \
+            --with pytest-codeblocks \
             pytest --codeblocks
