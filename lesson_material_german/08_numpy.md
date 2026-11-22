@@ -183,7 +183,7 @@ print(matrix[2, 3])
 
 Bei einem 2D-Array schreiben wir normalerweise:
 
-<!-- pytest-codeblocks:skip -->
+<!--pytest.mark.skip-->
 
 ```python
 matrix[zeile, spalte]
@@ -403,7 +403,7 @@ Für solche Array-Bedingungen verwenden wir **nicht** Python-`and` beziehungswei
 
 Also:
 
-<!-- pytest-codeblocks:skip -->
+<!--pytest.mark.skip-->
 
 ```python
 (values >= 3) & (values <= 6)

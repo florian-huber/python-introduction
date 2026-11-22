@@ -32,7 +32,7 @@ gute_sache()
 Diese Funktion gibt nichts zurück (nur print) und verlangt keine Argumente.
 
 Die allgemeine Struktur von Funktionen ist:
-<!-- pytest-codeblocks:skip -->
+<!--pytest.mark.skip-->
 
 ```python 
 def function_name(parameter1, parameter2, etc):
@@ -41,7 +41,7 @@ def function_name(parameter1, parameter2, etc):
 ```
 Besser sogar noch so, mit einem sogenannten Docstring der die grundlegende Dokumentation der Funktion darstellt. Hierin können die Funktion und die Parameter beschrieben werden. Zusätzlich kann aber auch ein Code Beispiel angegeben werden oder Referenzen genannte werden.
 
-<!-- pytest-codeblocks:skip -->
+<!--pytest.mark.skip-->
 
 ```python 
 def function_name(parameter1, parameter2, ...):
@@ -53,7 +53,7 @@ def function_name(parameter1, parameter2, ...):
 Es gibt auch Funktionen ohne parameter (siehe oben `gute_sache()`).
 Ausserdem kann man *defaults* festlegen! Diese werden genutzt, falls kein neuer Wert für die entsprechenden Parameter eingegeben wird.
 
-<!-- pytest-codeblocks:skip -->
+<!--pytest.mark.skip-->
 
 ```python 
 def function_name(p1, p2=3.1415):
@@ -79,7 +79,7 @@ x_vs_y(10, 70)  # => 10 is smaller than 70
 x_vs_y(0.000001, 1e-5)  # => 1e-06 is smaller than 1e-05
 ```
 Aber was nicht funktioniert ist:
-<!-- pytest-codeblocks:skip -->
+<!--pytest.mark.skip-->
 
 ```python 
 x_vs_y(10) # => TypeError: x_vs_y() missing 1 required positional argument: 'y'
@@ -99,7 +99,7 @@ print(boxes_to_eggs(5, eggs_per_box=10))  # => 50
 print(boxes_to_eggs(eggs_per_box=10, n_boxes=5))  # => 50
 ```
 ABER... Folgendes geht nicht, da die benannte Parameter nicht vor unbenannten an die Funktion übergeben werden dürfe.
-<!-- pytest-codeblocks:skip -->
+<!--pytest.mark.skip-->
 
 ```python 
 print(boxes_to_eggs(n_boxes=5, 10))  # => SyntaxError: positional argument follows keyword argument

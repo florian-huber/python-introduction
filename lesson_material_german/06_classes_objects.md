@@ -512,7 +512,7 @@ Genau wie Funktionen können Klassen in eigenen Python-Dateien liegen. In einem 
 
 Zum Beispiel könnte `elevator.py` unsere Klasse enthalten:
 
-<!-- pytest-codeblocks:skip -->
+<!--pytest.mark.skip-->
 
 ```python
 # elevator.py
@@ -531,7 +531,7 @@ class Elevator:
 
 Und das Hauptprogramm liegt in einer zweiten Datei `main.py`:
 
-<!-- pytest-codeblocks:skip -->
+<!--pytest.mark.skip-->
 
 ```python
 # main.py

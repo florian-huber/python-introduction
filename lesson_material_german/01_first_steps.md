@@ -153,21 +153,21 @@ So geht's:
 
    Unter Windows könnt ihr den Befehl `cd`  (Change Directory) verwenden, um zum entsprechenden Ordner zu wechseln:
 
-   <!-- pytest-codeblocks:skip -->
+  <!--pytest.mark.skip-->
    ```bash 
    cd Ordner1/Ordner2
    ```
 
    Auf Mac/Linux funktioniert dies ähnlich:
 
-   <!-- pytest-codeblocks:skip -->
+  <!--pytest.mark.skip-->
    ```bash
    cd /Ordner1/Ordner2
    ```
 
 2. **Führt euer Skript aus**, indem ihr `python` (oder je nach System `python3`) gefolgt vom Namen eures Skripts eingebt:
 
-   <!-- pytest-codeblocks:skip -->
+  <!--pytest.mark.skip-->
    ```bash
    python my_script.py
    ```

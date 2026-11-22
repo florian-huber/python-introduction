@@ -37,7 +37,7 @@ Darum fügen wir als nächsten Schritt Benutzerinput hinzu:
 
 Ein häufiges Merkmal interaktiver Programme ist die Möglichkeit, Benutzereingaben zu verarbeiten. In Python nutzen wir hierfür die Funktion `input()`:
 
-<!-- pytest-codeblocks:skip -->
+<!--pytest.mark.skip-->
 
 ```python
 my_str = input("String-Eingabe: ")
@@ -46,7 +46,7 @@ print(my_str)  # => gibt den eingegebenen String aus
 
 Damit können wir unser vorheriges Früchte-Skript interaktiver gestalten:
 
-<!-- pytest-codeblocks:skip -->
+<!--pytest.mark.skip-->
 
 ```python
 fruit = ["apple", "orange", "banana", "pear"]
@@ -243,7 +243,7 @@ else:
     print(f"{number} müsste 0 sein?")
 ```
 Damit kann man ewig lange Abfragen bauen, zum Beispiel sowas: 
-<!-- pytest-codeblocks:skip -->
+<!--pytest.mark.skip-->
 
 ```python 
 angebot = float(input("Dein Angebot: "))
@@ -270,7 +270,7 @@ Die genaue Breite einer Einrückung ist syntaktisch nicht auf vier Leerzeichen f
 
 
 Als abschließendes Beispiel dazu können wir nun das Früchte-Skript von vorhin noch einmal überarbeiten.
-<!-- pytest-codeblocks:skip -->
+<!--pytest.mark.skip-->
 
 
 ```python 
@@ -289,7 +289,7 @@ Nicht jede mögliche Eingabe lässt sich sinnvoll mit einer `if`-Bedingung vorab
 
 Mit `try` und `except` können wir erwartbare Fehler gezielt abfangen:
 
-<!-- pytest-codeblocks:skip -->
+<!--pytest.mark.skip-->
 ```python
 user_input = input("Bitte eine Zahl eingeben: ")
 
@@ -332,7 +332,7 @@ Schleifen sind eine weitere grundlegende Kontrollstruktur in Python. Sie ermögl
 
 Eine `while`-Schleife wiederholt den Code, solange ein bestimmter Wert, oder eine Bedingung, wahr ist (`True`). In Python sieht deren Codestruktur aus wie folgt:
 
-<!-- pytest-codeblocks:skip -->
+<!--pytest.mark.skip-->
 
 ```python
 while True:
@@ -358,7 +358,7 @@ while x < 1000:
 ```
 **Vorsicht:** While loops können auch endlos laufen!
 => Mit Ctrl+C kommt ihr da aber wieder raus :)
-<!-- pytest-codeblocks:skip -->
+<!--pytest.mark.skip-->
 
 ```python 
 x = 0.9
@@ -407,7 +407,7 @@ while x < 100:
 In der Praxis werden in Python sogenannte "for loops" deutlich häufiger als "while loops" genutzt. 
 Vom Prinzip her sieht das Ganze so aus.
 
-<!-- pytest-codeblocks:skip -->
+<!--pytest.mark.skip-->
 
 ```python 
 for expression in iterable:

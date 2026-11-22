@@ -9,7 +9,7 @@ Beispiele die uns im Laufe der Veranstaltung noch häufiger begegnen werden sind
 Dateien lassen sich in Python mit `open()` lesen und erstellen. Im Folgenden - sowie in der Praxis fast immer- werden wir uns nur mit Textdateien beschäftigen. 
 
 Hier ein Beispiel für eine Datei `testfile.txt` die sich im selben Ordner befindet:
-<!--pytest-codeblocks:skip-->
+<!--pytest.mark.skip-->
 
 ```python 
 data = open("testfile.txt", "r", encoding="utf-8")
@@ -33,7 +33,7 @@ Funktion steht. Die wichtigsten Varianten davon finden sich in der Tabelle:
 
 
 Es ist auch einfach möglich die Datei Zeile für Zeile auszulesen.
-<!--pytest-codeblocks:skip-->
+<!--pytest.mark.skip-->
 ```python 
 data = open("testfile.txt", "r", encoding="utf-8")
 for line in data:

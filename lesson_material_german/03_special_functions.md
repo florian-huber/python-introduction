@@ -34,7 +34,7 @@ Deutlich wichtiger (in meinen Augen...) sind dagegen lokale Funktionen.
 Als Lokale Funktionen bezeichnet man Funktionen die innerhalb einer anderen
 Funktion definiert werden.
 
-<!--pytest-codeblocks:skip-->
+<!--pytest.mark.skip-->
 ```python
 def outer_function():
     def inner_function():

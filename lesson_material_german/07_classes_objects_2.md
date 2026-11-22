@@ -561,7 +561,7 @@ projekt/
 
 ### `elevators.py`
 
-<!-- pytest-codeblocks:skip -->
+<!--pytest.mark.skip-->
 
 ```python
 # elevators.py
@@ -585,7 +585,7 @@ class FreightElevator(Elevator):
 
 ### `building.py`
 
-<!-- pytest-codeblocks:skip -->
+<!--pytest.mark.skip-->
 
 ```python
 # building.py
@@ -614,7 +614,7 @@ class Building:
 
 ### `main.py`
 
-<!-- pytest-codeblocks:skip -->
+<!--pytest.mark.skip-->
 
 ```python
 # main.py
@@ -650,7 +650,7 @@ So werden unnötige **zyklische Importe** vermieden, bei denen sich zwei Module 
 
 Bisher haben wir Attribute unserer Objekte meistens direkt gelesen und verändert. Bei einem `Elevator` könnten wir zum Beispiel schreiben:
 
-<!-- pytest-codeblocks:skip -->
+<!--pytest.mark.skip-->
 
 
 ```python
@@ -662,7 +662,7 @@ Außerdem würden dabei andere Regeln umgangen: Vielleicht darf sich der Aufzug 
 
 Darum kann es sinnvoll sein, bestimmte Attribute als **interne Attribute** zu behandeln. In Python wird dafür üblicherweise ein führender Unterstrich verwendet:
 
-<!-- pytest-codeblocks:skip -->
+<!--pytest.mark.skip-->
 
 ```python
 self._level = 0
@@ -672,7 +672,7 @@ Der Unterstrich verhindert den Zugriff nicht technisch. Er signalisiert aber: **
 
 Eine klassische Möglichkeit wäre, eigene Getter- und Setter-Methoden anzubieten:
 
-<!-- pytest-codeblocks:skip -->
+<!--pytest.mark.skip-->
 
 ```python
 def get_level(self):
@@ -769,7 +769,7 @@ Wir haben für `level` zwar einen Getter über `@property` definiert, aber keine
 
 Wenn ein direktes Setzen sinnvoll wäre, könnte eine Property zusätzlich einen Setter bekommen:
 
-<!-- pytest-codeblocks:skip -->
+<!--pytest.mark.skip-->
 
 ```python
 @property
@@ -785,7 +785,7 @@ def level(self, new_level):
 
 Dann wäre auch
 
-<!-- pytest-codeblocks:skip -->
+<!--pytest.mark.skip-->
 
 ```python
 elevator.level = 2

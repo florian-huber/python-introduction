@@ -57,7 +57,7 @@ def dices(n_dices):
 ```
 und diese in einer Datei `dice_functions.py` speichern, dann können wir die Funktion importieren über (wenn wir uns im selben Ordner befinden!):
 
-<!-- pytest-codeblocks:skip -->
+<!--pytest.mark.skip-->
 ```python
 from dice_functions import dices
 

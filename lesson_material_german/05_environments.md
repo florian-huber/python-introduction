@@ -87,7 +87,7 @@ uv python list
 
 Für einen Projektordner kann eine gewünschte Version festgehalten werden:
 
-<!-- pytest-codeblocks:skip -->
+<!--pytest.mark.skip-->
 ```bash
 uv python pin 3.14
 ```
@@ -102,7 +102,7 @@ Für kleine Übungen oder einen Ordner mit einzelnen Python-Dateien reicht oft e
 
 Im Projektordner:
 
-<!-- pytest-codeblocks:skip -->
+<!--pytest.mark.skip-->
 ```bash
 uv venv --python 3.14
 ```
@@ -137,7 +137,7 @@ Eine virtuelle Umgebung kann klassisch aktiviert werden.
 
 macOS/Linux:
 
-<!-- pytest-codeblocks:skip -->
+<!--pytest.mark.skip-->
 ```bash
 source .venv/bin/activate
 ```
@@ -170,7 +170,7 @@ Die virtuelle Umgebung enthält nicht den eigentlichen Quellcode des Projekts. W
 
 Die Umgebung kann neu erzeugt werden:
 
-<!-- pytest-codeblocks:skip -->
+<!--pytest.mark.skip-->
 ```bash
 uv venv --python 3.14
 ```
@@ -187,7 +187,7 @@ Für ein länger laufendes Projekt ist es praktischer, wenn die benötigten Pack
 
 Ein Projekt kann mit
 
-<!-- pytest-codeblocks:skip -->
+<!--pytest.mark.skip-->
 ```bash
 uv init
 ```
@@ -206,7 +206,7 @@ Diese Datei beschreibt das Python-Projekt und kann auch dessen direkte Abhängig
 
 In einem uv-Projekt verwenden wir dafür bevorzugt:
 
-<!-- pytest-codeblocks:skip -->
+<!--pytest.mark.skip-->
 ```bash
 uv add requests
 ```
@@ -224,14 +224,14 @@ dependencies = [
 
 Weitere Dependencies werden genauso ergänzt:
 
-<!-- pytest-codeblocks:skip -->
+<!--pytest.mark.skip-->
 ```bash
 uv add rich
 ```
 
 Entfernen geht mit:
 
-<!-- pytest-codeblocks:skip -->
+<!--pytest.mark.skip-->
 ```bash
 uv remove rich
 ```
@@ -259,14 +259,14 @@ Das hilft dabei, auf verschiedenen Rechnern möglichst dieselbe Projektumgebung 
 
 Ein Python-Programm kann innerhalb der Projektumgebung so gestartet werden:
 
-<!-- pytest-codeblocks:skip -->
+<!--pytest.mark.skip-->
 ```bash
 uv run python main.py
 ```
 
 Oder auch:
 
-<!-- pytest-codeblocks:skip -->
+<!--pytest.mark.skip-->
 ```bash
 uv run main.py
 ```
@@ -284,7 +284,7 @@ print(choice(names))
 
 Dann kann die Datei beispielsweise mit
 
-<!-- pytest-codeblocks:skip -->
+<!--pytest.mark.skip-->
 ```bash
 uv run python main.py
 ```
@@ -297,7 +297,7 @@ Wenn ein Repository bereits `pyproject.toml` und `uv.lock` enthält, müssen die
 
 Im Projektordner genügt:
 
-<!-- pytest-codeblocks:skip -->
+<!--pytest.mark.skip-->
 ```bash
 uv sync
 ```
@@ -306,7 +306,7 @@ Damit wird die Projektumgebung an die festgehaltenen Dependencies angepasst.
 
 Ein typischer Ablauf nach dem Klonen eines bestehenden Projekts ist damit:
 
-<!-- pytest-codeblocks:skip -->
+<!--pytest.mark.skip-->
 ```bash
 git clone ...
 cd projektname
@@ -318,14 +318,14 @@ uv run python main.py
 
 Installierte Packages in der aktuellen Umgebung:
 
-<!-- pytest-codeblocks:skip -->
+<!--pytest.mark.skip-->
 ```bash
 uv pip list
 ```
 
 Die Abhängigkeitsstruktur eines uv-Projekts kann mit
 
-<!-- pytest-codeblocks:skip -->
+<!--pytest.mark.skip-->
 ```bash
 uv tree
 ```
@@ -384,7 +384,7 @@ uv pip install requests
 
 Für ein Projekt, dessen Dependencies dauerhaft dokumentiert werden sollen:
 
-<!-- pytest-codeblocks:skip -->
+<!--pytest.mark.skip-->
 ```bash
 uv init
 uv add requests
@@ -407,21 +407,21 @@ uv add requests
 
 Danach wird Python-Code geschrieben und zum Beispiel so gestartet:
 
-<!-- pytest-codeblocks:skip -->
+<!--pytest.mark.skip-->
 ```bash
 uv run python main.py
 ```
 
 Wenn später eine weitere externe Bibliothek benötigt wird:
 
-<!-- pytest-codeblocks:skip -->
+<!--pytest.mark.skip-->
 ```bash
 uv add rich
 ```
 
 Auf einem anderen Rechner kann dasselbe Projekt mit
 
-<!-- pytest-codeblocks:skip -->
+<!--pytest.mark.skip-->
 ```bash
 uv sync
 ```
