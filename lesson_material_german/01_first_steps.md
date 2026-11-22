@@ -8,6 +8,7 @@ Für diesen Kurs arbeiten wir mit **Python 3.14**. Installiert am besten die jew
 
 Nach der Installation könnt ihr im Terminal prüfen, ob Python gefunden wird:
 
+<!--pytest.mark.skip-->
 ```bash
 python --version
 ```
@@ -26,6 +27,7 @@ Python-Projekte sollen ihre benötigten Bibliotheken möglichst nicht alle in ei
 
 Die Installationsanleitung für `uv` findet ihr in der [offiziellen uv-Dokumentation](https://docs.astral.sh/uv/getting-started/installation/). Danach sollte
 
+<!--pytest.mark.skip-->
 ```bash
 uv --version
 ```
@@ -34,12 +36,14 @@ eine Versionsnummer ausgeben.
 
 Ein Environment im aktuellen Projektordner erstellen wir z.B. so:
 
+<!--pytest.mark.skip-->
 ```bash
 uv venv --python 3.14
 ```
 
 Standardmäßig entsteht dabei der Ordner `.venv`. Aktivieren lässt sich das Environment mit:
 
+<!--pytest.mark.skip-->
 ```bash
 # macOS / Linux
 source .venv/bin/activate
@@ -47,6 +51,7 @@ source .venv/bin/activate
 
 oder unter Windows PowerShell:
 
+<!--pytest.mark.skip-->
 ```powershell
 .\.venv\Scripts\activate
 ```
