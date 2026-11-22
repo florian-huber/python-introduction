@@ -1,3 +1,4 @@
+<!--pytest-codeblocks:skipfile-->
 # Python-Umgebungen, Packages und `uv`
 
 Python selbst bringt bereits viele nützliche Module mit. `random`, `math` oder `sys` gehören zum Beispiel zur **Standardbibliothek** und stehen nach einer normalen Python-Installation direkt zur Verfügung.
