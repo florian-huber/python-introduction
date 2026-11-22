@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>15. Objektorientierte Programmierung in Python – Teil 2 &#8212; Einführung Programmieren mit Python</title>
+    <title>16. Objektorientierte Programmierung in Python – Teil 2 &#8212; Einführung Programmieren mit Python</title>
   
   
   
@@ -66,8 +66,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
     <link rel="search" title="Suche" href="../search.html" />
-    <link rel="next" title="16. Numerische Daten in Python mit NumPy" href="08_numpy.html" />
-    <link rel="prev" title="14. Objektorientierte Programmierung - Einführung" href="06_classes_objects.html" />
+    <link rel="next" title="17. Numerische Daten in Python mit NumPy" href="08_numpy.html" />
+    <link rel="prev" title="15. Objektorientierte Programmierung - Einführung" href="06_classes_objects.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="de"/>
   <meta name="docsearch:version" content="" />
@@ -244,25 +244,30 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="04_try_except.html">11. Fehler behandeln mit <code class="docutils literal notranslate"><span class="pre">try</span></code> und <code class="docutils literal notranslate"><span class="pre">except</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="05_environments.html">12. Python-Umgebungen, Packages und <code class="docutils literal notranslate"><span class="pre">uv</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="05_open_files.html">13. Dateien lesen und schreiben</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_paths_and_directories.html">13. Navigieren durch Ordner, Pfade und CSV-Dateien</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="05_open_files.html">14. Dateien lesen und schreiben</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Klassen und Objekte</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="06_classes_objects.html">14. Objektorientierte Programmierung - Einführung</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">15. Objektorientierte Programmierung in Python – Teil 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_classes_objects.html">15. Objektorientierte Programmierung - Einführung</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">16. Objektorientierte Programmierung in Python – Teil 2</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Arbeiten mit numerischen Daten - Numpy</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="08_numpy.html">16. Numerische Daten in Python mit NumPy</a></li>
-<li class="toctree-l1"><a class="reference internal" href="09_numpy_2.html">17. Numerische Daten in Python mit NumPy – Teil 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08_numpy.html">17. Numerische Daten in Python mit NumPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_numpy_2.html">18. Numerische Daten in Python mit NumPy – Teil 2</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Schritte Richtung Data Science</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="09_pandas.html">18. Pandas – Teil 1: DataFrames verstehen und Daten auswählen</a></li>
-<li class="toctree-l1"><a class="reference internal" href="10_pandas_2.html">19. Pandas – Teil 2: Daten bereinigen und zusammenfassen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_pandas.html">19. Pandas – Teil 1: DataFrames verstehen und Daten auswählen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_pandas_2.html">20. Pandas – Teil 2: Daten bereinigen und zusammenfassen</a></li>
 
-<li class="toctree-l1"><a class="reference internal" href="12_data_visualization.html">20. Datenvisualisierung mit Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="13_data_visualization_outlook.html">21. 2D/3D Visualisierung &amp; interaktive Plots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_data_visualization.html">21. Datenvisualisierung mit Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13_data_visualization_outlook.html">22. 2D/3D Visualisierung &amp; interaktive Plots</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Source Code and Contributions</span></p>
 <ul class="nav bd-sidenav">
@@ -460,33 +465,33 @@
             </div>
             <nav aria-label="Page">
                 <ul class="pst-show_toc_level nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objekte-konnen-andere-objekte-enthalten">15.1. Objekte können andere Objekte enthalten</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mehrere-objekte-verwalten">15.2. Mehrere Objekte verwalten</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#methoden-von-enthaltenen-objekten-nutzen">15.2.1. Methoden von enthaltenen Objekten nutzen</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#verhalten-delegieren">15.2.2. Verhalten delegieren</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objekte-konnen-andere-objekte-enthalten">16.1. Objekte können andere Objekte enthalten</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mehrere-objekte-verwalten">16.2. Mehrere Objekte verwalten</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#methoden-von-enthaltenen-objekten-nutzen">16.2.1. Methoden von enthaltenen Objekten nutzen</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#verhalten-delegieren">16.2.2. Verhalten delegieren</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hat-ein-oder-ist-ein">15.3. Hat-ein oder Ist-ein?</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hat-ein-komposition">15.3.1. Hat-ein: Komposition</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ist-ein-vererbung">15.3.2. Ist-ein: Vererbung</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hat-ein-oder-ist-ein">16.3. Hat-ein oder Ist-ein?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hat-ein-komposition">16.3.1. Hat-ein: Komposition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ist-ein-vererbung">16.3.2. Ist-ein: Vererbung</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vererbung">15.4. Vererbung</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zusatzliche-attribute-mit-super">15.5. Zusätzliche Attribute mit <code class="docutils literal notranslate"><span class="pre">super()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#methoden-uberschreiben">15.6. Methoden überschreiben</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eine-vorhandene-methode-erweitern">15.6.1. Eine vorhandene Methode erweitern</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vererbung">16.4. Vererbung</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zusatzliche-attribute-mit-super">16.5. Zusätzliche Attribute mit <code class="docutils literal notranslate"><span class="pre">super()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#methoden-uberschreiben">16.6. Methoden überschreiben</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eine-vorhandene-methode-erweitern">16.6.1. Eine vorhandene Methode erweitern</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#isinstance-gehort-ein-objekt-zu-diesem-typ">15.7. <code class="docutils literal notranslate"><span class="pre">isinstance()</span></code>: Gehört ein Objekt zu diesem Typ?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#typprufung-beim-aufnehmen-von-objekten">15.8. Typprüfung beim Aufnehmen von Objekten</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#klassen-auf-mehrere-dateien-verteilen">15.9. Klassen auf mehrere Dateien verteilen</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#elevators-py">15.9.1. <code class="docutils literal notranslate"><span class="pre">elevators.py</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#building-py">15.9.2. <code class="docutils literal notranslate"><span class="pre">building.py</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#main-py">15.9.3. <code class="docutils literal notranslate"><span class="pre">main.py</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#isinstance-gehort-ein-objekt-zu-diesem-typ">16.7. <code class="docutils literal notranslate"><span class="pre">isinstance()</span></code>: Gehört ein Objekt zu diesem Typ?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#typprufung-beim-aufnehmen-von-objekten">16.8. Typprüfung beim Aufnehmen von Objekten</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#klassen-auf-mehrere-dateien-verteilen">16.9. Klassen auf mehrere Dateien verteilen</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#elevators-py">16.9.1. <code class="docutils literal notranslate"><span class="pre">elevators.py</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#building-py">16.9.2. <code class="docutils literal notranslate"><span class="pre">building.py</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#main-py">16.9.3. <code class="docutils literal notranslate"><span class="pre">main.py</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getter-setter-und-properties">15.10. Getter, Setter und Properties</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ausblick">15.11. Ausblick</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getter-setter-und-properties">16.10. Getter, Setter und Properties</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ausblick">16.11. Ausblick</a></li>
 </ul>
             </nav>
         </div>
@@ -499,7 +504,7 @@
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="objektorientierte-programmierung-in-python-teil-2">
-<h1><span class="section-number">15. </span>Objektorientierte Programmierung in Python – Teil 2<a class="headerlink" href="#objektorientierte-programmierung-in-python-teil-2" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">16. </span>Objektorientierte Programmierung in Python – Teil 2<a class="headerlink" href="#objektorientierte-programmierung-in-python-teil-2" title="Link to this heading">#</a></h1>
 <p>In der letzten Einheit haben wir eigene Klassen definiert, Objekte erzeugt und ihren Zustand über Attribute und Methoden verändert. Als größeres Beispiel diente ein <code class="docutils literal notranslate"><span class="pre">Elevator</span></code>: Er kann einen aktuellen Zustand besitzen, Methoden ausführen und mit einem <code class="docutils literal notranslate"><span class="pre">Display</span></code>-Objekt zusammenarbeiten.</p>
 <p>In diesem zweiten Teil geht es weniger darum, noch mehr Syntax kennenzulernen. Stattdessen schauen wir uns an, wie <strong>mehrere Objekte zusammenarbeiten</strong> und wie Klassen sinnvoll zueinander in Beziehung stehen können.</p>
 <p>Im Mittelpunkt stehen dabei:</p>
@@ -512,7 +517,7 @@
 <li><p>sowie die Verteilung mehrerer Klassen auf verschiedene Module.</p></li>
 </ul>
 <section id="objekte-konnen-andere-objekte-enthalten">
-<h2><span class="section-number">15.1. </span>Objekte können andere Objekte enthalten<a class="headerlink" href="#objekte-konnen-andere-objekte-enthalten" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">16.1. </span>Objekte können andere Objekte enthalten<a class="headerlink" href="#objekte-konnen-andere-objekte-enthalten" title="Link to this heading">#</a></h2>
 <p>Schon im letzten Kapitel hatten wir einen kleinen <code class="docutils literal notranslate"><span class="pre">Display</span></code>-Datentyp:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Display</span><span class="p">:</span>
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -566,7 +571,7 @@
 <p>Genau wie bei Listen oder Dictionaries gilt also auch für selbst definierte Objekte: Wenn wir ein Objekt weitergeben, erzeugen wir dadurch nicht automatisch eine Kopie.</p>
 </section>
 <section id="mehrere-objekte-verwalten">
-<h2><span class="section-number">15.2. </span>Mehrere Objekte verwalten<a class="headerlink" href="#mehrere-objekte-verwalten" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">16.2. </span>Mehrere Objekte verwalten<a class="headerlink" href="#mehrere-objekte-verwalten" title="Link to this heading">#</a></h2>
 <p>Ein Gebäude kann mehrere Aufzüge besitzen. Dafür können wir eine weitere Klasse verwenden:</p>
 <!-- pytest-codeblocks:cont -->
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Building</span><span class="p">:</span>
@@ -602,7 +607,7 @@
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">self.elevators</span> <span class="pre">=</span> <span class="pre">[]</span></code> muss deshalb in <code class="docutils literal notranslate"><span class="pre">__init__()</span></code> stehen. Würden mehrere Gebäude dieselbe Liste teilen, hätten wir sehr schnell schwer nachvollziehbare Seiteneffekte.</p>
 <section id="methoden-von-enthaltenen-objekten-nutzen">
-<h3><span class="section-number">15.2.1. </span>Methoden von enthaltenen Objekten nutzen<a class="headerlink" href="#methoden-von-enthaltenen-objekten-nutzen" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">16.2.1. </span>Methoden von enthaltenen Objekten nutzen<a class="headerlink" href="#methoden-von-enthaltenen-objekten-nutzen" title="Link to this heading">#</a></h3>
 <p>Eine verwaltende Klasse muss nicht alle Informationen selbst noch einmal speichern.</p>
 <p>Wenn wir Beschreibungen aller Aufzüge wollen, können wir einfach die bereits vorhandene Methode jedes <code class="docutils literal notranslate"><span class="pre">Elevator</span></code>-Objekts aufrufen:</p>
 <!-- pytest-codeblocks:cont -->
@@ -638,7 +643,7 @@
 <p>Das ist oft ein guter OOP-Stil: Die Klasse <code class="docutils literal notranslate"><span class="pre">Building</span></code> verwaltet die Objekte, aber die Objekte selbst wissen, wie sie sich beschreiben.</p>
 </section>
 <section id="verhalten-delegieren">
-<h3><span class="section-number">15.2.2. </span>Verhalten delegieren<a class="headerlink" href="#verhalten-delegieren" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">16.2.2. </span>Verhalten delegieren<a class="headerlink" href="#verhalten-delegieren" title="Link to this heading">#</a></h3>
 <p>Das gleiche Prinzip gilt für Aktionen. Ein Gebäude könnte zum Beispiel alle Aufzüge ins Erdgeschoss schicken:</p>
 <!-- pytest-codeblocks:cont -->
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Building</span><span class="p">:</span>
@@ -679,10 +684,10 @@
 </section>
 <hr class="docutils" />
 <section id="hat-ein-oder-ist-ein">
-<h2><span class="section-number">15.3. </span>Hat-ein oder Ist-ein?<a class="headerlink" href="#hat-ein-oder-ist-ein" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">16.3. </span>Hat-ein oder Ist-ein?<a class="headerlink" href="#hat-ein-oder-ist-ein" title="Link to this heading">#</a></h2>
 <p>Wenn zwei Klassen miteinander zu tun haben, gibt es zwei sehr unterschiedliche Beziehungen.</p>
 <section id="hat-ein-komposition">
-<h3><span class="section-number">15.3.1. </span>Hat-ein: Komposition<a class="headerlink" href="#hat-ein-komposition" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">16.3.1. </span>Hat-ein: Komposition<a class="headerlink" href="#hat-ein-komposition" title="Link to this heading">#</a></h3>
 <p>Ein Gebäude <strong>hat</strong> Aufzüge.</p>
 <p>Ein Aufzug <strong>hat</strong> ein Display.</p>
 <p>Das sind Beispiele für <strong>Komposition</strong>: Ein Objekt enthält oder verwendet andere Objekte.</p>
@@ -693,7 +698,7 @@
 </div>
 </section>
 <section id="ist-ein-vererbung">
-<h3><span class="section-number">15.3.2. </span>Ist-ein: Vererbung<a class="headerlink" href="#ist-ein-vererbung" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">16.3.2. </span>Ist-ein: Vererbung<a class="headerlink" href="#ist-ein-vererbung" title="Link to this heading">#</a></h3>
 <p>Manchmal ist ein neuer Typ dagegen eine speziellere Form eines bereits vorhandenen Typs.</p>
 <p>Ein <strong>Lastenaufzug ist ein Aufzug</strong>.</p>
 <p>Hier kann <strong>Vererbung</strong> sinnvoll sein.</p>
@@ -706,7 +711,7 @@
 </section>
 </section>
 <section id="vererbung">
-<h2><span class="section-number">15.4. </span>Vererbung<a class="headerlink" href="#vererbung" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">16.4. </span>Vererbung<a class="headerlink" href="#vererbung" title="Link to this heading">#</a></h2>
 <p>Im Fahrrad-Beispiel aus dem vorherigen Kapitel wäre das in etwa eine Unterart von Fahrrad die aber die Kerneigenschaften von Fahrrad übernehmen (also „erben“) soll, z.B. ein eBike.
 <img alt="Vererbung am Beispiel der Klasse Fahrrad" src="../_images/fig_oop_inheritance.png" /></p>
 <p>Wir verwenden für die folgenden Beispiele eine etwas kompaktere <code class="docutils literal notranslate"><span class="pre">Elevator</span></code>-Klasse:</p>
@@ -752,7 +757,7 @@
 </ul>
 </section>
 <section id="zusatzliche-attribute-mit-super">
-<h2><span class="section-number">15.5. </span>Zusätzliche Attribute mit <code class="docutils literal notranslate"><span class="pre">super()</span></code><a class="headerlink" href="#zusatzliche-attribute-mit-super" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">16.5. </span>Zusätzliche Attribute mit <code class="docutils literal notranslate"><span class="pre">super()</span></code><a class="headerlink" href="#zusatzliche-attribute-mit-super" title="Link to this heading">#</a></h2>
 <p>Ein Lastenaufzug braucht vielleicht eine zusätzliche Information, die normale Aufzüge nicht besitzen: seine maximale Last.</p>
 <p>Dann definieren wir einen eigenen Konstruktor:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Elevator</span><span class="p">:</span>
@@ -797,7 +802,7 @@
 <p>Ohne den Aufruf von <code class="docutils literal notranslate"><span class="pre">super().__init__(...)</span></code> müssten wir die Initialisierung der Basisklasse wiederholen oder die entsprechenden Attribute würden fehlen.</p>
 </section>
 <section id="methoden-uberschreiben">
-<h2><span class="section-number">15.6. </span>Methoden überschreiben<a class="headerlink" href="#methoden-uberschreiben" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">16.6. </span>Methoden überschreiben<a class="headerlink" href="#methoden-uberschreiben" title="Link to this heading">#</a></h2>
 <p>Eine Unterklasse kann eine geerbte Methode durch eine eigene Version ersetzen.</p>
 <p>Für den Lastenaufzug wollen wir eine ausführlichere Beschreibung:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Elevator</span><span class="p">:</span>
@@ -837,7 +842,7 @@
 <p>Beide Objekte besitzen eine Methode namens <code class="docutils literal notranslate"><span class="pre">description()</span></code>. Welche Version ausgeführt wird, hängt aber vom tatsächlichen Objekt ab.</p>
 <p>Das nennt man <strong>Überschreiben</strong> (<em>method overriding</em>).</p>
 <section id="eine-vorhandene-methode-erweitern">
-<h3><span class="section-number">15.6.1. </span>Eine vorhandene Methode erweitern<a class="headerlink" href="#eine-vorhandene-methode-erweitern" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">16.6.1. </span>Eine vorhandene Methode erweitern<a class="headerlink" href="#eine-vorhandene-methode-erweitern" title="Link to this heading">#</a></h3>
 <p>Manchmal wollen wir die Methode der Basisklasse nicht komplett neu schreiben, sondern nur ihr Ergebnis ergänzen.</p>
 <p>Auch dafür kann <code class="docutils literal notranslate"><span class="pre">super()</span></code> verwendet werden:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Elevator</span><span class="p">:</span>
@@ -869,7 +874,7 @@
 </section>
 </section>
 <section id="isinstance-gehort-ein-objekt-zu-diesem-typ">
-<h2><span class="section-number">15.7. </span><code class="docutils literal notranslate"><span class="pre">isinstance()</span></code>: Gehört ein Objekt zu diesem Typ?<a class="headerlink" href="#isinstance-gehort-ein-objekt-zu-diesem-typ" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">16.7. </span><code class="docutils literal notranslate"><span class="pre">isinstance()</span></code>: Gehört ein Objekt zu diesem Typ?<a class="headerlink" href="#isinstance-gehort-ein-objekt-zu-diesem-typ" title="Link to this heading">#</a></h2>
 <p>Mit <code class="docutils literal notranslate"><span class="pre">isinstance()</span></code> können wir prüfen, ob ein Objekt eine Instanz einer bestimmten Klasse ist.</p>
 <p>Bei Vererbung ist dabei wichtig: Ein Objekt einer Unterklasse gilt auch als Objekt der Basisklasse.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Elevator</span><span class="p">:</span>
@@ -902,7 +907,7 @@
 <p>Wenn eine Funktion oder Sammlung „alle Aufzüge“ akzeptieren soll, möchten wir normalerweise auch Unterklassen akzeptieren.</p>
 </section>
 <section id="typprufung-beim-aufnehmen-von-objekten">
-<h2><span class="section-number">15.8. </span>Typprüfung beim Aufnehmen von Objekten<a class="headerlink" href="#typprufung-beim-aufnehmen-von-objekten" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">16.8. </span>Typprüfung beim Aufnehmen von Objekten<a class="headerlink" href="#typprufung-beim-aufnehmen-von-objekten" title="Link to this heading">#</a></h2>
 <p>Wir können jetzt unsere verwaltende Klasse entsprechend absichern:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Elevator</span><span class="p">:</span>
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
@@ -967,7 +972,7 @@
 <p>Die verwaltende Klasse muss dafür nicht mit <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">type(...)</span> <span class="pre">==</span> <span class="pre">...</span></code> zwischen allen Unterklassen unterscheiden.</p>
 </section>
 <section id="klassen-auf-mehrere-dateien-verteilen">
-<h2><span class="section-number">15.9. </span>Klassen auf mehrere Dateien verteilen<a class="headerlink" href="#klassen-auf-mehrere-dateien-verteilen" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">16.9. </span>Klassen auf mehrere Dateien verteilen<a class="headerlink" href="#klassen-auf-mehrere-dateien-verteilen" title="Link to this heading">#</a></h2>
 <p>Bei mehreren Klassen wird es schnell sinnvoll, den Code auf Module zu verteilen.</p>
 <p>Eine mögliche Struktur wäre:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>projekt/
@@ -977,7 +982,7 @@
 </pre></div>
 </div>
 <section id="elevators-py">
-<h3><span class="section-number">15.9.1. </span><code class="docutils literal notranslate"><span class="pre">elevators.py</span></code><a class="headerlink" href="#elevators-py" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">16.9.1. </span><code class="docutils literal notranslate"><span class="pre">elevators.py</span></code><a class="headerlink" href="#elevators-py" title="Link to this heading">#</a></h3>
 <!-- pytest-codeblocks:skip -->
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># elevators.py</span>
 
@@ -1000,7 +1005,7 @@
 </div>
 </section>
 <section id="building-py">
-<h3><span class="section-number">15.9.2. </span><code class="docutils literal notranslate"><span class="pre">building.py</span></code><a class="headerlink" href="#building-py" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">16.9.2. </span><code class="docutils literal notranslate"><span class="pre">building.py</span></code><a class="headerlink" href="#building-py" title="Link to this heading">#</a></h3>
 <!-- pytest-codeblocks:skip -->
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># building.py</span>
 
@@ -1028,7 +1033,7 @@
 </div>
 </section>
 <section id="main-py">
-<h3><span class="section-number">15.9.3. </span><code class="docutils literal notranslate"><span class="pre">main.py</span></code><a class="headerlink" href="#main-py" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">16.9.3. </span><code class="docutils literal notranslate"><span class="pre">main.py</span></code><a class="headerlink" href="#main-py" title="Link to this heading">#</a></h3>
 <!-- pytest-codeblocks:skip -->
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># main.py</span>
 
@@ -1058,7 +1063,7 @@
 </section>
 </section>
 <section id="getter-setter-und-properties">
-<h2><span class="section-number">15.10. </span>Getter, Setter und Properties<a class="headerlink" href="#getter-setter-und-properties" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">16.10. </span>Getter, Setter und Properties<a class="headerlink" href="#getter-setter-und-properties" title="Link to this heading">#</a></h2>
 <p>Bisher haben wir Attribute unserer Objekte meistens direkt gelesen und verändert. Bei einem <code class="docutils literal notranslate"><span class="pre">Elevator</span></code> könnten wir zum Beispiel schreiben:</p>
 <!-- pytest-codeblocks:skip -->
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">elevator</span><span class="o">.</span><span class="n">level</span> <span class="o">=</span> <span class="mi">3</span>
@@ -1179,7 +1184,7 @@ Damit können wir nach außen weiterhin einen normalen Attributzugriff anbieten,
 Eine Klasse kann stattdessen eine kleine, klar definierte Schnittstelle anbieten und selbst dafür sorgen, dass ihre Objekte in einem sinnvollen Zustand bleiben.</p>
 </section>
 <section id="ausblick">
-<h2><span class="section-number">15.11. </span>Ausblick<a class="headerlink" href="#ausblick" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">16.11. </span>Ausblick<a class="headerlink" href="#ausblick" title="Link to this heading">#</a></h2>
 <p>Mit Klassen, Objekten, Komposition und Vererbung haben wir nur einen ersten Teil der Möglichkeiten objektorientierter Programmierung kennengelernt.
 In größeren Python-Projekten kommen weitere Konzepte dazu, zum Beispiel <strong>Klassenmethoden</strong>, <strong>Properties</strong> oder abstrakte Basisklassen.
 Sie helfen dabei, die öffentliche Schnittstelle einer Klasse klarer zu gestalten und genauer festzulegen, wie Objekte erzeugt oder verwendet werden sollen.</p>
@@ -1228,7 +1233,7 @@ Die Frage, welche Daten und welches Verhalten zu welchem Objekt gehören, bleibt
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">zurück</p>
-        <p class="prev-next-title"><span class="section-number">14. </span>Objektorientierte Programmierung - Einführung</p>
+        <p class="prev-next-title"><span class="section-number">15. </span>Objektorientierte Programmierung - Einführung</p>
       </div>
     </a>
     <a class="right-next"
@@ -1236,7 +1241,7 @@ Die Frage, welche Daten und welches Verhalten zu welchem Objekt gehören, bleibt
        title="Nächste Seite">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">weiter</p>
-        <p class="prev-next-title"><span class="section-number">16. </span>Numerische Daten in Python mit NumPy</p>
+        <p class="prev-next-title"><span class="section-number">17. </span>Numerische Daten in Python mit NumPy</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1258,33 +1263,33 @@ Die Frage, welche Daten und welches Verhalten zu welchem Objekt gehören, bleibt
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="pst-show_toc_level nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objekte-konnen-andere-objekte-enthalten">15.1. Objekte können andere Objekte enthalten</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mehrere-objekte-verwalten">15.2. Mehrere Objekte verwalten</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#methoden-von-enthaltenen-objekten-nutzen">15.2.1. Methoden von enthaltenen Objekten nutzen</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#verhalten-delegieren">15.2.2. Verhalten delegieren</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objekte-konnen-andere-objekte-enthalten">16.1. Objekte können andere Objekte enthalten</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mehrere-objekte-verwalten">16.2. Mehrere Objekte verwalten</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#methoden-von-enthaltenen-objekten-nutzen">16.2.1. Methoden von enthaltenen Objekten nutzen</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#verhalten-delegieren">16.2.2. Verhalten delegieren</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hat-ein-oder-ist-ein">15.3. Hat-ein oder Ist-ein?</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hat-ein-komposition">15.3.1. Hat-ein: Komposition</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ist-ein-vererbung">15.3.2. Ist-ein: Vererbung</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hat-ein-oder-ist-ein">16.3. Hat-ein oder Ist-ein?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hat-ein-komposition">16.3.1. Hat-ein: Komposition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ist-ein-vererbung">16.3.2. Ist-ein: Vererbung</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vererbung">15.4. Vererbung</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zusatzliche-attribute-mit-super">15.5. Zusätzliche Attribute mit <code class="docutils literal notranslate"><span class="pre">super()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#methoden-uberschreiben">15.6. Methoden überschreiben</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eine-vorhandene-methode-erweitern">15.6.1. Eine vorhandene Methode erweitern</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vererbung">16.4. Vererbung</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zusatzliche-attribute-mit-super">16.5. Zusätzliche Attribute mit <code class="docutils literal notranslate"><span class="pre">super()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#methoden-uberschreiben">16.6. Methoden überschreiben</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eine-vorhandene-methode-erweitern">16.6.1. Eine vorhandene Methode erweitern</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#isinstance-gehort-ein-objekt-zu-diesem-typ">15.7. <code class="docutils literal notranslate"><span class="pre">isinstance()</span></code>: Gehört ein Objekt zu diesem Typ?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#typprufung-beim-aufnehmen-von-objekten">15.8. Typprüfung beim Aufnehmen von Objekten</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#klassen-auf-mehrere-dateien-verteilen">15.9. Klassen auf mehrere Dateien verteilen</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#elevators-py">15.9.1. <code class="docutils literal notranslate"><span class="pre">elevators.py</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#building-py">15.9.2. <code class="docutils literal notranslate"><span class="pre">building.py</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#main-py">15.9.3. <code class="docutils literal notranslate"><span class="pre">main.py</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#isinstance-gehort-ein-objekt-zu-diesem-typ">16.7. <code class="docutils literal notranslate"><span class="pre">isinstance()</span></code>: Gehört ein Objekt zu diesem Typ?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#typprufung-beim-aufnehmen-von-objekten">16.8. Typprüfung beim Aufnehmen von Objekten</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#klassen-auf-mehrere-dateien-verteilen">16.9. Klassen auf mehrere Dateien verteilen</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#elevators-py">16.9.1. <code class="docutils literal notranslate"><span class="pre">elevators.py</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#building-py">16.9.2. <code class="docutils literal notranslate"><span class="pre">building.py</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#main-py">16.9.3. <code class="docutils literal notranslate"><span class="pre">main.py</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getter-setter-und-properties">15.10. Getter, Setter und Properties</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ausblick">15.11. Ausblick</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getter-setter-und-properties">16.10. Getter, Setter und Properties</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ausblick">16.11. Ausblick</a></li>
 </ul>
   </nav></div>
 

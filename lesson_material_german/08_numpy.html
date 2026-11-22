@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>16. Numerische Daten in Python mit NumPy &#8212; Einführung Programmieren mit Python</title>
+    <title>17. Numerische Daten in Python mit NumPy &#8212; Einführung Programmieren mit Python</title>
   
   
   
@@ -66,8 +66,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
     <link rel="search" title="Suche" href="../search.html" />
-    <link rel="next" title="17. Numerische Daten in Python mit NumPy – Teil 2" href="09_numpy_2.html" />
-    <link rel="prev" title="15. Objektorientierte Programmierung in Python – Teil 2" href="07_classes_objects_2.html" />
+    <link rel="next" title="18. Numerische Daten in Python mit NumPy – Teil 2" href="09_numpy_2.html" />
+    <link rel="prev" title="16. Objektorientierte Programmierung in Python – Teil 2" href="07_classes_objects_2.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="de"/>
   <meta name="docsearch:version" content="" />
@@ -244,25 +244,30 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="04_try_except.html">11. Fehler behandeln mit <code class="docutils literal notranslate"><span class="pre">try</span></code> und <code class="docutils literal notranslate"><span class="pre">except</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="05_environments.html">12. Python-Umgebungen, Packages und <code class="docutils literal notranslate"><span class="pre">uv</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="05_open_files.html">13. Dateien lesen und schreiben</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_paths_and_directories.html">13. Navigieren durch Ordner, Pfade und CSV-Dateien</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="05_open_files.html">14. Dateien lesen und schreiben</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Klassen und Objekte</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="06_classes_objects.html">14. Objektorientierte Programmierung - Einführung</a></li>
-<li class="toctree-l1"><a class="reference internal" href="07_classes_objects_2.html">15. Objektorientierte Programmierung in Python – Teil 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_classes_objects.html">15. Objektorientierte Programmierung - Einführung</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_classes_objects_2.html">16. Objektorientierte Programmierung in Python – Teil 2</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Arbeiten mit numerischen Daten - Numpy</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">16. Numerische Daten in Python mit NumPy</a></li>
-<li class="toctree-l1"><a class="reference internal" href="09_numpy_2.html">17. Numerische Daten in Python mit NumPy – Teil 2</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">17. Numerische Daten in Python mit NumPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_numpy_2.html">18. Numerische Daten in Python mit NumPy – Teil 2</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Schritte Richtung Data Science</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="09_pandas.html">18. Pandas – Teil 1: DataFrames verstehen und Daten auswählen</a></li>
-<li class="toctree-l1"><a class="reference internal" href="10_pandas_2.html">19. Pandas – Teil 2: Daten bereinigen und zusammenfassen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_pandas.html">19. Pandas – Teil 1: DataFrames verstehen und Daten auswählen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_pandas_2.html">20. Pandas – Teil 2: Daten bereinigen und zusammenfassen</a></li>
 
-<li class="toctree-l1"><a class="reference internal" href="12_data_visualization.html">20. Datenvisualisierung mit Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="13_data_visualization_outlook.html">21. 2D/3D Visualisierung &amp; interaktive Plots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_data_visualization.html">21. Datenvisualisierung mit Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13_data_visualization_outlook.html">22. 2D/3D Visualisierung &amp; interaktive Plots</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Source Code and Contributions</span></p>
 <ul class="nav bd-sidenav">
@@ -460,32 +465,32 @@
             </div>
             <nav aria-label="Page">
                 <ul class="pst-show_toc_level nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy-importieren-und-erste-arrays">16.1. NumPy importieren und erste Arrays</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arrays-direkt-erzeugen">16.2. Arrays direkt erzeugen</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zeros-ones-und-full">16.2.1. <code class="docutils literal notranslate"><span class="pre">zeros()</span></code>, <code class="docutils literal notranslate"><span class="pre">ones()</span></code> und <code class="docutils literal notranslate"><span class="pre">full()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy-importieren-und-erste-arrays">17.1. NumPy importieren und erste Arrays</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arrays-direkt-erzeugen">17.2. Arrays direkt erzeugen</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zeros-ones-und-full">17.2.1. <code class="docutils literal notranslate"><span class="pre">zeros()</span></code>, <code class="docutils literal notranslate"><span class="pre">ones()</span></code> und <code class="docutils literal notranslate"><span class="pre">full()</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zahlenfolgen-mit-arange">16.3. Zahlenfolgen mit <code class="docutils literal notranslate"><span class="pre">arange()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eigenschaften-eines-arrays">16.4. Eigenschaften eines Arrays</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indexing-einzelne-werte-auswahlen">16.5. Indexing: einzelne Werte auswählen</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#slicing-zeilen-spalten-und-teilbereiche">16.6. Slicing: Zeilen, Spalten und Teilbereiche</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eine-ganze-zeile">16.6.1. Eine ganze Zeile</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eine-ganze-spalte">16.6.2. Eine ganze Spalte</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ein-rechteckiger-ausschnitt">16.6.3. Ein rechteckiger Ausschnitt</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zahlenfolgen-mit-arange">17.3. Zahlenfolgen mit <code class="docutils literal notranslate"><span class="pre">arange()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eigenschaften-eines-arrays">17.4. Eigenschaften eines Arrays</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indexing-einzelne-werte-auswahlen">17.5. Indexing: einzelne Werte auswählen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#slicing-zeilen-spalten-und-teilbereiche">17.6. Slicing: Zeilen, Spalten und Teilbereiche</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eine-ganze-zeile">17.6.1. Eine ganze Zeile</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eine-ganze-spalte">17.6.2. Eine ganze Spalte</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ein-rechteckiger-ausschnitt">17.6.3. Ein rechteckiger Ausschnitt</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rechnen-mit-arrays">16.7. Rechnen mit Arrays</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#array-und-skalar">16.7.1. Array und Skalar</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zwei-gleich-geformte-arrays">16.7.2. Zwei gleich geformte Arrays</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rechnen-mit-arrays">17.7. Rechnen mit Arrays</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#array-und-skalar">17.7.1. Array und Skalar</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zwei-gleich-geformte-arrays">17.7.2. Zwei gleich geformte Arrays</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vergleiche-erzeugen-boolesche-masken">16.8. Vergleiche erzeugen boolesche Masken</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mehrere-bedingungen-kombinieren">16.9. Mehrere Bedingungen kombinieren</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arrays-verandern-und-unabhangig-kopieren">16.10. Arrays verändern und unabhängig kopieren</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kennzahlen-uber-alle-werte">16.11. Kennzahlen über alle Werte</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#berechnungen-entlang-einer-achse">16.12. Berechnungen entlang einer Achse</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zufallszahlen-mit-numpy">16.13. Zufallszahlen mit NumPy</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zwischenfazit">16.14. Zwischenfazit</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vergleiche-erzeugen-boolesche-masken">17.8. Vergleiche erzeugen boolesche Masken</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mehrere-bedingungen-kombinieren">17.9. Mehrere Bedingungen kombinieren</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arrays-verandern-und-unabhangig-kopieren">17.10. Arrays verändern und unabhängig kopieren</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kennzahlen-uber-alle-werte">17.11. Kennzahlen über alle Werte</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#berechnungen-entlang-einer-achse">17.12. Berechnungen entlang einer Achse</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zufallszahlen-mit-numpy">17.13. Zufallszahlen mit NumPy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zwischenfazit">17.14. Zwischenfazit</a></li>
 </ul>
             </nav>
         </div>
@@ -498,11 +503,11 @@
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="numerische-daten-in-python-mit-numpy">
-<h1><span class="section-number">16. </span>Numerische Daten in Python mit NumPy<a class="headerlink" href="#numerische-daten-in-python-mit-numpy" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">17. </span>Numerische Daten in Python mit NumPy<a class="headerlink" href="#numerische-daten-in-python-mit-numpy" title="Link to this heading">#</a></h1>
 <p><code class="docutils literal notranslate"><span class="pre">NumPy</span></code> ist eine der wichtigsten Python-Bibliotheken für das Arbeiten mit numerischen Daten. Der zentrale Datentyp ist das <strong>NumPy-Array</strong> (<code class="docutils literal notranslate"><span class="pre">ndarray</span></code>). Arrays können Vektoren, Tabellen und auch höherdimensionale Daten darstellen.</p>
 <p>Ein großer Vorteil ist, dass viele Rechenoperationen direkt auf ganzen Arrays ausgeführt werden können. Wir müssen dafür nicht jedes Element mit einer eigenen Python-Schleife bearbeiten.</p>
 <section id="numpy-importieren-und-erste-arrays">
-<h2><span class="section-number">16.1. </span>NumPy importieren und erste Arrays<a class="headerlink" href="#numpy-importieren-und-erste-arrays" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">17.1. </span>NumPy importieren und erste Arrays<a class="headerlink" href="#numpy-importieren-und-erste-arrays" title="Link to this heading">#</a></h2>
 <p>Üblicherweise wird NumPy so importiert:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 </pre></div>
@@ -536,10 +541,10 @@
 <p>Genau diese <strong>elementweisen Operationen</strong> sind eine der wichtigsten Ideen bei NumPy.</p>
 </section>
 <section id="arrays-direkt-erzeugen">
-<h2><span class="section-number">16.2. </span>Arrays direkt erzeugen<a class="headerlink" href="#arrays-direkt-erzeugen" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">17.2. </span>Arrays direkt erzeugen<a class="headerlink" href="#arrays-direkt-erzeugen" title="Link to this heading">#</a></h2>
 <p>Nicht immer liegen die Daten schon als Liste vor. NumPy bietet verschiedene Funktionen, mit denen Arrays direkt erzeugt werden können.</p>
 <section id="zeros-ones-und-full">
-<h3><span class="section-number">16.2.1. </span><code class="docutils literal notranslate"><span class="pre">zeros()</span></code>, <code class="docutils literal notranslate"><span class="pre">ones()</span></code> und <code class="docutils literal notranslate"><span class="pre">full()</span></code><a class="headerlink" href="#zeros-ones-und-full" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">17.2.1. </span><code class="docutils literal notranslate"><span class="pre">zeros()</span></code>, <code class="docutils literal notranslate"><span class="pre">ones()</span></code> und <code class="docutils literal notranslate"><span class="pre">full()</span></code><a class="headerlink" href="#zeros-ones-und-full" title="Link to this heading">#</a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="n">zeros_1d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
@@ -567,7 +572,7 @@
 </section>
 </section>
 <section id="zahlenfolgen-mit-arange">
-<h2><span class="section-number">16.3. </span>Zahlenfolgen mit <code class="docutils literal notranslate"><span class="pre">arange()</span></code><a class="headerlink" href="#zahlenfolgen-mit-arange" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">17.3. </span>Zahlenfolgen mit <code class="docutils literal notranslate"><span class="pre">arange()</span></code><a class="headerlink" href="#zahlenfolgen-mit-arange" title="Link to this heading">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">np.arange()</span></code> funktioniert ähnlich wie <code class="docutils literal notranslate"><span class="pre">range()</span></code>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
@@ -602,7 +607,7 @@
 </div>
 </section>
 <section id="eigenschaften-eines-arrays">
-<h2><span class="section-number">16.4. </span>Eigenschaften eines Arrays<a class="headerlink" href="#eigenschaften-eines-arrays" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">17.4. </span>Eigenschaften eines Arrays<a class="headerlink" href="#eigenschaften-eines-arrays" title="Link to this heading">#</a></h2>
 <p>Für ein Array sind mehrere Eigenschaften wichtig, die leicht verwechselt werden können:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
@@ -633,7 +638,7 @@ size: 6
 <p>Das Array hat <strong>2 Dimensionen</strong>, <strong>2 Zeilen und 3 Spalten</strong> und insgesamt <strong>6 Werte</strong>.</p>
 </section>
 <section id="indexing-einzelne-werte-auswahlen">
-<h2><span class="section-number">16.5. </span>Indexing: einzelne Werte auswählen<a class="headerlink" href="#indexing-einzelne-werte-auswahlen" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">17.5. </span>Indexing: einzelne Werte auswählen<a class="headerlink" href="#indexing-einzelne-werte-auswahlen" title="Link to this heading">#</a></h2>
 <p>Wie bei Listen beginnt die Zählung bei Index <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
@@ -663,7 +668,7 @@ size: 6
 <p><code class="docutils literal notranslate"><span class="pre">-1</span></code> bezeichnet jeweils den letzten Eintrag entlang der entsprechenden Achse.</p>
 </section>
 <section id="slicing-zeilen-spalten-und-teilbereiche">
-<h2><span class="section-number">16.6. </span>Slicing: Zeilen, Spalten und Teilbereiche<a class="headerlink" href="#slicing-zeilen-spalten-und-teilbereiche" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">17.6. </span>Slicing: Zeilen, Spalten und Teilbereiche<a class="headerlink" href="#slicing-zeilen-spalten-und-teilbereiche" title="Link to this heading">#</a></h2>
 <p>Mit <code class="docutils literal notranslate"><span class="pre">:</span></code> können wir ganze Bereiche auswählen.</p>
 <p>Wir verwenden wieder:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
@@ -676,7 +681,7 @@ size: 6
 </pre></div>
 </div>
 <section id="eine-ganze-zeile">
-<h3><span class="section-number">16.6.1. </span>Eine ganze Zeile<a class="headerlink" href="#eine-ganze-zeile" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">17.6.1. </span>Eine ganze Zeile<a class="headerlink" href="#eine-ganze-zeile" title="Link to this heading">#</a></h3>
 <!-- pytest-codeblocks:cont -->
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">row</span> <span class="o">=</span> <span class="n">matrix</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">:]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
@@ -690,7 +695,7 @@ size: 6
 </div>
 </section>
 <section id="eine-ganze-spalte">
-<h3><span class="section-number">16.6.2. </span>Eine ganze Spalte<a class="headerlink" href="#eine-ganze-spalte" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">17.6.2. </span>Eine ganze Spalte<a class="headerlink" href="#eine-ganze-spalte" title="Link to this heading">#</a></h3>
 <!-- pytest-codeblocks:cont -->
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">column</span> <span class="o">=</span> <span class="n">matrix</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">column</span><span class="p">)</span>
@@ -704,7 +709,7 @@ size: 6
 </div>
 </section>
 <section id="ein-rechteckiger-ausschnitt">
-<h3><span class="section-number">16.6.3. </span>Ein rechteckiger Ausschnitt<a class="headerlink" href="#ein-rechteckiger-ausschnitt" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">17.6.3. </span>Ein rechteckiger Ausschnitt<a class="headerlink" href="#ein-rechteckiger-ausschnitt" title="Link to this heading">#</a></h3>
 <!-- pytest-codeblocks:cont -->
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">block</span> <span class="o">=</span> <span class="n">matrix</span><span class="p">[</span><span class="mi">1</span><span class="p">:,</span> <span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">block</span><span class="p">)</span>
@@ -721,9 +726,9 @@ size: 6
 </section>
 </section>
 <section id="rechnen-mit-arrays">
-<h2><span class="section-number">16.7. </span>Rechnen mit Arrays<a class="headerlink" href="#rechnen-mit-arrays" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">17.7. </span>Rechnen mit Arrays<a class="headerlink" href="#rechnen-mit-arrays" title="Link to this heading">#</a></h2>
 <section id="array-und-skalar">
-<h3><span class="section-number">16.7.1. </span>Array und Skalar<a class="headerlink" href="#array-und-skalar" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">17.7.1. </span>Array und Skalar<a class="headerlink" href="#array-und-skalar" title="Link to this heading">#</a></h3>
 <p>Eine Rechnung mit einem einzelnen Wert wird elementweise auf das gesamte Array angewendet:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
@@ -737,7 +742,7 @@ size: 6
 <p>Dafür brauchen wir keine eigene Schleife.</p>
 </section>
 <section id="zwei-gleich-geformte-arrays">
-<h3><span class="section-number">16.7.2. </span>Zwei gleich geformte Arrays<a class="headerlink" href="#zwei-gleich-geformte-arrays" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">17.7.2. </span>Zwei gleich geformte Arrays<a class="headerlink" href="#zwei-gleich-geformte-arrays" title="Link to this heading">#</a></h3>
 <p>Auch Rechnungen zwischen zwei Arrays sind elementweise:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
@@ -769,7 +774,7 @@ size: 6
 </section>
 </section>
 <section id="vergleiche-erzeugen-boolesche-masken">
-<h2><span class="section-number">16.8. </span>Vergleiche erzeugen boolesche Masken<a class="headerlink" href="#vergleiche-erzeugen-boolesche-masken" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">17.8. </span>Vergleiche erzeugen boolesche Masken<a class="headerlink" href="#vergleiche-erzeugen-boolesche-masken" title="Link to this heading">#</a></h2>
 <p>Auch Vergleiche werden elementweise ausgeführt:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
@@ -810,7 +815,7 @@ size: 6
 <p>Ein leeres Ergebnis ist kein Fehler. Es ist einfach ein Array mit <code class="docutils literal notranslate"><span class="pre">size</span> <span class="pre">==</span> <span class="pre">0</span></code>.</p>
 </section>
 <section id="mehrere-bedingungen-kombinieren">
-<h2><span class="section-number">16.9. </span>Mehrere Bedingungen kombinieren<a class="headerlink" href="#mehrere-bedingungen-kombinieren" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">17.9. </span>Mehrere Bedingungen kombinieren<a class="headerlink" href="#mehrere-bedingungen-kombinieren" title="Link to this heading">#</a></h2>
 <p>Für NumPy-Masken verwenden wir:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">&amp;</span></code> für elementweises <strong>und</strong></p></li>
@@ -840,7 +845,7 @@ size: 6
 </div>
 </section>
 <section id="arrays-verandern-und-unabhangig-kopieren">
-<h2><span class="section-number">16.10. </span>Arrays verändern und unabhängig kopieren<a class="headerlink" href="#arrays-verandern-und-unabhangig-kopieren" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">17.10. </span>Arrays verändern und unabhängig kopieren<a class="headerlink" href="#arrays-verandern-und-unabhangig-kopieren" title="Link to this heading">#</a></h2>
 <p>NumPy-Arrays sind veränderbar:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
@@ -876,7 +881,7 @@ size: 6
 <p>Das ist wichtig, weil NumPy bei manchen Operationen bewusst Speicher zwischen Arrays teilen kann. Wenn wirklich eine unabhängige Version benötigt wird, macht <code class="docutils literal notranslate"><span class="pre">.copy()</span></code> diese Absicht eindeutig.</p>
 </section>
 <section id="kennzahlen-uber-alle-werte">
-<h2><span class="section-number">16.11. </span>Kennzahlen über alle Werte<a class="headerlink" href="#kennzahlen-uber-alle-werte" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">17.11. </span>Kennzahlen über alle Werte<a class="headerlink" href="#kennzahlen-uber-alle-werte" title="Link to this heading">#</a></h2>
 <p>NumPy bringt viele häufig benötigte Berechnungen direkt mit:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
@@ -906,7 +911,7 @@ size: 6
 </ul>
 </section>
 <section id="berechnungen-entlang-einer-achse">
-<h2><span class="section-number">16.12. </span>Berechnungen entlang einer Achse<a class="headerlink" href="#berechnungen-entlang-einer-achse" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">17.12. </span>Berechnungen entlang einer Achse<a class="headerlink" href="#berechnungen-entlang-einer-achse" title="Link to this heading">#</a></h2>
 <p>Bei 2D-Daten wollen wir häufig eine Kennzahl <strong>pro Spalte</strong> oder <strong>pro Zeile</strong> berechnen.</p>
 <p>Wir markieren die Gruppen zunächst gedanklich:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Spalten (axis=0):
@@ -966,7 +971,7 @@ Zeilen (axis=1):
 </ul>
 </section>
 <section id="zufallszahlen-mit-numpy">
-<h2><span class="section-number">16.13. </span>Zufallszahlen mit NumPy<a class="headerlink" href="#zufallszahlen-mit-numpy" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">17.13. </span>Zufallszahlen mit NumPy<a class="headerlink" href="#zufallszahlen-mit-numpy" title="Link to this heading">#</a></h2>
 <p>NumPy kann auch direkt ganze Arrays aus Zufallszahlen erzeugen.</p>
 <p>Für neuen Code wird dafür ein Zufallsgenerator angelegt:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
@@ -985,7 +990,7 @@ Zeilen (axis=1):
 <p>Ältere Beispiele verwenden häufig Funktionen wie <code class="docutils literal notranslate"><span class="pre">np.random.randint(...)</span></code>. Diese existieren weiterhin, gehören aber zur älteren Zufallszahlen-API. Für neuen Code verwenden wir hier <code class="docutils literal notranslate"><span class="pre">default_rng()</span></code> und <code class="docutils literal notranslate"><span class="pre">Generator.integers()</span></code>.</p>
 </section>
 <section id="zwischenfazit">
-<h2><span class="section-number">16.14. </span>Zwischenfazit<a class="headerlink" href="#zwischenfazit" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">17.14. </span>Zwischenfazit<a class="headerlink" href="#zwischenfazit" title="Link to this heading">#</a></h2>
 <p>Für die nächsten Aufgaben sind vor allem diese Muster wichtig:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
@@ -1038,7 +1043,7 @@ Zeilen (axis=1):
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">zurück</p>
-        <p class="prev-next-title"><span class="section-number">15. </span>Objektorientierte Programmierung in Python – Teil 2</p>
+        <p class="prev-next-title"><span class="section-number">16. </span>Objektorientierte Programmierung in Python – Teil 2</p>
       </div>
     </a>
     <a class="right-next"
@@ -1046,7 +1051,7 @@ Zeilen (axis=1):
        title="Nächste Seite">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">weiter</p>
-        <p class="prev-next-title"><span class="section-number">17. </span>Numerische Daten in Python mit NumPy – Teil 2</p>
+        <p class="prev-next-title"><span class="section-number">18. </span>Numerische Daten in Python mit NumPy – Teil 2</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1068,32 +1073,32 @@ Zeilen (axis=1):
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="pst-show_toc_level nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy-importieren-und-erste-arrays">16.1. NumPy importieren und erste Arrays</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arrays-direkt-erzeugen">16.2. Arrays direkt erzeugen</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zeros-ones-und-full">16.2.1. <code class="docutils literal notranslate"><span class="pre">zeros()</span></code>, <code class="docutils literal notranslate"><span class="pre">ones()</span></code> und <code class="docutils literal notranslate"><span class="pre">full()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy-importieren-und-erste-arrays">17.1. NumPy importieren und erste Arrays</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arrays-direkt-erzeugen">17.2. Arrays direkt erzeugen</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zeros-ones-und-full">17.2.1. <code class="docutils literal notranslate"><span class="pre">zeros()</span></code>, <code class="docutils literal notranslate"><span class="pre">ones()</span></code> und <code class="docutils literal notranslate"><span class="pre">full()</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zahlenfolgen-mit-arange">16.3. Zahlenfolgen mit <code class="docutils literal notranslate"><span class="pre">arange()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eigenschaften-eines-arrays">16.4. Eigenschaften eines Arrays</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indexing-einzelne-werte-auswahlen">16.5. Indexing: einzelne Werte auswählen</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#slicing-zeilen-spalten-und-teilbereiche">16.6. Slicing: Zeilen, Spalten und Teilbereiche</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eine-ganze-zeile">16.6.1. Eine ganze Zeile</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eine-ganze-spalte">16.6.2. Eine ganze Spalte</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ein-rechteckiger-ausschnitt">16.6.3. Ein rechteckiger Ausschnitt</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zahlenfolgen-mit-arange">17.3. Zahlenfolgen mit <code class="docutils literal notranslate"><span class="pre">arange()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eigenschaften-eines-arrays">17.4. Eigenschaften eines Arrays</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indexing-einzelne-werte-auswahlen">17.5. Indexing: einzelne Werte auswählen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#slicing-zeilen-spalten-und-teilbereiche">17.6. Slicing: Zeilen, Spalten und Teilbereiche</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eine-ganze-zeile">17.6.1. Eine ganze Zeile</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eine-ganze-spalte">17.6.2. Eine ganze Spalte</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ein-rechteckiger-ausschnitt">17.6.3. Ein rechteckiger Ausschnitt</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rechnen-mit-arrays">16.7. Rechnen mit Arrays</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#array-und-skalar">16.7.1. Array und Skalar</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zwei-gleich-geformte-arrays">16.7.2. Zwei gleich geformte Arrays</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rechnen-mit-arrays">17.7. Rechnen mit Arrays</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#array-und-skalar">17.7.1. Array und Skalar</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zwei-gleich-geformte-arrays">17.7.2. Zwei gleich geformte Arrays</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vergleiche-erzeugen-boolesche-masken">16.8. Vergleiche erzeugen boolesche Masken</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mehrere-bedingungen-kombinieren">16.9. Mehrere Bedingungen kombinieren</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arrays-verandern-und-unabhangig-kopieren">16.10. Arrays verändern und unabhängig kopieren</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kennzahlen-uber-alle-werte">16.11. Kennzahlen über alle Werte</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#berechnungen-entlang-einer-achse">16.12. Berechnungen entlang einer Achse</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zufallszahlen-mit-numpy">16.13. Zufallszahlen mit NumPy</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zwischenfazit">16.14. Zwischenfazit</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vergleiche-erzeugen-boolesche-masken">17.8. Vergleiche erzeugen boolesche Masken</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mehrere-bedingungen-kombinieren">17.9. Mehrere Bedingungen kombinieren</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arrays-verandern-und-unabhangig-kopieren">17.10. Arrays verändern und unabhängig kopieren</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kennzahlen-uber-alle-werte">17.11. Kennzahlen über alle Werte</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#berechnungen-entlang-einer-achse">17.12. Berechnungen entlang einer Achse</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zufallszahlen-mit-numpy">17.13. Zufallszahlen mit NumPy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zwischenfazit">17.14. Zwischenfazit</a></li>
 </ul>
   </nav></div>
 

@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>14. Objektorientierte Programmierung - Einführung &#8212; Einführung Programmieren mit Python</title>
+    <title>15. Objektorientierte Programmierung - Einführung &#8212; Einführung Programmieren mit Python</title>
   
   
   
@@ -66,8 +66,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
     <link rel="search" title="Suche" href="../search.html" />
-    <link rel="next" title="15. Objektorientierte Programmierung in Python – Teil 2" href="07_classes_objects_2.html" />
-    <link rel="prev" title="13. Dateien lesen und schreiben" href="05_open_files.html" />
+    <link rel="next" title="16. Objektorientierte Programmierung in Python – Teil 2" href="07_classes_objects_2.html" />
+    <link rel="prev" title="14. Dateien lesen und schreiben" href="05_open_files.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="de"/>
   <meta name="docsearch:version" content="" />
@@ -244,25 +244,30 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="04_try_except.html">11. Fehler behandeln mit <code class="docutils literal notranslate"><span class="pre">try</span></code> und <code class="docutils literal notranslate"><span class="pre">except</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="05_environments.html">12. Python-Umgebungen, Packages und <code class="docutils literal notranslate"><span class="pre">uv</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="05_open_files.html">13. Dateien lesen und schreiben</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_paths_and_directories.html">13. Navigieren durch Ordner, Pfade und CSV-Dateien</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="05_open_files.html">14. Dateien lesen und schreiben</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Klassen und Objekte</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">14. Objektorientierte Programmierung - Einführung</a></li>
-<li class="toctree-l1"><a class="reference internal" href="07_classes_objects_2.html">15. Objektorientierte Programmierung in Python – Teil 2</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">15. Objektorientierte Programmierung - Einführung</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_classes_objects_2.html">16. Objektorientierte Programmierung in Python – Teil 2</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Arbeiten mit numerischen Daten - Numpy</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="08_numpy.html">16. Numerische Daten in Python mit NumPy</a></li>
-<li class="toctree-l1"><a class="reference internal" href="09_numpy_2.html">17. Numerische Daten in Python mit NumPy – Teil 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08_numpy.html">17. Numerische Daten in Python mit NumPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_numpy_2.html">18. Numerische Daten in Python mit NumPy – Teil 2</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Schritte Richtung Data Science</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="09_pandas.html">18. Pandas – Teil 1: DataFrames verstehen und Daten auswählen</a></li>
-<li class="toctree-l1"><a class="reference internal" href="10_pandas_2.html">19. Pandas – Teil 2: Daten bereinigen und zusammenfassen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_pandas.html">19. Pandas – Teil 1: DataFrames verstehen und Daten auswählen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_pandas_2.html">20. Pandas – Teil 2: Daten bereinigen und zusammenfassen</a></li>
 
-<li class="toctree-l1"><a class="reference internal" href="12_data_visualization.html">20. Datenvisualisierung mit Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="13_data_visualization_outlook.html">21. 2D/3D Visualisierung &amp; interaktive Plots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_data_visualization.html">21. Datenvisualisierung mit Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13_data_visualization_outlook.html">22. 2D/3D Visualisierung &amp; interaktive Plots</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Source Code and Contributions</span></p>
 <ul class="nav bd-sidenav">
@@ -460,26 +465,26 @@
             </div>
             <nav aria-label="Page">
                 <ul class="pst-show_toc_level nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#einfuhrung">14.1. Einführung</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objektorientierte-programmierung">14.2. Objektorientierte Programmierung</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eine-klasse-definieren">14.2.1. Eine Klasse definieren</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#init-self-und-instanzattribute">14.2.2. <code class="docutils literal notranslate"><span class="pre">__init__()</span></code>, <code class="docutils literal notranslate"><span class="pre">self</span></code> und Instanzattribute</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lokale-variable-oder-attribut">14.2.3. Lokale Variable oder Attribut?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#einfuhrung">15.1. Einführung</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objektorientierte-programmierung">15.2. Objektorientierte Programmierung</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eine-klasse-definieren">15.2.1. Eine Klasse definieren</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#init-self-und-instanzattribute">15.2.2. <code class="docutils literal notranslate"><span class="pre">__init__()</span></code>, <code class="docutils literal notranslate"><span class="pre">self</span></code> und Instanzattribute</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lokale-variable-oder-attribut">15.2.3. Lokale Variable oder Attribut?</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instanzmethoden">14.3. Instanzmethoden</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#methoden-mit-zusatzlichen-parametern">14.3.1. Methoden mit zusätzlichen Parametern</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instanzmethoden">15.3. Instanzmethoden</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#methoden-mit-zusatzlichen-parametern">15.3.1. Methoden mit zusätzlichen Parametern</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zustandsandernde-methoden">14.4. Zustandsändernde Methoden</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statische-methoden-staticmethod">14.5. Statische Methoden (<code class="docutils literal notranslate"><span class="pre">@staticmethod</span></code>)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eine-klasse-viele-objekte">14.6. Eine Klasse, viele Objekte</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ein-zweiter-kleiner-datentyp-display">14.7. Ein zweiter kleiner Datentyp: <code class="docutils literal notranslate"><span class="pre">Display</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#objekte-die-andere-objekte-enthalten-komposition">14.7.1. Objekte die andere Objekte enthalten („Komposition“)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zustandsandernde-methoden">15.4. Zustandsändernde Methoden</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statische-methoden-staticmethod">15.5. Statische Methoden (<code class="docutils literal notranslate"><span class="pre">@staticmethod</span></code>)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eine-klasse-viele-objekte">15.6. Eine Klasse, viele Objekte</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ein-zweiter-kleiner-datentyp-display">15.7. Ein zweiter kleiner Datentyp: <code class="docutils literal notranslate"><span class="pre">Display</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#objekte-die-andere-objekte-enthalten-komposition">15.7.1. Objekte die andere Objekte enthalten („Komposition“)</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#klassen-in-eigenen-dateien">14.8. Klassen in eigenen Dateien</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eine-kleine-testspur-aufruf-ruckgabe-folgezustand">14.9. Eine kleine Testspur: Aufruf → Rückgabe → Folgezustand</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#klassen-in-eigenen-dateien">15.8. Klassen in eigenen Dateien</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eine-kleine-testspur-aufruf-ruckgabe-folgezustand">15.9. Eine kleine Testspur: Aufruf → Rückgabe → Folgezustand</a></li>
 </ul>
             </nav>
         </div>
@@ -492,15 +497,15 @@
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="objektorientierte-programmierung-einfuhrung">
-<h1><span class="section-number">14. </span>Objektorientierte Programmierung - Einführung<a class="headerlink" href="#objektorientierte-programmierung-einfuhrung" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">15. </span>Objektorientierte Programmierung - Einführung<a class="headerlink" href="#objektorientierte-programmierung-einfuhrung" title="Link to this heading">#</a></h1>
 <section id="einfuhrung">
-<h2><span class="section-number">14.1. </span>Einführung<a class="headerlink" href="#einfuhrung" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">15.1. </span>Einführung<a class="headerlink" href="#einfuhrung" title="Link to this heading">#</a></h2>
 <p>Bevor wir wirklich loslegen mit der objektorientierten Programmierung (<em>object-oriented programming</em>, oft auch einfach nur OOP), eine kurze Wiederholung.</p>
 <p>In den vorherigen Kapiteln haben wir uns ein wenig angeschaut, wie man Programme sinnvoll strukturieren kann. Ein zentrales Element hierfür sind <strong>Funktionen</strong>. Damit können ganze Programmteile als eigenständige Sub-Programme abgekapselt werden. Nicht immer wird der Code dadurch direkt viel einfacher, aber es ermöglicht es dem Programme eine logische Struktur zu geben und unterschiedliche Aspekte getrennt voneinander zu bearbeiten oder auch zu verbessern und auszubauen.</p>
 <p><strong>Randnotitz:</strong> Im Zusammenhang mit Funktionen wird manchmal auch von <strong>functional programming</strong> gesprochen (<a class="reference external" href="https://de.wikipedia.org/wiki/Funktionale_Programmierung">Funktionale Programmierung</a>). Damit wird nicht einfach die Verwendung von Funktionen gemeint (die ist nämlich sowieso eher der Standard), sonder ein spezielles Code-design das einen starken Fokus auf Funktionen legt. Dazu kann z.B. auch gehören, dass dynamisch neue Funktionen generiert werden.</p>
 </section>
 <section id="objektorientierte-programmierung">
-<h2><span class="section-number">14.2. </span>Objektorientierte Programmierung<a class="headerlink" href="#objektorientierte-programmierung" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">15.2. </span>Objektorientierte Programmierung<a class="headerlink" href="#objektorientierte-programmierung" title="Link to this heading">#</a></h2>
 <p>Objektorientierte Programmierung (oder „OOP“) ist ein Programmierstil oder wird manchmal auch als ein „Programmierparadigma“ bezeichnet um anzugeben, dass es um mehr als kleine Detailfragen geht sondern um eine grundlegende Herangehensweise oder Betrachtungsweise.</p>
 <p>Die ursprüngliche Motivation der objektorientierten Programmierung liegt wohl darin begründet, dass das Vorgehen häufig als sehr intuitiv empfunden wird. Das heißt, sobald man sich an die grundlegenden Prinzipien etwas gewöhnt hat…</p>
 <p>In der objektorientierten Programmierung wird alles durch <strong>Objekte</strong> beschrieben. Objekte haben Daten oder Parameter (die <strong>Attribute</strong>) und Fähigkeiten (die <strong>Methoden</strong>). Wichtig ist, das in Objekten beides zusammenkommt, d.h. Objekte besitzen Attribute und Methoden. Nehmen wir ein einfaches Beispiel: Ein Fahrrad hat bestimmte Parameter, z.B. die Radgröße, die Farbe, die Anzahl der Gänge etc. Das wären die Attribute. Ein Fahrrad hat aber auch Methoden und zwar das Fahren, oder z.B. Klingeln.</p>
@@ -524,7 +529,7 @@ Eine <strong>Klasse</strong> definiert einen Typen, sie ist also eine Art Vorlag
 <p>Hier ist <code class="docutils literal notranslate"><span class="pre">.sort()</span></code> die Methode. Wir müssen sie nirgendwo her importieren, sie ist einfach bei der Liste „mit dabei“.</p>
 <p>Und genauso haben wir gesehn, dass andere Datentypen mit denen wir schon gearbeitet haben, wie integer, float, string, dictionary, set ebenfalls solche Methoden haben.</p>
 <section id="eine-klasse-definieren">
-<h3><span class="section-number">14.2.1. </span>Eine Klasse definieren<a class="headerlink" href="#eine-klasse-definieren" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">15.2.1. </span>Eine Klasse definieren<a class="headerlink" href="#eine-klasse-definieren" title="Link to this heading">#</a></h3>
 <p>Eine Klasse ist nun eine Möglichkeit unsere eigenen Datentypen zu definieren.
 Wichtig: Klassen sind absolut nichts, das speziell für Python ist. Die meisten modernen Programmiersprachen erlauben es Klassen zu definieren.</p>
 <p>Als durchgängiges Beispiel verwenden wir einen <strong>Aufzug</strong>. Ein Aufzug passt gut zu objektorientierter Programmierung, weil er einerseits einen <strong>Zustand</strong> besitzt (z.B. aktuelle Etage und Türstatus) und andererseits bestimmte <strong>Aktionen</strong> ausführen kann (z.B. Tür öffnen oder in eine andere Etage fahren).</p>
@@ -546,7 +551,7 @@ Wichtig: Klassen sind absolut nichts, das speziell für Python ist. Die meisten 
 <p>Beide Objekte wurden mit derselben Klasse erzeugt, sind aber zwei <strong>verschiedene Instanzen</strong>. Genau wie zwei echte Aufzüge im selben Gebäude zwar nach demselben Bauplan gebaut sein können, aber nicht deshalb derselbe Aufzug sind.</p>
 </section>
 <section id="init-self-und-instanzattribute">
-<h3><span class="section-number">14.2.2. </span><code class="docutils literal notranslate"><span class="pre">__init__()</span></code>, <code class="docutils literal notranslate"><span class="pre">self</span></code> und Instanzattribute<a class="headerlink" href="#init-self-und-instanzattribute" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">15.2.2. </span><code class="docutils literal notranslate"><span class="pre">__init__()</span></code>, <code class="docutils literal notranslate"><span class="pre">self</span></code> und Instanzattribute<a class="headerlink" href="#init-self-und-instanzattribute" title="Link to this heading">#</a></h3>
 <p>Ein echter Aufzug braucht natürlich mehr Informationen. Zum Beispiel:</p>
 <ul class="simple">
 <li><p>Welche Etagen darf er anfahren?</p></li>
@@ -576,7 +581,7 @@ Wichtig: Klassen sind absolut nichts, das speziell für Python ist. Die meisten 
 </div>
 </section>
 <section id="lokale-variable-oder-attribut">
-<h3><span class="section-number">14.2.3. </span>Lokale Variable oder Attribut?<a class="headerlink" href="#lokale-variable-oder-attribut" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">15.2.3. </span>Lokale Variable oder Attribut?<a class="headerlink" href="#lokale-variable-oder-attribut" title="Link to this heading">#</a></h3>
 <p>Der Unterschied zwischen einer lokalen Variable und einem Attribut ist wichtig:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Elevator</span><span class="p">:</span>
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">accessible_levels</span><span class="p">,</span> <span class="n">start_level</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
@@ -619,7 +624,7 @@ C) ein Objekt der Klasse <code class="docutils literal notranslate"><span class=
 </section>
 </section>
 <section id="instanzmethoden">
-<h2><span class="section-number">14.3. </span>Instanzmethoden<a class="headerlink" href="#instanzmethoden" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">15.3. </span>Instanzmethoden<a class="headerlink" href="#instanzmethoden" title="Link to this heading">#</a></h2>
 <p>Bisher haben unsere Aufzüge zwar einen Zustand, können aber noch nichts tun. Methoden geben den Objekten Verhalten.</p>
 <p>Wir beginnen mit einer Methode <strong>ohne zusätzlichen Parameter</strong>. Sie soll den aktuellen Zustand beschreiben:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Elevator</span><span class="p">:</span>
@@ -649,7 +654,7 @@ C) ein Objekt der Klasse <code class="docutils literal notranslate"><span class=
 </div>
 <p>Die Beschreibung wird als <strong>String zurückgegeben</strong>. Das ist etwas anderes als direkt in der Methode zu <code class="docutils literal notranslate"><span class="pre">print()</span></code>en: Das Hauptprogramm kann nun selbst entscheiden, was mit dem String passieren soll.</p>
 <section id="methoden-mit-zusatzlichen-parametern">
-<h3><span class="section-number">14.3.1. </span>Methoden mit zusätzlichen Parametern<a class="headerlink" href="#methoden-mit-zusatzlichen-parametern" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">15.3.1. </span>Methoden mit zusätzlichen Parametern<a class="headerlink" href="#methoden-mit-zusatzlichen-parametern" title="Link to this heading">#</a></h3>
 <p>Methoden können genau wie Funktionen weitere Parameter erhalten. Zum Beispiel können wir fragen, wie weit eine gewünschte Etage von der aktuellen Position entfernt ist:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Elevator</span><span class="p">:</span>
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">accessible_levels</span><span class="p">,</span> <span class="n">start_level</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
@@ -678,7 +683,7 @@ C) ein Objekt der Klasse <code class="docutils literal notranslate"><span class=
 </section>
 </section>
 <section id="zustandsandernde-methoden">
-<h2><span class="section-number">14.4. </span>Zustandsändernde Methoden<a class="headerlink" href="#zustandsandernde-methoden" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">15.4. </span>Zustandsändernde Methoden<a class="headerlink" href="#zustandsandernde-methoden" title="Link to this heading">#</a></h2>
 <p>Andere Methoden sollen den Zustand eines Objekts ganz bewusst verändern. Bei unserem Aufzug sind das zum Beispiel <code class="docutils literal notranslate"><span class="pre">open_door()</span></code>, <code class="docutils literal notranslate"><span class="pre">close_door()</span></code> und später <code class="docutils literal notranslate"><span class="pre">move_to()</span></code>.</p>
 <p>Dabei ist es hilfreich, wenn die Methode zusätzlich zurückgibt, ob die gewünschte Aktion tatsächlich durchgeführt wurde. Hier verwenden wir dafür <code class="docutils literal notranslate"><span class="pre">True</span></code> oder <code class="docutils literal notranslate"><span class="pre">False</span></code>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Elevator</span><span class="p">:</span>
@@ -750,7 +755,7 @@ C) ein Objekt der Klasse <code class="docutils literal notranslate"><span class=
 </ul>
 </section>
 <section id="statische-methoden-staticmethod">
-<h2><span class="section-number">14.5. </span>Statische Methoden (<code class="docutils literal notranslate"><span class="pre">&#64;staticmethod</span></code>)<a class="headerlink" href="#statische-methoden-staticmethod" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">15.5. </span>Statische Methoden (<code class="docutils literal notranslate"><span class="pre">&#64;staticmethod</span></code>)<a class="headerlink" href="#statische-methoden-staticmethod" title="Link to this heading">#</a></h2>
 <p>Nicht jede Funktionalität, die thematisch zu einer Klasse gehört, benötigt tatsächlich ein konkretes Objekt.</p>
 <p>Für die Anzeige eines Stockwerks wollen wir zum Beispiel folgende Bezeichnungen verwenden:</p>
 <ul class="simple">
@@ -784,7 +789,7 @@ C) ein Objekt der Klasse <code class="docutils literal notranslate"><span class=
 </ul>
 </section>
 <section id="eine-klasse-viele-objekte">
-<h2><span class="section-number">14.6. </span>Eine Klasse, viele Objekte<a class="headerlink" href="#eine-klasse-viele-objekte" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">15.6. </span>Eine Klasse, viele Objekte<a class="headerlink" href="#eine-klasse-viele-objekte" title="Link to this heading">#</a></h2>
 <p>Es können beliebig viele Objekte einer Klasse erzeugt werden. Die Klasse bleibt dabei dieselbe, die Zustände der einzelnen Objekte können aber unterschiedlich sein.</p>
 <p>Für das folgende Beispiel verwenden wir noch einmal unsere vollständige Aufzugsklasse:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Elevator</span><span class="p">:</span>
@@ -848,7 +853,7 @@ C) ein Objekt der Klasse <code class="docutils literal notranslate"><span class=
 <p>Hier enthält die Liste nicht Zahlen oder Strings, sondern drei selbst erzeugte <code class="docutils literal notranslate"><span class="pre">Elevator</span></code>-Objekte. In der Schleife können wir ihre Attribute lesen und ihre Methoden aufrufen.</p>
 </section>
 <section id="ein-zweiter-kleiner-datentyp-display">
-<h2><span class="section-number">14.7. </span>Ein zweiter kleiner Datentyp: <code class="docutils literal notranslate"><span class="pre">Display</span></code><a class="headerlink" href="#ein-zweiter-kleiner-datentyp-display" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">15.7. </span>Ein zweiter kleiner Datentyp: <code class="docutils literal notranslate"><span class="pre">Display</span></code><a class="headerlink" href="#ein-zweiter-kleiner-datentyp-display" title="Link to this heading">#</a></h2>
 <p>Ein größerer Vorteil von OOP wird sichtbar, wenn verschiedene Objekte unterschiedliche Aufgaben übernehmen.</p>
 <p>Ein Aufzug könnte zum Beispiel ein kleines Display besitzen. Das Display muss nicht wissen, wie ein Aufzug fährt oder welche Türen geöffnet werden dürfen. Seine Aufgabe ist nur, eine Nachricht anzuzeigen bzw. zu speichern:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Display</span><span class="p">:</span>
@@ -867,7 +872,7 @@ C) ein Objekt der Klasse <code class="docutils literal notranslate"><span class=
 </pre></div>
 </div>
 <section id="objekte-die-andere-objekte-enthalten-komposition">
-<h3><span class="section-number">14.7.1. </span>Objekte die andere Objekte enthalten („Komposition“)<a class="headerlink" href="#objekte-die-andere-objekte-enthalten-komposition" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">15.7.1. </span>Objekte die andere Objekte enthalten („Komposition“)<a class="headerlink" href="#objekte-die-andere-objekte-enthalten-komposition" title="Link to this heading">#</a></h3>
 <p>Eine Klasse kann auch Objekte einer anderen Klasse als Attribut enthalten. Das nennt man <strong>Komposition</strong>.</p>
 <p>Wir können beispielsweise jedem Aufzug ein <code class="docutils literal notranslate"><span class="pre">Display</span></code> geben. Die folgende verkürzte Version konzentriert sich nur auf diesen neuen Aspekt:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Display</span><span class="p">:</span>
@@ -921,7 +926,7 @@ C) ein Objekt der Klasse <code class="docutils literal notranslate"><span class=
 </section>
 </section>
 <section id="klassen-in-eigenen-dateien">
-<h2><span class="section-number">14.8. </span>Klassen in eigenen Dateien<a class="headerlink" href="#klassen-in-eigenen-dateien" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">15.8. </span>Klassen in eigenen Dateien<a class="headerlink" href="#klassen-in-eigenen-dateien" title="Link to this heading">#</a></h2>
 <p>Genau wie Funktionen können Klassen in eigenen Python-Dateien liegen. In einem echten Projekt würden wir die Klassendefinition deshalb häufig vom eigentlichen Hauptprogramm trennen.</p>
 <p>Zum Beispiel könnte <code class="docutils literal notranslate"><span class="pre">elevator.py</span></code> unsere Klasse enthalten:</p>
 <!-- pytest-codeblocks:skip -->
@@ -953,7 +958,7 @@ C) ein Objekt der Klasse <code class="docutils literal notranslate"><span class=
 <p>Die beiden Codeblöcke sind für <code class="docutils literal notranslate"><span class="pre">pytest-codeblocks</span></code> mit <code class="docutils literal notranslate"><span class="pre">skip</span></code> markiert, weil sie zwei verschiedene Dateien darstellen und daher nicht als einzelner Markdown-Codeblock ausgeführt werden können.</p>
 </section>
 <section id="eine-kleine-testspur-aufruf-ruckgabe-folgezustand">
-<h2><span class="section-number">14.9. </span>Eine kleine Testspur: Aufruf → Rückgabe → Folgezustand<a class="headerlink" href="#eine-kleine-testspur-aufruf-ruckgabe-folgezustand" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">15.9. </span>Eine kleine Testspur: Aufruf → Rückgabe → Folgezustand<a class="headerlink" href="#eine-kleine-testspur-aufruf-ruckgabe-folgezustand" title="Link to this heading">#</a></h2>
 <p>Gerade bei zustandsändernden Methoden hilft eine kleine Testspur. Wir schauen dabei nicht nur auf die Rückgabe, sondern auch darauf, was danach im Objekt gespeichert ist.</p>
 <p>Dafür verwenden wir noch einmal eine kompakte Version unserer Klasse:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Elevator</span><span class="p">:</span>
@@ -1034,7 +1039,7 @@ C) ein Objekt der Klasse <code class="docutils literal notranslate"><span class=
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">zurück</p>
-        <p class="prev-next-title"><span class="section-number">13. </span>Dateien lesen und schreiben</p>
+        <p class="prev-next-title"><span class="section-number">14. </span>Dateien lesen und schreiben</p>
       </div>
     </a>
     <a class="right-next"
@@ -1042,7 +1047,7 @@ C) ein Objekt der Klasse <code class="docutils literal notranslate"><span class=
        title="Nächste Seite">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">weiter</p>
-        <p class="prev-next-title"><span class="section-number">15. </span>Objektorientierte Programmierung in Python – Teil 2</p>
+        <p class="prev-next-title"><span class="section-number">16. </span>Objektorientierte Programmierung in Python – Teil 2</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1064,26 +1069,26 @@ C) ein Objekt der Klasse <code class="docutils literal notranslate"><span class=
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="pst-show_toc_level nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#einfuhrung">14.1. Einführung</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objektorientierte-programmierung">14.2. Objektorientierte Programmierung</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eine-klasse-definieren">14.2.1. Eine Klasse definieren</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#init-self-und-instanzattribute">14.2.2. <code class="docutils literal notranslate"><span class="pre">__init__()</span></code>, <code class="docutils literal notranslate"><span class="pre">self</span></code> und Instanzattribute</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lokale-variable-oder-attribut">14.2.3. Lokale Variable oder Attribut?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#einfuhrung">15.1. Einführung</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objektorientierte-programmierung">15.2. Objektorientierte Programmierung</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eine-klasse-definieren">15.2.1. Eine Klasse definieren</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#init-self-und-instanzattribute">15.2.2. <code class="docutils literal notranslate"><span class="pre">__init__()</span></code>, <code class="docutils literal notranslate"><span class="pre">self</span></code> und Instanzattribute</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lokale-variable-oder-attribut">15.2.3. Lokale Variable oder Attribut?</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instanzmethoden">14.3. Instanzmethoden</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#methoden-mit-zusatzlichen-parametern">14.3.1. Methoden mit zusätzlichen Parametern</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instanzmethoden">15.3. Instanzmethoden</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#methoden-mit-zusatzlichen-parametern">15.3.1. Methoden mit zusätzlichen Parametern</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zustandsandernde-methoden">14.4. Zustandsändernde Methoden</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statische-methoden-staticmethod">14.5. Statische Methoden (<code class="docutils literal notranslate"><span class="pre">@staticmethod</span></code>)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eine-klasse-viele-objekte">14.6. Eine Klasse, viele Objekte</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ein-zweiter-kleiner-datentyp-display">14.7. Ein zweiter kleiner Datentyp: <code class="docutils literal notranslate"><span class="pre">Display</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#objekte-die-andere-objekte-enthalten-komposition">14.7.1. Objekte die andere Objekte enthalten („Komposition“)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zustandsandernde-methoden">15.4. Zustandsändernde Methoden</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statische-methoden-staticmethod">15.5. Statische Methoden (<code class="docutils literal notranslate"><span class="pre">@staticmethod</span></code>)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eine-klasse-viele-objekte">15.6. Eine Klasse, viele Objekte</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ein-zweiter-kleiner-datentyp-display">15.7. Ein zweiter kleiner Datentyp: <code class="docutils literal notranslate"><span class="pre">Display</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#objekte-die-andere-objekte-enthalten-komposition">15.7.1. Objekte die andere Objekte enthalten („Komposition“)</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#klassen-in-eigenen-dateien">14.8. Klassen in eigenen Dateien</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eine-kleine-testspur-aufruf-ruckgabe-folgezustand">14.9. Eine kleine Testspur: Aufruf → Rückgabe → Folgezustand</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#klassen-in-eigenen-dateien">15.8. Klassen in eigenen Dateien</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eine-kleine-testspur-aufruf-ruckgabe-folgezustand">15.9. Eine kleine Testspur: Aufruf → Rückgabe → Folgezustand</a></li>
 </ul>
   </nav></div>
 

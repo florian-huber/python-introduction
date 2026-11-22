@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>21. 2D/3D Visualisierung &amp; interaktive Plots &#8212; Einführung Programmieren mit Python</title>
+    <title>22. 2D/3D Visualisierung &amp; interaktive Plots &#8212; Einführung Programmieren mit Python</title>
   
   
   
@@ -67,7 +67,7 @@
     <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
     <link rel="search" title="Suche" href="../search.html" />
     <link rel="next" title="Source Code on GitHub" href="github.html" />
-    <link rel="prev" title="20. Datenvisualisierung mit Python" href="12_data_visualization.html" />
+    <link rel="prev" title="21. Datenvisualisierung mit Python" href="12_data_visualization.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="de"/>
   <meta name="docsearch:version" content="" />
@@ -244,25 +244,30 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="04_try_except.html">11. Fehler behandeln mit <code class="docutils literal notranslate"><span class="pre">try</span></code> und <code class="docutils literal notranslate"><span class="pre">except</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="05_environments.html">12. Python-Umgebungen, Packages und <code class="docutils literal notranslate"><span class="pre">uv</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="05_open_files.html">13. Dateien lesen und schreiben</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_paths_and_directories.html">13. Navigieren durch Ordner, Pfade und CSV-Dateien</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="05_open_files.html">14. Dateien lesen und schreiben</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Klassen und Objekte</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="06_classes_objects.html">14. Objektorientierte Programmierung - Einführung</a></li>
-<li class="toctree-l1"><a class="reference internal" href="07_classes_objects_2.html">15. Objektorientierte Programmierung in Python – Teil 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_classes_objects.html">15. Objektorientierte Programmierung - Einführung</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_classes_objects_2.html">16. Objektorientierte Programmierung in Python – Teil 2</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Arbeiten mit numerischen Daten - Numpy</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="08_numpy.html">16. Numerische Daten in Python mit NumPy</a></li>
-<li class="toctree-l1"><a class="reference internal" href="09_numpy_2.html">17. Numerische Daten in Python mit NumPy – Teil 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08_numpy.html">17. Numerische Daten in Python mit NumPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_numpy_2.html">18. Numerische Daten in Python mit NumPy – Teil 2</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Schritte Richtung Data Science</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="09_pandas.html">18. Pandas – Teil 1: DataFrames verstehen und Daten auswählen</a></li>
-<li class="toctree-l1"><a class="reference internal" href="10_pandas_2.html">19. Pandas – Teil 2: Daten bereinigen und zusammenfassen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_pandas.html">19. Pandas – Teil 1: DataFrames verstehen und Daten auswählen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_pandas_2.html">20. Pandas – Teil 2: Daten bereinigen und zusammenfassen</a></li>
 
-<li class="toctree-l1"><a class="reference internal" href="12_data_visualization.html">20. Datenvisualisierung mit Python</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">21. 2D/3D Visualisierung &amp; interaktive Plots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_data_visualization.html">21. Datenvisualisierung mit Python</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">22. 2D/3D Visualisierung &amp; interaktive Plots</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Source Code and Contributions</span></p>
 <ul class="nav bd-sidenav">
@@ -509,22 +514,22 @@
             </div>
             <nav aria-label="Page">
                 <ul class="pst-show_toc_level nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-2d-3d-data">21.1. Plot 2D/3D Data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contour">21.2. <code class="docutils literal notranslate"><span class="pre">.contour()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">21.3. <code class="docutils literal notranslate"><span class="pre">.contour()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d-geht-auch-ein-wenig">21.4. 3D geht auch (ein wenig…)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dynamisch-vs-statisch">21.5. Dynamisch vs. statisch</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interaktive-visualisierungen-mit-bokeh">21.6. Interaktive Visualisierungen mit Bokeh</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#beispiel-scatterplot-mit-interaktiven-features">21.6.1. Beispiel: Scatterplot mit interaktiven Features</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-2d-3d-data">22.1. Plot 2D/3D Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contour">22.2. <code class="docutils literal notranslate"><span class="pre">.contour()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">22.3. <code class="docutils literal notranslate"><span class="pre">.contour()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d-geht-auch-ein-wenig">22.4. 3D geht auch (ein wenig…)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dynamisch-vs-statisch">22.5. Dynamisch vs. statisch</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interaktive-visualisierungen-mit-bokeh">22.6. Interaktive Visualisierungen mit Bokeh</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#beispiel-scatterplot-mit-interaktiven-features">22.6.1. Beispiel: Scatterplot mit interaktiven Features</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interaktive-visualisierungen-mit-altair">21.7. Interaktive Visualisierungen mit Altair</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#beispiel-scatterplot-mit-tooltips">21.7.1. Beispiel: Scatterplot mit Tooltips</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interaktive-visualisierungen-mit-altair">22.7. Interaktive Visualisierungen mit Altair</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#beispiel-scatterplot-mit-tooltips">22.7.1. Beispiel: Scatterplot mit Tooltips</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interaktive-visualisierungen-mit-plotly-express">21.8. Interaktive Visualisierungen mit Plotly Express</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#beispiel-2d-scatterplot">21.8.1. Beispiel: 2D Scatterplot</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#beispiel-3d-scatterplot">21.8.2. Beispiel: 3D Scatterplot</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interaktive-visualisierungen-mit-plotly-express">22.8. Interaktive Visualisierungen mit Plotly Express</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#beispiel-2d-scatterplot">22.8.1. Beispiel: 2D Scatterplot</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#beispiel-3d-scatterplot">22.8.2. Beispiel: 3D Scatterplot</a></li>
 </ul>
 </li>
 </ul>
@@ -539,9 +544,9 @@
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="d-3d-visualisierung-interaktive-plots">
-<h1><span class="section-number">21. </span>2D/3D Visualisierung &amp; interaktive Plots<a class="headerlink" href="#d-3d-visualisierung-interaktive-plots" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">22. </span>2D/3D Visualisierung &amp; interaktive Plots<a class="headerlink" href="#d-3d-visualisierung-interaktive-plots" title="Link to this heading">#</a></h1>
 <section id="plot-2d-3d-data">
-<h2><span class="section-number">21.1. </span>Plot 2D/3D Data<a class="headerlink" href="#plot-2d-3d-data" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">22.1. </span>Plot 2D/3D Data<a class="headerlink" href="#plot-2d-3d-data" title="Link to this heading">#</a></h2>
 <p>Werte auf einem 2D Gitter (z.B. Höhen, Bilder…) können z.B. mit <code class="docutils literal notranslate"><span class="pre">.imshow()</span></code> dargestellt werden:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -562,12 +567,12 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/168a1ef71084708dc2fec3bf56853123460cca9f83848ddef0f12fac091ab293.png" src="../_images/168a1ef71084708dc2fec3bf56853123460cca9f83848ddef0f12fac091ab293.png" />
+<img alt="../_images/933fbd82fb5f33c8902c9c45d89af088101ef70114f99f4dabad557818ab3bdf.png" src="../_images/933fbd82fb5f33c8902c9c45d89af088101ef70114f99f4dabad557818ab3bdf.png" />
 </div>
 </div>
 </section>
 <section id="contour">
-<h2><span class="section-number">21.2. </span><code class="docutils literal notranslate"><span class="pre">.contour()</span></code><a class="headerlink" href="#contour" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">22.2. </span><code class="docutils literal notranslate"><span class="pre">.contour()</span></code><a class="headerlink" href="#contour" title="Link to this heading">#</a></h2>
 <p>Wenn es weniger um einzele „Pixel“ oder Kästchen geht, sondern um Areale und Grenzen oder Übergänge, eignet sich oft auch ein Kontour-Plot:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -578,7 +583,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/84c38c61caf38e658a6eaff77f8f0308d8925b4cf937951d6ceb1c89594079aa.png" src="../_images/84c38c61caf38e658a6eaff77f8f0308d8925b4cf937951d6ceb1c89594079aa.png" />
+<img alt="../_images/b8b3f47c629983840eed29dde9530ec4ec2692dae4756d41056860769231709c.png" src="../_images/b8b3f47c629983840eed29dde9530ec4ec2692dae4756d41056860769231709c.png" />
 </div>
 </div>
 <p>Hier ein weiteres Beispiel für diese beiden Plot-Typen mit 3D Daten die wir mit <code class="docutils literal notranslate"><span class="pre">imshow()</span></code> oder <code class="docutils literal notranslate"><span class="pre">contour()</span></code> in 2D darstellen können:</p>
@@ -632,7 +637,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7c1b4432f9d0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7e1d779d7750&gt;
 </pre></div>
 </div>
 <img alt="../_images/f59ed33aa63d9a0330ef64507c059be30f1ead5cd3f6cd916e9c8979b9f68116.png" src="../_images/f59ed33aa63d9a0330ef64507c059be30f1ead5cd3f6cd916e9c8979b9f68116.png" />
@@ -640,7 +645,7 @@
 </div>
 </section>
 <section id="id1">
-<h2><span class="section-number">21.3. </span><code class="docutils literal notranslate"><span class="pre">.contour()</span></code><a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">22.3. </span><code class="docutils literal notranslate"><span class="pre">.contour()</span></code><a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
@@ -657,7 +662,7 @@
 </div>
 </section>
 <section id="d-geht-auch-ein-wenig">
-<h2><span class="section-number">21.4. </span>3D geht auch (ein wenig…)<a class="headerlink" href="#d-geht-auch-ein-wenig" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">22.4. </span>3D geht auch (ein wenig…)<a class="headerlink" href="#d-geht-auch-ein-wenig" title="Link to this heading">#</a></h2>
 <p>Es gibt einige Möglichkeiten auch 3D Visualisierungen mit Matplotlib zu erstellen. Allerdings ist das ziemlich limitiert. Zum einen gibt es andere Tools und Bibliotheken die deutlich besser 3D Daten darstellen können, also schneller, schöner und mit weniger Aufwand beim Coden. Zum anderen eignen sich die meisten 3D Darstellungen eher für interaktive Umsetzungen und das geht eben auch mit anderen Tools deutlich besser, in Python z.B. mit Plotly, Vispy, und vielen anderen.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -680,7 +685,7 @@
 <p>Spätestens hier, bei 3D Visualisierungen kommmen wir in der Praxis aber fast nicht mehr um Interaktivität herum.</p>
 </section>
 <section id="dynamisch-vs-statisch">
-<h2><span class="section-number">21.5. </span>Dynamisch vs. statisch<a class="headerlink" href="#dynamisch-vs-statisch" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">22.5. </span>Dynamisch vs. statisch<a class="headerlink" href="#dynamisch-vs-statisch" title="Link to this heading">#</a></h2>
 <p>Visualisierungen in Python lassen sich in zwei Hauptkategorien unterteilen:</p>
 <ul class="simple">
 <li><p><strong>Statische Visualisierungen</strong>: Diese werden mit Bibliotheken wie <strong>Matplotlib</strong>, <strong>Pandas</strong> oder <strong>Seaborn</strong> erstellt. Sie eignen sich hervorragend für Präsentationen und Berichte, da sie keine interaktiven Elemente enthalten.</p></li>
@@ -711,10 +716,10 @@
 </div>
 </section>
 <section id="interaktive-visualisierungen-mit-bokeh">
-<h2><span class="section-number">21.6. </span>Interaktive Visualisierungen mit Bokeh<a class="headerlink" href="#interaktive-visualisierungen-mit-bokeh" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">22.6. </span>Interaktive Visualisierungen mit Bokeh<a class="headerlink" href="#interaktive-visualisierungen-mit-bokeh" title="Link to this heading">#</a></h2>
 <p>Bokeh ist eine leistungsstarke Bibliothek, die es uns ermöglicht, interaktive Plots zu erstellen. Damit lassen sich Visualisierungen realisieren, die direkt im Webbrowser ausgeführt werden und Funktionen wie Zoomen, Schwenken und Anzeigen von Details unterstützen.</p>
 <section id="beispiel-scatterplot-mit-interaktiven-features">
-<h3><span class="section-number">21.6.1. </span>Beispiel: Scatterplot mit interaktiven Features<a class="headerlink" href="#beispiel-scatterplot-mit-interaktiven-features" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">22.6.1. </span>Beispiel: Scatterplot mit interaktiven Features<a class="headerlink" href="#beispiel-scatterplot-mit-interaktiven-features" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">bokeh.plotting</span><span class="w"> </span><span class="kn">import</span> <span class="n">figure</span><span class="p">,</span> <span class="n">show</span>
@@ -1093,10 +1098,10 @@ function(Bokeh) {
 </section>
 </section>
 <section id="interaktive-visualisierungen-mit-altair">
-<h2><span class="section-number">21.7. </span>Interaktive Visualisierungen mit Altair<a class="headerlink" href="#interaktive-visualisierungen-mit-altair" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">22.7. </span>Interaktive Visualisierungen mit Altair<a class="headerlink" href="#interaktive-visualisierungen-mit-altair" title="Link to this heading">#</a></h2>
 <p>Altair basiert auf der „Grammar of Graphics“ und eignet sich hervorragend für schnelle und interaktive Visualisierungen. Es bietet eine intuitive Syntax und ist besonders bei statistischen Visualisierungen beliebt.</p>
 <section id="beispiel-scatterplot-mit-tooltips">
-<h3><span class="section-number">21.7.1. </span>Beispiel: Scatterplot mit Tooltips<a class="headerlink" href="#beispiel-scatterplot-mit-tooltips" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">22.7.1. </span>Beispiel: Scatterplot mit Tooltips<a class="headerlink" href="#beispiel-scatterplot-mit-tooltips" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">altair</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">alt</span>
@@ -1188,10 +1193,10 @@ function(Bokeh) {
 </section>
 </section>
 <section id="interaktive-visualisierungen-mit-plotly-express">
-<h2><span class="section-number">21.8. </span>Interaktive Visualisierungen mit Plotly Express<a class="headerlink" href="#interaktive-visualisierungen-mit-plotly-express" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">22.8. </span>Interaktive Visualisierungen mit Plotly Express<a class="headerlink" href="#interaktive-visualisierungen-mit-plotly-express" title="Link to this heading">#</a></h2>
 <p>Plotly ist eine vielseitige Bibliothek, die interaktive Visualisierungen unterstützt. Sie eignet sich besonders für Dashboards und 3D-Visualisierungen. Eine noch einfacher zu verwendende Schnittstelle von Plotly ist <strong>Plotly Express</strong>.</p>
 <section id="beispiel-2d-scatterplot">
-<h3><span class="section-number">21.8.1. </span>Beispiel: 2D Scatterplot<a class="headerlink" href="#beispiel-2d-scatterplot" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">22.8.1. </span>Beispiel: 2D Scatterplot<a class="headerlink" href="#beispiel-2d-scatterplot" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">plotly.io</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pio</span>
@@ -1256,7 +1261,7 @@ if (outputEl) {{
 </div>
 </section>
 <section id="beispiel-3d-scatterplot">
-<h3><span class="section-number">21.8.2. </span>Beispiel: 3D Scatterplot<a class="headerlink" href="#beispiel-3d-scatterplot" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">22.8.2. </span>Beispiel: 3D Scatterplot<a class="headerlink" href="#beispiel-3d-scatterplot" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">scatter_3d</span><span class="p">(</span>
@@ -1388,7 +1393,7 @@ if (outputEl) {{
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">zurück</p>
-        <p class="prev-next-title"><span class="section-number">20. </span>Datenvisualisierung mit Python</p>
+        <p class="prev-next-title"><span class="section-number">21. </span>Datenvisualisierung mit Python</p>
       </div>
     </a>
     <a class="right-next"
@@ -1418,22 +1423,22 @@ if (outputEl) {{
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="pst-show_toc_level nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-2d-3d-data">21.1. Plot 2D/3D Data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contour">21.2. <code class="docutils literal notranslate"><span class="pre">.contour()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">21.3. <code class="docutils literal notranslate"><span class="pre">.contour()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d-geht-auch-ein-wenig">21.4. 3D geht auch (ein wenig…)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dynamisch-vs-statisch">21.5. Dynamisch vs. statisch</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interaktive-visualisierungen-mit-bokeh">21.6. Interaktive Visualisierungen mit Bokeh</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#beispiel-scatterplot-mit-interaktiven-features">21.6.1. Beispiel: Scatterplot mit interaktiven Features</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-2d-3d-data">22.1. Plot 2D/3D Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contour">22.2. <code class="docutils literal notranslate"><span class="pre">.contour()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">22.3. <code class="docutils literal notranslate"><span class="pre">.contour()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d-geht-auch-ein-wenig">22.4. 3D geht auch (ein wenig…)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dynamisch-vs-statisch">22.5. Dynamisch vs. statisch</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interaktive-visualisierungen-mit-bokeh">22.6. Interaktive Visualisierungen mit Bokeh</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#beispiel-scatterplot-mit-interaktiven-features">22.6.1. Beispiel: Scatterplot mit interaktiven Features</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interaktive-visualisierungen-mit-altair">21.7. Interaktive Visualisierungen mit Altair</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#beispiel-scatterplot-mit-tooltips">21.7.1. Beispiel: Scatterplot mit Tooltips</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interaktive-visualisierungen-mit-altair">22.7. Interaktive Visualisierungen mit Altair</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#beispiel-scatterplot-mit-tooltips">22.7.1. Beispiel: Scatterplot mit Tooltips</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interaktive-visualisierungen-mit-plotly-express">21.8. Interaktive Visualisierungen mit Plotly Express</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#beispiel-2d-scatterplot">21.8.1. Beispiel: 2D Scatterplot</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#beispiel-3d-scatterplot">21.8.2. Beispiel: 3D Scatterplot</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interaktive-visualisierungen-mit-plotly-express">22.8. Interaktive Visualisierungen mit Plotly Express</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#beispiel-2d-scatterplot">22.8.1. Beispiel: 2D Scatterplot</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#beispiel-3d-scatterplot">22.8.2. Beispiel: 3D Scatterplot</a></li>
 </ul>
 </li>
 </ul>

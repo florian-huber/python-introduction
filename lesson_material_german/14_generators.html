@@ -244,25 +244,30 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="04_try_except.html">11. Fehler behandeln mit <code class="docutils literal notranslate"><span class="pre">try</span></code> und <code class="docutils literal notranslate"><span class="pre">except</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="05_environments.html">12. Python-Umgebungen, Packages und <code class="docutils literal notranslate"><span class="pre">uv</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="05_open_files.html">13. Dateien lesen und schreiben</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_paths_and_directories.html">13. Navigieren durch Ordner, Pfade und CSV-Dateien</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="05_open_files.html">14. Dateien lesen und schreiben</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Klassen und Objekte</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="06_classes_objects.html">14. Objektorientierte Programmierung - Einführung</a></li>
-<li class="toctree-l1"><a class="reference internal" href="07_classes_objects_2.html">15. Objektorientierte Programmierung in Python – Teil 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_classes_objects.html">15. Objektorientierte Programmierung - Einführung</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_classes_objects_2.html">16. Objektorientierte Programmierung in Python – Teil 2</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Arbeiten mit numerischen Daten - Numpy</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="08_numpy.html">16. Numerische Daten in Python mit NumPy</a></li>
-<li class="toctree-l1"><a class="reference internal" href="09_numpy_2.html">17. Numerische Daten in Python mit NumPy – Teil 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08_numpy.html">17. Numerische Daten in Python mit NumPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_numpy_2.html">18. Numerische Daten in Python mit NumPy – Teil 2</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Schritte Richtung Data Science</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="09_pandas.html">18. Pandas – Teil 1: DataFrames verstehen und Daten auswählen</a></li>
-<li class="toctree-l1"><a class="reference internal" href="10_pandas_2.html">19. Pandas – Teil 2: Daten bereinigen und zusammenfassen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_pandas.html">19. Pandas – Teil 1: DataFrames verstehen und Daten auswählen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_pandas_2.html">20. Pandas – Teil 2: Daten bereinigen und zusammenfassen</a></li>
 
-<li class="toctree-l1"><a class="reference internal" href="12_data_visualization.html">20. Datenvisualisierung mit Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="13_data_visualization_outlook.html">21. 2D/3D Visualisierung &amp; interaktive Plots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_data_visualization.html">21. Datenvisualisierung mit Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13_data_visualization_outlook.html">22. 2D/3D Visualisierung &amp; interaktive Plots</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Source Code and Contributions</span></p>
 <ul class="nav bd-sidenav">
@@ -575,6 +580,7 @@ Eine Möglichkeit wäre wie folgt:</p>
 </div>
 <p>Hier werden die Stadtnamen immer nur generiert, wenn wir den Generator mit <code class="docutils literal notranslate"><span class="pre">next()</span></code> aufrufen. Und solange bis alle möglichen Kombinationen aufgebraucht sind werden immer neue Namen generiert, ohne Dopplungen!</p>
 <p>Was ist aber jetzt, wenn wir alle Stadtnamen auf einmal haben wollen? Das geht mit einer entsprechend langen for-Schleife. Aber auch indem wir mit <code class="docutils literal notranslate"><span class="pre">list()</span></code> erzwingen, dass alle Elemente in eine Liste umgewandelt werden:</p>
+<!--pytest-codeblocks:cont-->
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># create a new instance of the generator to start with beginning</span>
 <span class="n">city</span> <span class="o">=</span> <span class="n">city_name_generator</span><span class="p">()</span>
 <span class="n">all_cities</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">city</span><span class="p">)</span>

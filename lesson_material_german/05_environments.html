@@ -66,7 +66,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
     <link rel="search" title="Suche" href="../search.html" />
-    <link rel="next" title="13. Dateien lesen und schreiben" href="05_open_files.html" />
+    <link rel="next" title="13. Navigieren durch Ordner, Pfade und CSV-Dateien" href="05_paths_and_directories.html" />
     <link rel="prev" title="11. Fehler behandeln mit try und except" href="04_try_except.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="de"/>
@@ -244,25 +244,30 @@
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="04_try_except.html">11. Fehler behandeln mit <code class="docutils literal notranslate"><span class="pre">try</span></code> und <code class="docutils literal notranslate"><span class="pre">except</span></code></a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">12. Python-Umgebungen, Packages und <code class="docutils literal notranslate"><span class="pre">uv</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="05_open_files.html">13. Dateien lesen und schreiben</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_paths_and_directories.html">13. Navigieren durch Ordner, Pfade und CSV-Dateien</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="05_open_files.html">14. Dateien lesen und schreiben</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Klassen und Objekte</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="06_classes_objects.html">14. Objektorientierte Programmierung - Einführung</a></li>
-<li class="toctree-l1"><a class="reference internal" href="07_classes_objects_2.html">15. Objektorientierte Programmierung in Python – Teil 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_classes_objects.html">15. Objektorientierte Programmierung - Einführung</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_classes_objects_2.html">16. Objektorientierte Programmierung in Python – Teil 2</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Arbeiten mit numerischen Daten - Numpy</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="08_numpy.html">16. Numerische Daten in Python mit NumPy</a></li>
-<li class="toctree-l1"><a class="reference internal" href="09_numpy_2.html">17. Numerische Daten in Python mit NumPy – Teil 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08_numpy.html">17. Numerische Daten in Python mit NumPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_numpy_2.html">18. Numerische Daten in Python mit NumPy – Teil 2</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Schritte Richtung Data Science</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="09_pandas.html">18. Pandas – Teil 1: DataFrames verstehen und Daten auswählen</a></li>
-<li class="toctree-l1"><a class="reference internal" href="10_pandas_2.html">19. Pandas – Teil 2: Daten bereinigen und zusammenfassen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_pandas.html">19. Pandas – Teil 1: DataFrames verstehen und Daten auswählen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_pandas_2.html">20. Pandas – Teil 2: Daten bereinigen und zusammenfassen</a></li>
 
-<li class="toctree-l1"><a class="reference internal" href="12_data_visualization.html">20. Datenvisualisierung mit Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="13_data_visualization_outlook.html">21. 2D/3D Visualisierung &amp; interaktive Plots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_data_visualization.html">21. Datenvisualisierung mit Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13_data_visualization_outlook.html">22. 2D/3D Visualisierung &amp; interaktive Plots</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Source Code and Contributions</span></p>
 <ul class="nav bd-sidenav">
@@ -592,6 +597,7 @@ projekt_b/
 <h3><span class="section-number">12.4.1. </span>Umgebung aktivieren<a class="headerlink" href="#umgebung-aktivieren" title="Link to this heading">#</a></h3>
 <p>Eine virtuelle Umgebung kann klassisch aktiviert werden.</p>
 <p>macOS/Linux:</p>
+<!-- pytest-codeblocks:skip -->
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span><span class="w"> </span>.venv/bin/activate
 </pre></div>
 </div>
@@ -615,6 +621,7 @@ projekt_b/
 <h3><span class="section-number">12.4.2. </span>Eine <code class="docutils literal notranslate"><span class="pre">.venv</span></code> ist austauschbar<a class="headerlink" href="#eine-venv-ist-austauschbar" title="Link to this heading">#</a></h3>
 <p>Die virtuelle Umgebung enthält nicht den eigentlichen Quellcode des Projekts. Wenn <code class="docutils literal notranslate"><span class="pre">.venv</span></code> gelöscht wird, sollte das Projekt deshalb nicht verloren sein.</p>
 <p>Die Umgebung kann neu erzeugt werden:</p>
+<!-- pytest-codeblocks:skip -->
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>uv<span class="w"> </span>venv<span class="w"> </span>--python<span class="w"> </span><span class="m">3</span>.14
 </pre></div>
 </div>
@@ -627,6 +634,7 @@ projekt_b/
 <h2><span class="section-number">12.5. </span>Variante 2: Ein uv-Projekt<a class="headerlink" href="#variante-2-ein-uv-projekt" title="Link to this heading">#</a></h2>
 <p>Für ein länger laufendes Projekt ist es praktischer, wenn die benötigten Packages nicht nur installiert, sondern auch als <strong>Dependencies</strong> des Projekts dokumentiert werden.</p>
 <p>Ein Projekt kann mit</p>
+<!-- pytest-codeblocks:skip -->
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>uv<span class="w"> </span>init
 </pre></div>
 </div>
@@ -640,6 +648,7 @@ projekt_b/
 <section id="ein-package-zum-projekt-hinzufugen">
 <h2><span class="section-number">12.6. </span>Ein Package zum Projekt hinzufügen<a class="headerlink" href="#ein-package-zum-projekt-hinzufugen" title="Link to this heading">#</a></h2>
 <p>In einem uv-Projekt verwenden wir dafür bevorzugt:</p>
+<!-- pytest-codeblocks:skip -->
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>uv<span class="w"> </span>add<span class="w"> </span>requests
 </pre></div>
 </div>
@@ -652,10 +661,12 @@ projekt_b/
 </pre></div>
 </div>
 <p>Weitere Dependencies werden genauso ergänzt:</p>
+<!-- pytest-codeblocks:skip -->
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>uv<span class="w"> </span>add<span class="w"> </span>rich
 </pre></div>
 </div>
 <p>Entfernen geht mit:</p>
+<!-- pytest-codeblocks:skip -->
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>uv<span class="w"> </span>remove<span class="w"> </span>rich
 </pre></div>
 </div>
@@ -678,10 +689,12 @@ projekt_b/
 <section id="programme-mit-uv-run-starten">
 <h2><span class="section-number">12.8. </span>Programme mit <code class="docutils literal notranslate"><span class="pre">uv</span> <span class="pre">run</span></code> starten<a class="headerlink" href="#programme-mit-uv-run-starten" title="Link to this heading">#</a></h2>
 <p>Ein Python-Programm kann innerhalb der Projektumgebung so gestartet werden:</p>
+<!-- pytest-codeblocks:skip -->
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>uv<span class="w"> </span>run<span class="w"> </span>python<span class="w"> </span>main.py
 </pre></div>
 </div>
 <p>Oder auch:</p>
+<!-- pytest-codeblocks:skip -->
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>uv<span class="w"> </span>run<span class="w"> </span>main.py
 </pre></div>
 </div>
@@ -694,6 +707,7 @@ projekt_b/
 </pre></div>
 </div>
 <p>Dann kann die Datei beispielsweise mit</p>
+<!-- pytest-codeblocks:skip -->
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>uv<span class="w"> </span>run<span class="w"> </span>python<span class="w"> </span>main.py
 </pre></div>
 </div>
@@ -703,11 +717,13 @@ projekt_b/
 <h2><span class="section-number">12.9. </span>Ein vorhandenes Projekt einrichten<a class="headerlink" href="#ein-vorhandenes-projekt-einrichten" title="Link to this heading">#</a></h2>
 <p>Wenn ein Repository bereits <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> und <code class="docutils literal notranslate"><span class="pre">uv.lock</span></code> enthält, müssen die Dependencies nicht einzeln von Hand installiert werden.</p>
 <p>Im Projektordner genügt:</p>
+<!-- pytest-codeblocks:skip -->
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>uv<span class="w"> </span>sync
 </pre></div>
 </div>
 <p>Damit wird die Projektumgebung an die festgehaltenen Dependencies angepasst.</p>
 <p>Ein typischer Ablauf nach dem Klonen eines bestehenden Projekts ist damit:</p>
+<!-- pytest-codeblocks:skip -->
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>...
 <span class="nb">cd</span><span class="w"> </span>projektname
 uv<span class="w"> </span>sync
@@ -718,10 +734,12 @@ uv<span class="w"> </span>run<span class="w"> </span>python<span class="w"> </sp
 <section id="abhangigkeiten-anschauen">
 <h2><span class="section-number">12.10. </span>Abhängigkeiten anschauen<a class="headerlink" href="#abhangigkeiten-anschauen" title="Link to this heading">#</a></h2>
 <p>Installierte Packages in der aktuellen Umgebung:</p>
+<!-- pytest-codeblocks:skip -->
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>uv<span class="w"> </span>pip<span class="w"> </span>list
 </pre></div>
 </div>
 <p>Die Abhängigkeitsstruktur eines uv-Projekts kann mit</p>
+<!-- pytest-codeblocks:skip -->
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>uv<span class="w"> </span>tree
 </pre></div>
 </div>
@@ -769,6 +787,7 @@ uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </s
 <section id="verwaltetes-uv-projekt">
 <h3><span class="section-number">12.12.2. </span>Verwaltetes uv-Projekt<a class="headerlink" href="#verwaltetes-uv-projekt" title="Link to this heading">#</a></h3>
 <p>Für ein Projekt, dessen Dependencies dauerhaft dokumentiert werden sollen:</p>
+<!-- pytest-codeblocks:skip -->
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>uv<span class="w"> </span>init
 uv<span class="w"> </span>add<span class="w"> </span>requests
 uv<span class="w"> </span>run<span class="w"> </span>python<span class="w"> </span>main.py
@@ -788,14 +807,17 @@ uv<span class="w"> </span>add<span class="w"> </span>requests
 </pre></div>
 </div>
 <p>Danach wird Python-Code geschrieben und zum Beispiel so gestartet:</p>
+<!-- pytest-codeblocks:skip -->
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>uv<span class="w"> </span>run<span class="w"> </span>python<span class="w"> </span>main.py
 </pre></div>
 </div>
 <p>Wenn später eine weitere externe Bibliothek benötigt wird:</p>
+<!-- pytest-codeblocks:skip -->
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>uv<span class="w"> </span>add<span class="w"> </span>rich
 </pre></div>
 </div>
 <p>Auf einem anderen Rechner kann dasselbe Projekt mit</p>
+<!-- pytest-codeblocks:skip -->
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>uv<span class="w"> </span>sync
 </pre></div>
 </div>
@@ -858,11 +880,11 @@ uv<span class="w"> </span>add<span class="w"> </span>requests
       </div>
     </a>
     <a class="right-next"
-       href="05_open_files.html"
+       href="05_paths_and_directories.html"
        title="Nächste Seite">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">weiter</p>
-        <p class="prev-next-title"><span class="section-number">13. </span>Dateien lesen und schreiben</p>
+        <p class="prev-next-title"><span class="section-number">13. </span>Navigieren durch Ordner, Pfade und CSV-Dateien</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

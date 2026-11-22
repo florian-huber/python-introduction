@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>18. Pandas – Teil 1: DataFrames verstehen und Daten auswählen &#8212; Einführung Programmieren mit Python</title>
+    <title>19. Pandas – Teil 1: DataFrames verstehen und Daten auswählen &#8212; Einführung Programmieren mit Python</title>
   
   
   
@@ -66,8 +66,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
     <link rel="search" title="Suche" href="../search.html" />
-    <link rel="next" title="19. Pandas – Teil 2: Daten bereinigen und zusammenfassen" href="10_pandas_2.html" />
-    <link rel="prev" title="17. Numerische Daten in Python mit NumPy – Teil 2" href="09_numpy_2.html" />
+    <link rel="next" title="20. Pandas – Teil 2: Daten bereinigen und zusammenfassen" href="10_pandas_2.html" />
+    <link rel="prev" title="18. Numerische Daten in Python mit NumPy – Teil 2" href="09_numpy_2.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="de"/>
   <meta name="docsearch:version" content="" />
@@ -244,25 +244,30 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="04_try_except.html">11. Fehler behandeln mit <code class="docutils literal notranslate"><span class="pre">try</span></code> und <code class="docutils literal notranslate"><span class="pre">except</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="05_environments.html">12. Python-Umgebungen, Packages und <code class="docutils literal notranslate"><span class="pre">uv</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="05_open_files.html">13. Dateien lesen und schreiben</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_paths_and_directories.html">13. Navigieren durch Ordner, Pfade und CSV-Dateien</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="05_open_files.html">14. Dateien lesen und schreiben</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Klassen und Objekte</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="06_classes_objects.html">14. Objektorientierte Programmierung - Einführung</a></li>
-<li class="toctree-l1"><a class="reference internal" href="07_classes_objects_2.html">15. Objektorientierte Programmierung in Python – Teil 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_classes_objects.html">15. Objektorientierte Programmierung - Einführung</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_classes_objects_2.html">16. Objektorientierte Programmierung in Python – Teil 2</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Arbeiten mit numerischen Daten - Numpy</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="08_numpy.html">16. Numerische Daten in Python mit NumPy</a></li>
-<li class="toctree-l1"><a class="reference internal" href="09_numpy_2.html">17. Numerische Daten in Python mit NumPy – Teil 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08_numpy.html">17. Numerische Daten in Python mit NumPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_numpy_2.html">18. Numerische Daten in Python mit NumPy – Teil 2</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Schritte Richtung Data Science</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">18. Pandas – Teil 1: DataFrames verstehen und Daten auswählen</a></li>
-<li class="toctree-l1"><a class="reference internal" href="10_pandas_2.html">19. Pandas – Teil 2: Daten bereinigen und zusammenfassen</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">19. Pandas – Teil 1: DataFrames verstehen und Daten auswählen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_pandas_2.html">20. Pandas – Teil 2: Daten bereinigen und zusammenfassen</a></li>
 
-<li class="toctree-l1"><a class="reference internal" href="12_data_visualization.html">20. Datenvisualisierung mit Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="13_data_visualization_outlook.html">21. 2D/3D Visualisierung &amp; interaktive Plots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_data_visualization.html">21. Datenvisualisierung mit Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13_data_visualization_outlook.html">22. 2D/3D Visualisierung &amp; interaktive Plots</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Source Code and Contributions</span></p>
 <ul class="nav bd-sidenav">
@@ -509,18 +514,18 @@
             </div>
             <nav aria-label="Page">
                 <ul class="pst-show_toc_level nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kurz-zum-notebook">18.1. Kurz zum Notebook</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ein-erstes-dataframe">18.2. Ein erstes <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#series-und-dataframe">18.3. <code class="docutils literal notranslate"><span class="pre">Series</span></code> und <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zeilen-und-spalten-auswahlen-loc-und-iloc">18.4. Zeilen und Spalten auswählen: <code class="docutils literal notranslate"><span class="pre">loc</span></code> und <code class="docutils literal notranslate"><span class="pre">iloc</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spalten-hinzufugen-und-entfernen">18.5. Spalten hinzufügen und entfernen</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eine-csv-datei-einlesen">18.6. Eine CSV-Datei einlesen</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ein-kleineres-arbeits-dataframe">18.7. Ein kleineres Arbeits-DataFrame</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#erste-kennzahlen">18.8. Erste Kennzahlen</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mit-bedingungen-auswahlen">18.9. Mit Bedingungen auswählen</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sortieren">18.10. Sortieren</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#falls-wirklich-ein-numpy-array-benotigt-wird">18.11. Falls wirklich ein NumPy-Array benötigt wird</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zwischenfazit">18.12. Zwischenfazit</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kurz-zum-notebook">19.1. Kurz zum Notebook</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ein-erstes-dataframe">19.2. Ein erstes <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#series-und-dataframe">19.3. <code class="docutils literal notranslate"><span class="pre">Series</span></code> und <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zeilen-und-spalten-auswahlen-loc-und-iloc">19.4. Zeilen und Spalten auswählen: <code class="docutils literal notranslate"><span class="pre">loc</span></code> und <code class="docutils literal notranslate"><span class="pre">iloc</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spalten-hinzufugen-und-entfernen">19.5. Spalten hinzufügen und entfernen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eine-csv-datei-einlesen">19.6. Eine CSV-Datei einlesen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ein-kleineres-arbeits-dataframe">19.7. Ein kleineres Arbeits-DataFrame</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#erste-kennzahlen">19.8. Erste Kennzahlen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mit-bedingungen-auswahlen">19.9. Mit Bedingungen auswählen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sortieren">19.10. Sortieren</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#falls-wirklich-ein-numpy-array-benotigt-wird">19.11. Falls wirklich ein NumPy-Array benötigt wird</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zwischenfazit">19.12. Zwischenfazit</a></li>
 </ul>
             </nav>
         </div>
@@ -533,7 +538,7 @@
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="pandas-teil-1-dataframes-verstehen-und-daten-auswahlen">
-<h1><span class="section-number">18. </span>Pandas – Teil 1: DataFrames verstehen und Daten auswählen<a class="headerlink" href="#pandas-teil-1-dataframes-verstehen-und-daten-auswahlen" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">19. </span>Pandas – Teil 1: DataFrames verstehen und Daten auswählen<a class="headerlink" href="#pandas-teil-1-dataframes-verstehen-und-daten-auswahlen" title="Link to this heading">#</a></h1>
 <p><code class="docutils literal notranslate"><span class="pre">pandas</span></code> ist eine der wichtigsten Python-Bibliotheken für <strong>tabellarische Daten</strong>.</p>
 <p>NumPy-Arrays sind besonders gut geeignet, wenn viele gleichartige numerische Werte effizient verarbeitet werden sollen. Ein <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> ergänzt dazu unter anderem:</p>
 <ul class="simple">
@@ -551,12 +556,12 @@
 </div>
 </div>
 <section id="kurz-zum-notebook">
-<h2><span class="section-number">18.1. </span>Kurz zum Notebook<a class="headerlink" href="#kurz-zum-notebook" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">19.1. </span>Kurz zum Notebook<a class="headerlink" href="#kurz-zum-notebook" title="Link to this heading">#</a></h2>
 <p>In VS Code kann eine <code class="docutils literal notranslate"><span class="pre">.ipynb</span></code>-Datei Zelle für Zelle ausgeführt werden. Wählt dafür den Python-Interpreter beziehungsweise Kernel eures Projekts, normalerweise aus <code class="docutils literal notranslate"><span class="pre">.venv</span></code>.</p>
 <p>Die Zellen teilen sich einen gemeinsamen Zustand: Variablen aus einer bereits ausgeführten Zelle können in späteren Zellen weiterverwendet werden. Für einen reproduzierbaren Ablauf ist es deshalb sinnvoll, das Notebook <strong>von oben nach unten</strong> auszuführen.</p>
 </section>
 <section id="ein-erstes-dataframe">
-<h2><span class="section-number">18.2. </span>Ein erstes <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code><a class="headerlink" href="#ein-erstes-dataframe" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">19.2. </span>Ein erstes <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code><a class="headerlink" href="#ein-erstes-dataframe" title="Link to this heading">#</a></h2>
 <p>Wir beginnen mit einer kleinen, bewusst einfachen Tabelle. Ein Dictionary eignet sich gut, um ein <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> zu erzeugen: Die Schlüssel werden zu Spaltennamen.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -649,7 +654,7 @@ dtype: object
 </div>
 </section>
 <section id="series-und-dataframe">
-<h2><span class="section-number">18.3. </span><code class="docutils literal notranslate"><span class="pre">Series</span></code> und <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code><a class="headerlink" href="#series-und-dataframe" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">19.3. </span><code class="docutils literal notranslate"><span class="pre">Series</span></code> und <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code><a class="headerlink" href="#series-und-dataframe" title="Link to this heading">#</a></h2>
 <p>Eine einzelne Spalte wird in pandas meistens als <strong><code class="docutils literal notranslate"><span class="pre">Series</span></code></strong> zurückgegeben. Eine <code class="docutils literal notranslate"><span class="pre">Series</span></code> ist eine eindimensionale Datenstruktur mit Index.</p>
 <p>Der Unterschied zwischen diesen beiden Ausdrücken ist wichtig:</p>
 <div class="cell docutils container">
@@ -726,7 +731,7 @@ Name: city, dtype: str
 <p><code class="docutils literal notranslate"><span class="pre">cities[[&quot;city&quot;]]</span></code> bekommt dagegen eine <strong>Liste von Spaltennamen</strong> und liefert deshalb wieder ein <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> – hier eben mit nur einer Spalte.</p>
 </section>
 <section id="zeilen-und-spalten-auswahlen-loc-und-iloc">
-<h2><span class="section-number">18.4. </span>Zeilen und Spalten auswählen: <code class="docutils literal notranslate"><span class="pre">loc</span></code> und <code class="docutils literal notranslate"><span class="pre">iloc</span></code><a class="headerlink" href="#zeilen-und-spalten-auswahlen-loc-und-iloc" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">19.4. </span>Zeilen und Spalten auswählen: <code class="docutils literal notranslate"><span class="pre">loc</span></code> und <code class="docutils literal notranslate"><span class="pre">iloc</span></code><a class="headerlink" href="#zeilen-und-spalten-auswahlen-loc-und-iloc" title="Link to this heading">#</a></h2>
 <p>Mit <code class="docutils literal notranslate"><span class="pre">.loc[...]</span></code> wählen wir anhand von <strong>Labels</strong> aus.</p>
 <p>Mit <code class="docutils literal notranslate"><span class="pre">.iloc[...]</span></code> wählen wir anhand von <strong>Positionen</strong> aus.</p>
 <div class="cell docutils container">
@@ -892,7 +897,7 @@ Name: B, dtype: object
 </ul>
 </section>
 <section id="spalten-hinzufugen-und-entfernen">
-<h2><span class="section-number">18.5. </span>Spalten hinzufügen und entfernen<a class="headerlink" href="#spalten-hinzufugen-und-entfernen" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">19.5. </span>Spalten hinzufügen und entfernen<a class="headerlink" href="#spalten-hinzufugen-und-entfernen" title="Link to this heading">#</a></h2>
 <p>Neue Spalten können direkt berechnet werden. Die Rechnung wird elementweise auf die Spalte angewendet.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1011,7 +1016,7 @@ Name: B, dtype: object
 </div>
 </section>
 <section id="eine-csv-datei-einlesen">
-<h2><span class="section-number">18.6. </span>Eine CSV-Datei einlesen<a class="headerlink" href="#eine-csv-datei-einlesen" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">19.6. </span>Eine CSV-Datei einlesen<a class="headerlink" href="#eine-csv-datei-einlesen" title="Link to this heading">#</a></h2>
 <p>Jetzt wechseln wir zu einem größeren Datensatz. Dabei verwenden wir bewusst wieder <code class="docutils literal notranslate"><span class="pre">os.path.join()</span></code>, wie im vorherigen Kapitel zu Ordnern und Pfaden.</p>
 <p>Die Datei <code class="docutils literal notranslate"><span class="pre">pokemon.csv</span></code> liegt im Kursprojekt im Ordner <code class="docutils literal notranslate"><span class="pre">data</span></code>.</p>
 <div class="cell docutils container">
@@ -1467,7 +1472,7 @@ memory usage: 256.7 KB
 </div>
 </section>
 <section id="ein-kleineres-arbeits-dataframe">
-<h2><span class="section-number">18.7. </span>Ein kleineres Arbeits-DataFrame<a class="headerlink" href="#ein-kleineres-arbeits-dataframe" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">19.7. </span>Ein kleineres Arbeits-DataFrame<a class="headerlink" href="#ein-kleineres-arbeits-dataframe" title="Link to this heading">#</a></h2>
 <p>Der Datensatz besitzt viele Spalten. Für die nächsten Schritte wählen wir nur einige davon aus.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1593,7 +1598,7 @@ memory usage: 256.7 KB
 </div>
 </section>
 <section id="erste-kennzahlen">
-<h2><span class="section-number">18.8. </span>Erste Kennzahlen<a class="headerlink" href="#erste-kennzahlen" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">19.8. </span>Erste Kennzahlen<a class="headerlink" href="#erste-kennzahlen" title="Link to this heading">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">.describe()</span></code> fasst numerische Spalten zusammen. Unter anderem sehen wir Anzahl, Mittelwert, Standardabweichung, Minimum, Quartile und Maximum.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1768,7 +1773,7 @@ Name: count, dtype: int64
 </div>
 </section>
 <section id="mit-bedingungen-auswahlen">
-<h2><span class="section-number">18.9. </span>Mit Bedingungen auswählen<a class="headerlink" href="#mit-bedingungen-auswahlen" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">19.9. </span>Mit Bedingungen auswählen<a class="headerlink" href="#mit-bedingungen-auswahlen" title="Link to this heading">#</a></h2>
 <p>Die booleschen Masken aus NumPy funktionieren auch sehr gut mit pandas.</p>
 <p>Zuerst erzeugen wir nur die Bedingung:</p>
 <div class="cell docutils container">
@@ -2006,7 +2011,7 @@ Name: speed, dtype: bool
 </div>
 </section>
 <section id="sortieren">
-<h2><span class="section-number">18.10. </span>Sortieren<a class="headerlink" href="#sortieren" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">19.10. </span>Sortieren<a class="headerlink" href="#sortieren" title="Link to this heading">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">.sort_values()</span></code> sortiert nach den Werten einer oder mehrerer Spalten.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2361,7 +2366,7 @@ Name: speed, dtype: bool
 </div>
 </section>
 <section id="falls-wirklich-ein-numpy-array-benotigt-wird">
-<h2><span class="section-number">18.11. </span>Falls wirklich ein NumPy-Array benötigt wird<a class="headerlink" href="#falls-wirklich-ein-numpy-array-benotigt-wird" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">19.11. </span>Falls wirklich ein NumPy-Array benötigt wird<a class="headerlink" href="#falls-wirklich-ein-numpy-array-benotigt-wird" title="Link to this heading">#</a></h2>
 <p>Meistens ist es sinnvoll, beim Arbeiten mit tabellarischen Daten im <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> beziehungsweise in der <code class="docutils literal notranslate"><span class="pre">Series</span></code> zu bleiben.</p>
 <p>Falls eine andere Bibliothek ausdrücklich ein NumPy-Array erwartet, verwenden wir <code class="docutils literal notranslate"><span class="pre">.to_numpy()</span></code>:</p>
 <div class="cell docutils container">
@@ -2383,7 +2388,7 @@ Name: speed, dtype: bool
 <p>Dabei gehen pandas-spezifische Informationen wie der Spaltenname und der Index verloren.</p>
 </section>
 <section id="zwischenfazit">
-<h2><span class="section-number">18.12. </span>Zwischenfazit<a class="headerlink" href="#zwischenfazit" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">19.12. </span>Zwischenfazit<a class="headerlink" href="#zwischenfazit" title="Link to this heading">#</a></h2>
 <p>Die wichtigsten Muster aus diesem ersten Teil sind:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">"column"</span><span class="p">]</span>
 <span class="n">df</span><span class="p">[[</span><span class="s2">"column1"</span><span class="p">,</span> <span class="s2">"column2"</span><span class="p">]]</span>
@@ -2441,7 +2446,7 @@ Name: speed, dtype: bool
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">zurück</p>
-        <p class="prev-next-title"><span class="section-number">17. </span>Numerische Daten in Python mit NumPy – Teil 2</p>
+        <p class="prev-next-title"><span class="section-number">18. </span>Numerische Daten in Python mit NumPy – Teil 2</p>
       </div>
     </a>
     <a class="right-next"
@@ -2449,7 +2454,7 @@ Name: speed, dtype: bool
        title="Nächste Seite">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">weiter</p>
-        <p class="prev-next-title"><span class="section-number">19. </span>Pandas – Teil 2: Daten bereinigen und zusammenfassen</p>
+        <p class="prev-next-title"><span class="section-number">20. </span>Pandas – Teil 2: Daten bereinigen und zusammenfassen</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -2471,18 +2476,18 @@ Name: speed, dtype: bool
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="pst-show_toc_level nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kurz-zum-notebook">18.1. Kurz zum Notebook</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ein-erstes-dataframe">18.2. Ein erstes <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#series-und-dataframe">18.3. <code class="docutils literal notranslate"><span class="pre">Series</span></code> und <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zeilen-und-spalten-auswahlen-loc-und-iloc">18.4. Zeilen und Spalten auswählen: <code class="docutils literal notranslate"><span class="pre">loc</span></code> und <code class="docutils literal notranslate"><span class="pre">iloc</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spalten-hinzufugen-und-entfernen">18.5. Spalten hinzufügen und entfernen</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eine-csv-datei-einlesen">18.6. Eine CSV-Datei einlesen</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ein-kleineres-arbeits-dataframe">18.7. Ein kleineres Arbeits-DataFrame</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#erste-kennzahlen">18.8. Erste Kennzahlen</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mit-bedingungen-auswahlen">18.9. Mit Bedingungen auswählen</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sortieren">18.10. Sortieren</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#falls-wirklich-ein-numpy-array-benotigt-wird">18.11. Falls wirklich ein NumPy-Array benötigt wird</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zwischenfazit">18.12. Zwischenfazit</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kurz-zum-notebook">19.1. Kurz zum Notebook</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ein-erstes-dataframe">19.2. Ein erstes <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#series-und-dataframe">19.3. <code class="docutils literal notranslate"><span class="pre">Series</span></code> und <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zeilen-und-spalten-auswahlen-loc-und-iloc">19.4. Zeilen und Spalten auswählen: <code class="docutils literal notranslate"><span class="pre">loc</span></code> und <code class="docutils literal notranslate"><span class="pre">iloc</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spalten-hinzufugen-und-entfernen">19.5. Spalten hinzufügen und entfernen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eine-csv-datei-einlesen">19.6. Eine CSV-Datei einlesen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ein-kleineres-arbeits-dataframe">19.7. Ein kleineres Arbeits-DataFrame</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#erste-kennzahlen">19.8. Erste Kennzahlen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mit-bedingungen-auswahlen">19.9. Mit Bedingungen auswählen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sortieren">19.10. Sortieren</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#falls-wirklich-ein-numpy-array-benotigt-wird">19.11. Falls wirklich ein NumPy-Array benötigt wird</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zwischenfazit">19.12. Zwischenfazit</a></li>
 </ul>
   </nav></div>
 

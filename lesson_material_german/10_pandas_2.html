@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>19. Pandas – Teil 2: Daten bereinigen und zusammenfassen &#8212; Einführung Programmieren mit Python</title>
+    <title>20. Pandas – Teil 2: Daten bereinigen und zusammenfassen &#8212; Einführung Programmieren mit Python</title>
   
   
   
@@ -66,8 +66,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
     <link rel="search" title="Suche" href="../search.html" />
-    <link rel="next" title="20. Datenvisualisierung mit Python" href="12_data_visualization.html" />
-    <link rel="prev" title="18. Pandas – Teil 1: DataFrames verstehen und Daten auswählen" href="09_pandas.html" />
+    <link rel="next" title="21. Datenvisualisierung mit Python" href="12_data_visualization.html" />
+    <link rel="prev" title="19. Pandas – Teil 1: DataFrames verstehen und Daten auswählen" href="09_pandas.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="de"/>
   <meta name="docsearch:version" content="" />
@@ -244,25 +244,30 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="04_try_except.html">11. Fehler behandeln mit <code class="docutils literal notranslate"><span class="pre">try</span></code> und <code class="docutils literal notranslate"><span class="pre">except</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="05_environments.html">12. Python-Umgebungen, Packages und <code class="docutils literal notranslate"><span class="pre">uv</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="05_open_files.html">13. Dateien lesen und schreiben</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_paths_and_directories.html">13. Navigieren durch Ordner, Pfade und CSV-Dateien</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="05_open_files.html">14. Dateien lesen und schreiben</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Klassen und Objekte</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="06_classes_objects.html">14. Objektorientierte Programmierung - Einführung</a></li>
-<li class="toctree-l1"><a class="reference internal" href="07_classes_objects_2.html">15. Objektorientierte Programmierung in Python – Teil 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_classes_objects.html">15. Objektorientierte Programmierung - Einführung</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_classes_objects_2.html">16. Objektorientierte Programmierung in Python – Teil 2</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Arbeiten mit numerischen Daten - Numpy</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="08_numpy.html">16. Numerische Daten in Python mit NumPy</a></li>
-<li class="toctree-l1"><a class="reference internal" href="09_numpy_2.html">17. Numerische Daten in Python mit NumPy – Teil 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08_numpy.html">17. Numerische Daten in Python mit NumPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_numpy_2.html">18. Numerische Daten in Python mit NumPy – Teil 2</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Schritte Richtung Data Science</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="09_pandas.html">18. Pandas – Teil 1: DataFrames verstehen und Daten auswählen</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">19. Pandas – Teil 2: Daten bereinigen und zusammenfassen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_pandas.html">19. Pandas – Teil 1: DataFrames verstehen und Daten auswählen</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">20. Pandas – Teil 2: Daten bereinigen und zusammenfassen</a></li>
 
-<li class="toctree-l1"><a class="reference internal" href="12_data_visualization.html">20. Datenvisualisierung mit Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="13_data_visualization_outlook.html">21. 2D/3D Visualisierung &amp; interaktive Plots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_data_visualization.html">21. Datenvisualisierung mit Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13_data_visualization_outlook.html">22. 2D/3D Visualisierung &amp; interaktive Plots</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Source Code and Contributions</span></p>
 <ul class="nav bd-sidenav">
@@ -509,23 +514,23 @@
             </div>
             <nav aria-label="Page">
                 <ul class="pst-show_toc_level nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">19. Pandas – Teil 2: Daten bereinigen und zusammenfassen</a><ul class="pst-show_toc_level nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fehlende-werte">19.1. Fehlende Werte</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fehlende-werte-beim-zahlen-sichtbar-machen">19.1.1. Fehlende Werte beim Zählen sichtbar machen</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">20. Pandas – Teil 2: Daten bereinigen und zusammenfassen</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fehlende-werte">20.1. Fehlende Werte</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fehlende-werte-beim-zahlen-sichtbar-machen">20.1.1. Fehlende Werte beim Zählen sichtbar machen</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fehlende-werte-behandeln">19.2. Fehlende Werte behandeln</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filtern-und-kennzahlen-berechnen">19.3. Filtern und Kennzahlen berechnen</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#werte-gezielt-verandern">19.4. Werte gezielt verändern</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fehlende-werte-behandeln">20.2. Fehlende Werte behandeln</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filtern-und-kennzahlen-berechnen">20.3. Filtern und Kennzahlen berechnen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#werte-gezielt-verandern">20.4. Werte gezielt verändern</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#groupby-gruppen-zusammenfassen">19. <code class="docutils literal notranslate"><span class="pre">groupby()</span></code>: Gruppen zusammenfassen</a><ul class="pst-show_toc_level nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wie-grosz-sind-die-gruppen">19.1. Wie groß sind die Gruppen?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mittelwerte-pro-gruppe">19.2. Mittelwerte pro Gruppe</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nach-mehreren-merkmalen-gruppieren">19.3. Nach mehreren Merkmalen gruppieren</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mehrere-kennzahlen-mit-agg">19.4. Mehrere Kennzahlen mit <code class="docutils literal notranslate"><span class="pre">.agg()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kurzer-ausblick-plotten-direkt-aus-pandas">19.5. Kurzer Ausblick: Plotten direkt aus pandas</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zusammenfassung">19.6. Zusammenfassung</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#groupby-gruppen-zusammenfassen">20. <code class="docutils literal notranslate"><span class="pre">groupby()</span></code>: Gruppen zusammenfassen</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wie-grosz-sind-die-gruppen">20.1. Wie groß sind die Gruppen?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mittelwerte-pro-gruppe">20.2. Mittelwerte pro Gruppe</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nach-mehreren-merkmalen-gruppieren">20.3. Nach mehreren Merkmalen gruppieren</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mehrere-kennzahlen-mit-agg">20.4. Mehrere Kennzahlen mit <code class="docutils literal notranslate"><span class="pre">.agg()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kurzer-ausblick-plotten-direkt-aus-pandas">20.5. Kurzer Ausblick: Plotten direkt aus pandas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zusammenfassung">20.6. Zusammenfassung</a></li>
 </ul>
 </li>
 </ul>
@@ -541,7 +546,7 @@
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="pandas-teil-2-daten-bereinigen-und-zusammenfassen">
-<h1><span class="section-number">19. </span>Pandas – Teil 2: Daten bereinigen und zusammenfassen<a class="headerlink" href="#pandas-teil-2-daten-bereinigen-und-zusammenfassen" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">20. </span>Pandas – Teil 2: Daten bereinigen und zusammenfassen<a class="headerlink" href="#pandas-teil-2-daten-bereinigen-und-zusammenfassen" title="Link to this heading">#</a></h1>
 <p>Im ersten Teil haben wir ein <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> eingelesen, untersucht, gefiltert und sortiert.</p>
 <p>Jetzt geht es um drei typische nächste Schritte:</p>
 <ol class="arabic simple">
@@ -679,7 +684,7 @@
 </div></div></div>
 </div>
 <section id="fehlende-werte">
-<h2><span class="section-number">19.1. </span>Fehlende Werte<a class="headerlink" href="#fehlende-werte" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">20.1. </span>Fehlende Werte<a class="headerlink" href="#fehlende-werte" title="Link to this heading">#</a></h2>
 <p>Reale Datensätze sind oft unvollständig. pandas kann fehlende Werte – abhängig vom Datentyp – unterschiedlich darstellen, zum Beispiel als <code class="docutils literal notranslate"><span class="pre">NaN</span></code>, <code class="docutils literal notranslate"><span class="pre">NA</span></code> oder <code class="docutils literal notranslate"><span class="pre">NaT</span></code>.</p>
 <p>Für unsere Analyse müssen wir diese internen Details normalerweise nicht unterscheiden. Mit <code class="docutils literal notranslate"><span class="pre">.isna()</span></code> können wir allgemein prüfen, ob Werte fehlen.</p>
 <div class="cell docutils container">
@@ -844,7 +849,7 @@ memory usage: 62.7 KB
 </div>
 </div>
 <section id="fehlende-werte-beim-zahlen-sichtbar-machen">
-<h3><span class="section-number">19.1.1. </span>Fehlende Werte beim Zählen sichtbar machen<a class="headerlink" href="#fehlende-werte-beim-zahlen-sichtbar-machen" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">20.1.1. </span>Fehlende Werte beim Zählen sichtbar machen<a class="headerlink" href="#fehlende-werte-beim-zahlen-sichtbar-machen" title="Link to this heading">#</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">value_counts()</span></code> lässt fehlende Werte standardmäßig weg. Mit <code class="docutils literal notranslate"><span class="pre">dropna=False</span></code> können wir sie ausdrücklich mitzählen.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -872,7 +877,7 @@ Name: count, dtype: int64
 </section>
 </section>
 <section id="fehlende-werte-behandeln">
-<h2><span class="section-number">19.2. </span>Fehlende Werte behandeln<a class="headerlink" href="#fehlende-werte-behandeln" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">20.2. </span>Fehlende Werte behandeln<a class="headerlink" href="#fehlende-werte-behandeln" title="Link to this heading">#</a></h2>
 <p>Welche Strategie sinnvoll ist, hängt von der Bedeutung der Daten ab. Es gibt <strong>keine allgemeine Regel</strong>, nach der fehlende Werte immer gelöscht oder immer ersetzt werden sollten.</p>
 <p>Für <code class="docutils literal notranslate"><span class="pre">type2</span></code> können wir zum Beispiel ausdrücklich den Text <code class="docutils literal notranslate"><span class="pre">&quot;unknown&quot;</span></code> verwenden:</p>
 <div class="cell docutils container">
@@ -999,7 +1004,7 @@ Name: count, dtype: int64
 <p>Ein ungezieltes <code class="docutils literal notranslate"><span class="pre">dropna()</span></code> ohne <code class="docutils literal notranslate"><span class="pre">subset</span></code> entfernt dagegen jede Zeile, in der <strong>irgendeine</strong> betrachtete Spalte fehlt. Das kann deutlich mehr Daten entfernen als beabsichtigt.</p>
 </section>
 <section id="filtern-und-kennzahlen-berechnen">
-<h2><span class="section-number">19.3. </span>Filtern und Kennzahlen berechnen<a class="headerlink" href="#filtern-und-kennzahlen-berechnen" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">20.3. </span>Filtern und Kennzahlen berechnen<a class="headerlink" href="#filtern-und-kennzahlen-berechnen" title="Link to this heading">#</a></h2>
 <p>Aus Teil 1 kennen wir boolesche Masken.</p>
 <p>Wir verwenden <code class="docutils literal notranslate"><span class="pre">.loc</span></code>, um passende Zeilen und die gewünschte Spalte gemeinsam auszuwählen.</p>
 <div class="cell docutils container">
@@ -1087,7 +1092,7 @@ Name: count, dtype: int64
 <p>Wenn wir dieselbe Berechnung für viele Gruppen durchführen wollen, wird <code class="docutils literal notranslate"><span class="pre">groupby()</span></code> praktischer.</p>
 </section>
 <section id="werte-gezielt-verandern">
-<h2><span class="section-number">19.4. </span>Werte gezielt verändern<a class="headerlink" href="#werte-gezielt-verandern" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">20.4. </span>Werte gezielt verändern<a class="headerlink" href="#werte-gezielt-verandern" title="Link to this heading">#</a></h2>
 <p>Für eine bewusste Arbeitskopie können wir <code class="docutils literal notranslate"><span class="pre">.copy()</span></code> verwenden.</p>
 <p>Änderungen an ausgewählten Zeilen und Spalten schreiben wir mit <code class="docutils literal notranslate"><span class="pre">.loc[...]</span> <span class="pre">=</span> <span class="pre">...</span></code>. Dadurch ist klar, <strong>wo</strong> die Änderung stattfinden soll.</p>
 <div class="cell docutils container">
@@ -1209,7 +1214,7 @@ Name: count, dtype: int64
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="groupby-gruppen-zusammenfassen">
-<h1><span class="section-number">19. </span><code class="docutils literal notranslate"><span class="pre">groupby()</span></code>: Gruppen zusammenfassen<a class="headerlink" href="#groupby-gruppen-zusammenfassen" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">20. </span><code class="docutils literal notranslate"><span class="pre">groupby()</span></code>: Gruppen zusammenfassen<a class="headerlink" href="#groupby-gruppen-zusammenfassen" title="Link to this heading">#</a></h1>
 <p><code class="docutils literal notranslate"><span class="pre">groupby()</span></code> folgt gedanklich einem einfachen Muster:</p>
 <ol class="arabic simple">
 <li><p><strong>split</strong> – Daten in Gruppen aufteilen,</p></li>
@@ -1226,13 +1231,13 @@ Name: count, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;pandas.api.typing.DataFrameGroupBy object at 0x7c5234680ad0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;pandas.api.typing.DataFrameGroupBy object at 0x749a98d4cad0&gt;
 </pre></div>
 </div>
 </div>
 </div>
 <section id="wie-grosz-sind-die-gruppen">
-<h2><span class="section-number">19.1. </span>Wie groß sind die Gruppen?<a class="headerlink" href="#wie-grosz-sind-die-gruppen" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">20.1. </span>Wie groß sind die Gruppen?<a class="headerlink" href="#wie-grosz-sind-die-gruppen" title="Link to this heading">#</a></h2>
 <p>Wenn wir wissen möchten, <strong>wie viele Zeilen</strong> zu jeder Gruppe gehören, verwenden wir <code class="docutils literal notranslate"><span class="pre">.size()</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1276,7 +1281,7 @@ dtype: int64
 <p><code class="docutils literal notranslate"><span class="pre">.count()</span></code> beantwortet eine andere Frage: Es zählt für jede Spalte die <strong>nicht-fehlenden Werte</strong>. Deshalb kann <code class="docutils literal notranslate"><span class="pre">.count()</span></code> bei fehlenden Daten je nach Spalte unterschiedliche Ergebnisse liefern.</p>
 </section>
 <section id="mittelwerte-pro-gruppe">
-<h2><span class="section-number">19.2. </span>Mittelwerte pro Gruppe<a class="headerlink" href="#mittelwerte-pro-gruppe" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">20.2. </span>Mittelwerte pro Gruppe<a class="headerlink" href="#mittelwerte-pro-gruppe" title="Link to this heading">#</a></h2>
 <p>Für Mittelwerte wählen wir hier bewusst zuerst die numerischen Spalten aus, die uns interessieren.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1508,7 +1513,7 @@ dtype: int64
 </div>
 </section>
 <section id="nach-mehreren-merkmalen-gruppieren">
-<h2><span class="section-number">19.3. </span>Nach mehreren Merkmalen gruppieren<a class="headerlink" href="#nach-mehreren-merkmalen-gruppieren" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">20.3. </span>Nach mehreren Merkmalen gruppieren<a class="headerlink" href="#nach-mehreren-merkmalen-gruppieren" title="Link to this heading">#</a></h2>
 <p>Gruppierungen können auch mehrere Schlüssel besitzen.</p>
 <p>Hier fragen wir beispielsweise, wie viele Pokémon es für jede Kombination aus <code class="docutils literal notranslate"><span class="pre">type1</span></code> und <code class="docutils literal notranslate"><span class="pre">is_legendary</span></code> gibt:</p>
 <div class="cell docutils container">
@@ -1562,7 +1567,7 @@ dtype: int64
 </div>
 </section>
 <section id="mehrere-kennzahlen-mit-agg">
-<h2><span class="section-number">19.4. </span>Mehrere Kennzahlen mit <code class="docutils literal notranslate"><span class="pre">.agg()</span></code><a class="headerlink" href="#mehrere-kennzahlen-mit-agg" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">20.4. </span>Mehrere Kennzahlen mit <code class="docutils literal notranslate"><span class="pre">.agg()</span></code><a class="headerlink" href="#mehrere-kennzahlen-mit-agg" title="Link to this heading">#</a></h2>
 <p>Häufig möchten wir pro Gruppe verschiedene Kennzahlen gleichzeitig berechnen.</p>
 <p>Mit <code class="docutils literal notranslate"><span class="pre">.agg()</span></code> können wir dafür benannte Ergebnisse definieren:</p>
 <div class="cell docutils container">
@@ -1701,7 +1706,7 @@ dtype: int64
 </ul>
 </section>
 <section id="kurzer-ausblick-plotten-direkt-aus-pandas">
-<h2><span class="section-number">19.5. </span>Kurzer Ausblick: Plotten direkt aus pandas<a class="headerlink" href="#kurzer-ausblick-plotten-direkt-aus-pandas" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">20.5. </span>Kurzer Ausblick: Plotten direkt aus pandas<a class="headerlink" href="#kurzer-ausblick-plotten-direkt-aus-pandas" title="Link to this heading">#</a></h2>
 <p>pandas kann einfache Diagramme direkt aus einer <code class="docutils literal notranslate"><span class="pre">Series</span></code> oder einem <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> erzeugen. Im Hintergrund wird dafür typischerweise <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> verwendet.</p>
 <p>Wir plotten hier <strong>eine einzige sinnvoll vergleichbare Größe</strong>: das mittlere Gewicht je Typ.</p>
 <div class="cell docutils container">
@@ -1730,7 +1735,7 @@ dtype: int64
 <p>Für komplexere Visualisierungen gibt es spezialisierte Bibliotheken. Hier reicht uns die Idee, dass das Ergebnis einer pandas-Auswertung direkt visualisiert werden kann.</p>
 </section>
 <section id="zusammenfassung">
-<h2><span class="section-number">19.6. </span>Zusammenfassung<a class="headerlink" href="#zusammenfassung" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">20.6. </span>Zusammenfassung<a class="headerlink" href="#zusammenfassung" title="Link to this heading">#</a></h2>
 <p>Wichtige Muster aus diesem Kapitel:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 
@@ -1789,7 +1794,7 @@ dtype: int64
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">zurück</p>
-        <p class="prev-next-title"><span class="section-number">18. </span>Pandas – Teil 1: DataFrames verstehen und Daten auswählen</p>
+        <p class="prev-next-title"><span class="section-number">19. </span>Pandas – Teil 1: DataFrames verstehen und Daten auswählen</p>
       </div>
     </a>
     <a class="right-next"
@@ -1797,7 +1802,7 @@ dtype: int64
        title="Nächste Seite">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">weiter</p>
-        <p class="prev-next-title"><span class="section-number">20. </span>Datenvisualisierung mit Python</p>
+        <p class="prev-next-title"><span class="section-number">21. </span>Datenvisualisierung mit Python</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1819,23 +1824,23 @@ dtype: int64
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="pst-show_toc_level nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">19. Pandas – Teil 2: Daten bereinigen und zusammenfassen</a><ul class="pst-show_toc_level nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fehlende-werte">19.1. Fehlende Werte</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fehlende-werte-beim-zahlen-sichtbar-machen">19.1.1. Fehlende Werte beim Zählen sichtbar machen</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">20. Pandas – Teil 2: Daten bereinigen und zusammenfassen</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fehlende-werte">20.1. Fehlende Werte</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fehlende-werte-beim-zahlen-sichtbar-machen">20.1.1. Fehlende Werte beim Zählen sichtbar machen</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fehlende-werte-behandeln">19.2. Fehlende Werte behandeln</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filtern-und-kennzahlen-berechnen">19.3. Filtern und Kennzahlen berechnen</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#werte-gezielt-verandern">19.4. Werte gezielt verändern</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fehlende-werte-behandeln">20.2. Fehlende Werte behandeln</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filtern-und-kennzahlen-berechnen">20.3. Filtern und Kennzahlen berechnen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#werte-gezielt-verandern">20.4. Werte gezielt verändern</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#groupby-gruppen-zusammenfassen">19. <code class="docutils literal notranslate"><span class="pre">groupby()</span></code>: Gruppen zusammenfassen</a><ul class="pst-show_toc_level nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wie-grosz-sind-die-gruppen">19.1. Wie groß sind die Gruppen?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mittelwerte-pro-gruppe">19.2. Mittelwerte pro Gruppe</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nach-mehreren-merkmalen-gruppieren">19.3. Nach mehreren Merkmalen gruppieren</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mehrere-kennzahlen-mit-agg">19.4. Mehrere Kennzahlen mit <code class="docutils literal notranslate"><span class="pre">.agg()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kurzer-ausblick-plotten-direkt-aus-pandas">19.5. Kurzer Ausblick: Plotten direkt aus pandas</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zusammenfassung">19.6. Zusammenfassung</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#groupby-gruppen-zusammenfassen">20. <code class="docutils literal notranslate"><span class="pre">groupby()</span></code>: Gruppen zusammenfassen</a><ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wie-grosz-sind-die-gruppen">20.1. Wie groß sind die Gruppen?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mittelwerte-pro-gruppe">20.2. Mittelwerte pro Gruppe</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nach-mehreren-merkmalen-gruppieren">20.3. Nach mehreren Merkmalen gruppieren</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mehrere-kennzahlen-mit-agg">20.4. Mehrere Kennzahlen mit <code class="docutils literal notranslate"><span class="pre">.agg()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kurzer-ausblick-plotten-direkt-aus-pandas">20.5. Kurzer Ausblick: Plotten direkt aus pandas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zusammenfassung">20.6. Zusammenfassung</a></li>
 </ul>
 </li>
 </ul>

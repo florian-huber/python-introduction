@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>17. Numerische Daten in Python mit NumPy – Teil 2 &#8212; Einführung Programmieren mit Python</title>
+    <title>18. Numerische Daten in Python mit NumPy – Teil 2 &#8212; Einführung Programmieren mit Python</title>
   
   
   
@@ -66,8 +66,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Stichwortverzeichnis" href="../genindex.html" />
     <link rel="search" title="Suche" href="../search.html" />
-    <link rel="next" title="18. Pandas – Teil 1: DataFrames verstehen und Daten auswählen" href="09_pandas.html" />
-    <link rel="prev" title="16. Numerische Daten in Python mit NumPy" href="08_numpy.html" />
+    <link rel="next" title="19. Pandas – Teil 1: DataFrames verstehen und Daten auswählen" href="09_pandas.html" />
+    <link rel="prev" title="17. Numerische Daten in Python mit NumPy" href="08_numpy.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="de"/>
   <meta name="docsearch:version" content="" />
@@ -244,25 +244,30 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="04_try_except.html">11. Fehler behandeln mit <code class="docutils literal notranslate"><span class="pre">try</span></code> und <code class="docutils literal notranslate"><span class="pre">except</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="05_environments.html">12. Python-Umgebungen, Packages und <code class="docutils literal notranslate"><span class="pre">uv</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="05_open_files.html">13. Dateien lesen und schreiben</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_paths_and_directories.html">13. Navigieren durch Ordner, Pfade und CSV-Dateien</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="05_open_files.html">14. Dateien lesen und schreiben</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Klassen und Objekte</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="06_classes_objects.html">14. Objektorientierte Programmierung - Einführung</a></li>
-<li class="toctree-l1"><a class="reference internal" href="07_classes_objects_2.html">15. Objektorientierte Programmierung in Python – Teil 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_classes_objects.html">15. Objektorientierte Programmierung - Einführung</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_classes_objects_2.html">16. Objektorientierte Programmierung in Python – Teil 2</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Arbeiten mit numerischen Daten - Numpy</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="08_numpy.html">16. Numerische Daten in Python mit NumPy</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">17. Numerische Daten in Python mit NumPy – Teil 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08_numpy.html">17. Numerische Daten in Python mit NumPy</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">18. Numerische Daten in Python mit NumPy – Teil 2</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Schritte Richtung Data Science</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="09_pandas.html">18. Pandas – Teil 1: DataFrames verstehen und Daten auswählen</a></li>
-<li class="toctree-l1"><a class="reference internal" href="10_pandas_2.html">19. Pandas – Teil 2: Daten bereinigen und zusammenfassen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_pandas.html">19. Pandas – Teil 1: DataFrames verstehen und Daten auswählen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_pandas_2.html">20. Pandas – Teil 2: Daten bereinigen und zusammenfassen</a></li>
 
-<li class="toctree-l1"><a class="reference internal" href="12_data_visualization.html">20. Datenvisualisierung mit Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="13_data_visualization_outlook.html">21. 2D/3D Visualisierung &amp; interaktive Plots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_data_visualization.html">21. Datenvisualisierung mit Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13_data_visualization_outlook.html">22. 2D/3D Visualisierung &amp; interaktive Plots</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Source Code and Contributions</span></p>
 <ul class="nav bd-sidenav">
@@ -460,27 +465,27 @@
             </div>
             <nav aria-label="Page">
                 <ul class="pst-show_toc_level nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#groszere-arrays-anschauen">17.1. Größere Arrays anschauen</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#slices-und-views">17.2. Slices und Views</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sortieren-mit-sort">17.3. Sortieren mit <code class="docutils literal notranslate"><span class="pre">sort()</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sortieren-entlang-einer-achse">17.3.1. Sortieren entlang einer Achse</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#groszere-arrays-anschauen">18.1. Größere Arrays anschauen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#slices-und-views">18.2. Slices und Views</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sortieren-mit-sort">18.3. Sortieren mit <code class="docutils literal notranslate"><span class="pre">sort()</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sortieren-entlang-einer-achse">18.3.1. Sortieren entlang einer Achse</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#argsort-sortierreihenfolge-als-indizes">17.4. <code class="docutils literal notranslate"><span class="pre">argsort()</span></code>: Sortierreihenfolge als Indizes</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mehrdimensionale-daten-mit-argsort">17.5. Mehrdimensionale Daten mit <code class="docutils literal notranslate"><span class="pre">argsort()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#argpartition-nur-die-groszten-oder-kleinsten-elemente-finden">17.6. <code class="docutils literal notranslate"><span class="pre">argpartition()</span></code>: nur die größten oder kleinsten Elemente finden</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nach-mehreren-schlusseln-sortieren-lexsort">17.7. Nach mehreren Schlüsseln sortieren: <code class="docutils literal notranslate"><span class="pre">lexsort()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#positionen-mit-where-finden">17.8. Positionen mit <code class="docutils literal notranslate"><span class="pre">where()</span></code> finden</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#maximum-und-minimum-finden-argmax-und-argmin">17.9. Maximum und Minimum finden: <code class="docutils literal notranslate"><span class="pre">argmax()</span></code> und <code class="docutils literal notranslate"><span class="pre">argmin()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arrays-zusammenfugen">17.10. Arrays zusammenfügen</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d">17.10.1. 1D</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-untereinander">17.10.2. 2D: untereinander</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-nebeneinander">17.10.3. 2D: nebeneinander</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#argsort-sortierreihenfolge-als-indizes">18.4. <code class="docutils literal notranslate"><span class="pre">argsort()</span></code>: Sortierreihenfolge als Indizes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mehrdimensionale-daten-mit-argsort">18.5. Mehrdimensionale Daten mit <code class="docutils literal notranslate"><span class="pre">argsort()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#argpartition-nur-die-groszten-oder-kleinsten-elemente-finden">18.6. <code class="docutils literal notranslate"><span class="pre">argpartition()</span></code>: nur die größten oder kleinsten Elemente finden</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nach-mehreren-schlusseln-sortieren-lexsort">18.7. Nach mehreren Schlüsseln sortieren: <code class="docutils literal notranslate"><span class="pre">lexsort()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#positionen-mit-where-finden">18.8. Positionen mit <code class="docutils literal notranslate"><span class="pre">where()</span></code> finden</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#maximum-und-minimum-finden-argmax-und-argmin">18.9. Maximum und Minimum finden: <code class="docutils literal notranslate"><span class="pre">argmax()</span></code> und <code class="docutils literal notranslate"><span class="pre">argmin()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arrays-zusammenfugen">18.10. Arrays zusammenfügen</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d">18.10.1. 1D</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-untereinander">18.10.2. 2D: untereinander</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-nebeneinander">18.10.3. 2D: nebeneinander</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#form-wieder-auf-1d-bringen">17.11. Form wieder auf 1D bringen</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mathematische-funktionen-auf-ganzen-arrays">17.12. Mathematische Funktionen auf ganzen Arrays</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zufallsdaten-fur-kleine-simulationen">17.13. Zufallsdaten für kleine Simulationen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#form-wieder-auf-1d-bringen">18.11. Form wieder auf 1D bringen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mathematische-funktionen-auf-ganzen-arrays">18.12. Mathematische Funktionen auf ganzen Arrays</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zufallsdaten-fur-kleine-simulationen">18.13. Zufallsdaten für kleine Simulationen</a></li>
 </ul>
             </nav>
         </div>
@@ -493,11 +498,11 @@
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="numerische-daten-in-python-mit-numpy-teil-2">
-<h1><span class="section-number">17. </span>Numerische Daten in Python mit NumPy – Teil 2<a class="headerlink" href="#numerische-daten-in-python-mit-numpy-teil-2" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">18. </span>Numerische Daten in Python mit NumPy – Teil 2<a class="headerlink" href="#numerische-daten-in-python-mit-numpy-teil-2" title="Link to this heading">#</a></h1>
 <p>Im ersten NumPy-Kapitel ging es um die Grundlagen: Arrays erzeugen, ihre Form verstehen, Werte auswählen, elementweise rechnen, Masken verwenden und Kennzahlen entlang verschiedener Achsen berechnen.</p>
 <p>Jetzt kommen einige weitere Werkzeuge hinzu, die besonders beim <strong>Sortieren, Suchen, Auswählen und Kombinieren größerer Arrays</strong> praktisch sind.</p>
 <section id="groszere-arrays-anschauen">
-<h2><span class="section-number">17.1. </span>Größere Arrays anschauen<a class="headerlink" href="#groszere-arrays-anschauen" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">18.1. </span>Größere Arrays anschauen<a class="headerlink" href="#groszere-arrays-anschauen" title="Link to this heading">#</a></h2>
 <p>Bei größeren Arrays wird <code class="docutils literal notranslate"><span class="pre">print()</span></code> schnell unübersichtlich.</p>
 <p>In <strong>VS Code</strong> können Variablen beim Debuggen im Bereich <strong>VARIABLES</strong> untersucht werden. Für NumPy-Arrays steht über die Python-/Jupyter-Werkzeuge außerdem ein Data Viewer zur Verfügung.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
@@ -513,7 +518,7 @@
 <p><img alt="Spyder Variable Explorer of 3D numpy array" src="../_images/spyder_variable_explorer_numpy_array.png" /></p>
 </section>
 <section id="slices-und-views">
-<h2><span class="section-number">17.2. </span>Slices und Views<a class="headerlink" href="#slices-und-views" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">18.2. </span>Slices und Views<a class="headerlink" href="#slices-und-views" title="Link to this heading">#</a></h2>
 <p>Ein wichtiges NumPy-Detail: Einfaches Slicing erzeugt häufig keine unabhängige Kopie, sondern einen sogenannten <strong>View</strong> auf dieselben Daten.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
@@ -542,7 +547,7 @@
 <p>Damit ist <code class="docutils literal notranslate"><span class="pre">part</span></code> unabhängig.</p>
 </section>
 <section id="sortieren-mit-sort">
-<h2><span class="section-number">17.3. </span>Sortieren mit <code class="docutils literal notranslate"><span class="pre">sort()</span></code><a class="headerlink" href="#sortieren-mit-sort" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">18.3. </span>Sortieren mit <code class="docutils literal notranslate"><span class="pre">sort()</span></code><a class="headerlink" href="#sortieren-mit-sort" title="Link to this heading">#</a></h2>
 <p>Mit <code class="docutils literal notranslate"><span class="pre">np.sort()</span></code> erhalten wir eine <strong>sortierte Kopie</strong>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
@@ -565,7 +570,7 @@
 </pre></div>
 </div>
 <section id="sortieren-entlang-einer-achse">
-<h3><span class="section-number">17.3.1. </span>Sortieren entlang einer Achse<a class="headerlink" href="#sortieren-entlang-einer-achse" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">18.3.1. </span>Sortieren entlang einer Achse<a class="headerlink" href="#sortieren-entlang-einer-achse" title="Link to this heading">#</a></h3>
 <p>Bei 2D-Arrays wird entlang einer Achse sortiert:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
@@ -582,7 +587,7 @@
 </section>
 </section>
 <section id="argsort-sortierreihenfolge-als-indizes">
-<h2><span class="section-number">17.4. </span><code class="docutils literal notranslate"><span class="pre">argsort()</span></code>: Sortierreihenfolge als Indizes<a class="headerlink" href="#argsort-sortierreihenfolge-als-indizes" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">18.4. </span><code class="docutils literal notranslate"><span class="pre">argsort()</span></code>: Sortierreihenfolge als Indizes<a class="headerlink" href="#argsort-sortierreihenfolge-als-indizes" title="Link to this heading">#</a></h2>
 <p>Manchmal wollen wir nicht nur sortierte Werte, sondern wissen, <strong>an welchen Positionen</strong> diese Werte ursprünglich standen.</p>
 <p>Dafür gibt es <code class="docutils literal notranslate"><span class="pre">np.argsort()</span></code>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
@@ -618,7 +623,7 @@
 </div>
 </section>
 <section id="mehrdimensionale-daten-mit-argsort">
-<h2><span class="section-number">17.5. </span>Mehrdimensionale Daten mit <code class="docutils literal notranslate"><span class="pre">argsort()</span></code><a class="headerlink" href="#mehrdimensionale-daten-mit-argsort" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">18.5. </span>Mehrdimensionale Daten mit <code class="docutils literal notranslate"><span class="pre">argsort()</span></code><a class="headerlink" href="#mehrdimensionale-daten-mit-argsort" title="Link to this heading">#</a></h2>
 <p>Bei mehrdimensionalen Arrays bezieht sich <code class="docutils literal notranslate"><span class="pre">argsort()</span></code> ebenfalls auf eine bestimmte Achse:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
@@ -641,7 +646,7 @@
 </div>
 </section>
 <section id="argpartition-nur-die-groszten-oder-kleinsten-elemente-finden">
-<h2><span class="section-number">17.6. </span><code class="docutils literal notranslate"><span class="pre">argpartition()</span></code>: nur die größten oder kleinsten Elemente finden<a class="headerlink" href="#argpartition-nur-die-groszten-oder-kleinsten-elemente-finden" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">18.6. </span><code class="docutils literal notranslate"><span class="pre">argpartition()</span></code>: nur die größten oder kleinsten Elemente finden<a class="headerlink" href="#argpartition-nur-die-groszten-oder-kleinsten-elemente-finden" title="Link to this heading">#</a></h2>
 <p>Wenn wir nur einige besonders große oder kleine Werte brauchen, müssen wir nicht zwingend das gesamte Array vollständig sortieren.</p>
 <p><code class="docutils literal notranslate"><span class="pre">np.argpartition()</span></code> liefert Indizes für eine <strong>partielle Sortierung</strong>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
@@ -666,7 +671,7 @@
 <p><code class="docutils literal notranslate"><span class="pre">argpartition()</span></code> ist besonders interessant, wenn nur die Top-k-Elemente eines großen Arrays benötigt werden.</p>
 </section>
 <section id="nach-mehreren-schlusseln-sortieren-lexsort">
-<h2><span class="section-number">17.7. </span>Nach mehreren Schlüsseln sortieren: <code class="docutils literal notranslate"><span class="pre">lexsort()</span></code><a class="headerlink" href="#nach-mehreren-schlusseln-sortieren-lexsort" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">18.7. </span>Nach mehreren Schlüsseln sortieren: <code class="docutils literal notranslate"><span class="pre">lexsort()</span></code><a class="headerlink" href="#nach-mehreren-schlusseln-sortieren-lexsort" title="Link to this heading">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">np.lexsort()</span></code> kann anhand mehrerer Sortierschlüssel eine gemeinsame Reihenfolge bestimmen.</p>
 <p>Beispiel mit Namen:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
@@ -701,7 +706,7 @@
 <p>Hier ist <code class="docutils literal notranslate"><span class="pre">group</span></code> der primäre Schlüssel und <code class="docutils literal notranslate"><span class="pre">score</span></code> löst Gleichstände innerhalb derselben Gruppe auf.</p>
 </section>
 <section id="positionen-mit-where-finden">
-<h2><span class="section-number">17.8. </span>Positionen mit <code class="docutils literal notranslate"><span class="pre">where()</span></code> finden<a class="headerlink" href="#positionen-mit-where-finden" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">18.8. </span>Positionen mit <code class="docutils literal notranslate"><span class="pre">where()</span></code> finden<a class="headerlink" href="#positionen-mit-where-finden" title="Link to this heading">#</a></h2>
 <p>Boolesche Masken geben direkt die passenden Werte zurück:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
@@ -737,7 +742,7 @@
 </div>
 </section>
 <section id="maximum-und-minimum-finden-argmax-und-argmin">
-<h2><span class="section-number">17.9. </span>Maximum und Minimum finden: <code class="docutils literal notranslate"><span class="pre">argmax()</span></code> und <code class="docutils literal notranslate"><span class="pre">argmin()</span></code><a class="headerlink" href="#maximum-und-minimum-finden-argmax-und-argmin" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">18.9. </span>Maximum und Minimum finden: <code class="docutils literal notranslate"><span class="pre">argmax()</span></code> und <code class="docutils literal notranslate"><span class="pre">argmin()</span></code><a class="headerlink" href="#maximum-und-minimum-finden-argmax-und-argmin" title="Link to this heading">#</a></h2>
 <p>Wenn nicht nur der größte Wert, sondern seine Position benötigt wird:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
@@ -753,10 +758,10 @@
 <p>Auch hier kann bei mehrdimensionalen Arrays eine Achse angegeben werden.</p>
 </section>
 <section id="arrays-zusammenfugen">
-<h2><span class="section-number">17.10. </span>Arrays zusammenfügen<a class="headerlink" href="#arrays-zusammenfugen" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">18.10. </span>Arrays zusammenfügen<a class="headerlink" href="#arrays-zusammenfugen" title="Link to this heading">#</a></h2>
 <p>Mit <code class="docutils literal notranslate"><span class="pre">np.concatenate()</span></code> werden Arrays entlang einer vorhandenen Achse verbunden.</p>
 <section id="d">
-<h3><span class="section-number">17.10.1. </span>1D<a class="headerlink" href="#d" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">18.10.1. </span>1D<a class="headerlink" href="#d" title="Link to this heading">#</a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
@@ -769,7 +774,7 @@
 </div>
 </section>
 <section id="d-untereinander">
-<h3><span class="section-number">17.10.2. </span>2D: untereinander<a class="headerlink" href="#d-untereinander" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">18.10.2. </span>2D: untereinander<a class="headerlink" href="#d-untereinander" title="Link to this heading">#</a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
@@ -790,7 +795,7 @@
 </div>
 </section>
 <section id="d-nebeneinander">
-<h3><span class="section-number">17.10.3. </span>2D: nebeneinander<a class="headerlink" href="#d-nebeneinander" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">18.10.3. </span>2D: nebeneinander<a class="headerlink" href="#d-nebeneinander" title="Link to this heading">#</a></h3>
 <!-- pytest-codeblocks:cont -->
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">combined</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
@@ -803,7 +808,7 @@
 </section>
 </section>
 <section id="form-wieder-auf-1d-bringen">
-<h2><span class="section-number">17.11. </span>Form wieder auf 1D bringen<a class="headerlink" href="#form-wieder-auf-1d-bringen" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">18.11. </span>Form wieder auf 1D bringen<a class="headerlink" href="#form-wieder-auf-1d-bringen" title="Link to this heading">#</a></h2>
 <p>Aus dem ersten Kapitel kennen wir <code class="docutils literal notranslate"><span class="pre">reshape()</span></code>.</p>
 <p>Für eine eindimensionale Darstellung gibt es unter anderem <code class="docutils literal notranslate"><span class="pre">.flatten()</span></code>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
@@ -820,7 +825,7 @@
 <p>Mit <code class="docutils literal notranslate"><span class="pre">ravel()</span></code> kann NumPy dagegen nach Möglichkeit eine flache Ansicht auf dieselben Daten liefern. Für Code, bei dem Unabhängigkeit wichtig ist, sollte dieser Unterschied bewusst sein.</p>
 </section>
 <section id="mathematische-funktionen-auf-ganzen-arrays">
-<h2><span class="section-number">17.12. </span>Mathematische Funktionen auf ganzen Arrays<a class="headerlink" href="#mathematische-funktionen-auf-ganzen-arrays" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">18.12. </span>Mathematische Funktionen auf ganzen Arrays<a class="headerlink" href="#mathematische-funktionen-auf-ganzen-arrays" title="Link to this heading">#</a></h2>
 <p>NumPy-Funktionen arbeiten typischerweise direkt elementweise auf Arrays:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
@@ -843,7 +848,7 @@
 <p>Bei <code class="docutils literal notranslate"><span class="pre">linspace()</span></code> geben wir im Unterschied zu <code class="docutils literal notranslate"><span class="pre">arange()</span></code> die gewünschte <strong>Anzahl der Werte</strong> an.</p>
 </section>
 <section id="zufallsdaten-fur-kleine-simulationen">
-<h2><span class="section-number">17.13. </span>Zufallsdaten für kleine Simulationen<a class="headerlink" href="#zufallsdaten-fur-kleine-simulationen" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">18.13. </span>Zufallsdaten für kleine Simulationen<a class="headerlink" href="#zufallsdaten-fur-kleine-simulationen" title="Link to this heading">#</a></h2>
 <p>Aus Teil 1 kennen wir den modernen Zufallsgenerator:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
@@ -897,7 +902,7 @@ s</p>
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">zurück</p>
-        <p class="prev-next-title"><span class="section-number">16. </span>Numerische Daten in Python mit NumPy</p>
+        <p class="prev-next-title"><span class="section-number">17. </span>Numerische Daten in Python mit NumPy</p>
       </div>
     </a>
     <a class="right-next"
@@ -905,7 +910,7 @@ s</p>
        title="Nächste Seite">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">weiter</p>
-        <p class="prev-next-title"><span class="section-number">18. </span>Pandas – Teil 1: DataFrames verstehen und Daten auswählen</p>
+        <p class="prev-next-title"><span class="section-number">19. </span>Pandas – Teil 1: DataFrames verstehen und Daten auswählen</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -927,27 +932,27 @@ s</p>
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="pst-show_toc_level nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#groszere-arrays-anschauen">17.1. Größere Arrays anschauen</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#slices-und-views">17.2. Slices und Views</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sortieren-mit-sort">17.3. Sortieren mit <code class="docutils literal notranslate"><span class="pre">sort()</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sortieren-entlang-einer-achse">17.3.1. Sortieren entlang einer Achse</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#groszere-arrays-anschauen">18.1. Größere Arrays anschauen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#slices-und-views">18.2. Slices und Views</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sortieren-mit-sort">18.3. Sortieren mit <code class="docutils literal notranslate"><span class="pre">sort()</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sortieren-entlang-einer-achse">18.3.1. Sortieren entlang einer Achse</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#argsort-sortierreihenfolge-als-indizes">17.4. <code class="docutils literal notranslate"><span class="pre">argsort()</span></code>: Sortierreihenfolge als Indizes</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mehrdimensionale-daten-mit-argsort">17.5. Mehrdimensionale Daten mit <code class="docutils literal notranslate"><span class="pre">argsort()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#argpartition-nur-die-groszten-oder-kleinsten-elemente-finden">17.6. <code class="docutils literal notranslate"><span class="pre">argpartition()</span></code>: nur die größten oder kleinsten Elemente finden</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nach-mehreren-schlusseln-sortieren-lexsort">17.7. Nach mehreren Schlüsseln sortieren: <code class="docutils literal notranslate"><span class="pre">lexsort()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#positionen-mit-where-finden">17.8. Positionen mit <code class="docutils literal notranslate"><span class="pre">where()</span></code> finden</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#maximum-und-minimum-finden-argmax-und-argmin">17.9. Maximum und Minimum finden: <code class="docutils literal notranslate"><span class="pre">argmax()</span></code> und <code class="docutils literal notranslate"><span class="pre">argmin()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arrays-zusammenfugen">17.10. Arrays zusammenfügen</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d">17.10.1. 1D</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-untereinander">17.10.2. 2D: untereinander</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-nebeneinander">17.10.3. 2D: nebeneinander</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#argsort-sortierreihenfolge-als-indizes">18.4. <code class="docutils literal notranslate"><span class="pre">argsort()</span></code>: Sortierreihenfolge als Indizes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mehrdimensionale-daten-mit-argsort">18.5. Mehrdimensionale Daten mit <code class="docutils literal notranslate"><span class="pre">argsort()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#argpartition-nur-die-groszten-oder-kleinsten-elemente-finden">18.6. <code class="docutils literal notranslate"><span class="pre">argpartition()</span></code>: nur die größten oder kleinsten Elemente finden</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nach-mehreren-schlusseln-sortieren-lexsort">18.7. Nach mehreren Schlüsseln sortieren: <code class="docutils literal notranslate"><span class="pre">lexsort()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#positionen-mit-where-finden">18.8. Positionen mit <code class="docutils literal notranslate"><span class="pre">where()</span></code> finden</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#maximum-und-minimum-finden-argmax-und-argmin">18.9. Maximum und Minimum finden: <code class="docutils literal notranslate"><span class="pre">argmax()</span></code> und <code class="docutils literal notranslate"><span class="pre">argmin()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arrays-zusammenfugen">18.10. Arrays zusammenfügen</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d">18.10.1. 1D</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-untereinander">18.10.2. 2D: untereinander</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-nebeneinander">18.10.3. 2D: nebeneinander</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#form-wieder-auf-1d-bringen">17.11. Form wieder auf 1D bringen</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mathematische-funktionen-auf-ganzen-arrays">17.12. Mathematische Funktionen auf ganzen Arrays</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zufallsdaten-fur-kleine-simulationen">17.13. Zufallsdaten für kleine Simulationen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#form-wieder-auf-1d-bringen">18.11. Form wieder auf 1D bringen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mathematische-funktionen-auf-ganzen-arrays">18.12. Mathematische Funktionen auf ganzen Arrays</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zufallsdaten-fur-kleine-simulationen">18.13. Zufallsdaten für kleine Simulationen</a></li>
 </ul>
   </nav></div>
 
